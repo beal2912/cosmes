@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgUpdateBrokerAddress, MsgUpdateBrokerAddressResponse, MsgUpdateMaxVotingPower, MsgUpdateMaxVotingPowerResponse, MsgUpdateMinCommission, MsgUpdateMinCommissionResponse, MsgUpdateMinSelfDelegation, MsgUpdateMinSelfDelegationResponse, MsgUpdateTotalBlocksPerYear, MsgUpdateTotalBlocksPerYearResponse, MsgUpdateWasmConfig, MsgUpdateWasmConfigResponse } from "./tx_pb.js";
+import { MsgUpdateBrokerAddress, MsgUpdateBrokerAddressResponse, MsgUpdateMaxVotingPower, MsgUpdateMaxVotingPowerResponse, MsgUpdateMinCommission, MsgUpdateMinCommissionResponse, MsgUpdateMinSelfDelegation, MsgUpdateMinSelfDelegationResponse, MsgUpdateRewardsDataLifetime, MsgUpdateRewardsDataLifetimeResponse, MsgUpdateTotalBlocksPerYear, MsgUpdateTotalBlocksPerYearResponse, MsgUpdateWasmConfig, MsgUpdateWasmConfigResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.parameter.Msg";
 
@@ -65,5 +65,15 @@ export const MsgUpdateWasmConfigService = {
   method: "UpdateWasmConfig",
   Request: MsgUpdateWasmConfig,
   Response: MsgUpdateWasmConfigResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.parameter.Msg.UpdateRewardsDataLifetime
+ */
+export const MsgUpdateRewardsDataLifetimeService = {
+  typeName: TYPE_NAME,
+  method: "UpdateRewardsDataLifetime",
+  Request: MsgUpdateRewardsDataLifetime,
+  Response: MsgUpdateRewardsDataLifetimeResponse,
 } as const;
 

@@ -311,104 +311,6 @@ export class MsgFeedMultiplePricesResponse extends Message<MsgFeedMultiplePrices
 }
 
 /**
- * @generated from message elys.oracle.MsgAddAssetInfo
- */
-export class MsgAddAssetInfo extends Message<MsgAddAssetInfo> {
-  /**
-   * @generated from field: string authority = 1;
-   */
-  authority = "";
-
-  /**
-   * @generated from field: string denom = 2;
-   */
-  denom = "";
-
-  /**
-   * @generated from field: string display = 3;
-   */
-  display = "";
-
-  /**
-   * @generated from field: string band_ticker = 4;
-   */
-  bandTicker = "";
-
-  /**
-   * @generated from field: string elys_ticker = 5;
-   */
-  elysTicker = "";
-
-  /**
-   * @generated from field: uint64 decimal = 6;
-   */
-  decimal = protoInt64.zero;
-
-  constructor(data?: PartialMessage<MsgAddAssetInfo>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.oracle.MsgAddAssetInfo";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "display", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "band_ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "elys_ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "decimal", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddAssetInfo {
-    return new MsgAddAssetInfo().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddAssetInfo {
-    return new MsgAddAssetInfo().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddAssetInfo {
-    return new MsgAddAssetInfo().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgAddAssetInfo | PlainMessage<MsgAddAssetInfo> | undefined, b: MsgAddAssetInfo | PlainMessage<MsgAddAssetInfo> | undefined): boolean {
-    return proto3.util.equals(MsgAddAssetInfo, a, b);
-  }
-}
-
-/**
- * @generated from message elys.oracle.MsgAddAssetInfoResponse
- */
-export class MsgAddAssetInfoResponse extends Message<MsgAddAssetInfoResponse> {
-  constructor(data?: PartialMessage<MsgAddAssetInfoResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.oracle.MsgAddAssetInfoResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddAssetInfoResponse {
-    return new MsgAddAssetInfoResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddAssetInfoResponse {
-    return new MsgAddAssetInfoResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddAssetInfoResponse {
-    return new MsgAddAssetInfoResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgAddAssetInfoResponse | PlainMessage<MsgAddAssetInfoResponse> | undefined, b: MsgAddAssetInfoResponse | PlainMessage<MsgAddAssetInfoResponse> | undefined): boolean {
-    return proto3.util.equals(MsgAddAssetInfoResponse, a, b);
-  }
-}
-
-/**
  * @generated from message elys.oracle.MsgRemoveAssetInfo
  */
 export class MsgRemoveAssetInfo extends Message<MsgRemoveAssetInfo> {
@@ -703,6 +605,106 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 
   static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
     return proto3.util.equals(MsgUpdateParamsResponse, a, b);
+  }
+}
+
+/**
+ * this line is used by starport scaffolding # proto/tx/message
+ *
+ * @generated from message elys.oracle.MsgCreateAssetInfo
+ */
+export class MsgCreateAssetInfo extends Message<MsgCreateAssetInfo> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string display = 3;
+   */
+  display = "";
+
+  /**
+   * @generated from field: string band_ticker = 4;
+   */
+  bandTicker = "";
+
+  /**
+   * @generated from field: string elys_ticker = 5;
+   */
+  elysTicker = "";
+
+  /**
+   * @generated from field: uint64 decimal = 6;
+   */
+  decimal = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgCreateAssetInfo>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.oracle.MsgCreateAssetInfo";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "display", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "band_ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "elys_ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "decimal", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateAssetInfo {
+    return new MsgCreateAssetInfo().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCreateAssetInfo {
+    return new MsgCreateAssetInfo().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCreateAssetInfo {
+    return new MsgCreateAssetInfo().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCreateAssetInfo | PlainMessage<MsgCreateAssetInfo> | undefined, b: MsgCreateAssetInfo | PlainMessage<MsgCreateAssetInfo> | undefined): boolean {
+    return proto3.util.equals(MsgCreateAssetInfo, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.oracle.MsgCreateAssetInfoResponse
+ */
+export class MsgCreateAssetInfoResponse extends Message<MsgCreateAssetInfoResponse> {
+  constructor(data?: PartialMessage<MsgCreateAssetInfoResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.oracle.MsgCreateAssetInfoResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateAssetInfoResponse {
+    return new MsgCreateAssetInfoResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCreateAssetInfoResponse {
+    return new MsgCreateAssetInfoResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCreateAssetInfoResponse {
+    return new MsgCreateAssetInfoResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCreateAssetInfoResponse | PlainMessage<MsgCreateAssetInfoResponse> | undefined, b: MsgCreateAssetInfoResponse | PlainMessage<MsgCreateAssetInfoResponse> | undefined): boolean {
+    return proto3.util.equals(MsgCreateAssetInfoResponse, a, b);
   }
 }
 

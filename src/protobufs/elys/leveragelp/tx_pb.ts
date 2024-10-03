@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { Pool } from "./pool_pb.js";
+import { PositionRequest } from "./types_pb.js";
 
 /**
  * @generated from message elys.leveragelp.MsgOpen
@@ -340,76 +340,125 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
- * @generated from message elys.leveragelp.MsgUpdatePools
+ * @generated from message elys.leveragelp.UpdatePool
  */
-export class MsgUpdatePools extends Message<MsgUpdatePools> {
+export class UpdatePool extends Message<UpdatePool> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: bool enabled = 2;
+   */
+  enabled = false;
+
+  /**
+   * @generated from field: bool closed = 3;
+   */
+  closed = false;
+
+  constructor(data?: PartialMessage<UpdatePool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.UpdatePool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "closed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdatePool {
+    return new UpdatePool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdatePool {
+    return new UpdatePool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdatePool {
+    return new UpdatePool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: UpdatePool | PlainMessage<UpdatePool> | undefined, b: UpdatePool | PlainMessage<UpdatePool> | undefined): boolean {
+    return proto3.util.equals(UpdatePool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgUpdatePool
+ */
+export class MsgUpdatePool extends Message<MsgUpdatePool> {
   /**
    * @generated from field: string authority = 1;
    */
   authority = "";
 
   /**
-   * @generated from field: repeated elys.leveragelp.Pool pools = 2;
+   * @generated from field: elys.leveragelp.UpdatePool update_pool = 2;
    */
-  pools: Pool[] = [];
+  updatePool?: UpdatePool;
 
-  constructor(data?: PartialMessage<MsgUpdatePools>) {
+  constructor(data?: PartialMessage<MsgUpdatePool>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.MsgUpdatePools";
+  static readonly typeName = "elys.leveragelp.MsgUpdatePool";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "pools", kind: "message", T: Pool, repeated: true },
+    { no: 2, name: "update_pool", kind: "message", T: UpdatePool },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePools {
-    return new MsgUpdatePools().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePools {
-    return new MsgUpdatePools().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePools {
-    return new MsgUpdatePools().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgUpdatePools | PlainMessage<MsgUpdatePools> | undefined, b: MsgUpdatePools | PlainMessage<MsgUpdatePools> | undefined): boolean {
-    return proto3.util.equals(MsgUpdatePools, a, b);
+  static equals(a: MsgUpdatePool | PlainMessage<MsgUpdatePool> | undefined, b: MsgUpdatePool | PlainMessage<MsgUpdatePool> | undefined): boolean {
+    return proto3.util.equals(MsgUpdatePool, a, b);
   }
 }
 
 /**
- * @generated from message elys.leveragelp.MsgUpdatePoolsResponse
+ * @generated from message elys.leveragelp.MsgUpdatePoolResponse
  */
-export class MsgUpdatePoolsResponse extends Message<MsgUpdatePoolsResponse> {
-  constructor(data?: PartialMessage<MsgUpdatePoolsResponse>) {
+export class MsgUpdatePoolResponse extends Message<MsgUpdatePoolResponse> {
+  constructor(data?: PartialMessage<MsgUpdatePoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.MsgUpdatePoolsResponse";
+  static readonly typeName = "elys.leveragelp.MsgUpdatePoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePoolsResponse {
-    return new MsgUpdatePoolsResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePoolsResponse {
-    return new MsgUpdatePoolsResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePoolsResponse {
-    return new MsgUpdatePoolsResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgUpdatePoolsResponse | PlainMessage<MsgUpdatePoolsResponse> | undefined, b: MsgUpdatePoolsResponse | PlainMessage<MsgUpdatePoolsResponse> | undefined): boolean {
-    return proto3.util.equals(MsgUpdatePoolsResponse, a, b);
+  static equals(a: MsgUpdatePoolResponse | PlainMessage<MsgUpdatePoolResponse> | undefined, b: MsgUpdatePoolResponse | PlainMessage<MsgUpdatePoolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdatePoolResponse, a, b);
   }
 }
 
@@ -571,9 +620,9 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
   creator = "";
 
   /**
-   * @generated from field: int32 position = 2;
+   * @generated from field: uint64 position = 2;
    */
-  position = 0;
+  position = protoInt64.zero;
 
   /**
    * @generated from field: string price = 3;
@@ -589,7 +638,7 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
   static readonly typeName = "elys.leveragelp.MsgUpdateStopLoss";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "position", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 2, name: "position", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -642,82 +691,285 @@ export class MsgUpdateStopLossResponse extends Message<MsgUpdateStopLossResponse
 }
 
 /**
- * @generated from message elys.leveragelp.MsgAddCollateral
+ * @generated from message elys.leveragelp.AddPool
  */
-export class MsgAddCollateral extends Message<MsgAddCollateral> {
+export class AddPool extends Message<AddPool> {
   /**
-   * @generated from field: string creator = 1;
+   * @generated from field: uint64 amm_pool_id = 1;
    */
-  creator = "";
+  ammPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: bool enabled = 2;
+   */
+  enabled = false;
+
+  /**
+   * @generated from field: bool closed = 3;
+   */
+  closed = false;
+
+  /**
+   * @generated from field: string leverage_max = 4;
+   */
+  leverageMax = "";
+
+  constructor(data?: PartialMessage<AddPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.AddPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "closed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddPool {
+    return new AddPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddPool {
+    return new AddPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddPool {
+    return new AddPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: AddPool | PlainMessage<AddPool> | undefined, b: AddPool | PlainMessage<AddPool> | undefined): boolean {
+    return proto3.util.equals(AddPool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgAddPool
+ */
+export class MsgAddPool extends Message<MsgAddPool> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: elys.leveragelp.AddPool pool = 2;
+   */
+  pool?: AddPool;
+
+  constructor(data?: PartialMessage<MsgAddPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgAddPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool", kind: "message", T: AddPool },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddPool | PlainMessage<MsgAddPool> | undefined, b: MsgAddPool | PlainMessage<MsgAddPool> | undefined): boolean {
+    return proto3.util.equals(MsgAddPool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgAddPoolResponse
+ */
+export class MsgAddPoolResponse extends Message<MsgAddPoolResponse> {
+  constructor(data?: PartialMessage<MsgAddPoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgAddPoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddPoolResponse | PlainMessage<MsgAddPoolResponse> | undefined, b: MsgAddPoolResponse | PlainMessage<MsgAddPoolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgAddPoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgRemovePool
+ */
+export class MsgRemovePool extends Message<MsgRemovePool> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
 
   /**
    * @generated from field: uint64 id = 2;
    */
   id = protoInt64.zero;
 
-  /**
-   * @generated from field: string collateral = 3;
-   */
-  collateral = "";
-
-  constructor(data?: PartialMessage<MsgAddCollateral>) {
+  constructor(data?: PartialMessage<MsgRemovePool>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.MsgAddCollateral";
+  static readonly typeName = "elys.leveragelp.MsgRemovePool";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRemovePool {
+    return new MsgRemovePool().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRemovePool {
+    return new MsgRemovePool().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRemovePool {
+    return new MsgRemovePool().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined, b: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined): boolean {
-    return proto3.util.equals(MsgAddCollateral, a, b);
+  static equals(a: MsgRemovePool | PlainMessage<MsgRemovePool> | undefined, b: MsgRemovePool | PlainMessage<MsgRemovePool> | undefined): boolean {
+    return proto3.util.equals(MsgRemovePool, a, b);
   }
 }
 
 /**
- * @generated from message elys.leveragelp.MsgAddCollateralResponse
+ * @generated from message elys.leveragelp.MsgRemovePoolResponse
  */
-export class MsgAddCollateralResponse extends Message<MsgAddCollateralResponse> {
-  constructor(data?: PartialMessage<MsgAddCollateralResponse>) {
+export class MsgRemovePoolResponse extends Message<MsgRemovePoolResponse> {
+  constructor(data?: PartialMessage<MsgRemovePoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.MsgAddCollateralResponse";
+  static readonly typeName = "elys.leveragelp.MsgRemovePoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRemovePoolResponse {
+    return new MsgRemovePoolResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRemovePoolResponse {
+    return new MsgRemovePoolResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRemovePoolResponse {
+    return new MsgRemovePoolResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined, b: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined): boolean {
-    return proto3.util.equals(MsgAddCollateralResponse, a, b);
+  static equals(a: MsgRemovePoolResponse | PlainMessage<MsgRemovePoolResponse> | undefined, b: MsgRemovePoolResponse | PlainMessage<MsgRemovePoolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgRemovePoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgClosePositions
+ */
+export class MsgClosePositions extends Message<MsgClosePositions> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: repeated elys.leveragelp.PositionRequest liquidate = 2;
+   */
+  liquidate: PositionRequest[] = [];
+
+  /**
+   * @generated from field: repeated elys.leveragelp.PositionRequest stop_loss = 3;
+   */
+  stopLoss: PositionRequest[] = [];
+
+  constructor(data?: PartialMessage<MsgClosePositions>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgClosePositions";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "liquidate", kind: "message", T: PositionRequest, repeated: true },
+    { no: 3, name: "stop_loss", kind: "message", T: PositionRequest, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClosePositions | PlainMessage<MsgClosePositions> | undefined, b: MsgClosePositions | PlainMessage<MsgClosePositions> | undefined): boolean {
+    return proto3.util.equals(MsgClosePositions, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgClosePositionsResponse
+ */
+export class MsgClosePositionsResponse extends Message<MsgClosePositionsResponse> {
+  constructor(data?: PartialMessage<MsgClosePositionsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgClosePositionsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClosePositionsResponse | PlainMessage<MsgClosePositionsResponse> | undefined, b: MsgClosePositionsResponse | PlainMessage<MsgClosePositionsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgClosePositionsResponse, a, b);
   }
 }
 

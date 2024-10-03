@@ -7,7 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
-import { Position, PositionAndInterest } from "./types_pb.js";
+import { PositionAndInterest, QueryPosition } from "./types_pb.js";
 import { Pool } from "./pool_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
@@ -127,9 +127,9 @@ export class PositionsRequest extends Message<PositionsRequest> {
  */
 export class PositionsResponse extends Message<PositionsResponse> {
   /**
-   * @generated from field: repeated elys.leveragelp.Position positions = 1;
+   * @generated from field: repeated elys.leveragelp.QueryPosition positions = 1;
    */
-  positions: Position[] = [];
+  positions: QueryPosition[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -144,7 +144,7 @@ export class PositionsResponse extends Message<PositionsResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.leveragelp.PositionsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "positions", kind: "message", T: Position, repeated: true },
+    { no: 1, name: "positions", kind: "message", T: QueryPosition, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -213,9 +213,9 @@ export class PositionsByPoolRequest extends Message<PositionsByPoolRequest> {
  */
 export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
   /**
-   * @generated from field: repeated elys.leveragelp.Position positions = 1;
+   * @generated from field: repeated elys.leveragelp.QueryPosition positions = 1;
    */
-  positions: Position[] = [];
+  positions: QueryPosition[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -230,7 +230,7 @@ export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.leveragelp.PositionsByPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "positions", kind: "message", T: Position, repeated: true },
+    { no: 1, name: "positions", kind: "message", T: QueryPosition, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -726,56 +726,13 @@ export class QueryAllPoolResponse extends Message<QueryAllPoolResponse> {
 }
 
 /**
- * @generated from message elys.leveragelp.PositionRequest
- */
-export class PositionRequest extends Message<PositionRequest> {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address = "";
-
-  /**
-   * @generated from field: uint64 id = 2;
-   */
-  id = protoInt64.zero;
-
-  constructor(data?: PartialMessage<PositionRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.PositionRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionRequest {
-    return new PositionRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PositionRequest {
-    return new PositionRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PositionRequest {
-    return new PositionRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: PositionRequest | PlainMessage<PositionRequest> | undefined, b: PositionRequest | PlainMessage<PositionRequest> | undefined): boolean {
-    return proto3.util.equals(PositionRequest, a, b);
-  }
-}
-
-/**
  * @generated from message elys.leveragelp.PositionResponse
  */
 export class PositionResponse extends Message<PositionResponse> {
   /**
-   * @generated from field: elys.leveragelp.Position position = 1;
+   * @generated from field: elys.leveragelp.QueryPosition position = 1;
    */
-  position?: Position;
+  position?: QueryPosition;
 
   /**
    * @generated from field: string locked_lp_token = 2;
@@ -790,7 +747,7 @@ export class PositionResponse extends Message<PositionResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.leveragelp.PositionResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "position", kind: "message", T: Position },
+    { no: 1, name: "position", kind: "message", T: QueryPosition },
     { no: 2, name: "locked_lp_token", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 

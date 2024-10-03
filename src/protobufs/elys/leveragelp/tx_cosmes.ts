@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddCollateral, MsgAddCollateralResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgClose, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePools, MsgUpdatePoolsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgAddPool, MsgAddPoolResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgRemovePool, MsgRemovePoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePool, MsgUpdatePoolResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.leveragelp.Msg";
 
@@ -48,13 +48,33 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
- * @generated from rpc elys.leveragelp.Msg.UpdatePools
+ * @generated from rpc elys.leveragelp.Msg.AddPool
  */
-export const MsgUpdatePoolsService = {
+export const MsgAddPoolService = {
   typeName: TYPE_NAME,
-  method: "UpdatePools",
-  Request: MsgUpdatePools,
-  Response: MsgUpdatePoolsResponse,
+  method: "AddPool",
+  Request: MsgAddPool,
+  Response: MsgAddPoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.leveragelp.Msg.UpdatePool
+ */
+export const MsgUpdatePoolService = {
+  typeName: TYPE_NAME,
+  method: "UpdatePool",
+  Request: MsgUpdatePool,
+  Response: MsgUpdatePoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.leveragelp.Msg.RemovePool
+ */
+export const MsgRemovePoolService = {
+  typeName: TYPE_NAME,
+  method: "RemovePool",
+  Request: MsgRemovePool,
+  Response: MsgRemovePoolResponse,
 } as const;
 
 /**
@@ -88,12 +108,12 @@ export const MsgUpdateStopLossService = {
 } as const;
 
 /**
- * @generated from rpc elys.leveragelp.Msg.AddCollateral
+ * @generated from rpc elys.leveragelp.Msg.ClosePositions
  */
-export const MsgAddCollateralService = {
+export const MsgClosePositionsService = {
   typeName: TYPE_NAME,
-  method: "AddCollateral",
-  Request: MsgAddCollateral,
-  Response: MsgAddCollateralResponse,
+  method: "ClosePositions",
+  Request: MsgClosePositions,
+  Response: MsgClosePositionsResponse,
 } as const;
 

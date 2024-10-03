@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddCollateral, MsgAddCollateralResponse, MsgBrokerAddCollateral, MsgBrokerClose, MsgBrokerOpen, MsgClose, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgAddCollateral, MsgAddCollateralResponse, MsgBrokerAddCollateral, MsgBrokerClose, MsgBrokerOpen, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Msg";
 
@@ -95,5 +95,35 @@ export const MsgBrokerAddCollateralService = {
   method: "BrokerAddCollateral",
   Request: MsgBrokerAddCollateral,
   Response: MsgAddCollateralResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.UpdateStopLoss
+ */
+export const MsgUpdateStopLossService = {
+  typeName: TYPE_NAME,
+  method: "UpdateStopLoss",
+  Request: MsgUpdateStopLoss,
+  Response: MsgUpdateStopLossResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.ClosePositions
+ */
+export const MsgClosePositionsService = {
+  typeName: TYPE_NAME,
+  method: "ClosePositions",
+  Request: MsgClosePositions,
+  Response: MsgClosePositionsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.UpdateTakeProfitPrice
+ */
+export const MsgUpdateTakeProfitPriceService = {
+  typeName: TYPE_NAME,
+  method: "UpdateTakeProfitPrice",
+  Request: MsgUpdateTakeProfitPrice,
+  Response: MsgUpdateTakeProfitPriceResponse,
 } as const;
 

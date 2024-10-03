@@ -5,11 +5,84 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { IncentiveInfo } from "./incentive_pb.js";
+import { IncentiveInfo, LegacyIncentiveInfo } from "./incentive_pb.js";
 
 /**
  * Params defines the parameters for the module.
  *
+ * @generated from message elys.masterchef.LegacyParams
+ */
+export class LegacyParams extends Message<LegacyParams> {
+  /**
+   * @generated from field: elys.masterchef.LegacyIncentiveInfo lp_incentives = 1;
+   */
+  lpIncentives?: LegacyIncentiveInfo;
+
+  /**
+   * gas fees and swap fees portion for lps, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   *
+   * @generated from field: string reward_portion_for_lps = 2;
+   */
+  rewardPortionForLps = "";
+
+  /**
+   * gas fees and swap fees portion for stakers, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   *
+   * @generated from field: string reward_portion_for_stakers = 3;
+   */
+  rewardPortionForStakers = "";
+
+  /**
+   * Maximum eden reward apr for lps - [0 - 0.3]
+   *
+   * @generated from field: string max_eden_reward_apr_lps = 4;
+   */
+  maxEdenRewardAprLps = "";
+
+  /**
+   * @generated from field: repeated elys.masterchef.SupportedRewardDenom supported_reward_denoms = 5;
+   */
+  supportedRewardDenoms: SupportedRewardDenom[] = [];
+
+  /**
+   * @generated from field: string protocol_revenue_address = 6;
+   */
+  protocolRevenueAddress = "";
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "lp_incentives", kind: "message", T: LegacyIncentiveInfo },
+    { no: 2, name: "reward_portion_for_lps", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "reward_portion_for_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "max_eden_reward_apr_lps", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "supported_reward_denoms", kind: "message", T: SupportedRewardDenom, repeated: true },
+    { no: 6, name: "protocol_revenue_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
  * @generated from message elys.masterchef.Params
  */
 export class Params extends Message<Params> {

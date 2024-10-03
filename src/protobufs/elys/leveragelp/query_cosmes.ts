@@ -3,7 +3,8 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { IsWhitelistedRequest, IsWhitelistedResponse, ParamsRequest, ParamsResponse, PositionRequest, PositionResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstRequest, QueryCloseEstResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryLiquidationPriceRequest, QueryLiquidationPriceResponse, QueryOpenEstRequest, QueryOpenEstResponse, QueryRewardsRequest, QueryRewardsResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { IsWhitelistedRequest, IsWhitelistedResponse, ParamsRequest, ParamsResponse, PositionResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstRequest, QueryCloseEstResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryLiquidationPriceRequest, QueryLiquidationPriceResponse, QueryOpenEstRequest, QueryOpenEstResponse, QueryRewardsRequest, QueryRewardsResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { PositionRequest } from "./types_pb.js";
 
 const TYPE_NAME = "elys.leveragelp.Query";
 

@@ -9,9 +9,9 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 /**
  * Params defines the parameters for the module.
  *
- * @generated from message elys.perpetual.Params
+ * @generated from message elys.perpetual.LegacyParams
  */
-export class Params extends Message<Params> {
+export class LegacyParams extends Message<LegacyParams> {
   /**
    * @generated from field: string leverage_max = 1;
    */
@@ -127,13 +127,13 @@ export class Params extends Message<Params> {
    */
   swapFee = "";
 
-  constructor(data?: PartialMessage<Params>) {
+  constructor(data?: PartialMessage<LegacyParams>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.Params";
+  static readonly typeName = "elys.perpetual.LegacyParams";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "borrow_interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -158,6 +158,189 @@ export class Params extends Message<Params> {
     { no: 21, name: "funding_fee_min_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 22, name: "funding_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 23, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
+ * Params defines the parameters for the module.
+ *
+ * @generated from message elys.perpetual.Params
+ */
+export class Params extends Message<Params> {
+  /**
+   * @generated from field: string leverage_max = 1;
+   */
+  leverageMax = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate_max = 2;
+   */
+  borrowInterestRateMax = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate_min = 3;
+   */
+  borrowInterestRateMin = "";
+
+  /**
+   * @generated from field: string min_borrow_interest_amount = 4;
+   */
+  minBorrowInterestAmount = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate_increase = 5;
+   */
+  borrowInterestRateIncrease = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate_decrease = 6;
+   */
+  borrowInterestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 7;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: int64 epoch_length = 8;
+   */
+  epochLength = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 max_open_positions = 9;
+   */
+  maxOpenPositions = protoInt64.zero;
+
+  /**
+   * @generated from field: string pool_open_threshold = 10;
+   */
+  poolOpenThreshold = "";
+
+  /**
+   * @generated from field: string force_close_fund_percentage = 11;
+   */
+  forceCloseFundPercentage = "";
+
+  /**
+   * @generated from field: string force_close_fund_address = 12;
+   */
+  forceCloseFundAddress = "";
+
+  /**
+   * @generated from field: string incremental_borrow_interest_payment_fund_percentage = 13;
+   */
+  incrementalBorrowInterestPaymentFundPercentage = "";
+
+  /**
+   * @generated from field: string incremental_borrow_interest_payment_fund_address = 14;
+   */
+  incrementalBorrowInterestPaymentFundAddress = "";
+
+  /**
+   * @generated from field: string safety_factor = 15;
+   */
+  safetyFactor = "";
+
+  /**
+   * @generated from field: bool incremental_borrow_interest_payment_enabled = 16;
+   */
+  incrementalBorrowInterestPaymentEnabled = false;
+
+  /**
+   * @generated from field: bool whitelisting_enabled = 17;
+   */
+  whitelistingEnabled = false;
+
+  /**
+   * @generated from field: string invariant_check_epoch = 18;
+   */
+  invariantCheckEpoch = "";
+
+  /**
+   * @generated from field: string take_profit_borrow_interest_rate_min = 19;
+   */
+  takeProfitBorrowInterestRateMin = "";
+
+  /**
+   * @generated from field: string funding_fee_base_rate = 20;
+   */
+  fundingFeeBaseRate = "";
+
+  /**
+   * @generated from field: string funding_fee_max_rate = 21;
+   */
+  fundingFeeMaxRate = "";
+
+  /**
+   * @generated from field: string funding_fee_min_rate = 22;
+   */
+  fundingFeeMinRate = "";
+
+  /**
+   * @generated from field: string funding_fee_collection_address = 23;
+   */
+  fundingFeeCollectionAddress = "";
+
+  /**
+   * @generated from field: string swap_fee = 24;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: int64 max_limit_order = 25;
+   */
+  maxLimitOrder = protoInt64.zero;
+
+  constructor(data?: PartialMessage<Params>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.Params";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "borrow_interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "borrow_interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "min_borrow_interest_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "borrow_interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "borrow_interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 9, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 10, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "force_close_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "force_close_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "incremental_borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "incremental_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "incremental_borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 17, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 18, name: "invariant_check_epoch", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "take_profit_borrow_interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "funding_fee_base_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 21, name: "funding_fee_max_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "funding_fee_min_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 23, name: "funding_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 24, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 25, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

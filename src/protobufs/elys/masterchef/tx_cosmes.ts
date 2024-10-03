@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddExternalIncentive, MsgAddExternalIncentiveResponse, MsgAddExternalRewardDenom, MsgAddExternalRewardDenomResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolMultipliers, MsgUpdatePoolMultipliersResponse } from "./tx_pb.js";
+import { MsgAddExternalIncentive, MsgAddExternalIncentiveResponse, MsgAddExternalRewardDenom, MsgAddExternalRewardDenomResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgTogglePoolEdenRewards, MsgTogglePoolEdenRewardsResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolMultipliers, MsgUpdatePoolMultipliersResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Msg";
 
@@ -55,5 +55,15 @@ export const MsgClaimRewardsService = {
   method: "ClaimRewards",
   Request: MsgClaimRewards,
   Response: MsgClaimRewardsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Msg.TogglePoolEdenRewards
+ */
+export const MsgTogglePoolEdenRewardsService = {
+  typeName: TYPE_NAME,
+  method: "TogglePoolEdenRewards",
+  Request: MsgTogglePoolEdenRewards,
+  Response: MsgTogglePoolEdenRewardsResponse,
 } as const;
 

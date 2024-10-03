@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
+import { QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Query";
 
@@ -87,5 +87,29 @@ export const QueryPoolAprsService = {
   method: "PoolAprs",
   Request: QueryPoolAprsRequest,
   Response: QueryPoolAprsResponse,
+} as const;
+
+/**
+ * Queries a list of ShowFeeInfo items.
+ *
+ * @generated from rpc elys.masterchef.Query.ShowFeeInfo
+ */
+export const QueryShowFeeInfoService = {
+  typeName: TYPE_NAME,
+  method: "ShowFeeInfo",
+  Request: QueryShowFeeInfoRequest,
+  Response: QueryShowFeeInfoResponse,
+} as const;
+
+/**
+ * Queries a list of ListFeeInfo items.
+ *
+ * @generated from rpc elys.masterchef.Query.ListFeeInfo
+ */
+export const QueryListFeeInfoService = {
+  typeName: TYPE_NAME,
+  method: "ListFeeInfo",
+  Request: QueryListFeeInfoRequest,
+  Response: QueryListFeeInfoResponse,
 } as const;
 

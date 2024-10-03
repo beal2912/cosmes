@@ -20,7 +20,7 @@ export class GenesisState extends Message<GenesisState> {
   params?: Params;
 
   /**
-   * @generated from field: repeated elys.tier.Portfolio portfolioList = 2;
+   * @generated from field: repeated elys.tier.Portfolio portfolio_list = 2;
    */
   portfolioList: Portfolio[] = [];
 
@@ -33,7 +33,7 @@ export class GenesisState extends Message<GenesisState> {
   static readonly typeName = "elys.tier.GenesisState";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "params", kind: "message", T: Params },
-    { no: 2, name: "portfolioList", kind: "message", T: Portfolio, repeated: true },
+    { no: 2, name: "portfolio_list", kind: "message", T: Portfolio, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

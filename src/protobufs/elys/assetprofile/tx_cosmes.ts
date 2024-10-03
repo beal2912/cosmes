@@ -3,19 +3,10 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCreateEntry, MsgCreateEntryResponse, MsgDeleteEntry, MsgDeleteEntryResponse, MsgUpdateEntry, MsgUpdateEntryResponse } from "./tx_pb.js";
+import { MsgDeleteEntry, MsgDeleteEntryResponse, MsgUpdateEntry, MsgUpdateEntryResponse } from "./tx_pb.js";
+import { MsgAddEntry, MsgAddEntryResponse } from "./add_entry_pb.js";
 
 const TYPE_NAME = "elys.assetprofile.Msg";
-
-/**
- * @generated from rpc elys.assetprofile.Msg.CreateEntry
- */
-export const MsgCreateEntryService = {
-  typeName: TYPE_NAME,
-  method: "CreateEntry",
-  Request: MsgCreateEntry,
-  Response: MsgCreateEntryResponse,
-} as const;
 
 /**
  * @generated from rpc elys.assetprofile.Msg.UpdateEntry
@@ -35,5 +26,15 @@ export const MsgDeleteEntryService = {
   method: "DeleteEntry",
   Request: MsgDeleteEntry,
   Response: MsgDeleteEntryResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.assetprofile.Msg.AddEntry
+ */
+export const MsgAddEntryService = {
+  typeName: TYPE_NAME,
+  method: "AddEntry",
+  Request: MsgAddEntry,
+  Response: MsgAddEntryResponse,
 } as const;
 

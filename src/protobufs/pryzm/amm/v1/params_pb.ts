@@ -65,6 +65,16 @@ export class OrderParameters extends Message<OrderParameters> {
    */
   maxOrderStepMillisInterval = protoInt64.zero;
 
+  /**
+   * @generated from field: int32 max_pairs_per_block = 12;
+   */
+  maxPairsPerBlock = 0;
+
+  /**
+   * @generated from field: int32 max_orders_per_pair = 13;
+   */
+  maxOrdersPerPair = 0;
+
   constructor(data?: PartialMessage<OrderParameters>) {
     super();
     proto3.util.initPartial(data, this);
@@ -84,6 +94,8 @@ export class OrderParameters extends Message<OrderParameters> {
     { no: 9, name: "min_order_step_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "min_order_step_millis_interval", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 11, name: "max_order_step_millis_interval", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 12, name: "max_pairs_per_block", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
+    { no: 13, name: "max_orders_per_pair", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OrderParameters {

@@ -287,3 +287,172 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
   }
 }
 
+/**
+ * MsgRegisterERC20 is the Msg/RegisterERC20 request type for registering
+ * an Erc20 contract token pair.
+ *
+ * @generated from message evmos.erc20.v1.MsgRegisterERC20
+ */
+export class MsgRegisterERC20 extends Message<MsgRegisterERC20> {
+  /**
+   * authority is the address of the governance account.
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * erc20addresses is a slice of ERC20 token contract hex addresses
+   *
+   * @generated from field: repeated string erc20addresses = 2;
+   */
+  erc20addresses: string[] = [];
+
+  constructor(data?: PartialMessage<MsgRegisterERC20>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "evmos.erc20.v1.MsgRegisterERC20";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "erc20addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRegisterERC20 {
+    return new MsgRegisterERC20().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRegisterERC20 {
+    return new MsgRegisterERC20().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRegisterERC20 {
+    return new MsgRegisterERC20().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRegisterERC20 | PlainMessage<MsgRegisterERC20> | undefined, b: MsgRegisterERC20 | PlainMessage<MsgRegisterERC20> | undefined): boolean {
+    return proto3.util.equals(MsgRegisterERC20, a, b);
+  }
+}
+
+/**
+ * MsgRegisterERC20Response defines the response structure for executing a
+ * MsgRegisterERC20 message.
+ *
+ * @generated from message evmos.erc20.v1.MsgRegisterERC20Response
+ */
+export class MsgRegisterERC20Response extends Message<MsgRegisterERC20Response> {
+  constructor(data?: PartialMessage<MsgRegisterERC20Response>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "evmos.erc20.v1.MsgRegisterERC20Response";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRegisterERC20Response {
+    return new MsgRegisterERC20Response().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRegisterERC20Response {
+    return new MsgRegisterERC20Response().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRegisterERC20Response {
+    return new MsgRegisterERC20Response().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRegisterERC20Response | PlainMessage<MsgRegisterERC20Response> | undefined, b: MsgRegisterERC20Response | PlainMessage<MsgRegisterERC20Response> | undefined): boolean {
+    return proto3.util.equals(MsgRegisterERC20Response, a, b);
+  }
+}
+
+/**
+ * MsgToggleConversion is the Msg/MsgToggleConversion request type for toggling
+ * an Erc20 contract conversion capability.
+ *
+ * @generated from message evmos.erc20.v1.MsgToggleConversion
+ */
+export class MsgToggleConversion extends Message<MsgToggleConversion> {
+  /**
+   * authority is the address of the governance account.
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * token identifier can be either the hex contract address of the ERC20 or the
+   * Cosmos base denomination
+   *
+   * @generated from field: string token = 2;
+   */
+  token = "";
+
+  constructor(data?: PartialMessage<MsgToggleConversion>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "evmos.erc20.v1.MsgToggleConversion";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgToggleConversion {
+    return new MsgToggleConversion().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgToggleConversion {
+    return new MsgToggleConversion().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgToggleConversion {
+    return new MsgToggleConversion().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgToggleConversion | PlainMessage<MsgToggleConversion> | undefined, b: MsgToggleConversion | PlainMessage<MsgToggleConversion> | undefined): boolean {
+    return proto3.util.equals(MsgToggleConversion, a, b);
+  }
+}
+
+/**
+ * MsgToggleConversionResponse defines the response structure for executing a
+ * ToggleConversion message.
+ *
+ * @generated from message evmos.erc20.v1.MsgToggleConversionResponse
+ */
+export class MsgToggleConversionResponse extends Message<MsgToggleConversionResponse> {
+  constructor(data?: PartialMessage<MsgToggleConversionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "evmos.erc20.v1.MsgToggleConversionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgToggleConversionResponse {
+    return new MsgToggleConversionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgToggleConversionResponse {
+    return new MsgToggleConversionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgToggleConversionResponse {
+    return new MsgToggleConversionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgToggleConversionResponse | PlainMessage<MsgToggleConversionResponse> | undefined, b: MsgToggleConversionResponse | PlainMessage<MsgToggleConversionResponse> | undefined): boolean {
+    return proto3.util.equals(MsgToggleConversionResponse, a, b);
+  }
+}
+

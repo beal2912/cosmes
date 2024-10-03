@@ -456,3 +456,83 @@ export class MsgClaimRewardsResponse extends Message<MsgClaimRewardsResponse> {
   }
 }
 
+/**
+ * @generated from message elys.masterchef.MsgTogglePoolEdenRewards
+ */
+export class MsgTogglePoolEdenRewards extends Message<MsgTogglePoolEdenRewards> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 2;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: bool enable = 3;
+   */
+  enable = false;
+
+  constructor(data?: PartialMessage<MsgTogglePoolEdenRewards>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.MsgTogglePoolEdenRewards";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "enable", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgTogglePoolEdenRewards {
+    return new MsgTogglePoolEdenRewards().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgTogglePoolEdenRewards {
+    return new MsgTogglePoolEdenRewards().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgTogglePoolEdenRewards {
+    return new MsgTogglePoolEdenRewards().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgTogglePoolEdenRewards | PlainMessage<MsgTogglePoolEdenRewards> | undefined, b: MsgTogglePoolEdenRewards | PlainMessage<MsgTogglePoolEdenRewards> | undefined): boolean {
+    return proto3.util.equals(MsgTogglePoolEdenRewards, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.MsgTogglePoolEdenRewardsResponse
+ */
+export class MsgTogglePoolEdenRewardsResponse extends Message<MsgTogglePoolEdenRewardsResponse> {
+  constructor(data?: PartialMessage<MsgTogglePoolEdenRewardsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.MsgTogglePoolEdenRewardsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgTogglePoolEdenRewardsResponse {
+    return new MsgTogglePoolEdenRewardsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgTogglePoolEdenRewardsResponse {
+    return new MsgTogglePoolEdenRewardsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgTogglePoolEdenRewardsResponse {
+    return new MsgTogglePoolEdenRewardsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgTogglePoolEdenRewardsResponse | PlainMessage<MsgTogglePoolEdenRewardsResponse> | undefined, b: MsgTogglePoolEdenRewardsResponse | PlainMessage<MsgTogglePoolEdenRewardsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgTogglePoolEdenRewardsResponse, a, b);
+  }
+}
+

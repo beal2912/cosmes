@@ -365,9 +365,14 @@ export class QueryLeverageLpTotalRequest extends Message<QueryLeverageLpTotalReq
  */
 export class QueryLeverageLpTotalResponse extends Message<QueryLeverageLpTotalResponse> {
   /**
-   * @generated from field: string total = 1;
+   * @generated from field: string total_value = 1;
    */
-  total = "";
+  totalValue = "";
+
+  /**
+   * @generated from field: string total_borrows = 2;
+   */
+  totalBorrows = "";
 
   constructor(data?: PartialMessage<QueryLeverageLpTotalResponse>) {
     super();
@@ -377,7 +382,8 @@ export class QueryLeverageLpTotalResponse extends Message<QueryLeverageLpTotalRe
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.QueryLeverageLpTotalResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_borrows", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryLeverageLpTotalResponse {
@@ -587,9 +593,14 @@ export class QueryPerpetualRequest extends Message<QueryPerpetualRequest> {
  */
 export class QueryPerpetualResponse extends Message<QueryPerpetualResponse> {
   /**
-   * @generated from field: string total = 1;
+   * @generated from field: string total_value = 1;
    */
-  total = "";
+  totalValue = "";
+
+  /**
+   * @generated from field: string total_borrows = 2;
+   */
+  totalBorrows = "";
 
   constructor(data?: PartialMessage<QueryPerpetualResponse>) {
     super();
@@ -599,7 +610,8 @@ export class QueryPerpetualResponse extends Message<QueryPerpetualResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.QueryPerpetualResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_borrows", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPerpetualResponse {
@@ -815,17 +827,17 @@ export class QueryGetConsolidatedPriceRequest extends Message<QueryGetConsolidat
  */
 export class QueryGetConsolidatedPriceResponse extends Message<QueryGetConsolidatedPriceResponse> {
   /**
-   * @generated from field: string ammPrice = 1;
+   * @generated from field: string amm_price = 1;
    */
   ammPrice = "";
 
   /**
-   * @generated from field: string oraclePrice = 2;
+   * @generated from field: string oracle_price = 2;
    */
   oraclePrice = "";
 
   /**
-   * @generated from field: string oraclePriceDec = 3;
+   * @generated from field: string oracle_price_dec = 3;
    */
   oraclePriceDec = "";
 
@@ -837,9 +849,9 @@ export class QueryGetConsolidatedPriceResponse extends Message<QueryGetConsolida
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.QueryGetConsolidatedPriceResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "ammPrice", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "oraclePrice", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "oraclePriceDec", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "amm_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "oracle_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "oracle_price_dec", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetConsolidatedPriceResponse {
@@ -916,7 +928,7 @@ export class QueryStakedResponse extends Message<QueryStakedResponse> {
   unbondings = "";
 
   /**
-   * @generated from field: string totalVested = 4;
+   * @generated from field: string total_vested = 4;
    */
   totalVested = "";
 
@@ -931,7 +943,7 @@ export class QueryStakedResponse extends Message<QueryStakedResponse> {
     { no: 1, name: "commitments", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "delegations", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "unbondings", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "totalVested", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "total_vested", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryStakedResponse {

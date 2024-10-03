@@ -114,6 +114,7 @@ export class TokenPair extends Message<TokenPair> {
  * Deprecated: RegisterCoinProposal is a gov Content type to register a token pair for a
  * native Cosmos coin. We're keeping it to remove the existing proposals from
  * store. After that, remove this message.
+ * NOTE: Keep this message for backwards compatibility on proposals query
  *
  * @generated from message evmos.erc20.v1.RegisterCoinProposal
  */
@@ -213,8 +214,9 @@ export class ProposalMetadata extends Message<ProposalMetadata> {
 }
 
 /**
- * RegisterERC20Proposal is a gov Content type to register a token pair for an
- * ERC20 token
+ * Deprecated: RegisterERC20Proposal is a gov Content type to register a token pair for an
+ * ERC20 token.
+ * NOTE: Keep this message for backwards compatibility on proposals query
  *
  * @generated from message evmos.erc20.v1.RegisterERC20Proposal
  */
@@ -271,8 +273,9 @@ export class RegisterERC20Proposal extends Message<RegisterERC20Proposal> {
 }
 
 /**
- * ToggleTokenConversionProposal is a gov Content type to toggle the conversion
+ * Deprecated: ToggleTokenConversionProposal is a gov Content type to toggle the conversion
  * of a token pair.
+ * NOTE: Keep this message for backwards compatibility on proposals query
  *
  * @generated from message evmos.erc20.v1.ToggleTokenConversionProposal
  */

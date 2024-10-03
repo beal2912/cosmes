@@ -10,7 +10,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * EventFeeMarket is the event type for the fee market module
+ * EventFeeMarket is the event type for the feemarket module
  *
  * @generated from message ethermint.feemarket.v1.EventFeeMarket
  */

@@ -462,3 +462,77 @@ export class MsgUpdateWasmConfigResponse extends Message<MsgUpdateWasmConfigResp
   }
 }
 
+/**
+ * @generated from message elys.parameter.MsgUpdateRewardsDataLifetime
+ */
+export class MsgUpdateRewardsDataLifetime extends Message<MsgUpdateRewardsDataLifetime> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string rewards_data_lifetime = 2;
+   */
+  rewardsDataLifetime = "";
+
+  constructor(data?: PartialMessage<MsgUpdateRewardsDataLifetime>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.parameter.MsgUpdateRewardsDataLifetime";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "rewards_data_lifetime", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateRewardsDataLifetime {
+    return new MsgUpdateRewardsDataLifetime().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateRewardsDataLifetime {
+    return new MsgUpdateRewardsDataLifetime().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateRewardsDataLifetime {
+    return new MsgUpdateRewardsDataLifetime().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateRewardsDataLifetime | PlainMessage<MsgUpdateRewardsDataLifetime> | undefined, b: MsgUpdateRewardsDataLifetime | PlainMessage<MsgUpdateRewardsDataLifetime> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateRewardsDataLifetime, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.parameter.MsgUpdateRewardsDataLifetimeResponse
+ */
+export class MsgUpdateRewardsDataLifetimeResponse extends Message<MsgUpdateRewardsDataLifetimeResponse> {
+  constructor(data?: PartialMessage<MsgUpdateRewardsDataLifetimeResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.parameter.MsgUpdateRewardsDataLifetimeResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateRewardsDataLifetimeResponse {
+    return new MsgUpdateRewardsDataLifetimeResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateRewardsDataLifetimeResponse {
+    return new MsgUpdateRewardsDataLifetimeResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateRewardsDataLifetimeResponse {
+    return new MsgUpdateRewardsDataLifetimeResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateRewardsDataLifetimeResponse | PlainMessage<MsgUpdateRewardsDataLifetimeResponse> | undefined, b: MsgUpdateRewardsDataLifetimeResponse | PlainMessage<MsgUpdateRewardsDataLifetimeResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateRewardsDataLifetimeResponse, a, b);
+  }
+}
+

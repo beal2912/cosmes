@@ -6,6 +6,8 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
+import { Debt } from "./debt_pb.js";
+import { InterestBlock } from "./types_pb.js";
 
 /**
  * GenesisState defines the stablestake module's genesis state.
@@ -18,6 +20,16 @@ export class GenesisState extends Message<GenesisState> {
    */
   params?: Params;
 
+  /**
+   * @generated from field: repeated elys.stablestake.Debt debt_list = 2;
+   */
+  debtList: Debt[] = [];
+
+  /**
+   * @generated from field: repeated elys.stablestake.InterestBlock interest_list = 3;
+   */
+  interestList: InterestBlock[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -27,6 +39,8 @@ export class GenesisState extends Message<GenesisState> {
   static readonly typeName = "elys.stablestake.GenesisState";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "params", kind: "message", T: Params },
+    { no: 2, name: "debt_list", kind: "message", T: Debt, repeated: true },
+    { no: 3, name: "interest_list", kind: "message", T: InterestBlock, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

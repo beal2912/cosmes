@@ -1210,6 +1210,9 @@ export class EventExecuteOrdersForPair extends Message<EventExecuteOrdersForPair
  */
 export class EventExecuteMatchProposalOrder extends Message<EventExecuteMatchProposalOrder> {
   /**
+   * Note that if virtual=true, order_id is set to zero and should be ignored,
+   * otherwise we still might have order_id=0 referring to an actual order
+   *
    * @generated from field: uint64 order_id = 1;
    */
   orderId = protoInt64.zero;
@@ -1224,6 +1227,11 @@ export class EventExecuteMatchProposalOrder extends Message<EventExecuteMatchPro
    */
   outputAmount = "";
 
+  /**
+   * @generated from field: bool virtual = 5;
+   */
+  virtual = false;
+
   constructor(data?: PartialMessage<EventExecuteMatchProposalOrder>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1235,6 +1243,7 @@ export class EventExecuteMatchProposalOrder extends Message<EventExecuteMatchPro
     { no: 1, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "output_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "virtual", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventExecuteMatchProposalOrder {

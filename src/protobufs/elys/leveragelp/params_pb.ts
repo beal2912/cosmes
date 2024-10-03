@@ -9,6 +9,75 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 /**
  * Params defines the parameters for the module.
  *
+ * @generated from message elys.leveragelp.LegacyParams
+ */
+export class LegacyParams extends Message<LegacyParams> {
+  /**
+   * @generated from field: string leverage_max = 1;
+   */
+  leverageMax = "";
+
+  /**
+   * @generated from field: int64 max_open_positions = 2;
+   */
+  maxOpenPositions = protoInt64.zero;
+
+  /**
+   * @generated from field: string pool_open_threshold = 3;
+   */
+  poolOpenThreshold = "";
+
+  /**
+   * @generated from field: string safety_factor = 4;
+   */
+  safetyFactor = "";
+
+  /**
+   * @generated from field: bool whitelisting_enabled = 5;
+   */
+  whitelistingEnabled = false;
+
+  /**
+   * @generated from field: int64 epoch_length = 6;
+   */
+  epochLength = protoInt64.zero;
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 6, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
+ * Params defines the parameters for the module.
+ *
  * @generated from message elys.leveragelp.Params
  */
 export class Params extends Message<Params> {
@@ -42,6 +111,18 @@ export class Params extends Message<Params> {
    */
   epochLength = protoInt64.zero;
 
+  /**
+   * @generated from field: bool fallback_enabled = 7;
+   */
+  fallbackEnabled = false;
+
+  /**
+   * Number of positions to process per block
+   *
+   * @generated from field: int64 number_per_block = 8;
+   */
+  numberPerBlock = protoInt64.zero;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -56,6 +137,8 @@ export class Params extends Message<Params> {
     { no: 4, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 6, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 7, name: "fallback_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 8, name: "number_per_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

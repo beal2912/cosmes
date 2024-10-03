@@ -7,9 +7,9 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * @generated from message elys.tier.Portfolio
+ * @generated from message elys.tier.LegacyPortfolio
  */
-export class Portfolio extends Message<Portfolio> {
+export class LegacyPortfolio extends Message<LegacyPortfolio> {
   /**
    * @generated from field: string creator = 1;
    */
@@ -17,6 +17,54 @@ export class Portfolio extends Message<Portfolio> {
 
   /**
    * @generated from field: string portfolio = 2;
+   */
+  portfolio = "";
+
+  constructor(data?: PartialMessage<LegacyPortfolio>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.LegacyPortfolio";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "portfolio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPortfolio {
+    return new LegacyPortfolio().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPortfolio {
+    return new LegacyPortfolio().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPortfolio {
+    return new LegacyPortfolio().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPortfolio | PlainMessage<LegacyPortfolio> | undefined, b: LegacyPortfolio | PlainMessage<LegacyPortfolio> | undefined): boolean {
+    return proto3.util.equals(LegacyPortfolio, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.Portfolio
+ */
+export class Portfolio extends Message<Portfolio> {
+  /**
+   * @generated from field: string date = 1;
+   */
+  date = "";
+
+  /**
+   * @generated from field: string creator = 2;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string portfolio = 3;
    */
   portfolio = "";
 
@@ -28,8 +76,9 @@ export class Portfolio extends Message<Portfolio> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.Portfolio";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "portfolio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "date", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "portfolio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Portfolio {

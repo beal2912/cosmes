@@ -14,37 +14,37 @@ import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
  */
 export enum FilterType {
   /**
-   * @generated from enum value: FilterAll = 0;
+   * @generated from enum value: FILTER_ALL = 0;
    */
-  FilterAll = 0,
+  FILTER_ALL = 0,
 
   /**
-   * @generated from enum value: FilterPerpetual = 1;
+   * @generated from enum value: FILTER_PERPETUAL = 1;
    */
-  FilterPerpetual = 1,
+  FILTER_PERPETUAL = 1,
 
   /**
-   * @generated from enum value: FilterFixedWeight = 2;
+   * @generated from enum value: FILTER_FIXED_WEIGHT = 2;
    */
-  FilterFixedWeight = 2,
+  FILTER_FIXED_WEIGHT = 2,
 
   /**
-   * @generated from enum value: FilterDynamicWeight = 3;
+   * @generated from enum value: FILTER_DYNAMIC_WEIGHT = 3;
    */
-  FilterDynamicWeight = 3,
+  FILTER_DYNAMIC_WEIGHT = 3,
 
   /**
-   * @generated from enum value: FilterLeverage = 4;
+   * @generated from enum value: FILTER_LEVERAGE = 4;
    */
-  FilterLeverage = 4,
+  FILTER_LEVERAGE = 4,
 }
 // Retrieve enum metadata with: proto3.getEnumType(FilterType)
 proto3.util.setEnumType(FilterType, "elys.amm.FilterType", [
-  { no: 0, name: "FilterAll" },
-  { no: 1, name: "FilterPerpetual" },
-  { no: 2, name: "FilterFixedWeight" },
-  { no: 3, name: "FilterDynamicWeight" },
-  { no: 4, name: "FilterLeverage" },
+  { no: 0, name: "FILTER_ALL" },
+  { no: 1, name: "FILTER_PERPETUAL" },
+  { no: 2, name: "FILTER_FIXED_WEIGHT" },
+  { no: 3, name: "FILTER_DYNAMIC_WEIGHT" },
+  { no: 4, name: "FILTER_LEVERAGE" },
 ]);
 
 /**
@@ -59,7 +59,7 @@ export class QueryEarnPoolRequest extends Message<QueryEarnPoolRequest> {
   /**
    * @generated from field: elys.amm.FilterType filter_type = 2;
    */
-  filterType = FilterType.FilterAll;
+  filterType = FilterType.FILTER_ALL;
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 3;

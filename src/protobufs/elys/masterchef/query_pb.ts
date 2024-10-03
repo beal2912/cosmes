@@ -9,6 +9,7 @@ import { Params } from "./params_pb.js";
 import { ExternalIncentive } from "./external_incentive_pb.js";
 import { PoolInfo, PoolRewardInfo, UserRewardInfo } from "./pool_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
+import { FeeInfo } from "./types_pb.js";
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -721,6 +722,148 @@ export class PoolApr extends Message<PoolApr> {
 
   static equals(a: PoolApr | PlainMessage<PoolApr> | undefined, b: PoolApr | PlainMessage<PoolApr> | undefined): boolean {
     return proto3.util.equals(PoolApr, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryShowFeeInfoRequest
+ */
+export class QueryShowFeeInfoRequest extends Message<QueryShowFeeInfoRequest> {
+  /**
+   * @generated from field: string date = 1;
+   */
+  date = "";
+
+  constructor(data?: PartialMessage<QueryShowFeeInfoRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryShowFeeInfoRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "date", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryShowFeeInfoRequest {
+    return new QueryShowFeeInfoRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryShowFeeInfoRequest {
+    return new QueryShowFeeInfoRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryShowFeeInfoRequest {
+    return new QueryShowFeeInfoRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryShowFeeInfoRequest | PlainMessage<QueryShowFeeInfoRequest> | undefined, b: QueryShowFeeInfoRequest | PlainMessage<QueryShowFeeInfoRequest> | undefined): boolean {
+    return proto3.util.equals(QueryShowFeeInfoRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryShowFeeInfoResponse
+ */
+export class QueryShowFeeInfoResponse extends Message<QueryShowFeeInfoResponse> {
+  /**
+   * @generated from field: elys.masterchef.FeeInfo fee_info = 1;
+   */
+  feeInfo?: FeeInfo;
+
+  constructor(data?: PartialMessage<QueryShowFeeInfoResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryShowFeeInfoResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "fee_info", kind: "message", T: FeeInfo },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryShowFeeInfoResponse {
+    return new QueryShowFeeInfoResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryShowFeeInfoResponse {
+    return new QueryShowFeeInfoResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryShowFeeInfoResponse {
+    return new QueryShowFeeInfoResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryShowFeeInfoResponse | PlainMessage<QueryShowFeeInfoResponse> | undefined, b: QueryShowFeeInfoResponse | PlainMessage<QueryShowFeeInfoResponse> | undefined): boolean {
+    return proto3.util.equals(QueryShowFeeInfoResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryListFeeInfoRequest
+ */
+export class QueryListFeeInfoRequest extends Message<QueryListFeeInfoRequest> {
+  constructor(data?: PartialMessage<QueryListFeeInfoRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryListFeeInfoRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryListFeeInfoRequest {
+    return new QueryListFeeInfoRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryListFeeInfoRequest {
+    return new QueryListFeeInfoRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryListFeeInfoRequest {
+    return new QueryListFeeInfoRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryListFeeInfoRequest | PlainMessage<QueryListFeeInfoRequest> | undefined, b: QueryListFeeInfoRequest | PlainMessage<QueryListFeeInfoRequest> | undefined): boolean {
+    return proto3.util.equals(QueryListFeeInfoRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryListFeeInfoResponse
+ */
+export class QueryListFeeInfoResponse extends Message<QueryListFeeInfoResponse> {
+  /**
+   * @generated from field: repeated elys.masterchef.FeeInfo fee_info = 1;
+   */
+  feeInfo: FeeInfo[] = [];
+
+  constructor(data?: PartialMessage<QueryListFeeInfoResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryListFeeInfoResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "fee_info", kind: "message", T: FeeInfo, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryListFeeInfoResponse {
+    return new QueryListFeeInfoResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryListFeeInfoResponse {
+    return new QueryListFeeInfoResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryListFeeInfoResponse {
+    return new QueryListFeeInfoResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryListFeeInfoResponse | PlainMessage<QueryListFeeInfoResponse> | undefined, b: QueryListFeeInfoResponse | PlainMessage<QueryListFeeInfoResponse> | undefined): boolean {
+    return proto3.util.equals(QueryListFeeInfoResponse, a, b);
   }
 }
 

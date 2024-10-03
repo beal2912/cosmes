@@ -5,19 +5,17 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { IncentiveInfo } from "./incentive_pb.js";
-import { DexRewardsTracker } from "./dex_rewards_tracker_pb.js";
+import { IncentiveInfo, LegacyIncentiveInfo } from "./incentive_pb.js";
+import { DexRewardsTracker, LegacyDexRewardsTracker } from "./dex_rewards_tracker_pb.js";
 
 /**
- * Params defines the parameters for the module.
- *
- * @generated from message elys.estaking.Params
+ * @generated from message elys.estaking.LegacyParams
  */
-export class Params extends Message<Params> {
+export class LegacyParams extends Message<LegacyParams> {
   /**
-   * @generated from field: elys.estaking.IncentiveInfo stake_incentives = 1;
+   * @generated from field: elys.estaking.LegacyIncentiveInfo stake_incentives = 1;
    */
-  stakeIncentives?: IncentiveInfo;
+  stakeIncentives?: LegacyIncentiveInfo;
 
   /**
    * @generated from field: string eden_commit_val = 2;
@@ -44,7 +42,80 @@ export class Params extends Message<Params> {
   /**
    * Tracking dex rewards given to stakers
    *
-   * @generated from field: elys.estaking.DexRewardsTracker dex_rewards_stakers = 7;
+   * @generated from field: elys.estaking.LegacyDexRewardsTracker dex_rewards_stakers = 7;
+   */
+  dexRewardsStakers?: LegacyDexRewardsTracker;
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.estaking.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "stake_incentives", kind: "message", T: LegacyIncentiveInfo },
+    { no: 2, name: "eden_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "edenb_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "dex_rewards_stakers", kind: "message", T: LegacyDexRewardsTracker },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
+ * Params defines the parameters for the module.
+ *
+ * @generated from message elys.estaking.Params
+ */
+export class Params extends Message<Params> {
+  /**
+   * @generated from field: elys.estaking.IncentiveInfo stake_incentives = 1;
+   */
+  stakeIncentives?: IncentiveInfo;
+
+  /**
+   * @generated from field: string eden_commit_val = 2;
+   */
+  edenCommitVal = "";
+
+  /**
+   * @generated from field: string edenb_commit_val = 3;
+   */
+  edenbCommitVal = "";
+
+  /**
+   * Maximum eden reward apr for stakers - [0 - 0.3]
+   *
+   * @generated from field: string max_eden_reward_apr_stakers = 4;
+   */
+  maxEdenRewardAprStakers = "";
+
+  /**
+   * @generated from field: string eden_boost_apr = 5;
+   */
+  edenBoostApr = "";
+
+  /**
+   * Tracking dex rewards given to stakers
+   *
+   * @generated from field: elys.estaking.DexRewardsTracker dex_rewards_stakers = 6;
    */
   dexRewardsStakers?: DexRewardsTracker;
 
@@ -59,9 +130,9 @@ export class Params extends Message<Params> {
     { no: 1, name: "stake_incentives", kind: "message", T: IncentiveInfo },
     { no: 2, name: "eden_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "edenb_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "dex_rewards_stakers", kind: "message", T: DexRewardsTracker },
+    { no: 4, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "dex_rewards_stakers", kind: "message", T: DexRewardsTracker },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

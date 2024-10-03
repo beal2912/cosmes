@@ -1167,6 +1167,264 @@ export class GaugeWeight extends Message<GaugeWeight> {
 }
 
 /**
+ * @generated from message osmosis.incentives.QueryInternalGaugesRequest
+ */
+export class QueryInternalGaugesRequest extends Message<QueryInternalGaugesRequest> {
+  /**
+   * Pagination defines pagination for the request
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryInternalGaugesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryInternalGaugesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryInternalGaugesRequest {
+    return new QueryInternalGaugesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryInternalGaugesRequest {
+    return new QueryInternalGaugesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryInternalGaugesRequest {
+    return new QueryInternalGaugesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryInternalGaugesRequest | PlainMessage<QueryInternalGaugesRequest> | undefined, b: QueryInternalGaugesRequest | PlainMessage<QueryInternalGaugesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryInternalGaugesRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.incentives.QueryInternalGaugesResponse
+ */
+export class QueryInternalGaugesResponse extends Message<QueryInternalGaugesResponse> {
+  /**
+   * @generated from field: repeated osmosis.incentives.Gauge gauges = 1;
+   */
+  gauges: Gauge[] = [];
+
+  /**
+   * Pagination defines pagination for the response
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryInternalGaugesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryInternalGaugesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "gauges", kind: "message", T: Gauge, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryInternalGaugesResponse {
+    return new QueryInternalGaugesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryInternalGaugesResponse {
+    return new QueryInternalGaugesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryInternalGaugesResponse {
+    return new QueryInternalGaugesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryInternalGaugesResponse | PlainMessage<QueryInternalGaugesResponse> | undefined, b: QueryInternalGaugesResponse | PlainMessage<QueryInternalGaugesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryInternalGaugesResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.incentives.QueryExternalGaugesRequest
+ */
+export class QueryExternalGaugesRequest extends Message<QueryExternalGaugesRequest> {
+  /**
+   * Pagination defines pagination for the request
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryExternalGaugesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryExternalGaugesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryExternalGaugesRequest {
+    return new QueryExternalGaugesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryExternalGaugesRequest {
+    return new QueryExternalGaugesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryExternalGaugesRequest {
+    return new QueryExternalGaugesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryExternalGaugesRequest | PlainMessage<QueryExternalGaugesRequest> | undefined, b: QueryExternalGaugesRequest | PlainMessage<QueryExternalGaugesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryExternalGaugesRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.incentives.QueryExternalGaugesResponse
+ */
+export class QueryExternalGaugesResponse extends Message<QueryExternalGaugesResponse> {
+  /**
+   * @generated from field: repeated osmosis.incentives.Gauge gauges = 1;
+   */
+  gauges: Gauge[] = [];
+
+  /**
+   * Pagination defines pagination for the response
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryExternalGaugesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryExternalGaugesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "gauges", kind: "message", T: Gauge, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryExternalGaugesResponse {
+    return new QueryExternalGaugesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryExternalGaugesResponse {
+    return new QueryExternalGaugesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryExternalGaugesResponse {
+    return new QueryExternalGaugesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryExternalGaugesResponse | PlainMessage<QueryExternalGaugesResponse> | undefined, b: QueryExternalGaugesResponse | PlainMessage<QueryExternalGaugesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryExternalGaugesResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.incentives.QueryGaugesByPoolIDRequest
+ */
+export class QueryGaugesByPoolIDRequest extends Message<QueryGaugesByPoolIDRequest> {
+  /**
+   * @generated from field: uint64 id = 1;
+   */
+  id = protoInt64.zero;
+
+  /**
+   * Pagination defines pagination for the request
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryGaugesByPoolIDRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryGaugesByPoolIDRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugesByPoolIDRequest {
+    return new QueryGaugesByPoolIDRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugesByPoolIDRequest {
+    return new QueryGaugesByPoolIDRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugesByPoolIDRequest {
+    return new QueryGaugesByPoolIDRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGaugesByPoolIDRequest | PlainMessage<QueryGaugesByPoolIDRequest> | undefined, b: QueryGaugesByPoolIDRequest | PlainMessage<QueryGaugesByPoolIDRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGaugesByPoolIDRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.incentives.QueryGaugesByPoolIDResponse
+ */
+export class QueryGaugesByPoolIDResponse extends Message<QueryGaugesByPoolIDResponse> {
+  /**
+   * @generated from field: repeated osmosis.incentives.Gauge gauges = 1;
+   */
+  gauges: Gauge[] = [];
+
+  /**
+   * Pagination defines pagination for the response
+   *
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryGaugesByPoolIDResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.incentives.QueryGaugesByPoolIDResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "gauges", kind: "message", T: Gauge, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugesByPoolIDResponse {
+    return new QueryGaugesByPoolIDResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugesByPoolIDResponse {
+    return new QueryGaugesByPoolIDResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugesByPoolIDResponse {
+    return new QueryGaugesByPoolIDResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGaugesByPoolIDResponse | PlainMessage<QueryGaugesByPoolIDResponse> | undefined, b: QueryGaugesByPoolIDResponse | PlainMessage<QueryGaugesByPoolIDResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGaugesByPoolIDResponse, a, b);
+  }
+}
+
+/**
  * @generated from message osmosis.incentives.ParamsRequest
  */
 export class ParamsRequest extends Message<ParamsRequest> {

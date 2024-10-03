@@ -10,7 +10,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
- * Params defines the EVM module parameters
+ * Params defines the feemarket module parameters
  *
  * @generated from message ethermint.feemarket.v1.Params
  */

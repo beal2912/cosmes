@@ -92,6 +92,10 @@ const REPOS = [
     repo: "pryzm-finance/pryzmjs#main",
     paths: ["proto"],
   },
+  {
+    repo: "sunriselayer/sunrise#main",
+    paths: ["proto"],
+  },
 ];
 /**
  * TODO: Add more repos here when necessary.

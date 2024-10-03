@@ -191,11 +191,16 @@ export class GenesisState extends Message<GenesisState> {
   pendingTokenIntroductionList: PendingTokenIntroduction[] = [];
 
   /**
-   * this line is used by starport scaffolding # genesis/proto/state
-   *
    * @generated from field: repeated pryzm.amm.v1.DisabledOrderPair disabled_order_pair_list = 16;
    */
   disabledOrderPairList: DisabledOrderPair[] = [];
+
+  /**
+   * this line is used by starport scaffolding # genesis/proto/state
+   *
+   * @generated from field: bytes next_executable_order_key = 17;
+   */
+  nextExecutableOrderKey = new Uint8Array(0);
 
   constructor(data?: PartialMessage<GenesisState>) {
     super();
@@ -221,6 +226,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 14, name: "oracle_price_pair_list", kind: "message", T: OraclePricePair, repeated: true },
     { no: 15, name: "pending_token_introduction_list", kind: "message", T: PendingTokenIntroduction, repeated: true },
     { no: 16, name: "disabled_order_pair_list", kind: "message", T: DisabledOrderPair, repeated: true },
+    { no: 17, name: "next_executable_order_key", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

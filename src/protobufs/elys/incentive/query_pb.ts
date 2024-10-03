@@ -273,6 +273,11 @@ export class PoolRewards extends Message<PoolRewards> {
    */
   rewardCoins: Coin[] = [];
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin eden_forward = 4;
+   */
+  edenForward?: Coin;
+
   constructor(data?: PartialMessage<PoolRewards>) {
     super();
     proto3.util.initPartial(data, this);
@@ -284,6 +289,7 @@ export class PoolRewards extends Message<PoolRewards> {
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "rewards_usd", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "reward_coins", kind: "message", T: Coin, repeated: true },
+    { no: 4, name: "eden_forward", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolRewards {

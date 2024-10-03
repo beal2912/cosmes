@@ -401,7 +401,7 @@ export class VestingDetails extends Message<VestingDetails> {
   id = "";
 
   /**
-   * @generated from field: string totalVesting = 2;
+   * @generated from field: string total_vesting = 2;
    */
   totalVesting = "";
 
@@ -411,7 +411,7 @@ export class VestingDetails extends Message<VestingDetails> {
   claimed = "";
 
   /**
-   * @generated from field: string vestedSoFar = 4;
+   * @generated from field: string vested_so_far = 4;
    */
   vestedSoFar = "";
 
@@ -429,9 +429,9 @@ export class VestingDetails extends Message<VestingDetails> {
   static readonly typeName = "elys.commitment.VestingDetails";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "totalVesting", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_vesting", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "claimed", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "vestedSoFar", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "vested_so_far", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "remaining_blocks", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 

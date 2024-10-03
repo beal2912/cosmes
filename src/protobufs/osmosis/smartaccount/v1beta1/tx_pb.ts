@@ -18,9 +18,9 @@ export class MsgAddAuthenticator extends Message<MsgAddAuthenticator> {
   sender = "";
 
   /**
-   * @generated from field: string type = 2;
+   * @generated from field: string authenticator_type = 2;
    */
-  type = "";
+  authenticatorType = "";
 
   /**
    * @generated from field: bytes data = 3;
@@ -36,7 +36,7 @@ export class MsgAddAuthenticator extends Message<MsgAddAuthenticator> {
   static readonly typeName = "osmosis.smartaccount.v1beta1.MsgAddAuthenticator";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "type", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "authenticator_type", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "data", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
   ]);
 

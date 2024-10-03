@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstimationRequest, QueryCloseEstimationResponse, QueryGetAllToPayRequest, QueryGetAllToPayResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Query";
 
@@ -137,5 +137,29 @@ export const QueryOpenEstimationService = {
   method: "OpenEstimation",
   Request: QueryOpenEstimationRequest,
   Response: QueryOpenEstimationResponse,
+} as const;
+
+/**
+ * Queries a list of GetAllToPay items.
+ *
+ * @generated from rpc elys.perpetual.Query.GetAllToPay
+ */
+export const QueryGetAllToPayService = {
+  typeName: TYPE_NAME,
+  method: "GetAllToPay",
+  Request: QueryGetAllToPayRequest,
+  Response: QueryGetAllToPayResponse,
+} as const;
+
+/**
+ * Queries a list of CloseEstimation items.
+ *
+ * @generated from rpc elys.perpetual.Query.CloseEstimation
+ */
+export const QueryCloseEstimationService = {
+  typeName: TYPE_NAME,
+  method: "CloseEstimation",
+  Request: QueryCloseEstimationRequest,
+  Response: QueryCloseEstimationResponse,
 } as const;
 

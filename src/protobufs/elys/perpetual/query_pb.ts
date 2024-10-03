@@ -5,11 +5,60 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { MTP, Position, ToPay } from "./types_pb.js";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
-import { MTP, Position } from "./types_pb.js";
-import { Pool } from "./pool_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
+import { PoolAsset } from "./pool_pb.js";
+
+/**
+ * @generated from message elys.perpetual.MtpAndPrice
+ */
+export class MtpAndPrice extends Message<MtpAndPrice> {
+  /**
+   * @generated from field: elys.perpetual.MTP mtp = 1;
+   */
+  mtp?: MTP;
+
+  /**
+   * @generated from field: string trading_asset_price = 2;
+   */
+  tradingAssetPrice = "";
+
+  /**
+   * @generated from field: string pnl = 3;
+   */
+  pnl = "";
+
+  constructor(data?: PartialMessage<MtpAndPrice>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MtpAndPrice";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "mtp", kind: "message", T: MTP },
+    { no: 2, name: "trading_asset_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "pnl", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MtpAndPrice {
+    return new MtpAndPrice().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MtpAndPrice {
+    return new MtpAndPrice().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MtpAndPrice {
+    return new MtpAndPrice().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MtpAndPrice | PlainMessage<MtpAndPrice> | undefined, b: MtpAndPrice | PlainMessage<MtpAndPrice> | undefined): boolean {
+    return proto3.util.equals(MtpAndPrice, a, b);
+  }
+}
 
 /**
  * ParamsRequest is request type for the Query/Params RPC method.
@@ -127,9 +176,9 @@ export class PositionsRequest extends Message<PositionsRequest> {
  */
 export class PositionsResponse extends Message<PositionsResponse> {
   /**
-   * @generated from field: repeated elys.perpetual.MTP mtps = 1;
+   * @generated from field: repeated elys.perpetual.MtpAndPrice mtps = 1;
    */
-  mtps: MTP[] = [];
+  mtps: MtpAndPrice[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -144,7 +193,7 @@ export class PositionsResponse extends Message<PositionsResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.PositionsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "mtps", kind: "message", T: MTP, repeated: true },
+    { no: 1, name: "mtps", kind: "message", T: MtpAndPrice, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -213,9 +262,9 @@ export class PositionsByPoolRequest extends Message<PositionsByPoolRequest> {
  */
 export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
   /**
-   * @generated from field: repeated elys.perpetual.MTP mtps = 1;
+   * @generated from field: repeated elys.perpetual.MtpAndPrice mtps = 1;
    */
-  mtps: MTP[] = [];
+  mtps: MtpAndPrice[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -230,7 +279,7 @@ export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.PositionsByPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "mtps", kind: "message", T: MTP, repeated: true },
+    { no: 1, name: "mtps", kind: "message", T: MtpAndPrice, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -373,9 +422,9 @@ export class PositionsForAddressRequest extends Message<PositionsForAddressReque
  */
 export class PositionsForAddressResponse extends Message<PositionsForAddressResponse> {
   /**
-   * @generated from field: repeated elys.perpetual.MTP mtps = 1;
+   * @generated from field: repeated elys.perpetual.MtpAndPrice mtps = 1;
    */
-  mtps: MTP[] = [];
+  mtps: MtpAndPrice[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -390,7 +439,7 @@ export class PositionsForAddressResponse extends Message<PositionsForAddressResp
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.PositionsForAddressResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "mtps", kind: "message", T: MTP, repeated: true },
+    { no: 1, name: "mtps", kind: "message", T: MtpAndPrice, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -613,9 +662,9 @@ export class QueryGetPoolRequest extends Message<QueryGetPoolRequest> {
  */
 export class QueryGetPoolResponse extends Message<QueryGetPoolResponse> {
   /**
-   * @generated from field: elys.perpetual.Pool pool = 1;
+   * @generated from field: elys.perpetual.PoolResponse pool = 1;
    */
-  pool?: Pool;
+  pool?: PoolResponse;
 
   constructor(data?: PartialMessage<QueryGetPoolResponse>) {
     super();
@@ -625,7 +674,7 @@ export class QueryGetPoolResponse extends Message<QueryGetPoolResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.QueryGetPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool", kind: "message", T: Pool },
+    { no: 1, name: "pool", kind: "message", T: PoolResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolResponse {
@@ -687,9 +736,9 @@ export class QueryAllPoolRequest extends Message<QueryAllPoolRequest> {
  */
 export class QueryAllPoolResponse extends Message<QueryAllPoolResponse> {
   /**
-   * @generated from field: repeated elys.perpetual.Pool pool = 1;
+   * @generated from field: repeated elys.perpetual.PoolResponse pool = 1;
    */
-  pool: Pool[] = [];
+  pool: PoolResponse[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -704,7 +753,7 @@ export class QueryAllPoolResponse extends Message<QueryAllPoolResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.QueryAllPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool", kind: "message", T: Pool, repeated: true },
+    { no: 1, name: "pool", kind: "message", T: PoolResponse, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -773,9 +822,9 @@ export class MTPRequest extends Message<MTPRequest> {
  */
 export class MTPResponse extends Message<MTPResponse> {
   /**
-   * @generated from field: elys.perpetual.MTP mtp = 1;
+   * @generated from field: elys.perpetual.MtpAndPrice mtp = 1;
    */
-  mtp?: MTP;
+  mtp?: MtpAndPrice;
 
   constructor(data?: PartialMessage<MTPResponse>) {
     super();
@@ -785,7 +834,7 @@ export class MTPResponse extends Message<MTPResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.MTPResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "mtp", kind: "message", T: MTP },
+    { no: 1, name: "mtp", kind: "message", T: MtpAndPrice },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MTPResponse {
@@ -897,84 +946,89 @@ export class QueryOpenEstimationResponse extends Message<QueryOpenEstimationResp
   collateral?: Coin;
 
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin min_collateral = 5;
+   * @generated from field: string interest_amount = 5;
    */
-  minCollateral?: Coin;
+  interestAmount = "";
 
   /**
-   * @generated from field: bool valid_collateral = 6;
-   */
-  validCollateral = false;
-
-  /**
-   * @generated from field: cosmos.base.v1beta1.Coin position_size = 7;
+   * @generated from field: cosmos.base.v1beta1.Coin position_size = 6;
    */
   positionSize?: Coin;
 
   /**
-   * @generated from field: string swap_fee = 8;
+   * @generated from field: string swap_fee = 7;
    */
   swapFee = "";
 
   /**
-   * @generated from field: string discount = 9;
+   * @generated from field: string discount = 8;
    */
   discount = "";
 
   /**
-   * @generated from field: string open_price = 10;
+   * @generated from field: string open_price = 9;
    */
   openPrice = "";
 
   /**
-   * @generated from field: string take_profit_price = 11;
+   * @generated from field: string take_profit_price = 10;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string liquidation_price = 12;
+   * @generated from field: string liquidation_price = 11;
    */
   liquidationPrice = "";
 
   /**
-   * @generated from field: string estimated_pnl = 13;
+   * @generated from field: string estimated_pnl = 12;
    */
   estimatedPnl = "";
 
   /**
-   * @generated from field: string estimated_pnl_denom = 14;
+   * @generated from field: string estimated_pnl_denom = 13;
    */
   estimatedPnlDenom = "";
 
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin available_liquidity = 15;
+   * @generated from field: cosmos.base.v1beta1.Coin available_liquidity = 14;
    */
   availableLiquidity?: Coin;
 
   /**
-   * @generated from field: string slippage = 16;
+   * @generated from field: string slippage = 15;
    */
   slippage = "";
 
   /**
-   * @generated from field: string weight_balance_ratio = 17;
+   * @generated from field: string weight_balance_ratio = 16;
    */
   weightBalanceRatio = "";
 
   /**
-   * @generated from field: string borrow_interest_rate = 18;
+   * @generated from field: string borrow_interest_rate = 17;
    */
   borrowInterestRate = "";
 
   /**
-   * @generated from field: string funding_rate = 19;
+   * @generated from field: string funding_rate = 18;
    */
   fundingRate = "";
 
   /**
-   * @generated from field: string price_impact = 20;
+   * @generated from field: string price_impact = 19;
    */
   priceImpact = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin borrow_fee = 20;
+   */
+  borrowFee?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin funding_fee = 21;
+   */
+  fundingFee?: Coin;
 
   constructor(data?: PartialMessage<QueryOpenEstimationResponse>) {
     super();
@@ -988,22 +1042,23 @@ export class QueryOpenEstimationResponse extends Message<QueryOpenEstimationResp
     { no: 2, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "collateral", kind: "message", T: Coin },
-    { no: 5, name: "min_collateral", kind: "message", T: Coin },
-    { no: 6, name: "valid_collateral", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 7, name: "position_size", kind: "message", T: Coin },
-    { no: 8, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "liquidation_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "estimated_pnl", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "estimated_pnl_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "available_liquidity", kind: "message", T: Coin },
-    { no: 16, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 17, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 18, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "price_impact", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "position_size", kind: "message", T: Coin },
+    { no: 7, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "liquidation_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "estimated_pnl", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "estimated_pnl_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "available_liquidity", kind: "message", T: Coin },
+    { no: 15, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "price_impact", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "borrow_fee", kind: "message", T: Coin },
+    { no: 21, name: "funding_fee", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstimationResponse {
@@ -1020,6 +1075,277 @@ export class QueryOpenEstimationResponse extends Message<QueryOpenEstimationResp
 
   static equals(a: QueryOpenEstimationResponse | PlainMessage<QueryOpenEstimationResponse> | undefined, b: QueryOpenEstimationResponse | PlainMessage<QueryOpenEstimationResponse> | undefined): boolean {
     return proto3.util.equals(QueryOpenEstimationResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryGetAllToPayRequest
+ */
+export class QueryGetAllToPayRequest extends Message<QueryGetAllToPayRequest> {
+  constructor(data?: PartialMessage<QueryGetAllToPayRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryGetAllToPayRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetAllToPayRequest {
+    return new QueryGetAllToPayRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetAllToPayRequest {
+    return new QueryGetAllToPayRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetAllToPayRequest {
+    return new QueryGetAllToPayRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetAllToPayRequest | PlainMessage<QueryGetAllToPayRequest> | undefined, b: QueryGetAllToPayRequest | PlainMessage<QueryGetAllToPayRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetAllToPayRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryGetAllToPayResponse
+ */
+export class QueryGetAllToPayResponse extends Message<QueryGetAllToPayResponse> {
+  /**
+   * @generated from field: repeated elys.perpetual.ToPay to_pay = 1;
+   */
+  toPay: ToPay[] = [];
+
+  constructor(data?: PartialMessage<QueryGetAllToPayResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryGetAllToPayResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "to_pay", kind: "message", T: ToPay, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetAllToPayResponse {
+    return new QueryGetAllToPayResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetAllToPayResponse {
+    return new QueryGetAllToPayResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetAllToPayResponse {
+    return new QueryGetAllToPayResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetAllToPayResponse | PlainMessage<QueryGetAllToPayResponse> | undefined, b: QueryGetAllToPayResponse | PlainMessage<QueryGetAllToPayResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetAllToPayResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.PoolResponse
+ */
+export class PoolResponse extends Message<PoolResponse> {
+  /**
+   * @generated from field: uint64 amm_pool_id = 1;
+   */
+  ammPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string health = 2;
+   */
+  health = "";
+
+  /**
+   * @generated from field: bool enabled = 3;
+   */
+  enabled = false;
+
+  /**
+   * @generated from field: bool closed = 4;
+   */
+  closed = false;
+
+  /**
+   * @generated from field: string borrow_interest_rate = 5;
+   */
+  borrowInterestRate = "";
+
+  /**
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 6;
+   */
+  poolAssetsLong: PoolAsset[] = [];
+
+  /**
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 7;
+   */
+  poolAssetsShort: PoolAsset[] = [];
+
+  /**
+   * @generated from field: int64 last_height_borrow_interest_rate_computed = 8;
+   */
+  lastHeightBorrowInterestRateComputed = protoInt64.zero;
+
+  /**
+   * funding rate, if positive longs pay shorts, if negative shorts pay longs
+   *
+   * @generated from field: string funding_rate = 9;
+   */
+  fundingRate = "";
+
+  /**
+   * @generated from field: string net_open_interest = 10;
+   */
+  netOpenInterest = "";
+
+  constructor(data?: PartialMessage<PoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.PoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "closed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
+    { no: 7, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
+    { no: 8, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 9, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "net_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolResponse {
+    return new PoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PoolResponse {
+    return new PoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PoolResponse {
+    return new PoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PoolResponse | PlainMessage<PoolResponse> | undefined, b: PoolResponse | PlainMessage<PoolResponse> | undefined): boolean {
+    return proto3.util.equals(PoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryCloseEstimationRequest
+ */
+export class QueryCloseEstimationRequest extends Message<QueryCloseEstimationRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  /**
+   * @generated from field: uint64 position_id = 2;
+   */
+  positionId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryCloseEstimationRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryCloseEstimationRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCloseEstimationRequest {
+    return new QueryCloseEstimationRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryCloseEstimationRequest {
+    return new QueryCloseEstimationRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryCloseEstimationRequest {
+    return new QueryCloseEstimationRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryCloseEstimationRequest | PlainMessage<QueryCloseEstimationRequest> | undefined, b: QueryCloseEstimationRequest | PlainMessage<QueryCloseEstimationRequest> | undefined): boolean {
+    return proto3.util.equals(QueryCloseEstimationRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryCloseEstimationResponse
+ */
+export class QueryCloseEstimationResponse extends Message<QueryCloseEstimationResponse> {
+  /**
+   * @generated from field: elys.perpetual.Position position = 1;
+   */
+  position = Position.UNSPECIFIED;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin position_size = 2;
+   */
+  positionSize?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin liabilities = 3;
+   */
+  liabilities?: Coin;
+
+  /**
+   * @generated from field: string price_impact = 4;
+   */
+  priceImpact = "";
+
+  /**
+   * @generated from field: string swap_fee = 5;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin return_amount = 6;
+   */
+  returnAmount?: Coin;
+
+  constructor(data?: PartialMessage<QueryCloseEstimationResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryCloseEstimationResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
+    { no: 2, name: "position_size", kind: "message", T: Coin },
+    { no: 3, name: "liabilities", kind: "message", T: Coin },
+    { no: 4, name: "price_impact", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "return_amount", kind: "message", T: Coin },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCloseEstimationResponse {
+    return new QueryCloseEstimationResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryCloseEstimationResponse {
+    return new QueryCloseEstimationResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryCloseEstimationResponse {
+    return new QueryCloseEstimationResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryCloseEstimationResponse | PlainMessage<QueryCloseEstimationResponse> | undefined, b: QueryCloseEstimationResponse | PlainMessage<QueryCloseEstimationResponse> | undefined): boolean {
+    return proto3.util.equals(QueryCloseEstimationResponse, a, b);
   }
 }
 

@@ -50,26 +50,11 @@ proto3.util.setEnumType(AccessType, "ethermint.evm.v1.AccessType", [
  */
 export class Params extends Message<Params> {
   /**
-   * evm_denom represents the token denomination used to run the EVM state
-   * transitions.
-   *
-   * @generated from field: string evm_denom = 1;
-   */
-  evmDenom = "";
-
-  /**
    * extra_eips defines the additional EIPs for the vm.Config
    *
    * @generated from field: repeated string extra_eips = 4;
    */
   extraEips: string[] = [];
-
-  /**
-   * chain_config defines the EVM chain configuration parameters
-   *
-   * @generated from field: ethermint.evm.v1.ChainConfig chain_config = 5;
-   */
-  chainConfig?: ChainConfig;
 
   /**
    * allow_unprotected_txs defines if replay-protected (i.e non EIP155
@@ -109,9 +94,7 @@ export class Params extends Message<Params> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "ethermint.evm.v1.Params";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "evm_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "extra_eips", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-    { no: 5, name: "chain_config", kind: "message", T: ChainConfig },
     { no: 6, name: "allow_unprotected_txs", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 8, name: "evm_channels", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 9, name: "access_control", kind: "message", T: AccessControl },
@@ -378,6 +361,13 @@ export class ChainConfig extends Message<ChainConfig> {
    */
   cancunBlock = "";
 
+  /**
+   * chain_id is the id of the chain (EIP-155)
+   *
+   * @generated from field: uint64 chain_id = 24;
+   */
+  chainId = protoInt64.zero;
+
   constructor(data?: PartialMessage<ChainConfig>) {
     super();
     proto3.util.initPartial(data, this);
@@ -405,6 +395,7 @@ export class ChainConfig extends Message<ChainConfig> {
     { no: 21, name: "merge_netsplit_block", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 22, name: "shanghai_block", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 23, name: "cancun_block", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 24, name: "chain_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChainConfig {

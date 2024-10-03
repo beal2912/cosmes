@@ -816,6 +816,21 @@ export class EstimateGasResponse extends Message<EstimateGasResponse> {
    */
   gas = protoInt64.zero;
 
+  /**
+   * ret is the returned data from evm function (result or data supplied with revert
+   * opcode)
+   *
+   * @generated from field: bytes ret = 2;
+   */
+  ret = new Uint8Array(0);
+
+  /**
+   * vm_error is the error returned by vm execution
+   *
+   * @generated from field: string vm_error = 3;
+   */
+  vmError = "";
+
   constructor(data?: PartialMessage<EstimateGasResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -825,6 +840,8 @@ export class EstimateGasResponse extends Message<EstimateGasResponse> {
   static readonly typeName = "ethermint.evm.v1.EstimateGasResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "gas", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "ret", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: "vm_error", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EstimateGasResponse {

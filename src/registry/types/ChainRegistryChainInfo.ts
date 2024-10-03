@@ -12,6 +12,18 @@ export type ChainRegistryChainInfo = ChainRegistryChainInfo1 & ChainRegistryChai
 export type ChainRegistryChainInfo1 = {
   [k: string]: unknown | undefined;
 };
+/**
+ * Simple version string (e.g., 'v1.0.0').
+ */
+export type Version = string;
+/**
+ * URL of the code repository.
+ */
+export type Repo = string;
+/**
+ * Detailed version identifier (e.g., 'v1.0.0-a1s2f43g').
+ */
+export type Tag = string;
 
 export interface ChainRegistryChainInfo2 {
   $schema?: string;
@@ -104,35 +116,25 @@ export interface ChainRegistryChainInfo2 {
   codebase?: {
     git_repo?: string;
     recommended_version?: string;
-    /**
-     * Minimum accepted go version to build the binary.
-     */
-    go_version?: string;
     compatible_versions?: string[];
-    binaries?: {
-      "linux/amd64"?: string;
-      "linux/arm64"?: string;
-      "darwin/amd64"?: string;
-      "darwin/arm64"?: string;
-      "windows/amd64"?: string;
-      "windows/arm64"?: string;
-    };
+    language?: Language;
+    binaries?: Binaries;
     cosmos_sdk_version?: string;
-    consensus?: {
-      type: "tendermint" | "cometbft" | "sei-tendermint";
-      version?: string;
-    };
+    sdk?: Sdk;
+    consensus?: Consensus;
     cosmwasm_version?: string;
     cosmwasm_enabled?: boolean;
     /**
      * Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm
      */
     cosmwasm_path?: string;
+    cosmwasm?: Cosmwasm;
     ibc_go_version?: string;
     /**
      * List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.
      */
     ics_enabled?: ("ics20-1" | "ics27-1" | "mauth")[];
+    ibc?: Ibc;
     genesis?: {
       name?: string;
       genesis_url: string;
@@ -164,35 +166,25 @@ export interface ChainRegistryChainInfo2 {
        */
       next_version_name?: string;
       recommended_version?: string;
-      /**
-       * Minimum accepted go version to build the binary.
-       */
-      go_version?: string;
       compatible_versions?: string[];
+      language?: Language;
       cosmos_sdk_version?: string;
-      consensus?: {
-        type: "tendermint" | "cometbft" | "sei-tendermint";
-        version?: string;
-      };
+      sdk?: Sdk;
+      consensus?: Consensus;
       cosmwasm_version?: string;
       cosmwasm_enabled?: boolean;
       /**
        * Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm
        */
       cosmwasm_path?: string;
+      cosmwasm?: Cosmwasm;
       ibc_go_version?: string;
       /**
        * List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.
        */
       ics_enabled?: ("ics20-1" | "ics27-1" | "mauth")[];
-      binaries?: {
-        "linux/amd64"?: string;
-        "linux/arm64"?: string;
-        "darwin/amd64"?: string;
-        "darwin/arm64"?: string;
-        "windows/amd64"?: string;
-        "windows/arm64"?: string;
-      };
+      ibc?: Ibc;
+      binaries?: Binaries;
     }[];
   };
   images?: (
@@ -237,6 +229,52 @@ export interface FeeToken {
 }
 export interface StakingToken {
   denom: string;
+}
+export interface Language {
+  type: "go" | "rust" | "solidity" | "other";
+  version?: Version;
+  repo?: Repo;
+  tag?: Tag;
+}
+export interface Binaries {
+  "linux/amd64"?: string;
+  "linux/arm64"?: string;
+  "darwin/amd64"?: string;
+  "darwin/arm64"?: string;
+  "windows/amd64"?: string;
+  "windows/arm64"?: string;
+}
+export interface Sdk {
+  type: "cosmos" | "penumbra" | "other";
+  version?: Version;
+  repo?: Repo;
+  tag?: Tag;
+}
+export interface Consensus {
+  type: "tendermint" | "cometbft" | "sei-tendermint";
+  version?: Version;
+  repo?: Repo;
+  tag?: Tag;
+}
+export interface Cosmwasm {
+  version?: Version;
+  repo?: Repo;
+  tag?: Tag;
+  enabled?: boolean;
+  /**
+   * Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm
+   */
+  path?: string;
+}
+export interface Ibc {
+  type: "go" | "rust" | "other";
+  version?: Version;
+  repo?: Repo;
+  tag?: Tag;
+  /**
+   * List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.
+   */
+  ics_enabled?: ("ics20-1" | "ics27-1" | "mauth")[];
 }
 export interface Peer {
   id: string;

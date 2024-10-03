@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddAssetInfo, MsgAddAssetInfoResponse, MsgAddPriceFeeders, MsgAddPriceFeedersResponse, MsgDeletePriceFeeder, MsgDeletePriceFeederResponse, MsgFeedMultiplePrices, MsgFeedMultiplePricesResponse, MsgFeedPrice, MsgFeedPriceResponse, MsgRemoveAssetInfo, MsgRemoveAssetInfoResponse, MsgRemovePriceFeeders, MsgRemovePriceFeedersResponse, MsgSetPriceFeeder, MsgSetPriceFeederResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgAddPriceFeeders, MsgAddPriceFeedersResponse, MsgCreateAssetInfo, MsgCreateAssetInfoResponse, MsgDeletePriceFeeder, MsgDeletePriceFeederResponse, MsgFeedMultiplePrices, MsgFeedMultiplePricesResponse, MsgFeedPrice, MsgFeedPriceResponse, MsgRemoveAssetInfo, MsgRemoveAssetInfoResponse, MsgRemovePriceFeeders, MsgRemovePriceFeedersResponse, MsgSetPriceFeeder, MsgSetPriceFeederResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.oracle.Msg";
 
@@ -50,16 +50,6 @@ export const MsgDeletePriceFeederService = {
 /**
  * proposals
  *
- * @generated from rpc elys.oracle.Msg.AddAssetInfo
- */
-export const MsgAddAssetInfoService = {
-  typeName: TYPE_NAME,
-  method: "AddAssetInfo",
-  Request: MsgAddAssetInfo,
-  Response: MsgAddAssetInfoResponse,
-} as const;
-
-/**
  * @generated from rpc elys.oracle.Msg.RemoveAssetInfo
  */
 export const MsgRemoveAssetInfoService = {
@@ -90,8 +80,6 @@ export const MsgRemovePriceFeedersService = {
 } as const;
 
 /**
- * this line is used by starport scaffolding # proto/tx/rpc
- *
  * @generated from rpc elys.oracle.Msg.UpdateParams
  */
 export const MsgUpdateParamsService = {
@@ -99,5 +87,17 @@ export const MsgUpdateParamsService = {
   method: "UpdateParams",
   Request: MsgUpdateParams,
   Response: MsgUpdateParamsResponse,
+} as const;
+
+/**
+ * this line is used by starport scaffolding # proto/tx/rpc
+ *
+ * @generated from rpc elys.oracle.Msg.CreateAssetInfo
+ */
+export const MsgCreateAssetInfoService = {
+  typeName: TYPE_NAME,
+  method: "CreateAssetInfo",
+  Request: MsgCreateAssetInfo,
+  Response: MsgCreateAssetInfoResponse,
 } as const;
 

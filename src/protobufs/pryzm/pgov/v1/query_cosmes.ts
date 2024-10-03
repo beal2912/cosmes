@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllProposalRequest, QueryAllProposalResponse, QueryAllStakedPAssetRequest, QueryAllStakedPAssetResponse, QueryAllTotalStakedPAssetRequest, QueryAllTotalStakedPAssetResponse, QueryAllVoteRequest, QueryAllVoteResponse, QueryGetProposalRequest, QueryGetProposalResponse, QueryGetStakedPAssetRequest, QueryGetStakedPAssetResponse, QueryGetTotalStakedPAssetRequest, QueryGetTotalStakedPAssetResponse, QueryGetVoteRequest, QueryGetVoteResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllProposalRequest, QueryAllProposalResponse, QueryAllStakedPAssetRequest, QueryAllStakedPAssetResponse, QueryAllTotalStakedPAssetRequest, QueryAllTotalStakedPAssetResponse, QueryAllVoteRequest, QueryAllVoteResponse, QueryGetProposalRequest, QueryGetProposalResponse, QueryGetStakedPAssetRequest, QueryGetStakedPAssetResponse, QueryGetTotalStakedPAssetRequest, QueryGetTotalStakedPAssetResponse, QueryGetVoteRequest, QueryGetVoteResponse, QueryParamsRequest, QueryParamsResponse, QueryTallyResultRequest, QueryTallyResultResponse } from "./query_pb.js";
 
 const TYPE_NAME = "pryzm.pgov.v1.Query";
 
@@ -109,5 +109,17 @@ export const QueryProposalAllService = {
   method: "ProposalAll",
   Request: QueryAllProposalRequest,
   Response: QueryAllProposalResponse,
+} as const;
+
+/**
+ * Queries a list of Proposal items.
+ *
+ * @generated from rpc pryzm.pgov.v1.Query.TallyResult
+ */
+export const QueryTallyResultService = {
+  typeName: TYPE_NAME,
+  method: "TallyResult",
+  Request: QueryTallyResultRequest,
+  Response: QueryTallyResultResponse,
 } as const;
 

@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Position } from "./types_pb.js";
+import { Position, PositionRequest } from "./types_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Params } from "./params_pb.js";
 
@@ -43,6 +43,11 @@ export class MsgOpen extends Message<MsgOpen> {
    */
   takeProfitPrice = "";
 
+  /**
+   * @generated from field: string stop_loss_price = 28;
+   */
+  stopLossPrice = "";
+
   constructor(data?: PartialMessage<MsgOpen>) {
     super();
     proto3.util.initPartial(data, this);
@@ -57,6 +62,7 @@ export class MsgOpen extends Message<MsgOpen> {
     { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "collateral", kind: "message", T: Coin },
     { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 28, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgOpen {
@@ -115,6 +121,11 @@ export class MsgBrokerOpen extends Message<MsgBrokerOpen> {
    */
   owner = "";
 
+  /**
+   * @generated from field: string stop_loss_price = 28;
+   */
+  stopLossPrice = "";
+
   constructor(data?: PartialMessage<MsgBrokerOpen>) {
     super();
     proto3.util.initPartial(data, this);
@@ -130,6 +141,7 @@ export class MsgBrokerOpen extends Message<MsgBrokerOpen> {
     { no: 5, name: "collateral", kind: "message", T: Coin },
     { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 28, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBrokerOpen {
@@ -691,6 +703,246 @@ export class MsgBrokerAddCollateral extends Message<MsgBrokerAddCollateral> {
 
   static equals(a: MsgBrokerAddCollateral | PlainMessage<MsgBrokerAddCollateral> | undefined, b: MsgBrokerAddCollateral | PlainMessage<MsgBrokerAddCollateral> | undefined): boolean {
     return proto3.util.equals(MsgBrokerAddCollateral, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgClosePositions
+ */
+export class MsgClosePositions extends Message<MsgClosePositions> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: repeated elys.perpetual.PositionRequest liquidate = 2;
+   */
+  liquidate: PositionRequest[] = [];
+
+  /**
+   * @generated from field: repeated elys.perpetual.PositionRequest stop_loss = 3;
+   */
+  stopLoss: PositionRequest[] = [];
+
+  constructor(data?: PartialMessage<MsgClosePositions>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgClosePositions";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "liquidate", kind: "message", T: PositionRequest, repeated: true },
+    { no: 3, name: "stop_loss", kind: "message", T: PositionRequest, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClosePositions {
+    return new MsgClosePositions().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClosePositions | PlainMessage<MsgClosePositions> | undefined, b: MsgClosePositions | PlainMessage<MsgClosePositions> | undefined): boolean {
+    return proto3.util.equals(MsgClosePositions, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgClosePositionsResponse
+ */
+export class MsgClosePositionsResponse extends Message<MsgClosePositionsResponse> {
+  constructor(data?: PartialMessage<MsgClosePositionsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgClosePositionsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClosePositionsResponse {
+    return new MsgClosePositionsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClosePositionsResponse | PlainMessage<MsgClosePositionsResponse> | undefined, b: MsgClosePositionsResponse | PlainMessage<MsgClosePositionsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgClosePositionsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgUpdateStopLoss
+ */
+export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: uint64 id = 2;
+   */
+  id = protoInt64.zero;
+
+  /**
+   * @generated from field: string price = 3;
+   */
+  price = "";
+
+  constructor(data?: PartialMessage<MsgUpdateStopLoss>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgUpdateStopLoss";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateStopLoss {
+    return new MsgUpdateStopLoss().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateStopLoss {
+    return new MsgUpdateStopLoss().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateStopLoss {
+    return new MsgUpdateStopLoss().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateStopLoss | PlainMessage<MsgUpdateStopLoss> | undefined, b: MsgUpdateStopLoss | PlainMessage<MsgUpdateStopLoss> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateStopLoss, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgUpdateStopLossResponse
+ */
+export class MsgUpdateStopLossResponse extends Message<MsgUpdateStopLossResponse> {
+  constructor(data?: PartialMessage<MsgUpdateStopLossResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgUpdateStopLossResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateStopLossResponse {
+    return new MsgUpdateStopLossResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateStopLossResponse {
+    return new MsgUpdateStopLossResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateStopLossResponse {
+    return new MsgUpdateStopLossResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateStopLossResponse | PlainMessage<MsgUpdateStopLossResponse> | undefined, b: MsgUpdateStopLossResponse | PlainMessage<MsgUpdateStopLossResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateStopLossResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgUpdateTakeProfitPrice
+ */
+export class MsgUpdateTakeProfitPrice extends Message<MsgUpdateTakeProfitPrice> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: uint64 id = 2;
+   */
+  id = protoInt64.zero;
+
+  /**
+   * @generated from field: string price = 3;
+   */
+  price = "";
+
+  constructor(data?: PartialMessage<MsgUpdateTakeProfitPrice>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgUpdateTakeProfitPrice";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateTakeProfitPrice {
+    return new MsgUpdateTakeProfitPrice().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateTakeProfitPrice {
+    return new MsgUpdateTakeProfitPrice().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateTakeProfitPrice {
+    return new MsgUpdateTakeProfitPrice().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateTakeProfitPrice | PlainMessage<MsgUpdateTakeProfitPrice> | undefined, b: MsgUpdateTakeProfitPrice | PlainMessage<MsgUpdateTakeProfitPrice> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateTakeProfitPrice, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgUpdateTakeProfitPriceResponse
+ */
+export class MsgUpdateTakeProfitPriceResponse extends Message<MsgUpdateTakeProfitPriceResponse> {
+  constructor(data?: PartialMessage<MsgUpdateTakeProfitPriceResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgUpdateTakeProfitPriceResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateTakeProfitPriceResponse {
+    return new MsgUpdateTakeProfitPriceResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateTakeProfitPriceResponse {
+    return new MsgUpdateTakeProfitPriceResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateTakeProfitPriceResponse {
+    return new MsgUpdateTakeProfitPriceResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateTakeProfitPriceResponse | PlainMessage<MsgUpdateTakeProfitPriceResponse> | undefined, b: MsgUpdateTakeProfitPriceResponse | PlainMessage<MsgUpdateTakeProfitPriceResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateTakeProfitPriceResponse, a, b);
   }
 }
 

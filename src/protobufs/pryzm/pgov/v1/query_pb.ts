@@ -10,6 +10,7 @@ import { StakedPAsset, TotalStakedPAsset } from "./staked_p_asset_pb.js";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination_pb.js";
 import { Vote } from "./vote_pb.js";
 import { Proposal } from "./proposal_pb.js";
+import { WeightedVoteOption } from "../../../cosmos/gov/v1/gov_pb.js";
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -758,6 +759,86 @@ export class QueryAllProposalResponse extends Message<QueryAllProposalResponse> 
 
   static equals(a: QueryAllProposalResponse | PlainMessage<QueryAllProposalResponse> | undefined, b: QueryAllProposalResponse | PlainMessage<QueryAllProposalResponse> | undefined): boolean {
     return proto3.util.equals(QueryAllProposalResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.pgov.v1.QueryTallyResultRequest
+ */
+export class QueryTallyResultRequest extends Message<QueryTallyResultRequest> {
+  /**
+   * @generated from field: string asset = 1;
+   */
+  asset = "";
+
+  /**
+   * @generated from field: uint64 proposal = 2;
+   */
+  proposal = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryTallyResultRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.pgov.v1.QueryTallyResultRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "proposal", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTallyResultRequest | PlainMessage<QueryTallyResultRequest> | undefined, b: QueryTallyResultRequest | PlainMessage<QueryTallyResultRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTallyResultRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.pgov.v1.QueryTallyResultResponse
+ */
+export class QueryTallyResultResponse extends Message<QueryTallyResultResponse> {
+  /**
+   * @generated from field: repeated cosmos.gov.v1.WeightedVoteOption options = 1;
+   */
+  options: WeightedVoteOption[] = [];
+
+  constructor(data?: PartialMessage<QueryTallyResultResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.pgov.v1.QueryTallyResultResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "options", kind: "message", T: WeightedVoteOption, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTallyResultResponse | PlainMessage<QueryTallyResultResponse> | undefined, b: QueryTallyResultResponse | PlainMessage<QueryTallyResultResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTallyResultResponse, a, b);
   }
 }
 

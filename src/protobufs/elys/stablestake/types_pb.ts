@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
  * @generated from message elys.stablestake.BalanceBorrowed
@@ -46,6 +46,98 @@ export class BalanceBorrowed extends Message<BalanceBorrowed> {
 
   static equals(a: BalanceBorrowed | PlainMessage<BalanceBorrowed> | undefined, b: BalanceBorrowed | PlainMessage<BalanceBorrowed> | undefined): boolean {
     return proto3.util.equals(BalanceBorrowed, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.InterestBlock
+ */
+export class InterestBlock extends Message<InterestBlock> {
+  /**
+   * @generated from field: string interest_rate = 1;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: int64 block_time = 2;
+   */
+  blockTime = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 block_height = 3;
+   */
+  blockHeight = protoInt64.zero;
+
+  constructor(data?: PartialMessage<InterestBlock>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.InterestBlock";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "block_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "block_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): InterestBlock {
+    return new InterestBlock().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): InterestBlock {
+    return new InterestBlock().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): InterestBlock {
+    return new InterestBlock().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: InterestBlock | PlainMessage<InterestBlock> | undefined, b: InterestBlock | PlainMessage<InterestBlock> | undefined): boolean {
+    return proto3.util.equals(InterestBlock, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.LegacyInterestBlock
+ */
+export class LegacyInterestBlock extends Message<LegacyInterestBlock> {
+  /**
+   * @generated from field: string interest_rate = 1;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: int64 block_time = 2;
+   */
+  blockTime = protoInt64.zero;
+
+  constructor(data?: PartialMessage<LegacyInterestBlock>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.LegacyInterestBlock";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "block_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyInterestBlock {
+    return new LegacyInterestBlock().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyInterestBlock {
+    return new LegacyInterestBlock().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyInterestBlock {
+    return new LegacyInterestBlock().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyInterestBlock | PlainMessage<LegacyInterestBlock> | undefined, b: LegacyInterestBlock | PlainMessage<LegacyInterestBlock> | undefined): boolean {
+    return proto3.util.equals(LegacyInterestBlock, a, b);
   }
 }
 

@@ -30,7 +30,7 @@ export interface Asset {
   /**
    * [OPTIONAL] The potential options for type of asset. By default, assumes sdk.coin
    */
-  type_asset?:
+  type_asset:
     | "sdk.coin"
     | "cw20"
     | "erc20"
@@ -65,7 +65,7 @@ export interface Asset {
   /**
    * The origin of the asset, starting with the index, and capturing all transitions in form and location.
    */
-  traces?: (IbcTransition | IbcCw20Transition | NonIbcTransition)[];
+  traces?: (IbcTransition | IbcCw20Transition | IbcBridgeTransition | NonIbcTransition)[];
   /**
    * [OPTIONAL] IBC Channel between src and dst between chain
    */
@@ -184,6 +184,45 @@ export interface IbcCw20Transition {
      */
     path: string;
   };
+}
+export interface IbcBridgeTransition {
+  type: "ibc-bridge";
+  counterparty: {
+    /**
+     * The name of the counterparty chain. (must match exactly the chain name used in the Chain Registry)
+     */
+    chain_name: string;
+    /**
+     * The base unit of the asset on its source platform. E.g., when describing ATOM from Cosmos Hub, specify 'uatom', NOT 'atom' nor 'ATOM'; base units are unique per platform.
+     */
+    base_denom: string;
+    /**
+     * The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers.
+     */
+    port?: string;
+    /**
+     * The counterparty IBC transfer channel(, e.g., 'channel-1').
+     */
+    channel_id: string;
+  };
+  chain: {
+    /**
+     * The port used to transfer IBC assets; often 'transfer', but sometimes varies, e.g., for outgoing cw20 transfers.
+     */
+    port?: string;
+    /**
+     * The chain's IBC transfer channel(, e.g., 'channel-1').
+     */
+    channel_id: string;
+    /**
+     * The port/channel/denom input string that generates the 'ibc/...' denom.
+     */
+    path: string;
+  };
+  /**
+   * The entity offering the service. E.g., 'Gravity Bridge' [Network] or 'Tether' [Company].
+   */
+  provider: string;
 }
 export interface NonIbcTransition {
   type: "bridge" | "liquid-stake" | "synthetic" | "wrapped" | "additional-mintage" | "test-mintage" | "legacy-mintage";
