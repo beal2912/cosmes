@@ -8,6 +8,8 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { RouteResult } from "./route_pb.js";
 
 /**
+ * PacketIndex
+ *
  * @generated from message sunrise.swap.PacketIndex
  */
 export class PacketIndex extends Message<PacketIndex> {
@@ -57,6 +59,8 @@ export class PacketIndex extends Message<PacketIndex> {
 }
 
 /**
+ * IncomingInFlightPacket
+ *
  * @generated from message sunrise.swap.IncomingInFlightPacket
  */
 export class IncomingInFlightPacket extends Message<IncomingInFlightPacket> {
@@ -106,6 +110,8 @@ export class IncomingInFlightPacket extends Message<IncomingInFlightPacket> {
   interfaceFee = "";
 
   /**
+   * change
+   *
    * @generated from oneof sunrise.swap.IncomingInFlightPacket.change
    */
   change: {
@@ -123,6 +129,8 @@ export class IncomingInFlightPacket extends Message<IncomingInFlightPacket> {
   } | { case: undefined; value?: undefined } = { case: undefined };
 
   /**
+   * forward
+   *
    * @generated from oneof sunrise.swap.IncomingInFlightPacket.forward
    */
   forward: {
@@ -180,6 +188,8 @@ export class IncomingInFlightPacket extends Message<IncomingInFlightPacket> {
 }
 
 /**
+ * OutgoingInFlightPacket
+ *
  * @generated from message sunrise.swap.OutgoingInFlightPacket
  */
 export class OutgoingInFlightPacket extends Message<OutgoingInFlightPacket> {

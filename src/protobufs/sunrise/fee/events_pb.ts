@@ -8,39 +8,41 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
- * @generated from message sunrise.fee.EventFeeBurnt
+ * EventFeeBurn
+ *
+ * @generated from message sunrise.fee.EventFeeBurn
  */
-export class EventFeeBurnt extends Message<EventFeeBurnt> {
+export class EventFeeBurn extends Message<EventFeeBurn> {
   /**
    * @generated from field: repeated cosmos.base.v1beta1.Coin fees = 1;
    */
   fees: Coin[] = [];
 
-  constructor(data?: PartialMessage<EventFeeBurnt>) {
+  constructor(data?: PartialMessage<EventFeeBurn>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.fee.EventFeeBurnt";
+  static readonly typeName = "sunrise.fee.EventFeeBurn";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "fees", kind: "message", T: Coin, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventFeeBurnt {
-    return new EventFeeBurnt().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventFeeBurn {
+    return new EventFeeBurn().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventFeeBurnt {
-    return new EventFeeBurnt().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventFeeBurn {
+    return new EventFeeBurn().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventFeeBurnt {
-    return new EventFeeBurnt().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventFeeBurn {
+    return new EventFeeBurn().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventFeeBurnt | PlainMessage<EventFeeBurnt> | undefined, b: EventFeeBurnt | PlainMessage<EventFeeBurnt> | undefined): boolean {
-    return proto3.util.equals(EventFeeBurnt, a, b);
+  static equals(a: EventFeeBurn | PlainMessage<EventFeeBurn> | undefined, b: EventFeeBurn | PlainMessage<EventFeeBurn> | undefined): boolean {
+    return proto3.util.equals(EventFeeBurn, a, b);
   }
 }
 

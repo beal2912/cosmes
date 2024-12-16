@@ -20,7 +20,7 @@ export const QueryParamsService = {
 } as const;
 
 /**
- * Queries a list of Epoch items.
+ * Epoch
  *
  * @generated from rpc sunrise.liquidityincentive.Query.Epoch
  */
@@ -32,6 +32,8 @@ export const QueryEpochService = {
 } as const;
 
 /**
+ * Epochs
+ *
  * @generated from rpc sunrise.liquidityincentive.Query.Epochs
  */
 export const QueryEpochsService = {
@@ -42,7 +44,7 @@ export const QueryEpochsService = {
 } as const;
 
 /**
- * Queries a list of Gauge items.
+ * Gauge
  *
  * @generated from rpc sunrise.liquidityincentive.Query.Gauge
  */
@@ -54,6 +56,8 @@ export const QueryGaugeService = {
 } as const;
 
 /**
+ * Gauges
+ *
  * @generated from rpc sunrise.liquidityincentive.Query.Gauges
  */
 export const QueryGaugesService = {
@@ -64,7 +68,7 @@ export const QueryGaugesService = {
 } as const;
 
 /**
- * Queries a list of Vote items.
+ * Vote
  *
  * @generated from rpc sunrise.liquidityincentive.Query.Vote
  */
@@ -76,6 +80,8 @@ export const QueryVoteService = {
 } as const;
 
 /**
+ * Votes
+ *
  * @generated from rpc sunrise.liquidityincentive.Query.Votes
  */
 export const QueryVotesService = {

@@ -33,227 +33,6 @@ proto3.util.setEnumType(Position, "elys.perpetual.Position", [
 ]);
 
 /**
- * @generated from message elys.perpetual.LegacyMTP
- */
-export class LegacyMTP extends Message<LegacyMTP> {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address = "";
-
-  /**
-   * @generated from field: string collateral_asset = 2;
-   */
-  collateralAsset = "";
-
-  /**
-   * @generated from field: string trading_asset = 3;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: string liabilities_asset = 4;
-   */
-  liabilitiesAsset = "";
-
-  /**
-   * @generated from field: string custody_asset = 5;
-   */
-  custodyAsset = "";
-
-  /**
-   * @generated from field: string collateral = 6;
-   */
-  collateral = "";
-
-  /**
-   * @generated from field: string liabilities = 7;
-   */
-  liabilities = "";
-
-  /**
-   * @generated from field: string borrow_interest_paid_collateral = 8;
-   */
-  borrowInterestPaidCollateral = "";
-
-  /**
-   * @generated from field: string borrow_interest_paid_custody = 9;
-   */
-  borrowInterestPaidCustody = "";
-
-  /**
-   * @generated from field: string borrow_interest_unpaid_collateral = 10;
-   */
-  borrowInterestUnpaidCollateral = "";
-
-  /**
-   * @generated from field: string custody = 11;
-   */
-  custody = "";
-
-  /**
-   * @generated from field: string take_profit_liabilities = 12;
-   */
-  takeProfitLiabilities = "";
-
-  /**
-   * @generated from field: string take_profit_custody = 13;
-   */
-  takeProfitCustody = "";
-
-  /**
-   * @generated from field: string mtp_health = 15;
-   */
-  mtpHealth = "";
-
-  /**
-   * @generated from field: elys.perpetual.Position position = 16;
-   */
-  position = Position.UNSPECIFIED;
-
-  /**
-   * @generated from field: uint64 id = 17;
-   */
-  id = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 amm_pool_id = 18;
-   */
-  ammPoolId = protoInt64.zero;
-
-  /**
-   * @generated from field: string consolidate_leverage = 19;
-   */
-  consolidateLeverage = "";
-
-  /**
-   * @generated from field: string sum_collateral = 20;
-   */
-  sumCollateral = "";
-
-  /**
-   * @generated from field: string take_profit_price = 21;
-   */
-  takeProfitPrice = "";
-
-  /**
-   * @generated from field: string take_profit_borrow_rate = 22;
-   */
-  takeProfitBorrowRate = "";
-
-  /**
-   * funding fee paid
-   *
-   * @generated from field: string funding_fee_paid_collateral = 23;
-   */
-  fundingFeePaidCollateral = "";
-
-  /**
-   * @generated from field: string funding_fee_paid_custody = 24;
-   */
-  fundingFeePaidCustody = "";
-
-  /**
-   * funding fee received
-   *
-   * @generated from field: string funding_fee_received_collateral = 25;
-   */
-  fundingFeeReceivedCollateral = "";
-
-  /**
-   * @generated from field: string funding_fee_received_custody = 26;
-   */
-  fundingFeeReceivedCustody = "";
-
-  /**
-   * @generated from field: string open_price = 27;
-   */
-  openPrice = "";
-
-  /**
-   * @generated from field: string stop_loss_price = 28;
-   */
-  stopLossPrice = "";
-
-  /**
-   * @generated from field: uint64 last_interest_calc_time = 29;
-   */
-  lastInterestCalcTime = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 last_interest_calc_block = 30;
-   */
-  lastInterestCalcBlock = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 last_funding_calc_time = 31;
-   */
-  lastFundingCalcTime = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 last_funding_calc_block = 32;
-   */
-  lastFundingCalcBlock = protoInt64.zero;
-
-  constructor(data?: PartialMessage<LegacyMTP>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.LegacyMTP";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "collateral_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "liabilities_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "custody_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "borrow_interest_paid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "borrow_interest_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "borrow_interest_unpaid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "take_profit_liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "take_profit_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "mtp_health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 16, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
-    { no: 17, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 18, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 19, name: "consolidate_leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "sum_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "take_profit_borrow_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 23, name: "funding_fee_paid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 24, name: "funding_fee_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 25, name: "funding_fee_received_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 26, name: "funding_fee_received_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 27, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 28, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 29, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 30, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 31, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 32, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyMTP {
-    return new LegacyMTP().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyMTP {
-    return new LegacyMTP().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyMTP {
-    return new LegacyMTP().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: LegacyMTP | PlainMessage<LegacyMTP> | undefined, b: LegacyMTP | PlainMessage<LegacyMTP> | undefined): boolean {
-    return proto3.util.equals(LegacyMTP, a, b);
-  }
-}
-
-/**
  * @generated from message elys.perpetual.MTP
  */
 export class MTP extends Message<MTP> {
@@ -293,19 +72,14 @@ export class MTP extends Message<MTP> {
   liabilities = "";
 
   /**
-   * @generated from field: string borrow_interest_paid_collateral = 8;
-   */
-  borrowInterestPaidCollateral = "";
-
-  /**
-   * @generated from field: string borrow_interest_paid_custody = 9;
+   * @generated from field: string borrow_interest_paid_custody = 8;
    */
   borrowInterestPaidCustody = "";
 
   /**
-   * @generated from field: string borrow_interest_unpaid_collateral = 10;
+   * @generated from field: string borrow_interest_unpaid_liability = 10;
    */
-  borrowInterestUnpaidCollateral = "";
+  borrowInterestUnpaidLiability = "";
 
   /**
    * @generated from field: string custody = 11;
@@ -343,76 +117,52 @@ export class MTP extends Message<MTP> {
   ammPoolId = protoInt64.zero;
 
   /**
-   * @generated from field: string consolidate_leverage = 18;
-   */
-  consolidateLeverage = "";
-
-  /**
-   * @generated from field: string sum_collateral = 19;
-   */
-  sumCollateral = "";
-
-  /**
-   * @generated from field: string take_profit_price = 20;
+   * @generated from field: string take_profit_price = 18;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string take_profit_borrow_rate = 21;
+   * @generated from field: string take_profit_borrow_factor = 19;
    */
-  takeProfitBorrowRate = "";
+  takeProfitBorrowFactor = "";
 
   /**
-   * funding fee paid
-   *
-   * @generated from field: string funding_fee_paid_collateral = 22;
-   */
-  fundingFeePaidCollateral = "";
-
-  /**
-   * @generated from field: string funding_fee_paid_custody = 23;
+   * @generated from field: string funding_fee_paid_custody = 20;
    */
   fundingFeePaidCustody = "";
 
   /**
-   * funding fee received
-   *
-   * @generated from field: string funding_fee_received_collateral = 24;
-   */
-  fundingFeeReceivedCollateral = "";
-
-  /**
-   * @generated from field: string funding_fee_received_custody = 25;
+   * @generated from field: string funding_fee_received_custody = 21;
    */
   fundingFeeReceivedCustody = "";
 
   /**
-   * @generated from field: string open_price = 26;
+   * @generated from field: string open_price = 22;
    */
   openPrice = "";
 
   /**
-   * @generated from field: string stop_loss_price = 27;
+   * @generated from field: string stop_loss_price = 23;
    */
   stopLossPrice = "";
 
   /**
-   * @generated from field: uint64 last_interest_calc_time = 28;
+   * @generated from field: uint64 last_interest_calc_time = 24;
    */
   lastInterestCalcTime = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_interest_calc_block = 29;
+   * @generated from field: uint64 last_interest_calc_block = 25;
    */
   lastInterestCalcBlock = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_funding_calc_time = 30;
+   * @generated from field: uint64 last_funding_calc_time = 26;
    */
   lastFundingCalcTime = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_funding_calc_block = 31;
+   * @generated from field: uint64 last_funding_calc_block = 27;
    */
   lastFundingCalcBlock = protoInt64.zero;
 
@@ -431,9 +181,8 @@ export class MTP extends Message<MTP> {
     { no: 5, name: "custody_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "borrow_interest_paid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "borrow_interest_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "borrow_interest_unpaid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "borrow_interest_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "borrow_interest_unpaid_liability", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 12, name: "take_profit_liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 13, name: "take_profit_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -441,20 +190,16 @@ export class MTP extends Message<MTP> {
     { no: 15, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
     { no: 16, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 17, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 18, name: "consolidate_leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "sum_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "take_profit_borrow_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "funding_fee_paid_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 23, name: "funding_fee_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 24, name: "funding_fee_received_collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 25, name: "funding_fee_received_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 26, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 27, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 28, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 29, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 30, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 31, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 18, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "take_profit_borrow_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "funding_fee_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 21, name: "funding_fee_received_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 23, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 24, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 25, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 26, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 27, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MTP {
@@ -488,6 +233,11 @@ export class InterestBlock extends Message<InterestBlock> {
    */
   blockHeight = protoInt64.zero;
 
+  /**
+   * @generated from field: int64 block_time = 3;
+   */
+  blockTime = protoInt64.zero;
+
   constructor(data?: PartialMessage<InterestBlock>) {
     super();
     proto3.util.initPartial(data, this);
@@ -498,6 +248,7 @@ export class InterestBlock extends Message<InterestBlock> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "block_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): InterestBlock {
@@ -522,14 +273,14 @@ export class InterestBlock extends Message<InterestBlock> {
  */
 export class FundingRateBlock extends Message<FundingRateBlock> {
   /**
-   * @generated from field: string funding_rate = 1;
+   * @generated from field: string funding_rate_long = 1;
    */
-  fundingRate = "";
+  fundingRateLong = "";
 
   /**
-   * @generated from field: int64 block_height = 2;
+   * @generated from field: string funding_rate_short = 2;
    */
-  blockHeight = protoInt64.zero;
+  fundingRateShort = "";
 
   /**
    * @generated from field: string funding_amount_short = 3;
@@ -542,14 +293,14 @@ export class FundingRateBlock extends Message<FundingRateBlock> {
   fundingAmountLong = "";
 
   /**
-   * @generated from field: string funding_rate_long = 5;
+   * @generated from field: int64 block_height = 5;
    */
-  fundingRateLong = "";
+  blockHeight = protoInt64.zero;
 
   /**
-   * @generated from field: string funding_rate_short = 6;
+   * @generated from field: int64 block_time = 6;
    */
-  fundingRateShort = "";
+  blockTime = protoInt64.zero;
 
   constructor(data?: PartialMessage<FundingRateBlock>) {
     super();
@@ -559,12 +310,12 @@ export class FundingRateBlock extends Message<FundingRateBlock> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.FundingRateBlock";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "funding_rate_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "funding_rate_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "funding_amount_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "funding_amount_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "funding_rate_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "funding_rate_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 6, name: "block_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FundingRateBlock {
@@ -581,61 +332,6 @@ export class FundingRateBlock extends Message<FundingRateBlock> {
 
   static equals(a: FundingRateBlock | PlainMessage<FundingRateBlock> | undefined, b: FundingRateBlock | PlainMessage<FundingRateBlock> | undefined): boolean {
     return proto3.util.equals(FundingRateBlock, a, b);
-  }
-}
-
-/**
- * @generated from message elys.perpetual.ToPay
- */
-export class ToPay extends Message<ToPay> {
-  /**
-   * @generated from field: string asset_balance = 1;
-   */
-  assetBalance = "";
-
-  /**
-   * @generated from field: string asset_denom = 2;
-   */
-  assetDenom = "";
-
-  /**
-   * @generated from field: string address = 3;
-   */
-  address = "";
-
-  /**
-   * @generated from field: uint64 id = 4;
-   */
-  id = protoInt64.zero;
-
-  constructor(data?: PartialMessage<ToPay>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.ToPay";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "asset_balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ToPay {
-    return new ToPay().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ToPay {
-    return new ToPay().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ToPay {
-    return new ToPay().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: ToPay | PlainMessage<ToPay> | undefined, b: ToPay | PlainMessage<ToPay> | undefined): boolean {
-    return proto3.util.equals(ToPay, a, b);
   }
 }
 

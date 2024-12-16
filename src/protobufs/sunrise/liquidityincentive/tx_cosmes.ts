@@ -21,6 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
+ * VoteGauge
+ *
  * @generated from rpc sunrise.liquidityincentive.Msg.VoteGauge
  */
 export const MsgVoteGaugeService = {
@@ -31,6 +33,8 @@ export const MsgVoteGaugeService = {
 } as const;
 
 /**
+ * CollectVoteRewards
+ *
  * @generated from rpc sunrise.liquidityincentive.Msg.CollectVoteRewards
  */
 export const MsgCollectVoteRewardsService = {

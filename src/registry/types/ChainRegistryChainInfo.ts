@@ -13,6 +13,10 @@ export type ChainRegistryChainInfo1 = {
   [k: string]: unknown | undefined;
 };
 /**
+ * Detailed version identifier (e.g., 'v1.0.0-a1s2f43g').
+ */
+export type Tag = string;
+/**
  * Simple version string (e.g., 'v1.0.0').
  */
 export type Version = string;
@@ -20,10 +24,6 @@ export type Version = string;
  * URL of the code repository.
  */
 export type Repo = string;
-/**
- * Detailed version identifier (e.g., 'v1.0.0-a1s2f43g').
- */
-export type Tag = string;
 
 export interface ChainRegistryChainInfo2 {
   $schema?: string;
@@ -56,7 +56,6 @@ export interface ChainRegistryChainInfo2 {
   pre_fork_chain_name?: string;
   pretty_name?: string;
   website?: string;
-  update_link?: string;
   status?: "live" | "upcoming" | "killed";
   network_type?: "mainnet" | "testnet" | "devnet";
   /**
@@ -117,75 +116,18 @@ export interface ChainRegistryChainInfo2 {
     git_repo?: string;
     recommended_version?: string;
     compatible_versions?: string[];
+    tag?: Tag;
     language?: Language;
     binaries?: Binaries;
-    cosmos_sdk_version?: string;
     sdk?: Sdk;
     consensus?: Consensus;
-    cosmwasm_version?: string;
-    cosmwasm_enabled?: boolean;
-    /**
-     * Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm
-     */
-    cosmwasm_path?: string;
     cosmwasm?: Cosmwasm;
-    ibc_go_version?: string;
-    /**
-     * List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.
-     */
-    ics_enabled?: ("ics20-1" | "ics27-1" | "mauth")[];
     ibc?: Ibc;
     genesis?: {
       name?: string;
       genesis_url: string;
       ics_ccv_url?: string;
     };
-    versions?: {
-      /**
-       * Official Upgrade Name
-       */
-      name: string;
-      /**
-       * Git Upgrade Tag
-       */
-      tag?: string;
-      /**
-       * Block Height
-       */
-      height?: number;
-      /**
-       * Proposal that will officially signal community acceptance of the upgrade.
-       */
-      proposal?: number;
-      /**
-       * [Optional] Name of the previous version
-       */
-      previous_version_name?: string;
-      /**
-       * [Optional] Name of the following version
-       */
-      next_version_name?: string;
-      recommended_version?: string;
-      compatible_versions?: string[];
-      language?: Language;
-      cosmos_sdk_version?: string;
-      sdk?: Sdk;
-      consensus?: Consensus;
-      cosmwasm_version?: string;
-      cosmwasm_enabled?: boolean;
-      /**
-       * Relative path to the cosmwasm directory. ex. $HOME/.juno/data/wasm
-       */
-      cosmwasm_path?: string;
-      cosmwasm?: Cosmwasm;
-      ibc_go_version?: string;
-      /**
-       * List of IBC apps (usually corresponding to a ICS standard) which have been enabled on the network.
-       */
-      ics_enabled?: ("ics20-1" | "ics27-1" | "mauth")[];
-      ibc?: Ibc;
-      binaries?: Binaries;
-    }[];
   };
   images?: (
     | {

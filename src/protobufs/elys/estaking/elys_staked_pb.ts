@@ -7,8 +7,9 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * Elys staked amount is tracked because EdenBoost has to be burnt when unstake ELYS event happens,
- * and there's no way to track staked amount change from staking hook and this struct is added.
+ * Elys staked amount is tracked because EdenBoost has to be burnt when unstake
+ * ELYS event happens, and there's no way to track staked amount change from
+ * staking hook and this struct is added.
  *
  * @generated from message elys.estaking.ElysStaked
  */

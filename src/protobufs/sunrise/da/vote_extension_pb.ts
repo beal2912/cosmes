@@ -8,6 +8,8 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { PublishedData } from "./published_data_pb.js";
 
 /**
+ * VoteExtension
+ *
  * @generated from message sunrise.da.VoteExtension
  */
 export class VoteExtension extends Message<VoteExtension> {

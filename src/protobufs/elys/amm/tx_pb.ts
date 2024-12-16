@@ -261,7 +261,7 @@ export class MsgExitPool extends Message<MsgExitPool> {
  */
 export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin token_out = 2;
+   * @generated from field: repeated cosmos.base.v1beta1.Coin token_out = 1;
    */
   tokenOut: Coin[] = [];
 
@@ -273,7 +273,7 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.amm.MsgExitPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 2, name: "token_out", kind: "message", T: Coin, repeated: true },
+    { no: 1, name: "token_out", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgExitPoolResponse {
@@ -318,12 +318,7 @@ export class MsgSwapExactAmountIn extends Message<MsgSwapExactAmountIn> {
   tokenOutMinAmount = "";
 
   /**
-   * @generated from field: string discount = 5;
-   */
-  discount = "";
-
-  /**
-   * @generated from field: string recipient = 6;
+   * @generated from field: string recipient = 5;
    */
   recipient = "";
 
@@ -339,8 +334,7 @@ export class MsgSwapExactAmountIn extends Message<MsgSwapExactAmountIn> {
     { no: 2, name: "routes", kind: "message", T: SwapAmountInRoute, repeated: true },
     { no: 3, name: "token_in", kind: "message", T: Coin },
     { no: 4, name: "token_out_min_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSwapExactAmountIn {
@@ -440,12 +434,7 @@ export class MsgSwapExactAmountOut extends Message<MsgSwapExactAmountOut> {
   tokenInMaxAmount = "";
 
   /**
-   * @generated from field: string discount = 5;
-   */
-  discount = "";
-
-  /**
-   * @generated from field: string recipient = 6;
+   * @generated from field: string recipient = 5;
    */
   recipient = "";
 
@@ -461,8 +450,7 @@ export class MsgSwapExactAmountOut extends Message<MsgSwapExactAmountOut> {
     { no: 2, name: "routes", kind: "message", T: SwapAmountOutRoute, repeated: true },
     { no: 3, name: "token_out", kind: "message", T: Coin },
     { no: 4, name: "token_in_max_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSwapExactAmountOut {
@@ -661,7 +649,8 @@ export class AssetAmountDepth extends Message<AssetAmountDepth> {
 }
 
 /**
- * ExternalLiquidity defines price, volume, and time information for an exchange rate.
+ * ExternalLiquidity defines price, volume, and time information for an exchange
+ * rate.
  *
  * @generated from message elys.amm.ExternalLiquidity
  */
@@ -740,12 +729,7 @@ export class MsgSwapByDenom extends Message<MsgSwapByDenom> {
   denomOut = "";
 
   /**
-   * @generated from field: string discount = 7;
-   */
-  discount = "";
-
-  /**
-   * @generated from field: string recipient = 8;
+   * @generated from field: string recipient = 7;
    */
   recipient = "";
 
@@ -763,8 +747,7 @@ export class MsgSwapByDenom extends Message<MsgSwapByDenom> {
     { no: 4, name: "max_amount", kind: "message", T: Coin },
     { no: 5, name: "denom_in", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "denom_out", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSwapByDenom {

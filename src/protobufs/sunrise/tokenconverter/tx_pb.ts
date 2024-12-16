@@ -91,6 +91,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgConvert
+ *
  * @generated from message sunrise.tokenconverter.MsgConvert
  */
 export class MsgConvert extends Message<MsgConvert> {
@@ -140,6 +142,8 @@ export class MsgConvert extends Message<MsgConvert> {
 }
 
 /**
+ * MsgConvertResponse
+ *
  * @generated from message sunrise.tokenconverter.MsgConvertResponse
  */
 export class MsgConvertResponse extends Message<MsgConvertResponse> {

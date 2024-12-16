@@ -9,7 +9,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64, Timestamp } from "@bufbuild/protobuf";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination_pb.js";
-import { Log, Params, TraceConfig } from "./evm_pb.js";
+import { ChainConfig, Log, Params, TraceConfig } from "./evm_pb.js";
 import { MsgEthereumTx } from "./tx_pb.js";
 
 /**
@@ -1218,6 +1218,154 @@ export class QueryBaseFeeResponse extends Message<QueryBaseFeeResponse> {
 
   static equals(a: QueryBaseFeeResponse | PlainMessage<QueryBaseFeeResponse> | undefined, b: QueryBaseFeeResponse | PlainMessage<QueryBaseFeeResponse> | undefined): boolean {
     return proto3.util.equals(QueryBaseFeeResponse, a, b);
+  }
+}
+
+/**
+ * QueryGlobalMinGasPriceRequest defines the request type for querying the GlobalMinGasPrice
+ *
+ * @generated from message ethermint.evm.v1.QueryGlobalMinGasPriceRequest
+ */
+export class QueryGlobalMinGasPriceRequest extends Message<QueryGlobalMinGasPriceRequest> {
+  constructor(data?: PartialMessage<QueryGlobalMinGasPriceRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ethermint.evm.v1.QueryGlobalMinGasPriceRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGlobalMinGasPriceRequest {
+    return new QueryGlobalMinGasPriceRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGlobalMinGasPriceRequest {
+    return new QueryGlobalMinGasPriceRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGlobalMinGasPriceRequest {
+    return new QueryGlobalMinGasPriceRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGlobalMinGasPriceRequest | PlainMessage<QueryGlobalMinGasPriceRequest> | undefined, b: QueryGlobalMinGasPriceRequest | PlainMessage<QueryGlobalMinGasPriceRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGlobalMinGasPriceRequest, a, b);
+  }
+}
+
+/**
+ * QueryGlobalMinGasPriceResponse returns the GlobalMinGasPrice.
+ *
+ * @generated from message ethermint.evm.v1.QueryGlobalMinGasPriceResponse
+ */
+export class QueryGlobalMinGasPriceResponse extends Message<QueryGlobalMinGasPriceResponse> {
+  /**
+   * min_gas_price is the feemarket's min_gas_price
+   *
+   * @generated from field: string min_gas_price = 1;
+   */
+  minGasPrice = "";
+
+  constructor(data?: PartialMessage<QueryGlobalMinGasPriceResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ethermint.evm.v1.QueryGlobalMinGasPriceResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "min_gas_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGlobalMinGasPriceResponse {
+    return new QueryGlobalMinGasPriceResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGlobalMinGasPriceResponse {
+    return new QueryGlobalMinGasPriceResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGlobalMinGasPriceResponse {
+    return new QueryGlobalMinGasPriceResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGlobalMinGasPriceResponse | PlainMessage<QueryGlobalMinGasPriceResponse> | undefined, b: QueryGlobalMinGasPriceResponse | PlainMessage<QueryGlobalMinGasPriceResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGlobalMinGasPriceResponse, a, b);
+  }
+}
+
+/**
+ * QueryConfigRequest defines the request type for querying the Config
+ *
+ * @generated from message ethermint.evm.v1.QueryConfigRequest
+ */
+export class QueryConfigRequest extends Message<QueryConfigRequest> {
+  constructor(data?: PartialMessage<QueryConfigRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ethermint.evm.v1.QueryConfigRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryConfigRequest {
+    return new QueryConfigRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryConfigRequest {
+    return new QueryConfigRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryConfigRequest {
+    return new QueryConfigRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryConfigRequest | PlainMessage<QueryConfigRequest> | undefined, b: QueryConfigRequest | PlainMessage<QueryConfigRequest> | undefined): boolean {
+    return proto3.util.equals(QueryConfigRequest, a, b);
+  }
+}
+
+/**
+ * QueryConfigResponse returns the EVM Config.
+ *
+ * @generated from message ethermint.evm.v1.QueryConfigResponse
+ */
+export class QueryConfigResponse extends Message<QueryConfigResponse> {
+  /**
+   * config is the evm configuration
+   *
+   * @generated from field: ethermint.evm.v1.ChainConfig config = 1;
+   */
+  config?: ChainConfig;
+
+  constructor(data?: PartialMessage<QueryConfigResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ethermint.evm.v1.QueryConfigResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "config", kind: "message", T: ChainConfig },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryConfigResponse {
+    return new QueryConfigResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryConfigResponse {
+    return new QueryConfigResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryConfigResponse {
+    return new QueryConfigResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryConfigResponse | PlainMessage<QueryConfigResponse> | undefined, b: QueryConfigResponse | PlainMessage<QueryConfigResponse> | undefined): boolean {
+    return proto3.util.equals(QueryConfigResponse, a, b);
   }
 }
 

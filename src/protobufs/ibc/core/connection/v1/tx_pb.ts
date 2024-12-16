@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Any, Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Counterparty, Version } from "./connection_pb.js";
+import { Counterparty, Params, Version } from "./connection_pb.js";
 import { Height } from "../../client/v1/client_pb.js";
 
 /**
@@ -127,7 +127,8 @@ export class MsgConnectionOpenTry extends Message<MsgConnectionOpenTry> {
   previousConnectionId = "";
 
   /**
-   * @generated from field: google.protobuf.Any client_state = 3;
+   * @generated from field: google.protobuf.Any client_state = 3 [deprecated = true];
+   * @deprecated
    */
   clientState?: Any;
 
@@ -162,19 +163,22 @@ export class MsgConnectionOpenTry extends Message<MsgConnectionOpenTry> {
   /**
    * proof of client state included in message
    *
-   * @generated from field: bytes proof_client = 9;
+   * @generated from field: bytes proof_client = 9 [deprecated = true];
+   * @deprecated
    */
   proofClient = new Uint8Array(0);
 
   /**
    * proof of client consensus state
    *
-   * @generated from field: bytes proof_consensus = 10;
+   * @generated from field: bytes proof_consensus = 10 [deprecated = true];
+   * @deprecated
    */
   proofConsensus = new Uint8Array(0);
 
   /**
-   * @generated from field: ibc.core.client.v1.Height consensus_height = 11;
+   * @generated from field: ibc.core.client.v1.Height consensus_height = 11 [deprecated = true];
+   * @deprecated
    */
   consensusHeight?: Height;
 
@@ -186,7 +190,8 @@ export class MsgConnectionOpenTry extends Message<MsgConnectionOpenTry> {
   /**
    * optional proof data for host state machines that are unable to introspect their own consensus state
    *
-   * @generated from field: bytes host_consensus_state_proof = 13;
+   * @generated from field: bytes host_consensus_state_proof = 13 [deprecated = true];
+   * @deprecated
    */
   hostConsensusStateProof = new Uint8Array(0);
 
@@ -286,7 +291,8 @@ export class MsgConnectionOpenAck extends Message<MsgConnectionOpenAck> {
   version?: Version;
 
   /**
-   * @generated from field: google.protobuf.Any client_state = 4;
+   * @generated from field: google.protobuf.Any client_state = 4 [deprecated = true];
+   * @deprecated
    */
   clientState?: Any;
 
@@ -306,19 +312,22 @@ export class MsgConnectionOpenAck extends Message<MsgConnectionOpenAck> {
   /**
    * proof of client state included in message
    *
-   * @generated from field: bytes proof_client = 7;
+   * @generated from field: bytes proof_client = 7 [deprecated = true];
+   * @deprecated
    */
   proofClient = new Uint8Array(0);
 
   /**
    * proof of client consensus state
    *
-   * @generated from field: bytes proof_consensus = 8;
+   * @generated from field: bytes proof_consensus = 8 [deprecated = true];
+   * @deprecated
    */
   proofConsensus = new Uint8Array(0);
 
   /**
-   * @generated from field: ibc.core.client.v1.Height consensus_height = 9;
+   * @generated from field: ibc.core.client.v1.Height consensus_height = 9 [deprecated = true];
+   * @deprecated
    */
   consensusHeight?: Height;
 
@@ -330,7 +339,8 @@ export class MsgConnectionOpenAck extends Message<MsgConnectionOpenAck> {
   /**
    * optional proof data for host state machines that are unable to introspect their own consensus state
    *
-   * @generated from field: bytes host_consensus_state_proof = 11;
+   * @generated from field: bytes host_consensus_state_proof = 11 [deprecated = true];
+   * @deprecated
    */
   hostConsensusStateProof = new Uint8Array(0);
 
@@ -496,6 +506,90 @@ export class MsgConnectionOpenConfirmResponse extends Message<MsgConnectionOpenC
 
   static equals(a: MsgConnectionOpenConfirmResponse | PlainMessage<MsgConnectionOpenConfirmResponse> | undefined, b: MsgConnectionOpenConfirmResponse | PlainMessage<MsgConnectionOpenConfirmResponse> | undefined): boolean {
     return proto3.util.equals(MsgConnectionOpenConfirmResponse, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParams defines the sdk.Msg type to update the connection parameters.
+ *
+ * @generated from message ibc.core.connection.v1.MsgUpdateParams
+ */
+export class MsgUpdateParams extends Message<MsgUpdateParams> {
+  /**
+   * signer address
+   *
+   * @generated from field: string signer = 1;
+   */
+  signer = "";
+
+  /**
+   * params defines the connection parameters to update.
+   *
+   * NOTE: All parameters must be supplied.
+   *
+   * @generated from field: ibc.core.connection.v1.Params params = 2;
+   */
+  params?: Params;
+
+  constructor(data?: PartialMessage<MsgUpdateParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ibc.core.connection.v1.MsgUpdateParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "signer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "params", kind: "message", T: Params },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined, b: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParams, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ *
+ * @generated from message ibc.core.connection.v1.MsgUpdateParamsResponse
+ */
+export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
+  constructor(data?: PartialMessage<MsgUpdateParamsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ibc.core.connection.v1.MsgUpdateParamsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParamsResponse, a, b);
   }
 }
 

@@ -5,9 +5,82 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { PoolParams } from "./pool_params_pb.js";
+import { LegacyPoolParams, PoolParams } from "./pool_params_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { PoolAsset } from "./pool_asset_pb.js";
+
+/**
+ * @generated from message elys.amm.LegacyPool
+ */
+export class LegacyPool extends Message<LegacyPool> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string address = 2;
+   */
+  address = "";
+
+  /**
+   * @generated from field: elys.amm.LegacyPoolParams pool_params = 3;
+   */
+  poolParams?: LegacyPoolParams;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin total_shares = 4;
+   */
+  totalShares?: Coin;
+
+  /**
+   * @generated from field: repeated elys.amm.PoolAsset pool_assets = 5;
+   */
+  poolAssets: PoolAsset[] = [];
+
+  /**
+   * @generated from field: string total_weight = 6;
+   */
+  totalWeight = "";
+
+  /**
+   * @generated from field: string rebalance_treasury = 7;
+   */
+  rebalanceTreasury = "";
+
+  constructor(data?: PartialMessage<LegacyPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.LegacyPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "pool_params", kind: "message", T: LegacyPoolParams },
+    { no: 4, name: "total_shares", kind: "message", T: Coin },
+    { no: 5, name: "pool_assets", kind: "message", T: PoolAsset, repeated: true },
+    { no: 6, name: "total_weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "rebalance_treasury", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPool {
+    return new LegacyPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPool | PlainMessage<LegacyPool> | undefined, b: LegacyPool | PlainMessage<LegacyPool> | undefined): boolean {
+    return proto3.util.equals(LegacyPool, a, b);
+  }
+}
 
 /**
  * @generated from message elys.amm.Pool
@@ -96,6 +169,11 @@ export class PoolExtraInfo extends Message<PoolExtraInfo> {
    */
   lpTokenPrice = "";
 
+  /**
+   * @generated from field: string lp_saved_apr = 3;
+   */
+  lpSavedApr = "";
+
   constructor(data?: PartialMessage<PoolExtraInfo>) {
     super();
     proto3.util.initPartial(data, this);
@@ -106,6 +184,7 @@ export class PoolExtraInfo extends Message<PoolExtraInfo> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "tvl", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "lp_token_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "lp_saved_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolExtraInfo {
@@ -171,6 +250,55 @@ export class OraclePoolSlippageTrack extends Message<OraclePoolSlippageTrack> {
 
   static equals(a: OraclePoolSlippageTrack | PlainMessage<OraclePoolSlippageTrack> | undefined, b: OraclePoolSlippageTrack | PlainMessage<OraclePoolSlippageTrack> | undefined): boolean {
     return proto3.util.equals(OraclePoolSlippageTrack, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.amm.WeightBreakingSlippage
+ */
+export class WeightBreakingSlippage extends Message<WeightBreakingSlippage> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string date = 2;
+   */
+  date = "";
+
+  /**
+   * @generated from field: string amount = 3;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<WeightBreakingSlippage>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.WeightBreakingSlippage";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "date", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): WeightBreakingSlippage {
+    return new WeightBreakingSlippage().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): WeightBreakingSlippage {
+    return new WeightBreakingSlippage().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): WeightBreakingSlippage {
+    return new WeightBreakingSlippage().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: WeightBreakingSlippage | PlainMessage<WeightBreakingSlippage> | undefined, b: WeightBreakingSlippage | PlainMessage<WeightBreakingSlippage> | undefined): boolean {
+    return proto3.util.equals(WeightBreakingSlippage, a, b);
   }
 }
 

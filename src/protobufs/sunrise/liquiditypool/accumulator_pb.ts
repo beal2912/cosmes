@@ -8,6 +8,8 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { DecCoin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * AccumulatorObject
+ *
  * @generated from message sunrise.liquiditypool.AccumulatorObject
  */
 export class AccumulatorObject extends Message<AccumulatorObject> {
@@ -57,6 +59,8 @@ export class AccumulatorObject extends Message<AccumulatorObject> {
 }
 
 /**
+ * AccumulatorPosition
+ *
  * @generated from message sunrise.liquiditypool.AccumulatorPosition
  */
 export class AccumulatorPosition extends Message<AccumulatorPosition> {

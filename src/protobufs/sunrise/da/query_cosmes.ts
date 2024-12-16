@@ -44,6 +44,8 @@ export const QueryAllPublishedDataService = {
 } as const;
 
 /**
+ * ZkpProofThreshold
+ *
  * @generated from rpc sunrise.da.Query.ZkpProofThreshold
  */
 export const QueryZkpProofThresholdService = {

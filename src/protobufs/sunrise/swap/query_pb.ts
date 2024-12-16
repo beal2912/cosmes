@@ -85,6 +85,8 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
+ * QueryIncomingInFlightPacketRequest
+ *
  * @generated from message sunrise.swap.QueryIncomingInFlightPacketRequest
  */
 export class QueryIncomingInFlightPacketRequest extends Message<QueryIncomingInFlightPacketRequest> {
@@ -134,6 +136,8 @@ export class QueryIncomingInFlightPacketRequest extends Message<QueryIncomingInF
 }
 
 /**
+ * QueryIncomingInFlightPacketResponse
+ *
  * @generated from message sunrise.swap.QueryIncomingInFlightPacketResponse
  */
 export class QueryIncomingInFlightPacketResponse extends Message<QueryIncomingInFlightPacketResponse> {
@@ -171,6 +175,8 @@ export class QueryIncomingInFlightPacketResponse extends Message<QueryIncomingIn
 }
 
 /**
+ * QueryIncomingInFlightPacketsRequest
+ *
  * @generated from message sunrise.swap.QueryIncomingInFlightPacketsRequest
  */
 export class QueryIncomingInFlightPacketsRequest extends Message<QueryIncomingInFlightPacketsRequest> {
@@ -208,6 +214,8 @@ export class QueryIncomingInFlightPacketsRequest extends Message<QueryIncomingIn
 }
 
 /**
+ * QueryIncomingInFlightPacketsResponse
+ *
  * @generated from message sunrise.swap.QueryIncomingInFlightPacketsResponse
  */
 export class QueryIncomingInFlightPacketsResponse extends Message<QueryIncomingInFlightPacketsResponse> {
@@ -251,6 +259,8 @@ export class QueryIncomingInFlightPacketsResponse extends Message<QueryIncomingI
 }
 
 /**
+ * QueryOutgoingInFlightPacketRequest
+ *
  * @generated from message sunrise.swap.QueryOutgoingInFlightPacketRequest
  */
 export class QueryOutgoingInFlightPacketRequest extends Message<QueryOutgoingInFlightPacketRequest> {
@@ -300,6 +310,8 @@ export class QueryOutgoingInFlightPacketRequest extends Message<QueryOutgoingInF
 }
 
 /**
+ * QueryOutgoingInFlightPacketResponse
+ *
  * @generated from message sunrise.swap.QueryOutgoingInFlightPacketResponse
  */
 export class QueryOutgoingInFlightPacketResponse extends Message<QueryOutgoingInFlightPacketResponse> {
@@ -337,6 +349,8 @@ export class QueryOutgoingInFlightPacketResponse extends Message<QueryOutgoingIn
 }
 
 /**
+ * QueryOutgoingInFlightPacketsRequest
+ *
  * @generated from message sunrise.swap.QueryOutgoingInFlightPacketsRequest
  */
 export class QueryOutgoingInFlightPacketsRequest extends Message<QueryOutgoingInFlightPacketsRequest> {
@@ -374,6 +388,8 @@ export class QueryOutgoingInFlightPacketsRequest extends Message<QueryOutgoingIn
 }
 
 /**
+ * QueryOutgoingInFlightPacketsResponse
+ *
  * @generated from message sunrise.swap.QueryOutgoingInFlightPacketsResponse
  */
 export class QueryOutgoingInFlightPacketsResponse extends Message<QueryOutgoingInFlightPacketsResponse> {
@@ -417,6 +433,8 @@ export class QueryOutgoingInFlightPacketsResponse extends Message<QueryOutgoingI
 }
 
 /**
+ * QueryCalculationSwapExactAmountInRequest
+ *
  * @generated from message sunrise.swap.QueryCalculationSwapExactAmountInRequest
  */
 export class QueryCalculationSwapExactAmountInRequest extends Message<QueryCalculationSwapExactAmountInRequest> {
@@ -466,6 +484,8 @@ export class QueryCalculationSwapExactAmountInRequest extends Message<QueryCalcu
 }
 
 /**
+ * QueryCalculationSwapExactAmountInResponse
+ *
  * @generated from message sunrise.swap.QueryCalculationSwapExactAmountInResponse
  */
 export class QueryCalculationSwapExactAmountInResponse extends Message<QueryCalculationSwapExactAmountInResponse> {
@@ -515,6 +535,8 @@ export class QueryCalculationSwapExactAmountInResponse extends Message<QueryCalc
 }
 
 /**
+ * QueryCalculationSwapExactAmountOutRequest
+ *
  * @generated from message sunrise.swap.QueryCalculationSwapExactAmountOutRequest
  */
 export class QueryCalculationSwapExactAmountOutRequest extends Message<QueryCalculationSwapExactAmountOutRequest> {
@@ -564,6 +586,8 @@ export class QueryCalculationSwapExactAmountOutRequest extends Message<QueryCalc
 }
 
 /**
+ * QueryCalculationSwapExactAmountOutResponse
+ *
  * @generated from message sunrise.swap.QueryCalculationSwapExactAmountOutResponse
  */
 export class QueryCalculationSwapExactAmountOutResponse extends Message<QueryCalculationSwapExactAmountOutResponse> {

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCancelVest, MsgCancelVestResponse, MsgClaimVesting, MsgClaimVestingResponse, MsgCommitClaimedRewards, MsgCommitClaimedRewardsResponse, MsgStake, MsgStakeResponse, MsgUncommitTokens, MsgUncommitTokensResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateVestingInfo, MsgUpdateVestingInfoResponse, MsgVest, MsgVestLiquid, MsgVestLiquidResponse, MsgVestNow, MsgVestNowResponse, MsgVestResponse } from "./tx_pb.js";
+import { MsgCancelVest, MsgCancelVestResponse, MsgClaimAirdrop, MsgClaimAirdropResponse, MsgClaimKol, MsgClaimKolResponse, MsgClaimVesting, MsgClaimVestingResponse, MsgCommitClaimedRewards, MsgCommitClaimedRewardsResponse, MsgStake, MsgStakeResponse, MsgUncommitTokens, MsgUncommitTokensResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateAirdropParams, MsgUpdateAirdropParamsResponse, MsgUpdateEnableVestNow, MsgUpdateEnableVestNowResponse, MsgUpdateVestingInfo, MsgUpdateVestingInfoResponse, MsgVest, MsgVestLiquid, MsgVestLiquidResponse, MsgVestNow, MsgVestNowResponse, MsgVestResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.commitment.Msg";
 
@@ -20,7 +20,8 @@ export const MsgCommitClaimedRewardsService = {
 } as const;
 
 /**
- * UncommitTokens uncommits the tokens from committed store and make it liquid immediately
+ * UncommitTokens uncommits the tokens from committed store and make it liquid
+ * immediately
  *
  * @generated from rpc elys.commitment.Msg.UncommitTokens
  */
@@ -32,8 +33,9 @@ export const MsgUncommitTokensService = {
 } as const;
 
 /**
- * Vest converts user's commitment to vesting - start with unclaimed rewards and if it's not enough deduct from committed bucket
- * mainly utilized for Eden
+ * Vest converts user's commitment to vesting - start with unclaimed rewards
+ * and if it's not enough deduct from committed bucket mainly utilized for
+ * Eden
  *
  * @generated from rpc elys.commitment.Msg.Vest
  */
@@ -45,8 +47,9 @@ export const MsgVestService = {
 } as const;
 
 /**
- * VestNow provides functionality to get the token immediately but lower amount than original
- * e.g. user can burn 1000 ueden and get 800 uelys when the ratio is 80%
+ * VestNow provides functionality to get the token immediately but lower
+ * amount than original e.g. user can burn 1000 ueden and get 800 uelys when
+ * the ratio is 80%
  *
  * @generated from rpc elys.commitment.Msg.VestNow
  */
@@ -58,7 +61,8 @@ export const MsgVestNowService = {
 } as const;
 
 /**
- * VestLiquid converts user's balance to vesting to be utilized for normal tokens vesting like ATOM vesting
+ * VestLiquid converts user's balance to vesting to be utilized for normal
+ * tokens vesting like ATOM vesting
  *
  * @generated from rpc elys.commitment.Msg.VestLiquid
  */
@@ -70,7 +74,8 @@ export const MsgVestLiquidService = {
 } as const;
 
 /**
- * CancelVest cancel the user's vesting and the user reject to get vested tokens
+ * CancelVest cancel the user's vesting and the user reject to get vested
+ * tokens
  *
  * @generated from rpc elys.commitment.Msg.CancelVest
  */
@@ -106,6 +111,28 @@ export const MsgUpdateVestingInfoService = {
 } as const;
 
 /**
+ * UpdateEnableVestNow add/update enable vest now on Params
+ *
+ * @generated from rpc elys.commitment.Msg.UpdateEnableVestNow
+ */
+export const MsgUpdateEnableVestNowService = {
+  typeName: TYPE_NAME,
+  method: "UpdateEnableVestNow",
+  Request: MsgUpdateEnableVestNow,
+  Response: MsgUpdateEnableVestNowResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Msg.UpdateAirdropParams
+ */
+export const MsgUpdateAirdropParamsService = {
+  typeName: TYPE_NAME,
+  method: "UpdateAirdropParams",
+  Request: MsgUpdateAirdropParams,
+  Response: MsgUpdateAirdropParamsResponse,
+} as const;
+
+/**
  * @generated from rpc elys.commitment.Msg.Stake
  */
 export const MsgStakeService = {
@@ -123,5 +150,25 @@ export const MsgUnstakeService = {
   method: "Unstake",
   Request: MsgUnstake,
   Response: MsgUnstakeResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Msg.ClaimAirdrop
+ */
+export const MsgClaimAirdropService = {
+  typeName: TYPE_NAME,
+  method: "ClaimAirdrop",
+  Request: MsgClaimAirdrop,
+  Response: MsgClaimAirdropResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Msg.ClaimKol
+ */
+export const MsgClaimKolService = {
+  typeName: TYPE_NAME,
+  method: "ClaimKol",
+  Request: MsgClaimKol,
+  Response: MsgClaimKolResponse,
 } as const;
 

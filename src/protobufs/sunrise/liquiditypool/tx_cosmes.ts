@@ -21,6 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
+ * CreatePool
+ *
  * @generated from rpc sunrise.liquiditypool.Msg.CreatePool
  */
 export const MsgCreatePoolService = {
@@ -31,6 +33,8 @@ export const MsgCreatePoolService = {
 } as const;
 
 /**
+ * CreatePosition
+ *
  * @generated from rpc sunrise.liquiditypool.Msg.CreatePosition
  */
 export const MsgCreatePositionService = {
@@ -41,6 +45,8 @@ export const MsgCreatePositionService = {
 } as const;
 
 /**
+ * IncreaseLiquidity
+ *
  * @generated from rpc sunrise.liquiditypool.Msg.IncreaseLiquidity
  */
 export const MsgIncreaseLiquidityService = {
@@ -51,6 +57,8 @@ export const MsgIncreaseLiquidityService = {
 } as const;
 
 /**
+ * DecreaseLiquidity
+ *
  * @generated from rpc sunrise.liquiditypool.Msg.DecreaseLiquidity
  */
 export const MsgDecreaseLiquidityService = {
@@ -61,6 +69,8 @@ export const MsgDecreaseLiquidityService = {
 } as const;
 
 /**
+ * ClaimRewards
+ *
  * @generated from rpc sunrise.liquiditypool.Msg.ClaimRewards
  */
 export const MsgClaimRewardsService = {

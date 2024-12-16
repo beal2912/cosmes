@@ -20,7 +20,7 @@ export const QueryParamsService = {
 } as const;
 
 /**
- * Queries a list of IncomingInFlightPacket items.
+ * IncomingInFlightPacket
  *
  * @generated from rpc sunrise.swap.Query.IncomingInFlightPacket
  */
@@ -32,6 +32,8 @@ export const QueryIncomingInFlightPacketService = {
 } as const;
 
 /**
+ * IncomingInFlightPackets
+ *
  * @generated from rpc sunrise.swap.Query.IncomingInFlightPackets
  */
 export const QueryIncomingInFlightPacketsService = {
@@ -42,7 +44,7 @@ export const QueryIncomingInFlightPacketsService = {
 } as const;
 
 /**
- * Queries a list of OutgoingInFlightPacket items.
+ * OutgoingInFlightPacket
  *
  * @generated from rpc sunrise.swap.Query.OutgoingInFlightPacket
  */
@@ -54,6 +56,8 @@ export const QueryOutgoingInFlightPacketService = {
 } as const;
 
 /**
+ * OutgoingInFlightPackets
+ *
  * @generated from rpc sunrise.swap.Query.OutgoingInFlightPackets
  */
 export const QueryOutgoingInFlightPacketsService = {
@@ -64,7 +68,7 @@ export const QueryOutgoingInFlightPacketsService = {
 } as const;
 
 /**
- * Queries a Calculation swap value.
+ * CalculationSwapExactAmountIn
  *
  * @generated from rpc sunrise.swap.Query.CalculationSwapExactAmountIn
  */
@@ -76,6 +80,8 @@ export const QueryCalculationSwapExactAmountInService = {
 } as const;
 
 /**
+ * CalculationSwapExactAmountOut
+ *
  * @generated from rpc sunrise.swap.Query.CalculationSwapExactAmountOut
  */
 export const QueryCalculationSwapExactAmountOutService = {

@@ -19,14 +19,16 @@ export class LegacyParams extends Message<LegacyParams> {
   lpIncentives?: LegacyIncentiveInfo;
 
   /**
-   * gas fees and swap fees portion for lps, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   * gas fees and swap fees portion for lps, `100 - reward_portion_for_lps -
+   * reward_portion_for_stakers = revenue percent for protocol`.
    *
    * @generated from field: string reward_portion_for_lps = 2;
    */
   rewardPortionForLps = "";
 
   /**
-   * gas fees and swap fees portion for stakers, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   * gas fees and swap fees portion for stakers, `100 - reward_portion_for_lps -
+   * reward_portion_for_stakers = revenue percent for protocol`.
    *
    * @generated from field: string reward_portion_for_stakers = 3;
    */
@@ -92,14 +94,16 @@ export class Params extends Message<Params> {
   lpIncentives?: IncentiveInfo;
 
   /**
-   * gas fees and swap fees portion for lps, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   * gas fees and swap fees portion for lps, `100 - reward_portion_for_lps -
+   * reward_portion_for_stakers = revenue percent for protocol`.
    *
    * @generated from field: string reward_portion_for_lps = 2;
    */
   rewardPortionForLps = "";
 
   /**
-   * gas fees and swap fees portion for stakers, `100 - reward_portion_for_lps - reward_portion_for_stakers = revenue percent for protocol`.
+   * gas fees and swap fees portion for stakers, `100 - reward_portion_for_lps -
+   * reward_portion_for_stakers = revenue percent for protocol`.
    *
    * @generated from field: string reward_portion_for_stakers = 3;
    */

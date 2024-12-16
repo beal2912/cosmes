@@ -1114,9 +1114,9 @@ export class QuerySwapEstimationByDenomRequest extends Message<QuerySwapEstimati
   denomOut = "";
 
   /**
-   * @generated from field: string discount = 4;
+   * @generated from field: string address = 4;
    */
-  discount = "";
+  address = "";
 
   constructor(data?: PartialMessage<QuerySwapEstimationByDenomRequest>) {
     super();
@@ -1129,7 +1129,7 @@ export class QuerySwapEstimationByDenomRequest extends Message<QuerySwapEstimati
     { no: 1, name: "amount", kind: "message", T: Coin },
     { no: 2, name: "denom_in", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "denom_out", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySwapEstimationByDenomRequest {

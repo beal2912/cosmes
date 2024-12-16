@@ -7,9 +7,9 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * @generated from message elys.amm.PoolParams
+ * @generated from message elys.amm.LegacyPoolParams
  */
-export class PoolParams extends Message<PoolParams> {
+export class LegacyPoolParams extends Message<LegacyPoolParams> {
   /**
    * @generated from field: string swap_fee = 1;
    */
@@ -31,14 +31,9 @@ export class PoolParams extends Message<PoolParams> {
   weightBreakingFeeMultiplier = "";
 
   /**
-   * @generated from field: string weight_breaking_fee_exponent = 11;
+   * @generated from field: string weight_breaking_fee_exponent = 5;
    */
   weightBreakingFeeExponent = "";
-
-  /**
-   * @generated from field: string external_liquidity_ratio = 5;
-   */
-  externalLiquidityRatio = "";
 
   /**
    * @generated from field: string weight_recovery_fee_portion = 6;
@@ -51,9 +46,71 @@ export class PoolParams extends Message<PoolParams> {
   thresholdWeightDifference = "";
 
   /**
+   * @generated from field: string weight_breaking_fee_portion = 8;
+   */
+  weightBreakingFeePortion = "";
+
+  /**
    * denom for fee collection
    *
-   * @generated from field: string fee_denom = 8;
+   * @generated from field: string fee_denom = 9;
+   */
+  feeDenom = "";
+
+  constructor(data?: PartialMessage<LegacyPoolParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.LegacyPoolParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "exit_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "use_oracle", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "weight_breaking_fee_multiplier", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "weight_breaking_fee_exponent", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "weight_recovery_fee_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "threshold_weight_difference", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "weight_breaking_fee_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPoolParams {
+    return new LegacyPoolParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPoolParams {
+    return new LegacyPoolParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPoolParams {
+    return new LegacyPoolParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPoolParams | PlainMessage<LegacyPoolParams> | undefined, b: LegacyPoolParams | PlainMessage<LegacyPoolParams> | undefined): boolean {
+    return proto3.util.equals(LegacyPoolParams, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.amm.PoolParams
+ */
+export class PoolParams extends Message<PoolParams> {
+  /**
+   * @generated from field: string swap_fee = 1;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: bool use_oracle = 2;
+   */
+  useOracle = false;
+
+  /**
+   * denom for fee collection
+   *
+   * @generated from field: string fee_denom = 3;
    */
   feeDenom = "";
 
@@ -66,14 +123,8 @@ export class PoolParams extends Message<PoolParams> {
   static readonly typeName = "elys.amm.PoolParams";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "exit_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "use_oracle", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 4, name: "weight_breaking_fee_multiplier", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "weight_breaking_fee_exponent", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "external_liquidity_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "weight_recovery_fee_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "threshold_weight_difference", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "use_oracle", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolParams {

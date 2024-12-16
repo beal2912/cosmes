@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
+import { QueryAprRequest, QueryAprResponse, QueryAprsRequest, QueryAprsResponse, QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryPoolRewardsRequest, QueryPoolRewardsResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Query";
 
@@ -111,5 +111,41 @@ export const QueryListFeeInfoService = {
   method: "ListFeeInfo",
   Request: QueryListFeeInfoRequest,
   Response: QueryListFeeInfoResponse,
+} as const;
+
+/**
+ * Calculate APR
+ *
+ * @generated from rpc elys.masterchef.Query.Apr
+ */
+export const QueryAprService = {
+  typeName: TYPE_NAME,
+  method: "Apr",
+  Request: QueryAprRequest,
+  Response: QueryAprResponse,
+} as const;
+
+/**
+ * Calculate APRs
+ *
+ * @generated from rpc elys.masterchef.Query.Aprs
+ */
+export const QueryAprsService = {
+  typeName: TYPE_NAME,
+  method: "Aprs",
+  Request: QueryAprsRequest,
+  Response: QueryAprsResponse,
+} as const;
+
+/**
+ * Queries PoolReward items
+ *
+ * @generated from rpc elys.masterchef.Query.PoolRewards
+ */
+export const QueryPoolRewardsService = {
+  typeName: TYPE_NAME,
+  method: "PoolRewards",
+  Request: QueryPoolRewardsRequest,
+  Response: QueryPoolRewardsResponse,
 } as const;
 

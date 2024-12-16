@@ -5,6 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
  * @generated from message elys.perpetual.PoolAsset
@@ -31,19 +32,14 @@ export class PoolAsset extends Message<PoolAsset> {
   takeProfitCustody = "";
 
   /**
-   * @generated from field: string asset_balance = 5;
-   */
-  assetBalance = "";
-
-  /**
-   * @generated from field: string block_borrow_interest = 6;
-   */
-  blockBorrowInterest = "";
-
-  /**
-   * @generated from field: string asset_denom = 7;
+   * @generated from field: string asset_denom = 5;
    */
   assetDenom = "";
+
+  /**
+   * @generated from field: string collateral = 6;
+   */
+  collateral = "";
 
   constructor(data?: PartialMessage<PoolAsset>) {
     super();
@@ -57,9 +53,8 @@ export class PoolAsset extends Message<PoolAsset> {
     { no: 2, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "take_profit_liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "take_profit_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "asset_balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "block_borrow_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolAsset {
@@ -94,41 +89,36 @@ export class Pool extends Message<Pool> {
   health = "";
 
   /**
-   * @generated from field: bool enabled = 3;
-   */
-  enabled = false;
-
-  /**
-   * @generated from field: bool closed = 4;
-   */
-  closed = false;
-
-  /**
-   * @generated from field: string borrow_interest_rate = 5;
+   * @generated from field: string borrow_interest_rate = 3;
    */
   borrowInterestRate = "";
 
   /**
-   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 6;
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 4;
    */
   poolAssetsLong: PoolAsset[] = [];
 
   /**
-   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 7;
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 5;
    */
   poolAssetsShort: PoolAsset[] = [];
 
   /**
-   * @generated from field: int64 last_height_borrow_interest_rate_computed = 8;
+   * @generated from field: int64 last_height_borrow_interest_rate_computed = 6;
    */
   lastHeightBorrowInterestRateComputed = protoInt64.zero;
 
   /**
    * funding rate, if positive longs pay shorts, if negative shorts pay longs
    *
-   * @generated from field: string funding_rate = 9;
+   * @generated from field: string funding_rate = 7;
    */
   fundingRate = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin fees_collected = 8;
+   */
+  feesCollected: Coin[] = [];
 
   constructor(data?: PartialMessage<Pool>) {
     super();
@@ -140,13 +130,12 @@ export class Pool extends Message<Pool> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 4, name: "closed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 5, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
-    { no: 7, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
-    { no: 8, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 9, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
+    { no: 5, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
+    { no: 6, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 7, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "fees_collected", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

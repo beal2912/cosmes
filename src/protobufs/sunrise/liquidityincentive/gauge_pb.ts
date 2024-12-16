@@ -7,6 +7,8 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * Gauge
+ *
  * @generated from message sunrise.liquidityincentive.Gauge
  */
 export class Gauge extends Message<Gauge> {
@@ -21,9 +23,9 @@ export class Gauge extends Message<Gauge> {
   poolId = protoInt64.zero;
 
   /**
-   * @generated from field: string ratio = 3;
+   * @generated from field: string count = 3;
    */
-  ratio = "";
+  count = "";
 
   constructor(data?: PartialMessage<Gauge>) {
     super();
@@ -35,7 +37,7 @@ export class Gauge extends Message<Gauge> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "previous_epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "count", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Gauge {
@@ -56,6 +58,53 @@ export class Gauge extends Message<Gauge> {
 }
 
 /**
+ * TallyResult
+ *
+ * @generated from message sunrise.liquidityincentive.TallyResult
+ */
+export class TallyResult extends Message<TallyResult> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string count = 2;
+   */
+  count = "";
+
+  constructor(data?: PartialMessage<TallyResult>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.TallyResult";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "count", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TallyResult {
+    return new TallyResult().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TallyResult {
+    return new TallyResult().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TallyResult {
+    return new TallyResult().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: TallyResult | PlainMessage<TallyResult> | undefined, b: TallyResult | PlainMessage<TallyResult> | undefined): boolean {
+    return proto3.util.equals(TallyResult, a, b);
+  }
+}
+
+/**
+ * PoolWeight
+ *
  * @generated from message sunrise.liquidityincentive.PoolWeight
  */
 export class PoolWeight extends Message<PoolWeight> {
@@ -99,6 +148,8 @@ export class PoolWeight extends Message<PoolWeight> {
 }
 
 /**
+ * Vote
+ *
  * @generated from message sunrise.liquidityincentive.Vote
  */
 export class Vote extends Message<Vote> {
@@ -108,9 +159,9 @@ export class Vote extends Message<Vote> {
   sender = "";
 
   /**
-   * @generated from field: repeated sunrise.liquidityincentive.PoolWeight weights = 2;
+   * @generated from field: repeated sunrise.liquidityincentive.PoolWeight pool_weights = 2;
    */
-  weights: PoolWeight[] = [];
+  poolWeights: PoolWeight[] = [];
 
   constructor(data?: PartialMessage<Vote>) {
     super();
@@ -121,7 +172,7 @@ export class Vote extends Message<Vote> {
   static readonly typeName = "sunrise.liquidityincentive.Vote";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "weights", kind: "message", T: PoolWeight, repeated: true },
+    { no: 2, name: "pool_weights", kind: "message", T: PoolWeight, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Vote {

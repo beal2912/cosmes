@@ -86,6 +86,8 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
+ * QueryPoolRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolRequest
  */
 export class QueryPoolRequest extends Message<QueryPoolRequest> {
@@ -123,6 +125,8 @@ export class QueryPoolRequest extends Message<QueryPoolRequest> {
 }
 
 /**
+ * PoolInfo
+ *
  * @generated from message sunrise.liquiditypool.PoolInfo
  */
 export class PoolInfo extends Message<PoolInfo> {
@@ -172,6 +176,8 @@ export class PoolInfo extends Message<PoolInfo> {
 }
 
 /**
+ * QueryPoolResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolResponse
  */
 export class QueryPoolResponse extends Message<QueryPoolResponse> {
@@ -209,6 +215,8 @@ export class QueryPoolResponse extends Message<QueryPoolResponse> {
 }
 
 /**
+ * QueryPoolsRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolsRequest
  */
 export class QueryPoolsRequest extends Message<QueryPoolsRequest> {
@@ -246,6 +254,8 @@ export class QueryPoolsRequest extends Message<QueryPoolsRequest> {
 }
 
 /**
+ * QueryPoolsResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolsResponse
  */
 export class QueryPoolsResponse extends Message<QueryPoolsResponse> {
@@ -289,6 +299,8 @@ export class QueryPoolsResponse extends Message<QueryPoolsResponse> {
 }
 
 /**
+ * QueryPositionRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionRequest
  */
 export class QueryPositionRequest extends Message<QueryPositionRequest> {
@@ -326,6 +338,8 @@ export class QueryPositionRequest extends Message<QueryPositionRequest> {
 }
 
 /**
+ * PositionInfo
+ *
  * @generated from message sunrise.liquiditypool.PositionInfo
  */
 export class PositionInfo extends Message<PositionInfo> {
@@ -375,6 +389,8 @@ export class PositionInfo extends Message<PositionInfo> {
 }
 
 /**
+ * QueryPositionResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionResponse
  */
 export class QueryPositionResponse extends Message<QueryPositionResponse> {
@@ -412,6 +428,8 @@ export class QueryPositionResponse extends Message<QueryPositionResponse> {
 }
 
 /**
+ * QueryPositionsRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionsRequest
  */
 export class QueryPositionsRequest extends Message<QueryPositionsRequest> {
@@ -449,6 +467,8 @@ export class QueryPositionsRequest extends Message<QueryPositionsRequest> {
 }
 
 /**
+ * QueryPositionsResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionsResponse
  */
 export class QueryPositionsResponse extends Message<QueryPositionsResponse> {
@@ -492,6 +512,8 @@ export class QueryPositionsResponse extends Message<QueryPositionsResponse> {
 }
 
 /**
+ * QueryPoolPositionsRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolPositionsRequest
  */
 export class QueryPoolPositionsRequest extends Message<QueryPoolPositionsRequest> {
@@ -529,6 +551,8 @@ export class QueryPoolPositionsRequest extends Message<QueryPoolPositionsRequest
 }
 
 /**
+ * QueryPoolPositionsResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPoolPositionsResponse
  */
 export class QueryPoolPositionsResponse extends Message<QueryPoolPositionsResponse> {
@@ -566,6 +590,8 @@ export class QueryPoolPositionsResponse extends Message<QueryPoolPositionsRespon
 }
 
 /**
+ * QueryAddressPositionsRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryAddressPositionsRequest
  */
 export class QueryAddressPositionsRequest extends Message<QueryAddressPositionsRequest> {
@@ -603,6 +629,8 @@ export class QueryAddressPositionsRequest extends Message<QueryAddressPositionsR
 }
 
 /**
+ * QueryAddressPositionsResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryAddressPositionsResponse
  */
 export class QueryAddressPositionsResponse extends Message<QueryAddressPositionsResponse> {
@@ -640,6 +668,8 @@ export class QueryAddressPositionsResponse extends Message<QueryAddressPositions
 }
 
 /**
+ * QueryPositionFeesRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionFeesRequest
  */
 export class QueryPositionFeesRequest extends Message<QueryPositionFeesRequest> {
@@ -677,6 +707,8 @@ export class QueryPositionFeesRequest extends Message<QueryPositionFeesRequest> 
 }
 
 /**
+ * QueryPositionFeesResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryPositionFeesResponse
  */
 export class QueryPositionFeesResponse extends Message<QueryPositionFeesResponse> {
@@ -714,6 +746,8 @@ export class QueryPositionFeesResponse extends Message<QueryPositionFeesResponse
 }
 
 /**
+ * QueryCalculationCreatePositionRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryCalculationCreatePositionRequest
  */
 export class QueryCalculationCreatePositionRequest extends Message<QueryCalculationCreatePositionRequest> {
@@ -775,6 +809,8 @@ export class QueryCalculationCreatePositionRequest extends Message<QueryCalculat
 }
 
 /**
+ * QueryCalculationCreatePositionResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryCalculationCreatePositionResponse
  */
 export class QueryCalculationCreatePositionResponse extends Message<QueryCalculationCreatePositionResponse> {
@@ -812,6 +848,8 @@ export class QueryCalculationCreatePositionResponse extends Message<QueryCalcula
 }
 
 /**
+ * QueryCalculationIncreaseLiquidityRequest
+ *
  * @generated from message sunrise.liquiditypool.QueryCalculationIncreaseLiquidityRequest
  */
 export class QueryCalculationIncreaseLiquidityRequest extends Message<QueryCalculationIncreaseLiquidityRequest> {
@@ -861,6 +899,8 @@ export class QueryCalculationIncreaseLiquidityRequest extends Message<QueryCalcu
 }
 
 /**
+ * QueryCalculationIncreaseLiquidityResponse
+ *
  * @generated from message sunrise.liquiditypool.QueryCalculationIncreaseLiquidityResponse
  */
 export class QueryCalculationIncreaseLiquidityResponse extends Message<QueryCalculationIncreaseLiquidityResponse> {

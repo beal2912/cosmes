@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
+import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryGetUsersPoolDataRequest, QueryGetUsersPoolDataResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryLockedOrderRequest, QueryLockedOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.tier.Query";
 
@@ -114,6 +114,18 @@ export const QueryLiquidTotalService = {
 } as const;
 
 /**
+ * Queries a list of LockedOrder items.
+ *
+ * @generated from rpc elys.tier.Query.LockedOrder
+ */
+export const QueryLockedOrderService = {
+  typeName: TYPE_NAME,
+  method: "LockedOrder",
+  Request: QueryLockedOrderRequest,
+  Response: QueryLockedOrderResponse,
+} as const;
+
+/**
  * Queries a list of GetAmmPrice items.
  *
  * @generated from rpc elys.tier.Query.GetAmmPrice
@@ -147,5 +159,17 @@ export const QueryStakedService = {
   method: "Staked",
   Request: QueryStakedRequest,
   Response: QueryStakedResponse,
+} as const;
+
+/**
+ * Queries a list of GetUsersPoolData items.
+ *
+ * @generated from rpc elys.tier.Query.GetUsersPoolData
+ */
+export const QueryGetUsersPoolDataService = {
+  typeName: TYPE_NAME,
+  method: "GetUsersPoolData",
+  Request: QueryGetUsersPoolDataRequest,
+  Response: QueryGetUsersPoolDataResponse,
 } as const;
 

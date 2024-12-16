@@ -93,6 +93,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgVoteGauge
+ *
  * @generated from message sunrise.liquidityincentive.MsgVoteGauge
  */
 export class MsgVoteGauge extends Message<MsgVoteGauge> {
@@ -102,9 +104,9 @@ export class MsgVoteGauge extends Message<MsgVoteGauge> {
   sender = "";
 
   /**
-   * @generated from field: repeated sunrise.liquidityincentive.PoolWeight weights = 2;
+   * @generated from field: repeated sunrise.liquidityincentive.PoolWeight pool_weights = 2;
    */
-  weights: PoolWeight[] = [];
+  poolWeights: PoolWeight[] = [];
 
   constructor(data?: PartialMessage<MsgVoteGauge>) {
     super();
@@ -115,7 +117,7 @@ export class MsgVoteGauge extends Message<MsgVoteGauge> {
   static readonly typeName = "sunrise.liquidityincentive.MsgVoteGauge";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "weights", kind: "message", T: PoolWeight, repeated: true },
+    { no: 2, name: "pool_weights", kind: "message", T: PoolWeight, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgVoteGauge {
@@ -136,6 +138,8 @@ export class MsgVoteGauge extends Message<MsgVoteGauge> {
 }
 
 /**
+ * MsgVoteGaugeResponse
+ *
  * @generated from message sunrise.liquidityincentive.MsgVoteGaugeResponse
  */
 export class MsgVoteGaugeResponse extends Message<MsgVoteGaugeResponse> {
@@ -167,6 +171,8 @@ export class MsgVoteGaugeResponse extends Message<MsgVoteGaugeResponse> {
 }
 
 /**
+ * MsgCollectVoteRewards
+ *
  * @generated from message sunrise.liquidityincentive.MsgCollectVoteRewards
  */
 export class MsgCollectVoteRewards extends Message<MsgCollectVoteRewards> {
@@ -204,6 +210,8 @@ export class MsgCollectVoteRewards extends Message<MsgCollectVoteRewards> {
 }
 
 /**
+ * MsgCollectVoteRewardsResponse
+ *
  * @generated from message sunrise.liquidityincentive.MsgCollectVoteRewardsResponse
  */
 export class MsgCollectVoteRewardsResponse extends Message<MsgCollectVoteRewardsResponse> {

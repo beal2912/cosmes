@@ -6,7 +6,7 @@
  * files, and then generates an `index.ts` file to re-export the generated code.
  */
 
-import { spawnSync } from "child_process";
+import { exec, spawnSync } from "child_process";
 import degit from "degit";
 import {
   copyFileSync,
@@ -49,7 +49,7 @@ const REPOS = [
     paths: ["proto"],
   },
   {
-    repo: "cosmos/ibc-go#v7.6.0",
+    repo: "cosmos/ibc-go#v8.5.2",
     paths: ["proto"],
   },
   {
@@ -135,7 +135,7 @@ console.log("Copying Third Party Proto...");
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/ibc") , { recursive: true, force: true });
   //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
   //copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
-  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/ibc-go#v7.6.0"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/ibc-go#v8.5.2"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/tendermint") , { recursive: true, force: true });
   //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos/app") , { recursive: true, force: true });
@@ -338,4 +338,29 @@ function copyDirectoryRecursiveSync(src, dest) {
           fs.copyFileSync(srcPath, destPath);
       }
   }
+}
+
+async function cloneSpecificCommit(
+  repoUrl,
+  commitHash,
+  targetDirectory
+) {
+  return new Promise((resolve, reject) => {
+    const repoName = repoUrl.split("/").pop()?.replace(".git", "") || "repository";
+    const targetPath = join(targetDirectory, repoName);
+
+    exec(
+      `git clone ${repoUrl} ${targetPath} && cd ${targetPath} && git checkout ${commitHash}`,
+      (error, stdout, stderr) => {
+        if (error) {
+          console.error("Error:", stderr)
+          reject(error)
+        } 
+        else{
+          resolve(stdout)
+        }
+        
+      }
+    )
+  })
 }

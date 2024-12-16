@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Swap, SwapStep, SwapType } from "./operations_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
+import { PoolPauseWindow, SwapFeeUpdateParams } from "./pool_pb.js";
 import { TokenWeight } from "./token_weight_pb.js";
 import { YammConfiguration } from "./yamm_configuration_pb.js";
 import { WhitelistedRoute } from "./whitelisted_route_pb.js";
@@ -15,7 +16,6 @@ import { PairMatchProposal } from "./pair_match_proposal_pb.js";
 import { TokenCircuitBreakerSettings } from "./token_circuit_breaker_settings_pb.js";
 import { OraclePricePair } from "./oracle_price_pair_pb.js";
 import { AuthorizationParameters, GasParameters, GeneralPoolParameters, OrderParameters, YammParameters } from "./params_pb.js";
-import { PoolPauseWindow } from "./pool_pb.js";
 
 /**
  * @generated from message pryzm.amm.v1.MsgSingleSwap
@@ -960,9 +960,11 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
   name = "";
 
   /**
-   * @generated from field: string swap_fee_ratio = 3;
+   * if update params is nil, this is the actual swap fee, o.w. you need to apply gradual update between this start and the end in params.
+   *
+   * @generated from field: string start_swap_fee_ratio = 3;
    */
-  swapFeeRatio = "";
+  startSwapFeeRatio = "";
 
   /**
    * @generated from field: int64 pause_window_duration_millis = 4;
@@ -1005,6 +1007,11 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
    */
   pauseAllowList: string[] = [];
 
+  /**
+   * @generated from field: pryzm.amm.v1.SwapFeeUpdateParams swap_fee_update_params = 16;
+   */
+  swapFeeUpdateParams?: SwapFeeUpdateParams;
+
   constructor(data?: PartialMessage<MsgCreateWeightedPool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1015,7 +1022,7 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "start_swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "pause_window_duration_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 5, name: "pause_buffer_duration_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 6, name: "tokens", kind: "message", T: CreateWeightedPoolToken, repeated: true },
@@ -1023,6 +1030,7 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
     { no: 13, name: "force_gov_owner", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 14, name: "admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 15, name: "pause_allow_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 16, name: "swap_fee_update_params", kind: "message", T: SwapFeeUpdateParams },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateWeightedPool {
@@ -1094,9 +1102,16 @@ export class MsgUpdateSwapFee extends Message<MsgUpdateSwapFee> {
   poolId = protoInt64.zero;
 
   /**
-   * @generated from field: string swap_fee_ratio = 3;
+   * if update params is nil, this is the actual swap fee, o.w. you need to apply gradual update between this start and the end in params.
+   *
+   * @generated from field: string start_swap_fee_ratio = 3;
    */
-  swapFeeRatio = "";
+  startSwapFeeRatio = "";
+
+  /**
+   * @generated from field: pryzm.amm.v1.SwapFeeUpdateParams gradual_update_params = 4;
+   */
+  gradualUpdateParams?: SwapFeeUpdateParams;
 
   constructor(data?: PartialMessage<MsgUpdateSwapFee>) {
     super();
@@ -1108,7 +1123,8 @@ export class MsgUpdateSwapFee extends Message<MsgUpdateSwapFee> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "start_swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "gradual_update_params", kind: "message", T: SwapFeeUpdateParams },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateSwapFee {

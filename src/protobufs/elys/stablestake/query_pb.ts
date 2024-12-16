@@ -115,7 +115,8 @@ export class QueryBorrowRatioRequest extends Message<QueryBorrowRatioRequest> {
 }
 
 /**
- * QueryBorrowRatioResponse is response type for the Query/BorrowRatio RPC method.
+ * QueryBorrowRatioResponse is response type for the Query/BorrowRatio RPC
+ * method.
  *
  * @generated from message elys.stablestake.QueryBorrowRatioResponse
  */

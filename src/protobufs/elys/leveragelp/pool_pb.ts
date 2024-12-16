@@ -21,24 +21,19 @@ export class Pool extends Message<Pool> {
   health = "";
 
   /**
-   * @generated from field: bool enabled = 3;
-   */
-  enabled = false;
-
-  /**
-   * @generated from field: bool closed = 4;
-   */
-  closed = false;
-
-  /**
-   * @generated from field: string leveraged_lp_amount = 5;
+   * @generated from field: string leveraged_lp_amount = 3;
    */
   leveragedLpAmount = "";
 
   /**
-   * @generated from field: string leverage_max = 6;
+   * @generated from field: string leverage_max = 4;
    */
   leverageMax = "";
+
+  /**
+   * @generated from field: string max_leveragelp_ratio = 5;
+   */
+  maxLeveragelpRatio = "";
 
   constructor(data?: PartialMessage<Pool>) {
     super();
@@ -50,10 +45,9 @@ export class Pool extends Message<Pool> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 4, name: "closed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 5, name: "leveraged_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "leveraged_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "max_leveragelp_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {
@@ -70,6 +64,61 @@ export class Pool extends Message<Pool> {
 
   static equals(a: Pool | PlainMessage<Pool> | undefined, b: Pool | PlainMessage<Pool> | undefined): boolean {
     return proto3.util.equals(Pool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.LegacyPool
+ */
+export class LegacyPool extends Message<LegacyPool> {
+  /**
+   * @generated from field: uint64 amm_pool_id = 1;
+   */
+  ammPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string health = 2;
+   */
+  health = "";
+
+  /**
+   * @generated from field: string leveraged_lp_amount = 3;
+   */
+  leveragedLpAmount = "";
+
+  /**
+   * @generated from field: string leverage_max = 4;
+   */
+  leverageMax = "";
+
+  constructor(data?: PartialMessage<LegacyPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.LegacyPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "leveraged_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPool {
+    return new LegacyPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPool | PlainMessage<LegacyPool> | undefined, b: LegacyPool | PlainMessage<LegacyPool> | undefined): boolean {
+    return proto3.util.equals(LegacyPool, a, b);
   }
 }
 

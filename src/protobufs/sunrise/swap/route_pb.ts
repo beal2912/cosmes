@@ -8,6 +8,8 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * RoutePool
+ *
  * @generated from message sunrise.swap.RoutePool
  */
 export class RoutePool extends Message<RoutePool> {
@@ -45,6 +47,8 @@ export class RoutePool extends Message<RoutePool> {
 }
 
 /**
+ * RouteSeries
+ *
  * @generated from message sunrise.swap.RouteSeries
  */
 export class RouteSeries extends Message<RouteSeries> {
@@ -82,6 +86,8 @@ export class RouteSeries extends Message<RouteSeries> {
 }
 
 /**
+ * RouteParallel
+ *
  * @generated from message sunrise.swap.RouteParallel
  */
 export class RouteParallel extends Message<RouteParallel> {
@@ -125,6 +131,8 @@ export class RouteParallel extends Message<RouteParallel> {
 }
 
 /**
+ * Route
+ *
  * @generated from message sunrise.swap.Route
  */
 export class Route extends Message<Route> {
@@ -139,6 +147,8 @@ export class Route extends Message<Route> {
   denomOut = "";
 
   /**
+   * strategy
+   *
    * @generated from oneof sunrise.swap.Route.strategy
    */
   strategy: {
@@ -194,6 +204,8 @@ export class Route extends Message<Route> {
 }
 
 /**
+ * RouteResultPool
+ *
  * @generated from message sunrise.swap.RouteResultPool
  */
 export class RouteResultPool extends Message<RouteResultPool> {
@@ -231,6 +243,8 @@ export class RouteResultPool extends Message<RouteResultPool> {
 }
 
 /**
+ * RouteResultSeries
+ *
  * @generated from message sunrise.swap.RouteResultSeries
  */
 export class RouteResultSeries extends Message<RouteResultSeries> {
@@ -268,6 +282,8 @@ export class RouteResultSeries extends Message<RouteResultSeries> {
 }
 
 /**
+ * RouteResultParallel
+ *
  * @generated from message sunrise.swap.RouteResultParallel
  */
 export class RouteResultParallel extends Message<RouteResultParallel> {
@@ -305,6 +321,8 @@ export class RouteResultParallel extends Message<RouteResultParallel> {
 }
 
 /**
+ * RouteResult
+ *
  * @generated from message sunrise.swap.RouteResult
  */
 export class RouteResult extends Message<RouteResult> {
@@ -319,6 +337,8 @@ export class RouteResult extends Message<RouteResult> {
   tokenOut?: Coin;
 
   /**
+   * strategy
+   *
    * @generated from oneof sunrise.swap.RouteResult.strategy
    */
   strategy: {

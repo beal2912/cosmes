@@ -21,7 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
- * WithdrawReward defines a method to withdraw rewards of delegator from a single validator.
+ * WithdrawReward defines a method to withdraw rewards of delegator from a
+ * single validator.
  *
  * @generated from rpc elys.estaking.Msg.WithdrawReward
  */
@@ -33,7 +34,8 @@ export const MsgWithdrawRewardService = {
 } as const;
 
 /**
- * WithdrawElysStakingRewards defines a method to withdraw rewards of delegator from all the validators.
+ * WithdrawElysStakingRewards defines a method to withdraw rewards of
+ * delegator from all the validators.
  *
  * @generated from rpc elys.estaking.Msg.WithdrawElysStakingRewards
  */
@@ -45,7 +47,8 @@ export const MsgWithdrawElysStakingRewardsService = {
 } as const;
 
 /**
- * WithdrawAllRewards defines a method to withdraw rewards of delegator from all the validators and Eden/EdenB commitment.
+ * WithdrawAllRewards defines a method to withdraw rewards of delegator from
+ * all the validators and Eden/EdenB commitment.
  *
  * @generated from rpc elys.estaking.Msg.WithdrawAllRewards
  */

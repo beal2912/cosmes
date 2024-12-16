@@ -7,6 +7,97 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * @generated from message elys.stablestake.LegacyParams
+ */
+export class LegacyParams extends Message<LegacyParams> {
+  /**
+   * @generated from field: string deposit_denom = 1;
+   */
+  depositDenom = "";
+
+  /**
+   * @generated from field: string redemption_rate = 2;
+   */
+  redemptionRate = "";
+
+  /**
+   * @generated from field: int64 epoch_length = 3;
+   */
+  epochLength = protoInt64.zero;
+
+  /**
+   * @generated from field: string interest_rate = 4;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: string interest_rate_max = 5;
+   */
+  interestRateMax = "";
+
+  /**
+   * @generated from field: string interest_rate_min = 6;
+   */
+  interestRateMin = "";
+
+  /**
+   * @generated from field: string interest_rate_increase = 7;
+   */
+  interestRateIncrease = "";
+
+  /**
+   * @generated from field: string interest_rate_decrease = 8;
+   */
+  interestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 9;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: string total_value = 10;
+   */
+  totalValue = "";
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "deposit_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "redemption_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 4, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
  * Params defines the parameters for the module.
  *
  * @generated from message elys.stablestake.Params
@@ -62,6 +153,11 @@ export class Params extends Message<Params> {
    */
   totalValue = "";
 
+  /**
+   * @generated from field: string max_leverage_ratio = 11;
+   */
+  maxLeverageRatio = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -80,6 +176,7 @@ export class Params extends Message<Params> {
     { no: 8, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

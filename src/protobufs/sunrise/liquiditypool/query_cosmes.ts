@@ -20,7 +20,7 @@ export const QueryParamsService = {
 } as const;
 
 /**
- * Queries a list of Pool items.
+ * Pool
  *
  * @generated from rpc sunrise.liquiditypool.Query.Pool
  */
@@ -32,6 +32,8 @@ export const QueryPoolService = {
 } as const;
 
 /**
+ * Pools
+ *
  * @generated from rpc sunrise.liquiditypool.Query.Pools
  */
 export const QueryPoolsService = {
@@ -42,7 +44,7 @@ export const QueryPoolsService = {
 } as const;
 
 /**
- * Queries a list of Position items.
+ * Position
  *
  * @generated from rpc sunrise.liquiditypool.Query.Position
  */
@@ -54,6 +56,8 @@ export const QueryPositionService = {
 } as const;
 
 /**
+ * Positions
+ *
  * @generated from rpc sunrise.liquiditypool.Query.Positions
  */
 export const QueryPositionsService = {
@@ -64,6 +68,8 @@ export const QueryPositionsService = {
 } as const;
 
 /**
+ * PoolPositions
+ *
  * @generated from rpc sunrise.liquiditypool.Query.PoolPositions
  */
 export const QueryPoolPositionsService = {
@@ -74,6 +80,8 @@ export const QueryPoolPositionsService = {
 } as const;
 
 /**
+ * AddressPositions
+ *
  * @generated from rpc sunrise.liquiditypool.Query.AddressPositions
  */
 export const QueryAddressPositionsService = {

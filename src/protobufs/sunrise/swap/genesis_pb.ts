@@ -22,14 +22,14 @@ export class GenesisState extends Message<GenesisState> {
   params?: Params;
 
   /**
-   * @generated from field: repeated sunrise.swap.IncomingInFlightPacket incomingInFlightPacketList = 2;
+   * @generated from field: repeated sunrise.swap.IncomingInFlightPacket incoming_in_flight_packets = 2;
    */
-  incomingInFlightPacketList: IncomingInFlightPacket[] = [];
+  incomingInFlightPackets: IncomingInFlightPacket[] = [];
 
   /**
-   * @generated from field: repeated sunrise.swap.OutgoingInFlightPacket outgoingInFlightPacketList = 3;
+   * @generated from field: repeated sunrise.swap.OutgoingInFlightPacket outgoing_in_flight_packets = 3;
    */
-  outgoingInFlightPacketList: OutgoingInFlightPacket[] = [];
+  outgoingInFlightPackets: OutgoingInFlightPacket[] = [];
 
   constructor(data?: PartialMessage<GenesisState>) {
     super();
@@ -40,8 +40,8 @@ export class GenesisState extends Message<GenesisState> {
   static readonly typeName = "sunrise.swap.GenesisState";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "params", kind: "message", T: Params },
-    { no: 2, name: "incomingInFlightPacketList", kind: "message", T: IncomingInFlightPacket, repeated: true },
-    { no: 3, name: "outgoingInFlightPacketList", kind: "message", T: OutgoingInFlightPacket, repeated: true },
+    { no: 2, name: "incoming_in_flight_packets", kind: "message", T: IncomingInFlightPacket, repeated: true },
+    { no: 3, name: "outgoing_in_flight_packets", kind: "message", T: OutgoingInFlightPacket, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

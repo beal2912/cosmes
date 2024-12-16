@@ -40,9 +40,11 @@ export class GenesisState extends Message<GenesisState> {
   params?: Params;
 
   /**
-   * create localhost on initialization
+   * Deprecated: create_localhost has been deprecated.
+   * The localhost client is automatically created at genesis.
    *
-   * @generated from field: bool create_localhost = 5;
+   * @generated from field: bool create_localhost = 5 [deprecated = true];
+   * @deprecated
    */
   createLocalhost = false;
 

@@ -8,6 +8,8 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { DecCoin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * TickInfo
+ *
  * @generated from message sunrise.liquiditypool.TickInfo
  */
 export class TickInfo extends Message<TickInfo> {

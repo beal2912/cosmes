@@ -256,3 +256,179 @@ export class MsgDeleteEntryResponse extends Message<MsgDeleteEntryResponse> {
   }
 }
 
+/**
+ * @generated from message elys.assetprofile.MsgAddEntry
+ */
+export class MsgAddEntry extends Message<MsgAddEntry> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string baseDenom = 2;
+   */
+  baseDenom = "";
+
+  /**
+   * @generated from field: uint64 decimals = 3;
+   */
+  decimals = protoInt64.zero;
+
+  /**
+   * @generated from field: string denom = 4;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string path = 5;
+   */
+  path = "";
+
+  /**
+   * @generated from field: string ibcChannelId = 6;
+   */
+  ibcChannelId = "";
+
+  /**
+   * @generated from field: string ibcCounterpartyChannelId = 7;
+   */
+  ibcCounterpartyChannelId = "";
+
+  /**
+   * @generated from field: string displayName = 8;
+   */
+  displayName = "";
+
+  /**
+   * @generated from field: string displaySymbol = 9;
+   */
+  displaySymbol = "";
+
+  /**
+   * @generated from field: string network = 10;
+   */
+  network = "";
+
+  /**
+   * @generated from field: string address = 11;
+   */
+  address = "";
+
+  /**
+   * @generated from field: string externalSymbol = 12;
+   */
+  externalSymbol = "";
+
+  /**
+   * @generated from field: string transferLimit = 13;
+   */
+  transferLimit = "";
+
+  /**
+   * @generated from field: repeated string permissions = 14;
+   */
+  permissions: string[] = [];
+
+  /**
+   * @generated from field: string unitDenom = 15;
+   */
+  unitDenom = "";
+
+  /**
+   * @generated from field: string ibcCounterpartyDenom = 16;
+   */
+  ibcCounterpartyDenom = "";
+
+  /**
+   * @generated from field: string ibcCounterpartyChainId = 17;
+   */
+  ibcCounterpartyChainId = "";
+
+  /**
+   * @generated from field: bool commitEnabled = 18;
+   */
+  commitEnabled = false;
+
+  /**
+   * @generated from field: bool withdrawEnabled = 19;
+   */
+  withdrawEnabled = false;
+
+  constructor(data?: PartialMessage<MsgAddEntry>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.assetprofile.MsgAddEntry";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "baseDenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "decimals", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "path", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "ibcChannelId", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "ibcCounterpartyChannelId", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "displayName", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "displaySymbol", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "network", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "externalSymbol", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "transferLimit", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "permissions", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 15, name: "unitDenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "ibcCounterpartyDenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "ibcCounterpartyChainId", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "commitEnabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 19, name: "withdrawEnabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddEntry {
+    return new MsgAddEntry().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddEntry {
+    return new MsgAddEntry().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddEntry {
+    return new MsgAddEntry().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddEntry | PlainMessage<MsgAddEntry> | undefined, b: MsgAddEntry | PlainMessage<MsgAddEntry> | undefined): boolean {
+    return proto3.util.equals(MsgAddEntry, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.assetprofile.MsgAddEntryResponse
+ */
+export class MsgAddEntryResponse extends Message<MsgAddEntryResponse> {
+  constructor(data?: PartialMessage<MsgAddEntryResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.assetprofile.MsgAddEntryResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddEntryResponse {
+    return new MsgAddEntryResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddEntryResponse {
+    return new MsgAddEntryResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddEntryResponse {
+    return new MsgAddEntryResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddEntryResponse | PlainMessage<MsgAddEntryResponse> | undefined, b: MsgAddEntryResponse | PlainMessage<MsgAddEntryResponse> | undefined): boolean {
+    return proto3.util.equals(MsgAddEntryResponse, a, b);
+  }
+}
+

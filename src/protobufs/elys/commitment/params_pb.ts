@@ -52,8 +52,109 @@ proto3.util.setEnumType(EarnType, "elys.commitment.EarnType", [
 ]);
 
 /**
- * Params defines the parameters for the module.
- *
+ * @generated from message elys.commitment.LegacyParams
+ */
+export class LegacyParams extends Message<LegacyParams> {
+  /**
+   * @generated from field: repeated elys.commitment.VestingInfo vesting_infos = 1;
+   */
+  vestingInfos: VestingInfo[] = [];
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin total_committed = 2;
+   */
+  totalCommitted: Coin[] = [];
+
+  /**
+   * @generated from field: uint64 number_of_commitments = 3;
+   */
+  numberOfCommitments = protoInt64.zero;
+
+  /**
+   * @generated from field: bool enable_vest_now = 4;
+   */
+  enableVestNow = false;
+
+  /**
+   * @generated from field: uint64 start_atom_stakers_height = 5;
+   */
+  startAtomStakersHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_atom_stakers_height = 6;
+   */
+  endAtomStakersHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 start_cadets_height = 7;
+   */
+  startCadetsHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_cadets_height = 8;
+   */
+  endCadetsHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 start_nft_holders_height = 9;
+   */
+  startNftHoldersHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_nft_holders_height = 10;
+   */
+  endNftHoldersHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 start_governors_height = 11;
+   */
+  startGovernorsHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_governors_height = 12;
+   */
+  endGovernorsHeight = protoInt64.zero;
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "vesting_infos", kind: "message", T: VestingInfo, repeated: true },
+    { no: 2, name: "total_committed", kind: "message", T: Coin, repeated: true },
+    { no: 3, name: "number_of_commitments", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "enable_vest_now", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "start_atom_stakers_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "end_atom_stakers_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "start_cadets_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 8, name: "end_cadets_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 9, name: "start_nft_holders_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 10, name: "end_nft_holders_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 11, name: "start_governors_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 12, name: "end_governors_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
  * @generated from message elys.commitment.Params
  */
 export class Params extends Message<Params> {
@@ -72,6 +173,36 @@ export class Params extends Message<Params> {
    */
   numberOfCommitments = protoInt64.zero;
 
+  /**
+   * @generated from field: bool enable_vest_now = 4;
+   */
+  enableVestNow = false;
+
+  /**
+   * @generated from field: uint64 start_airdrop_claim_height = 5;
+   */
+  startAirdropClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_airdrop_claim_height = 6;
+   */
+  endAirdropClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: bool enable_claim = 7;
+   */
+  enableClaim = false;
+
+  /**
+   * @generated from field: uint64 start_kol_claim_height = 8;
+   */
+  startKolClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_kol_claim_height = 9;
+   */
+  endKolClaimHeight = protoInt64.zero;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -83,6 +214,12 @@ export class Params extends Message<Params> {
     { no: 1, name: "vesting_infos", kind: "message", T: VestingInfo, repeated: true },
     { no: 2, name: "total_committed", kind: "message", T: Coin, repeated: true },
     { no: 3, name: "number_of_commitments", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "enable_vest_now", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "start_airdrop_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "end_airdrop_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "enable_claim", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 8, name: "start_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 9, name: "end_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {
@@ -99,49 +236,6 @@ export class Params extends Message<Params> {
 
   static equals(a: Params | PlainMessage<Params> | undefined, b: Params | PlainMessage<Params> | undefined): boolean {
     return proto3.util.equals(Params, a, b);
-  }
-}
-
-/**
- * @generated from message elys.commitment.LegacyParams
- */
-export class LegacyParams extends Message<LegacyParams> {
-  /**
-   * @generated from field: repeated elys.commitment.VestingInfo vesting_infos = 1;
-   */
-  vestingInfos: VestingInfo[] = [];
-
-  /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin total_committed = 2;
-   */
-  totalCommitted: Coin[] = [];
-
-  constructor(data?: PartialMessage<LegacyParams>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.commitment.LegacyParams";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "vesting_infos", kind: "message", T: VestingInfo, repeated: true },
-    { no: 2, name: "total_committed", kind: "message", T: Coin, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
-    return new LegacyParams().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
-    return proto3.util.equals(LegacyParams, a, b);
   }
 }
 

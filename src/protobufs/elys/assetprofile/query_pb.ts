@@ -84,150 +84,150 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
- * @generated from message elys.assetprofile.QueryGetEntryRequest
+ * @generated from message elys.assetprofile.QueryEntryRequest
  */
-export class QueryGetEntryRequest extends Message<QueryGetEntryRequest> {
+export class QueryEntryRequest extends Message<QueryEntryRequest> {
   /**
    * @generated from field: string base_denom = 1;
    */
   baseDenom = "";
 
-  constructor(data?: PartialMessage<QueryGetEntryRequest>) {
+  constructor(data?: PartialMessage<QueryEntryRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.assetprofile.QueryGetEntryRequest";
+  static readonly typeName = "elys.assetprofile.QueryEntryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "base_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetEntryRequest {
-    return new QueryGetEntryRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEntryRequest {
+    return new QueryEntryRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetEntryRequest {
-    return new QueryGetEntryRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEntryRequest {
+    return new QueryEntryRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetEntryRequest {
-    return new QueryGetEntryRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEntryRequest {
+    return new QueryEntryRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryGetEntryRequest | PlainMessage<QueryGetEntryRequest> | undefined, b: QueryGetEntryRequest | PlainMessage<QueryGetEntryRequest> | undefined): boolean {
-    return proto3.util.equals(QueryGetEntryRequest, a, b);
+  static equals(a: QueryEntryRequest | PlainMessage<QueryEntryRequest> | undefined, b: QueryEntryRequest | PlainMessage<QueryEntryRequest> | undefined): boolean {
+    return proto3.util.equals(QueryEntryRequest, a, b);
   }
 }
 
 /**
- * @generated from message elys.assetprofile.QueryGetEntryByDenomRequest
+ * @generated from message elys.assetprofile.QueryEntryByDenomRequest
  */
-export class QueryGetEntryByDenomRequest extends Message<QueryGetEntryByDenomRequest> {
+export class QueryEntryByDenomRequest extends Message<QueryEntryByDenomRequest> {
   /**
    * @generated from field: string denom = 1;
    */
   denom = "";
 
-  constructor(data?: PartialMessage<QueryGetEntryByDenomRequest>) {
+  constructor(data?: PartialMessage<QueryEntryByDenomRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.assetprofile.QueryGetEntryByDenomRequest";
+  static readonly typeName = "elys.assetprofile.QueryEntryByDenomRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetEntryByDenomRequest {
-    return new QueryGetEntryByDenomRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEntryByDenomRequest {
+    return new QueryEntryByDenomRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetEntryByDenomRequest {
-    return new QueryGetEntryByDenomRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEntryByDenomRequest {
+    return new QueryEntryByDenomRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetEntryByDenomRequest {
-    return new QueryGetEntryByDenomRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEntryByDenomRequest {
+    return new QueryEntryByDenomRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryGetEntryByDenomRequest | PlainMessage<QueryGetEntryByDenomRequest> | undefined, b: QueryGetEntryByDenomRequest | PlainMessage<QueryGetEntryByDenomRequest> | undefined): boolean {
-    return proto3.util.equals(QueryGetEntryByDenomRequest, a, b);
+  static equals(a: QueryEntryByDenomRequest | PlainMessage<QueryEntryByDenomRequest> | undefined, b: QueryEntryByDenomRequest | PlainMessage<QueryEntryByDenomRequest> | undefined): boolean {
+    return proto3.util.equals(QueryEntryByDenomRequest, a, b);
   }
 }
 
 /**
- * @generated from message elys.assetprofile.QueryGetEntryResponse
+ * @generated from message elys.assetprofile.QueryEntryResponse
  */
-export class QueryGetEntryResponse extends Message<QueryGetEntryResponse> {
+export class QueryEntryResponse extends Message<QueryEntryResponse> {
   /**
    * @generated from field: elys.assetprofile.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<QueryGetEntryResponse>) {
+  constructor(data?: PartialMessage<QueryEntryResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.assetprofile.QueryGetEntryResponse";
+  static readonly typeName = "elys.assetprofile.QueryEntryResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetEntryResponse {
-    return new QueryGetEntryResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEntryResponse {
+    return new QueryEntryResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetEntryResponse {
-    return new QueryGetEntryResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEntryResponse {
+    return new QueryEntryResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetEntryResponse {
-    return new QueryGetEntryResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEntryResponse {
+    return new QueryEntryResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryGetEntryResponse | PlainMessage<QueryGetEntryResponse> | undefined, b: QueryGetEntryResponse | PlainMessage<QueryGetEntryResponse> | undefined): boolean {
-    return proto3.util.equals(QueryGetEntryResponse, a, b);
+  static equals(a: QueryEntryResponse | PlainMessage<QueryEntryResponse> | undefined, b: QueryEntryResponse | PlainMessage<QueryEntryResponse> | undefined): boolean {
+    return proto3.util.equals(QueryEntryResponse, a, b);
   }
 }
 
 /**
- * @generated from message elys.assetprofile.QueryGetEntryByDenomResponse
+ * @generated from message elys.assetprofile.QueryEntryByDenomResponse
  */
-export class QueryGetEntryByDenomResponse extends Message<QueryGetEntryByDenomResponse> {
+export class QueryEntryByDenomResponse extends Message<QueryEntryByDenomResponse> {
   /**
    * @generated from field: elys.assetprofile.Entry entry = 1;
    */
   entry?: Entry;
 
-  constructor(data?: PartialMessage<QueryGetEntryByDenomResponse>) {
+  constructor(data?: PartialMessage<QueryEntryByDenomResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.assetprofile.QueryGetEntryByDenomResponse";
+  static readonly typeName = "elys.assetprofile.QueryEntryByDenomResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entry", kind: "message", T: Entry },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetEntryByDenomResponse {
-    return new QueryGetEntryByDenomResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEntryByDenomResponse {
+    return new QueryEntryByDenomResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetEntryByDenomResponse {
-    return new QueryGetEntryByDenomResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEntryByDenomResponse {
+    return new QueryEntryByDenomResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetEntryByDenomResponse {
-    return new QueryGetEntryByDenomResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEntryByDenomResponse {
+    return new QueryEntryByDenomResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryGetEntryByDenomResponse | PlainMessage<QueryGetEntryByDenomResponse> | undefined, b: QueryGetEntryByDenomResponse | PlainMessage<QueryGetEntryByDenomResponse> | undefined): boolean {
-    return proto3.util.equals(QueryGetEntryByDenomResponse, a, b);
+  static equals(a: QueryEntryByDenomResponse | PlainMessage<QueryEntryByDenomResponse> | undefined, b: QueryEntryByDenomResponse | PlainMessage<QueryEntryByDenomResponse> | undefined): boolean {
+    return proto3.util.equals(QueryEntryByDenomResponse, a, b);
   }
 }
 

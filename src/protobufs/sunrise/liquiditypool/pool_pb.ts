@@ -7,6 +7,8 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * Pool
+ *
  * @generated from message sunrise.liquiditypool.Pool
  */
 export class Pool extends Message<Pool> {
@@ -86,6 +88,7 @@ export class Pool extends Message<Pool> {
 }
 
 /**
+ * TickParams
  * PriceRatio^(Tick - BaseOffSet)
  *
  * @generated from message sunrise.liquiditypool.TickParams

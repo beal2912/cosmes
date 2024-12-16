@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddPool, MsgAddPoolResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgRemovePool, MsgRemovePoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePool, MsgUpdatePoolResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgAddPool, MsgAddPoolResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgRemovePool, MsgRemovePoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.leveragelp.Msg";
 
@@ -55,16 +55,6 @@ export const MsgAddPoolService = {
   method: "AddPool",
   Request: MsgAddPool,
   Response: MsgAddPoolResponse,
-} as const;
-
-/**
- * @generated from rpc elys.leveragelp.Msg.UpdatePool
- */
-export const MsgUpdatePoolService = {
-  typeName: TYPE_NAME,
-  method: "UpdatePool",
-  Request: MsgUpdatePool,
-  Response: MsgUpdatePoolResponse,
 } as const;
 
 /**

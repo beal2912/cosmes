@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddCollateral, MsgAddCollateralResponse, MsgBrokerAddCollateral, MsgBrokerClose, MsgBrokerOpen, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Msg";
 
@@ -18,32 +18,12 @@ export const MsgOpenService = {
 } as const;
 
 /**
- * @generated from rpc elys.perpetual.Msg.BrokerOpen
- */
-export const MsgBrokerOpenService = {
-  typeName: TYPE_NAME,
-  method: "BrokerOpen",
-  Request: MsgBrokerOpen,
-  Response: MsgOpenResponse,
-} as const;
-
-/**
  * @generated from rpc elys.perpetual.Msg.Close
  */
 export const MsgCloseService = {
   typeName: TYPE_NAME,
   method: "Close",
   Request: MsgClose,
-  Response: MsgCloseResponse,
-} as const;
-
-/**
- * @generated from rpc elys.perpetual.Msg.BrokerClose
- */
-export const MsgBrokerCloseService = {
-  typeName: TYPE_NAME,
-  method: "BrokerClose",
-  Request: MsgBrokerClose,
   Response: MsgCloseResponse,
 } as const;
 
@@ -75,26 +55,6 @@ export const MsgDewhitelistService = {
   method: "Dewhitelist",
   Request: MsgDewhitelist,
   Response: MsgDewhitelistResponse,
-} as const;
-
-/**
- * @generated from rpc elys.perpetual.Msg.AddCollateral
- */
-export const MsgAddCollateralService = {
-  typeName: TYPE_NAME,
-  method: "AddCollateral",
-  Request: MsgAddCollateral,
-  Response: MsgAddCollateralResponse,
-} as const;
-
-/**
- * @generated from rpc elys.perpetual.Msg.BrokerAddCollateral
- */
-export const MsgBrokerAddCollateralService = {
-  typeName: TYPE_NAME,
-  method: "BrokerAddCollateral",
-  Request: MsgBrokerAddCollateral,
-  Response: MsgAddCollateralResponse,
 } as const;
 
 /**

@@ -8,6 +8,7 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
 import { Portfolio } from "./portfolio_pb.js";
+import { MembershipTier, UserData } from "./userdata_pb.js";
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -279,17 +280,12 @@ export class QueryCalculateDiscountRequest extends Message<QueryCalculateDiscoun
  */
 export class QueryCalculateDiscountResponse extends Message<QueryCalculateDiscountResponse> {
   /**
-   * @generated from field: string discount = 1;
+   * @generated from field: elys.tier.MembershipTier membership_tier = 1;
    */
-  discount = "";
+  membershipTier?: MembershipTier;
 
   /**
-   * @generated from field: string tier = 2;
-   */
-  tier = "";
-
-  /**
-   * @generated from field: string portfolio = 3;
+   * @generated from field: string portfolio = 2;
    */
   portfolio = "";
 
@@ -301,9 +297,8 @@ export class QueryCalculateDiscountResponse extends Message<QueryCalculateDiscou
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.QueryCalculateDiscountResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "tier", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "portfolio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "membership_tier", kind: "message", T: MembershipTier },
+    { no: 2, name: "portfolio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCalculateDiscountResponse {
@@ -706,6 +701,80 @@ export class QueryLiquidTotalResponse extends Message<QueryLiquidTotalResponse> 
 }
 
 /**
+ * @generated from message elys.tier.QueryLockedOrderRequest
+ */
+export class QueryLockedOrderRequest extends Message<QueryLockedOrderRequest> {
+  /**
+   * @generated from field: string user = 1;
+   */
+  user = "";
+
+  constructor(data?: PartialMessage<QueryLockedOrderRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryLockedOrderRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "user", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryLockedOrderRequest {
+    return new QueryLockedOrderRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryLockedOrderRequest {
+    return new QueryLockedOrderRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryLockedOrderRequest {
+    return new QueryLockedOrderRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryLockedOrderRequest | PlainMessage<QueryLockedOrderRequest> | undefined, b: QueryLockedOrderRequest | PlainMessage<QueryLockedOrderRequest> | undefined): boolean {
+    return proto3.util.equals(QueryLockedOrderRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryLockedOrderResponse
+ */
+export class QueryLockedOrderResponse extends Message<QueryLockedOrderResponse> {
+  /**
+   * @generated from field: string total = 1;
+   */
+  total = "";
+
+  constructor(data?: PartialMessage<QueryLockedOrderResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryLockedOrderResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryLockedOrderResponse {
+    return new QueryLockedOrderResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryLockedOrderResponse {
+    return new QueryLockedOrderResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryLockedOrderResponse {
+    return new QueryLockedOrderResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryLockedOrderResponse | PlainMessage<QueryLockedOrderResponse> | undefined, b: QueryLockedOrderResponse | PlainMessage<QueryLockedOrderResponse> | undefined): boolean {
+    return proto3.util.equals(QueryLockedOrderResponse, a, b);
+  }
+}
+
+/**
  * @generated from message elys.tier.QueryGetAmmPriceRequest
  */
 export class QueryGetAmmPriceRequest extends Message<QueryGetAmmPriceRequest> {
@@ -960,6 +1029,86 @@ export class QueryStakedResponse extends Message<QueryStakedResponse> {
 
   static equals(a: QueryStakedResponse | PlainMessage<QueryStakedResponse> | undefined, b: QueryStakedResponse | PlainMessage<QueryStakedResponse> | undefined): boolean {
     return proto3.util.equals(QueryStakedResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetUsersPoolDataRequest
+ */
+export class QueryGetUsersPoolDataRequest extends Message<QueryGetUsersPoolDataRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryGetUsersPoolDataRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetUsersPoolDataRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetUsersPoolDataRequest {
+    return new QueryGetUsersPoolDataRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetUsersPoolDataRequest {
+    return new QueryGetUsersPoolDataRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetUsersPoolDataRequest {
+    return new QueryGetUsersPoolDataRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetUsersPoolDataRequest | PlainMessage<QueryGetUsersPoolDataRequest> | undefined, b: QueryGetUsersPoolDataRequest | PlainMessage<QueryGetUsersPoolDataRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetUsersPoolDataRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetUsersPoolDataResponse
+ */
+export class QueryGetUsersPoolDataResponse extends Message<QueryGetUsersPoolDataResponse> {
+  /**
+   * @generated from field: repeated elys.tier.UserData users = 1;
+   */
+  users: UserData[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryGetUsersPoolDataResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetUsersPoolDataResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "users", kind: "message", T: UserData, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetUsersPoolDataResponse {
+    return new QueryGetUsersPoolDataResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetUsersPoolDataResponse {
+    return new QueryGetUsersPoolDataResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetUsersPoolDataResponse {
+    return new QueryGetUsersPoolDataResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetUsersPoolDataResponse | PlainMessage<QueryGetUsersPoolDataResponse> | undefined, b: QueryGetUsersPoolDataResponse | PlainMessage<QueryGetUsersPoolDataResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetUsersPoolDataResponse, a, b);
   }
 }
 

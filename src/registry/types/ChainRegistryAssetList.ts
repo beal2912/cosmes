@@ -115,7 +115,11 @@ export interface Asset {
   socials?: {
     website?: string;
     twitter?: string;
-    [k: string]: unknown | undefined;
+    telegram?: string;
+    discord?: string;
+    github?: string;
+    medium?: string;
+    reddit?: string;
   };
 }
 export interface DenomUnit {

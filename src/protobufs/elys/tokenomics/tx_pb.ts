@@ -408,43 +408,6 @@ export class MsgUpdateGenesisInflationResponse extends Message<MsgUpdateGenesisI
 }
 
 /**
- * @generated from message elys.tokenomics.MsgDeleteGenesisInflation
- */
-export class MsgDeleteGenesisInflation extends Message<MsgDeleteGenesisInflation> {
-  /**
-   * @generated from field: string authority = 1;
-   */
-  authority = "";
-
-  constructor(data?: PartialMessage<MsgDeleteGenesisInflation>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.tokenomics.MsgDeleteGenesisInflation";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDeleteGenesisInflation {
-    return new MsgDeleteGenesisInflation().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDeleteGenesisInflation {
-    return new MsgDeleteGenesisInflation().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDeleteGenesisInflation {
-    return new MsgDeleteGenesisInflation().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgDeleteGenesisInflation | PlainMessage<MsgDeleteGenesisInflation> | undefined, b: MsgDeleteGenesisInflation | PlainMessage<MsgDeleteGenesisInflation> | undefined): boolean {
-    return proto3.util.equals(MsgDeleteGenesisInflation, a, b);
-  }
-}
-
-/**
  * @generated from message elys.tokenomics.MsgCreateTimeBasedInflation
  */
 export class MsgCreateTimeBasedInflation extends Message<MsgCreateTimeBasedInflation> {

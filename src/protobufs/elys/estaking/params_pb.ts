@@ -5,17 +5,17 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { IncentiveInfo, LegacyIncentiveInfo } from "./incentive_pb.js";
-import { DexRewardsTracker, LegacyDexRewardsTracker } from "./dex_rewards_tracker_pb.js";
+import { IncentiveInfo } from "./incentive_pb.js";
+import { DexRewardsTracker } from "./dex_rewards_tracker_pb.js";
 
 /**
  * @generated from message elys.estaking.LegacyParams
  */
 export class LegacyParams extends Message<LegacyParams> {
   /**
-   * @generated from field: elys.estaking.LegacyIncentiveInfo stake_incentives = 1;
+   * @generated from field: elys.estaking.IncentiveInfo stake_incentives = 1;
    */
-  stakeIncentives?: LegacyIncentiveInfo;
+  stakeIncentives?: IncentiveInfo;
 
   /**
    * @generated from field: string eden_commit_val = 2;
@@ -30,21 +30,21 @@ export class LegacyParams extends Message<LegacyParams> {
   /**
    * Maximum eden reward apr for stakers - [0 - 0.3]
    *
-   * @generated from field: string max_eden_reward_apr_stakers = 5;
+   * @generated from field: string max_eden_reward_apr_stakers = 4;
    */
   maxEdenRewardAprStakers = "";
 
   /**
-   * @generated from field: string eden_boost_apr = 6;
+   * @generated from field: string eden_boost_apr = 5;
    */
   edenBoostApr = "";
 
   /**
    * Tracking dex rewards given to stakers
    *
-   * @generated from field: elys.estaking.LegacyDexRewardsTracker dex_rewards_stakers = 7;
+   * @generated from field: elys.estaking.DexRewardsTracker dex_rewards_stakers = 6;
    */
-  dexRewardsStakers?: LegacyDexRewardsTracker;
+  dexRewardsStakers?: DexRewardsTracker;
 
   constructor(data?: PartialMessage<LegacyParams>) {
     super();
@@ -54,12 +54,12 @@ export class LegacyParams extends Message<LegacyParams> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.estaking.LegacyParams";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "stake_incentives", kind: "message", T: LegacyIncentiveInfo },
+    { no: 1, name: "stake_incentives", kind: "message", T: IncentiveInfo },
     { no: 2, name: "eden_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "edenb_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "dex_rewards_stakers", kind: "message", T: LegacyDexRewardsTracker },
+    { no: 4, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "dex_rewards_stakers", kind: "message", T: DexRewardsTracker },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
@@ -113,11 +113,14 @@ export class Params extends Message<Params> {
   edenBoostApr = "";
 
   /**
-   * Tracking dex rewards given to stakers
-   *
-   * @generated from field: elys.estaking.DexRewardsTracker dex_rewards_stakers = 6;
+   * @generated from field: string provider_vesting_epoch_identifier = 6;
    */
-  dexRewardsStakers?: DexRewardsTracker;
+  providerVestingEpochIdentifier = "";
+
+  /**
+   * @generated from field: string provider_staking_rewards_portion = 7;
+   */
+  providerStakingRewardsPortion = "";
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -132,7 +135,8 @@ export class Params extends Message<Params> {
     { no: 3, name: "edenb_commit_val", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "max_eden_reward_apr_stakers", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "eden_boost_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "dex_rewards_stakers", kind: "message", T: DexRewardsTracker },
+    { no: 6, name: "provider_vesting_epoch_identifier", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "provider_staking_rewards_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

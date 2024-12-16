@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse } from "./query_pb.js";
+import { QueryAirDropRequest, QueryAirDropResponse, QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryKolRequest, QueryKolResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse, QueryTotalAirDropClaimedRequest, QueryTotalAirDropClaimedResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.commitment.Query";
 
@@ -65,5 +65,35 @@ export const QueryCommitmentVestingInfoService = {
   method: "CommitmentVestingInfo",
   Request: QueryCommitmentVestingInfoRequest,
   Response: QueryCommitmentVestingInfoResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.AirDrop
+ */
+export const QueryAirDropService = {
+  typeName: TYPE_NAME,
+  method: "AirDrop",
+  Request: QueryAirDropRequest,
+  Response: QueryAirDropResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.TotalAirdropClaimed
+ */
+export const QueryTotalAirdropClaimedService = {
+  typeName: TYPE_NAME,
+  method: "TotalAirdropClaimed",
+  Request: QueryTotalAirDropClaimedRequest,
+  Response: QueryTotalAirDropClaimedResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.Kol
+ */
+export const QueryKolService = {
+  typeName: TYPE_NAME,
+  method: "Kol",
+  Request: QueryKolRequest,
+  Response: QueryKolResponse,
 } as const;
 
