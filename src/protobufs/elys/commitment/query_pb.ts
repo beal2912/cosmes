@@ -452,3 +452,261 @@ export class VestingDetails extends Message<VestingDetails> {
   }
 }
 
+/**
+ * @generated from message elys.commitment.QueryAirDropRequest
+ */
+export class QueryAirDropRequest extends Message<QueryAirDropRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  constructor(data?: PartialMessage<QueryAirDropRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryAirDropRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAirDropRequest {
+    return new QueryAirDropRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAirDropRequest {
+    return new QueryAirDropRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAirDropRequest {
+    return new QueryAirDropRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAirDropRequest | PlainMessage<QueryAirDropRequest> | undefined, b: QueryAirDropRequest | PlainMessage<QueryAirDropRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAirDropRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryAirDropResponse
+ */
+export class QueryAirDropResponse extends Message<QueryAirDropResponse> {
+  /**
+   * @generated from field: string atom_staking = 1;
+   */
+  atomStaking = "";
+
+  /**
+   * @generated from field: string cadet = 2;
+   */
+  cadet = "";
+
+  /**
+   * @generated from field: string nft_holder = 3;
+   */
+  nftHolder = "";
+
+  /**
+   * @generated from field: string governor = 4;
+   */
+  governor = "";
+
+  /**
+   * @generated from field: bool claimed = 5;
+   */
+  claimed = false;
+
+  constructor(data?: PartialMessage<QueryAirDropResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryAirDropResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "atom_staking", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "cadet", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "nft_holder", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "governor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "claimed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAirDropResponse {
+    return new QueryAirDropResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAirDropResponse {
+    return new QueryAirDropResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAirDropResponse {
+    return new QueryAirDropResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAirDropResponse | PlainMessage<QueryAirDropResponse> | undefined, b: QueryAirDropResponse | PlainMessage<QueryAirDropResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAirDropResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryTotalAirDropClaimedRequest
+ */
+export class QueryTotalAirDropClaimedRequest extends Message<QueryTotalAirDropClaimedRequest> {
+  constructor(data?: PartialMessage<QueryTotalAirDropClaimedRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalAirDropClaimedRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalAirDropClaimedRequest {
+    return new QueryTotalAirDropClaimedRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalAirDropClaimedRequest {
+    return new QueryTotalAirDropClaimedRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalAirDropClaimedRequest {
+    return new QueryTotalAirDropClaimedRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalAirDropClaimedRequest | PlainMessage<QueryTotalAirDropClaimedRequest> | undefined, b: QueryTotalAirDropClaimedRequest | PlainMessage<QueryTotalAirDropClaimedRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTotalAirDropClaimedRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryTotalAirDropClaimedResponse
+ */
+export class QueryTotalAirDropClaimedResponse extends Message<QueryTotalAirDropClaimedResponse> {
+  /**
+   * @generated from field: string total_elys_claimed = 1;
+   */
+  totalElysClaimed = "";
+
+  /**
+   * @generated from field: string total_eden_claimed = 2;
+   */
+  totalEdenClaimed = "";
+
+  constructor(data?: PartialMessage<QueryTotalAirDropClaimedResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalAirDropClaimedResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_elys_claimed", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_eden_claimed", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalAirDropClaimedResponse {
+    return new QueryTotalAirDropClaimedResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalAirDropClaimedResponse {
+    return new QueryTotalAirDropClaimedResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalAirDropClaimedResponse {
+    return new QueryTotalAirDropClaimedResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalAirDropClaimedResponse | PlainMessage<QueryTotalAirDropClaimedResponse> | undefined, b: QueryTotalAirDropClaimedResponse | PlainMessage<QueryTotalAirDropClaimedResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTotalAirDropClaimedResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryKolRequest
+ */
+export class QueryKolRequest extends Message<QueryKolRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  constructor(data?: PartialMessage<QueryKolRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryKolRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryKolRequest {
+    return new QueryKolRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryKolRequest {
+    return new QueryKolRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryKolRequest {
+    return new QueryKolRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryKolRequest | PlainMessage<QueryKolRequest> | undefined, b: QueryKolRequest | PlainMessage<QueryKolRequest> | undefined): boolean {
+    return proto3.util.equals(QueryKolRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryKolResponse
+ */
+export class QueryKolResponse extends Message<QueryKolResponse> {
+  /**
+   * @generated from field: string elys_amount = 1;
+   */
+  elysAmount = "";
+
+  /**
+   * @generated from field: bool claimed = 2;
+   */
+  claimed = false;
+
+  /**
+   * @generated from field: bool refunded = 3;
+   */
+  refunded = false;
+
+  constructor(data?: PartialMessage<QueryKolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryKolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "elys_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "claimed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "refunded", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryKolResponse {
+    return new QueryKolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryKolResponse {
+    return new QueryKolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryKolResponse {
+    return new QueryKolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryKolResponse | PlainMessage<QueryKolResponse> | undefined, b: QueryKolResponse | PlainMessage<QueryKolResponse> | undefined): boolean {
+    return proto3.util.equals(QueryKolResponse, a, b);
+  }
+}
+

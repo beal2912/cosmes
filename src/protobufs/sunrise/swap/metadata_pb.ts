@@ -8,6 +8,8 @@ import { Duration, Message, proto3 } from "@bufbuild/protobuf";
 import { Route } from "./route_pb.js";
 
 /**
+ * PacketMetadata
+ *
  * @generated from message sunrise.swap.PacketMetadata
  */
 export class PacketMetadata extends Message<PacketMetadata> {
@@ -45,6 +47,8 @@ export class PacketMetadata extends Message<PacketMetadata> {
 }
 
 /**
+ * ForwardMetadata
+ *
  * @generated from message sunrise.swap.ForwardMetadata
  */
 export class ForwardMetadata extends Message<ForwardMetadata> {
@@ -112,6 +116,8 @@ export class ForwardMetadata extends Message<ForwardMetadata> {
 }
 
 /**
+ * ExactAmountIn
+ *
  * @generated from message sunrise.swap.ExactAmountIn
  */
 export class ExactAmountIn extends Message<ExactAmountIn> {
@@ -149,6 +155,8 @@ export class ExactAmountIn extends Message<ExactAmountIn> {
 }
 
 /**
+ * ExactAmountOut
+ *
  * @generated from message sunrise.swap.ExactAmountOut
  */
 export class ExactAmountOut extends Message<ExactAmountOut> {
@@ -192,6 +200,8 @@ export class ExactAmountOut extends Message<ExactAmountOut> {
 }
 
 /**
+ * SwapMetadata
+ *
  * @generated from message sunrise.swap.SwapMetadata
  */
 export class SwapMetadata extends Message<SwapMetadata> {
@@ -206,6 +216,8 @@ export class SwapMetadata extends Message<SwapMetadata> {
   route?: Route;
 
   /**
+   * amount_strategy
+   *
    * @generated from oneof sunrise.swap.SwapMetadata.amount_strategy
    */
   amountStrategy: {

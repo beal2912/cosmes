@@ -21,6 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
+ * Convert
+ *
  * @generated from rpc sunrise.tokenconverter.Msg.Convert
  */
 export const MsgConvertService = {

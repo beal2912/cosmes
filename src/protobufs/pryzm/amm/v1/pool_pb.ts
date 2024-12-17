@@ -72,6 +72,55 @@ export class PoolPauseWindow extends Message<PoolPauseWindow> {
 }
 
 /**
+ * @generated from message pryzm.amm.v1.SwapFeeUpdateParams
+ */
+export class SwapFeeUpdateParams extends Message<SwapFeeUpdateParams> {
+  /**
+   * @generated from field: string end = 1;
+   */
+  end = "";
+
+  /**
+   * @generated from field: int64 start_unix_millis = 2;
+   */
+  startUnixMillis = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 end_unix_millis = 3;
+   */
+  endUnixMillis = protoInt64.zero;
+
+  constructor(data?: PartialMessage<SwapFeeUpdateParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.SwapFeeUpdateParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "end", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "start_unix_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "end_unix_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SwapFeeUpdateParams {
+    return new SwapFeeUpdateParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): SwapFeeUpdateParams {
+    return new SwapFeeUpdateParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): SwapFeeUpdateParams {
+    return new SwapFeeUpdateParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: SwapFeeUpdateParams | PlainMessage<SwapFeeUpdateParams> | undefined, b: SwapFeeUpdateParams | PlainMessage<SwapFeeUpdateParams> | undefined): boolean {
+    return proto3.util.equals(SwapFeeUpdateParams, a, b);
+  }
+}
+
+/**
  * @generated from message pryzm.amm.v1.Pool
  */
 export class Pool extends Message<Pool> {
@@ -87,11 +136,12 @@ export class Pool extends Message<Pool> {
 
   /**
    * this is the constant swap fee ratio, for dynamic swap fees other pools might have other parameters.
-   * for example, check yamm configuration
+   * for example, check yamm configuration.
+   * if update params is nil, this is the actual swap fee, o.w. you need to apply gradual update between this start and the end in params.
    *
-   * @generated from field: string swap_fee_ratio = 3;
+   * @generated from field: string start_swap_fee_ratio = 3;
    */
-  swapFeeRatio = "";
+  startSwapFeeRatio = "";
 
   /**
    * @generated from field: pryzm.amm.v1.PoolType pool_type = 4;
@@ -155,6 +205,11 @@ export class Pool extends Message<Pool> {
    */
   pauseAllowList: string[] = [];
 
+  /**
+   * @generated from field: pryzm.amm.v1.SwapFeeUpdateParams swap_fee_update_params = 15;
+   */
+  swapFeeUpdateParams?: SwapFeeUpdateParams;
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -165,7 +220,7 @@ export class Pool extends Message<Pool> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "start_swap_fee_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "pool_type", kind: "enum", T: proto3.getEnumType(PoolType) },
     { no: 5, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "recovery_mode", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
@@ -177,6 +232,7 @@ export class Pool extends Message<Pool> {
     { no: 12, name: "initialization_allow_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 13, name: "admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 14, name: "pause_allow_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 15, name: "swap_fee_update_params", kind: "message", T: SwapFeeUpdateParams },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

@@ -21,6 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
+ * SwapExactAmountIn
+ *
  * @generated from rpc sunrise.swap.Msg.SwapExactAmountIn
  */
 export const MsgSwapExactAmountInService = {
@@ -31,6 +33,8 @@ export const MsgSwapExactAmountInService = {
 } as const;
 
 /**
+ * SwapExactAmountOut
+ *
  * @generated from rpc sunrise.swap.Msg.SwapExactAmountOut
  */
 export const MsgSwapExactAmountOutService = {

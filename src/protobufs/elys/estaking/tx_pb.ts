@@ -54,7 +54,8 @@ export class MsgUpdateParams extends Message<MsgUpdateParams> {
 }
 
 /**
- * MsgUpdateParamsResponse defines the response structure for executing a MsgUpdateParams message.
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
  *
  * @generated from message elys.estaking.MsgUpdateParamsResponse
  */
@@ -87,7 +88,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
- * MsgWithdrawReward represents delegation withdrawal to a delegator from a single validator.
+ * MsgWithdrawReward represents delegation withdrawal to a delegator from a
+ * single validator.
  *
  * @generated from message elys.estaking.MsgWithdrawReward
  */
@@ -132,7 +134,8 @@ export class MsgWithdrawReward extends Message<MsgWithdrawReward> {
 }
 
 /**
- * MsgWithdrawRewardResponse defines the Msg/WithdrawDelegatorReward response type.
+ * MsgWithdrawRewardResponse defines the Msg/WithdrawDelegatorReward response
+ * type.
  *
  * @generated from message elys.estaking.MsgWithdrawRewardResponse
  */
@@ -171,7 +174,8 @@ export class MsgWithdrawRewardResponse extends Message<MsgWithdrawRewardResponse
 }
 
 /**
- * MsgWithdrawElysStakingRewards represents delegation withdrawal to a delegator from all the validators.
+ * MsgWithdrawElysStakingRewards represents delegation withdrawal to a delegator
+ * from all the validators.
  *
  * @generated from message elys.estaking.MsgWithdrawElysStakingRewards
  */
@@ -210,7 +214,8 @@ export class MsgWithdrawElysStakingRewards extends Message<MsgWithdrawElysStakin
 }
 
 /**
- * MsgWithdrawElysStakingRewards defines the Msg/WithdrawElysStakingRewards response type.
+ * MsgWithdrawElysStakingRewards defines the Msg/WithdrawElysStakingRewards
+ * response type.
  *
  * @generated from message elys.estaking.MsgWithdrawElysStakingRewardsResponse
  */
@@ -249,7 +254,8 @@ export class MsgWithdrawElysStakingRewardsResponse extends Message<MsgWithdrawEl
 }
 
 /**
- * MsgWithdrawAllRewards represents delegation withdrawal to a delegator from all the validators and Eden/EdenB commitment.
+ * MsgWithdrawAllRewards represents delegation withdrawal to a delegator from
+ * all the validators and Eden/EdenB commitment.
  *
  * @generated from message elys.estaking.MsgWithdrawAllRewards
  */
@@ -288,7 +294,8 @@ export class MsgWithdrawAllRewards extends Message<MsgWithdrawAllRewards> {
 }
 
 /**
- * MsgWithdrawAllRewardsResponse defines the Msg/WithdrawAllRewards response type.
+ * MsgWithdrawAllRewardsResponse defines the Msg/WithdrawAllRewards response
+ * type.
  *
  * @generated from message elys.estaking.MsgWithdrawAllRewardsResponse
  */

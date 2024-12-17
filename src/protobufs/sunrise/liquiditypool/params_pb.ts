@@ -13,11 +13,15 @@ import { Message, proto3 } from "@bufbuild/protobuf";
  */
 export class Params extends Message<Params> {
   /**
+   * For reservation, not used yet
+   *
    * @generated from field: string withdraw_fee_rate = 1;
    */
   withdrawFeeRate = "";
 
   /**
+   * For reservation, not used yet
+   *
    * @generated from field: string swap_treasury_tax_rate = 2;
    */
   swapTreasuryTaxRate = "";

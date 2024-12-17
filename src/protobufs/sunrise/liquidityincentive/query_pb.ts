@@ -85,6 +85,8 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
+ * QueryEpochRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryEpochRequest
  */
 export class QueryEpochRequest extends Message<QueryEpochRequest> {
@@ -122,6 +124,8 @@ export class QueryEpochRequest extends Message<QueryEpochRequest> {
 }
 
 /**
+ * QueryEpochResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryEpochResponse
  */
 export class QueryEpochResponse extends Message<QueryEpochResponse> {
@@ -159,6 +163,8 @@ export class QueryEpochResponse extends Message<QueryEpochResponse> {
 }
 
 /**
+ * QueryEpochsRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryEpochsRequest
  */
 export class QueryEpochsRequest extends Message<QueryEpochsRequest> {
@@ -196,6 +202,8 @@ export class QueryEpochsRequest extends Message<QueryEpochsRequest> {
 }
 
 /**
+ * QueryEpochsResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryEpochsResponse
  */
 export class QueryEpochsResponse extends Message<QueryEpochsResponse> {
@@ -239,6 +247,8 @@ export class QueryEpochsResponse extends Message<QueryEpochsResponse> {
 }
 
 /**
+ * QueryGaugeRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryGaugeRequest
  */
 export class QueryGaugeRequest extends Message<QueryGaugeRequest> {
@@ -282,6 +292,8 @@ export class QueryGaugeRequest extends Message<QueryGaugeRequest> {
 }
 
 /**
+ * QueryGaugeResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryGaugeResponse
  */
 export class QueryGaugeResponse extends Message<QueryGaugeResponse> {
@@ -319,6 +331,8 @@ export class QueryGaugeResponse extends Message<QueryGaugeResponse> {
 }
 
 /**
+ * QueryGaugesRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryGaugesRequest
  */
 export class QueryGaugesRequest extends Message<QueryGaugesRequest> {
@@ -362,6 +376,8 @@ export class QueryGaugesRequest extends Message<QueryGaugesRequest> {
 }
 
 /**
+ * QueryGaugesResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryGaugesResponse
  */
 export class QueryGaugesResponse extends Message<QueryGaugesResponse> {
@@ -405,6 +421,8 @@ export class QueryGaugesResponse extends Message<QueryGaugesResponse> {
 }
 
 /**
+ * QueryVoteRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryVoteRequest
  */
 export class QueryVoteRequest extends Message<QueryVoteRequest> {
@@ -442,6 +460,8 @@ export class QueryVoteRequest extends Message<QueryVoteRequest> {
 }
 
 /**
+ * QueryVoteResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryVoteResponse
  */
 export class QueryVoteResponse extends Message<QueryVoteResponse> {
@@ -479,6 +499,8 @@ export class QueryVoteResponse extends Message<QueryVoteResponse> {
 }
 
 /**
+ * QueryVotesRequest
+ *
  * @generated from message sunrise.liquidityincentive.QueryVotesRequest
  */
 export class QueryVotesRequest extends Message<QueryVotesRequest> {
@@ -516,6 +538,8 @@ export class QueryVotesRequest extends Message<QueryVotesRequest> {
 }
 
 /**
+ * QueryVotesResponse
+ *
  * @generated from message sunrise.liquidityincentive.QueryVotesResponse
  */
 export class QueryVotesResponse extends Message<QueryVotesResponse> {

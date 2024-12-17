@@ -92,6 +92,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgPublishData
+ *
  * @generated from message sunrise.da.MsgPublishData
  */
 export class MsgPublishData extends Message<MsgPublishData> {
@@ -153,6 +155,8 @@ export class MsgPublishData extends Message<MsgPublishData> {
 }
 
 /**
+ * MsgPublishDataResponse
+ *
  * @generated from message sunrise.da.MsgPublishDataResponse
  */
 export class MsgPublishDataResponse extends Message<MsgPublishDataResponse> {
@@ -184,6 +188,8 @@ export class MsgPublishDataResponse extends Message<MsgPublishDataResponse> {
 }
 
 /**
+ * MsgChallengeForFraud
+ *
  * @generated from message sunrise.da.MsgChallengeForFraud
  */
 export class MsgChallengeForFraud extends Message<MsgChallengeForFraud> {
@@ -227,6 +233,8 @@ export class MsgChallengeForFraud extends Message<MsgChallengeForFraud> {
 }
 
 /**
+ * MsgChallengeForFraudResponse
+ *
  * @generated from message sunrise.da.MsgChallengeForFraudResponse
  */
 export class MsgChallengeForFraudResponse extends Message<MsgChallengeForFraudResponse> {
@@ -258,6 +266,8 @@ export class MsgChallengeForFraudResponse extends Message<MsgChallengeForFraudRe
 }
 
 /**
+ * MsgSubmitProof
+ *
  * @generated from message sunrise.da.MsgSubmitProof
  */
 export class MsgSubmitProof extends Message<MsgSubmitProof> {
@@ -319,6 +329,8 @@ export class MsgSubmitProof extends Message<MsgSubmitProof> {
 }
 
 /**
+ * MsgSubmitProofResponse
+ *
  * @generated from message sunrise.da.MsgSubmitProofResponse
  */
 export class MsgSubmitProofResponse extends Message<MsgSubmitProofResponse> {

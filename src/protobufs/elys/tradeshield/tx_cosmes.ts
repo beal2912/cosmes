@@ -3,68 +3,98 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCreatePendingPerpetualOrder, MsgCreatePendingPerpetualOrderResponse, MsgCreatePendingSpotOrder, MsgCreatePendingSpotOrderResponse, MsgDeletePendingPerpetualOrder, MsgDeletePendingPerpetualOrderResponse, MsgDeletePendingSpotOrder, MsgDeletePendingSpotOrderResponse, MsgExecuteOrders, MsgExecuteOrdersResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePendingPerpetualOrder, MsgUpdatePendingPerpetualOrderResponse, MsgUpdatePendingSpotOrder, MsgUpdatePendingSpotOrderResponse } from "./tx_pb.js";
+import { MsgCancelPerpetualOrder, MsgCancelPerpetualOrderResponse, MsgCancelPerpetualOrders, MsgCancelPerpetualOrdersResponse, MsgCancelSpotOrder, MsgCancelSpotOrderResponse, MsgCancelSpotOrders, MsgCancelSpotOrdersResponse, MsgCreatePerpetualCloseOrder, MsgCreatePerpetualCloseOrderResponse, MsgCreatePerpetualOpenOrder, MsgCreatePerpetualOpenOrderResponse, MsgCreateSpotOrder, MsgCreateSpotOrderResponse, MsgExecuteOrders, MsgExecuteOrdersResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePerpetualOrder, MsgUpdatePerpetualOrderResponse, MsgUpdateSpotOrder, MsgUpdateSpotOrderResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.tradeshield.Msg";
 
 /**
- * @generated from rpc elys.tradeshield.Msg.CreatePendingSpotOrder
+ * @generated from rpc elys.tradeshield.Msg.CreateSpotOrder
  */
-export const MsgCreatePendingSpotOrderService = {
+export const MsgCreateSpotOrderService = {
   typeName: TYPE_NAME,
-  method: "CreatePendingSpotOrder",
-  Request: MsgCreatePendingSpotOrder,
-  Response: MsgCreatePendingSpotOrderResponse,
+  method: "CreateSpotOrder",
+  Request: MsgCreateSpotOrder,
+  Response: MsgCreateSpotOrderResponse,
 } as const;
 
 /**
- * @generated from rpc elys.tradeshield.Msg.UpdatePendingSpotOrder
+ * @generated from rpc elys.tradeshield.Msg.UpdateSpotOrder
  */
-export const MsgUpdatePendingSpotOrderService = {
+export const MsgUpdateSpotOrderService = {
   typeName: TYPE_NAME,
-  method: "UpdatePendingSpotOrder",
-  Request: MsgUpdatePendingSpotOrder,
-  Response: MsgUpdatePendingSpotOrderResponse,
+  method: "UpdateSpotOrder",
+  Request: MsgUpdateSpotOrder,
+  Response: MsgUpdateSpotOrderResponse,
 } as const;
 
 /**
- * @generated from rpc elys.tradeshield.Msg.DeletePendingSpotOrder
+ * @generated from rpc elys.tradeshield.Msg.CancelSpotOrder
  */
-export const MsgDeletePendingSpotOrderService = {
+export const MsgCancelSpotOrderService = {
   typeName: TYPE_NAME,
-  method: "DeletePendingSpotOrder",
-  Request: MsgDeletePendingSpotOrder,
-  Response: MsgDeletePendingSpotOrderResponse,
+  method: "CancelSpotOrder",
+  Request: MsgCancelSpotOrder,
+  Response: MsgCancelSpotOrderResponse,
 } as const;
 
 /**
- * @generated from rpc elys.tradeshield.Msg.CreatePendingPerpetualOrder
+ * @generated from rpc elys.tradeshield.Msg.CancelSpotOrders
  */
-export const MsgCreatePendingPerpetualOrderService = {
+export const MsgCancelSpotOrdersService = {
   typeName: TYPE_NAME,
-  method: "CreatePendingPerpetualOrder",
-  Request: MsgCreatePendingPerpetualOrder,
-  Response: MsgCreatePendingPerpetualOrderResponse,
+  method: "CancelSpotOrders",
+  Request: MsgCancelSpotOrders,
+  Response: MsgCancelSpotOrdersResponse,
 } as const;
 
 /**
- * @generated from rpc elys.tradeshield.Msg.UpdatePendingPerpetualOrder
+ * @generated from rpc elys.tradeshield.Msg.CreatePerpetualOpenOrder
  */
-export const MsgUpdatePendingPerpetualOrderService = {
+export const MsgCreatePerpetualOpenOrderService = {
   typeName: TYPE_NAME,
-  method: "UpdatePendingPerpetualOrder",
-  Request: MsgUpdatePendingPerpetualOrder,
-  Response: MsgUpdatePendingPerpetualOrderResponse,
+  method: "CreatePerpetualOpenOrder",
+  Request: MsgCreatePerpetualOpenOrder,
+  Response: MsgCreatePerpetualOpenOrderResponse,
 } as const;
 
 /**
- * @generated from rpc elys.tradeshield.Msg.DeletePendingPerpetualOrder
+ * @generated from rpc elys.tradeshield.Msg.CreatePerpetualCloseOrder
  */
-export const MsgDeletePendingPerpetualOrderService = {
+export const MsgCreatePerpetualCloseOrderService = {
   typeName: TYPE_NAME,
-  method: "DeletePendingPerpetualOrder",
-  Request: MsgDeletePendingPerpetualOrder,
-  Response: MsgDeletePendingPerpetualOrderResponse,
+  method: "CreatePerpetualCloseOrder",
+  Request: MsgCreatePerpetualCloseOrder,
+  Response: MsgCreatePerpetualCloseOrderResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.tradeshield.Msg.UpdatePerpetualOrder
+ */
+export const MsgUpdatePerpetualOrderService = {
+  typeName: TYPE_NAME,
+  method: "UpdatePerpetualOrder",
+  Request: MsgUpdatePerpetualOrder,
+  Response: MsgUpdatePerpetualOrderResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.tradeshield.Msg.CancelPerpetualOrder
+ */
+export const MsgCancelPerpetualOrderService = {
+  typeName: TYPE_NAME,
+  method: "CancelPerpetualOrder",
+  Request: MsgCancelPerpetualOrder,
+  Response: MsgCancelPerpetualOrderResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.tradeshield.Msg.CancelPerpetualOrders
+ */
+export const MsgCancelPerpetualOrdersService = {
+  typeName: TYPE_NAME,
+  method: "CancelPerpetualOrders",
+  Request: MsgCancelPerpetualOrders,
+  Response: MsgCancelPerpetualOrdersResponse,
 } as const;
 
 /**

@@ -7,6 +7,69 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * @generated from message elys.parameter.LegacyParams
+ */
+export class LegacyParams extends Message<LegacyParams> {
+  /**
+   * @generated from field: string min_commission_rate = 1;
+   */
+  minCommissionRate = "";
+
+  /**
+   * @generated from field: string max_voting_power = 2;
+   */
+  maxVotingPower = "";
+
+  /**
+   * @generated from field: string min_self_delegation = 3;
+   */
+  minSelfDelegation = "";
+
+  /**
+   * @generated from field: uint64 total_blocks_per_year = 4;
+   */
+  totalBlocksPerYear = protoInt64.zero;
+
+  /**
+   * default 1 day = 86400
+   *
+   * @generated from field: uint64 rewards_data_lifetime = 5;
+   */
+  rewardsDataLifetime = protoInt64.zero;
+
+  constructor(data?: PartialMessage<LegacyParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.parameter.LegacyParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "min_commission_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "max_voting_power", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "min_self_delegation", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "total_blocks_per_year", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: "rewards_data_lifetime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
+    return new LegacyParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
+    return new LegacyParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
+    return proto3.util.equals(LegacyParams, a, b);
+  }
+}
+
+/**
  * Params defines the parameters for the module.
  *
  * @generated from message elys.parameter.Params
@@ -28,36 +91,16 @@ export class Params extends Message<Params> {
   minSelfDelegation = "";
 
   /**
-   * @generated from field: string broker_address = 4;
-   */
-  brokerAddress = "";
-
-  /**
-   * @generated from field: int64 total_blocks_per_year = 5;
+   * @generated from field: uint64 total_blocks_per_year = 4;
    */
   totalBlocksPerYear = protoInt64.zero;
 
   /**
    * default 1 day = 86400
    *
-   * @generated from field: int64 rewards_data_lifetime = 6;
+   * @generated from field: uint64 rewards_data_lifetime = 5;
    */
   rewardsDataLifetime = protoInt64.zero;
-
-  /**
-   * @generated from field: string wasm_max_label_size = 7;
-   */
-  wasmMaxLabelSize = "";
-
-  /**
-   * @generated from field: string wasm_max_size = 8;
-   */
-  wasmMaxSize = "";
-
-  /**
-   * @generated from field: string wasm_max_proposal_wasm_size = 9;
-   */
-  wasmMaxProposalWasmSize = "";
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -70,12 +113,8 @@ export class Params extends Message<Params> {
     { no: 1, name: "min_commission_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "max_voting_power", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "min_self_delegation", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "broker_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "total_blocks_per_year", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 6, name: "rewards_data_lifetime", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 7, name: "wasm_max_label_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "wasm_max_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "wasm_max_proposal_wasm_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "total_blocks_per_year", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: "rewards_data_lifetime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {
@@ -92,67 +131,6 @@ export class Params extends Message<Params> {
 
   static equals(a: Params | PlainMessage<Params> | undefined, b: Params | PlainMessage<Params> | undefined): boolean {
     return proto3.util.equals(Params, a, b);
-  }
-}
-
-/**
- * @generated from message elys.parameter.LegacyParams
- */
-export class LegacyParams extends Message<LegacyParams> {
-  /**
-   * @generated from field: string min_commission_rate = 1;
-   */
-  minCommissionRate = "";
-
-  /**
-   * @generated from field: string max_voting_power = 2;
-   */
-  maxVotingPower = "";
-
-  /**
-   * @generated from field: string min_self_delegation = 3;
-   */
-  minSelfDelegation = "";
-
-  /**
-   * @generated from field: string broker_address = 4;
-   */
-  brokerAddress = "";
-
-  /**
-   * @generated from field: int64 total_blocks_per_year = 5;
-   */
-  totalBlocksPerYear = protoInt64.zero;
-
-  constructor(data?: PartialMessage<LegacyParams>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.parameter.LegacyParams";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "min_commission_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "max_voting_power", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "min_self_delegation", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "broker_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "total_blocks_per_year", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
-    return new LegacyParams().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
-    return proto3.util.equals(LegacyParams, a, b);
   }
 }
 

@@ -368,6 +368,20 @@ export class ChainConfig extends Message<ChainConfig> {
    */
   chainId = protoInt64.zero;
 
+  /**
+   * denom is the denomination used on the EVM
+   *
+   * @generated from field: string denom = 25;
+   */
+  denom = "";
+
+  /**
+   * decimals is the real decimal precision of the denomination used on the EVM
+   *
+   * @generated from field: uint64 decimals = 26;
+   */
+  decimals = protoInt64.zero;
+
   constructor(data?: PartialMessage<ChainConfig>) {
     super();
     proto3.util.initPartial(data, this);
@@ -396,6 +410,8 @@ export class ChainConfig extends Message<ChainConfig> {
     { no: 22, name: "shanghai_block", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 23, name: "cancun_block", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 24, name: "chain_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 25, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 26, name: "decimals", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ChainConfig {

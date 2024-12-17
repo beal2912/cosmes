@@ -43,89 +43,111 @@ export class LegacyParams extends Message<LegacyParams> {
   healthGainFactor = "";
 
   /**
-   * @generated from field: int64 epoch_length = 7;
-   */
-  epochLength = protoInt64.zero;
-
-  /**
-   * @generated from field: int64 max_open_positions = 8;
+   * @generated from field: int64 max_open_positions = 7;
    */
   maxOpenPositions = protoInt64.zero;
 
   /**
-   * @generated from field: string pool_open_threshold = 9;
+   * @generated from field: string pool_open_threshold = 8;
    */
   poolOpenThreshold = "";
 
   /**
-   * @generated from field: string force_close_fund_percentage = 10;
+   * @generated from field: string force_close_fund_percentage = 9;
    */
   forceCloseFundPercentage = "";
 
   /**
-   * @generated from field: string force_close_fund_address = 11;
+   * @generated from field: string force_close_fund_address = 10;
    */
   forceCloseFundAddress = "";
 
   /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_percentage = 12;
+   * @generated from field: string incremental_borrow_interest_payment_fund_percentage = 11;
    */
   incrementalBorrowInterestPaymentFundPercentage = "";
 
   /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_address = 13;
+   * @generated from field: string incremental_borrow_interest_payment_fund_address = 12;
    */
   incrementalBorrowInterestPaymentFundAddress = "";
 
   /**
-   * @generated from field: string safety_factor = 14;
+   * @generated from field: string safety_factor = 13;
    */
   safetyFactor = "";
 
   /**
-   * @generated from field: bool incremental_borrow_interest_payment_enabled = 15;
+   * @generated from field: bool incremental_borrow_interest_payment_enabled = 14;
    */
   incrementalBorrowInterestPaymentEnabled = false;
 
   /**
-   * @generated from field: bool whitelisting_enabled = 16;
+   * @generated from field: bool whitelisting_enabled = 15;
    */
   whitelistingEnabled = false;
 
   /**
-   * @generated from field: string invariant_check_epoch = 17;
+   * @generated from field: string perpetual_swap_fee = 16;
    */
-  invariantCheckEpoch = "";
+  perpetualSwapFee = "";
 
   /**
-   * @generated from field: string take_profit_borrow_interest_rate_min = 18;
+   * @generated from field: int64 max_limit_order = 17;
    */
-  takeProfitBorrowInterestRateMin = "";
+  maxLimitOrder = protoInt64.zero;
 
   /**
-   * @generated from field: string funding_fee_base_rate = 19;
+   * @generated from field: string fixed_funding_rate = 18;
    */
-  fundingFeeBaseRate = "";
+  fixedFundingRate = "";
 
   /**
-   * @generated from field: string funding_fee_max_rate = 20;
+   * minimum value for take_profit_price/current price for long, should be
+   * greater than 1
+   *
+   * @generated from field: string minimum_long_take_profit_price_ratio = 19;
    */
-  fundingFeeMaxRate = "";
+  minimumLongTakeProfitPriceRatio = "";
 
   /**
-   * @generated from field: string funding_fee_min_rate = 21;
+   * max value for take_profit_price/current price for long, should be greater
+   * than 1
+   *
+   * @generated from field: string maximum_long_take_profit_price_ratio = 20;
    */
-  fundingFeeMinRate = "";
+  maximumLongTakeProfitPriceRatio = "";
 
   /**
-   * @generated from field: string funding_fee_collection_address = 22;
+   * max value for take_profit_price/current price for short, should be less
+   * than 1
+   *
+   * @generated from field: string maximum_short_take_profit_price_ratio = 21;
    */
-  fundingFeeCollectionAddress = "";
+  maximumShortTakeProfitPriceRatio = "";
 
   /**
-   * @generated from field: string swap_fee = 23;
+   * No need for minimumShortTakeProfitPriceRatio as it will be 0, checked in
+   * validate message
+   *
+   * @generated from field: bool enable_take_profit_custody_liabilities = 22;
    */
-  swapFee = "";
+  enableTakeProfitCustodyLiabilities = false;
+
+  /**
+   * We create this and send this value to estimate swap ONLY when opening and
+   * closing the position Ideally this value is set to half. When trader open a
+   * position if they receive a weight balance bonus (which is half of weight
+   * breaking fee, ideally) then while closing position they are charged weight
+   * breaking fee. So we just directly apply half weight breaking fee on
+   * perpetual swaps Question: does each need to have separate value of this
+   * because PoolParams.WeightRecoveryFeePortion can be different Also, if
+   * trader has no bonus only fee, then overall we are only applying the fee
+   * half time
+   *
+   * @generated from field: string weight_breaking_fee_factor = 23;
+   */
+  weightBreakingFeeFactor = "";
 
   constructor(data?: PartialMessage<LegacyParams>) {
     super();
@@ -141,23 +163,23 @@ export class LegacyParams extends Message<LegacyParams> {
     { no: 4, name: "borrow_interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "borrow_interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 8, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 9, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "force_close_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "force_close_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "incremental_borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "incremental_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "incremental_borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 16, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 17, name: "invariant_check_epoch", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 18, name: "take_profit_borrow_interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "funding_fee_base_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "funding_fee_max_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "funding_fee_min_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "funding_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 23, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 8, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "force_close_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "force_close_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "incremental_borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "incremental_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "incremental_borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 15, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 16, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 18, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 21, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 23, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
@@ -178,8 +200,6 @@ export class LegacyParams extends Message<LegacyParams> {
 }
 
 /**
- * Params defines the parameters for the module.
- *
  * @generated from message elys.perpetual.Params
  */
 export class Params extends Message<Params> {
@@ -199,114 +219,116 @@ export class Params extends Message<Params> {
   borrowInterestRateMin = "";
 
   /**
-   * @generated from field: string min_borrow_interest_amount = 4;
-   */
-  minBorrowInterestAmount = "";
-
-  /**
-   * @generated from field: string borrow_interest_rate_increase = 5;
+   * @generated from field: string borrow_interest_rate_increase = 4;
    */
   borrowInterestRateIncrease = "";
 
   /**
-   * @generated from field: string borrow_interest_rate_decrease = 6;
+   * @generated from field: string borrow_interest_rate_decrease = 5;
    */
   borrowInterestRateDecrease = "";
 
   /**
-   * @generated from field: string health_gain_factor = 7;
+   * @generated from field: string health_gain_factor = 6;
    */
   healthGainFactor = "";
 
   /**
-   * @generated from field: int64 epoch_length = 8;
-   */
-  epochLength = protoInt64.zero;
-
-  /**
-   * @generated from field: int64 max_open_positions = 9;
+   * @generated from field: int64 max_open_positions = 7;
    */
   maxOpenPositions = protoInt64.zero;
 
   /**
-   * @generated from field: string pool_open_threshold = 10;
+   * @generated from field: string pool_open_threshold = 8;
    */
   poolOpenThreshold = "";
 
   /**
-   * @generated from field: string force_close_fund_percentage = 11;
+   * @generated from field: string borrow_interest_payment_fund_percentage = 9;
    */
-  forceCloseFundPercentage = "";
+  borrowInterestPaymentFundPercentage = "";
 
   /**
-   * @generated from field: string force_close_fund_address = 12;
+   * @generated from field: string borrow_interest_payment_fund_address = 10;
    */
-  forceCloseFundAddress = "";
+  borrowInterestPaymentFundAddress = "";
 
   /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_percentage = 13;
-   */
-  incrementalBorrowInterestPaymentFundPercentage = "";
-
-  /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_address = 14;
-   */
-  incrementalBorrowInterestPaymentFundAddress = "";
-
-  /**
-   * @generated from field: string safety_factor = 15;
+   * @generated from field: string safety_factor = 11;
    */
   safetyFactor = "";
 
   /**
-   * @generated from field: bool incremental_borrow_interest_payment_enabled = 16;
+   * @generated from field: bool borrow_interest_payment_enabled = 12;
    */
-  incrementalBorrowInterestPaymentEnabled = false;
+  borrowInterestPaymentEnabled = false;
 
   /**
-   * @generated from field: bool whitelisting_enabled = 17;
+   * @generated from field: bool whitelisting_enabled = 13;
    */
   whitelistingEnabled = false;
 
   /**
-   * @generated from field: string invariant_check_epoch = 18;
+   * @generated from field: string perpetual_swap_fee = 14;
    */
-  invariantCheckEpoch = "";
+  perpetualSwapFee = "";
 
   /**
-   * @generated from field: string take_profit_borrow_interest_rate_min = 19;
-   */
-  takeProfitBorrowInterestRateMin = "";
-
-  /**
-   * @generated from field: string funding_fee_base_rate = 20;
-   */
-  fundingFeeBaseRate = "";
-
-  /**
-   * @generated from field: string funding_fee_max_rate = 21;
-   */
-  fundingFeeMaxRate = "";
-
-  /**
-   * @generated from field: string funding_fee_min_rate = 22;
-   */
-  fundingFeeMinRate = "";
-
-  /**
-   * @generated from field: string funding_fee_collection_address = 23;
-   */
-  fundingFeeCollectionAddress = "";
-
-  /**
-   * @generated from field: string swap_fee = 24;
-   */
-  swapFee = "";
-
-  /**
-   * @generated from field: int64 max_limit_order = 25;
+   * @generated from field: int64 max_limit_order = 15;
    */
   maxLimitOrder = protoInt64.zero;
+
+  /**
+   * @generated from field: string fixed_funding_rate = 16;
+   */
+  fixedFundingRate = "";
+
+  /**
+   * minimum value for take_profit_price/current price for long, should be
+   * greater than 1
+   *
+   * @generated from field: string minimum_long_take_profit_price_ratio = 17;
+   */
+  minimumLongTakeProfitPriceRatio = "";
+
+  /**
+   * max value for take_profit_price/current price for long, should be greater
+   * than 1
+   *
+   * @generated from field: string maximum_long_take_profit_price_ratio = 18;
+   */
+  maximumLongTakeProfitPriceRatio = "";
+
+  /**
+   * max value for take_profit_price/current price for short, should be less
+   * than 1
+   *
+   * @generated from field: string maximum_short_take_profit_price_ratio = 19;
+   */
+  maximumShortTakeProfitPriceRatio = "";
+
+  /**
+   * No need for minimumShortTakeProfitPriceRatio as it will be 0, checked in
+   * validate message
+   *
+   * @generated from field: bool enable_take_profit_custody_liabilities = 20;
+   */
+  enableTakeProfitCustodyLiabilities = false;
+
+  /**
+   * We create this and send this value to estimate swap ONLY when opening and
+   * closing the position Ideally this value is set to half. When trader open a
+   * position if they receive a weight balance bonus (which is half of weight
+   * breaking fee, ideally) then while closing position they are charged weight
+   * breaking fee. So we just directly apply half weight breaking fee on
+   * perpetual swaps Question: does each need to have separate value of this
+   * because PoolParams.WeightRecoveryFeePortion can be different Also, if
+   * trader has no bonus only fee, then overall we are only applying the fee
+   * half time
+   *
+   * @generated from field: string weight_breaking_fee_factor = 21;
+   */
+  weightBreakingFeeFactor = "";
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -319,28 +341,24 @@ export class Params extends Message<Params> {
     { no: 1, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "borrow_interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "borrow_interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "min_borrow_interest_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "borrow_interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "borrow_interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 9, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 10, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "force_close_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "force_close_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "incremental_borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "incremental_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 16, name: "incremental_borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 17, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 18, name: "invariant_check_epoch", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "take_profit_borrow_interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "funding_fee_base_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "funding_fee_max_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "funding_fee_min_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 23, name: "funding_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 24, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 25, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 4, name: "borrow_interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "borrow_interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 8, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 13, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 14, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 16, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 21, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

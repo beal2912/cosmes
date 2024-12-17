@@ -5,13 +5,12 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Price } from "./price_pb.js";
 import { Params } from "./params_pb.js";
 
 /**
- * @generated from message elys.oracle.MsgFeedPrice
+ * @generated from message elys.oracle.FeedPrice
  */
-export class MsgFeedPrice extends Message<MsgFeedPrice> {
+export class FeedPrice extends Message<FeedPrice> {
   /**
    * @generated from field: string asset = 1;
    */
@@ -27,10 +26,49 @@ export class MsgFeedPrice extends Message<MsgFeedPrice> {
    */
   source = "";
 
+  constructor(data?: PartialMessage<FeedPrice>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.oracle.FeedPrice";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "source", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FeedPrice {
+    return new FeedPrice().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FeedPrice {
+    return new FeedPrice().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FeedPrice {
+    return new FeedPrice().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: FeedPrice | PlainMessage<FeedPrice> | undefined, b: FeedPrice | PlainMessage<FeedPrice> | undefined): boolean {
+    return proto3.util.equals(FeedPrice, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.oracle.MsgFeedPrice
+ */
+export class MsgFeedPrice extends Message<MsgFeedPrice> {
   /**
-   * @generated from field: string provider = 4;
+   * @generated from field: string provider = 1;
    */
   provider = "";
+
+  /**
+   * @generated from field: elys.oracle.FeedPrice feed_price = 2;
+   */
+  feedPrice?: FeedPrice;
 
   constructor(data?: PartialMessage<MsgFeedPrice>) {
     super();
@@ -40,10 +78,8 @@ export class MsgFeedPrice extends Message<MsgFeedPrice> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.oracle.MsgFeedPrice";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "source", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "provider", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "provider", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "feed_price", kind: "message", T: FeedPrice },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgFeedPrice {
@@ -246,9 +282,9 @@ export class MsgFeedMultiplePrices extends Message<MsgFeedMultiplePrices> {
   creator = "";
 
   /**
-   * @generated from field: repeated elys.oracle.Price prices = 2;
+   * @generated from field: repeated elys.oracle.FeedPrice feed_prices = 2;
    */
-  prices: Price[] = [];
+  feedPrices: FeedPrice[] = [];
 
   constructor(data?: PartialMessage<MsgFeedMultiplePrices>) {
     super();
@@ -259,7 +295,7 @@ export class MsgFeedMultiplePrices extends Message<MsgFeedMultiplePrices> {
   static readonly typeName = "elys.oracle.MsgFeedMultiplePrices";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "prices", kind: "message", T: Price, repeated: true },
+    { no: 2, name: "feed_prices", kind: "message", T: FeedPrice, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgFeedMultiplePrices {

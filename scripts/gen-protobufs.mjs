@@ -6,7 +6,7 @@
  * files, and then generates an `index.ts` file to re-export the generated code.
  */
 
-import { spawnSync } from "child_process";
+import { exec, spawnSync } from "child_process";
 import degit from "degit";
 import {
   copyFileSync,
@@ -24,7 +24,7 @@ import { globSync } from "glob";
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { capitalize } from "lodash-es";
+import { capitalize, takeRight } from "lodash-es";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -32,6 +32,7 @@ import { fileURLToPath } from "url";
  * @typedef Repo
  * @type {object}
  * @property {string} repo - Git repo and branch to clone
+ * @property {string} tag - Git repo and branch to clone
  * @property {string[]} paths - Paths to proto files relative to the repo root
  */
 
@@ -41,59 +42,73 @@ import { fileURLToPath } from "url";
  */
 const REPOS = [
   {
-    repo: "cosmos/cosmos-sdk#v0.47.9",
+    repo: "cosmos/cosmos-sdk",
+    tag: "v0.50.10",
     paths: ["proto"],
   },
   {
-    repo: "cosmos/ics23#master",
+    repo: "cosmos/ics23",
+    tag: "master",
     paths: ["proto"],
   },
   {
-    repo: "cosmos/ibc-go#v7.6.0",
+    repo: "cosmos/ibc-go",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "CosmWasm/wasmd#main",
+    repo: "CosmWasm/wasmd",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "osmosis-labs/osmosis#main",
+    repo: "osmosis-labs/osmosis",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "InjectiveLabs/sdk-go#master",
+    repo: "InjectiveLabs/sdk-go",
+    tag: "master",
     paths: ["proto"],
   },
   {
-    repo: "evmos/ethermint#main",
+    repo: "evmos/ethermint",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "evmos/evmos#main",
+    repo: "evmos/evmos",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "dymensionxyz/osmosis#main-dym",
+    repo: "dymensionxyz/osmosis",
+    tag: "main-dym",
     paths: ["proto"],
   },
   {
-    repo: "Kava-Labs/kava#master",
+    repo: "Kava-Labs/kava",
+    tag: "master",
     paths: ["proto"],
   },
   {
-    repo: "elys-network/elys#main",
+    repo: "elys-network/elys",
+    tag: "main",
+    paths: ["proto"],
+  },
+/*   {
+    repo: "onomyprotocol/market",
+    tag: "main",
+    paths: ["proto"],
+  }, */
+  {
+    repo: "pryzm-finance/pryzmjs",
+    tag: "main",
     paths: ["proto"],
   },
   {
-    repo: "onomyprotocol/market#main",
-    paths: ["proto"],
-  },
-  {
-    repo: "pryzm-finance/pryzmjs#main",
-    paths: ["proto"],
-  },
-  {
-    repo: "sunriselayer/sunrise#main",
+    repo: "sunriselayer/sunrise",
+    tag: "main",
     paths: ["proto"],
   },
 ];
@@ -119,14 +134,15 @@ console.log("Initialising directories...");
 console.log("Cloning required repos...");
 {
   await Promise.all(
-    REPOS.map(({ repo }) => degit(repo).clone(join(TMP_DIR, id(repo)))).concat(THIRD.map(({ repo }) => degit(repo).clone(join(TMP_DIR, id(repo)))))
-  );
+    REPOS.map(({ repo, tag }) => cloneSpecificCommit("git@github.com:"+repo+".git" , tag, join(TMP_DIR, id(repo+"#"+tag)))
+  ))
 }
+
 console.log("Copying Third Party Proto...");
 {
   //cpSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"),join(TMP_DIR,id("elys-network/elys#main"),""),{recursive: true})
-  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"), join(TMP_DIR,id("elys-network/elys#main"),"proto"))
-  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"), join(TMP_DIR,id("onomyprotocol/market#main"),"proto"))
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("elys-network/elys#main"),"proto"))
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("onomyprotocol/market#main"),"proto"))
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/alliance") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/gogoproto") , { recursive: true, force: true });
@@ -135,7 +151,7 @@ console.log("Copying Third Party Proto...");
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/ibc") , { recursive: true, force: true });
   //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
   //copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
-  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/ibc-go#v7.6.0"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/ibc-go#main"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/tendermint") , { recursive: true, force: true });
   //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos/app") , { recursive: true, force: true });
@@ -172,7 +188,7 @@ console.log("Copying Third Party Proto...");
 
 console.log("Generating TS files from proto files...");
 {
-  for (const { repo, paths } of REPOS) {
+  for (const { repo, tag, paths } of REPOS) {
     
     for (const path of paths) {
       
@@ -181,7 +197,7 @@ console.log("Generating TS files from proto files...");
           [
             "buf",
             "generate",
-            join(TMP_DIR, id(repo), path),
+            join(TMP_DIR, id(repo+"#"+tag), path),
             "--output",
             PROTOBUFS_DIR
           ],
@@ -338,4 +354,30 @@ function copyDirectoryRecursiveSync(src, dest) {
           fs.copyFileSync(srcPath, destPath);
       }
   }
+}
+
+async function cloneSpecificCommit(
+  repoUrl,
+  commitHash,
+  targetDirectory
+) {
+  return new Promise((resolve, reject) => {
+    
+    const targetPath = join(targetDirectory)
+
+    exec(
+      `git clone ${repoUrl} ${targetPath} && cd ${targetPath} && git checkout ${commitHash}`,
+      (error, stdout, stderr) => {
+        if (error) {
+          console.error("Error:", stderr)
+          reject(error)
+        } 
+        else{
+          console.log(repoUrl)
+          resolve(stdout)
+        }
+        
+      }
+    )
+  })
 }

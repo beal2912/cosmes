@@ -6,7 +6,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { EstimateGasResponse, EthCallRequest, QueryAccountRequest, QueryAccountResponse, QueryBalanceRequest, QueryBalanceResponse, QueryBaseFeeRequest, QueryBaseFeeResponse, QueryCodeRequest, QueryCodeResponse, QueryCosmosAccountRequest, QueryCosmosAccountResponse, QueryParamsRequest, QueryParamsResponse, QueryStorageRequest, QueryStorageResponse, QueryTraceBlockRequest, QueryTraceBlockResponse, QueryTraceTxRequest, QueryTraceTxResponse, QueryValidatorAccountRequest, QueryValidatorAccountResponse } from "./query_pb.js";
+import { EstimateGasResponse, EthCallRequest, QueryAccountRequest, QueryAccountResponse, QueryBalanceRequest, QueryBalanceResponse, QueryBaseFeeRequest, QueryBaseFeeResponse, QueryCodeRequest, QueryCodeResponse, QueryConfigRequest, QueryConfigResponse, QueryCosmosAccountRequest, QueryCosmosAccountResponse, QueryGlobalMinGasPriceRequest, QueryGlobalMinGasPriceResponse, QueryParamsRequest, QueryParamsResponse, QueryStorageRequest, QueryStorageResponse, QueryTraceBlockRequest, QueryTraceBlockResponse, QueryTraceTxRequest, QueryTraceTxResponse, QueryValidatorAccountRequest, QueryValidatorAccountResponse } from "./query_pb.js";
 import { MsgEthereumTxResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "ethermint.evm.v1.Query";
@@ -156,5 +156,32 @@ export const QueryBaseFeeService = {
   method: "BaseFee",
   Request: QueryBaseFeeRequest,
   Response: QueryBaseFeeResponse,
+} as const;
+
+/**
+ * GlobalMinGasPrice queries the MinGasPrice
+ * it's similar to feemarket module's method,
+ * but makes the conversion to 18 decimals
+ * when the evm denom is represented with a different precision.
+ *
+ * @generated from rpc ethermint.evm.v1.Query.GlobalMinGasPrice
+ */
+export const QueryGlobalMinGasPriceService = {
+  typeName: TYPE_NAME,
+  method: "GlobalMinGasPrice",
+  Request: QueryGlobalMinGasPriceRequest,
+  Response: QueryGlobalMinGasPriceResponse,
+} as const;
+
+/**
+ * Config queries the EVM configuration
+ *
+ * @generated from rpc ethermint.evm.v1.Query.Config
+ */
+export const QueryConfigService = {
+  typeName: TYPE_NAME,
+  method: "Config",
+  Request: QueryConfigRequest,
+  Response: QueryConfigResponse,
 } as const;
 

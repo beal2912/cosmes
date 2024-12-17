@@ -7,6 +7,8 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * Position
+ *
  * @generated from message sunrise.liquiditypool.Position
  */
 export class Position extends Message<Position> {

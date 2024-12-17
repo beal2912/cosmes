@@ -3,8 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgDeleteEntry, MsgDeleteEntryResponse, MsgUpdateEntry, MsgUpdateEntryResponse } from "./tx_pb.js";
-import { MsgAddEntry, MsgAddEntryResponse } from "./add_entry_pb.js";
+import { MsgAddEntry, MsgAddEntryResponse, MsgDeleteEntry, MsgDeleteEntryResponse, MsgUpdateEntry, MsgUpdateEntryResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.assetprofile.Msg";
 

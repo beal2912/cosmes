@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllEntryRequest, QueryAllEntryResponse, QueryGetEntryByDenomRequest, QueryGetEntryByDenomResponse, QueryGetEntryRequest, QueryGetEntryResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllEntryRequest, QueryAllEntryResponse, QueryEntryByDenomRequest, QueryEntryByDenomResponse, QueryEntryRequest, QueryEntryResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.assetprofile.Query";
 
@@ -27,8 +27,8 @@ export const QueryParamsService = {
 export const QueryEntryService = {
   typeName: TYPE_NAME,
   method: "Entry",
-  Request: QueryGetEntryRequest,
-  Response: QueryGetEntryResponse,
+  Request: QueryEntryRequest,
+  Response: QueryEntryResponse,
 } as const;
 
 /**
@@ -37,8 +37,8 @@ export const QueryEntryService = {
 export const QueryEntryByDenomService = {
   typeName: TYPE_NAME,
   method: "EntryByDenom",
-  Request: QueryGetEntryByDenomRequest,
-  Response: QueryGetEntryByDenomResponse,
+  Request: QueryEntryByDenomRequest,
+  Response: QueryEntryByDenomResponse,
 } as const;
 
 /**

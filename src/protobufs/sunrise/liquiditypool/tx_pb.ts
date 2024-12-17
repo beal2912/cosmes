@@ -93,6 +93,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgCreatePool
+ *
  * @generated from message sunrise.liquiditypool.MsgCreatePool
  */
 export class MsgCreatePool extends Message<MsgCreatePool> {
@@ -164,6 +166,8 @@ export class MsgCreatePool extends Message<MsgCreatePool> {
 }
 
 /**
+ * MsgCreatePoolResponse
+ *
  * @generated from message sunrise.liquiditypool.MsgCreatePoolResponse
  */
 export class MsgCreatePoolResponse extends Message<MsgCreatePoolResponse> {
@@ -201,6 +205,8 @@ export class MsgCreatePoolResponse extends Message<MsgCreatePoolResponse> {
 }
 
 /**
+ * MsgCreatePosition
+ *
  * @generated from message sunrise.liquiditypool.MsgCreatePosition
  */
 export class MsgCreatePosition extends Message<MsgCreatePosition> {
@@ -280,6 +286,8 @@ export class MsgCreatePosition extends Message<MsgCreatePosition> {
 }
 
 /**
+ * MsgCreatePositionResponse
+ *
  * @generated from message sunrise.liquiditypool.MsgCreatePositionResponse
  */
 export class MsgCreatePositionResponse extends Message<MsgCreatePositionResponse> {
@@ -335,6 +343,8 @@ export class MsgCreatePositionResponse extends Message<MsgCreatePositionResponse
 }
 
 /**
+ * MsgIncreaseLiquidity
+ *
  * @generated from message sunrise.liquiditypool.MsgIncreaseLiquidity
  */
 export class MsgIncreaseLiquidity extends Message<MsgIncreaseLiquidity> {
@@ -402,6 +412,8 @@ export class MsgIncreaseLiquidity extends Message<MsgIncreaseLiquidity> {
 }
 
 /**
+ * MsgIncreaseLiquidityResponse
+ *
  * @generated from message sunrise.liquiditypool.MsgIncreaseLiquidityResponse
  */
 export class MsgIncreaseLiquidityResponse extends Message<MsgIncreaseLiquidityResponse> {
@@ -451,6 +463,8 @@ export class MsgIncreaseLiquidityResponse extends Message<MsgIncreaseLiquidityRe
 }
 
 /**
+ * MsgDecreaseLiquidity
+ *
  * @generated from message sunrise.liquiditypool.MsgDecreaseLiquidity
  */
 export class MsgDecreaseLiquidity extends Message<MsgDecreaseLiquidity> {
@@ -500,6 +514,8 @@ export class MsgDecreaseLiquidity extends Message<MsgDecreaseLiquidity> {
 }
 
 /**
+ * MsgDecreaseLiquidityResponse
+ *
  * @generated from message sunrise.liquiditypool.MsgDecreaseLiquidityResponse
  */
 export class MsgDecreaseLiquidityResponse extends Message<MsgDecreaseLiquidityResponse> {
@@ -543,6 +559,8 @@ export class MsgDecreaseLiquidityResponse extends Message<MsgDecreaseLiquidityRe
 }
 
 /**
+ * MsgClaimRewards
+ *
  * @generated from message sunrise.liquiditypool.MsgClaimRewards
  */
 export class MsgClaimRewards extends Message<MsgClaimRewards> {
@@ -586,6 +604,8 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
 }
 
 /**
+ * MsgClaimRewardsResponse
+ *
  * @generated from message sunrise.liquiditypool.MsgClaimRewardsResponse
  */
 export class MsgClaimRewardsResponse extends Message<MsgClaimRewardsResponse> {

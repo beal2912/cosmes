@@ -9,9 +9,9 @@ import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { PoolAsset } from "../amm/pool_asset_pb.js";
 
 /**
- * @generated from message elys.accountedpool.AccountedPool
+ * @generated from message elys.accountedpool.LegacyAccountedPool
  */
-export class AccountedPool extends Message<AccountedPool> {
+export class LegacyAccountedPool extends Message<LegacyAccountedPool> {
   /**
    * @generated from field: uint64 pool_id = 1;
    */
@@ -32,6 +32,62 @@ export class AccountedPool extends Message<AccountedPool> {
    */
   totalWeight = "";
 
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin non_amm_pool_tokens = 5;
+   */
+  nonAmmPoolTokens: Coin[] = [];
+
+  constructor(data?: PartialMessage<LegacyAccountedPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.accountedpool.LegacyAccountedPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "total_shares", kind: "message", T: Coin },
+    { no: 3, name: "pool_assets", kind: "message", T: PoolAsset, repeated: true },
+    { no: 4, name: "total_weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "non_amm_pool_tokens", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyAccountedPool {
+    return new LegacyAccountedPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyAccountedPool {
+    return new LegacyAccountedPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyAccountedPool {
+    return new LegacyAccountedPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyAccountedPool | PlainMessage<LegacyAccountedPool> | undefined, b: LegacyAccountedPool | PlainMessage<LegacyAccountedPool> | undefined): boolean {
+    return proto3.util.equals(LegacyAccountedPool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.accountedpool.AccountedPool
+ */
+export class AccountedPool extends Message<AccountedPool> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin total_tokens = 2;
+   */
+  totalTokens: Coin[] = [];
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin non_amm_pool_tokens = 3;
+   */
+  nonAmmPoolTokens: Coin[] = [];
+
   constructor(data?: PartialMessage<AccountedPool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -41,9 +97,8 @@ export class AccountedPool extends Message<AccountedPool> {
   static readonly typeName = "elys.accountedpool.AccountedPool";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "total_shares", kind: "message", T: Coin },
-    { no: 3, name: "pool_assets", kind: "message", T: PoolAsset, repeated: true },
-    { no: 4, name: "total_weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_tokens", kind: "message", T: Coin, repeated: true },
+    { no: 3, name: "non_amm_pool_tokens", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AccountedPool {

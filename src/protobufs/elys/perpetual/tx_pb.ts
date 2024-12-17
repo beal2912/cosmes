@@ -44,9 +44,14 @@ export class MsgOpen extends Message<MsgOpen> {
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string stop_loss_price = 28;
+   * @generated from field: string stop_loss_price = 7;
    */
   stopLossPrice = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 8;
+   */
+  poolId = protoInt64.zero;
 
   constructor(data?: PartialMessage<MsgOpen>) {
     super();
@@ -62,7 +67,8 @@ export class MsgOpen extends Message<MsgOpen> {
     { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "collateral", kind: "message", T: Coin },
     { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 28, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgOpen {
@@ -79,85 +85,6 @@ export class MsgOpen extends Message<MsgOpen> {
 
   static equals(a: MsgOpen | PlainMessage<MsgOpen> | undefined, b: MsgOpen | PlainMessage<MsgOpen> | undefined): boolean {
     return proto3.util.equals(MsgOpen, a, b);
-  }
-}
-
-/**
- * @generated from message elys.perpetual.MsgBrokerOpen
- */
-export class MsgBrokerOpen extends Message<MsgBrokerOpen> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: elys.perpetual.Position position = 2;
-   */
-  position = Position.UNSPECIFIED;
-
-  /**
-   * @generated from field: string leverage = 3;
-   */
-  leverage = "";
-
-  /**
-   * @generated from field: string trading_asset = 4;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: cosmos.base.v1beta1.Coin collateral = 5;
-   */
-  collateral?: Coin;
-
-  /**
-   * @generated from field: string take_profit_price = 6;
-   */
-  takeProfitPrice = "";
-
-  /**
-   * @generated from field: string owner = 7;
-   */
-  owner = "";
-
-  /**
-   * @generated from field: string stop_loss_price = 28;
-   */
-  stopLossPrice = "";
-
-  constructor(data?: PartialMessage<MsgBrokerOpen>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.MsgBrokerOpen";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
-    { no: 3, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "collateral", kind: "message", T: Coin },
-    { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 28, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBrokerOpen {
-    return new MsgBrokerOpen().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgBrokerOpen {
-    return new MsgBrokerOpen().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgBrokerOpen {
-    return new MsgBrokerOpen().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgBrokerOpen | PlainMessage<MsgBrokerOpen> | undefined, b: MsgBrokerOpen | PlainMessage<MsgBrokerOpen> | undefined): boolean {
-    return proto3.util.equals(MsgBrokerOpen, a, b);
   }
 }
 
@@ -248,61 +175,6 @@ export class MsgClose extends Message<MsgClose> {
 }
 
 /**
- * @generated from message elys.perpetual.MsgBrokerClose
- */
-export class MsgBrokerClose extends Message<MsgBrokerClose> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: uint64 id = 2;
-   */
-  id = protoInt64.zero;
-
-  /**
-   * @generated from field: string amount = 3;
-   */
-  amount = "";
-
-  /**
-   * @generated from field: string owner = 4;
-   */
-  owner = "";
-
-  constructor(data?: PartialMessage<MsgBrokerClose>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.MsgBrokerClose";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBrokerClose {
-    return new MsgBrokerClose().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgBrokerClose {
-    return new MsgBrokerClose().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgBrokerClose {
-    return new MsgBrokerClose().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgBrokerClose | PlainMessage<MsgBrokerClose> | undefined, b: MsgBrokerClose | PlainMessage<MsgBrokerClose> | undefined): boolean {
-    return proto3.util.equals(MsgBrokerClose, a, b);
-  }
-}
-
-/**
  * @generated from message elys.perpetual.MsgCloseResponse
  */
 export class MsgCloseResponse extends Message<MsgCloseResponse> {
@@ -350,7 +222,8 @@ export class MsgCloseResponse extends Message<MsgCloseResponse> {
  */
 export class MsgUpdateParams extends Message<MsgUpdateParams> {
   /**
-   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
    *
    * @generated from field: string authority = 1;
    */
@@ -572,141 +445,6 @@ export class MsgDewhitelistResponse extends Message<MsgDewhitelistResponse> {
 }
 
 /**
- * @generated from message elys.perpetual.MsgAddCollateral
- */
-export class MsgAddCollateral extends Message<MsgAddCollateral> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: string amount = 2;
-   */
-  amount = "";
-
-  /**
-   * @generated from field: uint64 id = 3;
-   */
-  id = protoInt64.zero;
-
-  constructor(data?: PartialMessage<MsgAddCollateral>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.MsgAddCollateral";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateral {
-    return new MsgAddCollateral().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined, b: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined): boolean {
-    return proto3.util.equals(MsgAddCollateral, a, b);
-  }
-}
-
-/**
- * @generated from message elys.perpetual.MsgAddCollateralResponse
- */
-export class MsgAddCollateralResponse extends Message<MsgAddCollateralResponse> {
-  constructor(data?: PartialMessage<MsgAddCollateralResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.MsgAddCollateralResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
-    return new MsgAddCollateralResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined, b: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined): boolean {
-    return proto3.util.equals(MsgAddCollateralResponse, a, b);
-  }
-}
-
-/**
- * @generated from message elys.perpetual.MsgBrokerAddCollateral
- */
-export class MsgBrokerAddCollateral extends Message<MsgBrokerAddCollateral> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: string amount = 2;
-   */
-  amount = "";
-
-  /**
-   * @generated from field: int32 id = 3;
-   */
-  id = 0;
-
-  /**
-   * @generated from field: string owner = 4;
-   */
-  owner = "";
-
-  constructor(data?: PartialMessage<MsgBrokerAddCollateral>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.MsgBrokerAddCollateral";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "id", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-    { no: 4, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBrokerAddCollateral {
-    return new MsgBrokerAddCollateral().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgBrokerAddCollateral {
-    return new MsgBrokerAddCollateral().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgBrokerAddCollateral {
-    return new MsgBrokerAddCollateral().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgBrokerAddCollateral | PlainMessage<MsgBrokerAddCollateral> | undefined, b: MsgBrokerAddCollateral | PlainMessage<MsgBrokerAddCollateral> | undefined): boolean {
-    return proto3.util.equals(MsgBrokerAddCollateral, a, b);
-  }
-}
-
-/**
  * @generated from message elys.perpetual.MsgClosePositions
  */
 export class MsgClosePositions extends Message<MsgClosePositions> {
@@ -725,6 +463,11 @@ export class MsgClosePositions extends Message<MsgClosePositions> {
    */
   stopLoss: PositionRequest[] = [];
 
+  /**
+   * @generated from field: repeated elys.perpetual.PositionRequest take_profit = 4;
+   */
+  takeProfit: PositionRequest[] = [];
+
   constructor(data?: PartialMessage<MsgClosePositions>) {
     super();
     proto3.util.initPartial(data, this);
@@ -736,6 +479,7 @@ export class MsgClosePositions extends Message<MsgClosePositions> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "liquidate", kind: "message", T: PositionRequest, repeated: true },
     { no: 3, name: "stop_loss", kind: "message", T: PositionRequest, repeated: true },
+    { no: 4, name: "take_profit", kind: "message", T: PositionRequest, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClosePositions {

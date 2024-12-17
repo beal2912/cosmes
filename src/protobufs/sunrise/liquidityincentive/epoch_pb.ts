@@ -8,6 +8,8 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Gauge } from "./gauge_pb.js";
 
 /**
+ * Epoch
+ *
  * @generated from message sunrise.liquidityincentive.Epoch
  */
 export class Epoch extends Message<Epoch> {

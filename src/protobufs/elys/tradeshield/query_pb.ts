@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { PerpetualOrder, SpotOrder } from "./types_pb.js";
+import { PerpetualOrderExtraInfo, SpotOrder, Status } from "./types_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
 
 /**
@@ -279,9 +279,9 @@ export class QueryGetPendingPerpetualOrderRequest extends Message<QueryGetPendin
  */
 export class QueryGetPendingPerpetualOrderResponse extends Message<QueryGetPendingPerpetualOrderResponse> {
   /**
-   * @generated from field: elys.tradeshield.PerpetualOrder pending_perpetual_order = 1;
+   * @generated from field: elys.tradeshield.PerpetualOrderExtraInfo pending_perpetual_order = 1;
    */
-  pendingPerpetualOrder?: PerpetualOrder;
+  pendingPerpetualOrder?: PerpetualOrderExtraInfo;
 
   constructor(data?: PartialMessage<QueryGetPendingPerpetualOrderResponse>) {
     super();
@@ -291,7 +291,7 @@ export class QueryGetPendingPerpetualOrderResponse extends Message<QueryGetPendi
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tradeshield.QueryGetPendingPerpetualOrderResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pending_perpetual_order", kind: "message", T: PerpetualOrder },
+    { no: 1, name: "pending_perpetual_order", kind: "message", T: PerpetualOrderExtraInfo },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPendingPerpetualOrderResponse {
@@ -353,9 +353,9 @@ export class QueryAllPendingPerpetualOrderRequest extends Message<QueryAllPendin
  */
 export class QueryAllPendingPerpetualOrderResponse extends Message<QueryAllPendingPerpetualOrderResponse> {
   /**
-   * @generated from field: repeated elys.tradeshield.PerpetualOrder pending_perpetual_order = 1;
+   * @generated from field: repeated elys.tradeshield.PerpetualOrderExtraInfo pending_perpetual_order = 1;
    */
-  pendingPerpetualOrder: PerpetualOrder[] = [];
+  pendingPerpetualOrder: PerpetualOrderExtraInfo[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -370,7 +370,7 @@ export class QueryAllPendingPerpetualOrderResponse extends Message<QueryAllPendi
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tradeshield.QueryAllPendingPerpetualOrderResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pending_perpetual_order", kind: "message", T: PerpetualOrder, repeated: true },
+    { no: 1, name: "pending_perpetual_order", kind: "message", T: PerpetualOrderExtraInfo, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -388,6 +388,166 @@ export class QueryAllPendingPerpetualOrderResponse extends Message<QueryAllPendi
 
   static equals(a: QueryAllPendingPerpetualOrderResponse | PlainMessage<QueryAllPendingPerpetualOrderResponse> | undefined, b: QueryAllPendingPerpetualOrderResponse | PlainMessage<QueryAllPendingPerpetualOrderResponse> | undefined): boolean {
     return proto3.util.equals(QueryAllPendingPerpetualOrderResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.QueryPendingPerpetualOrderForAddressRequest
+ */
+export class QueryPendingPerpetualOrderForAddressRequest extends Message<QueryPendingPerpetualOrderForAddressRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  /**
+   * @generated from field: elys.tradeshield.Status status = 2;
+   */
+  status = Status.PENDING;
+
+  constructor(data?: PartialMessage<QueryPendingPerpetualOrderForAddressRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.QueryPendingPerpetualOrderForAddressRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "status", kind: "enum", T: proto3.getEnumType(Status) },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingPerpetualOrderForAddressRequest {
+    return new QueryPendingPerpetualOrderForAddressRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingPerpetualOrderForAddressRequest {
+    return new QueryPendingPerpetualOrderForAddressRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingPerpetualOrderForAddressRequest {
+    return new QueryPendingPerpetualOrderForAddressRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingPerpetualOrderForAddressRequest | PlainMessage<QueryPendingPerpetualOrderForAddressRequest> | undefined, b: QueryPendingPerpetualOrderForAddressRequest | PlainMessage<QueryPendingPerpetualOrderForAddressRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPendingPerpetualOrderForAddressRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.QueryPendingPerpetualOrderForAddressResponse
+ */
+export class QueryPendingPerpetualOrderForAddressResponse extends Message<QueryPendingPerpetualOrderForAddressResponse> {
+  /**
+   * @generated from field: repeated elys.tradeshield.PerpetualOrderExtraInfo pending_perpetual_orders = 1;
+   */
+  pendingPerpetualOrders: PerpetualOrderExtraInfo[] = [];
+
+  constructor(data?: PartialMessage<QueryPendingPerpetualOrderForAddressResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.QueryPendingPerpetualOrderForAddressResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pending_perpetual_orders", kind: "message", T: PerpetualOrderExtraInfo, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingPerpetualOrderForAddressResponse {
+    return new QueryPendingPerpetualOrderForAddressResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingPerpetualOrderForAddressResponse {
+    return new QueryPendingPerpetualOrderForAddressResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingPerpetualOrderForAddressResponse {
+    return new QueryPendingPerpetualOrderForAddressResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingPerpetualOrderForAddressResponse | PlainMessage<QueryPendingPerpetualOrderForAddressResponse> | undefined, b: QueryPendingPerpetualOrderForAddressResponse | PlainMessage<QueryPendingPerpetualOrderForAddressResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPendingPerpetualOrderForAddressResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.QueryPendingSpotOrderForAddressRequest
+ */
+export class QueryPendingSpotOrderForAddressRequest extends Message<QueryPendingSpotOrderForAddressRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  /**
+   * @generated from field: elys.tradeshield.Status status = 2;
+   */
+  status = Status.PENDING;
+
+  constructor(data?: PartialMessage<QueryPendingSpotOrderForAddressRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.QueryPendingSpotOrderForAddressRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "status", kind: "enum", T: proto3.getEnumType(Status) },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingSpotOrderForAddressRequest {
+    return new QueryPendingSpotOrderForAddressRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingSpotOrderForAddressRequest {
+    return new QueryPendingSpotOrderForAddressRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingSpotOrderForAddressRequest {
+    return new QueryPendingSpotOrderForAddressRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingSpotOrderForAddressRequest | PlainMessage<QueryPendingSpotOrderForAddressRequest> | undefined, b: QueryPendingSpotOrderForAddressRequest | PlainMessage<QueryPendingSpotOrderForAddressRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPendingSpotOrderForAddressRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.QueryPendingSpotOrderForAddressResponse
+ */
+export class QueryPendingSpotOrderForAddressResponse extends Message<QueryPendingSpotOrderForAddressResponse> {
+  /**
+   * @generated from field: repeated elys.tradeshield.SpotOrder pending_spot_orders = 1;
+   */
+  pendingSpotOrders: SpotOrder[] = [];
+
+  constructor(data?: PartialMessage<QueryPendingSpotOrderForAddressResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.QueryPendingSpotOrderForAddressResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pending_spot_orders", kind: "message", T: SpotOrder, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingSpotOrderForAddressResponse {
+    return new QueryPendingSpotOrderForAddressResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingSpotOrderForAddressResponse {
+    return new QueryPendingSpotOrderForAddressResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingSpotOrderForAddressResponse {
+    return new QueryPendingSpotOrderForAddressResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingSpotOrderForAddressResponse | PlainMessage<QueryPendingSpotOrderForAddressResponse> | undefined, b: QueryPendingSpotOrderForAddressResponse | PlainMessage<QueryPendingSpotOrderForAddressResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPendingSpotOrderForAddressResponse, a, b);
   }
 }
 

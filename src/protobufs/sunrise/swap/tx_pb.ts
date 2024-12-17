@@ -92,6 +92,8 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgSwapExactAmountIn
+ *
  * @generated from message sunrise.swap.MsgSwapExactAmountIn
  */
 export class MsgSwapExactAmountIn extends Message<MsgSwapExactAmountIn> {
@@ -153,6 +155,8 @@ export class MsgSwapExactAmountIn extends Message<MsgSwapExactAmountIn> {
 }
 
 /**
+ * MsgSwapExactAmountInResponse
+ *
  * @generated from message sunrise.swap.MsgSwapExactAmountInResponse
  */
 export class MsgSwapExactAmountInResponse extends Message<MsgSwapExactAmountInResponse> {
@@ -202,6 +206,8 @@ export class MsgSwapExactAmountInResponse extends Message<MsgSwapExactAmountInRe
 }
 
 /**
+ * MsgSwapExactAmountOut
+ *
  * @generated from message sunrise.swap.MsgSwapExactAmountOut
  */
 export class MsgSwapExactAmountOut extends Message<MsgSwapExactAmountOut> {
@@ -263,6 +269,8 @@ export class MsgSwapExactAmountOut extends Message<MsgSwapExactAmountOut> {
 }
 
 /**
+ * MsgSwapExactAmountOutResponse
+ *
  * @generated from message sunrise.swap.MsgSwapExactAmountOutResponse
  */
 export class MsgSwapExactAmountOutResponse extends Message<MsgSwapExactAmountOutResponse> {

@@ -8,6 +8,8 @@ import { Message, proto3, protoInt64, Timestamp } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * PublishedData
+ *
  * @generated from message sunrise.da.PublishedData
  */
 export class PublishedData extends Message<PublishedData> {
@@ -101,6 +103,8 @@ export class PublishedData extends Message<PublishedData> {
 }
 
 /**
+ * Proof
+ *
  * @generated from message sunrise.da.Proof
  */
 export class Proof extends Message<Proof> {

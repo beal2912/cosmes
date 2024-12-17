@@ -8,6 +8,49 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * @generated from message elys.amm.LegacyPoolAsset
+ */
+export class LegacyPoolAsset extends Message<LegacyPoolAsset> {
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin token = 1;
+   */
+  token?: Coin;
+
+  /**
+   * @generated from field: string weight = 2;
+   */
+  weight = "";
+
+  constructor(data?: PartialMessage<LegacyPoolAsset>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.LegacyPoolAsset";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "token", kind: "message", T: Coin },
+    { no: 2, name: "weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPoolAsset {
+    return new LegacyPoolAsset().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPoolAsset {
+    return new LegacyPoolAsset().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPoolAsset {
+    return new LegacyPoolAsset().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPoolAsset | PlainMessage<LegacyPoolAsset> | undefined, b: LegacyPoolAsset | PlainMessage<LegacyPoolAsset> | undefined): boolean {
+    return proto3.util.equals(LegacyPoolAsset, a, b);
+  }
+}
+
+/**
  * @generated from message elys.amm.PoolAsset
  */
 export class PoolAsset extends Message<PoolAsset> {
@@ -21,6 +64,11 @@ export class PoolAsset extends Message<PoolAsset> {
    */
   weight = "";
 
+  /**
+   * @generated from field: string external_liquidity_ratio = 3;
+   */
+  externalLiquidityRatio = "";
+
   constructor(data?: PartialMessage<PoolAsset>) {
     super();
     proto3.util.initPartial(data, this);
@@ -31,6 +79,7 @@ export class PoolAsset extends Message<PoolAsset> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "token", kind: "message", T: Coin },
     { no: 2, name: "weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "external_liquidity_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolAsset {

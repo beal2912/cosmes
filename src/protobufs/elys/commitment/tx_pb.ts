@@ -167,86 +167,6 @@ export class MsgUncommitTokensResponse extends Message<MsgUncommitTokensResponse
 }
 
 /**
- * @generated from message elys.commitment.MsgClaimReward
- */
-export class MsgClaimReward extends Message<MsgClaimReward> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: string amount = 2;
-   */
-  amount = "";
-
-  /**
-   * @generated from field: string denom = 3;
-   */
-  denom = "";
-
-  constructor(data?: PartialMessage<MsgClaimReward>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.commitment.MsgClaimReward";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimReward {
-    return new MsgClaimReward().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimReward {
-    return new MsgClaimReward().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimReward {
-    return new MsgClaimReward().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgClaimReward | PlainMessage<MsgClaimReward> | undefined, b: MsgClaimReward | PlainMessage<MsgClaimReward> | undefined): boolean {
-    return proto3.util.equals(MsgClaimReward, a, b);
-  }
-}
-
-/**
- * @generated from message elys.commitment.MsgClaimRewardResponse
- */
-export class MsgClaimRewardResponse extends Message<MsgClaimRewardResponse> {
-  constructor(data?: PartialMessage<MsgClaimRewardResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.commitment.MsgClaimRewardResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimRewardResponse {
-    return new MsgClaimRewardResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimRewardResponse {
-    return new MsgClaimRewardResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimRewardResponse {
-    return new MsgClaimRewardResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgClaimRewardResponse | PlainMessage<MsgClaimRewardResponse> | undefined, b: MsgClaimRewardResponse | PlainMessage<MsgClaimRewardResponse> | undefined): boolean {
-    return proto3.util.equals(MsgClaimRewardResponse, a, b);
-  }
-}
-
-/**
  * @generated from message elys.commitment.MsgVest
  */
 export class MsgVest extends Message<MsgVest> {
@@ -653,6 +573,80 @@ export class MsgUpdateVestingInfoResponse extends Message<MsgUpdateVestingInfoRe
 }
 
 /**
+ * @generated from message elys.commitment.MsgUpdateEnableVestNow
+ */
+export class MsgUpdateEnableVestNow extends Message<MsgUpdateEnableVestNow> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: bool enable_vest_now = 2;
+   */
+  enableVestNow = false;
+
+  constructor(data?: PartialMessage<MsgUpdateEnableVestNow>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgUpdateEnableVestNow";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "enable_vest_now", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateEnableVestNow {
+    return new MsgUpdateEnableVestNow().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateEnableVestNow {
+    return new MsgUpdateEnableVestNow().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateEnableVestNow {
+    return new MsgUpdateEnableVestNow().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateEnableVestNow | PlainMessage<MsgUpdateEnableVestNow> | undefined, b: MsgUpdateEnableVestNow | PlainMessage<MsgUpdateEnableVestNow> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateEnableVestNow, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgUpdateEnableVestNowResponse
+ */
+export class MsgUpdateEnableVestNowResponse extends Message<MsgUpdateEnableVestNowResponse> {
+  constructor(data?: PartialMessage<MsgUpdateEnableVestNowResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgUpdateEnableVestNowResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateEnableVestNowResponse {
+    return new MsgUpdateEnableVestNowResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateEnableVestNowResponse {
+    return new MsgUpdateEnableVestNowResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateEnableVestNowResponse {
+    return new MsgUpdateEnableVestNowResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateEnableVestNowResponse | PlainMessage<MsgUpdateEnableVestNowResponse> | undefined, b: MsgUpdateEnableVestNowResponse | PlainMessage<MsgUpdateEnableVestNowResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateEnableVestNowResponse, a, b);
+  }
+}
+
+/**
  * @generated from message elys.commitment.MsgVestLiquid
  */
 export class MsgVestLiquid extends Message<MsgVestLiquid> {
@@ -729,74 +723,6 @@ export class MsgVestLiquidResponse extends Message<MsgVestLiquidResponse> {
 
   static equals(a: MsgVestLiquidResponse | PlainMessage<MsgVestLiquidResponse> | undefined, b: MsgVestLiquidResponse | PlainMessage<MsgVestLiquidResponse> | undefined): boolean {
     return proto3.util.equals(MsgVestLiquidResponse, a, b);
-  }
-}
-
-/**
- * @generated from message elys.commitment.MsgClaimRewards
- */
-export class MsgClaimRewards extends Message<MsgClaimRewards> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  constructor(data?: PartialMessage<MsgClaimRewards>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.commitment.MsgClaimRewards";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimRewards {
-    return new MsgClaimRewards().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimRewards {
-    return new MsgClaimRewards().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimRewards {
-    return new MsgClaimRewards().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgClaimRewards | PlainMessage<MsgClaimRewards> | undefined, b: MsgClaimRewards | PlainMessage<MsgClaimRewards> | undefined): boolean {
-    return proto3.util.equals(MsgClaimRewards, a, b);
-  }
-}
-
-/**
- * @generated from message elys.commitment.MsgClaimRewardsResponse
- */
-export class MsgClaimRewardsResponse extends Message<MsgClaimRewardsResponse> {
-  constructor(data?: PartialMessage<MsgClaimRewardsResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.commitment.MsgClaimRewardsResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimRewardsResponse {
-    return new MsgClaimRewardsResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimRewardsResponse {
-    return new MsgClaimRewardsResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimRewardsResponse {
-    return new MsgClaimRewardsResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgClaimRewardsResponse | PlainMessage<MsgClaimRewardsResponse> | undefined, b: MsgClaimRewardsResponse | PlainMessage<MsgClaimRewardsResponse> | undefined): boolean {
-    return proto3.util.equals(MsgClaimRewardsResponse, a, b);
   }
 }
 
@@ -993,6 +919,270 @@ export class MsgUnstakeResponse extends Message<MsgUnstakeResponse> {
 
   static equals(a: MsgUnstakeResponse | PlainMessage<MsgUnstakeResponse> | undefined, b: MsgUnstakeResponse | PlainMessage<MsgUnstakeResponse> | undefined): boolean {
     return proto3.util.equals(MsgUnstakeResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgClaimAirdrop
+ */
+export class MsgClaimAirdrop extends Message<MsgClaimAirdrop> {
+  /**
+   * @generated from field: string claim_address = 1;
+   */
+  claimAddress = "";
+
+  constructor(data?: PartialMessage<MsgClaimAirdrop>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgClaimAirdrop";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "claim_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimAirdrop {
+    return new MsgClaimAirdrop().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimAirdrop {
+    return new MsgClaimAirdrop().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimAirdrop {
+    return new MsgClaimAirdrop().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimAirdrop | PlainMessage<MsgClaimAirdrop> | undefined, b: MsgClaimAirdrop | PlainMessage<MsgClaimAirdrop> | undefined): boolean {
+    return proto3.util.equals(MsgClaimAirdrop, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgClaimAirdropResponse
+ */
+export class MsgClaimAirdropResponse extends Message<MsgClaimAirdropResponse> {
+  /**
+   * @generated from field: string elys_amount = 1;
+   */
+  elysAmount = "";
+
+  /**
+   * @generated from field: string eden_amount = 2;
+   */
+  edenAmount = "";
+
+  constructor(data?: PartialMessage<MsgClaimAirdropResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgClaimAirdropResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "elys_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "eden_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimAirdropResponse {
+    return new MsgClaimAirdropResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimAirdropResponse {
+    return new MsgClaimAirdropResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimAirdropResponse {
+    return new MsgClaimAirdropResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimAirdropResponse | PlainMessage<MsgClaimAirdropResponse> | undefined, b: MsgClaimAirdropResponse | PlainMessage<MsgClaimAirdropResponse> | undefined): boolean {
+    return proto3.util.equals(MsgClaimAirdropResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgClaimKol
+ */
+export class MsgClaimKol extends Message<MsgClaimKol> {
+  /**
+   * @generated from field: string claim_address = 1;
+   */
+  claimAddress = "";
+
+  /**
+   * @generated from field: bool refund = 2;
+   */
+  refund = false;
+
+  constructor(data?: PartialMessage<MsgClaimKol>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgClaimKol";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "claim_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "refund", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimKol {
+    return new MsgClaimKol().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimKol {
+    return new MsgClaimKol().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimKol {
+    return new MsgClaimKol().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimKol | PlainMessage<MsgClaimKol> | undefined, b: MsgClaimKol | PlainMessage<MsgClaimKol> | undefined): boolean {
+    return proto3.util.equals(MsgClaimKol, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgClaimKolResponse
+ */
+export class MsgClaimKolResponse extends Message<MsgClaimKolResponse> {
+  /**
+   * @generated from field: string elys_amount = 1;
+   */
+  elysAmount = "";
+
+  /**
+   * @generated from field: string vested_elys_amount = 2;
+   */
+  vestedElysAmount = "";
+
+  constructor(data?: PartialMessage<MsgClaimKolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgClaimKolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "elys_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "vested_elys_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimKolResponse {
+    return new MsgClaimKolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimKolResponse {
+    return new MsgClaimKolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimKolResponse {
+    return new MsgClaimKolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimKolResponse | PlainMessage<MsgClaimKolResponse> | undefined, b: MsgClaimKolResponse | PlainMessage<MsgClaimKolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgClaimKolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgUpdateAirdropParams
+ */
+export class MsgUpdateAirdropParams extends Message<MsgUpdateAirdropParams> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: bool enable_claim = 2;
+   */
+  enableClaim = false;
+
+  /**
+   * @generated from field: uint64 start_airdrop_claim_height = 3;
+   */
+  startAirdropClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_airdrop_claim_height = 4;
+   */
+  endAirdropClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 start_kol_claim_height = 5;
+   */
+  startKolClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_kol_claim_height = 6;
+   */
+  endKolClaimHeight = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgUpdateAirdropParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgUpdateAirdropParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "enable_claim", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "start_airdrop_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "end_airdrop_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: "start_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "end_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateAirdropParams {
+    return new MsgUpdateAirdropParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateAirdropParams {
+    return new MsgUpdateAirdropParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateAirdropParams {
+    return new MsgUpdateAirdropParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateAirdropParams | PlainMessage<MsgUpdateAirdropParams> | undefined, b: MsgUpdateAirdropParams | PlainMessage<MsgUpdateAirdropParams> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateAirdropParams, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.MsgUpdateAirdropParamsResponse
+ */
+export class MsgUpdateAirdropParamsResponse extends Message<MsgUpdateAirdropParamsResponse> {
+  constructor(data?: PartialMessage<MsgUpdateAirdropParamsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.MsgUpdateAirdropParamsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateAirdropParamsResponse {
+    return new MsgUpdateAirdropParamsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateAirdropParamsResponse {
+    return new MsgUpdateAirdropParamsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateAirdropParamsResponse {
+    return new MsgUpdateAirdropParamsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateAirdropParamsResponse | PlainMessage<MsgUpdateAirdropParamsResponse> | undefined, b: MsgUpdateAirdropParamsResponse | PlainMessage<MsgUpdateAirdropParamsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateAirdropParamsResponse, a, b);
   }
 }
 

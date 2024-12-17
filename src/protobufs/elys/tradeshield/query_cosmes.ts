@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllPendingPerpetualOrderRequest, QueryAllPendingPerpetualOrderResponse, QueryAllPendingSpotOrderRequest, QueryAllPendingSpotOrderResponse, QueryGetPendingPerpetualOrderRequest, QueryGetPendingPerpetualOrderResponse, QueryGetPendingSpotOrderRequest, QueryGetPendingSpotOrderResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllPendingPerpetualOrderRequest, QueryAllPendingPerpetualOrderResponse, QueryAllPendingSpotOrderRequest, QueryAllPendingSpotOrderResponse, QueryGetPendingPerpetualOrderRequest, QueryGetPendingPerpetualOrderResponse, QueryGetPendingSpotOrderRequest, QueryGetPendingSpotOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPendingPerpetualOrderForAddressRequest, QueryPendingPerpetualOrderForAddressResponse, QueryPendingSpotOrderForAddressRequest, QueryPendingSpotOrderForAddressResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.tradeshield.Query";
 
@@ -61,5 +61,29 @@ export const QueryPendingPerpetualOrderAllService = {
   method: "PendingPerpetualOrderAll",
   Request: QueryAllPendingPerpetualOrderRequest,
   Response: QueryAllPendingPerpetualOrderResponse,
+} as const;
+
+/**
+ * Queries a list of PendingPerpetualOrderForAddress items.
+ *
+ * @generated from rpc elys.tradeshield.Query.PendingPerpetualOrderForAddress
+ */
+export const QueryPendingPerpetualOrderForAddressService = {
+  typeName: TYPE_NAME,
+  method: "PendingPerpetualOrderForAddress",
+  Request: QueryPendingPerpetualOrderForAddressRequest,
+  Response: QueryPendingPerpetualOrderForAddressResponse,
+} as const;
+
+/**
+ * Queries a list of PendingSpotOrderForAddress items.
+ *
+ * @generated from rpc elys.tradeshield.Query.PendingSpotOrderForAddress
+ */
+export const QueryPendingSpotOrderForAddressService = {
+  typeName: TYPE_NAME,
+  method: "PendingSpotOrderForAddress",
+  Request: QueryPendingSpotOrderForAddressRequest,
+  Response: QueryPendingSpotOrderForAddressResponse,
 } as const;
 

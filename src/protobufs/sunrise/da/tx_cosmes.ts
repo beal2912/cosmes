@@ -21,6 +21,8 @@ export const MsgUpdateParamsService = {
 } as const;
 
 /**
+ * PublishData
+ *
  * @generated from rpc sunrise.da.Msg.PublishData
  */
 export const MsgPublishDataService = {
@@ -31,6 +33,8 @@ export const MsgPublishDataService = {
 } as const;
 
 /**
+ * ChallengeForFraud
+ *
  * @generated from rpc sunrise.da.Msg.ChallengeForFraud
  */
 export const MsgChallengeForFraudService = {
@@ -41,6 +45,8 @@ export const MsgChallengeForFraudService = {
 } as const;
 
 /**
+ * SubmitProof
+ *
  * @generated from rpc sunrise.da.Msg.SubmitProof
  */
 export const MsgSubmitProofService = {

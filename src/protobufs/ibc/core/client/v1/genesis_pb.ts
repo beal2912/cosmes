@@ -40,9 +40,11 @@ export class GenesisState extends Message<GenesisState> {
   params?: Params;
 
   /**
-   * create localhost on initialization
+   * Deprecated: create_localhost has been deprecated.
+   * The localhost client is automatically created at genesis.
    *
-   * @generated from field: bool create_localhost = 5;
+   * @generated from field: bool create_localhost = 5 [deprecated = true];
+   * @deprecated
    */
   createLocalhost = false;
 
@@ -87,8 +89,8 @@ export class GenesisState extends Message<GenesisState> {
 }
 
 /**
- * GenesisMetadata defines the genesis type for metadata that clients may return
- * with ExportMetadata
+ * GenesisMetadata defines the genesis type for metadata that will be used
+ * to export all client store keys that are not client or consensus states.
  *
  * @generated from message ibc.core.client.v1.GenesisMetadata
  */

@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Coin } from "../../../../cosmos/base/v1beta1/coin_pb.js";
 import { Height } from "../../../core/client/v1/client_pb.js";
+import { Forwarding, Params } from "./transfer_pb.js";
 
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
@@ -31,9 +32,10 @@ export class MsgTransfer extends Message<MsgTransfer> {
   sourceChannel = "";
 
   /**
-   * the tokens to be transferred
+   * the token to be transferred. this field has been replaced by the tokens field.
    *
-   * @generated from field: cosmos.base.v1beta1.Coin token = 3;
+   * @generated from field: cosmos.base.v1beta1.Coin token = 3 [deprecated = true];
+   * @deprecated
    */
   token?: Coin;
 
@@ -74,6 +76,20 @@ export class MsgTransfer extends Message<MsgTransfer> {
    */
   memo = "";
 
+  /**
+   * tokens to be transferred
+   *
+   * @generated from field: repeated cosmos.base.v1beta1.Coin tokens = 9;
+   */
+  tokens: Coin[] = [];
+
+  /**
+   * optional forwarding information
+   *
+   * @generated from field: ibc.applications.transfer.v1.Forwarding forwarding = 10;
+   */
+  forwarding?: Forwarding;
+
   constructor(data?: PartialMessage<MsgTransfer>) {
     super();
     proto3.util.initPartial(data, this);
@@ -90,6 +106,8 @@ export class MsgTransfer extends Message<MsgTransfer> {
     { no: 6, name: "timeout_height", kind: "message", T: Height },
     { no: 7, name: "timeout_timestamp", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 8, name: "memo", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "tokens", kind: "message", T: Coin, repeated: true },
+    { no: 10, name: "forwarding", kind: "message", T: Forwarding },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgTransfer {
@@ -147,6 +165,91 @@ export class MsgTransferResponse extends Message<MsgTransferResponse> {
 
   static equals(a: MsgTransferResponse | PlainMessage<MsgTransferResponse> | undefined, b: MsgTransferResponse | PlainMessage<MsgTransferResponse> | undefined): boolean {
     return proto3.util.equals(MsgTransferResponse, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ *
+ * @generated from message ibc.applications.transfer.v1.MsgUpdateParams
+ */
+export class MsgUpdateParams extends Message<MsgUpdateParams> {
+  /**
+   * signer address
+   *
+   * @generated from field: string signer = 1;
+   */
+  signer = "";
+
+  /**
+   * params defines the transfer parameters to update.
+   *
+   * NOTE: All parameters must be supplied.
+   *
+   * @generated from field: ibc.applications.transfer.v1.Params params = 2;
+   */
+  params?: Params;
+
+  constructor(data?: PartialMessage<MsgUpdateParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ibc.applications.transfer.v1.MsgUpdateParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "signer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "params", kind: "message", T: Params },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined, b: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParams, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ *
+ * @generated from message ibc.applications.transfer.v1.MsgUpdateParamsResponse
+ */
+export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
+  constructor(data?: PartialMessage<MsgUpdateParamsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "ibc.applications.transfer.v1.MsgUpdateParamsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParamsResponse, a, b);
   }
 }
 
