@@ -8,8 +8,8 @@ import { Duration, Message, proto3, protoInt64, Timestamp } from "@bufbuild/prot
 import { Height } from "../../../core/client/v1/client_pb.js";
 import { ProofSpec } from "../../../../cosmos/ics23/v1/proofs_pb.js";
 import { MerkleRoot } from "../../../core/commitment/v1/commitment_pb.js";
-import { SignedHeader } from "../../../../cometbft/types/v1/types_pb.js";
-import { ValidatorSet } from "../../../../cometbft/types/v1/validator_pb.js";
+import { SignedHeader } from "../../../../tendermint/types/types_pb.js";
+import { ValidatorSet } from "../../../../tendermint/types/validator_pb.js";
 
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
@@ -29,7 +29,7 @@ export class ClientState extends Message<ClientState> {
   trustLevel?: Fraction;
 
   /**
-   * duration of the period since the LatestTimestamp during which the
+   * duration of the period since the LastestTimestamp during which the
    * submitted headers are valid for upgrade
    *
    * @generated from field: google.protobuf.Duration trusting_period = 3;
@@ -267,12 +267,12 @@ export class Misbehaviour extends Message<Misbehaviour> {
  */
 export class Header extends Message<Header> {
   /**
-   * @generated from field: cometbft.types.v1.SignedHeader signed_header = 1;
+   * @generated from field: tendermint.types.SignedHeader signed_header = 1;
    */
   signedHeader?: SignedHeader;
 
   /**
-   * @generated from field: cometbft.types.v1.ValidatorSet validator_set = 2;
+   * @generated from field: tendermint.types.ValidatorSet validator_set = 2;
    */
   validatorSet?: ValidatorSet;
 
@@ -282,7 +282,7 @@ export class Header extends Message<Header> {
   trustedHeight?: Height;
 
   /**
-   * @generated from field: cometbft.types.v1.ValidatorSet trusted_validators = 4;
+   * @generated from field: tendermint.types.ValidatorSet trusted_validators = 4;
    */
   trustedValidators?: ValidatorSet;
 

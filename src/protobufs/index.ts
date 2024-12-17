@@ -4733,6 +4733,9 @@ export {
   NextSequenceRecvData as IbcLightclientsSolomachineV2NextSequenceRecvData,
 } from "./ibc/lightclients/solomachine/v2/solomachine_pb.js";
 export {
+  ClientState as IbcLightclientsLocalhostV2ClientState,
+} from "./ibc/lightclients/localhost/v2/localhost_pb.js";
+export {
   GenesisState as IbcCoreTypesV1GenesisState,
 } from "./ibc/core/types/v1/genesis_pb.js";
 export {
@@ -4790,11 +4793,9 @@ export {
   Params as IbcCoreConnectionV1Params,
 } from "./ibc/core/connection/v1/connection_pb.js";
 export {
-  MerklePath as IbcCoreCommitmentV2MerklePath,
-} from "./ibc/core/commitment/v2/commitment_pb.js";
-export {
   MerkleRoot as IbcCoreCommitmentV1MerkleRoot,
   MerklePrefix as IbcCoreCommitmentV1MerklePrefix,
+  MerklePath as IbcCoreCommitmentV1MerklePath,
   MerkleProof as IbcCoreCommitmentV1MerkleProof,
 } from "./ibc/core/commitment/v1/commitment_pb.js";
 export {
@@ -5010,28 +5011,8 @@ export {
   Params as IbcCoreChannelV1Params,
 } from "./ibc/core/channel/v1/channel_pb.js";
 export {
-  Token as IbcApplicationsTransferV2Token,
-  Denom as IbcApplicationsTransferV2Denom,
-} from "./ibc/applications/transfer/v2/token_pb.js";
-export {
-  QueryDenomRequest as IbcApplicationsTransferV2QueryDenomRequest,
-  QueryDenomResponse as IbcApplicationsTransferV2QueryDenomResponse,
-  QueryDenomsRequest as IbcApplicationsTransferV2QueryDenomsRequest,
-  QueryDenomsResponse as IbcApplicationsTransferV2QueryDenomsResponse,
-} from "./ibc/applications/transfer/v2/queryv2_pb.js";
-export {
-  QueryV2DenomsService as IbcApplicationsTransferV2QueryV2DenomsService,
-  QueryV2DenomService as IbcApplicationsTransferV2QueryV2DenomService,
-} from "./ibc/applications/transfer/v2/queryv2_cosmes.js";
-export {
   FungibleTokenPacketData as IbcApplicationsTransferV2FungibleTokenPacketData,
-  FungibleTokenPacketDataV2 as IbcApplicationsTransferV2FungibleTokenPacketDataV2,
-  ForwardingPacketData as IbcApplicationsTransferV2ForwardingPacketData,
 } from "./ibc/applications/transfer/v2/packet_pb.js";
-export {
-  GenesisState as IbcApplicationsTransferV2GenesisState,
-  ForwardedPacket as IbcApplicationsTransferV2ForwardedPacket,
-} from "./ibc/applications/transfer/v2/genesis_pb.js";
 export {
   MsgTransfer as IbcApplicationsTransferV1MsgTransfer,
   MsgTransferResponse as IbcApplicationsTransferV1MsgTransferResponse,
@@ -5043,11 +5024,14 @@ export {
   MsgUpdateParamsService as IbcApplicationsTransferV1MsgUpdateParamsService,
 } from "./ibc/applications/transfer/v1/tx_cosmes.js";
 export {
+  DenomTrace as IbcApplicationsTransferV1DenomTrace,
   Params as IbcApplicationsTransferV1Params,
-  Forwarding as IbcApplicationsTransferV1Forwarding,
-  Hop as IbcApplicationsTransferV1Hop,
 } from "./ibc/applications/transfer/v1/transfer_pb.js";
 export {
+  QueryDenomTraceRequest as IbcApplicationsTransferV1QueryDenomTraceRequest,
+  QueryDenomTraceResponse as IbcApplicationsTransferV1QueryDenomTraceResponse,
+  QueryDenomTracesRequest as IbcApplicationsTransferV1QueryDenomTracesRequest,
+  QueryDenomTracesResponse as IbcApplicationsTransferV1QueryDenomTracesResponse,
   QueryParamsRequest as IbcApplicationsTransferV1QueryParamsRequest,
   QueryParamsResponse as IbcApplicationsTransferV1QueryParamsResponse,
   QueryDenomHashRequest as IbcApplicationsTransferV1QueryDenomHashRequest,
@@ -5058,17 +5042,18 @@ export {
   QueryTotalEscrowForDenomResponse as IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse,
 } from "./ibc/applications/transfer/v1/query_pb.js";
 export {
+  QueryDenomTracesService as IbcApplicationsTransferV1QueryDenomTracesService,
+  QueryDenomTraceService as IbcApplicationsTransferV1QueryDenomTraceService,
   QueryParamsService as IbcApplicationsTransferV1QueryParamsService,
   QueryDenomHashService as IbcApplicationsTransferV1QueryDenomHashService,
   QueryEscrowAddressService as IbcApplicationsTransferV1QueryEscrowAddressService,
   QueryTotalEscrowForDenomService as IbcApplicationsTransferV1QueryTotalEscrowForDenomService,
 } from "./ibc/applications/transfer/v1/query_cosmes.js";
 export {
-  DenomTrace as IbcApplicationsTransferV1DenomTrace,
-} from "./ibc/applications/transfer/v1/denomtrace_pb.js";
+  GenesisState as IbcApplicationsTransferV1GenesisState,
+} from "./ibc/applications/transfer/v1/genesis_pb.js";
 export {
   Allocation as IbcApplicationsTransferV1Allocation,
-  AllowedForwarding as IbcApplicationsTransferV1AllowedForwarding,
   TransferAuthorization as IbcApplicationsTransferV1TransferAuthorization,
 } from "./ibc/applications/transfer/v1/authz_pb.js";
 export {
