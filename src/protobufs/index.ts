@@ -5,12 +5,12 @@ export {
   Consensus as TendermintVersionConsensus,
 } from "./tendermint/version/types_pb.js";
 export {
+  BlockIDFlag as TendermintTypesBlockIDFlag,
   ValidatorSet as TendermintTypesValidatorSet,
   Validator as TendermintTypesValidator,
   SimpleValidator as TendermintTypesSimpleValidator,
 } from "./tendermint/types/validator_pb.js";
 export {
-  BlockIDFlag as TendermintTypesBlockIDFlag,
   SignedMsgType as TendermintTypesSignedMsgType,
   PartSetHeader as TendermintTypesPartSetHeader,
   Part as TendermintTypesPart,
@@ -20,6 +20,8 @@ export {
   Vote as TendermintTypesVote,
   Commit as TendermintTypesCommit,
   CommitSig as TendermintTypesCommitSig,
+  ExtendedCommit as TendermintTypesExtendedCommit,
+  ExtendedCommitSig as TendermintTypesExtendedCommitSig,
   Proposal as TendermintTypesProposal,
   SignedHeader as TendermintTypesSignedHeader,
   LightBlock as TendermintTypesLightBlock,
@@ -33,6 +35,7 @@ export {
   ValidatorParams as TendermintTypesValidatorParams,
   VersionParams as TendermintTypesVersionParams,
   HashedParams as TendermintTypesHashedParams,
+  ABCIParams as TendermintTypesABCIParams,
 } from "./tendermint/types/params_pb.js";
 export {
   Evidence as TendermintTypesEvidence,
@@ -71,10 +74,7 @@ export {
   RequestInfo as TendermintAbciRequestInfo,
   RequestInitChain as TendermintAbciRequestInitChain,
   RequestQuery as TendermintAbciRequestQuery,
-  RequestBeginBlock as TendermintAbciRequestBeginBlock,
   RequestCheckTx as TendermintAbciRequestCheckTx,
-  RequestDeliverTx as TendermintAbciRequestDeliverTx,
-  RequestEndBlock as TendermintAbciRequestEndBlock,
   RequestCommit as TendermintAbciRequestCommit,
   RequestListSnapshots as TendermintAbciRequestListSnapshots,
   RequestOfferSnapshot as TendermintAbciRequestOfferSnapshot,
@@ -82,6 +82,9 @@ export {
   RequestApplySnapshotChunk as TendermintAbciRequestApplySnapshotChunk,
   RequestPrepareProposal as TendermintAbciRequestPrepareProposal,
   RequestProcessProposal as TendermintAbciRequestProcessProposal,
+  RequestExtendVote as TendermintAbciRequestExtendVote,
+  RequestVerifyVoteExtension as TendermintAbciRequestVerifyVoteExtension,
+  RequestFinalizeBlock as TendermintAbciRequestFinalizeBlock,
   Response as TendermintAbciResponse,
   ResponseException as TendermintAbciResponseException,
   ResponseEcho as TendermintAbciResponseEcho,
@@ -89,10 +92,7 @@ export {
   ResponseInfo as TendermintAbciResponseInfo,
   ResponseInitChain as TendermintAbciResponseInitChain,
   ResponseQuery as TendermintAbciResponseQuery,
-  ResponseBeginBlock as TendermintAbciResponseBeginBlock,
   ResponseCheckTx as TendermintAbciResponseCheckTx,
-  ResponseDeliverTx as TendermintAbciResponseDeliverTx,
-  ResponseEndBlock as TendermintAbciResponseEndBlock,
   ResponseCommit as TendermintAbciResponseCommit,
   ResponseListSnapshots as TendermintAbciResponseListSnapshots,
   ResponseOfferSnapshot as TendermintAbciResponseOfferSnapshot,
@@ -103,10 +103,15 @@ export {
   ResponsePrepareProposal as TendermintAbciResponsePrepareProposal,
   ResponseProcessProposal as TendermintAbciResponseProcessProposal,
   ResponseProcessProposal_ProposalStatus as TendermintAbciResponseProcessProposal_ProposalStatus,
+  ResponseExtendVote as TendermintAbciResponseExtendVote,
+  ResponseVerifyVoteExtension as TendermintAbciResponseVerifyVoteExtension,
+  ResponseVerifyVoteExtension_VerifyStatus as TendermintAbciResponseVerifyVoteExtension_VerifyStatus,
+  ResponseFinalizeBlock as TendermintAbciResponseFinalizeBlock,
   CommitInfo as TendermintAbciCommitInfo,
   ExtendedCommitInfo as TendermintAbciExtendedCommitInfo,
   Event as TendermintAbciEvent,
   EventAttribute as TendermintAbciEventAttribute,
+  ExecTxResult as TendermintAbciExecTxResult,
   TxResult as TendermintAbciTxResult,
   Validator as TendermintAbciValidator,
   ValidatorUpdate as TendermintAbciValidatorUpdate,
@@ -116,22 +121,22 @@ export {
   Snapshot as TendermintAbciSnapshot,
 } from "./tendermint/abci/types_pb.js";
 export {
-  ABCIApplicationEchoService as TendermintAbciABCIApplicationEchoService,
-  ABCIApplicationFlushService as TendermintAbciABCIApplicationFlushService,
-  ABCIApplicationInfoService as TendermintAbciABCIApplicationInfoService,
-  ABCIApplicationDeliverTxService as TendermintAbciABCIApplicationDeliverTxService,
-  ABCIApplicationCheckTxService as TendermintAbciABCIApplicationCheckTxService,
-  ABCIApplicationQueryService as TendermintAbciABCIApplicationQueryService,
-  ABCIApplicationCommitService as TendermintAbciABCIApplicationCommitService,
-  ABCIApplicationInitChainService as TendermintAbciABCIApplicationInitChainService,
-  ABCIApplicationBeginBlockService as TendermintAbciABCIApplicationBeginBlockService,
-  ABCIApplicationEndBlockService as TendermintAbciABCIApplicationEndBlockService,
-  ABCIApplicationListSnapshotsService as TendermintAbciABCIApplicationListSnapshotsService,
-  ABCIApplicationOfferSnapshotService as TendermintAbciABCIApplicationOfferSnapshotService,
-  ABCIApplicationLoadSnapshotChunkService as TendermintAbciABCIApplicationLoadSnapshotChunkService,
-  ABCIApplicationApplySnapshotChunkService as TendermintAbciABCIApplicationApplySnapshotChunkService,
-  ABCIApplicationPrepareProposalService as TendermintAbciABCIApplicationPrepareProposalService,
-  ABCIApplicationProcessProposalService as TendermintAbciABCIApplicationProcessProposalService,
+  ABCIEchoService as TendermintAbciABCIEchoService,
+  ABCIFlushService as TendermintAbciABCIFlushService,
+  ABCIInfoService as TendermintAbciABCIInfoService,
+  ABCICheckTxService as TendermintAbciABCICheckTxService,
+  ABCIQueryService as TendermintAbciABCIQueryService,
+  ABCICommitService as TendermintAbciABCICommitService,
+  ABCIInitChainService as TendermintAbciABCIInitChainService,
+  ABCIListSnapshotsService as TendermintAbciABCIListSnapshotsService,
+  ABCIOfferSnapshotService as TendermintAbciABCIOfferSnapshotService,
+  ABCILoadSnapshotChunkService as TendermintAbciABCILoadSnapshotChunkService,
+  ABCIApplySnapshotChunkService as TendermintAbciABCIApplySnapshotChunkService,
+  ABCIPrepareProposalService as TendermintAbciABCIPrepareProposalService,
+  ABCIProcessProposalService as TendermintAbciABCIProcessProposalService,
+  ABCIExtendVoteService as TendermintAbciABCIExtendVoteService,
+  ABCIVerifyVoteExtensionService as TendermintAbciABCIVerifyVoteExtensionService,
+  ABCIFinalizeBlockService as TendermintAbciABCIFinalizeBlockService,
 } from "./tendermint/abci/types_cosmes.js";
 export {
   MsgUpdateParams as SunriseTokenconverterMsgUpdateParams,
@@ -2754,142 +2759,6 @@ export {
   Record as OsmosisAccumV1beta1Record,
 } from "./osmosis/accum/v1beta1/accum_pb.js";
 export {
-  MsgCreatePool as MarketMsgCreatePool,
-  MsgCreatePoolResponse as MarketMsgCreatePoolResponse,
-  MsgCreateDrop as MarketMsgCreateDrop,
-  MsgCreateDropResponse as MarketMsgCreateDropResponse,
-  MsgRedeemDrop as MarketMsgRedeemDrop,
-  MsgRedeemDropResponse as MarketMsgRedeemDropResponse,
-  MsgCreateOrder as MarketMsgCreateOrder,
-  MsgCreateOrderResponse as MarketMsgCreateOrderResponse,
-  MsgCancelOrder as MarketMsgCancelOrder,
-  MsgCancelOrderResponse as MarketMsgCancelOrderResponse,
-  MsgMarketOrder as MarketMsgMarketOrder,
-  MsgMarketOrderResponse as MarketMsgMarketOrderResponse,
-} from "./market/tx_pb.js";
-export {
-  MsgCreatePoolService as MarketMsgCreatePoolService,
-  MsgCreateDropService as MarketMsgCreateDropService,
-  MsgRedeemDropService as MarketMsgRedeemDropService,
-  MsgCreateOrderService as MarketMsgCreateOrderService,
-  MsgCancelOrderService as MarketMsgCancelOrderService,
-  MsgMarketOrderService as MarketMsgMarketOrderService,
-} from "./market/tx_cosmes.js";
-export {
-  QueryParamsRequest as MarketQueryParamsRequest,
-  QueryParamsResponse as MarketQueryParamsResponse,
-  QueryGetPoolRequest as MarketQueryGetPoolRequest,
-  QueryGetPoolResponse as MarketQueryGetPoolResponse,
-  QueryAllPoolRequest as MarketQueryAllPoolRequest,
-  QueryAllPoolResponse as MarketQueryAllPoolResponse,
-  QueryVolumeRequest as MarketQueryVolumeRequest,
-  QueryVolumeResponse as MarketQueryVolumeResponse,
-  QueryAllVolumeRequest as MarketQueryAllVolumeRequest,
-  QueryAllVolumeResponse as MarketQueryAllVolumeResponse,
-  QueryBurnedRequest as MarketQueryBurnedRequest,
-  QueryBurnedResponse as MarketQueryBurnedResponse,
-  QueryDropRequest as MarketQueryDropRequest,
-  QueryDropCoinRequest as MarketQueryDropCoinRequest,
-  QueryDropCoinResponse as MarketQueryDropCoinResponse,
-  QueryDropResponse as MarketQueryDropResponse,
-  QueryDropAmountsRequest as MarketQueryDropAmountsRequest,
-  QueryDropAmountsResponse as MarketQueryDropAmountsResponse,
-  QueryDropsToCoinsRequest as MarketQueryDropsToCoinsRequest,
-  QueryDropsToCoinsResponse as MarketQueryDropsToCoinsResponse,
-  QueryDropPairsRequest as MarketQueryDropPairsRequest,
-  QueryDropPairsResponse as MarketQueryDropPairsResponse,
-  QueryDropOwnerPairRequest as MarketQueryDropOwnerPairRequest,
-  QueryDropOwnerPairSumRequest as MarketQueryDropOwnerPairSumRequest,
-  QueryDropOwnerPairSumResponse as MarketQueryDropOwnerPairSumResponse,
-  QueryDropOwnerPairUidsRequest as MarketQueryDropOwnerPairUidsRequest,
-  QueryUidsResponse as MarketQueryUidsResponse,
-  QueryDropOwnerPairDetailRequest as MarketQueryDropOwnerPairDetailRequest,
-  QueryAllDropRequest as MarketQueryAllDropRequest,
-  QueryDropsResponse as MarketQueryDropsResponse,
-  QueryGetMemberRequest as MarketQueryGetMemberRequest,
-  QueryGetMemberResponse as MarketQueryGetMemberResponse,
-  QueryAllMemberRequest as MarketQueryAllMemberRequest,
-  QueryAllMemberResponse as MarketQueryAllMemberResponse,
-  QueryGetBurningsRequest as MarketQueryGetBurningsRequest,
-  QueryGetBurningsResponse as MarketQueryGetBurningsResponse,
-  QueryAllBurningsRequest as MarketQueryAllBurningsRequest,
-  QueryAllBurningsResponse as MarketQueryAllBurningsResponse,
-  QueryOrderRequest as MarketQueryOrderRequest,
-  QueryOrderResponse as MarketQueryOrderResponse,
-  QueryOrdersResponse as MarketQueryOrdersResponse,
-  QueryAllOrderRequest as MarketQueryAllOrderRequest,
-  QueryOrderOwnerRequest as MarketQueryOrderOwnerRequest,
-  QueryOrderOwnerUidsResponse as MarketQueryOrderOwnerUidsResponse,
-  QueryOrderOwnerPairRequest as MarketQueryOrderOwnerPairRequest,
-  QueryOrderOwnerPairResponse as MarketQueryOrderOwnerPairResponse,
-  QueryBookRequest as MarketQueryBookRequest,
-  QueryBookResponse as MarketQueryBookResponse,
-  QueryBookendsRequest as MarketQueryBookendsRequest,
-  QueryBookendsResponse as MarketQueryBookendsResponse,
-  QueryHistoryRequest as MarketQueryHistoryRequest,
-  QueryHistoryResponse as MarketQueryHistoryResponse,
-  QueryQuoteRequest as MarketQueryQuoteRequest,
-  QueryQuoteResponse as MarketQueryQuoteResponse,
-} from "./market/query_pb.js";
-export {
-  QueryParamsService as MarketQueryParamsService,
-  QueryBurnedService as MarketQueryBurnedService,
-  QueryPoolService as MarketQueryPoolService,
-  QueryPoolAllService as MarketQueryPoolAllService,
-  QueryVolumeService as MarketQueryVolumeService,
-  QueryVolumeAllService as MarketQueryVolumeAllService,
-  QueryDropService as MarketQueryDropService,
-  QueryDropAmountsService as MarketQueryDropAmountsService,
-  QueryDropCoinService as MarketQueryDropCoinService,
-  QueryDropsToCoinsService as MarketQueryDropsToCoinsService,
-  QueryDropPairsService as MarketQueryDropPairsService,
-  QueryDropOwnerPairService as MarketQueryDropOwnerPairService,
-  QueryDropAllService as MarketQueryDropAllService,
-  QueryMemberService as MarketQueryMemberService,
-  QueryMemberAllService as MarketQueryMemberAllService,
-  QueryBurningsService as MarketQueryBurningsService,
-  QueryBurningsAllService as MarketQueryBurningsAllService,
-  QueryOrderService as MarketQueryOrderService,
-  QueryOrderAllService as MarketQueryOrderAllService,
-  QueryOrderOwnerService as MarketQueryOrderOwnerService,
-  QueryOrderOwnerUidsService as MarketQueryOrderOwnerUidsService,
-  QueryBookService as MarketQueryBookService,
-  QueryBookendsService as MarketQueryBookendsService,
-  QueryHistoryService as MarketQueryHistoryService,
-  QueryQuoteService as MarketQueryQuoteService,
-} from "./market/query_cosmes.js";
-export {
-  DenomMetadataProposal as MarketDenomMetadataProposal,
-} from "./market/proposal_pb.js";
-export {
-  Pool as MarketPool,
-  Leader as MarketLeader,
-  Volume as MarketVolume,
-} from "./market/pool_pb.js";
-export {
-  Params as MarketParams,
-} from "./market/params_pb.js";
-export {
-  Order as MarketOrder,
-  Orders as MarketOrders,
-  OrderResponse as MarketOrderResponse,
-} from "./market/order_pb.js";
-export {
-  Member as MarketMember,
-} from "./market/member_pb.js";
-export {
-  GenesisState as MarketGenesisState,
-} from "./market/genesis_pb.js";
-export {
-  Drop as MarketDrop,
-  Drops as MarketDrops,
-  DropPairs as MarketDropPairs,
-} from "./market/drop_pb.js";
-export {
-  Burnings as MarketBurnings,
-  Burned as MarketBurned,
-} from "./market/burnings_pb.js";
-export {
   QueryCirculatingSupplyRequest as KavaValidatorvestingV1beta1QueryCirculatingSupplyRequest,
   QueryCirculatingSupplyResponse as KavaValidatorvestingV1beta1QueryCirculatingSupplyResponse,
   QueryTotalSupplyRequest as KavaValidatorvestingV1beta1QueryTotalSupplyRequest,
@@ -4864,9 +4733,6 @@ export {
   NextSequenceRecvData as IbcLightclientsSolomachineV2NextSequenceRecvData,
 } from "./ibc/lightclients/solomachine/v2/solomachine_pb.js";
 export {
-  ClientState as IbcLightclientsLocalhostV2ClientState,
-} from "./ibc/lightclients/localhost/v2/localhost_pb.js";
-export {
   GenesisState as IbcCoreTypesV1GenesisState,
 } from "./ibc/core/types/v1/genesis_pb.js";
 export {
@@ -4924,9 +4790,11 @@ export {
   Params as IbcCoreConnectionV1Params,
 } from "./ibc/core/connection/v1/connection_pb.js";
 export {
+  MerklePath as IbcCoreCommitmentV2MerklePath,
+} from "./ibc/core/commitment/v2/commitment_pb.js";
+export {
   MerkleRoot as IbcCoreCommitmentV1MerkleRoot,
   MerklePrefix as IbcCoreCommitmentV1MerklePrefix,
-  MerklePath as IbcCoreCommitmentV1MerklePath,
   MerkleProof as IbcCoreCommitmentV1MerkleProof,
 } from "./ibc/core/commitment/v1/commitment_pb.js";
 export {
@@ -5142,8 +5010,28 @@ export {
   Params as IbcCoreChannelV1Params,
 } from "./ibc/core/channel/v1/channel_pb.js";
 export {
+  Token as IbcApplicationsTransferV2Token,
+  Denom as IbcApplicationsTransferV2Denom,
+} from "./ibc/applications/transfer/v2/token_pb.js";
+export {
+  QueryDenomRequest as IbcApplicationsTransferV2QueryDenomRequest,
+  QueryDenomResponse as IbcApplicationsTransferV2QueryDenomResponse,
+  QueryDenomsRequest as IbcApplicationsTransferV2QueryDenomsRequest,
+  QueryDenomsResponse as IbcApplicationsTransferV2QueryDenomsResponse,
+} from "./ibc/applications/transfer/v2/queryv2_pb.js";
+export {
+  QueryV2DenomsService as IbcApplicationsTransferV2QueryV2DenomsService,
+  QueryV2DenomService as IbcApplicationsTransferV2QueryV2DenomService,
+} from "./ibc/applications/transfer/v2/queryv2_cosmes.js";
+export {
   FungibleTokenPacketData as IbcApplicationsTransferV2FungibleTokenPacketData,
+  FungibleTokenPacketDataV2 as IbcApplicationsTransferV2FungibleTokenPacketDataV2,
+  ForwardingPacketData as IbcApplicationsTransferV2ForwardingPacketData,
 } from "./ibc/applications/transfer/v2/packet_pb.js";
+export {
+  GenesisState as IbcApplicationsTransferV2GenesisState,
+  ForwardedPacket as IbcApplicationsTransferV2ForwardedPacket,
+} from "./ibc/applications/transfer/v2/genesis_pb.js";
 export {
   MsgTransfer as IbcApplicationsTransferV1MsgTransfer,
   MsgTransferResponse as IbcApplicationsTransferV1MsgTransferResponse,
@@ -5155,14 +5043,11 @@ export {
   MsgUpdateParamsService as IbcApplicationsTransferV1MsgUpdateParamsService,
 } from "./ibc/applications/transfer/v1/tx_cosmes.js";
 export {
-  DenomTrace as IbcApplicationsTransferV1DenomTrace,
   Params as IbcApplicationsTransferV1Params,
+  Forwarding as IbcApplicationsTransferV1Forwarding,
+  Hop as IbcApplicationsTransferV1Hop,
 } from "./ibc/applications/transfer/v1/transfer_pb.js";
 export {
-  QueryDenomTraceRequest as IbcApplicationsTransferV1QueryDenomTraceRequest,
-  QueryDenomTraceResponse as IbcApplicationsTransferV1QueryDenomTraceResponse,
-  QueryDenomTracesRequest as IbcApplicationsTransferV1QueryDenomTracesRequest,
-  QueryDenomTracesResponse as IbcApplicationsTransferV1QueryDenomTracesResponse,
   QueryParamsRequest as IbcApplicationsTransferV1QueryParamsRequest,
   QueryParamsResponse as IbcApplicationsTransferV1QueryParamsResponse,
   QueryDenomHashRequest as IbcApplicationsTransferV1QueryDenomHashRequest,
@@ -5173,18 +5058,17 @@ export {
   QueryTotalEscrowForDenomResponse as IbcApplicationsTransferV1QueryTotalEscrowForDenomResponse,
 } from "./ibc/applications/transfer/v1/query_pb.js";
 export {
-  QueryDenomTracesService as IbcApplicationsTransferV1QueryDenomTracesService,
-  QueryDenomTraceService as IbcApplicationsTransferV1QueryDenomTraceService,
   QueryParamsService as IbcApplicationsTransferV1QueryParamsService,
   QueryDenomHashService as IbcApplicationsTransferV1QueryDenomHashService,
   QueryEscrowAddressService as IbcApplicationsTransferV1QueryEscrowAddressService,
   QueryTotalEscrowForDenomService as IbcApplicationsTransferV1QueryTotalEscrowForDenomService,
 } from "./ibc/applications/transfer/v1/query_cosmes.js";
 export {
-  GenesisState as IbcApplicationsTransferV1GenesisState,
-} from "./ibc/applications/transfer/v1/genesis_pb.js";
+  DenomTrace as IbcApplicationsTransferV1DenomTrace,
+} from "./ibc/applications/transfer/v1/denomtrace_pb.js";
 export {
   Allocation as IbcApplicationsTransferV1Allocation,
+  AllowedForwarding as IbcApplicationsTransferV1AllowedForwarding,
   TransferAuthorization as IbcApplicationsTransferV1TransferAuthorization,
 } from "./ibc/applications/transfer/v1/authz_pb.js";
 export {
@@ -7196,6 +7080,38 @@ export {
   Config as CosmosTxConfigV1Config,
 } from "./cosmos/tx/config/v1/config_pb.js";
 export {
+  StoreKVPair as CosmosStoreV1beta1StoreKVPair,
+  BlockMetadata as CosmosStoreV1beta1BlockMetadata,
+} from "./cosmos/store/v1beta1/listening_pb.js";
+export {
+  CommitInfo as CosmosStoreV1beta1CommitInfo,
+  StoreInfo as CosmosStoreV1beta1StoreInfo,
+  CommitID as CosmosStoreV1beta1CommitID,
+} from "./cosmos/store/v1beta1/commit_info_pb.js";
+export {
+  ListenFinalizeBlockRequest as CosmosStoreStreamingAbciListenFinalizeBlockRequest,
+  ListenFinalizeBlockResponse as CosmosStoreStreamingAbciListenFinalizeBlockResponse,
+  ListenCommitRequest as CosmosStoreStreamingAbciListenCommitRequest,
+  ListenCommitResponse as CosmosStoreStreamingAbciListenCommitResponse,
+} from "./cosmos/store/streaming/abci/grpc_pb.js";
+export {
+  ABCIListenerServiceListenFinalizeBlockService as CosmosStoreStreamingAbciABCIListenerServiceListenFinalizeBlockService,
+  ABCIListenerServiceListenCommitService as CosmosStoreStreamingAbciABCIListenerServiceListenCommitService,
+} from "./cosmos/store/streaming/abci/grpc_cosmes.js";
+export {
+  Snapshot as CosmosStoreSnapshotsV1Snapshot,
+  Metadata as CosmosStoreSnapshotsV1Metadata,
+  SnapshotItem as CosmosStoreSnapshotsV1SnapshotItem,
+  SnapshotStoreItem as CosmosStoreSnapshotsV1SnapshotStoreItem,
+  SnapshotIAVLItem as CosmosStoreSnapshotsV1SnapshotIAVLItem,
+  SnapshotExtensionMeta as CosmosStoreSnapshotsV1SnapshotExtensionMeta,
+  SnapshotExtensionPayload as CosmosStoreSnapshotsV1SnapshotExtensionPayload,
+} from "./cosmos/store/snapshots/v1/snapshot_pb.js";
+export {
+  Pairs as CosmosStoreInternalKvV1beta1Pairs,
+  Pair as CosmosStoreInternalKvV1beta1Pair,
+} from "./cosmos/store/internal/kv/v1beta1/kv_pb.js";
+export {
   MsgCreateValidator as CosmosStakingV1beta1MsgCreateValidator,
   MsgCreateValidatorResponse as CosmosStakingV1beta1MsgCreateValidatorResponse,
   MsgEditValidator as CosmosStakingV1beta1MsgEditValidator,
@@ -7686,6 +7602,8 @@ export {
   MsgDepositResponse as CosmosGovV1MsgDepositResponse,
   MsgUpdateParams as CosmosGovV1MsgUpdateParams,
   MsgUpdateParamsResponse as CosmosGovV1MsgUpdateParamsResponse,
+  MsgCancelProposal as CosmosGovV1MsgCancelProposal,
+  MsgCancelProposalResponse as CosmosGovV1MsgCancelProposalResponse,
 } from "./cosmos/gov/v1/tx_pb.js";
 export {
   MsgSubmitProposalService as CosmosGovV1MsgSubmitProposalService,
@@ -7694,8 +7612,11 @@ export {
   MsgVoteWeightedService as CosmosGovV1MsgVoteWeightedService,
   MsgDepositService as CosmosGovV1MsgDepositService,
   MsgUpdateParamsService as CosmosGovV1MsgUpdateParamsService,
+  MsgCancelProposalService as CosmosGovV1MsgCancelProposalService,
 } from "./cosmos/gov/v1/tx_cosmes.js";
 export {
+  QueryConstitutionRequest as CosmosGovV1QueryConstitutionRequest,
+  QueryConstitutionResponse as CosmosGovV1QueryConstitutionResponse,
   QueryProposalRequest as CosmosGovV1QueryProposalRequest,
   QueryProposalResponse as CosmosGovV1QueryProposalResponse,
   QueryProposalsRequest as CosmosGovV1QueryProposalsRequest,
@@ -7714,6 +7635,7 @@ export {
   QueryTallyResultResponse as CosmosGovV1QueryTallyResultResponse,
 } from "./cosmos/gov/v1/query_pb.js";
 export {
+  QueryConstitutionService as CosmosGovV1QueryConstitutionService,
   QueryProposalService as CosmosGovV1QueryProposalService,
   QueryProposalsService as CosmosGovV1QueryProposalsService,
   QueryVoteService as CosmosGovV1QueryVoteService,
@@ -7753,10 +7675,13 @@ export {
   MsgGrantAllowanceResponse as CosmosFeegrantV1beta1MsgGrantAllowanceResponse,
   MsgRevokeAllowance as CosmosFeegrantV1beta1MsgRevokeAllowance,
   MsgRevokeAllowanceResponse as CosmosFeegrantV1beta1MsgRevokeAllowanceResponse,
+  MsgPruneAllowances as CosmosFeegrantV1beta1MsgPruneAllowances,
+  MsgPruneAllowancesResponse as CosmosFeegrantV1beta1MsgPruneAllowancesResponse,
 } from "./cosmos/feegrant/v1beta1/tx_pb.js";
 export {
   MsgGrantAllowanceService as CosmosFeegrantV1beta1MsgGrantAllowanceService,
   MsgRevokeAllowanceService as CosmosFeegrantV1beta1MsgRevokeAllowanceService,
+  MsgPruneAllowancesService as CosmosFeegrantV1beta1MsgPruneAllowancesService,
 } from "./cosmos/feegrant/v1beta1/tx_cosmes.js";
 export {
   QueryAllowanceRequest as CosmosFeegrantV1beta1QueryAllowanceRequest,
@@ -7822,6 +7747,8 @@ export {
   MsgUpdateParamsResponse as CosmosDistributionV1beta1MsgUpdateParamsResponse,
   MsgCommunityPoolSpend as CosmosDistributionV1beta1MsgCommunityPoolSpend,
   MsgCommunityPoolSpendResponse as CosmosDistributionV1beta1MsgCommunityPoolSpendResponse,
+  MsgDepositValidatorRewardsPool as CosmosDistributionV1beta1MsgDepositValidatorRewardsPool,
+  MsgDepositValidatorRewardsPoolResponse as CosmosDistributionV1beta1MsgDepositValidatorRewardsPoolResponse,
 } from "./cosmos/distribution/v1beta1/tx_pb.js";
 export {
   MsgSetWithdrawAddressService as CosmosDistributionV1beta1MsgSetWithdrawAddressService,
@@ -7830,6 +7757,7 @@ export {
   MsgFundCommunityPoolService as CosmosDistributionV1beta1MsgFundCommunityPoolService,
   MsgUpdateParamsService as CosmosDistributionV1beta1MsgUpdateParamsService,
   MsgCommunityPoolSpendService as CosmosDistributionV1beta1MsgCommunityPoolSpendService,
+  MsgDepositValidatorRewardsPoolService as CosmosDistributionV1beta1MsgDepositValidatorRewardsPoolService,
 } from "./cosmos/distribution/v1beta1/tx_cosmes.js";
 export {
   QueryParamsRequest as CosmosDistributionV1beta1QueryParamsRequest,
@@ -7955,17 +7883,40 @@ export {
   Module as CosmosConsensusModuleV1Module,
 } from "./cosmos/consensus/module/v1/module_pb.js";
 export {
-  GenesisOwners as CosmosCapabilityV1beta1GenesisOwners,
-  GenesisState as CosmosCapabilityV1beta1GenesisState,
-} from "./cosmos/capability/v1beta1/genesis_pb.js";
+  Permissions as CosmosCircuitV1Permissions,
+  Permissions_Level as CosmosCircuitV1Permissions_Level,
+  GenesisAccountPermissions as CosmosCircuitV1GenesisAccountPermissions,
+  GenesisState as CosmosCircuitV1GenesisState,
+} from "./cosmos/circuit/v1/types_pb.js";
 export {
-  Capability as CosmosCapabilityV1beta1Capability,
-  Owner as CosmosCapabilityV1beta1Owner,
-  CapabilityOwners as CosmosCapabilityV1beta1CapabilityOwners,
-} from "./cosmos/capability/v1beta1/capability_pb.js";
+  MsgAuthorizeCircuitBreaker as CosmosCircuitV1MsgAuthorizeCircuitBreaker,
+  MsgAuthorizeCircuitBreakerResponse as CosmosCircuitV1MsgAuthorizeCircuitBreakerResponse,
+  MsgTripCircuitBreaker as CosmosCircuitV1MsgTripCircuitBreaker,
+  MsgTripCircuitBreakerResponse as CosmosCircuitV1MsgTripCircuitBreakerResponse,
+  MsgResetCircuitBreaker as CosmosCircuitV1MsgResetCircuitBreaker,
+  MsgResetCircuitBreakerResponse as CosmosCircuitV1MsgResetCircuitBreakerResponse,
+} from "./cosmos/circuit/v1/tx_pb.js";
 export {
-  Module as CosmosCapabilityModuleV1Module,
-} from "./cosmos/capability/module/v1/module_pb.js";
+  MsgAuthorizeCircuitBreakerService as CosmosCircuitV1MsgAuthorizeCircuitBreakerService,
+  MsgTripCircuitBreakerService as CosmosCircuitV1MsgTripCircuitBreakerService,
+  MsgResetCircuitBreakerService as CosmosCircuitV1MsgResetCircuitBreakerService,
+} from "./cosmos/circuit/v1/tx_cosmes.js";
+export {
+  QueryAccountRequest as CosmosCircuitV1QueryAccountRequest,
+  AccountResponse as CosmosCircuitV1AccountResponse,
+  QueryAccountsRequest as CosmosCircuitV1QueryAccountsRequest,
+  AccountsResponse as CosmosCircuitV1AccountsResponse,
+  QueryDisabledListRequest as CosmosCircuitV1QueryDisabledListRequest,
+  DisabledListResponse as CosmosCircuitV1DisabledListResponse,
+} from "./cosmos/circuit/v1/query_pb.js";
+export {
+  QueryAccountService as CosmosCircuitV1QueryAccountService,
+  QueryAccountsService as CosmosCircuitV1QueryAccountsService,
+  QueryDisabledListService as CosmosCircuitV1QueryDisabledListService,
+} from "./cosmos/circuit/v1/query_cosmes.js";
+export {
+  Module as CosmosCircuitModuleV1Module,
+} from "./cosmos/circuit/module/v1/module_pb.js";
 export {
   Coin as CosmosBaseV1beta1Coin,
   DecCoin as CosmosBaseV1beta1DecCoin,
@@ -8006,27 +7957,6 @@ export {
   ServiceGetValidatorSetByHeightService as CosmosBaseTendermintV1beta1ServiceGetValidatorSetByHeightService,
   ServiceABCIQueryService as CosmosBaseTendermintV1beta1ServiceABCIQueryService,
 } from "./cosmos/base/tendermint/v1beta1/query_cosmes.js";
-export {
-  StoreKVPair as CosmosBaseStoreV1beta1StoreKVPair,
-  BlockMetadata as CosmosBaseStoreV1beta1BlockMetadata,
-  BlockMetadata_DeliverTx as CosmosBaseStoreV1beta1BlockMetadata_DeliverTx,
-} from "./cosmos/base/store/v1beta1/listening_pb.js";
-export {
-  CommitInfo as CosmosBaseStoreV1beta1CommitInfo,
-  StoreInfo as CosmosBaseStoreV1beta1StoreInfo,
-  CommitID as CosmosBaseStoreV1beta1CommitID,
-} from "./cosmos/base/store/v1beta1/commit_info_pb.js";
-export {
-  Snapshot as CosmosBaseSnapshotsV1beta1Snapshot,
-  Metadata as CosmosBaseSnapshotsV1beta1Metadata,
-  SnapshotItem as CosmosBaseSnapshotsV1beta1SnapshotItem,
-  SnapshotStoreItem as CosmosBaseSnapshotsV1beta1SnapshotStoreItem,
-  SnapshotIAVLItem as CosmosBaseSnapshotsV1beta1SnapshotIAVLItem,
-  SnapshotExtensionMeta as CosmosBaseSnapshotsV1beta1SnapshotExtensionMeta,
-  SnapshotExtensionPayload as CosmosBaseSnapshotsV1beta1SnapshotExtensionPayload,
-  SnapshotKVItem as CosmosBaseSnapshotsV1beta1SnapshotKVItem,
-  SnapshotSchema as CosmosBaseSnapshotsV1beta1SnapshotSchema,
-} from "./cosmos/base/snapshots/v1beta1/snapshot_pb.js";
 export {
   AppDescriptor as CosmosBaseReflectionV2alpha1AppDescriptor,
   TxDescriptor as CosmosBaseReflectionV2alpha1TxDescriptor,
@@ -8080,14 +8010,13 @@ export {
 export {
   ConfigRequest as CosmosBaseNodeV1beta1ConfigRequest,
   ConfigResponse as CosmosBaseNodeV1beta1ConfigResponse,
+  StatusRequest as CosmosBaseNodeV1beta1StatusRequest,
+  StatusResponse as CosmosBaseNodeV1beta1StatusResponse,
 } from "./cosmos/base/node/v1beta1/query_pb.js";
 export {
   ServiceConfigService as CosmosBaseNodeV1beta1ServiceConfigService,
+  ServiceStatusService as CosmosBaseNodeV1beta1ServiceStatusService,
 } from "./cosmos/base/node/v1beta1/query_cosmes.js";
-export {
-  Pairs as CosmosBaseKvV1beta1Pairs,
-  Pair as CosmosBaseKvV1beta1Pair,
-} from "./cosmos/base/kv/v1beta1/kv_pb.js";
 export {
   TxResponse as CosmosBaseAbciV1beta1TxResponse,
   ABCIMessageLog as CosmosBaseAbciV1beta1ABCIMessageLog,
@@ -8099,6 +8028,7 @@ export {
   MsgData as CosmosBaseAbciV1beta1MsgData,
   TxMsgData as CosmosBaseAbciV1beta1TxMsgData,
   SearchTxsResult as CosmosBaseAbciV1beta1SearchTxsResult,
+  SearchBlocksResult as CosmosBaseAbciV1beta1SearchBlocksResult,
 } from "./cosmos/base/abci/v1beta1/abci_pb.js";
 export {
   MsgSend as CosmosBankV1beta1MsgSend,
@@ -8135,9 +8065,13 @@ export {
   QueryDenomsMetadataResponse as CosmosBankV1beta1QueryDenomsMetadataResponse,
   QueryDenomMetadataRequest as CosmosBankV1beta1QueryDenomMetadataRequest,
   QueryDenomMetadataResponse as CosmosBankV1beta1QueryDenomMetadataResponse,
+  QueryDenomMetadataByQueryStringRequest as CosmosBankV1beta1QueryDenomMetadataByQueryStringRequest,
+  QueryDenomMetadataByQueryStringResponse as CosmosBankV1beta1QueryDenomMetadataByQueryStringResponse,
   QueryDenomOwnersRequest as CosmosBankV1beta1QueryDenomOwnersRequest,
   DenomOwner as CosmosBankV1beta1DenomOwner,
   QueryDenomOwnersResponse as CosmosBankV1beta1QueryDenomOwnersResponse,
+  QueryDenomOwnersByQueryRequest as CosmosBankV1beta1QueryDenomOwnersByQueryRequest,
+  QueryDenomOwnersByQueryResponse as CosmosBankV1beta1QueryDenomOwnersByQueryResponse,
   QuerySendEnabledRequest as CosmosBankV1beta1QuerySendEnabledRequest,
   QuerySendEnabledResponse as CosmosBankV1beta1QuerySendEnabledResponse,
 } from "./cosmos/bank/v1beta1/query_pb.js";
@@ -8150,8 +8084,10 @@ export {
   QuerySupplyOfService as CosmosBankV1beta1QuerySupplyOfService,
   QueryParamsService as CosmosBankV1beta1QueryParamsService,
   QueryDenomMetadataService as CosmosBankV1beta1QueryDenomMetadataService,
+  QueryDenomMetadataByQueryStringService as CosmosBankV1beta1QueryDenomMetadataByQueryStringService,
   QueryDenomsMetadataService as CosmosBankV1beta1QueryDenomsMetadataService,
   QueryDenomOwnersService as CosmosBankV1beta1QueryDenomOwnersService,
+  QueryDenomOwnersByQueryService as CosmosBankV1beta1QueryDenomOwnersByQueryService,
   QuerySendEnabledService as CosmosBankV1beta1QuerySendEnabledService,
 } from "./cosmos/bank/v1beta1/query_cosmes.js";
 export {
@@ -8189,9 +8125,9 @@ export {
 } from "./cosmos/autocli/v1/options_pb.js";
 export {
   MsgGrant as CosmosAuthzV1beta1MsgGrant,
-  MsgExecResponse as CosmosAuthzV1beta1MsgExecResponse,
-  MsgExec as CosmosAuthzV1beta1MsgExec,
   MsgGrantResponse as CosmosAuthzV1beta1MsgGrantResponse,
+  MsgExec as CosmosAuthzV1beta1MsgExec,
+  MsgExecResponse as CosmosAuthzV1beta1MsgExecResponse,
   MsgRevoke as CosmosAuthzV1beta1MsgRevoke,
   MsgRevokeResponse as CosmosAuthzV1beta1MsgRevokeResponse,
 } from "./cosmos/authz/v1beta1/tx_pb.js";

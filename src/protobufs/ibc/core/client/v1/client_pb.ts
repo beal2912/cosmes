@@ -5,7 +5,6 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Any, Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Plan } from "../../../../cosmos/upgrade/v1beta1/upgrade_pb.js";
 
 /**
  * IdentifiedClientState defines a client state with an additional client
@@ -168,6 +167,9 @@ export class ClientConsensusStates extends Message<ClientConsensusStates> {
  * breaking changes In these cases, the RevisionNumber is incremented so that
  * height continues to be monitonically increasing even as the RevisionHeight
  * gets reset
+ *
+ * Please note that json tags for generated Go code are overridden to explicitly exclude the omitempty jsontag.
+ * This enforces the Go json marshaller to always emit zero values for both revision_number and revision_height.
  *
  * @generated from message ibc.core.client.v1.Height
  */

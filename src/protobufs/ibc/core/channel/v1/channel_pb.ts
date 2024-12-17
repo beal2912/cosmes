@@ -513,7 +513,7 @@ export class PacketState extends Message<PacketState> {
 }
 
 /**
- * PacketId is an identifer for a unique Packet
+ * PacketId is an identifier for a unique Packet
  * Source chains refer to packets by source port/channel
  * Destination chains refer to packets by destination port/channel
  *

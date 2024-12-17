@@ -7,7 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { Commitments } from "./commitments_pb.js";
-import { AtomStaker, Cadet, Governor, NftHolder } from "./airdrop_pb.js";
+import { AtomStaker, Cadet, Governor, KolList, NftHolder } from "./airdrop_pb.js";
 
 /**
  * GenesisState defines the commitment module's genesis state.
@@ -45,6 +45,11 @@ export class GenesisState extends Message<GenesisState> {
    */
   governors: Governor[] = [];
 
+  /**
+   * @generated from field: repeated elys.commitment.KolList kol_list = 7;
+   */
+  kolList: KolList[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -59,6 +64,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 4, name: "nft_holders", kind: "message", T: NftHolder, repeated: true },
     { no: 5, name: "cadets", kind: "message", T: Cadet, repeated: true },
     { no: 6, name: "governors", kind: "message", T: Governor, repeated: true },
+    { no: 7, name: "kol_list", kind: "message", T: KolList, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

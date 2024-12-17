@@ -32,7 +32,7 @@ export const QueryIncentivizedPacketService = {
 } as const;
 
 /**
- * Gets all incentivized packets for a specific channel
+ * IncentivizedPacketsForChannel retrieves all incentivized packets for a specific channel
  *
  * @generated from rpc ibc.applications.fee.v1.Query.IncentivizedPacketsForChannel
  */
