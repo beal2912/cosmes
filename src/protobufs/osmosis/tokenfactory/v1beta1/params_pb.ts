@@ -32,6 +32,14 @@ export class Params extends Message<Params> {
    */
   denomCreationGasConsume = protoInt64.zero;
 
+  /**
+   * FeeCollectorAddress is the address where fees collected from denom creation
+   * are sent to
+   *
+   * @generated from field: string fee_collector_address = 3;
+   */
+  feeCollectorAddress = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -42,6 +50,7 @@ export class Params extends Message<Params> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom_creation_fee", kind: "message", T: Coin, repeated: true },
     { no: 2, name: "denom_creation_gas_consume", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "fee_collector_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

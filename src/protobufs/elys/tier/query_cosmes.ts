@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryGetUsersPoolDataRequest, QueryGetUsersPoolDataResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryLockedOrderRequest, QueryLockedOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
+import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAllPricesRequest, QueryGetAllPricesResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryGetUsersPoolDataRequest, QueryGetUsersPoolDataResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryLockedOrderRequest, QueryLockedOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.tier.Query";
 
@@ -171,5 +171,17 @@ export const QueryGetUsersPoolDataService = {
   method: "GetUsersPoolData",
   Request: QueryGetUsersPoolDataRequest,
   Response: QueryGetUsersPoolDataResponse,
+} as const;
+
+/**
+ * Queries a list of GetConsolidatedPrice items.
+ *
+ * @generated from rpc elys.tier.Query.GetAllPrices
+ */
+export const QueryGetAllPricesService = {
+  typeName: TYPE_NAME,
+  method: "GetAllPrices",
+  Request: QueryGetAllPricesRequest,
+  Response: QueryGetAllPricesResponse,
 } as const;
 

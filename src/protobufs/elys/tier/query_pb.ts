@@ -818,13 +818,53 @@ export class QueryGetAmmPriceRequest extends Message<QueryGetAmmPriceRequest> {
 }
 
 /**
- * @generated from message elys.tier.QueryGetAmmPriceResponse
+ * We use a submessage to avoid the issue with the gRPC codec
+ * https://github.com/cosmos/cosmos-sdk/issues/18430
+ *
+ * @generated from message elys.tier.GetAmmPriceResponseResult
  */
-export class QueryGetAmmPriceResponse extends Message<QueryGetAmmPriceResponse> {
+export class GetAmmPriceResponseResult extends Message<GetAmmPriceResponseResult> {
   /**
    * @generated from field: string total = 1;
    */
   total = "";
+
+  constructor(data?: PartialMessage<GetAmmPriceResponseResult>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.GetAmmPriceResponseResult";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetAmmPriceResponseResult {
+    return new GetAmmPriceResponseResult().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetAmmPriceResponseResult {
+    return new GetAmmPriceResponseResult().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetAmmPriceResponseResult {
+    return new GetAmmPriceResponseResult().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GetAmmPriceResponseResult | PlainMessage<GetAmmPriceResponseResult> | undefined, b: GetAmmPriceResponseResult | PlainMessage<GetAmmPriceResponseResult> | undefined): boolean {
+    return proto3.util.equals(GetAmmPriceResponseResult, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetAmmPriceResponse
+ */
+export class QueryGetAmmPriceResponse extends Message<QueryGetAmmPriceResponse> {
+  /**
+   * @generated from field: elys.tier.GetAmmPriceResponseResult result = 1;
+   */
+  result?: GetAmmPriceResponseResult;
 
   constructor(data?: PartialMessage<QueryGetAmmPriceResponse>) {
     super();
@@ -834,7 +874,7 @@ export class QueryGetAmmPriceResponse extends Message<QueryGetAmmPriceResponse> 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tier.QueryGetAmmPriceResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "result", kind: "message", T: GetAmmPriceResponseResult },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetAmmPriceResponse {
@@ -1109,6 +1149,135 @@ export class QueryGetUsersPoolDataResponse extends Message<QueryGetUsersPoolData
 
   static equals(a: QueryGetUsersPoolDataResponse | PlainMessage<QueryGetUsersPoolDataResponse> | undefined, b: QueryGetUsersPoolDataResponse | PlainMessage<QueryGetUsersPoolDataResponse> | undefined): boolean {
     return proto3.util.equals(QueryGetUsersPoolDataResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.Price
+ */
+export class Price extends Message<Price> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string oracle_price = 2;
+   */
+  oraclePrice = "";
+
+  /**
+   * @generated from field: string amm_price = 3;
+   */
+  ammPrice = "";
+
+  constructor(data?: PartialMessage<Price>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.Price";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "oracle_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "amm_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Price {
+    return new Price().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Price {
+    return new Price().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Price {
+    return new Price().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: Price | PlainMessage<Price> | undefined, b: Price | PlainMessage<Price> | undefined): boolean {
+    return proto3.util.equals(Price, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetAllPricesRequest
+ */
+export class QueryGetAllPricesRequest extends Message<QueryGetAllPricesRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryGetAllPricesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetAllPricesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetAllPricesRequest {
+    return new QueryGetAllPricesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetAllPricesRequest {
+    return new QueryGetAllPricesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetAllPricesRequest {
+    return new QueryGetAllPricesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetAllPricesRequest | PlainMessage<QueryGetAllPricesRequest> | undefined, b: QueryGetAllPricesRequest | PlainMessage<QueryGetAllPricesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetAllPricesRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetAllPricesResponse
+ */
+export class QueryGetAllPricesResponse extends Message<QueryGetAllPricesResponse> {
+  /**
+   * @generated from field: repeated elys.tier.Price prices = 1;
+   */
+  prices: Price[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryGetAllPricesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetAllPricesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "prices", kind: "message", T: Price, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetAllPricesResponse {
+    return new QueryGetAllPricesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetAllPricesResponse {
+    return new QueryGetAllPricesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetAllPricesResponse {
+    return new QueryGetAllPricesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetAllPricesResponse | PlainMessage<QueryGetAllPricesResponse> | undefined, b: QueryGetAllPricesResponse | PlainMessage<QueryGetAllPricesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetAllPricesResponse, a, b);
   }
 }
 

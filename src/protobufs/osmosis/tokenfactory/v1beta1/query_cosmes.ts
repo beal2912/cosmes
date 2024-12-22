@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataResponse, QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryBeforeSendHookAddressRequest, QueryBeforeSendHookAddressResponse, QueryDenomAuthorityMetadataRequest, QueryDenomAuthorityMetadataResponse, QueryDenomsFromCreatorRequest, QueryDenomsFromCreatorResponse, QueryFullDenomRequest, QueryFullDenomResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "osmosis.tokenfactory.v1beta1.Query";
 
@@ -44,5 +44,31 @@ export const QueryDenomsFromCreatorService = {
   method: "DenomsFromCreator",
   Request: QueryDenomsFromCreatorRequest,
   Response: QueryDenomsFromCreatorResponse,
+} as const;
+
+/**
+ * BeforeSendHookAddress defines a gRPC query method for
+ * getting the address registered for the before send hook.
+ *
+ * @generated from rpc osmosis.tokenfactory.v1beta1.Query.BeforeSendHookAddress
+ */
+export const QueryBeforeSendHookAddressService = {
+  typeName: TYPE_NAME,
+  method: "BeforeSendHookAddress",
+  Request: QueryBeforeSendHookAddressRequest,
+  Response: QueryBeforeSendHookAddressResponse,
+} as const;
+
+/**
+ * FullDenom defines a gRPC query method for getting full denom name
+ * from the creator and subdenom strings.
+ *
+ * @generated from rpc osmosis.tokenfactory.v1beta1.Query.FullDenom
+ */
+export const QueryFullDenomService = {
+  typeName: TYPE_NAME,
+  method: "FullDenom",
+  Request: QueryFullDenomRequest,
+  Response: QueryFullDenomResponse,
 } as const;
 

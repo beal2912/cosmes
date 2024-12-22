@@ -111,6 +111,11 @@ const REPOS = [
     tag: "main",
     paths: ["proto"],
   },
+  {
+    repo: "neutron-org/neutron",
+    tag: "main",
+    paths: ["proto"],
+  },
 ];
 /**
  * TODO: Add more repos here when necessary.

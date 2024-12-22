@@ -1673,6 +1673,10 @@ export {
   GenesisState as OsmosisTwapV1beta1GenesisState,
 } from "./osmosis/twap/v1beta1/genesis_pb.js";
 export {
+  WhitelistedHook as OsmosisTokenfactoryWhitelistedHook,
+  Params as OsmosisTokenfactoryParams,
+} from "./osmosis/tokenfactory/params_pb.js";
+export {
   MsgCreateDenom as OsmosisTokenfactoryV1beta1MsgCreateDenom,
   MsgCreateDenomResponse as OsmosisTokenfactoryV1beta1MsgCreateDenomResponse,
   MsgMint as OsmosisTokenfactoryV1beta1MsgMint,
@@ -1681,10 +1685,14 @@ export {
   MsgBurnResponse as OsmosisTokenfactoryV1beta1MsgBurnResponse,
   MsgChangeAdmin as OsmosisTokenfactoryV1beta1MsgChangeAdmin,
   MsgChangeAdminResponse as OsmosisTokenfactoryV1beta1MsgChangeAdminResponse,
+  MsgSetBeforeSendHook as OsmosisTokenfactoryV1beta1MsgSetBeforeSendHook,
+  MsgSetBeforeSendHookResponse as OsmosisTokenfactoryV1beta1MsgSetBeforeSendHookResponse,
   MsgSetDenomMetadata as OsmosisTokenfactoryV1beta1MsgSetDenomMetadata,
   MsgSetDenomMetadataResponse as OsmosisTokenfactoryV1beta1MsgSetDenomMetadataResponse,
   MsgForceTransfer as OsmosisTokenfactoryV1beta1MsgForceTransfer,
   MsgForceTransferResponse as OsmosisTokenfactoryV1beta1MsgForceTransferResponse,
+  MsgUpdateParams as OsmosisTokenfactoryV1beta1MsgUpdateParams,
+  MsgUpdateParamsResponse as OsmosisTokenfactoryV1beta1MsgUpdateParamsResponse,
 } from "./osmosis/tokenfactory/v1beta1/tx_pb.js";
 export {
   MsgCreateDenomService as OsmosisTokenfactoryV1beta1MsgCreateDenomService,
@@ -1692,7 +1700,9 @@ export {
   MsgBurnService as OsmosisTokenfactoryV1beta1MsgBurnService,
   MsgChangeAdminService as OsmosisTokenfactoryV1beta1MsgChangeAdminService,
   MsgSetDenomMetadataService as OsmosisTokenfactoryV1beta1MsgSetDenomMetadataService,
+  MsgSetBeforeSendHookService as OsmosisTokenfactoryV1beta1MsgSetBeforeSendHookService,
   MsgForceTransferService as OsmosisTokenfactoryV1beta1MsgForceTransferService,
+  MsgUpdateParamsService as OsmosisTokenfactoryV1beta1MsgUpdateParamsService,
 } from "./osmosis/tokenfactory/v1beta1/tx_cosmes.js";
 export {
   QueryParamsRequest as OsmosisTokenfactoryV1beta1QueryParamsRequest,
@@ -1701,11 +1711,17 @@ export {
   QueryDenomAuthorityMetadataResponse as OsmosisTokenfactoryV1beta1QueryDenomAuthorityMetadataResponse,
   QueryDenomsFromCreatorRequest as OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorRequest,
   QueryDenomsFromCreatorResponse as OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorResponse,
+  QueryBeforeSendHookAddressRequest as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressRequest,
+  QueryBeforeSendHookAddressResponse as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressResponse,
+  QueryFullDenomRequest as OsmosisTokenfactoryV1beta1QueryFullDenomRequest,
+  QueryFullDenomResponse as OsmosisTokenfactoryV1beta1QueryFullDenomResponse,
 } from "./osmosis/tokenfactory/v1beta1/query_pb.js";
 export {
   QueryParamsService as OsmosisTokenfactoryV1beta1QueryParamsService,
   QueryDenomAuthorityMetadataService as OsmosisTokenfactoryV1beta1QueryDenomAuthorityMetadataService,
   QueryDenomsFromCreatorService as OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorService,
+  QueryBeforeSendHookAddressService as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressService,
+  QueryFullDenomService as OsmosisTokenfactoryV1beta1QueryFullDenomService,
 } from "./osmosis/tokenfactory/v1beta1/query_cosmes.js";
 export {
   Params as OsmosisTokenfactoryV1beta1Params,
@@ -2758,6 +2774,420 @@ export {
   Options as OsmosisAccumV1beta1Options,
   Record as OsmosisAccumV1beta1Record,
 } from "./osmosis/accum/v1beta1/accum_pb.js";
+export {
+  MsgTransfer as NeutronTransferV1MsgTransfer,
+  MsgTransferResponse as NeutronTransferV1MsgTransferResponse,
+  MsgUpdateParams as NeutronTransferV1MsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronTransferV1MsgUpdateParamsResponse,
+} from "./neutron/transfer/v1/tx_pb.js";
+export {
+  MsgTransferService as NeutronTransferV1MsgTransferService,
+  MsgUpdateParamsService as NeutronTransferV1MsgUpdateParamsService,
+} from "./neutron/transfer/v1/tx_cosmes.js";
+export {
+  QueryDenomTraceService as NeutronTransferV1QueryDenomTraceService,
+  QueryDenomTracesService as NeutronTransferV1QueryDenomTracesService,
+  QueryParamsService as NeutronTransferV1QueryParamsService,
+  QueryDenomHashService as NeutronTransferV1QueryDenomHashService,
+} from "./neutron/transfer/v1/query_cosmes.js";
+export {
+  MsgRegisterInterchainAccount as NeutronInterchaintxsV1MsgRegisterInterchainAccount,
+  MsgRegisterInterchainAccountResponse as NeutronInterchaintxsV1MsgRegisterInterchainAccountResponse,
+  MsgSubmitTx as NeutronInterchaintxsV1MsgSubmitTx,
+  MsgSubmitTxResponse as NeutronInterchaintxsV1MsgSubmitTxResponse,
+  MsgUpdateParams as NeutronInterchaintxsV1MsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronInterchaintxsV1MsgUpdateParamsResponse,
+} from "./neutron/interchaintxs/v1/tx_pb.js";
+export {
+  MsgRegisterInterchainAccountService as NeutronInterchaintxsV1MsgRegisterInterchainAccountService,
+  MsgSubmitTxService as NeutronInterchaintxsV1MsgSubmitTxService,
+  MsgUpdateParamsService as NeutronInterchaintxsV1MsgUpdateParamsService,
+} from "./neutron/interchaintxs/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronInterchaintxsV1QueryParamsRequest,
+  QueryParamsResponse as NeutronInterchaintxsV1QueryParamsResponse,
+  QueryInterchainAccountAddressRequest as NeutronInterchaintxsV1QueryInterchainAccountAddressRequest,
+  QueryInterchainAccountAddressResponse as NeutronInterchaintxsV1QueryInterchainAccountAddressResponse,
+} from "./neutron/interchaintxs/v1/query_pb.js";
+export {
+  QueryParamsService as NeutronInterchaintxsV1QueryParamsService,
+  QueryInterchainAccountAddressService as NeutronInterchaintxsV1QueryInterchainAccountAddressService,
+} from "./neutron/interchaintxs/v1/query_cosmes.js";
+export {
+  Params as NeutronInterchaintxsV1Params,
+} from "./neutron/interchaintxs/v1/params_pb.js";
+export {
+  GenesisState as NeutronInterchaintxsV1GenesisState,
+} from "./neutron/interchaintxs/v1/genesis_pb.js";
+export {
+  MsgRegisterInterchainQuery as NeutronInterchainqueriesMsgRegisterInterchainQuery,
+  MsgRegisterInterchainQueryResponse as NeutronInterchainqueriesMsgRegisterInterchainQueryResponse,
+  MsgSubmitQueryResult as NeutronInterchainqueriesMsgSubmitQueryResult,
+  QueryResult as NeutronInterchainqueriesQueryResult,
+  StorageValue as NeutronInterchainqueriesStorageValue,
+  Block as NeutronInterchainqueriesBlock,
+  TxValue as NeutronInterchainqueriesTxValue,
+  MsgSubmitQueryResultResponse as NeutronInterchainqueriesMsgSubmitQueryResultResponse,
+  MsgRemoveInterchainQueryRequest as NeutronInterchainqueriesMsgRemoveInterchainQueryRequest,
+  MsgRemoveInterchainQueryResponse as NeutronInterchainqueriesMsgRemoveInterchainQueryResponse,
+  MsgUpdateInterchainQueryRequest as NeutronInterchainqueriesMsgUpdateInterchainQueryRequest,
+  MsgUpdateInterchainQueryResponse as NeutronInterchainqueriesMsgUpdateInterchainQueryResponse,
+  MsgUpdateParams as NeutronInterchainqueriesMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronInterchainqueriesMsgUpdateParamsResponse,
+} from "./neutron/interchainqueries/tx_pb.js";
+export {
+  MsgRegisterInterchainQueryService as NeutronInterchainqueriesMsgRegisterInterchainQueryService,
+  MsgSubmitQueryResultService as NeutronInterchainqueriesMsgSubmitQueryResultService,
+  MsgRemoveInterchainQueryService as NeutronInterchainqueriesMsgRemoveInterchainQueryService,
+  MsgUpdateInterchainQueryService as NeutronInterchainqueriesMsgUpdateInterchainQueryService,
+  MsgUpdateParamsService as NeutronInterchainqueriesMsgUpdateParamsService,
+} from "./neutron/interchainqueries/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronInterchainqueriesQueryParamsRequest,
+  QueryParamsResponse as NeutronInterchainqueriesQueryParamsResponse,
+  QueryRegisteredQueriesRequest as NeutronInterchainqueriesQueryRegisteredQueriesRequest,
+  QueryRegisteredQueriesResponse as NeutronInterchainqueriesQueryRegisteredQueriesResponse,
+  QueryRegisteredQueryRequest as NeutronInterchainqueriesQueryRegisteredQueryRequest,
+  QueryRegisteredQueryResponse as NeutronInterchainqueriesQueryRegisteredQueryResponse,
+  QueryRegisteredQueryResultRequest as NeutronInterchainqueriesQueryRegisteredQueryResultRequest,
+  QueryRegisteredQueryResultResponse as NeutronInterchainqueriesQueryRegisteredQueryResultResponse,
+  Transaction as NeutronInterchainqueriesTransaction,
+  QueryLastRemoteHeight as NeutronInterchainqueriesQueryLastRemoteHeight,
+  QueryLastRemoteHeightResponse as NeutronInterchainqueriesQueryLastRemoteHeightResponse,
+} from "./neutron/interchainqueries/query_pb.js";
+export {
+  QueryParamsService as NeutronInterchainqueriesQueryParamsService,
+  QueryRegisteredQueriesService as NeutronInterchainqueriesQueryRegisteredQueriesService,
+  QueryRegisteredQueryService as NeutronInterchainqueriesQueryRegisteredQueryService,
+  QueryQueryResultService as NeutronInterchainqueriesQueryQueryResultService,
+  QueryLastRemoteHeightService as NeutronInterchainqueriesQueryLastRemoteHeightService,
+} from "./neutron/interchainqueries/query_cosmes.js";
+export {
+  Params as NeutronInterchainqueriesParams,
+} from "./neutron/interchainqueries/params_pb.js";
+export {
+  RegisteredQuery as NeutronInterchainqueriesRegisteredQuery,
+  KVKey as NeutronInterchainqueriesKVKey,
+  GenesisState as NeutronInterchainqueriesGenesisState,
+} from "./neutron/interchainqueries/genesis_pb.js";
+export {
+  MsgUpdateParams as NeutronIbcratelimitV1beta1MsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronIbcratelimitV1beta1MsgUpdateParamsResponse,
+} from "./neutron/ibcratelimit/v1beta1/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronIbcratelimitV1beta1MsgUpdateParamsService,
+} from "./neutron/ibcratelimit/v1beta1/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronIbcratelimitV1beta1QueryParamsRequest,
+  QueryParamsResponse as NeutronIbcratelimitV1beta1QueryParamsResponse,
+} from "./neutron/ibcratelimit/v1beta1/query_pb.js";
+export {
+  QueryParamsService as NeutronIbcratelimitV1beta1QueryParamsService,
+} from "./neutron/ibcratelimit/v1beta1/query_cosmes.js";
+export {
+  Params as NeutronIbcratelimitV1beta1Params,
+} from "./neutron/ibcratelimit/v1beta1/params_pb.js";
+export {
+  GenesisState as NeutronIbcratelimitV1beta1GenesisState,
+} from "./neutron/ibcratelimit/v1beta1/genesis_pb.js";
+export {
+  MsgUpdateParams as NeutronFeerefunderMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronFeerefunderMsgUpdateParamsResponse,
+} from "./neutron/feerefunder/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronFeerefunderMsgUpdateParamsService,
+} from "./neutron/feerefunder/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronFeerefunderQueryParamsRequest,
+  QueryParamsResponse as NeutronFeerefunderQueryParamsResponse,
+  FeeInfoRequest as NeutronFeerefunderFeeInfoRequest,
+  FeeInfoResponse as NeutronFeerefunderFeeInfoResponse,
+} from "./neutron/feerefunder/query_pb.js";
+export {
+  QueryParamsService as NeutronFeerefunderQueryParamsService,
+  QueryFeeInfoService as NeutronFeerefunderQueryFeeInfoService,
+} from "./neutron/feerefunder/query_cosmes.js";
+export {
+  Params as NeutronFeerefunderParams,
+} from "./neutron/feerefunder/params_pb.js";
+export {
+  GenesisState as NeutronFeerefunderGenesisState,
+  FeeInfo as NeutronFeerefunderFeeInfo,
+} from "./neutron/feerefunder/genesis_pb.js";
+export {
+  Fee as NeutronFeerefunderFee,
+  PacketID as NeutronFeerefunderPacketID,
+} from "./neutron/feerefunder/fee_pb.js";
+export {
+  MsgUpdateParams as NeutronFeeburnerMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronFeeburnerMsgUpdateParamsResponse,
+} from "./neutron/feeburner/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronFeeburnerMsgUpdateParamsService,
+} from "./neutron/feeburner/tx_cosmes.js";
+export {
+  TotalBurnedNeutronsAmount as NeutronFeeburnerTotalBurnedNeutronsAmount,
+} from "./neutron/feeburner/total_burned_neutrons_amount_pb.js";
+export {
+  QueryParamsRequest as NeutronFeeburnerQueryParamsRequest,
+  QueryParamsResponse as NeutronFeeburnerQueryParamsResponse,
+  QueryTotalBurnedNeutronsAmountRequest as NeutronFeeburnerQueryTotalBurnedNeutronsAmountRequest,
+  QueryTotalBurnedNeutronsAmountResponse as NeutronFeeburnerQueryTotalBurnedNeutronsAmountResponse,
+} from "./neutron/feeburner/query_pb.js";
+export {
+  QueryParamsService as NeutronFeeburnerQueryParamsService,
+  QueryTotalBurnedNeutronsAmountService as NeutronFeeburnerQueryTotalBurnedNeutronsAmountService,
+} from "./neutron/feeburner/query_cosmes.js";
+export {
+  Params as NeutronFeeburnerParams,
+} from "./neutron/feeburner/params_pb.js";
+export {
+  GenesisState as NeutronFeeburnerGenesisState,
+} from "./neutron/feeburner/genesis_pb.js";
+export {
+  MsgUpdateParams as NeutronDynamicfeesV1MsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronDynamicfeesV1MsgUpdateParamsResponse,
+} from "./neutron/dynamicfees/v1/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronDynamicfeesV1MsgUpdateParamsService,
+} from "./neutron/dynamicfees/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronDynamicfeesV1QueryParamsRequest,
+  QueryParamsResponse as NeutronDynamicfeesV1QueryParamsResponse,
+} from "./neutron/dynamicfees/v1/query_pb.js";
+export {
+  QueryParamsService as NeutronDynamicfeesV1QueryParamsService,
+} from "./neutron/dynamicfees/v1/query_cosmes.js";
+export {
+  Params as NeutronDynamicfeesV1Params,
+} from "./neutron/dynamicfees/v1/params_pb.js";
+export {
+  GenesisState as NeutronDynamicfeesV1GenesisState,
+} from "./neutron/dynamicfees/v1/genesis_pb.js";
+export {
+  LimitOrderType as NeutronDexLimitOrderType,
+  DepositOptions as NeutronDexDepositOptions,
+  MsgDeposit as NeutronDexMsgDeposit,
+  FailedDeposit as NeutronDexFailedDeposit,
+  MsgDepositResponse as NeutronDexMsgDepositResponse,
+  MsgWithdrawal as NeutronDexMsgWithdrawal,
+  MsgWithdrawalResponse as NeutronDexMsgWithdrawalResponse,
+  MsgPlaceLimitOrder as NeutronDexMsgPlaceLimitOrder,
+  MsgPlaceLimitOrderResponse as NeutronDexMsgPlaceLimitOrderResponse,
+  MsgWithdrawFilledLimitOrder as NeutronDexMsgWithdrawFilledLimitOrder,
+  MsgWithdrawFilledLimitOrderResponse as NeutronDexMsgWithdrawFilledLimitOrderResponse,
+  MsgCancelLimitOrder as NeutronDexMsgCancelLimitOrder,
+  MsgCancelLimitOrderResponse as NeutronDexMsgCancelLimitOrderResponse,
+  MultiHopRoute as NeutronDexMultiHopRoute,
+  MsgMultiHopSwap as NeutronDexMsgMultiHopSwap,
+  MsgMultiHopSwapResponse as NeutronDexMsgMultiHopSwapResponse,
+  MsgUpdateParams as NeutronDexMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronDexMsgUpdateParamsResponse,
+} from "./neutron/dex/tx_pb.js";
+export {
+  MsgDepositService as NeutronDexMsgDepositService,
+  MsgWithdrawalService as NeutronDexMsgWithdrawalService,
+  MsgPlaceLimitOrderService as NeutronDexMsgPlaceLimitOrderService,
+  MsgWithdrawFilledLimitOrderService as NeutronDexMsgWithdrawFilledLimitOrderService,
+  MsgCancelLimitOrderService as NeutronDexMsgCancelLimitOrderService,
+  MsgMultiHopSwapService as NeutronDexMsgMultiHopSwapService,
+  MsgUpdateParamsService as NeutronDexMsgUpdateParamsService,
+} from "./neutron/dex/tx_cosmes.js";
+export {
+  TradePairID as NeutronDexTradePairID,
+} from "./neutron/dex/trade_pair_id_pb.js";
+export {
+  TickLiquidity as NeutronDexTickLiquidity,
+} from "./neutron/dex/tick_liquidity_pb.js";
+export {
+  QueryParamsRequest as NeutronDexQueryParamsRequest,
+  QueryParamsResponse as NeutronDexQueryParamsResponse,
+  QueryGetLimitOrderTrancheUserRequest as NeutronDexQueryGetLimitOrderTrancheUserRequest,
+  QueryGetLimitOrderTrancheUserResponse as NeutronDexQueryGetLimitOrderTrancheUserResponse,
+  QueryAllLimitOrderTrancheUserRequest as NeutronDexQueryAllLimitOrderTrancheUserRequest,
+  QueryAllLimitOrderTrancheUserResponse as NeutronDexQueryAllLimitOrderTrancheUserResponse,
+  QueryGetLimitOrderTrancheRequest as NeutronDexQueryGetLimitOrderTrancheRequest,
+  QueryGetLimitOrderTrancheResponse as NeutronDexQueryGetLimitOrderTrancheResponse,
+  QueryAllLimitOrderTrancheRequest as NeutronDexQueryAllLimitOrderTrancheRequest,
+  QueryAllLimitOrderTrancheResponse as NeutronDexQueryAllLimitOrderTrancheResponse,
+  QueryAllUserDepositsRequest as NeutronDexQueryAllUserDepositsRequest,
+  QueryAllUserDepositsResponse as NeutronDexQueryAllUserDepositsResponse,
+  QueryAllLimitOrderTrancheUserByAddressRequest as NeutronDexQueryAllLimitOrderTrancheUserByAddressRequest,
+  QueryAllLimitOrderTrancheUserByAddressResponse as NeutronDexQueryAllLimitOrderTrancheUserByAddressResponse,
+  QueryAllTickLiquidityRequest as NeutronDexQueryAllTickLiquidityRequest,
+  QueryAllTickLiquidityResponse as NeutronDexQueryAllTickLiquidityResponse,
+  QueryGetInactiveLimitOrderTrancheRequest as NeutronDexQueryGetInactiveLimitOrderTrancheRequest,
+  QueryGetInactiveLimitOrderTrancheResponse as NeutronDexQueryGetInactiveLimitOrderTrancheResponse,
+  QueryAllInactiveLimitOrderTrancheRequest as NeutronDexQueryAllInactiveLimitOrderTrancheRequest,
+  QueryAllInactiveLimitOrderTrancheResponse as NeutronDexQueryAllInactiveLimitOrderTrancheResponse,
+  QueryAllPoolReservesRequest as NeutronDexQueryAllPoolReservesRequest,
+  QueryAllPoolReservesResponse as NeutronDexQueryAllPoolReservesResponse,
+  QueryGetPoolReservesRequest as NeutronDexQueryGetPoolReservesRequest,
+  QueryGetPoolReservesResponse as NeutronDexQueryGetPoolReservesResponse,
+  QueryEstimateMultiHopSwapRequest as NeutronDexQueryEstimateMultiHopSwapRequest,
+  QueryEstimateMultiHopSwapResponse as NeutronDexQueryEstimateMultiHopSwapResponse,
+  QueryEstimatePlaceLimitOrderRequest as NeutronDexQueryEstimatePlaceLimitOrderRequest,
+  QueryEstimatePlaceLimitOrderResponse as NeutronDexQueryEstimatePlaceLimitOrderResponse,
+  QueryPoolRequest as NeutronDexQueryPoolRequest,
+  QueryPoolByIDRequest as NeutronDexQueryPoolByIDRequest,
+  QueryPoolResponse as NeutronDexQueryPoolResponse,
+  QueryGetPoolMetadataRequest as NeutronDexQueryGetPoolMetadataRequest,
+  QueryGetPoolMetadataResponse as NeutronDexQueryGetPoolMetadataResponse,
+  QueryAllPoolMetadataRequest as NeutronDexQueryAllPoolMetadataRequest,
+  QueryAllPoolMetadataResponse as NeutronDexQueryAllPoolMetadataResponse,
+  QuerySimulateDepositRequest as NeutronDexQuerySimulateDepositRequest,
+  QuerySimulateDepositResponse as NeutronDexQuerySimulateDepositResponse,
+  QuerySimulateWithdrawalRequest as NeutronDexQuerySimulateWithdrawalRequest,
+  QuerySimulateWithdrawalResponse as NeutronDexQuerySimulateWithdrawalResponse,
+  QuerySimulatePlaceLimitOrderRequest as NeutronDexQuerySimulatePlaceLimitOrderRequest,
+  QuerySimulatePlaceLimitOrderResponse as NeutronDexQuerySimulatePlaceLimitOrderResponse,
+  QuerySimulateWithdrawFilledLimitOrderRequest as NeutronDexQuerySimulateWithdrawFilledLimitOrderRequest,
+  QuerySimulateWithdrawFilledLimitOrderResponse as NeutronDexQuerySimulateWithdrawFilledLimitOrderResponse,
+  QuerySimulateCancelLimitOrderRequest as NeutronDexQuerySimulateCancelLimitOrderRequest,
+  QuerySimulateCancelLimitOrderResponse as NeutronDexQuerySimulateCancelLimitOrderResponse,
+  QuerySimulateMultiHopSwapRequest as NeutronDexQuerySimulateMultiHopSwapRequest,
+  QuerySimulateMultiHopSwapResponse as NeutronDexQuerySimulateMultiHopSwapResponse,
+} from "./neutron/dex/query_pb.js";
+export {
+  QueryParamsService as NeutronDexQueryParamsService,
+  QueryLimitOrderTrancheUserService as NeutronDexQueryLimitOrderTrancheUserService,
+  QueryLimitOrderTrancheUserAllService as NeutronDexQueryLimitOrderTrancheUserAllService,
+  QueryLimitOrderTrancheUserAllByAddressService as NeutronDexQueryLimitOrderTrancheUserAllByAddressService,
+  QueryLimitOrderTrancheService as NeutronDexQueryLimitOrderTrancheService,
+  QueryLimitOrderTrancheAllService as NeutronDexQueryLimitOrderTrancheAllService,
+  QueryUserDepositsAllService as NeutronDexQueryUserDepositsAllService,
+  QueryTickLiquidityAllService as NeutronDexQueryTickLiquidityAllService,
+  QueryInactiveLimitOrderTrancheService as NeutronDexQueryInactiveLimitOrderTrancheService,
+  QueryInactiveLimitOrderTrancheAllService as NeutronDexQueryInactiveLimitOrderTrancheAllService,
+  QueryPoolReservesAllService as NeutronDexQueryPoolReservesAllService,
+  QueryPoolReservesService as NeutronDexQueryPoolReservesService,
+  QueryEstimateMultiHopSwapService as NeutronDexQueryEstimateMultiHopSwapService,
+  QueryEstimatePlaceLimitOrderService as NeutronDexQueryEstimatePlaceLimitOrderService,
+  QueryPoolService as NeutronDexQueryPoolService,
+  QueryPoolByIDService as NeutronDexQueryPoolByIDService,
+  QueryPoolMetadataService as NeutronDexQueryPoolMetadataService,
+  QueryPoolMetadataAllService as NeutronDexQueryPoolMetadataAllService,
+  QuerySimulateDepositService as NeutronDexQuerySimulateDepositService,
+  QuerySimulateWithdrawalService as NeutronDexQuerySimulateWithdrawalService,
+  QuerySimulatePlaceLimitOrderService as NeutronDexQuerySimulatePlaceLimitOrderService,
+  QuerySimulateWithdrawFilledLimitOrderService as NeutronDexQuerySimulateWithdrawFilledLimitOrderService,
+  QuerySimulateCancelLimitOrderService as NeutronDexQuerySimulateCancelLimitOrderService,
+  QuerySimulateMultiHopSwapService as NeutronDexQuerySimulateMultiHopSwapService,
+} from "./neutron/dex/query_cosmes.js";
+export {
+  PoolReservesKey as NeutronDexPoolReservesKey,
+  PoolReserves as NeutronDexPoolReserves,
+} from "./neutron/dex/pool_reserves_pb.js";
+export {
+  Pool as NeutronDexPool,
+} from "./neutron/dex/pool_pb.js";
+export {
+  PoolMetadata as NeutronDexPoolMetadata,
+} from "./neutron/dex/pool_metadata_pb.js";
+export {
+  Params as NeutronDexParams,
+} from "./neutron/dex/params_pb.js";
+export {
+  PairID as NeutronDexPairID,
+} from "./neutron/dex/pair_id_pb.js";
+export {
+  LimitOrderTrancheUser as NeutronDexLimitOrderTrancheUser,
+} from "./neutron/dex/limit_order_tranche_user_pb.js";
+export {
+  LimitOrderTrancheKey as NeutronDexLimitOrderTrancheKey,
+  LimitOrderTranche as NeutronDexLimitOrderTranche,
+} from "./neutron/dex/limit_order_tranche_pb.js";
+export {
+  LimitOrderExpiration as NeutronDexLimitOrderExpiration,
+} from "./neutron/dex/limit_order_expiration_pb.js";
+export {
+  GenesisState as NeutronDexGenesisState,
+} from "./neutron/dex/genesis_pb.js";
+export {
+  DepositRecord as NeutronDexDepositRecord,
+} from "./neutron/dex/deposit_record_pb.js";
+export {
+  Params as NeutronDexV2Params,
+} from "./neutron/dex/v2/params_pb.js";
+export {
+  MsgAddSchedule as NeutronCronMsgAddSchedule,
+  MsgAddScheduleResponse as NeutronCronMsgAddScheduleResponse,
+  MsgRemoveSchedule as NeutronCronMsgRemoveSchedule,
+  MsgRemoveScheduleResponse as NeutronCronMsgRemoveScheduleResponse,
+  MsgUpdateParams as NeutronCronMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronCronMsgUpdateParamsResponse,
+} from "./neutron/cron/tx_pb.js";
+export {
+  MsgAddScheduleService as NeutronCronMsgAddScheduleService,
+  MsgRemoveScheduleService as NeutronCronMsgRemoveScheduleService,
+  MsgUpdateParamsService as NeutronCronMsgUpdateParamsService,
+} from "./neutron/cron/tx_cosmes.js";
+export {
+  ExecutionStage as NeutronCronExecutionStage,
+  Schedule as NeutronCronSchedule,
+  MsgExecuteContract as NeutronCronMsgExecuteContract,
+  ScheduleCount as NeutronCronScheduleCount,
+} from "./neutron/cron/schedule_pb.js";
+export {
+  QueryParamsRequest as NeutronCronQueryParamsRequest,
+  QueryParamsResponse as NeutronCronQueryParamsResponse,
+  QueryGetScheduleRequest as NeutronCronQueryGetScheduleRequest,
+  QueryGetScheduleResponse as NeutronCronQueryGetScheduleResponse,
+  QuerySchedulesRequest as NeutronCronQuerySchedulesRequest,
+  QuerySchedulesResponse as NeutronCronQuerySchedulesResponse,
+} from "./neutron/cron/query_pb.js";
+export {
+  QueryParamsService as NeutronCronQueryParamsService,
+  QueryScheduleService as NeutronCronQueryScheduleService,
+  QuerySchedulesService as NeutronCronQuerySchedulesService,
+} from "./neutron/cron/query_cosmes.js";
+export {
+  Params as NeutronCronParams,
+} from "./neutron/cron/params_pb.js";
+export {
+  GenesisState as NeutronCronGenesisState,
+} from "./neutron/cron/genesis_pb.js";
+export {
+  Schedule as NeutronCronV1Schedule,
+  MsgExecuteContract as NeutronCronV1MsgExecuteContract,
+  ScheduleCount as NeutronCronV1ScheduleCount,
+} from "./neutron/cron/v1/schedule_pb.js";
+export {
+  MsgUpdateParams as NeutronContractmanagerMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronContractmanagerMsgUpdateParamsResponse,
+  MsgResubmitFailure as NeutronContractmanagerMsgResubmitFailure,
+  MsgResubmitFailureResponse as NeutronContractmanagerMsgResubmitFailureResponse,
+} from "./neutron/contractmanager/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronContractmanagerMsgUpdateParamsService,
+  MsgResubmitFailureService as NeutronContractmanagerMsgResubmitFailureService,
+} from "./neutron/contractmanager/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronContractmanagerQueryParamsRequest,
+  QueryParamsResponse as NeutronContractmanagerQueryParamsResponse,
+  QueryFailuresRequest as NeutronContractmanagerQueryFailuresRequest,
+  QueryFailureRequest as NeutronContractmanagerQueryFailureRequest,
+  QueryFailureResponse as NeutronContractmanagerQueryFailureResponse,
+  QueryFailuresResponse as NeutronContractmanagerQueryFailuresResponse,
+} from "./neutron/contractmanager/query_pb.js";
+export {
+  QueryParamsService as NeutronContractmanagerQueryParamsService,
+  QueryAddressFailureService as NeutronContractmanagerQueryAddressFailureService,
+  QueryAddressFailuresService as NeutronContractmanagerQueryAddressFailuresService,
+  QueryFailuresService as NeutronContractmanagerQueryFailuresService,
+} from "./neutron/contractmanager/query_cosmes.js";
+export {
+  Params as NeutronContractmanagerParams,
+} from "./neutron/contractmanager/params_pb.js";
+export {
+  GenesisState as NeutronContractmanagerGenesisState,
+} from "./neutron/contractmanager/genesis_pb.js";
+export {
+  Failure as NeutronContractmanagerFailure,
+} from "./neutron/contractmanager/failure_pb.js";
+export {
+  Failure as NeutronContractmanagerV1Failure,
+} from "./neutron/contractmanager/v1/failure_pb.js";
 export {
   QueryCirculatingSupplyRequest as KavaValidatorvestingV1beta1QueryCirculatingSupplyRequest,
   QueryCirculatingSupplyResponse as KavaValidatorvestingV1beta1QueryCirculatingSupplyResponse,
@@ -5191,6 +5621,26 @@ export {
   IncentivizedAcknowledgement as IbcApplicationsFeeV1IncentivizedAcknowledgement,
 } from "./ibc/applications/fee/v1/ack_pb.js";
 export {
+  MsgUpdateParams as GaiaGlobalfeeV1beta1MsgUpdateParams,
+  MsgUpdateParamsResponse as GaiaGlobalfeeV1beta1MsgUpdateParamsResponse,
+} from "./gaia/globalfee/v1beta1/tx_pb.js";
+export {
+  MsgUpdateParamsService as GaiaGlobalfeeV1beta1MsgUpdateParamsService,
+} from "./gaia/globalfee/v1beta1/tx_cosmes.js";
+export {
+  QueryParamsRequest as GaiaGlobalfeeV1beta1QueryParamsRequest,
+  QueryParamsResponse as GaiaGlobalfeeV1beta1QueryParamsResponse,
+} from "./gaia/globalfee/v1beta1/query_pb.js";
+export {
+  QueryParamsService as GaiaGlobalfeeV1beta1QueryParamsService,
+} from "./gaia/globalfee/v1beta1/query_cosmes.js";
+export {
+  Params as GaiaGlobalfeeV1beta1Params,
+} from "./gaia/globalfee/v1beta1/params_pb.js";
+export {
+  GenesisState as GaiaGlobalfeeV1beta1GenesisState,
+} from "./gaia/globalfee/v1beta1/genesis_pb.js";
+export {
   ClawbackVestingAccount as EvmosVestingV2ClawbackVestingAccount,
   ClawbackProposal as EvmosVestingV2ClawbackProposal,
 } from "./evmos/vesting/v2/vesting_pb.js";
@@ -5657,6 +6107,7 @@ export {
   QueryLockedOrderRequest as ElysTierQueryLockedOrderRequest,
   QueryLockedOrderResponse as ElysTierQueryLockedOrderResponse,
   QueryGetAmmPriceRequest as ElysTierQueryGetAmmPriceRequest,
+  GetAmmPriceResponseResult as ElysTierGetAmmPriceResponseResult,
   QueryGetAmmPriceResponse as ElysTierQueryGetAmmPriceResponse,
   QueryGetConsolidatedPriceRequest as ElysTierQueryGetConsolidatedPriceRequest,
   QueryGetConsolidatedPriceResponse as ElysTierQueryGetConsolidatedPriceResponse,
@@ -5664,6 +6115,9 @@ export {
   QueryStakedResponse as ElysTierQueryStakedResponse,
   QueryGetUsersPoolDataRequest as ElysTierQueryGetUsersPoolDataRequest,
   QueryGetUsersPoolDataResponse as ElysTierQueryGetUsersPoolDataResponse,
+  Price as ElysTierPrice,
+  QueryGetAllPricesRequest as ElysTierQueryGetAllPricesRequest,
+  QueryGetAllPricesResponse as ElysTierQueryGetAllPricesResponse,
 } from "./elys/tier/query_pb.js";
 export {
   QueryParamsService as ElysTierQueryParamsService,
@@ -5680,6 +6134,7 @@ export {
   QueryGetConsolidatedPriceService as ElysTierQueryGetConsolidatedPriceService,
   QueryStakedService as ElysTierQueryStakedService,
   QueryGetUsersPoolDataService as ElysTierQueryGetUsersPoolDataService,
+  QueryGetAllPricesService as ElysTierQueryGetAllPricesService,
 } from "./elys/tier/query_cosmes.js";
 export {
   LegacyPortfolio as ElysTierLegacyPortfolio,

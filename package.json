@@ -1,6 +1,6 @@
 {
   "name": "@beal2912/cosmes",
-  "version": "0.0.92",
+  "version": "0.0.93",
   "private": false,
   "publishConfig": {
     "access": "public"

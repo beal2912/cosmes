@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 import { Metadata } from "../../../cosmos/bank/v1beta1/bank_pb.js";
+import { Params } from "../params_pb.js";
 
 /**
  * MsgCreateDenom defines the message structure for the CreateDenom gRPC service
@@ -105,9 +106,7 @@ export class MsgCreateDenomResponse extends Message<MsgCreateDenomResponse> {
 
 /**
  * MsgMint is the sdk.Msg type for allowing an admin account to mint
- * more of a token.
- * Only the admin of the token factory denom has permission to mint unless
- * the denom does not have any admin.
+ * more of a token.  For now, we only support minting to the sender account
  *
  * @generated from message osmosis.tokenfactory.v1beta1.MsgMint
  */
@@ -190,9 +189,7 @@ export class MsgMintResponse extends Message<MsgMintResponse> {
 
 /**
  * MsgBurn is the sdk.Msg type for allowing an admin account to burn
- * a token.
- * Only the admin of the token factory denom has permission to burn unless
- * the denom does not have any admin.
+ * a token.  For now, we only support burning from the sender account.
  *
  * @generated from message osmosis.tokenfactory.v1beta1.MsgBurn
  */
@@ -360,6 +357,92 @@ export class MsgChangeAdminResponse extends Message<MsgChangeAdminResponse> {
 }
 
 /**
+ * MsgSetBeforeSendHook is the sdk.Msg type for allowing an admin account to
+ * assign a CosmWasm contract to call with a BeforeSend hook
+ *
+ * @generated from message osmosis.tokenfactory.v1beta1.MsgSetBeforeSendHook
+ */
+export class MsgSetBeforeSendHook extends Message<MsgSetBeforeSendHook> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string contract_addr = 3;
+   */
+  contractAddr = "";
+
+  constructor(data?: PartialMessage<MsgSetBeforeSendHook>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.MsgSetBeforeSendHook";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "contract_addr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetBeforeSendHook {
+    return new MsgSetBeforeSendHook().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetBeforeSendHook {
+    return new MsgSetBeforeSendHook().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetBeforeSendHook {
+    return new MsgSetBeforeSendHook().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetBeforeSendHook | PlainMessage<MsgSetBeforeSendHook> | undefined, b: MsgSetBeforeSendHook | PlainMessage<MsgSetBeforeSendHook> | undefined): boolean {
+    return proto3.util.equals(MsgSetBeforeSendHook, a, b);
+  }
+}
+
+/**
+ * MsgSetBeforeSendHookResponse defines the response structure for an executed
+ * MsgSetBeforeSendHook message.
+ *
+ * @generated from message osmosis.tokenfactory.v1beta1.MsgSetBeforeSendHookResponse
+ */
+export class MsgSetBeforeSendHookResponse extends Message<MsgSetBeforeSendHookResponse> {
+  constructor(data?: PartialMessage<MsgSetBeforeSendHookResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.MsgSetBeforeSendHookResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetBeforeSendHookResponse {
+    return new MsgSetBeforeSendHookResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetBeforeSendHookResponse {
+    return new MsgSetBeforeSendHookResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetBeforeSendHookResponse {
+    return new MsgSetBeforeSendHookResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetBeforeSendHookResponse | PlainMessage<MsgSetBeforeSendHookResponse> | undefined, b: MsgSetBeforeSendHookResponse | PlainMessage<MsgSetBeforeSendHookResponse> | undefined): boolean {
+    return proto3.util.equals(MsgSetBeforeSendHookResponse, a, b);
+  }
+}
+
+/**
  * MsgSetDenomMetadata is the sdk.Msg type for allowing an admin account to set
  * the denom's bank metadata
  *
@@ -522,6 +605,95 @@ export class MsgForceTransferResponse extends Message<MsgForceTransferResponse> 
 
   static equals(a: MsgForceTransferResponse | PlainMessage<MsgForceTransferResponse> | undefined, b: MsgForceTransferResponse | PlainMessage<MsgForceTransferResponse> | undefined): boolean {
     return proto3.util.equals(MsgForceTransferResponse, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParams is the MsgUpdateParams request type.
+ *
+ * Since: 0.47
+ *
+ * @generated from message osmosis.tokenfactory.v1beta1.MsgUpdateParams
+ */
+export class MsgUpdateParams extends Message<MsgUpdateParams> {
+  /**
+   * Authority is the address of the governance account.
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * params defines the x/tokenfactory parameters to update.
+   *
+   * NOTE: All parameters must be supplied.
+   *
+   * @generated from field: osmosis.tokenfactory.Params params = 2;
+   */
+  params?: Params;
+
+  constructor(data?: PartialMessage<MsgUpdateParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.MsgUpdateParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "params", kind: "message", T: Params },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParams {
+    return new MsgUpdateParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined, b: MsgUpdateParams | PlainMessage<MsgUpdateParams> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParams, a, b);
+  }
+}
+
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ *
+ * Since: 0.47
+ *
+ * @generated from message osmosis.tokenfactory.v1beta1.MsgUpdateParamsResponse
+ */
+export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
+  constructor(data?: PartialMessage<MsgUpdateParamsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.MsgUpdateParamsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateParamsResponse {
+    return new MsgUpdateParamsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateParamsResponse, a, b);
   }
 }
 
