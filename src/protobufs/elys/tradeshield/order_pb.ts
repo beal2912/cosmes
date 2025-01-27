@@ -67,9 +67,9 @@ proto3.util.setEnumType(PerpetualPosition, "elys.tradeshield.PerpetualPosition",
 ]);
 
 /**
- * @generated from message elys.tradeshield.OrderPrice
+ * @generated from message elys.tradeshield.LegacyOrderPriceV1
  */
-export class OrderPrice extends Message<OrderPrice> {
+export class LegacyOrderPriceV1 extends Message<LegacyOrderPriceV1> {
   /**
    * @generated from field: string base_denom = 1;
    */
@@ -85,40 +85,40 @@ export class OrderPrice extends Message<OrderPrice> {
    */
   rate = "";
 
-  constructor(data?: PartialMessage<OrderPrice>) {
+  constructor(data?: PartialMessage<LegacyOrderPriceV1>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.tradeshield.OrderPrice";
+  static readonly typeName = "elys.tradeshield.LegacyOrderPriceV1";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "base_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "quote_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OrderPrice {
-    return new OrderPrice().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyOrderPriceV1 {
+    return new LegacyOrderPriceV1().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OrderPrice {
-    return new OrderPrice().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyOrderPriceV1 {
+    return new LegacyOrderPriceV1().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OrderPrice {
-    return new OrderPrice().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyOrderPriceV1 {
+    return new LegacyOrderPriceV1().fromJsonString(jsonString, options);
   }
 
-  static equals(a: OrderPrice | PlainMessage<OrderPrice> | undefined, b: OrderPrice | PlainMessage<OrderPrice> | undefined): boolean {
-    return proto3.util.equals(OrderPrice, a, b);
+  static equals(a: LegacyOrderPriceV1 | PlainMessage<LegacyOrderPriceV1> | undefined, b: LegacyOrderPriceV1 | PlainMessage<LegacyOrderPriceV1> | undefined): boolean {
+    return proto3.util.equals(LegacyOrderPriceV1, a, b);
   }
 }
 
 /**
- * @generated from message elys.tradeshield.TriggerPrice
+ * @generated from message elys.tradeshield.LegacyTriggerPriceV1
  */
-export class TriggerPrice extends Message<TriggerPrice> {
+export class LegacyTriggerPriceV1 extends Message<LegacyTriggerPriceV1> {
   /**
    * @generated from field: string trading_asset_denom = 1;
    */
@@ -129,32 +129,32 @@ export class TriggerPrice extends Message<TriggerPrice> {
    */
   rate = "";
 
-  constructor(data?: PartialMessage<TriggerPrice>) {
+  constructor(data?: PartialMessage<LegacyTriggerPriceV1>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.tradeshield.TriggerPrice";
+  static readonly typeName = "elys.tradeshield.LegacyTriggerPriceV1";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "trading_asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TriggerPrice {
-    return new TriggerPrice().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyTriggerPriceV1 {
+    return new LegacyTriggerPriceV1().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TriggerPrice {
-    return new TriggerPrice().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyTriggerPriceV1 {
+    return new LegacyTriggerPriceV1().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TriggerPrice {
-    return new TriggerPrice().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyTriggerPriceV1 {
+    return new LegacyTriggerPriceV1().fromJsonString(jsonString, options);
   }
 
-  static equals(a: TriggerPrice | PlainMessage<TriggerPrice> | undefined, b: TriggerPrice | PlainMessage<TriggerPrice> | undefined): boolean {
-    return proto3.util.equals(TriggerPrice, a, b);
+  static equals(a: LegacyTriggerPriceV1 | PlainMessage<LegacyTriggerPriceV1> | undefined, b: LegacyTriggerPriceV1 | PlainMessage<LegacyTriggerPriceV1> | undefined): boolean {
+    return proto3.util.equals(LegacyTriggerPriceV1, a, b);
   }
 }
 

@@ -42,6 +42,18 @@ export class LegacyParams extends Message<LegacyParams> {
    */
   epochLength = protoInt64.zero;
 
+  /**
+   * @generated from field: bool fallback_enabled = 7;
+   */
+  fallbackEnabled = false;
+
+  /**
+   * Number of positions to process per block
+   *
+   * @generated from field: int64 number_per_block = 8;
+   */
+  numberPerBlock = protoInt64.zero;
+
   constructor(data?: PartialMessage<LegacyParams>) {
     super();
     proto3.util.initPartial(data, this);
@@ -56,6 +68,8 @@ export class LegacyParams extends Message<LegacyParams> {
     { no: 4, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 6, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 7, name: "fallback_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 8, name: "number_per_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
@@ -123,6 +137,11 @@ export class Params extends Message<Params> {
    */
   numberPerBlock = protoInt64.zero;
 
+  /**
+   * @generated from field: repeated uint64 enabled_pools = 9;
+   */
+  enabledPools: bigint[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -139,6 +158,7 @@ export class Params extends Message<Params> {
     { no: 6, name: "epoch_length", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 7, name: "fallback_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 8, name: "number_per_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 9, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

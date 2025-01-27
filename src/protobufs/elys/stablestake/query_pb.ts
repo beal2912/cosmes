@@ -4,8 +4,9 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
+import { AmmPool } from "./pool_pb.js";
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -78,6 +79,148 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 
   static equals(a: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined, b: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined): boolean {
     return proto3.util.equals(QueryParamsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAmmPoolRequest
+ */
+export class QueryAmmPoolRequest extends Message<QueryAmmPoolRequest> {
+  /**
+   * @generated from field: uint64 id = 1;
+   */
+  id = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryAmmPoolRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAmmPoolRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAmmPoolRequest {
+    return new QueryAmmPoolRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAmmPoolRequest {
+    return new QueryAmmPoolRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAmmPoolRequest {
+    return new QueryAmmPoolRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAmmPoolRequest | PlainMessage<QueryAmmPoolRequest> | undefined, b: QueryAmmPoolRequest | PlainMessage<QueryAmmPoolRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAmmPoolRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAmmPoolResponse
+ */
+export class QueryAmmPoolResponse extends Message<QueryAmmPoolResponse> {
+  /**
+   * @generated from field: elys.stablestake.AmmPool amm_pool = 1;
+   */
+  ammPool?: AmmPool;
+
+  constructor(data?: PartialMessage<QueryAmmPoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAmmPoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool", kind: "message", T: AmmPool },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAmmPoolResponse {
+    return new QueryAmmPoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAmmPoolResponse {
+    return new QueryAmmPoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAmmPoolResponse {
+    return new QueryAmmPoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAmmPoolResponse | PlainMessage<QueryAmmPoolResponse> | undefined, b: QueryAmmPoolResponse | PlainMessage<QueryAmmPoolResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAmmPoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAllAmmPoolsRequest
+ */
+export class QueryAllAmmPoolsRequest extends Message<QueryAllAmmPoolsRequest> {
+  constructor(data?: PartialMessage<QueryAllAmmPoolsRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAllAmmPoolsRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllAmmPoolsRequest {
+    return new QueryAllAmmPoolsRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllAmmPoolsRequest {
+    return new QueryAllAmmPoolsRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllAmmPoolsRequest {
+    return new QueryAllAmmPoolsRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllAmmPoolsRequest | PlainMessage<QueryAllAmmPoolsRequest> | undefined, b: QueryAllAmmPoolsRequest | PlainMessage<QueryAllAmmPoolsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllAmmPoolsRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAllAmmPoolsResponse
+ */
+export class QueryAllAmmPoolsResponse extends Message<QueryAllAmmPoolsResponse> {
+  /**
+   * @generated from field: repeated elys.stablestake.AmmPool amm_pools = 1;
+   */
+  ammPools: AmmPool[] = [];
+
+  constructor(data?: PartialMessage<QueryAllAmmPoolsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAllAmmPoolsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pools", kind: "message", T: AmmPool, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllAmmPoolsResponse {
+    return new QueryAllAmmPoolsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllAmmPoolsResponse {
+    return new QueryAllAmmPoolsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllAmmPoolsResponse {
+    return new QueryAllAmmPoolsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllAmmPoolsResponse | PlainMessage<QueryAllAmmPoolsResponse> | undefined, b: QueryAllAmmPoolsResponse | PlainMessage<QueryAllAmmPoolsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllAmmPoolsResponse, a, b);
   }
 }
 

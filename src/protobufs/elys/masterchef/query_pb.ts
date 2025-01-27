@@ -5,13 +5,191 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Params } from "./params_pb.js";
 import { ExternalIncentive } from "./external_incentive_pb.js";
 import { PoolInfo, PoolRewardInfo, UserRewardInfo } from "./pool_pb.js";
-import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { FeeInfo } from "./types_pb.js";
 import { EarnType } from "../commitment/params_pb.js";
 import { PageRequest } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
+
+/**
+ * @generated from message elys.masterchef.QueryAllLiquidityPoolTVLRequest
+ */
+export class QueryAllLiquidityPoolTVLRequest extends Message<QueryAllLiquidityPoolTVLRequest> {
+  constructor(data?: PartialMessage<QueryAllLiquidityPoolTVLRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryAllLiquidityPoolTVLRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllLiquidityPoolTVLRequest {
+    return new QueryAllLiquidityPoolTVLRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllLiquidityPoolTVLRequest {
+    return new QueryAllLiquidityPoolTVLRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllLiquidityPoolTVLRequest {
+    return new QueryAllLiquidityPoolTVLRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllLiquidityPoolTVLRequest | PlainMessage<QueryAllLiquidityPoolTVLRequest> | undefined, b: QueryAllLiquidityPoolTVLRequest | PlainMessage<QueryAllLiquidityPoolTVLRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllLiquidityPoolTVLRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryAllLiquidityPoolTVLResponse
+ */
+export class QueryAllLiquidityPoolTVLResponse extends Message<QueryAllLiquidityPoolTVLResponse> {
+  /**
+   * @generated from field: string total = 1;
+   */
+  total = "";
+
+  /**
+   * @generated from field: string pools = 2;
+   */
+  pools = "";
+
+  /**
+   * @generated from field: string usdc_staking = 3;
+   */
+  usdcStaking = "";
+
+  constructor(data?: PartialMessage<QueryAllLiquidityPoolTVLResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryAllLiquidityPoolTVLResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pools", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "usdc_staking", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllLiquidityPoolTVLResponse {
+    return new QueryAllLiquidityPoolTVLResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllLiquidityPoolTVLResponse {
+    return new QueryAllLiquidityPoolTVLResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllLiquidityPoolTVLResponse {
+    return new QueryAllLiquidityPoolTVLResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllLiquidityPoolTVLResponse | PlainMessage<QueryAllLiquidityPoolTVLResponse> | undefined, b: QueryAllLiquidityPoolTVLResponse | PlainMessage<QueryAllLiquidityPoolTVLResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllLiquidityPoolTVLResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryChainTVLRequest
+ */
+export class QueryChainTVLRequest extends Message<QueryChainTVLRequest> {
+  constructor(data?: PartialMessage<QueryChainTVLRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryChainTVLRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryChainTVLRequest {
+    return new QueryChainTVLRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryChainTVLRequest {
+    return new QueryChainTVLRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryChainTVLRequest {
+    return new QueryChainTVLRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryChainTVLRequest | PlainMessage<QueryChainTVLRequest> | undefined, b: QueryChainTVLRequest | PlainMessage<QueryChainTVLRequest> | undefined): boolean {
+    return proto3.util.equals(QueryChainTVLRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryChainTVLResponse
+ */
+export class QueryChainTVLResponse extends Message<QueryChainTVLResponse> {
+  /**
+   * @generated from field: string total = 1;
+   */
+  total = "";
+
+  /**
+   * @generated from field: string pools = 2;
+   */
+  pools = "";
+
+  /**
+   * @generated from field: string usdc_staking = 3;
+   */
+  usdcStaking = "";
+
+  /**
+   * @generated from field: string staked_elys = 4;
+   */
+  stakedElys = "";
+
+  /**
+   * @generated from field: string staked_eden = 5;
+   */
+  stakedEden = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin net_stakings = 6;
+   */
+  netStakings: Coin[] = [];
+
+  constructor(data?: PartialMessage<QueryChainTVLResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryChainTVLResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pools", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "usdc_staking", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "staked_elys", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "staked_eden", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "net_stakings", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryChainTVLResponse {
+    return new QueryChainTVLResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryChainTVLResponse {
+    return new QueryChainTVLResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryChainTVLResponse {
+    return new QueryChainTVLResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryChainTVLResponse | PlainMessage<QueryChainTVLResponse> | undefined, b: QueryChainTVLResponse | PlainMessage<QueryChainTVLResponse> | undefined): boolean {
+    return proto3.util.equals(QueryChainTVLResponse, a, b);
+  }
+}
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.

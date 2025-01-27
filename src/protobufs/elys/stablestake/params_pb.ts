@@ -158,6 +158,11 @@ export class Params extends Message<Params> {
    */
   maxLeverageRatio = "";
 
+  /**
+   * @generated from field: string max_withdraw_ratio = 12;
+   */
+  maxWithdrawRatio = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -177,6 +182,7 @@ export class Params extends Message<Params> {
     { no: 9, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "max_withdraw_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

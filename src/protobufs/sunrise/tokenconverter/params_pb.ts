@@ -22,11 +22,6 @@ export class Params extends Message<Params> {
    */
   feeDenom = "";
 
-  /**
-   * @generated from field: string max_supply_fee = 3;
-   */
-  maxSupplyFee = "";
-
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -37,7 +32,6 @@ export class Params extends Message<Params> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "bond_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "max_supply_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

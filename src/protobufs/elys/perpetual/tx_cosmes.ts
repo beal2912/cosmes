@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateEnabledPools, MsgUpdateEnabledPoolsResponse, MsgUpdateMaxLeverageForPool, MsgUpdateMaxLeverageForPoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Msg";
 
@@ -85,5 +85,25 @@ export const MsgUpdateTakeProfitPriceService = {
   method: "UpdateTakeProfitPrice",
   Request: MsgUpdateTakeProfitPrice,
   Response: MsgUpdateTakeProfitPriceResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.UpdateMaxLeverageForPool
+ */
+export const MsgUpdateMaxLeverageForPoolService = {
+  typeName: TYPE_NAME,
+  method: "UpdateMaxLeverageForPool",
+  Request: MsgUpdateMaxLeverageForPool,
+  Response: MsgUpdateMaxLeverageForPoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.UpdateEnabledPools
+ */
+export const MsgUpdateEnabledPoolsService = {
+  typeName: TYPE_NAME,
+  method: "UpdateEnabledPools",
+  Request: MsgUpdateEnabledPools,
+  Response: MsgUpdateEnabledPoolsResponse,
 } as const;
 

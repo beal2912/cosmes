@@ -102,14 +102,9 @@ export class MsgConvert extends Message<MsgConvert> {
   sender = "";
 
   /**
-   * @generated from field: string min_amount = 2;
+   * @generated from field: string amount = 2;
    */
-  minAmount = "";
-
-  /**
-   * @generated from field: string max_amount = 3;
-   */
-  maxAmount = "";
+  amount = "";
 
   constructor(data?: PartialMessage<MsgConvert>) {
     super();
@@ -120,8 +115,7 @@ export class MsgConvert extends Message<MsgConvert> {
   static readonly typeName = "sunrise.tokenconverter.MsgConvert";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "min_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "max_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgConvert {
@@ -147,11 +141,6 @@ export class MsgConvert extends Message<MsgConvert> {
  * @generated from message sunrise.tokenconverter.MsgConvertResponse
  */
 export class MsgConvertResponse extends Message<MsgConvertResponse> {
-  /**
-   * @generated from field: string amount = 1;
-   */
-  amount = "";
-
   constructor(data?: PartialMessage<MsgConvertResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -160,7 +149,6 @@ export class MsgConvertResponse extends Message<MsgConvertResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.tokenconverter.MsgConvertResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgConvertResponse {

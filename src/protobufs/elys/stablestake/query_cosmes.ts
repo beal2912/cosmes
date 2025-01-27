@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.stablestake.Query";
 
@@ -29,5 +29,25 @@ export const QueryBorrowRatioService = {
   method: "BorrowRatio",
   Request: QueryBorrowRatioRequest,
   Response: QueryBorrowRatioResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Query.AmmPool
+ */
+export const QueryAmmPoolService = {
+  typeName: TYPE_NAME,
+  method: "AmmPool",
+  Request: QueryAmmPoolRequest,
+  Response: QueryAmmPoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Query.AllAmmPools
+ */
+export const QueryAllAmmPoolsService = {
+  typeName: TYPE_NAME,
+  method: "AllAmmPools",
+  Request: QueryAllAmmPoolsRequest,
+  Response: QueryAllAmmPoolsResponse,
 } as const;
 

@@ -116,6 +116,11 @@ const REPOS = [
     tag: "main",
     paths: ["proto"],
   },
+  {
+    repo: "milkyway-labs/milkyway",
+    tag: "main",
+    paths: ["proto"],
+  },
 ];
 /**
  * TODO: Add more repos here when necessary.

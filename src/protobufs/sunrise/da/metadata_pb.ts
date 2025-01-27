@@ -7,6 +7,8 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
+ * Metadata
+ *
  * @generated from message sunrise.da.Metadata
  */
 export class Metadata extends Message<Metadata> {
@@ -64,6 +66,45 @@ export class Metadata extends Message<Metadata> {
 
   static equals(a: Metadata | PlainMessage<Metadata> | undefined, b: Metadata | PlainMessage<Metadata> | undefined): boolean {
     return proto3.util.equals(Metadata, a, b);
+  }
+}
+
+/**
+ * MetadataUriWrapper
+ *
+ * @generated from message sunrise.da.MetadataUriWrapper
+ */
+export class MetadataUriWrapper extends Message<MetadataUriWrapper> {
+  /**
+   * @generated from field: string metadata_uri = 1;
+   */
+  metadataUri = "";
+
+  constructor(data?: PartialMessage<MetadataUriWrapper>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.da.MetadataUriWrapper";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "metadata_uri", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MetadataUriWrapper {
+    return new MetadataUriWrapper().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MetadataUriWrapper {
+    return new MetadataUriWrapper().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MetadataUriWrapper {
+    return new MetadataUriWrapper().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MetadataUriWrapper | PlainMessage<MetadataUriWrapper> | undefined, b: MetadataUriWrapper | PlainMessage<MetadataUriWrapper> | undefined): boolean {
+    return proto3.util.equals(MetadataUriWrapper, a, b);
   }
 }
 

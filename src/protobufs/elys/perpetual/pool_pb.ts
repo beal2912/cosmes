@@ -75,6 +75,87 @@ export class PoolAsset extends Message<PoolAsset> {
 }
 
 /**
+ * @generated from message elys.perpetual.LegacyPool
+ */
+export class LegacyPool extends Message<LegacyPool> {
+  /**
+   * @generated from field: uint64 amm_pool_id = 1;
+   */
+  ammPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string health = 2;
+   */
+  health = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate = 3;
+   */
+  borrowInterestRate = "";
+
+  /**
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 4;
+   */
+  poolAssetsLong: PoolAsset[] = [];
+
+  /**
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 5;
+   */
+  poolAssetsShort: PoolAsset[] = [];
+
+  /**
+   * @generated from field: int64 last_height_borrow_interest_rate_computed = 6;
+   */
+  lastHeightBorrowInterestRateComputed = protoInt64.zero;
+
+  /**
+   * funding rate, if positive longs pay shorts, if negative shorts pay longs
+   *
+   * @generated from field: string funding_rate = 7;
+   */
+  fundingRate = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin fees_collected = 8;
+   */
+  feesCollected: Coin[] = [];
+
+  constructor(data?: PartialMessage<LegacyPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.LegacyPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
+    { no: 5, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
+    { no: 6, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 7, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "fees_collected", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPool {
+    return new LegacyPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPool {
+    return new LegacyPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPool | PlainMessage<LegacyPool> | undefined, b: LegacyPool | PlainMessage<LegacyPool> | undefined): boolean {
+    return proto3.util.equals(LegacyPool, a, b);
+  }
+}
+
+/**
  * @generated from message elys.perpetual.Pool
  */
 export class Pool extends Message<Pool> {
@@ -120,6 +201,11 @@ export class Pool extends Message<Pool> {
    */
   feesCollected: Coin[] = [];
 
+  /**
+   * @generated from field: string leverage_max = 9;
+   */
+  leverageMax = "";
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -136,6 +222,7 @@ export class Pool extends Message<Pool> {
     { no: 6, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 7, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 8, name: "fees_collected", kind: "message", T: Coin, repeated: true },
+    { no: 9, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

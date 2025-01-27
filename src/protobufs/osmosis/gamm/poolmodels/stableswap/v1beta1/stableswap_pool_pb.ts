@@ -109,7 +109,7 @@ export class Pool extends Message<Pool> {
   poolLiquidity: Coin[] = [];
 
   /**
-   * for calculation amognst assets with different precisions
+   * for calculation amongst assets with different precisions
    *
    * @generated from field: repeated uint64 scaling_factors = 7;
    */

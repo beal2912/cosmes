@@ -53,52 +53,42 @@ export class LegacyParams extends Message<LegacyParams> {
   poolOpenThreshold = "";
 
   /**
-   * @generated from field: string force_close_fund_percentage = 9;
+   * @generated from field: string borrow_interest_payment_fund_percentage = 9;
    */
-  forceCloseFundPercentage = "";
+  borrowInterestPaymentFundPercentage = "";
 
   /**
-   * @generated from field: string force_close_fund_address = 10;
+   * @generated from field: string borrow_interest_payment_fund_address = 10;
    */
-  forceCloseFundAddress = "";
+  borrowInterestPaymentFundAddress = "";
 
   /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_percentage = 11;
-   */
-  incrementalBorrowInterestPaymentFundPercentage = "";
-
-  /**
-   * @generated from field: string incremental_borrow_interest_payment_fund_address = 12;
-   */
-  incrementalBorrowInterestPaymentFundAddress = "";
-
-  /**
-   * @generated from field: string safety_factor = 13;
+   * @generated from field: string safety_factor = 11;
    */
   safetyFactor = "";
 
   /**
-   * @generated from field: bool incremental_borrow_interest_payment_enabled = 14;
+   * @generated from field: bool borrow_interest_payment_enabled = 12;
    */
-  incrementalBorrowInterestPaymentEnabled = false;
+  borrowInterestPaymentEnabled = false;
 
   /**
-   * @generated from field: bool whitelisting_enabled = 15;
+   * @generated from field: bool whitelisting_enabled = 13;
    */
   whitelistingEnabled = false;
 
   /**
-   * @generated from field: string perpetual_swap_fee = 16;
+   * @generated from field: string perpetual_swap_fee = 14;
    */
   perpetualSwapFee = "";
 
   /**
-   * @generated from field: int64 max_limit_order = 17;
+   * @generated from field: int64 max_limit_order = 15;
    */
   maxLimitOrder = protoInt64.zero;
 
   /**
-   * @generated from field: string fixed_funding_rate = 18;
+   * @generated from field: string fixed_funding_rate = 16;
    */
   fixedFundingRate = "";
 
@@ -106,7 +96,7 @@ export class LegacyParams extends Message<LegacyParams> {
    * minimum value for take_profit_price/current price for long, should be
    * greater than 1
    *
-   * @generated from field: string minimum_long_take_profit_price_ratio = 19;
+   * @generated from field: string minimum_long_take_profit_price_ratio = 17;
    */
   minimumLongTakeProfitPriceRatio = "";
 
@@ -114,7 +104,7 @@ export class LegacyParams extends Message<LegacyParams> {
    * max value for take_profit_price/current price for long, should be greater
    * than 1
    *
-   * @generated from field: string maximum_long_take_profit_price_ratio = 20;
+   * @generated from field: string maximum_long_take_profit_price_ratio = 18;
    */
   maximumLongTakeProfitPriceRatio = "";
 
@@ -122,7 +112,7 @@ export class LegacyParams extends Message<LegacyParams> {
    * max value for take_profit_price/current price for short, should be less
    * than 1
    *
-   * @generated from field: string maximum_short_take_profit_price_ratio = 21;
+   * @generated from field: string maximum_short_take_profit_price_ratio = 19;
    */
   maximumShortTakeProfitPriceRatio = "";
 
@@ -130,7 +120,7 @@ export class LegacyParams extends Message<LegacyParams> {
    * No need for minimumShortTakeProfitPriceRatio as it will be 0, checked in
    * validate message
    *
-   * @generated from field: bool enable_take_profit_custody_liabilities = 22;
+   * @generated from field: bool enable_take_profit_custody_liabilities = 20;
    */
   enableTakeProfitCustodyLiabilities = false;
 
@@ -145,7 +135,7 @@ export class LegacyParams extends Message<LegacyParams> {
    * trader has no bonus only fee, then overall we are only applying the fee
    * half time
    *
-   * @generated from field: string weight_breaking_fee_factor = 23;
+   * @generated from field: string weight_breaking_fee_factor = 21;
    */
   weightBreakingFeeFactor = "";
 
@@ -165,21 +155,19 @@ export class LegacyParams extends Message<LegacyParams> {
     { no: 6, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 8, name: "pool_open_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "force_close_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "force_close_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "incremental_borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "incremental_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "incremental_borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 15, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 16, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 17, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 18, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 23, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 13, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 14, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 16, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 21, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
@@ -330,6 +318,11 @@ export class Params extends Message<Params> {
    */
   weightBreakingFeeFactor = "";
 
+  /**
+   * @generated from field: repeated uint64 enabled_pools = 22;
+   */
+  enabledPools: bigint[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -359,6 +352,7 @@ export class Params extends Message<Params> {
     { no: 19, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 20, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 21, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

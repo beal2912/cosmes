@@ -265,6 +265,11 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
    */
   tokenOut: Coin[] = [];
 
+  /**
+   * @generated from field: string weight_balance_ratio = 2;
+   */
+  weightBalanceRatio = "";
+
   constructor(data?: PartialMessage<MsgExitPoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -274,6 +279,7 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
   static readonly typeName = "elys.amm.MsgExitPoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "token_out", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgExitPoolResponse {

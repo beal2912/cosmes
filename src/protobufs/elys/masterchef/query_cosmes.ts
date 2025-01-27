@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAprRequest, QueryAprResponse, QueryAprsRequest, QueryAprsResponse, QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryPoolRewardsRequest, QueryPoolRewardsResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
+import { QueryAllLiquidityPoolTVLRequest, QueryAllLiquidityPoolTVLResponse, QueryAprRequest, QueryAprResponse, QueryAprsRequest, QueryAprsResponse, QueryChainTVLRequest, QueryChainTVLResponse, QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryPoolRewardsRequest, QueryPoolRewardsResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Query";
 
@@ -147,5 +147,25 @@ export const QueryPoolRewardsService = {
   method: "PoolRewards",
   Request: QueryPoolRewardsRequest,
   Response: QueryPoolRewardsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Query.AllLiquidityPoolTVL
+ */
+export const QueryAllLiquidityPoolTVLService = {
+  typeName: TYPE_NAME,
+  method: "AllLiquidityPoolTVL",
+  Request: QueryAllLiquidityPoolTVLRequest,
+  Response: QueryAllLiquidityPoolTVLResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Query.ChainTVL
+ */
+export const QueryChainTVLService = {
+  typeName: TYPE_NAME,
+  method: "ChainTVL",
+  Request: QueryChainTVLRequest,
+  Response: QueryChainTVLResponse,
 } as const;
 

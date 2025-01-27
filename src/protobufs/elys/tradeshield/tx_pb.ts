@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { OrderPrice, PerpetualPosition, SpotOrderType, TriggerPrice } from "./order_pb.js";
+import { LegacyOrderPriceV1, LegacyTriggerPriceV1, PerpetualPosition, SpotOrderType } from "./order_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Params } from "./params_pb.js";
 
@@ -19,9 +19,14 @@ export class MsgCreateSpotOrder extends Message<MsgCreateSpotOrder> {
   orderType = SpotOrderType.STOPLOSS;
 
   /**
-   * @generated from field: elys.tradeshield.OrderPrice order_price = 2;
+   * @generated from field: elys.tradeshield.LegacyOrderPriceV1 legacy_order_price_v1 = 2;
    */
-  orderPrice?: OrderPrice;
+  legacyOrderPriceV1?: LegacyOrderPriceV1;
+
+  /**
+   * @generated from field: string order_price = 6;
+   */
+  orderPrice = "";
 
   /**
    * @generated from field: cosmos.base.v1beta1.Coin order_amount = 3;
@@ -47,7 +52,8 @@ export class MsgCreateSpotOrder extends Message<MsgCreateSpotOrder> {
   static readonly typeName = "elys.tradeshield.MsgCreateSpotOrder";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "order_type", kind: "enum", T: proto3.getEnumType(SpotOrderType) },
-    { no: 2, name: "order_price", kind: "message", T: OrderPrice },
+    { no: 2, name: "legacy_order_price_v1", kind: "message", T: LegacyOrderPriceV1 },
+    { no: 6, name: "order_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "order_amount", kind: "message", T: Coin },
     { no: 4, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "order_target_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -122,9 +128,14 @@ export class MsgUpdateSpotOrder extends Message<MsgUpdateSpotOrder> {
   orderId = protoInt64.zero;
 
   /**
-   * @generated from field: elys.tradeshield.OrderPrice order_price = 3;
+   * @generated from field: elys.tradeshield.LegacyOrderPriceV1 legacy_order_price_v1 = 3;
    */
-  orderPrice?: OrderPrice;
+  legacyOrderPriceV1?: LegacyOrderPriceV1;
+
+  /**
+   * @generated from field: string order_price = 4;
+   */
+  orderPrice = "";
 
   constructor(data?: PartialMessage<MsgUpdateSpotOrder>) {
     super();
@@ -136,7 +147,8 @@ export class MsgUpdateSpotOrder extends Message<MsgUpdateSpotOrder> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "order_price", kind: "message", T: OrderPrice },
+    { no: 3, name: "legacy_order_price_v1", kind: "message", T: LegacyOrderPriceV1 },
+    { no: 4, name: "order_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateSpotOrder {
@@ -351,9 +363,14 @@ export class MsgCreatePerpetualOpenOrder extends Message<MsgCreatePerpetualOpenO
   ownerAddress = "";
 
   /**
-   * @generated from field: elys.tradeshield.TriggerPrice trigger_price = 2;
+   * @generated from field: elys.tradeshield.LegacyTriggerPriceV1 legacy_trigger_price_v1 = 2;
    */
-  triggerPrice?: TriggerPrice;
+  legacyTriggerPriceV1?: LegacyTriggerPriceV1;
+
+  /**
+   * @generated from field: string trigger_price = 10;
+   */
+  triggerPrice = "";
 
   /**
    * @generated from field: cosmos.base.v1beta1.Coin collateral = 3;
@@ -399,7 +416,8 @@ export class MsgCreatePerpetualOpenOrder extends Message<MsgCreatePerpetualOpenO
   static readonly typeName = "elys.tradeshield.MsgCreatePerpetualOpenOrder";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "trigger_price", kind: "message", T: TriggerPrice },
+    { no: 2, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
+    { no: 10, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "collateral", kind: "message", T: Coin },
     { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "position", kind: "enum", T: proto3.getEnumType(PerpetualPosition) },
@@ -473,9 +491,14 @@ export class MsgCreatePerpetualCloseOrder extends Message<MsgCreatePerpetualClos
   ownerAddress = "";
 
   /**
-   * @generated from field: elys.tradeshield.TriggerPrice trigger_price = 2;
+   * @generated from field: elys.tradeshield.LegacyTriggerPriceV1 legacy_trigger_price_v1 = 2;
    */
-  triggerPrice?: TriggerPrice;
+  legacyTriggerPriceV1?: LegacyTriggerPriceV1;
+
+  /**
+   * @generated from field: string trigger_price = 4;
+   */
+  triggerPrice = "";
 
   /**
    * @generated from field: uint64 position_id = 3;
@@ -491,7 +514,8 @@ export class MsgCreatePerpetualCloseOrder extends Message<MsgCreatePerpetualClos
   static readonly typeName = "elys.tradeshield.MsgCreatePerpetualCloseOrder";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "trigger_price", kind: "message", T: TriggerPrice },
+    { no: 2, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
+    { no: 4, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
@@ -564,9 +588,14 @@ export class MsgUpdatePerpetualOrder extends Message<MsgUpdatePerpetualOrder> {
   orderId = protoInt64.zero;
 
   /**
-   * @generated from field: elys.tradeshield.TriggerPrice trigger_price = 3;
+   * @generated from field: elys.tradeshield.LegacyTriggerPriceV1 legacy_trigger_price_v1 = 3;
    */
-  triggerPrice?: TriggerPrice;
+  legacyTriggerPriceV1?: LegacyTriggerPriceV1;
+
+  /**
+   * @generated from field: string trigger_price = 4;
+   */
+  triggerPrice = "";
 
   constructor(data?: PartialMessage<MsgUpdatePerpetualOrder>) {
     super();
@@ -578,7 +607,8 @@ export class MsgUpdatePerpetualOrder extends Message<MsgUpdatePerpetualOrder> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "trigger_price", kind: "message", T: TriggerPrice },
+    { no: 3, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
+    { no: 4, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePerpetualOrder {

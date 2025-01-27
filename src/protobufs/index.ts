@@ -456,6 +456,7 @@ export {
 } from "./sunrise/da/params_pb.js";
 export {
   Metadata as SunriseDaMetadata,
+  MetadataUriWrapper as SunriseDaMetadataUriWrapper,
 } from "./sunrise/da/metadata_pb.js";
 export {
   GenesisState as SunriseDaGenesisState,
@@ -2290,6 +2291,14 @@ export {
   GenesisState as OsmosisLockupGenesisState,
 } from "./osmosis/lockup/genesis_pb.js";
 export {
+  PoolData as OsmosisIngestV1beta1PoolData,
+  ProcessBlockRequest as OsmosisIngestV1beta1ProcessBlockRequest,
+  ProcessBlockReply as OsmosisIngestV1beta1ProcessBlockReply,
+} from "./osmosis/ingest/v1beta1/ingest_pb.js";
+export {
+  SQSIngesterProcessBlockService as OsmosisIngestV1beta1SQSIngesterProcessBlockService,
+} from "./osmosis/ingest/v1beta1/ingest_cosmes.js";
+export {
   MsgCreateGauge as OsmosisIncentivesMsgCreateGauge,
   MsgCreateGaugeResponse as OsmosisIncentivesMsgCreateGaugeResponse,
   MsgAddToGauge as OsmosisIncentivesMsgAddToGauge,
@@ -3188,6 +3197,471 @@ export {
 export {
   Failure as NeutronContractmanagerV1Failure,
 } from "./neutron/contractmanager/v1/failure_pb.js";
+export {
+  QueryParamsRequest as MilkywayServicesV1QueryParamsRequest,
+  QueryParamsResponse as MilkywayServicesV1QueryParamsResponse,
+  QueryServicesRequest as MilkywayServicesV1QueryServicesRequest,
+  QueryServicesResponse as MilkywayServicesV1QueryServicesResponse,
+  QueryServiceRequest as MilkywayServicesV1QueryServiceRequest,
+  QueryServiceResponse as MilkywayServicesV1QueryServiceResponse,
+  QueryServiceParamsRequest as MilkywayServicesV1QueryServiceParamsRequest,
+  QueryServiceParamsResponse as MilkywayServicesV1QueryServiceParamsResponse,
+} from "./milkyway/services/v1/query_pb.js";
+export {
+  QueryServiceService as MilkywayServicesV1QueryServiceService,
+  QueryServicesService as MilkywayServicesV1QueryServicesService,
+  QueryServiceParamsService as MilkywayServicesV1QueryServiceParamsService,
+  QueryParamsService as MilkywayServicesV1QueryParamsService,
+} from "./milkyway/services/v1/query_cosmes.js";
+export {
+  Params as MilkywayServicesV1Params,
+} from "./milkyway/services/v1/params_pb.js";
+export {
+  ServiceStatus as MilkywayServicesV1ServiceStatus,
+  Service as MilkywayServicesV1Service,
+  ServiceParams as MilkywayServicesV1ServiceParams,
+} from "./milkyway/services/v1/models_pb.js";
+export {
+  MsgCreateService as MilkywayServicesV1MsgCreateService,
+  MsgCreateServiceResponse as MilkywayServicesV1MsgCreateServiceResponse,
+  MsgUpdateService as MilkywayServicesV1MsgUpdateService,
+  MsgUpdateServiceResponse as MilkywayServicesV1MsgUpdateServiceResponse,
+  MsgActivateService as MilkywayServicesV1MsgActivateService,
+  MsgActivateServiceResponse as MilkywayServicesV1MsgActivateServiceResponse,
+  MsgDeactivateService as MilkywayServicesV1MsgDeactivateService,
+  MsgDeactivateServiceResponse as MilkywayServicesV1MsgDeactivateServiceResponse,
+  MsgDeleteService as MilkywayServicesV1MsgDeleteService,
+  MsgDeleteServiceResponse as MilkywayServicesV1MsgDeleteServiceResponse,
+  MsgTransferServiceOwnership as MilkywayServicesV1MsgTransferServiceOwnership,
+  MsgTransferServiceOwnershipResponse as MilkywayServicesV1MsgTransferServiceOwnershipResponse,
+  MsgSetServiceParams as MilkywayServicesV1MsgSetServiceParams,
+  MsgSetServiceParamsResponse as MilkywayServicesV1MsgSetServiceParamsResponse,
+  MsgUpdateParams as MilkywayServicesV1MsgUpdateParams,
+  MsgUpdateParamsResponse as MilkywayServicesV1MsgUpdateParamsResponse,
+  MsgAccreditService as MilkywayServicesV1MsgAccreditService,
+  MsgAccreditServiceResponse as MilkywayServicesV1MsgAccreditServiceResponse,
+  MsgRevokeServiceAccreditation as MilkywayServicesV1MsgRevokeServiceAccreditation,
+  MsgRevokeServiceAccreditationResponse as MilkywayServicesV1MsgRevokeServiceAccreditationResponse,
+} from "./milkyway/services/v1/messages_pb.js";
+export {
+  MsgCreateServiceService as MilkywayServicesV1MsgCreateServiceService,
+  MsgUpdateServiceService as MilkywayServicesV1MsgUpdateServiceService,
+  MsgActivateServiceService as MilkywayServicesV1MsgActivateServiceService,
+  MsgDeactivateServiceService as MilkywayServicesV1MsgDeactivateServiceService,
+  MsgDeleteServiceService as MilkywayServicesV1MsgDeleteServiceService,
+  MsgTransferServiceOwnershipService as MilkywayServicesV1MsgTransferServiceOwnershipService,
+  MsgSetServiceParamsService as MilkywayServicesV1MsgSetServiceParamsService,
+  MsgUpdateParamsService as MilkywayServicesV1MsgUpdateParamsService,
+  MsgAccreditServiceService as MilkywayServicesV1MsgAccreditServiceService,
+  MsgRevokeServiceAccreditationService as MilkywayServicesV1MsgRevokeServiceAccreditationService,
+} from "./milkyway/services/v1/messages_cosmes.js";
+export {
+  GenesisState as MilkywayServicesV1GenesisState,
+  ServiceParamsRecord as MilkywayServicesV1ServiceParamsRecord,
+} from "./milkyway/services/v1/genesis_pb.js";
+export {
+  QueryParamsRequest as MilkywayRewardsV1QueryParamsRequest,
+  QueryParamsResponse as MilkywayRewardsV1QueryParamsResponse,
+  QueryRewardsPlansRequest as MilkywayRewardsV1QueryRewardsPlansRequest,
+  QueryRewardsPlansResponse as MilkywayRewardsV1QueryRewardsPlansResponse,
+  QueryRewardsPlanRequest as MilkywayRewardsV1QueryRewardsPlanRequest,
+  QueryRewardsPlanResponse as MilkywayRewardsV1QueryRewardsPlanResponse,
+  QueryPoolOutstandingRewardsRequest as MilkywayRewardsV1QueryPoolOutstandingRewardsRequest,
+  QueryPoolOutstandingRewardsResponse as MilkywayRewardsV1QueryPoolOutstandingRewardsResponse,
+  QueryOperatorOutstandingRewardsRequest as MilkywayRewardsV1QueryOperatorOutstandingRewardsRequest,
+  QueryOperatorOutstandingRewardsResponse as MilkywayRewardsV1QueryOperatorOutstandingRewardsResponse,
+  QueryServiceOutstandingRewardsRequest as MilkywayRewardsV1QueryServiceOutstandingRewardsRequest,
+  QueryServiceOutstandingRewardsResponse as MilkywayRewardsV1QueryServiceOutstandingRewardsResponse,
+  QueryOperatorCommissionRequest as MilkywayRewardsV1QueryOperatorCommissionRequest,
+  QueryOperatorCommissionResponse as MilkywayRewardsV1QueryOperatorCommissionResponse,
+  QueryPoolDelegationRewardsRequest as MilkywayRewardsV1QueryPoolDelegationRewardsRequest,
+  QueryPoolDelegationRewardsResponse as MilkywayRewardsV1QueryPoolDelegationRewardsResponse,
+  QueryOperatorDelegationRewardsRequest as MilkywayRewardsV1QueryOperatorDelegationRewardsRequest,
+  QueryOperatorDelegationRewardsResponse as MilkywayRewardsV1QueryOperatorDelegationRewardsResponse,
+  QueryServiceDelegationRewardsRequest as MilkywayRewardsV1QueryServiceDelegationRewardsRequest,
+  QueryServiceDelegationRewardsResponse as MilkywayRewardsV1QueryServiceDelegationRewardsResponse,
+  QueryDelegatorTotalRewardsRequest as MilkywayRewardsV1QueryDelegatorTotalRewardsRequest,
+  QueryDelegatorTotalRewardsResponse as MilkywayRewardsV1QueryDelegatorTotalRewardsResponse,
+  QueryDelegatorWithdrawAddressRequest as MilkywayRewardsV1QueryDelegatorWithdrawAddressRequest,
+  QueryDelegatorWithdrawAddressResponse as MilkywayRewardsV1QueryDelegatorWithdrawAddressResponse,
+} from "./milkyway/rewards/v1/query_pb.js";
+export {
+  QueryParamsService as MilkywayRewardsV1QueryParamsService,
+  QueryRewardsPlansService as MilkywayRewardsV1QueryRewardsPlansService,
+  QueryRewardsPlanService as MilkywayRewardsV1QueryRewardsPlanService,
+  QueryPoolOutstandingRewardsService as MilkywayRewardsV1QueryPoolOutstandingRewardsService,
+  QueryOperatorOutstandingRewardsService as MilkywayRewardsV1QueryOperatorOutstandingRewardsService,
+  QueryServiceOutstandingRewardsService as MilkywayRewardsV1QueryServiceOutstandingRewardsService,
+  QueryOperatorCommissionService as MilkywayRewardsV1QueryOperatorCommissionService,
+  QueryPoolDelegationRewardsService as MilkywayRewardsV1QueryPoolDelegationRewardsService,
+  QueryOperatorDelegationRewardsService as MilkywayRewardsV1QueryOperatorDelegationRewardsService,
+  QueryServiceDelegationRewardsService as MilkywayRewardsV1QueryServiceDelegationRewardsService,
+  QueryDelegatorTotalRewardsService as MilkywayRewardsV1QueryDelegatorTotalRewardsService,
+  QueryDelegatorWithdrawAddressService as MilkywayRewardsV1QueryDelegatorWithdrawAddressService,
+} from "./milkyway/rewards/v1/query_cosmes.js";
+export {
+  Params as MilkywayRewardsV1Params,
+} from "./milkyway/rewards/v1/params_pb.js";
+export {
+  RewardsPlan as MilkywayRewardsV1RewardsPlan,
+  Distribution as MilkywayRewardsV1Distribution,
+  DistributionTypeBasic as MilkywayRewardsV1DistributionTypeBasic,
+  DistributionTypeWeighted as MilkywayRewardsV1DistributionTypeWeighted,
+  DistributionWeight as MilkywayRewardsV1DistributionWeight,
+  DistributionTypeEgalitarian as MilkywayRewardsV1DistributionTypeEgalitarian,
+  UsersDistribution as MilkywayRewardsV1UsersDistribution,
+  UsersDistributionTypeBasic as MilkywayRewardsV1UsersDistributionTypeBasic,
+  HistoricalRewards as MilkywayRewardsV1HistoricalRewards,
+  CurrentRewards as MilkywayRewardsV1CurrentRewards,
+  OutstandingRewards as MilkywayRewardsV1OutstandingRewards,
+  AccumulatedCommission as MilkywayRewardsV1AccumulatedCommission,
+  DelegatorStartingInfo as MilkywayRewardsV1DelegatorStartingInfo,
+  DelegationDelegatorReward as MilkywayRewardsV1DelegationDelegatorReward,
+  PoolServiceTotalDelegatorShares as MilkywayRewardsV1PoolServiceTotalDelegatorShares,
+  Pool as MilkywayRewardsV1Pool,
+  DecPool as MilkywayRewardsV1DecPool,
+  ServicePool as MilkywayRewardsV1ServicePool,
+} from "./milkyway/rewards/v1/models_pb.js";
+export {
+  MsgCreateRewardsPlan as MilkywayRewardsV1MsgCreateRewardsPlan,
+  MsgCreateRewardsPlanResponse as MilkywayRewardsV1MsgCreateRewardsPlanResponse,
+  MsgEditRewardsPlan as MilkywayRewardsV1MsgEditRewardsPlan,
+  MsgEditRewardsPlanResponse as MilkywayRewardsV1MsgEditRewardsPlanResponse,
+  MsgSetWithdrawAddress as MilkywayRewardsV1MsgSetWithdrawAddress,
+  MsgSetWithdrawAddressResponse as MilkywayRewardsV1MsgSetWithdrawAddressResponse,
+  MsgWithdrawDelegatorReward as MilkywayRewardsV1MsgWithdrawDelegatorReward,
+  MsgWithdrawDelegatorRewardResponse as MilkywayRewardsV1MsgWithdrawDelegatorRewardResponse,
+  MsgWithdrawOperatorCommission as MilkywayRewardsV1MsgWithdrawOperatorCommission,
+  MsgWithdrawOperatorCommissionResponse as MilkywayRewardsV1MsgWithdrawOperatorCommissionResponse,
+  MsgUpdateParams as MilkywayRewardsV1MsgUpdateParams,
+  MsgUpdateParamsResponse as MilkywayRewardsV1MsgUpdateParamsResponse,
+} from "./milkyway/rewards/v1/messages_pb.js";
+export {
+  MsgCreateRewardsPlanService as MilkywayRewardsV1MsgCreateRewardsPlanService,
+  MsgEditRewardsPlanService as MilkywayRewardsV1MsgEditRewardsPlanService,
+  MsgSetWithdrawAddressService as MilkywayRewardsV1MsgSetWithdrawAddressService,
+  MsgWithdrawDelegatorRewardService as MilkywayRewardsV1MsgWithdrawDelegatorRewardService,
+  MsgWithdrawOperatorCommissionService as MilkywayRewardsV1MsgWithdrawOperatorCommissionService,
+  MsgUpdateParamsService as MilkywayRewardsV1MsgUpdateParamsService,
+} from "./milkyway/rewards/v1/messages_cosmes.js";
+export {
+  DelegatorWithdrawInfo as MilkywayRewardsV1DelegatorWithdrawInfo,
+  OutstandingRewardsRecord as MilkywayRewardsV1OutstandingRewardsRecord,
+  HistoricalRewardsRecord as MilkywayRewardsV1HistoricalRewardsRecord,
+  CurrentRewardsRecord as MilkywayRewardsV1CurrentRewardsRecord,
+  DelegatorStartingInfoRecord as MilkywayRewardsV1DelegatorStartingInfoRecord,
+  OperatorAccumulatedCommissionRecord as MilkywayRewardsV1OperatorAccumulatedCommissionRecord,
+  DelegationTypeRecords as MilkywayRewardsV1DelegationTypeRecords,
+  GenesisState as MilkywayRewardsV1GenesisState,
+} from "./milkyway/rewards/v1/genesis_pb.js";
+export {
+  QueryOperatorJoinedServicesRequest as MilkywayRestakingV1QueryOperatorJoinedServicesRequest,
+  QueryOperatorJoinedServicesResponse as MilkywayRestakingV1QueryOperatorJoinedServicesResponse,
+  QueryServiceAllowedOperatorsRequest as MilkywayRestakingV1QueryServiceAllowedOperatorsRequest,
+  QueryServiceAllowedOperatorsResponse as MilkywayRestakingV1QueryServiceAllowedOperatorsResponse,
+  QueryServiceSecuringPoolsRequest as MilkywayRestakingV1QueryServiceSecuringPoolsRequest,
+  QueryServiceSecuringPoolsResponse as MilkywayRestakingV1QueryServiceSecuringPoolsResponse,
+  QueryServiceOperatorsRequest as MilkywayRestakingV1QueryServiceOperatorsRequest,
+  QueryServiceOperatorsResponse as MilkywayRestakingV1QueryServiceOperatorsResponse,
+  QueryPoolDelegationsRequest as MilkywayRestakingV1QueryPoolDelegationsRequest,
+  QueryPoolDelegationsResponse as MilkywayRestakingV1QueryPoolDelegationsResponse,
+  QueryPoolDelegationRequest as MilkywayRestakingV1QueryPoolDelegationRequest,
+  QueryPoolDelegationResponse as MilkywayRestakingV1QueryPoolDelegationResponse,
+  QueryPoolUnbondingDelegationsRequest as MilkywayRestakingV1QueryPoolUnbondingDelegationsRequest,
+  QueryPoolUnbondingDelegationsResponse as MilkywayRestakingV1QueryPoolUnbondingDelegationsResponse,
+  QueryPoolUnbondingDelegationRequest as MilkywayRestakingV1QueryPoolUnbondingDelegationRequest,
+  QueryPoolUnbondingDelegationResponse as MilkywayRestakingV1QueryPoolUnbondingDelegationResponse,
+  QueryOperatorDelegationsRequest as MilkywayRestakingV1QueryOperatorDelegationsRequest,
+  QueryOperatorDelegationsResponse as MilkywayRestakingV1QueryOperatorDelegationsResponse,
+  QueryOperatorDelegationRequest as MilkywayRestakingV1QueryOperatorDelegationRequest,
+  QueryOperatorDelegationResponse as MilkywayRestakingV1QueryOperatorDelegationResponse,
+  QueryOperatorUnbondingDelegationsRequest as MilkywayRestakingV1QueryOperatorUnbondingDelegationsRequest,
+  QueryOperatorUnbondingDelegationsResponse as MilkywayRestakingV1QueryOperatorUnbondingDelegationsResponse,
+  QueryOperatorUnbondingDelegationRequest as MilkywayRestakingV1QueryOperatorUnbondingDelegationRequest,
+  QueryOperatorUnbondingDelegationResponse as MilkywayRestakingV1QueryOperatorUnbondingDelegationResponse,
+  QueryServiceDelegationsRequest as MilkywayRestakingV1QueryServiceDelegationsRequest,
+  QueryServiceDelegationsResponse as MilkywayRestakingV1QueryServiceDelegationsResponse,
+  QueryServiceDelegationRequest as MilkywayRestakingV1QueryServiceDelegationRequest,
+  QueryServiceDelegationResponse as MilkywayRestakingV1QueryServiceDelegationResponse,
+  QueryServiceUnbondingDelegationsRequest as MilkywayRestakingV1QueryServiceUnbondingDelegationsRequest,
+  QueryServiceUnbondingDelegationsResponse as MilkywayRestakingV1QueryServiceUnbondingDelegationsResponse,
+  QueryServiceUnbondingDelegationRequest as MilkywayRestakingV1QueryServiceUnbondingDelegationRequest,
+  QueryServiceUnbondingDelegationResponse as MilkywayRestakingV1QueryServiceUnbondingDelegationResponse,
+  QueryDelegatorPoolDelegationsRequest as MilkywayRestakingV1QueryDelegatorPoolDelegationsRequest,
+  QueryDelegatorPoolDelegationsResponse as MilkywayRestakingV1QueryDelegatorPoolDelegationsResponse,
+  QueryDelegatorPoolUnbondingDelegationsRequest as MilkywayRestakingV1QueryDelegatorPoolUnbondingDelegationsRequest,
+  QueryDelegatorPoolUnbondingDelegationsResponse as MilkywayRestakingV1QueryDelegatorPoolUnbondingDelegationsResponse,
+  QueryDelegatorOperatorDelegationsRequest as MilkywayRestakingV1QueryDelegatorOperatorDelegationsRequest,
+  QueryDelegatorOperatorDelegationsResponse as MilkywayRestakingV1QueryDelegatorOperatorDelegationsResponse,
+  QueryDelegatorOperatorUnbondingDelegationsRequest as MilkywayRestakingV1QueryDelegatorOperatorUnbondingDelegationsRequest,
+  QueryDelegatorOperatorUnbondingDelegationsResponse as MilkywayRestakingV1QueryDelegatorOperatorUnbondingDelegationsResponse,
+  QueryDelegatorServiceDelegationsRequest as MilkywayRestakingV1QueryDelegatorServiceDelegationsRequest,
+  QueryDelegatorServiceDelegationsResponse as MilkywayRestakingV1QueryDelegatorServiceDelegationsResponse,
+  QueryDelegatorServiceUnbondingDelegationsRequest as MilkywayRestakingV1QueryDelegatorServiceUnbondingDelegationsRequest,
+  QueryDelegatorServiceUnbondingDelegationsResponse as MilkywayRestakingV1QueryDelegatorServiceUnbondingDelegationsResponse,
+  QueryDelegatorPoolsRequest as MilkywayRestakingV1QueryDelegatorPoolsRequest,
+  QueryDelegatorPoolsResponse as MilkywayRestakingV1QueryDelegatorPoolsResponse,
+  QueryDelegatorPoolRequest as MilkywayRestakingV1QueryDelegatorPoolRequest,
+  QueryDelegatorPoolResponse as MilkywayRestakingV1QueryDelegatorPoolResponse,
+  QueryDelegatorOperatorsRequest as MilkywayRestakingV1QueryDelegatorOperatorsRequest,
+  QueryDelegatorOperatorsResponse as MilkywayRestakingV1QueryDelegatorOperatorsResponse,
+  QueryDelegatorOperatorRequest as MilkywayRestakingV1QueryDelegatorOperatorRequest,
+  QueryDelegatorOperatorResponse as MilkywayRestakingV1QueryDelegatorOperatorResponse,
+  QueryDelegatorServicesRequest as MilkywayRestakingV1QueryDelegatorServicesRequest,
+  QueryDelegatorServicesResponse as MilkywayRestakingV1QueryDelegatorServicesResponse,
+  QueryDelegatorServiceRequest as MilkywayRestakingV1QueryDelegatorServiceRequest,
+  QueryDelegatorServiceResponse as MilkywayRestakingV1QueryDelegatorServiceResponse,
+  QueryUserPreferencesRequest as MilkywayRestakingV1QueryUserPreferencesRequest,
+  QueryUserPreferencesResponse as MilkywayRestakingV1QueryUserPreferencesResponse,
+  QueryParamsRequest as MilkywayRestakingV1QueryParamsRequest,
+  QueryParamsResponse as MilkywayRestakingV1QueryParamsResponse,
+} from "./milkyway/restaking/v1/query_pb.js";
+export {
+  QueryOperatorJoinedServicesService as MilkywayRestakingV1QueryOperatorJoinedServicesService,
+  QueryServiceAllowedOperatorsService as MilkywayRestakingV1QueryServiceAllowedOperatorsService,
+  QueryServiceSecuringPoolsService as MilkywayRestakingV1QueryServiceSecuringPoolsService,
+  QueryServiceOperatorsService as MilkywayRestakingV1QueryServiceOperatorsService,
+  QueryPoolDelegationsService as MilkywayRestakingV1QueryPoolDelegationsService,
+  QueryPoolDelegationService as MilkywayRestakingV1QueryPoolDelegationService,
+  QueryPoolUnbondingDelegationsService as MilkywayRestakingV1QueryPoolUnbondingDelegationsService,
+  QueryPoolUnbondingDelegationService as MilkywayRestakingV1QueryPoolUnbondingDelegationService,
+  QueryOperatorDelegationsService as MilkywayRestakingV1QueryOperatorDelegationsService,
+  QueryOperatorDelegationService as MilkywayRestakingV1QueryOperatorDelegationService,
+  QueryOperatorUnbondingDelegationsService as MilkywayRestakingV1QueryOperatorUnbondingDelegationsService,
+  QueryOperatorUnbondingDelegationService as MilkywayRestakingV1QueryOperatorUnbondingDelegationService,
+  QueryServiceDelegationsService as MilkywayRestakingV1QueryServiceDelegationsService,
+  QueryServiceDelegationService as MilkywayRestakingV1QueryServiceDelegationService,
+  QueryServiceUnbondingDelegationsService as MilkywayRestakingV1QueryServiceUnbondingDelegationsService,
+  QueryServiceUnbondingDelegationService as MilkywayRestakingV1QueryServiceUnbondingDelegationService,
+  QueryDelegatorPoolDelegationsService as MilkywayRestakingV1QueryDelegatorPoolDelegationsService,
+  QueryDelegatorPoolUnbondingDelegationsService as MilkywayRestakingV1QueryDelegatorPoolUnbondingDelegationsService,
+  QueryDelegatorOperatorDelegationsService as MilkywayRestakingV1QueryDelegatorOperatorDelegationsService,
+  QueryDelegatorOperatorUnbondingDelegationsService as MilkywayRestakingV1QueryDelegatorOperatorUnbondingDelegationsService,
+  QueryDelegatorServiceDelegationsService as MilkywayRestakingV1QueryDelegatorServiceDelegationsService,
+  QueryDelegatorServiceUnbondingDelegationsService as MilkywayRestakingV1QueryDelegatorServiceUnbondingDelegationsService,
+  QueryDelegatorPoolsService as MilkywayRestakingV1QueryDelegatorPoolsService,
+  QueryDelegatorPoolService as MilkywayRestakingV1QueryDelegatorPoolService,
+  QueryDelegatorOperatorsService as MilkywayRestakingV1QueryDelegatorOperatorsService,
+  QueryDelegatorOperatorService as MilkywayRestakingV1QueryDelegatorOperatorService,
+  QueryDelegatorServicesService as MilkywayRestakingV1QueryDelegatorServicesService,
+  QueryDelegatorServiceService as MilkywayRestakingV1QueryDelegatorServiceService,
+  QueryUserPreferencesService as MilkywayRestakingV1QueryUserPreferencesService,
+  QueryParamsService as MilkywayRestakingV1QueryParamsService,
+} from "./milkyway/restaking/v1/query_cosmes.js";
+export {
+  Params as MilkywayRestakingV1Params,
+} from "./milkyway/restaking/v1/params_pb.js";
+export {
+  DelegationType as MilkywayRestakingV1DelegationType,
+  Delegation as MilkywayRestakingV1Delegation,
+  DelegationResponse as MilkywayRestakingV1DelegationResponse,
+  UnbondingDelegation as MilkywayRestakingV1UnbondingDelegation,
+  UnbondingDelegationEntry as MilkywayRestakingV1UnbondingDelegationEntry,
+  DTData as MilkywayRestakingV1DTData,
+  DTDataList as MilkywayRestakingV1DTDataList,
+  UserPreferences as MilkywayRestakingV1UserPreferences,
+  TrustedServiceEntry as MilkywayRestakingV1TrustedServiceEntry,
+} from "./milkyway/restaking/v1/models_pb.js";
+export {
+  MsgJoinService as MilkywayRestakingV1MsgJoinService,
+  MsgJoinServiceResponse as MilkywayRestakingV1MsgJoinServiceResponse,
+  MsgLeaveService as MilkywayRestakingV1MsgLeaveService,
+  MsgLeaveServiceResponse as MilkywayRestakingV1MsgLeaveServiceResponse,
+  MsgAddOperatorToAllowList as MilkywayRestakingV1MsgAddOperatorToAllowList,
+  MsgAddOperatorToAllowListResponse as MilkywayRestakingV1MsgAddOperatorToAllowListResponse,
+  MsgRemoveOperatorFromAllowlist as MilkywayRestakingV1MsgRemoveOperatorFromAllowlist,
+  MsgRemoveOperatorFromAllowlistResponse as MilkywayRestakingV1MsgRemoveOperatorFromAllowlistResponse,
+  MsgBorrowPoolSecurity as MilkywayRestakingV1MsgBorrowPoolSecurity,
+  MsgBorrowPoolSecurityResponse as MilkywayRestakingV1MsgBorrowPoolSecurityResponse,
+  MsgCeasePoolSecurityBorrow as MilkywayRestakingV1MsgCeasePoolSecurityBorrow,
+  MsgCeasePoolSecurityBorrowResponse as MilkywayRestakingV1MsgCeasePoolSecurityBorrowResponse,
+  MsgDelegatePool as MilkywayRestakingV1MsgDelegatePool,
+  MsgDelegatePoolResponse as MilkywayRestakingV1MsgDelegatePoolResponse,
+  MsgDelegateOperator as MilkywayRestakingV1MsgDelegateOperator,
+  MsgDelegateOperatorResponse as MilkywayRestakingV1MsgDelegateOperatorResponse,
+  MsgDelegateService as MilkywayRestakingV1MsgDelegateService,
+  MsgDelegateServiceResponse as MilkywayRestakingV1MsgDelegateServiceResponse,
+  MsgUpdateParams as MilkywayRestakingV1MsgUpdateParams,
+  MsgUpdateParamsResponse as MilkywayRestakingV1MsgUpdateParamsResponse,
+  MsgUndelegatePool as MilkywayRestakingV1MsgUndelegatePool,
+  MsgUndelegateOperator as MilkywayRestakingV1MsgUndelegateOperator,
+  MsgUndelegateService as MilkywayRestakingV1MsgUndelegateService,
+  MsgUndelegateResponse as MilkywayRestakingV1MsgUndelegateResponse,
+  MsgSetUserPreferences as MilkywayRestakingV1MsgSetUserPreferences,
+  MsgSetUserPreferencesResponse as MilkywayRestakingV1MsgSetUserPreferencesResponse,
+} from "./milkyway/restaking/v1/messages_pb.js";
+export {
+  MsgJoinServiceService as MilkywayRestakingV1MsgJoinServiceService,
+  MsgLeaveServiceService as MilkywayRestakingV1MsgLeaveServiceService,
+  MsgAddOperatorToAllowListService as MilkywayRestakingV1MsgAddOperatorToAllowListService,
+  MsgRemoveOperatorFromAllowlistService as MilkywayRestakingV1MsgRemoveOperatorFromAllowlistService,
+  MsgBorrowPoolSecurityService as MilkywayRestakingV1MsgBorrowPoolSecurityService,
+  MsgCeasePoolSecurityBorrowService as MilkywayRestakingV1MsgCeasePoolSecurityBorrowService,
+  MsgDelegatePoolService as MilkywayRestakingV1MsgDelegatePoolService,
+  MsgDelegateOperatorService as MilkywayRestakingV1MsgDelegateOperatorService,
+  MsgDelegateServiceService as MilkywayRestakingV1MsgDelegateServiceService,
+  MsgUpdateParamsService as MilkywayRestakingV1MsgUpdateParamsService,
+  MsgUndelegatePoolService as MilkywayRestakingV1MsgUndelegatePoolService,
+  MsgUndelegateOperatorService as MilkywayRestakingV1MsgUndelegateOperatorService,
+  MsgUndelegateServiceService as MilkywayRestakingV1MsgUndelegateServiceService,
+  MsgSetUserPreferencesService as MilkywayRestakingV1MsgSetUserPreferencesService,
+} from "./milkyway/restaking/v1/messages_cosmes.js";
+export {
+  OperatorJoinedServices as MilkywayRestakingV1OperatorJoinedServices,
+  ServiceAllowedOperators as MilkywayRestakingV1ServiceAllowedOperators,
+  ServiceSecuringPools as MilkywayRestakingV1ServiceSecuringPools,
+  UserPreferencesEntry as MilkywayRestakingV1UserPreferencesEntry,
+  GenesisState as MilkywayRestakingV1GenesisState,
+} from "./milkyway/restaking/v1/genesis_pb.js";
+export {
+  QueryPoolByIdRequest as MilkywayPoolsV1QueryPoolByIdRequest,
+  QueryPoolByDenomRequest as MilkywayPoolsV1QueryPoolByDenomRequest,
+  QueryPoolResponse as MilkywayPoolsV1QueryPoolResponse,
+  QueryPoolsRequest as MilkywayPoolsV1QueryPoolsRequest,
+  QueryPoolsResponse as MilkywayPoolsV1QueryPoolsResponse,
+} from "./milkyway/pools/v1/query_pb.js";
+export {
+  QueryPoolByIDService as MilkywayPoolsV1QueryPoolByIDService,
+  QueryPoolByDenomService as MilkywayPoolsV1QueryPoolByDenomService,
+  QueryPoolsService as MilkywayPoolsV1QueryPoolsService,
+} from "./milkyway/pools/v1/query_cosmes.js";
+export {
+  Pool as MilkywayPoolsV1Pool,
+} from "./milkyway/pools/v1/models_pb.js";
+export {
+  GenesisState as MilkywayPoolsV1GenesisState,
+} from "./milkyway/pools/v1/genesis_pb.js";
+export {
+  QueryOperatorRequest as MilkywayOperatorsV1QueryOperatorRequest,
+  QueryOperatorResponse as MilkywayOperatorsV1QueryOperatorResponse,
+  QueryOperatorParamsRequest as MilkywayOperatorsV1QueryOperatorParamsRequest,
+  QueryOperatorParamsResponse as MilkywayOperatorsV1QueryOperatorParamsResponse,
+  QueryOperatorsRequest as MilkywayOperatorsV1QueryOperatorsRequest,
+  QueryOperatorsResponse as MilkywayOperatorsV1QueryOperatorsResponse,
+  QueryParamsRequest as MilkywayOperatorsV1QueryParamsRequest,
+  QueryParamsResponse as MilkywayOperatorsV1QueryParamsResponse,
+} from "./milkyway/operators/v1/query_pb.js";
+export {
+  QueryOperatorService as MilkywayOperatorsV1QueryOperatorService,
+  QueryOperatorParamsService as MilkywayOperatorsV1QueryOperatorParamsService,
+  QueryOperatorsService as MilkywayOperatorsV1QueryOperatorsService,
+  QueryParamsService as MilkywayOperatorsV1QueryParamsService,
+} from "./milkyway/operators/v1/query_cosmes.js";
+export {
+  Params as MilkywayOperatorsV1Params,
+} from "./milkyway/operators/v1/params_pb.js";
+export {
+  OperatorStatus as MilkywayOperatorsV1OperatorStatus,
+  Operator as MilkywayOperatorsV1Operator,
+  OperatorParams as MilkywayOperatorsV1OperatorParams,
+} from "./milkyway/operators/v1/models_pb.js";
+export {
+  MsgRegisterOperator as MilkywayOperatorsV1MsgRegisterOperator,
+  MsgRegisterOperatorResponse as MilkywayOperatorsV1MsgRegisterOperatorResponse,
+  MsgUpdateOperator as MilkywayOperatorsV1MsgUpdateOperator,
+  MsgUpdateOperatorResponse as MilkywayOperatorsV1MsgUpdateOperatorResponse,
+  MsgDeactivateOperator as MilkywayOperatorsV1MsgDeactivateOperator,
+  MsgDeactivateOperatorResponse as MilkywayOperatorsV1MsgDeactivateOperatorResponse,
+  MsgReactivateOperator as MilkywayOperatorsV1MsgReactivateOperator,
+  MsgReactivateOperatorResponse as MilkywayOperatorsV1MsgReactivateOperatorResponse,
+  MsgDeleteOperator as MilkywayOperatorsV1MsgDeleteOperator,
+  MsgDeleteOperatorResponse as MilkywayOperatorsV1MsgDeleteOperatorResponse,
+  MsgSetOperatorParams as MilkywayOperatorsV1MsgSetOperatorParams,
+  MsgSetOperatorParamsResponse as MilkywayOperatorsV1MsgSetOperatorParamsResponse,
+  MsgTransferOperatorOwnership as MilkywayOperatorsV1MsgTransferOperatorOwnership,
+  MsgTransferOperatorOwnershipResponse as MilkywayOperatorsV1MsgTransferOperatorOwnershipResponse,
+  MsgUpdateParams as MilkywayOperatorsV1MsgUpdateParams,
+  MsgUpdateParamsResponse as MilkywayOperatorsV1MsgUpdateParamsResponse,
+} from "./milkyway/operators/v1/messages_pb.js";
+export {
+  MsgRegisterOperatorService as MilkywayOperatorsV1MsgRegisterOperatorService,
+  MsgUpdateOperatorService as MilkywayOperatorsV1MsgUpdateOperatorService,
+  MsgDeactivateOperatorService as MilkywayOperatorsV1MsgDeactivateOperatorService,
+  MsgReactivateOperatorService as MilkywayOperatorsV1MsgReactivateOperatorService,
+  MsgDeleteOperatorService as MilkywayOperatorsV1MsgDeleteOperatorService,
+  MsgTransferOperatorOwnershipService as MilkywayOperatorsV1MsgTransferOperatorOwnershipService,
+  MsgSetOperatorParamsService as MilkywayOperatorsV1MsgSetOperatorParamsService,
+  MsgUpdateParamsService as MilkywayOperatorsV1MsgUpdateParamsService,
+} from "./milkyway/operators/v1/messages_cosmes.js";
+export {
+  GenesisState as MilkywayOperatorsV1GenesisState,
+  UnbondingOperator as MilkywayOperatorsV1UnbondingOperator,
+  OperatorParamsRecord as MilkywayOperatorsV1OperatorParamsRecord,
+} from "./milkyway/operators/v1/genesis_pb.js";
+export {
+  QueryUserInsuranceFundRequest as MilkywayLiquidvestingV1QueryUserInsuranceFundRequest,
+  QueryUserInsuranceFundResponse as MilkywayLiquidvestingV1QueryUserInsuranceFundResponse,
+  QueryUserInsuranceFundsRequest as MilkywayLiquidvestingV1QueryUserInsuranceFundsRequest,
+  UserInsuranceFundData as MilkywayLiquidvestingV1UserInsuranceFundData,
+  QueryUserInsuranceFundsResponse as MilkywayLiquidvestingV1QueryUserInsuranceFundsResponse,
+  QueryUserRestakableAssetsRequest as MilkywayLiquidvestingV1QueryUserRestakableAssetsRequest,
+  QueryUserRestakableAssetsResponse as MilkywayLiquidvestingV1QueryUserRestakableAssetsResponse,
+  QueryInsuranceFundRequest as MilkywayLiquidvestingV1QueryInsuranceFundRequest,
+  QueryInsuranceFundResponse as MilkywayLiquidvestingV1QueryInsuranceFundResponse,
+  QueryParamsRequest as MilkywayLiquidvestingV1QueryParamsRequest,
+  QueryParamsResponse as MilkywayLiquidvestingV1QueryParamsResponse,
+} from "./milkyway/liquidvesting/v1/query_pb.js";
+export {
+  QueryUserInsuranceFundService as MilkywayLiquidvestingV1QueryUserInsuranceFundService,
+  QueryUserInsuranceFundsService as MilkywayLiquidvestingV1QueryUserInsuranceFundsService,
+  QueryUserRestakableAssetsService as MilkywayLiquidvestingV1QueryUserRestakableAssetsService,
+  QueryInsuranceFundService as MilkywayLiquidvestingV1QueryInsuranceFundService,
+  QueryParamsService as MilkywayLiquidvestingV1QueryParamsService,
+} from "./milkyway/liquidvesting/v1/query_cosmes.js";
+export {
+  Params as MilkywayLiquidvestingV1Params,
+} from "./milkyway/liquidvesting/v1/params_pb.js";
+export {
+  UserInsuranceFund as MilkywayLiquidvestingV1UserInsuranceFund,
+  BurnCoins as MilkywayLiquidvestingV1BurnCoins,
+  BurnCoinsList as MilkywayLiquidvestingV1BurnCoinsList,
+  UserInsuranceFundEntry as MilkywayLiquidvestingV1UserInsuranceFundEntry,
+} from "./milkyway/liquidvesting/v1/models_pb.js";
+export {
+  MsgMintLockedRepresentation as MilkywayLiquidvestingV1MsgMintLockedRepresentation,
+  MsgMintLockedRepresentationResponse as MilkywayLiquidvestingV1MsgMintLockedRepresentationResponse,
+  MsgBurnLockedRepresentation as MilkywayLiquidvestingV1MsgBurnLockedRepresentation,
+  MsgBurnLockedRepresentationResponse as MilkywayLiquidvestingV1MsgBurnLockedRepresentationResponse,
+  MsgWithdrawInsuranceFund as MilkywayLiquidvestingV1MsgWithdrawInsuranceFund,
+  MsgWithdrawInsuranceFundResponse as MilkywayLiquidvestingV1MsgWithdrawInsuranceFundResponse,
+  MsgUpdateParams as MilkywayLiquidvestingV1MsgUpdateParams,
+  MsgUpdateParamsResponse as MilkywayLiquidvestingV1MsgUpdateParamsResponse,
+} from "./milkyway/liquidvesting/v1/messages_pb.js";
+export {
+  MsgMintLockedRepresentationService as MilkywayLiquidvestingV1MsgMintLockedRepresentationService,
+  MsgBurnLockedRepresentationService as MilkywayLiquidvestingV1MsgBurnLockedRepresentationService,
+  MsgWithdrawInsuranceFundService as MilkywayLiquidvestingV1MsgWithdrawInsuranceFundService,
+  MsgUpdateParamsService as MilkywayLiquidvestingV1MsgUpdateParamsService,
+} from "./milkyway/liquidvesting/v1/messages_cosmes.js";
+export {
+  GenesisState as MilkywayLiquidvestingV1GenesisState,
+} from "./milkyway/liquidvesting/v1/genesis_pb.js";
+export {
+  QueryAssetsRequest as MilkywayAssetsV1QueryAssetsRequest,
+  QueryAssetsResponse as MilkywayAssetsV1QueryAssetsResponse,
+  QueryAssetRequest as MilkywayAssetsV1QueryAssetRequest,
+  QueryAssetResponse as MilkywayAssetsV1QueryAssetResponse,
+} from "./milkyway/assets/v1/query_pb.js";
+export {
+  QueryAssetsService as MilkywayAssetsV1QueryAssetsService,
+  QueryAssetService as MilkywayAssetsV1QueryAssetService,
+} from "./milkyway/assets/v1/query_cosmes.js";
+export {
+  Asset as MilkywayAssetsV1Asset,
+} from "./milkyway/assets/v1/models_pb.js";
+export {
+  MsgRegisterAsset as MilkywayAssetsV1MsgRegisterAsset,
+  MsgRegisterAssetResponse as MilkywayAssetsV1MsgRegisterAssetResponse,
+  MsgDeregisterAsset as MilkywayAssetsV1MsgDeregisterAsset,
+  MsgDeregisterAssetResponse as MilkywayAssetsV1MsgDeregisterAssetResponse,
+} from "./milkyway/assets/v1/messages_pb.js";
+export {
+  MsgRegisterAssetService as MilkywayAssetsV1MsgRegisterAssetService,
+  MsgDeregisterAssetService as MilkywayAssetsV1MsgDeregisterAssetService,
+} from "./milkyway/assets/v1/messages_cosmes.js";
+export {
+  GenesisState as MilkywayAssetsV1GenesisState,
+} from "./milkyway/assets/v1/genesis_pb.js";
 export {
   QueryCirculatingSupplyRequest as KavaValidatorvestingV1beta1QueryCirculatingSupplyRequest,
   QueryCirculatingSupplyResponse as KavaValidatorvestingV1beta1QueryCirculatingSupplyResponse,
@@ -5926,7 +6400,6 @@ export {
   PerpetualOrderType as ElysTradeshieldPerpetualOrderType,
   Date as ElysTradeshieldDate,
   SpotOrder as ElysTradeshieldSpotOrder,
-  LegacyPerpetualOrder as ElysTradeshieldLegacyPerpetualOrder,
   PerpetualOrder as ElysTradeshieldPerpetualOrder,
   PerpetualOrderExtraInfo as ElysTradeshieldPerpetualOrderExtraInfo,
 } from "./elys/tradeshield/types_pb.js";
@@ -5998,8 +6471,8 @@ export {
 export {
   SpotOrderType as ElysTradeshieldSpotOrderType,
   PerpetualPosition as ElysTradeshieldPerpetualPosition,
-  OrderPrice as ElysTradeshieldOrderPrice,
-  TriggerPrice as ElysTradeshieldTriggerPrice,
+  LegacyOrderPriceV1 as ElysTradeshieldLegacyOrderPriceV1,
+  LegacyTriggerPriceV1 as ElysTradeshieldLegacyTriggerPriceV1,
 } from "./elys/tradeshield/order_pb.js";
 export {
   GenesisState as ElysTradeshieldGenesisState,
@@ -6167,13 +6640,22 @@ export {
 export {
   QueryParamsRequest as ElysStablestakeQueryParamsRequest,
   QueryParamsResponse as ElysStablestakeQueryParamsResponse,
+  QueryAmmPoolRequest as ElysStablestakeQueryAmmPoolRequest,
+  QueryAmmPoolResponse as ElysStablestakeQueryAmmPoolResponse,
+  QueryAllAmmPoolsRequest as ElysStablestakeQueryAllAmmPoolsRequest,
+  QueryAllAmmPoolsResponse as ElysStablestakeQueryAllAmmPoolsResponse,
   QueryBorrowRatioRequest as ElysStablestakeQueryBorrowRatioRequest,
   QueryBorrowRatioResponse as ElysStablestakeQueryBorrowRatioResponse,
 } from "./elys/stablestake/query_pb.js";
 export {
   QueryParamsService as ElysStablestakeQueryParamsService,
   QueryBorrowRatioService as ElysStablestakeQueryBorrowRatioService,
+  QueryAmmPoolService as ElysStablestakeQueryAmmPoolService,
+  QueryAllAmmPoolsService as ElysStablestakeQueryAllAmmPoolsService,
 } from "./elys/stablestake/query_cosmes.js";
+export {
+  AmmPool as ElysStablestakeAmmPool,
+} from "./elys/stablestake/pool_pb.js";
 export {
   LegacyParams as ElysStablestakeLegacyParams,
   Params as ElysStablestakeParams,
@@ -6209,6 +6691,10 @@ export {
   MsgUpdateStopLossResponse as ElysPerpetualMsgUpdateStopLossResponse,
   MsgUpdateTakeProfitPrice as ElysPerpetualMsgUpdateTakeProfitPrice,
   MsgUpdateTakeProfitPriceResponse as ElysPerpetualMsgUpdateTakeProfitPriceResponse,
+  MsgUpdateMaxLeverageForPool as ElysPerpetualMsgUpdateMaxLeverageForPool,
+  MsgUpdateMaxLeverageForPoolResponse as ElysPerpetualMsgUpdateMaxLeverageForPoolResponse,
+  MsgUpdateEnabledPools as ElysPerpetualMsgUpdateEnabledPools,
+  MsgUpdateEnabledPoolsResponse as ElysPerpetualMsgUpdateEnabledPoolsResponse,
 } from "./elys/perpetual/tx_pb.js";
 export {
   MsgOpenService as ElysPerpetualMsgOpenService,
@@ -6219,6 +6705,8 @@ export {
   MsgUpdateStopLossService as ElysPerpetualMsgUpdateStopLossService,
   MsgClosePositionsService as ElysPerpetualMsgClosePositionsService,
   MsgUpdateTakeProfitPriceService as ElysPerpetualMsgUpdateTakeProfitPriceService,
+  MsgUpdateMaxLeverageForPoolService as ElysPerpetualMsgUpdateMaxLeverageForPoolService,
+  MsgUpdateEnabledPoolsService as ElysPerpetualMsgUpdateEnabledPoolsService,
 } from "./elys/perpetual/tx_cosmes.js";
 export {
   Fees as ElysPerpetualFees,
@@ -6265,6 +6753,7 @@ export {
 } from "./elys/perpetual/query_cosmes.js";
 export {
   PoolAsset as ElysPerpetualPoolAsset,
+  LegacyPool as ElysPerpetualLegacyPool,
   Pool as ElysPerpetualPool,
 } from "./elys/perpetual/pool_pb.js";
 export {
@@ -6417,6 +6906,10 @@ export {
   MsgTogglePoolEdenRewardsService as ElysMasterchefMsgTogglePoolEdenRewardsService,
 } from "./elys/masterchef/tx_cosmes.js";
 export {
+  QueryAllLiquidityPoolTVLRequest as ElysMasterchefQueryAllLiquidityPoolTVLRequest,
+  QueryAllLiquidityPoolTVLResponse as ElysMasterchefQueryAllLiquidityPoolTVLResponse,
+  QueryChainTVLRequest as ElysMasterchefQueryChainTVLRequest,
+  QueryChainTVLResponse as ElysMasterchefQueryChainTVLResponse,
   QueryParamsRequest as ElysMasterchefQueryParamsRequest,
   QueryParamsResponse as ElysMasterchefQueryParamsResponse,
   QueryExternalIncentiveRequest as ElysMasterchefQueryExternalIncentiveRequest,
@@ -6461,6 +6954,8 @@ export {
   QueryAprService as ElysMasterchefQueryAprService,
   QueryAprsService as ElysMasterchefQueryAprsService,
   QueryPoolRewardsService as ElysMasterchefQueryPoolRewardsService,
+  QueryAllLiquidityPoolTVLService as ElysMasterchefQueryAllLiquidityPoolTVLService,
+  QueryChainTVLService as ElysMasterchefQueryChainTVLService,
 } from "./elys/masterchef/query_cosmes.js";
 export {
   PoolInfo as ElysMasterchefPoolInfo,
@@ -6513,6 +7008,10 @@ export {
   MsgRemovePoolResponse as ElysLeveragelpMsgRemovePoolResponse,
   MsgClosePositions as ElysLeveragelpMsgClosePositions,
   MsgClosePositionsResponse as ElysLeveragelpMsgClosePositionsResponse,
+  MsgUpdatePool as ElysLeveragelpMsgUpdatePool,
+  MsgUpdatePoolResponse as ElysLeveragelpMsgUpdatePoolResponse,
+  MsgUpdateEnabledPools as ElysLeveragelpMsgUpdateEnabledPools,
+  MsgUpdateEnabledPoolsResponse as ElysLeveragelpMsgUpdateEnabledPoolsResponse,
 } from "./elys/leveragelp/tx_pb.js";
 export {
   MsgOpenService as ElysLeveragelpMsgOpenService,
@@ -6525,6 +7024,8 @@ export {
   MsgDewhitelistService as ElysLeveragelpMsgDewhitelistService,
   MsgUpdateStopLossService as ElysLeveragelpMsgUpdateStopLossService,
   MsgClosePositionsService as ElysLeveragelpMsgClosePositionsService,
+  MsgUpdatePoolService as ElysLeveragelpMsgUpdatePoolService,
+  MsgUpdateEnabledPoolsService as ElysLeveragelpMsgUpdateEnabledPoolsService,
 } from "./elys/leveragelp/tx_cosmes.js";
 export {
   ParamsRequest as ElysLeveragelpParamsRequest,

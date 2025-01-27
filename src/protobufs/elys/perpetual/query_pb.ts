@@ -1231,6 +1231,11 @@ export class PoolResponse extends Message<PoolResponse> {
    */
   totalShortOpenInterest = "";
 
+  /**
+   * @generated from field: string leverage_max = 14;
+   */
+  leverageMax = "";
+
   constructor(data?: PartialMessage<PoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1252,6 +1257,7 @@ export class PoolResponse extends Message<PoolResponse> {
     { no: 11, name: "total_liabilities", kind: "message", T: Coin },
     { no: 12, name: "total_long_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 13, name: "total_short_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolResponse {
