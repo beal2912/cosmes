@@ -455,6 +455,45 @@ export class GasParameters extends Message<GasParameters> {
 }
 
 /**
+ * @generated from message pryzm.amm.v1.WeightedPoolParameters
+ */
+export class WeightedPoolParameters extends Message<WeightedPoolParameters> {
+  /**
+   * This is applied only if the pool is initialized, for drained pools weights can be updated instantly.
+   *
+   * @generated from field: int64 min_weight_update_duration_millis = 1;
+   */
+  minWeightUpdateDurationMillis = protoInt64.zero;
+
+  constructor(data?: PartialMessage<WeightedPoolParameters>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.WeightedPoolParameters";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "min_weight_update_duration_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): WeightedPoolParameters {
+    return new WeightedPoolParameters().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): WeightedPoolParameters {
+    return new WeightedPoolParameters().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): WeightedPoolParameters {
+    return new WeightedPoolParameters().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: WeightedPoolParameters | PlainMessage<WeightedPoolParameters> | undefined, b: WeightedPoolParameters | PlainMessage<WeightedPoolParameters> | undefined): boolean {
+    return proto3.util.equals(WeightedPoolParameters, a, b);
+  }
+}
+
+/**
  * Params defines the parameters for the module.
  *
  * @generated from message pryzm.amm.v1.Params
@@ -485,6 +524,11 @@ export class Params extends Message<Params> {
    */
   gasParameters?: GasParameters;
 
+  /**
+   * @generated from field: pryzm.amm.v1.WeightedPoolParameters weighted_pool_parameters = 6;
+   */
+  weightedPoolParameters?: WeightedPoolParameters;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -498,6 +542,7 @@ export class Params extends Message<Params> {
     { no: 3, name: "order_parameters", kind: "message", T: OrderParameters },
     { no: 4, name: "authorization_parameters", kind: "message", T: AuthorizationParameters },
     { no: 5, name: "gas_parameters", kind: "message", T: GasParameters },
+    { no: 6, name: "weighted_pool_parameters", kind: "message", T: WeightedPoolParameters },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

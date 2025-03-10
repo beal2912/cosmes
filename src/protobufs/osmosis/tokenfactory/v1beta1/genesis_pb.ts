@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { Params } from "../params_pb.js";
+import { Params } from "./params_pb.js";
 import { DenomAuthorityMetadata } from "./authorityMetadata_pb.js";
 
 /**
@@ -17,7 +17,7 @@ export class GenesisState extends Message<GenesisState> {
   /**
    * params defines the parameters of the module.
    *
-   * @generated from field: osmosis.tokenfactory.Params params = 1;
+   * @generated from field: osmosis.tokenfactory.v1beta1.Params params = 1;
    */
   params?: Params;
 
@@ -73,11 +73,6 @@ export class GenesisDenom extends Message<GenesisDenom> {
    */
   authorityMetadata?: DenomAuthorityMetadata;
 
-  /**
-   * @generated from field: string hook_contract_address = 3;
-   */
-  hookContractAddress = "";
-
   constructor(data?: PartialMessage<GenesisDenom>) {
     super();
     proto3.util.initPartial(data, this);
@@ -88,7 +83,6 @@ export class GenesisDenom extends Message<GenesisDenom> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "authority_metadata", kind: "message", T: DenomAuthorityMetadata },
-    { no: 3, name: "hook_contract_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisDenom {

@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 
 /**
@@ -21,6 +21,11 @@ export class MsgBond extends Message<MsgBond> {
    */
   amount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgBond>) {
     super();
     proto3.util.initPartial(data, this);
@@ -31,6 +36,7 @@ export class MsgBond extends Message<MsgBond> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBond {
@@ -95,6 +101,11 @@ export class MsgUnbond extends Message<MsgUnbond> {
    */
   amount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgUnbond>) {
     super();
     proto3.util.initPartial(data, this);
@@ -105,6 +116,7 @@ export class MsgUnbond extends Message<MsgUnbond> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUnbond {
@@ -231,6 +243,244 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 
   static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
     return proto3.util.equals(MsgUpdateParamsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.MsgAddPool
+ */
+export class MsgAddPool extends Message<MsgAddPool> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * @generated from field: string deposit_denom = 2;
+   */
+  depositDenom = "";
+
+  /**
+   * @generated from field: string interest_rate = 3;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: string interest_rate_max = 4;
+   */
+  interestRateMax = "";
+
+  /**
+   * @generated from field: string interest_rate_min = 5;
+   */
+  interestRateMin = "";
+
+  /**
+   * @generated from field: string interest_rate_increase = 6;
+   */
+  interestRateIncrease = "";
+
+  /**
+   * @generated from field: string interest_rate_decrease = 7;
+   */
+  interestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 8;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: string max_leverage_ratio = 9;
+   */
+  maxLeverageRatio = "";
+
+  /**
+   * @generated from field: string max_withdraw_ratio = 10;
+   */
+  maxWithdrawRatio = "";
+
+  constructor(data?: PartialMessage<MsgAddPool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MsgAddPool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "deposit_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "max_withdraw_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddPool {
+    return new MsgAddPool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddPool | PlainMessage<MsgAddPool> | undefined, b: MsgAddPool | PlainMessage<MsgAddPool> | undefined): boolean {
+    return proto3.util.equals(MsgAddPool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.MsgAddPoolResponse
+ */
+export class MsgAddPoolResponse extends Message<MsgAddPoolResponse> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgAddPoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MsgAddPoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddPoolResponse {
+    return new MsgAddPoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddPoolResponse | PlainMessage<MsgAddPoolResponse> | undefined, b: MsgAddPoolResponse | PlainMessage<MsgAddPoolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgAddPoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.MsgUpdatePool
+ */
+export class MsgUpdatePool extends Message<MsgUpdatePool> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: string interest_rate_max = 2;
+   */
+  interestRateMax = "";
+
+  /**
+   * @generated from field: string interest_rate_min = 3;
+   */
+  interestRateMin = "";
+
+  /**
+   * @generated from field: string interest_rate_increase = 4;
+   */
+  interestRateIncrease = "";
+
+  /**
+   * @generated from field: string interest_rate_decrease = 5;
+   */
+  interestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 6;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: string max_leverage_ratio = 7;
+   */
+  maxLeverageRatio = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 8;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgUpdatePool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MsgUpdatePool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePool {
+    return new MsgUpdatePool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdatePool | PlainMessage<MsgUpdatePool> | undefined, b: MsgUpdatePool | PlainMessage<MsgUpdatePool> | undefined): boolean {
+    return proto3.util.equals(MsgUpdatePool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.MsgUpdatePoolResponse
+ */
+export class MsgUpdatePoolResponse extends Message<MsgUpdatePoolResponse> {
+  constructor(data?: PartialMessage<MsgUpdatePoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MsgUpdatePoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdatePoolResponse {
+    return new MsgUpdatePoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdatePoolResponse | PlainMessage<MsgUpdatePoolResponse> | undefined, b: MsgUpdatePoolResponse | PlainMessage<MsgUpdatePoolResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdatePoolResponse, a, b);
   }
 }
 

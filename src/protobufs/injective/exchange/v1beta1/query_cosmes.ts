@@ -3,9 +3,29 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MitoVaultInfosRequest, MitoVaultInfosResponse, QueryAccountAddressDerivativeOrdersRequest, QueryAccountAddressDerivativeOrdersResponse, QueryAccountAddressSpotOrdersRequest, QueryAccountAddressSpotOrdersResponse, QueryActiveStakeGrantRequest, QueryActiveStakeGrantResponse, QueryAggregateMarketVolumeRequest, QueryAggregateMarketVolumeResponse, QueryAggregateMarketVolumesRequest, QueryAggregateMarketVolumesResponse, QueryAggregateVolumeRequest, QueryAggregateVolumeResponse, QueryAggregateVolumesRequest, QueryAggregateVolumesResponse, QueryBalanceMismatchesRequest, QueryBalanceMismatchesResponse, QueryBalanceWithBalanceHoldsRequest, QueryBalanceWithBalanceHoldsResponse, QueryBinaryMarketsRequest, QueryBinaryMarketsResponse, QueryDenomDecimalRequest, QueryDenomDecimalResponse, QueryDenomDecimalsRequest, QueryDenomDecimalsResponse, QueryDerivativeMarketAddressRequest, QueryDerivativeMarketAddressResponse, QueryDerivativeMarketRequest, QueryDerivativeMarketResponse, QueryDerivativeMarketsRequest, QueryDerivativeMarketsResponse, QueryDerivativeMidPriceAndTOBRequest, QueryDerivativeMidPriceAndTOBResponse, QueryDerivativeOrderbookRequest, QueryDerivativeOrderbookResponse, QueryDerivativeOrdersByHashesRequest, QueryDerivativeOrdersByHashesResponse, QueryExchangeBalancesRequest, QueryExchangeBalancesResponse, QueryExchangeParamsRequest, QueryExchangeParamsResponse, QueryExpiryFuturesMarketInfoRequest, QueryExpiryFuturesMarketInfoResponse, QueryFeeDiscountAccountInfoRequest, QueryFeeDiscountAccountInfoResponse, QueryFeeDiscountScheduleRequest, QueryFeeDiscountScheduleResponse, QueryFeeDiscountTierStatisticsRequest, QueryFeeDiscountTierStatisticsResponse, QueryFullSpotMarketRequest, QueryFullSpotMarketResponse, QueryFullSpotMarketsRequest, QueryFullSpotMarketsResponse, QueryGrantAuthorizationRequest, QueryGrantAuthorizationResponse, QueryGrantAuthorizationsRequest, QueryGrantAuthorizationsResponse, QueryHistoricalTradeRecordsRequest, QueryHistoricalTradeRecordsResponse, QueryIsOptedOutOfRewardsRequest, QueryIsOptedOutOfRewardsResponse, QueryMarketAtomicExecutionFeeMultiplierRequest, QueryMarketAtomicExecutionFeeMultiplierResponse, QueryMarketIDFromVaultRequest, QueryMarketIDFromVaultResponse, QueryMarketVolatilityRequest, QueryMarketVolatilityResponse, QueryModuleStateRequest, QueryModuleStateResponse, QueryOptedOutOfRewardsAccountsRequest, QueryOptedOutOfRewardsAccountsResponse, QueryPerpetualMarketFundingRequest, QueryPerpetualMarketFundingResponse, QueryPerpetualMarketInfoRequest, QueryPerpetualMarketInfoResponse, QueryPositionsRequest, QueryPositionsResponse, QuerySpotMarketRequest, QuerySpotMarketResponse, QuerySpotMarketsRequest, QuerySpotMarketsResponse, QuerySpotMidPriceAndTOBRequest, QuerySpotMidPriceAndTOBResponse, QuerySpotOrderbookRequest, QuerySpotOrderbookResponse, QuerySpotOrdersByHashesRequest, QuerySpotOrdersByHashesResponse, QuerySubaccountDepositRequest, QuerySubaccountDepositResponse, QuerySubaccountDepositsRequest, QuerySubaccountDepositsResponse, QuerySubaccountEffectivePositionInMarketRequest, QuerySubaccountEffectivePositionInMarketResponse, QuerySubaccountOrderMetadataRequest, QuerySubaccountOrderMetadataResponse, QuerySubaccountOrdersRequest, QuerySubaccountOrdersResponse, QuerySubaccountPositionInMarketRequest, QuerySubaccountPositionInMarketResponse, QuerySubaccountPositionsRequest, QuerySubaccountPositionsResponse, QuerySubaccountTradeNonceRequest, QuerySubaccountTradeNonceResponse, QueryTraderDerivativeConditionalOrdersRequest, QueryTraderDerivativeConditionalOrdersResponse, QueryTraderDerivativeOrdersRequest, QueryTraderDerivativeOrdersResponse, QueryTradeRewardCampaignRequest, QueryTradeRewardCampaignResponse, QueryTradeRewardPointsRequest, QueryTradeRewardPointsResponse, QueryTraderSpotOrdersRequest, QueryTraderSpotOrdersResponse } from "./query_pb.js";
+import { MitoVaultInfosRequest, MitoVaultInfosResponse, QueryAccountAddressDerivativeOrdersRequest, QueryAccountAddressDerivativeOrdersResponse, QueryAccountAddressSpotOrdersRequest, QueryAccountAddressSpotOrdersResponse, QueryActiveStakeGrantRequest, QueryActiveStakeGrantResponse, QueryAggregateMarketVolumeRequest, QueryAggregateMarketVolumeResponse, QueryAggregateMarketVolumesRequest, QueryAggregateMarketVolumesResponse, QueryAggregateVolumeRequest, QueryAggregateVolumeResponse, QueryAggregateVolumesRequest, QueryAggregateVolumesResponse, QueryBalanceMismatchesRequest, QueryBalanceMismatchesResponse, QueryBalanceWithBalanceHoldsRequest, QueryBalanceWithBalanceHoldsResponse, QueryBinaryMarketsRequest, QueryBinaryMarketsResponse, QueryDenomDecimalRequest, QueryDenomDecimalResponse, QueryDenomDecimalsRequest, QueryDenomDecimalsResponse, QueryDenomMinNotionalRequest, QueryDenomMinNotionalResponse, QueryDenomMinNotionalsRequest, QueryDenomMinNotionalsResponse, QueryDerivativeMarketAddressRequest, QueryDerivativeMarketAddressResponse, QueryDerivativeMarketRequest, QueryDerivativeMarketResponse, QueryDerivativeMarketsRequest, QueryDerivativeMarketsResponse, QueryDerivativeMidPriceAndTOBRequest, QueryDerivativeMidPriceAndTOBResponse, QueryDerivativeOrderbookRequest, QueryDerivativeOrderbookResponse, QueryDerivativeOrdersByHashesRequest, QueryDerivativeOrdersByHashesResponse, QueryExchangeBalancesRequest, QueryExchangeBalancesResponse, QueryExchangeParamsRequest, QueryExchangeParamsResponse, QueryExpiryFuturesMarketInfoRequest, QueryExpiryFuturesMarketInfoResponse, QueryFeeDiscountAccountInfoRequest, QueryFeeDiscountAccountInfoResponse, QueryFeeDiscountScheduleRequest, QueryFeeDiscountScheduleResponse, QueryFeeDiscountTierStatisticsRequest, QueryFeeDiscountTierStatisticsResponse, QueryFullDerivativeOrderbookRequest, QueryFullDerivativeOrderbookResponse, QueryFullSpotMarketRequest, QueryFullSpotMarketResponse, QueryFullSpotMarketsRequest, QueryFullSpotMarketsResponse, QueryFullSpotOrderbookRequest, QueryFullSpotOrderbookResponse, QueryGrantAuthorizationRequest, QueryGrantAuthorizationResponse, QueryGrantAuthorizationsRequest, QueryGrantAuthorizationsResponse, QueryHistoricalTradeRecordsRequest, QueryHistoricalTradeRecordsResponse, QueryIsOptedOutOfRewardsRequest, QueryIsOptedOutOfRewardsResponse, QueryMarketAtomicExecutionFeeMultiplierRequest, QueryMarketAtomicExecutionFeeMultiplierResponse, QueryMarketBalanceRequest, QueryMarketBalanceResponse, QueryMarketBalancesRequest, QueryMarketBalancesResponse, QueryMarketIDFromVaultRequest, QueryMarketIDFromVaultResponse, QueryMarketVolatilityRequest, QueryMarketVolatilityResponse, QueryModuleStateRequest, QueryModuleStateResponse, QueryOptedOutOfRewardsAccountsRequest, QueryOptedOutOfRewardsAccountsResponse, QueryPerpetualMarketFundingRequest, QueryPerpetualMarketFundingResponse, QueryPerpetualMarketInfoRequest, QueryPerpetualMarketInfoResponse, QueryPositionsRequest, QueryPositionsResponse, QuerySpotMarketRequest, QuerySpotMarketResponse, QuerySpotMarketsRequest, QuerySpotMarketsResponse, QuerySpotMidPriceAndTOBRequest, QuerySpotMidPriceAndTOBResponse, QuerySpotOrderbookRequest, QuerySpotOrderbookResponse, QuerySpotOrdersByHashesRequest, QuerySpotOrdersByHashesResponse, QuerySubaccountDepositRequest, QuerySubaccountDepositResponse, QuerySubaccountDepositsRequest, QuerySubaccountDepositsResponse, QuerySubaccountEffectivePositionInMarketRequest, QuerySubaccountEffectivePositionInMarketResponse, QuerySubaccountOrderMetadataRequest, QuerySubaccountOrderMetadataResponse, QuerySubaccountOrdersRequest, QuerySubaccountOrdersResponse, QuerySubaccountPositionInMarketRequest, QuerySubaccountPositionInMarketResponse, QuerySubaccountPositionsRequest, QuerySubaccountPositionsResponse, QuerySubaccountTradeNonceRequest, QuerySubaccountTradeNonceResponse, QueryTraderDerivativeConditionalOrdersRequest, QueryTraderDerivativeConditionalOrdersResponse, QueryTraderDerivativeOrdersRequest, QueryTraderDerivativeOrdersResponse, QueryTradeRewardCampaignRequest, QueryTradeRewardCampaignResponse, QueryTradeRewardPointsRequest, QueryTradeRewardPointsResponse, QueryTraderSpotOrdersRequest, QueryTraderSpotOrdersResponse } from "./query_pb.js";
 
 const TYPE_NAME = "injective.exchange.v1beta1.Query";
+
+/**
+ * @generated from rpc injective.exchange.v1beta1.Query.L3DerivativeOrderBook
+ */
+export const QueryL3DerivativeOrderBookService = {
+  typeName: TYPE_NAME,
+  method: "L3DerivativeOrderBook",
+  Request: QueryFullDerivativeOrderbookRequest,
+  Response: QueryFullDerivativeOrderbookResponse,
+} as const;
+
+/**
+ * @generated from rpc injective.exchange.v1beta1.Query.L3SpotOrderBook
+ */
+export const QueryL3SpotOrderBookService = {
+  typeName: TYPE_NAME,
+  method: "L3SpotOrderBook",
+  Request: QueryFullSpotOrderbookRequest,
+  Response: QueryFullSpotOrderbookResponse,
+} as const;
 
 /**
  * Retrieves exchange params
@@ -728,5 +748,53 @@ export const QueryGrantAuthorizationsService = {
   method: "GrantAuthorizations",
   Request: QueryGrantAuthorizationsRequest,
   Response: QueryGrantAuthorizationsResponse,
+} as const;
+
+/**
+ * Retrieves a derivative or binary options market's balance
+ *
+ * @generated from rpc injective.exchange.v1beta1.Query.MarketBalance
+ */
+export const QueryMarketBalanceService = {
+  typeName: TYPE_NAME,
+  method: "MarketBalance",
+  Request: QueryMarketBalanceRequest,
+  Response: QueryMarketBalanceResponse,
+} as const;
+
+/**
+ * Retrieves all derivative or binary options market balances
+ *
+ * @generated from rpc injective.exchange.v1beta1.Query.MarketBalances
+ */
+export const QueryMarketBalancesService = {
+  typeName: TYPE_NAME,
+  method: "MarketBalances",
+  Request: QueryMarketBalancesRequest,
+  Response: QueryMarketBalancesResponse,
+} as const;
+
+/**
+ * Retrieves the min notional for a denom
+ *
+ * @generated from rpc injective.exchange.v1beta1.Query.DenomMinNotional
+ */
+export const QueryDenomMinNotionalService = {
+  typeName: TYPE_NAME,
+  method: "DenomMinNotional",
+  Request: QueryDenomMinNotionalRequest,
+  Response: QueryDenomMinNotionalResponse,
+} as const;
+
+/**
+ * Retrieves the min notionals for all denoms
+ *
+ * @generated from rpc injective.exchange.v1beta1.Query.DenomMinNotionals
+ */
+export const QueryDenomMinNotionalsService = {
+  typeName: TYPE_NAME,
+  method: "DenomMinNotionals",
+  Request: QueryDenomMinNotionalsRequest,
+  Response: QueryDenomMinNotionalsResponse,
 } as const;
 

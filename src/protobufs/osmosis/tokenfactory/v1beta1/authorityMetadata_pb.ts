@@ -17,9 +17,9 @@ export class DenomAuthorityMetadata extends Message<DenomAuthorityMetadata> {
   /**
    * Can be empty for no admin, or a valid osmosis address
    *
-   * @generated from field: string Admin = 1;
+   * @generated from field: string admin = 1;
    */
-  Admin = "";
+  admin = "";
 
   constructor(data?: PartialMessage<DenomAuthorityMetadata>) {
     super();
@@ -29,7 +29,7 @@ export class DenomAuthorityMetadata extends Message<DenomAuthorityMetadata> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "osmosis.tokenfactory.v1beta1.DenomAuthorityMetadata";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "Admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DenomAuthorityMetadata {

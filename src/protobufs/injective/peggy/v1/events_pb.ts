@@ -991,3 +991,160 @@ export class EventValidatorSlash extends Message<EventValidatorSlash> {
   }
 }
 
+/**
+ * @generated from message injective.peggy.v1.EventDepositReceived
+ */
+export class EventDepositReceived extends Message<EventDepositReceived> {
+  /**
+   * Ethereum sender address
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * Injective receiver address
+   *
+   * @generated from field: string receiver = 2;
+   */
+  receiver = "";
+
+  /**
+   * Coin deposited to Injective
+   *
+   * @generated from field: string amount = 3;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<EventDepositReceived>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.EventDepositReceived";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "receiver", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventDepositReceived {
+    return new EventDepositReceived().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventDepositReceived {
+    return new EventDepositReceived().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventDepositReceived {
+    return new EventDepositReceived().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventDepositReceived | PlainMessage<EventDepositReceived> | undefined, b: EventDepositReceived | PlainMessage<EventDepositReceived> | undefined): boolean {
+    return proto3.util.equals(EventDepositReceived, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.EventWithdrawalsCompleted
+ */
+export class EventWithdrawalsCompleted extends Message<EventWithdrawalsCompleted> {
+  /**
+   * token denom of each withdrawal
+   *
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * individual withdrawals
+   *
+   * @generated from field: repeated injective.peggy.v1.Withdrawal withdrawals = 2;
+   */
+  withdrawals: Withdrawal[] = [];
+
+  constructor(data?: PartialMessage<EventWithdrawalsCompleted>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.EventWithdrawalsCompleted";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "withdrawals", kind: "message", T: Withdrawal, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventWithdrawalsCompleted {
+    return new EventWithdrawalsCompleted().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventWithdrawalsCompleted {
+    return new EventWithdrawalsCompleted().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventWithdrawalsCompleted {
+    return new EventWithdrawalsCompleted().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventWithdrawalsCompleted | PlainMessage<EventWithdrawalsCompleted> | undefined, b: EventWithdrawalsCompleted | PlainMessage<EventWithdrawalsCompleted> | undefined): boolean {
+    return proto3.util.equals(EventWithdrawalsCompleted, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.Withdrawal
+ */
+export class Withdrawal extends Message<Withdrawal> {
+  /**
+   * Injective sender address
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * Ethereum receiver address
+   *
+   * @generated from field: string receiver = 2;
+   */
+  receiver = "";
+
+  /**
+   * Amount of tokens withdrawn to Ethereum
+   *
+   * @generated from field: string amount = 3;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<Withdrawal>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.Withdrawal";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "receiver", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Withdrawal {
+    return new Withdrawal().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Withdrawal {
+    return new Withdrawal().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Withdrawal {
+    return new Withdrawal().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: Withdrawal | PlainMessage<Withdrawal> | undefined, b: Withdrawal | PlainMessage<Withdrawal> | undefined): boolean {
+    return proto3.util.equals(Withdrawal, a, b);
+  }
+}
+

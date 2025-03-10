@@ -6,6 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { AssetState } from "./asset_state_pb.js";
+import { Params } from "./params_pb.js";
 
 /**
  * @generated from message pryzm.refractor.v1.EventRefract
@@ -236,6 +237,43 @@ export class EventSetAssetState extends Message<EventSetAssetState> {
 
   static equals(a: EventSetAssetState | PlainMessage<EventSetAssetState> | undefined, b: EventSetAssetState | PlainMessage<EventSetAssetState> | undefined): boolean {
     return proto3.util.equals(EventSetAssetState, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.refractor.v1.EventSetParams
+ */
+export class EventSetParams extends Message<EventSetParams> {
+  /**
+   * @generated from field: pryzm.refractor.v1.Params params = 1;
+   */
+  params?: Params;
+
+  constructor(data?: PartialMessage<EventSetParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.refractor.v1.EventSetParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "params", kind: "message", T: Params },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetParams {
+    return new EventSetParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventSetParams {
+    return new EventSetParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventSetParams {
+    return new EventSetParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventSetParams | PlainMessage<EventSetParams> | undefined, b: EventSetParams | PlainMessage<EventSetParams> | undefined): boolean {
+    return proto3.util.equals(EventSetParams, a, b);
   }
 }
 

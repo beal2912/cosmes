@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { PairMatchProposal } from "./pair_match_proposal_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
+import { MatchedPairSummary } from "../v1/pair_match_proposal_pb.js";
 
 /**
  * @generated from message pryzm.amm.v2.MsgProposeMatch
@@ -77,6 +78,11 @@ export class MsgProposeMatchResponse extends Message<MsgProposeMatchResponse> {
    */
   proposerReward: Coin[] = [];
 
+  /**
+   * @generated from field: repeated pryzm.amm.v1.MatchedPairSummary matched_pairs = 2;
+   */
+  matchedPairs: MatchedPairSummary[] = [];
+
   constructor(data?: PartialMessage<MsgProposeMatchResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -86,6 +92,7 @@ export class MsgProposeMatchResponse extends Message<MsgProposeMatchResponse> {
   static readonly typeName = "pryzm.amm.v2.MsgProposeMatchResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "proposer_reward", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "matched_pairs", kind: "message", T: MatchedPairSummary, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgProposeMatchResponse {

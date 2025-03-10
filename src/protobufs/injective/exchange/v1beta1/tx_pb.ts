@@ -8,6 +8,7 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { DerivativeOrder, GrantAuthorization, MarketStatus, Params, PositionDelta, SpotOrder } from "./exchange_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 import { OracleType } from "../../oracle/v1beta1/oracle_pb.js";
+import { BatchExchangeModificationProposal } from "./proposal_pb.js";
 
 /**
  * @generated from message injective.exchange.v1beta1.MsgUpdateSpotMarket
@@ -746,6 +747,20 @@ export class MsgInstantSpotMarketLaunch extends Message<MsgInstantSpotMarketLaun
    */
   minNotional = "";
 
+  /**
+   * base token decimals
+   *
+   * @generated from field: uint32 base_decimals = 8;
+   */
+  baseDecimals = 0;
+
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 9;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<MsgInstantSpotMarketLaunch>) {
     super();
     proto3.util.initPartial(data, this);
@@ -761,6 +776,8 @@ export class MsgInstantSpotMarketLaunch extends Message<MsgInstantSpotMarketLaun
     { no: 5, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "base_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 9, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantSpotMarketLaunch {
@@ -4070,6 +4087,82 @@ export class MsgActivateStakeGrantResponse extends Message<MsgActivateStakeGrant
 
   static equals(a: MsgActivateStakeGrantResponse | PlainMessage<MsgActivateStakeGrantResponse> | undefined, b: MsgActivateStakeGrantResponse | PlainMessage<MsgActivateStakeGrantResponse> | undefined): boolean {
     return proto3.util.equals(MsgActivateStakeGrantResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v1beta1.MsgBatchExchangeModification
+ */
+export class MsgBatchExchangeModification extends Message<MsgBatchExchangeModification> {
+  /**
+   * message sender, that is also the TX signer
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * @generated from field: injective.exchange.v1beta1.BatchExchangeModificationProposal proposal = 2;
+   */
+  proposal?: BatchExchangeModificationProposal;
+
+  constructor(data?: PartialMessage<MsgBatchExchangeModification>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgBatchExchangeModification";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "proposal", kind: "message", T: BatchExchangeModificationProposal },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBatchExchangeModification {
+    return new MsgBatchExchangeModification().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgBatchExchangeModification {
+    return new MsgBatchExchangeModification().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgBatchExchangeModification {
+    return new MsgBatchExchangeModification().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgBatchExchangeModification | PlainMessage<MsgBatchExchangeModification> | undefined, b: MsgBatchExchangeModification | PlainMessage<MsgBatchExchangeModification> | undefined): boolean {
+    return proto3.util.equals(MsgBatchExchangeModification, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v1beta1.MsgBatchExchangeModificationResponse
+ */
+export class MsgBatchExchangeModificationResponse extends Message<MsgBatchExchangeModificationResponse> {
+  constructor(data?: PartialMessage<MsgBatchExchangeModificationResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgBatchExchangeModificationResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBatchExchangeModificationResponse {
+    return new MsgBatchExchangeModificationResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgBatchExchangeModificationResponse {
+    return new MsgBatchExchangeModificationResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgBatchExchangeModificationResponse {
+    return new MsgBatchExchangeModificationResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgBatchExchangeModificationResponse | PlainMessage<MsgBatchExchangeModificationResponse> | undefined, b: MsgBatchExchangeModificationResponse | PlainMessage<MsgBatchExchangeModificationResponse> | undefined): boolean {
+    return proto3.util.equals(MsgBatchExchangeModificationResponse, a, b);
   }
 }
 

@@ -729,6 +729,13 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
    */
   adminPermissions = 0;
 
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 20;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<DerivativeMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -756,6 +763,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
     { no: 17, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 18, name: "admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 19, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 20, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DerivativeMarket {
@@ -916,6 +924,13 @@ export class BinaryOptionsMarket extends Message<BinaryOptionsMarket> {
    */
   adminPermissions = 0;
 
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 20;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<BinaryOptionsMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -943,6 +958,7 @@ export class BinaryOptionsMarket extends Message<BinaryOptionsMarket> {
     { no: 17, name: "settlement_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 18, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 19, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 20, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BinaryOptionsMarket {
@@ -1406,6 +1422,20 @@ export class SpotMarket extends Message<SpotMarket> {
    */
   adminPermissions = 0;
 
+  /**
+   * base token decimals
+   *
+   * @generated from field: uint32 base_decimals = 14;
+   */
+  baseDecimals = 0;
+
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 15;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<SpotMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1427,6 +1457,8 @@ export class SpotMarket extends Message<SpotMarket> {
     { no: 11, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 12, name: "admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 13, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 14, name: "base_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 15, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SpotMarket {
@@ -3584,6 +3616,49 @@ export class EffectiveGrant extends Message<EffectiveGrant> {
 
   static equals(a: EffectiveGrant | PlainMessage<EffectiveGrant> | undefined, b: EffectiveGrant | PlainMessage<EffectiveGrant> | undefined): boolean {
     return proto3.util.equals(EffectiveGrant, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v1beta1.DenomMinNotional
+ */
+export class DenomMinNotional extends Message<DenomMinNotional> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string min_notional = 2;
+   */
+  minNotional = "";
+
+  constructor(data?: PartialMessage<DenomMinNotional>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.DenomMinNotional";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DenomMinNotional {
+    return new DenomMinNotional().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DenomMinNotional {
+    return new DenomMinNotional().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DenomMinNotional {
+    return new DenomMinNotional().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DenomMinNotional | PlainMessage<DenomMinNotional> | undefined, b: DenomMinNotional | PlainMessage<DenomMinNotional> | undefined): boolean {
+    return proto3.util.equals(DenomMinNotional, a, b);
   }
 }
 

@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { Params } from "../params_pb.js";
+import { Params } from "./params_pb.js";
 import { DenomAuthorityMetadata } from "./authorityMetadata_pb.js";
 
 /**
@@ -50,7 +50,7 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
   /**
    * params defines the parameters of the module.
    *
-   * @generated from field: osmosis.tokenfactory.Params params = 1;
+   * @generated from field: osmosis.tokenfactory.v1beta1.Params params = 1;
    */
   params?: Params;
 
@@ -90,14 +90,9 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
  */
 export class QueryDenomAuthorityMetadataRequest extends Message<QueryDenomAuthorityMetadataRequest> {
   /**
-   * @generated from field: string creator = 1;
+   * @generated from field: string denom = 1;
    */
-  creator = "";
-
-  /**
-   * @generated from field: string subdenom = 2;
-   */
-  subdenom = "";
+  denom = "";
 
   constructor(data?: PartialMessage<QueryDenomAuthorityMetadataRequest>) {
     super();
@@ -107,8 +102,7 @@ export class QueryDenomAuthorityMetadataRequest extends Message<QueryDenomAuthor
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "subdenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomAuthorityMetadataRequest {
@@ -249,21 +243,13 @@ export class QueryDenomsFromCreatorResponse extends Message<QueryDenomsFromCreat
 }
 
 /**
- * QueryBeforeSendHookAddressRequest defines the request structure for the
- * BeforeSendHookAddress gRPC query.
- *
  * @generated from message osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressRequest
  */
 export class QueryBeforeSendHookAddressRequest extends Message<QueryBeforeSendHookAddressRequest> {
   /**
-   * @generated from field: string creator = 1;
+   * @generated from field: string denom = 1;
    */
-  creator = "";
-
-  /**
-   * @generated from field: string subdenom = 2;
-   */
-  subdenom = "";
+  denom = "";
 
   constructor(data?: PartialMessage<QueryBeforeSendHookAddressRequest>) {
     super();
@@ -273,8 +259,7 @@ export class QueryBeforeSendHookAddressRequest extends Message<QueryBeforeSendHo
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "subdenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBeforeSendHookAddressRequest {
@@ -296,15 +281,15 @@ export class QueryBeforeSendHookAddressRequest extends Message<QueryBeforeSendHo
 
 /**
  * QueryBeforeSendHookAddressResponse defines the response structure for the
- * BeforeSendHookAddress gRPC query.
+ * DenomBeforeSendHook gRPC query.
  *
  * @generated from message osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressResponse
  */
 export class QueryBeforeSendHookAddressResponse extends Message<QueryBeforeSendHookAddressResponse> {
   /**
-   * @generated from field: string contract_addr = 1;
+   * @generated from field: string cosmwasm_address = 1;
    */
-  contractAddr = "";
+  cosmwasmAddress = "";
 
   constructor(data?: PartialMessage<QueryBeforeSendHookAddressResponse>) {
     super();
@@ -314,7 +299,7 @@ export class QueryBeforeSendHookAddressResponse extends Message<QueryBeforeSendH
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "contract_addr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "cosmwasm_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBeforeSendHookAddressResponse {
@@ -335,88 +320,79 @@ export class QueryBeforeSendHookAddressResponse extends Message<QueryBeforeSendH
 }
 
 /**
- * QueryFullDenomRequest defines the request structure for the
- * FullDenom gRPC query.
- *
- * @generated from message osmosis.tokenfactory.v1beta1.QueryFullDenomRequest
+ * @generated from message osmosis.tokenfactory.v1beta1.QueryAllBeforeSendHooksAddressesRequest
  */
-export class QueryFullDenomRequest extends Message<QueryFullDenomRequest> {
-  /**
-   * @generated from field: string creator = 1;
-   */
-  creator = "";
-
-  /**
-   * @generated from field: string subdenom = 2;
-   */
-  subdenom = "";
-
-  constructor(data?: PartialMessage<QueryFullDenomRequest>) {
+export class QueryAllBeforeSendHooksAddressesRequest extends Message<QueryAllBeforeSendHooksAddressesRequest> {
+  constructor(data?: PartialMessage<QueryAllBeforeSendHooksAddressesRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryFullDenomRequest";
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryAllBeforeSendHooksAddressesRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "subdenom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFullDenomRequest {
-    return new QueryFullDenomRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllBeforeSendHooksAddressesRequest {
+    return new QueryAllBeforeSendHooksAddressesRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryFullDenomRequest {
-    return new QueryFullDenomRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllBeforeSendHooksAddressesRequest {
+    return new QueryAllBeforeSendHooksAddressesRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryFullDenomRequest {
-    return new QueryFullDenomRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllBeforeSendHooksAddressesRequest {
+    return new QueryAllBeforeSendHooksAddressesRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryFullDenomRequest | PlainMessage<QueryFullDenomRequest> | undefined, b: QueryFullDenomRequest | PlainMessage<QueryFullDenomRequest> | undefined): boolean {
-    return proto3.util.equals(QueryFullDenomRequest, a, b);
+  static equals(a: QueryAllBeforeSendHooksAddressesRequest | PlainMessage<QueryAllBeforeSendHooksAddressesRequest> | undefined, b: QueryAllBeforeSendHooksAddressesRequest | PlainMessage<QueryAllBeforeSendHooksAddressesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllBeforeSendHooksAddressesRequest, a, b);
   }
 }
 
 /**
- * QueryFullDenomResponse defines the response structure for the
- * FullDenom gRPC query.
+ * QueryAllBeforeSendHooksAddressesResponse defines the response structure for
+ * the AllBeforeSendHooksAddresses gRPC query.
  *
- * @generated from message osmosis.tokenfactory.v1beta1.QueryFullDenomResponse
+ * @generated from message osmosis.tokenfactory.v1beta1.QueryAllBeforeSendHooksAddressesResponse
  */
-export class QueryFullDenomResponse extends Message<QueryFullDenomResponse> {
+export class QueryAllBeforeSendHooksAddressesResponse extends Message<QueryAllBeforeSendHooksAddressesResponse> {
   /**
-   * @generated from field: string full_denom = 1;
+   * @generated from field: repeated string denoms = 1;
    */
-  fullDenom = "";
+  denoms: string[] = [];
 
-  constructor(data?: PartialMessage<QueryFullDenomResponse>) {
+  /**
+   * @generated from field: repeated string before_send_hook_addresses = 2;
+   */
+  beforeSendHookAddresses: string[] = [];
+
+  constructor(data?: PartialMessage<QueryAllBeforeSendHooksAddressesResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryFullDenomResponse";
+  static readonly typeName = "osmosis.tokenfactory.v1beta1.QueryAllBeforeSendHooksAddressesResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "full_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 2, name: "before_send_hook_addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFullDenomResponse {
-    return new QueryFullDenomResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllBeforeSendHooksAddressesResponse {
+    return new QueryAllBeforeSendHooksAddressesResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryFullDenomResponse {
-    return new QueryFullDenomResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllBeforeSendHooksAddressesResponse {
+    return new QueryAllBeforeSendHooksAddressesResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryFullDenomResponse {
-    return new QueryFullDenomResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllBeforeSendHooksAddressesResponse {
+    return new QueryAllBeforeSendHooksAddressesResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryFullDenomResponse | PlainMessage<QueryFullDenomResponse> | undefined, b: QueryFullDenomResponse | PlainMessage<QueryFullDenomResponse> | undefined): boolean {
-    return proto3.util.equals(QueryFullDenomResponse, a, b);
+  static equals(a: QueryAllBeforeSendHooksAddressesResponse | PlainMessage<QueryAllBeforeSendHooksAddressesResponse> | undefined, b: QueryAllBeforeSendHooksAddressesResponse | PlainMessage<QueryAllBeforeSendHooksAddressesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllBeforeSendHooksAddressesResponse, a, b);
   }
 }
 

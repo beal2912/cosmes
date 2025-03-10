@@ -253,3 +253,99 @@ export class ContractInfoByPoolIdResponse extends Message<ContractInfoByPoolIdRe
   }
 }
 
+/**
+ * =============================== PoolRawFilteredState
+ *
+ * @generated from message osmosis.cosmwasmpool.v1beta1.PoolRawFilteredStateRequest
+ */
+export class PoolRawFilteredStateRequest extends Message<PoolRawFilteredStateRequest> {
+  /**
+   * pool_id is the pool id of the requested pool.
+   *
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * key_filter is the key filter of the requested pool.
+   *
+   * @generated from field: string key_filter = 2;
+   */
+  keyFilter = "";
+
+  /**
+   * value_filter is the value filter of the requested pool.
+   *
+   * @generated from field: string value_filter = 3;
+   */
+  valueFilter = "";
+
+  constructor(data?: PartialMessage<PoolRawFilteredStateRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.cosmwasmpool.v1beta1.PoolRawFilteredStateRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "key_filter", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "value_filter", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolRawFilteredStateRequest {
+    return new PoolRawFilteredStateRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PoolRawFilteredStateRequest {
+    return new PoolRawFilteredStateRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PoolRawFilteredStateRequest {
+    return new PoolRawFilteredStateRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PoolRawFilteredStateRequest | PlainMessage<PoolRawFilteredStateRequest> | undefined, b: PoolRawFilteredStateRequest | PlainMessage<PoolRawFilteredStateRequest> | undefined): boolean {
+    return proto3.util.equals(PoolRawFilteredStateRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message osmosis.cosmwasmpool.v1beta1.PoolRawFilteredStateResponse
+ */
+export class PoolRawFilteredStateResponse extends Message<PoolRawFilteredStateResponse> {
+  /**
+   * values represents the list of values in the pool.
+   *
+   * @generated from field: repeated bytes values = 1;
+   */
+  values: Uint8Array[] = [];
+
+  constructor(data?: PartialMessage<PoolRawFilteredStateResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.cosmwasmpool.v1beta1.PoolRawFilteredStateResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "values", kind: "scalar", T: 12 /* ScalarType.BYTES */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolRawFilteredStateResponse {
+    return new PoolRawFilteredStateResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PoolRawFilteredStateResponse {
+    return new PoolRawFilteredStateResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PoolRawFilteredStateResponse {
+    return new PoolRawFilteredStateResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PoolRawFilteredStateResponse | PlainMessage<PoolRawFilteredStateResponse> | undefined, b: PoolRawFilteredStateResponse | PlainMessage<PoolRawFilteredStateResponse> | undefined): boolean {
+    return proto3.util.equals(PoolRawFilteredStateResponse, a, b);
+  }
+}
+

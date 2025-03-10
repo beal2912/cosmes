@@ -385,6 +385,11 @@ export class QueryPoolInfoResponse extends Message<QueryPoolInfoResponse> {
    */
   poolInfo?: PoolInfo;
 
+  /**
+   * @generated from field: string stable_apr = 2;
+   */
+  stableApr = "";
+
   constructor(data?: PartialMessage<QueryPoolInfoResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -394,6 +399,7 @@ export class QueryPoolInfoResponse extends Message<QueryPoolInfoResponse> {
   static readonly typeName = "elys.masterchef.QueryPoolInfoResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_info", kind: "message", T: PoolInfo },
+    { no: 2, name: "stable_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPoolInfoResponse {
@@ -865,12 +871,17 @@ export class PoolApr extends Message<PoolApr> {
   edenApr = "";
 
   /**
-   * @generated from field: string usdc_apr = 3;
+   * @generated from field: string usdc_dex_apr = 3;
    */
-  usdcApr = "";
+  usdcDexApr = "";
 
   /**
-   * @generated from field: string total_apr = 4;
+   * @generated from field: string usdc_gas_apr = 4;
+   */
+  usdcGasApr = "";
+
+  /**
+   * @generated from field: string total_apr = 5;
    */
   totalApr = "";
 
@@ -884,8 +895,9 @@ export class PoolApr extends Message<PoolApr> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "eden_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "usdc_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "total_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "usdc_dex_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "usdc_gas_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "total_apr", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolApr {

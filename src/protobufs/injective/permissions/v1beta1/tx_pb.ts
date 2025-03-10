@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { AddressRoles, Namespace, Role } from "./permissions_pb.js";
+import { Namespace, PolicyManagerCapability, PolicyStatus, Role, RoleActors, RoleManager } from "./permissions_pb.js";
 
 /**
  * @generated from message injective.permissions.v1beta1.MsgUpdateParams
@@ -163,80 +163,6 @@ export class MsgCreateNamespaceResponse extends Message<MsgCreateNamespaceRespon
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.MsgDeleteNamespace
- */
-export class MsgDeleteNamespace extends Message<MsgDeleteNamespace> {
-  /**
-   * @generated from field: string sender = 1;
-   */
-  sender = "";
-
-  /**
-   * @generated from field: string namespace_denom = 2;
-   */
-  namespaceDenom = "";
-
-  constructor(data?: PartialMessage<MsgDeleteNamespace>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgDeleteNamespace";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "namespace_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDeleteNamespace {
-    return new MsgDeleteNamespace().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDeleteNamespace {
-    return new MsgDeleteNamespace().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDeleteNamespace {
-    return new MsgDeleteNamespace().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgDeleteNamespace | PlainMessage<MsgDeleteNamespace> | undefined, b: MsgDeleteNamespace | PlainMessage<MsgDeleteNamespace> | undefined): boolean {
-    return proto3.util.equals(MsgDeleteNamespace, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgDeleteNamespaceResponse
- */
-export class MsgDeleteNamespaceResponse extends Message<MsgDeleteNamespaceResponse> {
-  constructor(data?: PartialMessage<MsgDeleteNamespaceResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgDeleteNamespaceResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDeleteNamespaceResponse {
-    return new MsgDeleteNamespaceResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDeleteNamespaceResponse {
-    return new MsgDeleteNamespaceResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDeleteNamespaceResponse {
-    return new MsgDeleteNamespaceResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgDeleteNamespaceResponse | PlainMessage<MsgDeleteNamespaceResponse> | undefined, b: MsgDeleteNamespaceResponse | PlainMessage<MsgDeleteNamespaceResponse> | undefined): boolean {
-    return proto3.util.equals(MsgDeleteNamespaceResponse, a, b);
-  }
-}
-
-/**
  * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace
  */
 export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
@@ -246,33 +172,46 @@ export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
   sender = "";
 
   /**
-   * namespace denom to which this updates are applied
+   * denom whose namespace updates are to be applied
    *
-   * @generated from field: string namespace_denom = 2;
+   * @generated from field: string denom = 2;
    */
-  namespaceDenom = "";
+  denom = "";
 
   /**
    * address of smart contract to apply code-based restrictions
    *
-   * @generated from field: injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetWasmHook wasm_hook = 3;
+   * @generated from field: injective.permissions.v1beta1.MsgUpdateNamespace.SetContractHook contract_hook = 3;
    */
-  wasmHook?: MsgUpdateNamespace_MsgSetWasmHook;
+  contractHook?: MsgUpdateNamespace_SetContractHook;
 
   /**
-   * @generated from field: injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetMintsPaused mints_paused = 4;
+   * role permissions to update
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.Role role_permissions = 4;
    */
-  mintsPaused?: MsgUpdateNamespace_MsgSetMintsPaused;
+  rolePermissions: Role[] = [];
 
   /**
-   * @generated from field: injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetSendsPaused sends_paused = 5;
+   *  role managers to update
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 5;
    */
-  sendsPaused?: MsgUpdateNamespace_MsgSetSendsPaused;
+  roleManagers: RoleManager[] = [];
 
   /**
-   * @generated from field: injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetBurnsPaused burns_paused = 6;
+   * policy statuses to update
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyStatus policy_statuses = 6;
    */
-  burnsPaused?: MsgUpdateNamespace_MsgSetBurnsPaused;
+  policyStatuses: PolicyStatus[] = [];
+
+  /**
+   * policy manager capabilities to update
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyManagerCapability policy_manager_capabilities = 7;
+   */
+  policyManagerCapabilities: PolicyManagerCapability[] = [];
 
   constructor(data?: PartialMessage<MsgUpdateNamespace>) {
     super();
@@ -283,11 +222,12 @@ export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
   static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "namespace_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "wasm_hook", kind: "message", T: MsgUpdateNamespace_MsgSetWasmHook },
-    { no: 4, name: "mints_paused", kind: "message", T: MsgUpdateNamespace_MsgSetMintsPaused },
-    { no: 5, name: "sends_paused", kind: "message", T: MsgUpdateNamespace_MsgSetSendsPaused },
-    { no: 6, name: "burns_paused", kind: "message", T: MsgUpdateNamespace_MsgSetBurnsPaused },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "contract_hook", kind: "message", T: MsgUpdateNamespace_SetContractHook },
+    { no: 4, name: "role_permissions", kind: "message", T: Role, repeated: true },
+    { no: 5, name: "role_managers", kind: "message", T: RoleManager, repeated: true },
+    { no: 6, name: "policy_statuses", kind: "message", T: PolicyStatus, repeated: true },
+    { no: 7, name: "policy_manager_capabilities", kind: "message", T: PolicyManagerCapability, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace {
@@ -308,150 +248,39 @@ export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetWasmHook
+ * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace.SetContractHook
  */
-export class MsgUpdateNamespace_MsgSetWasmHook extends Message<MsgUpdateNamespace_MsgSetWasmHook> {
+export class MsgUpdateNamespace_SetContractHook extends Message<MsgUpdateNamespace_SetContractHook> {
   /**
    * @generated from field: string new_value = 1;
    */
   newValue = "";
 
-  constructor(data?: PartialMessage<MsgUpdateNamespace_MsgSetWasmHook>) {
+  constructor(data?: PartialMessage<MsgUpdateNamespace_SetContractHook>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetWasmHook";
+  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace.SetContractHook";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "new_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace_MsgSetWasmHook {
-    return new MsgUpdateNamespace_MsgSetWasmHook().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace_SetContractHook {
+    return new MsgUpdateNamespace_SetContractHook().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetWasmHook {
-    return new MsgUpdateNamespace_MsgSetWasmHook().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_SetContractHook {
+    return new MsgUpdateNamespace_SetContractHook().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetWasmHook {
-    return new MsgUpdateNamespace_MsgSetWasmHook().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_SetContractHook {
+    return new MsgUpdateNamespace_SetContractHook().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgUpdateNamespace_MsgSetWasmHook | PlainMessage<MsgUpdateNamespace_MsgSetWasmHook> | undefined, b: MsgUpdateNamespace_MsgSetWasmHook | PlainMessage<MsgUpdateNamespace_MsgSetWasmHook> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespace_MsgSetWasmHook, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetMintsPaused
- */
-export class MsgUpdateNamespace_MsgSetMintsPaused extends Message<MsgUpdateNamespace_MsgSetMintsPaused> {
-  /**
-   * @generated from field: bool new_value = 1;
-   */
-  newValue = false;
-
-  constructor(data?: PartialMessage<MsgUpdateNamespace_MsgSetMintsPaused>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetMintsPaused";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "new_value", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace_MsgSetMintsPaused {
-    return new MsgUpdateNamespace_MsgSetMintsPaused().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetMintsPaused {
-    return new MsgUpdateNamespace_MsgSetMintsPaused().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetMintsPaused {
-    return new MsgUpdateNamespace_MsgSetMintsPaused().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgUpdateNamespace_MsgSetMintsPaused | PlainMessage<MsgUpdateNamespace_MsgSetMintsPaused> | undefined, b: MsgUpdateNamespace_MsgSetMintsPaused | PlainMessage<MsgUpdateNamespace_MsgSetMintsPaused> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespace_MsgSetMintsPaused, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetSendsPaused
- */
-export class MsgUpdateNamespace_MsgSetSendsPaused extends Message<MsgUpdateNamespace_MsgSetSendsPaused> {
-  /**
-   * @generated from field: bool new_value = 1;
-   */
-  newValue = false;
-
-  constructor(data?: PartialMessage<MsgUpdateNamespace_MsgSetSendsPaused>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetSendsPaused";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "new_value", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace_MsgSetSendsPaused {
-    return new MsgUpdateNamespace_MsgSetSendsPaused().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetSendsPaused {
-    return new MsgUpdateNamespace_MsgSetSendsPaused().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetSendsPaused {
-    return new MsgUpdateNamespace_MsgSetSendsPaused().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgUpdateNamespace_MsgSetSendsPaused | PlainMessage<MsgUpdateNamespace_MsgSetSendsPaused> | undefined, b: MsgUpdateNamespace_MsgSetSendsPaused | PlainMessage<MsgUpdateNamespace_MsgSetSendsPaused> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespace_MsgSetSendsPaused, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetBurnsPaused
- */
-export class MsgUpdateNamespace_MsgSetBurnsPaused extends Message<MsgUpdateNamespace_MsgSetBurnsPaused> {
-  /**
-   * @generated from field: bool new_value = 1;
-   */
-  newValue = false;
-
-  constructor(data?: PartialMessage<MsgUpdateNamespace_MsgSetBurnsPaused>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetBurnsPaused";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "new_value", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespace_MsgSetBurnsPaused {
-    return new MsgUpdateNamespace_MsgSetBurnsPaused().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetBurnsPaused {
-    return new MsgUpdateNamespace_MsgSetBurnsPaused().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespace_MsgSetBurnsPaused {
-    return new MsgUpdateNamespace_MsgSetBurnsPaused().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgUpdateNamespace_MsgSetBurnsPaused | PlainMessage<MsgUpdateNamespace_MsgSetBurnsPaused> | undefined, b: MsgUpdateNamespace_MsgSetBurnsPaused | PlainMessage<MsgUpdateNamespace_MsgSetBurnsPaused> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespace_MsgSetBurnsPaused, a, b);
+  static equals(a: MsgUpdateNamespace_SetContractHook | PlainMessage<MsgUpdateNamespace_SetContractHook> | undefined, b: MsgUpdateNamespace_SetContractHook | PlainMessage<MsgUpdateNamespace_SetContractHook> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateNamespace_SetContractHook, a, b);
   }
 }
 
@@ -487,9 +316,9 @@ export class MsgUpdateNamespaceResponse extends Message<MsgUpdateNamespaceRespon
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespaceRoles
+ * @generated from message injective.permissions.v1beta1.MsgUpdateActorRoles
  */
-export class MsgUpdateNamespaceRoles extends Message<MsgUpdateNamespaceRoles> {
+export class MsgUpdateActorRoles extends Message<MsgUpdateActorRoles> {
   /**
    * @generated from field: string sender = 1;
    */
@@ -498,167 +327,83 @@ export class MsgUpdateNamespaceRoles extends Message<MsgUpdateNamespaceRoles> {
   /**
    * namespace denom to which this updates are applied
    *
-   * @generated from field: string namespace_denom = 2;
+   * @generated from field: string denom = 2;
    */
-  namespaceDenom = "";
+  denom = "";
 
   /**
-   * new role definitions or updated permissions for existing roles
+   * roles to add for given actors
    *
-   * @generated from field: repeated injective.permissions.v1beta1.Role role_permissions = 3;
+   * @generated from field: repeated injective.permissions.v1beta1.RoleActors role_actors_to_add = 3;
    */
-  rolePermissions: Role[] = [];
+  roleActorsToAdd: RoleActors[] = [];
 
   /**
-   * new addresses to add or new roles for existing addresses to
+   * roles to revoke from given actors
    *
-   * @generated from field: repeated injective.permissions.v1beta1.AddressRoles address_roles = 4;
+   * @generated from field: repeated injective.permissions.v1beta1.RoleActors role_actors_to_revoke = 5;
    */
-  addressRoles: AddressRoles[] = [];
+  roleActorsToRevoke: RoleActors[] = [];
 
-  constructor(data?: PartialMessage<MsgUpdateNamespaceRoles>) {
+  constructor(data?: PartialMessage<MsgUpdateActorRoles>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespaceRoles";
+  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateActorRoles";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "namespace_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "role_permissions", kind: "message", T: Role, repeated: true },
-    { no: 4, name: "address_roles", kind: "message", T: AddressRoles, repeated: true },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "role_actors_to_add", kind: "message", T: RoleActors, repeated: true },
+    { no: 5, name: "role_actors_to_revoke", kind: "message", T: RoleActors, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespaceRoles {
-    return new MsgUpdateNamespaceRoles().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateActorRoles {
+    return new MsgUpdateActorRoles().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespaceRoles {
-    return new MsgUpdateNamespaceRoles().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateActorRoles {
+    return new MsgUpdateActorRoles().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespaceRoles {
-    return new MsgUpdateNamespaceRoles().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateActorRoles {
+    return new MsgUpdateActorRoles().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgUpdateNamespaceRoles | PlainMessage<MsgUpdateNamespaceRoles> | undefined, b: MsgUpdateNamespaceRoles | PlainMessage<MsgUpdateNamespaceRoles> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespaceRoles, a, b);
+  static equals(a: MsgUpdateActorRoles | PlainMessage<MsgUpdateActorRoles> | undefined, b: MsgUpdateActorRoles | PlainMessage<MsgUpdateActorRoles> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateActorRoles, a, b);
   }
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.MsgUpdateNamespaceRolesResponse
+ * @generated from message injective.permissions.v1beta1.MsgUpdateActorRolesResponse
  */
-export class MsgUpdateNamespaceRolesResponse extends Message<MsgUpdateNamespaceRolesResponse> {
-  constructor(data?: PartialMessage<MsgUpdateNamespaceRolesResponse>) {
+export class MsgUpdateActorRolesResponse extends Message<MsgUpdateActorRolesResponse> {
+  constructor(data?: PartialMessage<MsgUpdateActorRolesResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateNamespaceRolesResponse";
+  static readonly typeName = "injective.permissions.v1beta1.MsgUpdateActorRolesResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateNamespaceRolesResponse {
-    return new MsgUpdateNamespaceRolesResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateActorRolesResponse {
+    return new MsgUpdateActorRolesResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateNamespaceRolesResponse {
-    return new MsgUpdateNamespaceRolesResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateActorRolesResponse {
+    return new MsgUpdateActorRolesResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateNamespaceRolesResponse {
-    return new MsgUpdateNamespaceRolesResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateActorRolesResponse {
+    return new MsgUpdateActorRolesResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: MsgUpdateNamespaceRolesResponse | PlainMessage<MsgUpdateNamespaceRolesResponse> | undefined, b: MsgUpdateNamespaceRolesResponse | PlainMessage<MsgUpdateNamespaceRolesResponse> | undefined): boolean {
-    return proto3.util.equals(MsgUpdateNamespaceRolesResponse, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgRevokeNamespaceRoles
- */
-export class MsgRevokeNamespaceRoles extends Message<MsgRevokeNamespaceRoles> {
-  /**
-   * @generated from field: string sender = 1;
-   */
-  sender = "";
-
-  /**
-   * namespace denom to which this updates are applied
-   *
-   * @generated from field: string namespace_denom = 2;
-   */
-  namespaceDenom = "";
-
-  /**
-   * {"address" => array of roles to revoke from this address}
-   *
-   * @generated from field: repeated injective.permissions.v1beta1.AddressRoles address_roles_to_revoke = 3;
-   */
-  addressRolesToRevoke: AddressRoles[] = [];
-
-  constructor(data?: PartialMessage<MsgRevokeNamespaceRoles>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgRevokeNamespaceRoles";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "namespace_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "address_roles_to_revoke", kind: "message", T: AddressRoles, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRevokeNamespaceRoles {
-    return new MsgRevokeNamespaceRoles().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRevokeNamespaceRoles {
-    return new MsgRevokeNamespaceRoles().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRevokeNamespaceRoles {
-    return new MsgRevokeNamespaceRoles().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgRevokeNamespaceRoles | PlainMessage<MsgRevokeNamespaceRoles> | undefined, b: MsgRevokeNamespaceRoles | PlainMessage<MsgRevokeNamespaceRoles> | undefined): boolean {
-    return proto3.util.equals(MsgRevokeNamespaceRoles, a, b);
-  }
-}
-
-/**
- * @generated from message injective.permissions.v1beta1.MsgRevokeNamespaceRolesResponse
- */
-export class MsgRevokeNamespaceRolesResponse extends Message<MsgRevokeNamespaceRolesResponse> {
-  constructor(data?: PartialMessage<MsgRevokeNamespaceRolesResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.MsgRevokeNamespaceRolesResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRevokeNamespaceRolesResponse {
-    return new MsgRevokeNamespaceRolesResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRevokeNamespaceRolesResponse {
-    return new MsgRevokeNamespaceRolesResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRevokeNamespaceRolesResponse {
-    return new MsgRevokeNamespaceRolesResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgRevokeNamespaceRolesResponse | PlainMessage<MsgRevokeNamespaceRolesResponse> | undefined, b: MsgRevokeNamespaceRolesResponse | PlainMessage<MsgRevokeNamespaceRolesResponse> | undefined): boolean {
-    return proto3.util.equals(MsgRevokeNamespaceRolesResponse, a, b);
+  static equals(a: MsgUpdateActorRolesResponse | PlainMessage<MsgUpdateActorRolesResponse> | undefined, b: MsgUpdateActorRolesResponse | PlainMessage<MsgUpdateActorRolesResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateActorRolesResponse, a, b);
   }
 }
 

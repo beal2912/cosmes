@@ -922,6 +922,21 @@ export class QueryOpenEstResponse extends Message<QueryOpenEstResponse> {
    */
   borrowFee = "";
 
+  /**
+   * @generated from field: string slippage = 4;
+   */
+  slippage = "";
+
+  /**
+   * @generated from field: string swap_fee = 5;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: string taker_fee = 6;
+   */
+  takerFee = "";
+
   constructor(data?: PartialMessage<QueryOpenEstResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -933,6 +948,9 @@ export class QueryOpenEstResponse extends Message<QueryOpenEstResponse> {
     { no: 1, name: "position_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "borrow_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstResponse {
@@ -1135,19 +1153,54 @@ export class QueryRewardsResponse extends Message<QueryRewardsResponse> {
  */
 export class QueryCloseEstResponse extends Message<QueryCloseEstResponse> {
   /**
-   * @generated from field: string liability = 1;
+   * @generated from field: string repay_amount = 1;
    */
-  liability = "";
+  repayAmount = "";
 
   /**
-   * @generated from field: string weight_balance_ratio = 2;
+   * @generated from field: string final_closing_ratio = 2;
    */
-  weightBalanceRatio = "";
+  finalClosingRatio = "";
 
   /**
-   * @generated from field: string amount_returned = 3;
+   * @generated from field: string closing_lp_amount = 3;
    */
-  amountReturned = "";
+  closingLpAmount = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin coins_to_amm = 4;
+   */
+  coinsToAmm: Coin[] = [];
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin user_return_tokens = 5;
+   */
+  userReturnTokens: Coin[] = [];
+
+  /**
+   * @generated from field: string exit_weight_fee = 6;
+   */
+  exitWeightFee = "";
+
+  /**
+   * @generated from field: string weight_breaking_fee = 7;
+   */
+  weightBreakingFee = "";
+
+  /**
+   * @generated from field: string exit_slippage_fee = 8;
+   */
+  exitSlippageFee = "";
+
+  /**
+   * @generated from field: string exit_swap_fee = 9;
+   */
+  exitSwapFee = "";
+
+  /**
+   * @generated from field: string exit_taker_fee = 10;
+   */
+  exitTakerFee = "";
 
   constructor(data?: PartialMessage<QueryCloseEstResponse>) {
     super();
@@ -1157,9 +1210,16 @@ export class QueryCloseEstResponse extends Message<QueryCloseEstResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.leveragelp.QueryCloseEstResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "liability", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "amount_returned", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "repay_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "final_closing_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "closing_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "coins_to_amm", kind: "message", T: Coin, repeated: true },
+    { no: 5, name: "user_return_tokens", kind: "message", T: Coin, repeated: true },
+    { no: 6, name: "exit_weight_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "weight_breaking_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "exit_slippage_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "exit_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "exit_taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCloseEstResponse {

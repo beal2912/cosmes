@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddMaturityToYamm, MsgAddMaturityToYammResponse, MsgBatchSwap, MsgBatchSwapResponse, MsgCancelOrder, MsgCancelOrderResponse, MsgCancelPendingTokenIntroduction, MsgCancelPendingTokenIntroductionResponse, MsgCreateOraclePricePair, MsgCreateOraclePricePairResponse, MsgCreateWeightedPool, MsgCreateWeightedPoolResponse, MsgDeleteOraclePricePair, MsgDeleteOraclePricePairResponse, MsgExitAllTokensExactLpt, MsgExitAllTokensExactLptResponse, MsgExitExactTokens, MsgExitExactTokensResponse, MsgExitTokenExactLpt, MsgExitTokenExactLptResponse, MsgInitializePool, MsgInitializePoolResponse, MsgIntroduceAssetBaseTokenToWeightedPool, MsgIntroduceAssetBaseTokenToWeightedPoolResponse, MsgIntroduceYammLpToWeightedPool, MsgIntroduceYammLpToWeightedPoolResponse, MsgJoinAllTokensExactLpt, MsgJoinAllTokensExactLptResponse, MsgJoinExactTokens, MsgJoinExactTokensResponse, MsgJoinTokenExactLpt, MsgJoinTokenExactLptResponse, MsgProposeMatch, MsgProposeMatchResponse, MsgRecoveryExit, MsgRecoveryExitResponse, MsgRemoveTokenFromWeightedPool, MsgRemoveTokenFromWeightedPoolResponse, MsgSetCircuitBreakers, MsgSetCircuitBreakersResponse, MsgSetInitializationAllowList, MsgSetInitializationAllowListResponse, MsgSetJoinExitProtocolFee, MsgSetJoinExitProtocolFeeResponse, MsgSetOrderPairDisabled, MsgSetOrderPairDisabledResponse, MsgSetPauseAllowList, MsgSetPauseAllowListResponse, MsgSetPauseMode, MsgSetPauseModeResponse, MsgSetPauseWindow, MsgSetPauseWindowResponse, MsgSetPoolAdmins, MsgSetPoolAdminsResponse, MsgSetRecoveryMode, MsgSetRecoveryModeResponse, MsgSetSwapProtocolFee, MsgSetSwapProtocolFeeResponse, MsgSetVaultPauseMode, MsgSetVaultPauseModeResponse, MsgSetWhitelistedRouteEnabled, MsgSetWhitelistedRouteEnabledResponse, MsgSetYammConfiguration, MsgSetYammConfigurationResponse, MsgSingleSwap, MsgSingleSwapResponse, MsgSubmitOrder, MsgSubmitOrderResponse, MsgUpdateOraclePricePair, MsgUpdateOraclePricePairResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateSwapFee, MsgUpdateSwapFeeResponse, MsgUpdateWeights, MsgUpdateWeightsResponse, MsgWhitelistRoute, MsgWhitelistRouteResponse, MsgZeroImpactJoinYamm, MsgZeroImpactJoinYammResponse } from "./tx_pb.js";
+import { MsgAddMaturityToYamm, MsgAddMaturityToYammResponse, MsgBatchSwap, MsgBatchSwapResponse, MsgCancelOrder, MsgCancelOrderResponse, MsgCancelPendingTokenIntroduction, MsgCancelPendingTokenIntroductionResponse, MsgCreateOraclePricePair, MsgCreateOraclePricePairResponse, MsgCreateWeightedPool, MsgCreateWeightedPoolResponse, MsgDeleteOraclePricePair, MsgDeleteOraclePricePairResponse, MsgExitAllTokensExactLpt, MsgExitAllTokensExactLptResponse, MsgExitExactTokens, MsgExitExactTokensResponse, MsgExitTokenExactLpt, MsgExitTokenExactLptResponse, MsgInitializePool, MsgInitializePoolResponse, MsgIntroduceAssetBaseTokenToWeightedPool, MsgIntroduceAssetBaseTokenToWeightedPoolResponse, MsgIntroduceYammLpToWeightedPool, MsgIntroduceYammLpToWeightedPoolResponse, MsgJoinAllTokensExactLpt, MsgJoinAllTokensExactLptResponse, MsgJoinExactTokens, MsgJoinExactTokensResponse, MsgJoinTokenExactLpt, MsgJoinTokenExactLptResponse, MsgProposeMatch, MsgProposeMatchResponse, MsgRecoveryExit, MsgRecoveryExitResponse, MsgRemoveTokenFromWeightedPool, MsgRemoveTokenFromWeightedPoolResponse, MsgSetCircuitBreakers, MsgSetCircuitBreakersResponse, MsgSetInitializationAllowList, MsgSetInitializationAllowListResponse, MsgSetJoinExitProtocolFee, MsgSetJoinExitProtocolFeeResponse, MsgSetOrderPairDisabled, MsgSetOrderPairDisabledResponse, MsgSetPauseAllowList, MsgSetPauseAllowListResponse, MsgSetPauseMode, MsgSetPauseModeResponse, MsgSetPauseWindow, MsgSetPauseWindowResponse, MsgSetPoolAdmins, MsgSetPoolAdminsResponse, MsgSetPoolJoinBlocked, MsgSetPoolJoinBlockedResponse, MsgSetRecoveryMode, MsgSetRecoveryModeResponse, MsgSetSwapProtocolFee, MsgSetSwapProtocolFeeResponse, MsgSetVaultPauseMode, MsgSetVaultPauseModeResponse, MsgSetWhitelistedRouteEnabled, MsgSetWhitelistedRouteEnabledResponse, MsgSetYammConfiguration, MsgSetYammConfigurationResponse, MsgSingleSwap, MsgSingleSwapResponse, MsgSubmitOrder, MsgSubmitOrderResponse, MsgUpdateOraclePricePair, MsgUpdateOraclePricePairResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateSwapFee, MsgUpdateSwapFeeResponse, MsgUpdateWeights, MsgUpdateWeightsResponse, MsgWhitelistRoute, MsgWhitelistRouteResponse, MsgZeroImpactJoinYamm, MsgZeroImpactJoinYammResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "pryzm.amm.v1.Msg";
 
@@ -375,6 +375,16 @@ export const MsgSetPoolAdminsService = {
   method: "SetPoolAdmins",
   Request: MsgSetPoolAdmins,
   Response: MsgSetPoolAdminsResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.amm.v1.Msg.SetPoolJoinBlocked
+ */
+export const MsgSetPoolJoinBlockedService = {
+  typeName: TYPE_NAME,
+  method: "SetPoolJoinBlocked",
+  Request: MsgSetPoolJoinBlocked,
+  Response: MsgSetPoolJoinBlockedResponse,
 } as const;
 
 /**

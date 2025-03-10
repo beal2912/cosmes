@@ -151,6 +151,16 @@ export class Params extends Message<Params> {
    */
   thresholdWeightDifferenceSwapFee = "";
 
+  /**
+   * @generated from field: uint64 lp_lockup_duration = 11;
+   */
+  lpLockupDuration = protoInt64.zero;
+
+  /**
+   * @generated from field: string min_slippage = 12;
+   */
+  minSlippage = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -169,6 +179,8 @@ export class Params extends Message<Params> {
     { no: 8, name: "threshold_weight_difference", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "allowed_pool_creators", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 10, name: "threshold_weight_difference_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "lp_lockup_duration", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 12, name: "min_slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

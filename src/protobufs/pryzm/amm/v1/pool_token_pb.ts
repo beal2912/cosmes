@@ -171,3 +171,60 @@ export class TokenAmount extends Message<TokenAmount> {
   }
 }
 
+/**
+ * @generated from message pryzm.amm.v1.TokenInfo
+ */
+export class TokenInfo extends Message<TokenInfo> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string balance = 2;
+   */
+  balance = "";
+
+  /**
+   * @generated from field: string virtual_balance = 3;
+   */
+  virtualBalance = "";
+
+  /**
+   * weight is nil for pools that dont implement WeightedPoolApi
+   *
+   * @generated from field: string normalized_weight = 4;
+   */
+  normalizedWeight = "";
+
+  constructor(data?: PartialMessage<TokenInfo>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.TokenInfo";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "virtual_balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "normalized_weight", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TokenInfo {
+    return new TokenInfo().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TokenInfo {
+    return new TokenInfo().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TokenInfo {
+    return new TokenInfo().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: TokenInfo | PlainMessage<TokenInfo> | undefined, b: TokenInfo | PlainMessage<TokenInfo> | undefined): boolean {
+    return proto3.util.equals(TokenInfo, a, b);
+  }
+}
+

@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { AssetState } from "./asset_state_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
+import { Params } from "./params_pb.js";
 
 /**
  * @generated from message pryzm.refractor.v1.QueryGetAssetStateRequest
@@ -331,6 +332,74 @@ export class QuerySimulateRedeemResponse extends Message<QuerySimulateRedeemResp
 
   static equals(a: QuerySimulateRedeemResponse | PlainMessage<QuerySimulateRedeemResponse> | undefined, b: QuerySimulateRedeemResponse | PlainMessage<QuerySimulateRedeemResponse> | undefined): boolean {
     return proto3.util.equals(QuerySimulateRedeemResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.refractor.v1.QueryParamsRequest
+ */
+export class QueryParamsRequest extends Message<QueryParamsRequest> {
+  constructor(data?: PartialMessage<QueryParamsRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.refractor.v1.QueryParamsRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryParamsRequest {
+    return new QueryParamsRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryParamsRequest {
+    return new QueryParamsRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryParamsRequest {
+    return new QueryParamsRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryParamsRequest | PlainMessage<QueryParamsRequest> | undefined, b: QueryParamsRequest | PlainMessage<QueryParamsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryParamsRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.refractor.v1.QueryParamsResponse
+ */
+export class QueryParamsResponse extends Message<QueryParamsResponse> {
+  /**
+   * @generated from field: pryzm.refractor.v1.Params params = 1;
+   */
+  params?: Params;
+
+  constructor(data?: PartialMessage<QueryParamsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.refractor.v1.QueryParamsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "params", kind: "message", T: Params },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryParamsResponse {
+    return new QueryParamsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryParamsResponse {
+    return new QueryParamsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryParamsResponse {
+    return new QueryParamsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined, b: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryParamsResponse, a, b);
   }
 }
 

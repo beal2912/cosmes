@@ -61,7 +61,7 @@ export class GenesisState extends Message<GenesisState> {
 }
 
 /**
- * Params holds parameters for the incentives module
+ * Params holds parameters for the txfees module
  *
  * @generated from message dymensionxyz.dymension.txfees.v1beta1.Params
  */

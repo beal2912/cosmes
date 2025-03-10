@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { PoolToken } from "./pool_token_pb.js";
+import { PoolToken, TokenInfo } from "./pool_token_pb.js";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination_pb.js";
 import { TokenWeight } from "./token_weight_pb.js";
 import { Pool } from "./pool_pb.js";
@@ -14,7 +14,7 @@ import { WeightedToken } from "./weighted_token_pb.js";
 import { WeightUpdateTiming } from "./weight_update_timing_pb.js";
 import { Swap, SwapStep, SwapType } from "./operations_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
-import { VirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
+import { PermanentVirtualBalancePoolToken, TemporalVirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
 import { YammConfiguration } from "./yamm_configuration_pb.js";
 import { WhitelistedRoute } from "./whitelisted_route_pb.js";
 import { DisabledOrderPair, Order } from "./order_pb.js";
@@ -495,6 +495,168 @@ export class QueryGetPoolTokenWeightResponse extends Message<QueryGetPoolTokenWe
 
   static equals(a: QueryGetPoolTokenWeightResponse | PlainMessage<QueryGetPoolTokenWeightResponse> | undefined, b: QueryGetPoolTokenWeightResponse | PlainMessage<QueryGetPoolTokenWeightResponse> | undefined): boolean {
     return proto3.util.equals(QueryGetPoolTokenWeightResponse, a, b);
+  }
+}
+
+/**
+ * computing normalized weights requires reading all tokens from the context
+ * and computing weight for all of them
+ * therefore, this query is not paginated
+ *
+ * @generated from message pryzm.amm.v1.QueryAllPoolTokenInfoRequest
+ */
+export class QueryAllPoolTokenInfoRequest extends Message<QueryAllPoolTokenInfoRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryAllPoolTokenInfoRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryAllPoolTokenInfoRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPoolTokenInfoRequest {
+    return new QueryAllPoolTokenInfoRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPoolTokenInfoRequest {
+    return new QueryAllPoolTokenInfoRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPoolTokenInfoRequest {
+    return new QueryAllPoolTokenInfoRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPoolTokenInfoRequest | PlainMessage<QueryAllPoolTokenInfoRequest> | undefined, b: QueryAllPoolTokenInfoRequest | PlainMessage<QueryAllPoolTokenInfoRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllPoolTokenInfoRequest, a, b);
+  }
+}
+
+/**
+ * computing normalized weights requires reading all tokens from the context
+ * and computing weight for all of them
+ * therefore, this query is not paginated
+ *
+ * @generated from message pryzm.amm.v1.QueryAllPoolTokenInfoResponse
+ */
+export class QueryAllPoolTokenInfoResponse extends Message<QueryAllPoolTokenInfoResponse> {
+  /**
+   * @generated from field: repeated pryzm.amm.v1.TokenInfo token_info = 1;
+   */
+  tokenInfo: TokenInfo[] = [];
+
+  constructor(data?: PartialMessage<QueryAllPoolTokenInfoResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryAllPoolTokenInfoResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "token_info", kind: "message", T: TokenInfo, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPoolTokenInfoResponse {
+    return new QueryAllPoolTokenInfoResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPoolTokenInfoResponse {
+    return new QueryAllPoolTokenInfoResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPoolTokenInfoResponse {
+    return new QueryAllPoolTokenInfoResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPoolTokenInfoResponse | PlainMessage<QueryAllPoolTokenInfoResponse> | undefined, b: QueryAllPoolTokenInfoResponse | PlainMessage<QueryAllPoolTokenInfoResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllPoolTokenInfoResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryGetPoolTokenInfoRequest
+ */
+export class QueryGetPoolTokenInfoRequest extends Message<QueryGetPoolTokenInfoRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryGetPoolTokenInfoRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryGetPoolTokenInfoRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolTokenInfoRequest {
+    return new QueryGetPoolTokenInfoRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPoolTokenInfoRequest {
+    return new QueryGetPoolTokenInfoRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPoolTokenInfoRequest {
+    return new QueryGetPoolTokenInfoRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPoolTokenInfoRequest | PlainMessage<QueryGetPoolTokenInfoRequest> | undefined, b: QueryGetPoolTokenInfoRequest | PlainMessage<QueryGetPoolTokenInfoRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetPoolTokenInfoRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryGetPoolTokenInfoResponse
+ */
+export class QueryGetPoolTokenInfoResponse extends Message<QueryGetPoolTokenInfoResponse> {
+  /**
+   * @generated from field: pryzm.amm.v1.TokenInfo token_info = 1;
+   */
+  tokenInfo?: TokenInfo;
+
+  constructor(data?: PartialMessage<QueryGetPoolTokenInfoResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryGetPoolTokenInfoResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "token_info", kind: "message", T: TokenInfo },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolTokenInfoResponse {
+    return new QueryGetPoolTokenInfoResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPoolTokenInfoResponse {
+    return new QueryGetPoolTokenInfoResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPoolTokenInfoResponse {
+    return new QueryGetPoolTokenInfoResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPoolTokenInfoResponse | PlainMessage<QueryGetPoolTokenInfoResponse> | undefined, b: QueryGetPoolTokenInfoResponse | PlainMessage<QueryGetPoolTokenInfoResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetPoolTokenInfoResponse, a, b);
   }
 }
 
@@ -1075,6 +1237,11 @@ export class QuerySimulateInitializePoolRequest extends Message<QuerySimulateIni
    */
   amountsIn: Coin[] = [];
 
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin permanent_virtual_balances = 3;
+   */
+  permanentVirtualBalances: Coin[] = [];
+
   constructor(data?: PartialMessage<QuerySimulateInitializePoolRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1085,6 +1252,7 @@ export class QuerySimulateInitializePoolRequest extends Message<QuerySimulateIni
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "amounts_in", kind: "message", T: Coin, repeated: true },
+    { no: 3, name: "permanent_virtual_balances", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySimulateInitializePoolRequest {
@@ -1979,9 +2147,9 @@ export class QueryGetIntroducingPoolTokenRequest extends Message<QueryGetIntrodu
  */
 export class QueryGetIntroducingPoolTokenResponse extends Message<QueryGetIntroducingPoolTokenResponse> {
   /**
-   * @generated from field: pryzm.amm.v1.VirtualBalancePoolToken introducing_pool_token = 1;
+   * @generated from field: pryzm.amm.v1.TemporalVirtualBalancePoolToken introducing_pool_token = 1;
    */
-  introducingPoolToken?: VirtualBalancePoolToken;
+  introducingPoolToken?: TemporalVirtualBalancePoolToken;
 
   constructor(data?: PartialMessage<QueryGetIntroducingPoolTokenResponse>) {
     super();
@@ -1991,7 +2159,7 @@ export class QueryGetIntroducingPoolTokenResponse extends Message<QueryGetIntrod
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.QueryGetIntroducingPoolTokenResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "introducing_pool_token", kind: "message", T: VirtualBalancePoolToken },
+    { no: 1, name: "introducing_pool_token", kind: "message", T: TemporalVirtualBalancePoolToken },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetIntroducingPoolTokenResponse {
@@ -2053,9 +2221,9 @@ export class QueryAllIntroducingPoolTokenRequest extends Message<QueryAllIntrodu
  */
 export class QueryAllIntroducingPoolTokenResponse extends Message<QueryAllIntroducingPoolTokenResponse> {
   /**
-   * @generated from field: repeated pryzm.amm.v1.VirtualBalancePoolToken introducing_pool_token = 1;
+   * @generated from field: repeated pryzm.amm.v1.TemporalVirtualBalancePoolToken introducing_pool_token = 1;
    */
-  introducingPoolToken: VirtualBalancePoolToken[] = [];
+  introducingPoolToken: TemporalVirtualBalancePoolToken[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -2070,7 +2238,7 @@ export class QueryAllIntroducingPoolTokenResponse extends Message<QueryAllIntrod
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.QueryAllIntroducingPoolTokenResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "introducing_pool_token", kind: "message", T: VirtualBalancePoolToken, repeated: true },
+    { no: 1, name: "introducing_pool_token", kind: "message", T: TemporalVirtualBalancePoolToken, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
@@ -2088,6 +2256,166 @@ export class QueryAllIntroducingPoolTokenResponse extends Message<QueryAllIntrod
 
   static equals(a: QueryAllIntroducingPoolTokenResponse | PlainMessage<QueryAllIntroducingPoolTokenResponse> | undefined, b: QueryAllIntroducingPoolTokenResponse | PlainMessage<QueryAllIntroducingPoolTokenResponse> | undefined): boolean {
     return proto3.util.equals(QueryAllIntroducingPoolTokenResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryGetPermanentVirtualBalancePoolTokenRequest
+ */
+export class QueryGetPermanentVirtualBalancePoolTokenRequest extends Message<QueryGetPermanentVirtualBalancePoolTokenRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryGetPermanentVirtualBalancePoolTokenRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryGetPermanentVirtualBalancePoolTokenRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPermanentVirtualBalancePoolTokenRequest {
+    return new QueryGetPermanentVirtualBalancePoolTokenRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPermanentVirtualBalancePoolTokenRequest {
+    return new QueryGetPermanentVirtualBalancePoolTokenRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPermanentVirtualBalancePoolTokenRequest {
+    return new QueryGetPermanentVirtualBalancePoolTokenRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPermanentVirtualBalancePoolTokenRequest | PlainMessage<QueryGetPermanentVirtualBalancePoolTokenRequest> | undefined, b: QueryGetPermanentVirtualBalancePoolTokenRequest | PlainMessage<QueryGetPermanentVirtualBalancePoolTokenRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetPermanentVirtualBalancePoolTokenRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryGetPermanentVirtualBalancePoolTokenResponse
+ */
+export class QueryGetPermanentVirtualBalancePoolTokenResponse extends Message<QueryGetPermanentVirtualBalancePoolTokenResponse> {
+  /**
+   * @generated from field: pryzm.amm.v1.PermanentVirtualBalancePoolToken permanent_virtual_balance_pool_token = 1;
+   */
+  permanentVirtualBalancePoolToken?: PermanentVirtualBalancePoolToken;
+
+  constructor(data?: PartialMessage<QueryGetPermanentVirtualBalancePoolTokenResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryGetPermanentVirtualBalancePoolTokenResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "permanent_virtual_balance_pool_token", kind: "message", T: PermanentVirtualBalancePoolToken },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPermanentVirtualBalancePoolTokenResponse {
+    return new QueryGetPermanentVirtualBalancePoolTokenResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPermanentVirtualBalancePoolTokenResponse {
+    return new QueryGetPermanentVirtualBalancePoolTokenResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPermanentVirtualBalancePoolTokenResponse {
+    return new QueryGetPermanentVirtualBalancePoolTokenResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPermanentVirtualBalancePoolTokenResponse | PlainMessage<QueryGetPermanentVirtualBalancePoolTokenResponse> | undefined, b: QueryGetPermanentVirtualBalancePoolTokenResponse | PlainMessage<QueryGetPermanentVirtualBalancePoolTokenResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetPermanentVirtualBalancePoolTokenResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryAllPermanentVirtualBalancePoolTokenRequest
+ */
+export class QueryAllPermanentVirtualBalancePoolTokenRequest extends Message<QueryAllPermanentVirtualBalancePoolTokenRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryAllPermanentVirtualBalancePoolTokenRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryAllPermanentVirtualBalancePoolTokenRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPermanentVirtualBalancePoolTokenRequest {
+    return new QueryAllPermanentVirtualBalancePoolTokenRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPermanentVirtualBalancePoolTokenRequest {
+    return new QueryAllPermanentVirtualBalancePoolTokenRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPermanentVirtualBalancePoolTokenRequest {
+    return new QueryAllPermanentVirtualBalancePoolTokenRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPermanentVirtualBalancePoolTokenRequest | PlainMessage<QueryAllPermanentVirtualBalancePoolTokenRequest> | undefined, b: QueryAllPermanentVirtualBalancePoolTokenRequest | PlainMessage<QueryAllPermanentVirtualBalancePoolTokenRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllPermanentVirtualBalancePoolTokenRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QueryAllPermanentVirtualBalancePoolTokenResponse
+ */
+export class QueryAllPermanentVirtualBalancePoolTokenResponse extends Message<QueryAllPermanentVirtualBalancePoolTokenResponse> {
+  /**
+   * @generated from field: repeated pryzm.amm.v1.PermanentVirtualBalancePoolToken permanent_virtual_balance_pool_token = 1;
+   */
+  permanentVirtualBalancePoolToken: PermanentVirtualBalancePoolToken[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryAllPermanentVirtualBalancePoolTokenResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QueryAllPermanentVirtualBalancePoolTokenResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "permanent_virtual_balance_pool_token", kind: "message", T: PermanentVirtualBalancePoolToken, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPermanentVirtualBalancePoolTokenResponse {
+    return new QueryAllPermanentVirtualBalancePoolTokenResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPermanentVirtualBalancePoolTokenResponse {
+    return new QueryAllPermanentVirtualBalancePoolTokenResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPermanentVirtualBalancePoolTokenResponse {
+    return new QueryAllPermanentVirtualBalancePoolTokenResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPermanentVirtualBalancePoolTokenResponse | PlainMessage<QueryAllPermanentVirtualBalancePoolTokenResponse> | undefined, b: QueryAllPermanentVirtualBalancePoolTokenResponse | PlainMessage<QueryAllPermanentVirtualBalancePoolTokenResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllPermanentVirtualBalancePoolTokenResponse, a, b);
   }
 }
 
@@ -2139,9 +2467,9 @@ export class QueryGetExpiringPoolTokenRequest extends Message<QueryGetExpiringPo
  */
 export class QueryGetExpiringPoolTokenResponse extends Message<QueryGetExpiringPoolTokenResponse> {
   /**
-   * @generated from field: pryzm.amm.v1.VirtualBalancePoolToken expiring_pool_token = 1;
+   * @generated from field: pryzm.amm.v1.TemporalVirtualBalancePoolToken expiring_pool_token = 1;
    */
-  expiringPoolToken?: VirtualBalancePoolToken;
+  expiringPoolToken?: TemporalVirtualBalancePoolToken;
 
   constructor(data?: PartialMessage<QueryGetExpiringPoolTokenResponse>) {
     super();
@@ -2151,7 +2479,7 @@ export class QueryGetExpiringPoolTokenResponse extends Message<QueryGetExpiringP
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.QueryGetExpiringPoolTokenResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "expiring_pool_token", kind: "message", T: VirtualBalancePoolToken },
+    { no: 1, name: "expiring_pool_token", kind: "message", T: TemporalVirtualBalancePoolToken },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetExpiringPoolTokenResponse {
@@ -2213,9 +2541,9 @@ export class QueryAllExpiringPoolTokenRequest extends Message<QueryAllExpiringPo
  */
 export class QueryAllExpiringPoolTokenResponse extends Message<QueryAllExpiringPoolTokenResponse> {
   /**
-   * @generated from field: repeated pryzm.amm.v1.VirtualBalancePoolToken expiring_pool_token = 1;
+   * @generated from field: repeated pryzm.amm.v1.TemporalVirtualBalancePoolToken expiring_pool_token = 1;
    */
-  expiringPoolToken: VirtualBalancePoolToken[] = [];
+  expiringPoolToken: TemporalVirtualBalancePoolToken[] = [];
 
   /**
    * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
@@ -2230,7 +2558,7 @@ export class QueryAllExpiringPoolTokenResponse extends Message<QueryAllExpiringP
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.QueryAllExpiringPoolTokenResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "expiring_pool_token", kind: "message", T: VirtualBalancePoolToken, repeated: true },
+    { no: 1, name: "expiring_pool_token", kind: "message", T: TemporalVirtualBalancePoolToken, repeated: true },
     { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 

@@ -7,9 +7,9 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
- * @generated from message pryzm.amm.v1.VirtualBalancePoolToken
+ * @generated from message pryzm.amm.v1.TemporalVirtualBalancePoolToken
  */
-export class VirtualBalancePoolToken extends Message<VirtualBalancePoolToken> {
+export class TemporalVirtualBalancePoolToken extends Message<TemporalVirtualBalancePoolToken> {
   /**
    * @generated from field: uint64 pool_id = 1;
    */
@@ -35,13 +35,13 @@ export class VirtualBalancePoolToken extends Message<VirtualBalancePoolToken> {
    */
   endUnixMillis = protoInt64.zero;
 
-  constructor(data?: PartialMessage<VirtualBalancePoolToken>) {
+  constructor(data?: PartialMessage<TemporalVirtualBalancePoolToken>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "pryzm.amm.v1.VirtualBalancePoolToken";
+  static readonly typeName = "pryzm.amm.v1.TemporalVirtualBalancePoolToken";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -50,20 +50,69 @@ export class VirtualBalancePoolToken extends Message<VirtualBalancePoolToken> {
     { no: 5, name: "end_unix_millis", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): VirtualBalancePoolToken {
-    return new VirtualBalancePoolToken().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TemporalVirtualBalancePoolToken {
+    return new TemporalVirtualBalancePoolToken().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): VirtualBalancePoolToken {
-    return new VirtualBalancePoolToken().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TemporalVirtualBalancePoolToken {
+    return new TemporalVirtualBalancePoolToken().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): VirtualBalancePoolToken {
-    return new VirtualBalancePoolToken().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TemporalVirtualBalancePoolToken {
+    return new TemporalVirtualBalancePoolToken().fromJsonString(jsonString, options);
   }
 
-  static equals(a: VirtualBalancePoolToken | PlainMessage<VirtualBalancePoolToken> | undefined, b: VirtualBalancePoolToken | PlainMessage<VirtualBalancePoolToken> | undefined): boolean {
-    return proto3.util.equals(VirtualBalancePoolToken, a, b);
+  static equals(a: TemporalVirtualBalancePoolToken | PlainMessage<TemporalVirtualBalancePoolToken> | undefined, b: TemporalVirtualBalancePoolToken | PlainMessage<TemporalVirtualBalancePoolToken> | undefined): boolean {
+    return proto3.util.equals(TemporalVirtualBalancePoolToken, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.PermanentVirtualBalancePoolToken
+ */
+export class PermanentVirtualBalancePoolToken extends Message<PermanentVirtualBalancePoolToken> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string virtual_balance = 3;
+   */
+  virtualBalance = "";
+
+  constructor(data?: PartialMessage<PermanentVirtualBalancePoolToken>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.PermanentVirtualBalancePoolToken";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "virtual_balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PermanentVirtualBalancePoolToken {
+    return new PermanentVirtualBalancePoolToken().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PermanentVirtualBalancePoolToken {
+    return new PermanentVirtualBalancePoolToken().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PermanentVirtualBalancePoolToken {
+    return new PermanentVirtualBalancePoolToken().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PermanentVirtualBalancePoolToken | PlainMessage<PermanentVirtualBalancePoolToken> | undefined, b: PermanentVirtualBalancePoolToken | PlainMessage<PermanentVirtualBalancePoolToken> | undefined): boolean {
+    return proto3.util.equals(PermanentVirtualBalancePoolToken, a, b);
   }
 }
 

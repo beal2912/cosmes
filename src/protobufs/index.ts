@@ -647,10 +647,16 @@ export {
   MsgRefractResponse as PryzmRefractorV1MsgRefractResponse,
   MsgRedeem as PryzmRefractorV1MsgRedeem,
   MsgRedeemResponse as PryzmRefractorV1MsgRedeemResponse,
+  MsgUpdateParams as PryzmRefractorV1MsgUpdateParams,
+  MsgUpdateParamsResponse as PryzmRefractorV1MsgUpdateParamsResponse,
+  MsgDepositCAsset as PryzmRefractorV1MsgDepositCAsset,
+  MsgDepositCAssetResponse as PryzmRefractorV1MsgDepositCAssetResponse,
 } from "./pryzm/refractor/v1/tx_pb.js";
 export {
   MsgRefractService as PryzmRefractorV1MsgRefractService,
   MsgRedeemService as PryzmRefractorV1MsgRedeemService,
+  MsgUpdateParamsService as PryzmRefractorV1MsgUpdateParamsService,
+  MsgDepositCAssetService as PryzmRefractorV1MsgDepositCAssetService,
 } from "./pryzm/refractor/v1/tx_cosmes.js";
 export {
   QueryGetAssetStateRequest as PryzmRefractorV1QueryGetAssetStateRequest,
@@ -661,13 +667,19 @@ export {
   QuerySimulateRefractResponse as PryzmRefractorV1QuerySimulateRefractResponse,
   QuerySimulateRedeemRequest as PryzmRefractorV1QuerySimulateRedeemRequest,
   QuerySimulateRedeemResponse as PryzmRefractorV1QuerySimulateRedeemResponse,
+  QueryParamsRequest as PryzmRefractorV1QueryParamsRequest,
+  QueryParamsResponse as PryzmRefractorV1QueryParamsResponse,
 } from "./pryzm/refractor/v1/query_pb.js";
 export {
   QueryAssetStateService as PryzmRefractorV1QueryAssetStateService,
   QueryCPExchangeRateService as PryzmRefractorV1QueryCPExchangeRateService,
   QuerySimulateRefractService as PryzmRefractorV1QuerySimulateRefractService,
   QuerySimulateRedeemService as PryzmRefractorV1QuerySimulateRedeemService,
+  QueryParamsService as PryzmRefractorV1QueryParamsService,
 } from "./pryzm/refractor/v1/query_cosmes.js";
+export {
+  Params as PryzmRefractorV1Params,
+} from "./pryzm/refractor/v1/params_pb.js";
 export {
   GenesisState as PryzmRefractorV1GenesisState,
 } from "./pryzm/refractor/v1/genesis_pb.js";
@@ -676,6 +688,7 @@ export {
   EventRedeem as PryzmRefractorV1EventRedeem,
   EventRefractorYieldDistribution as PryzmRefractorV1EventRefractorYieldDistribution,
   EventSetAssetState as PryzmRefractorV1EventSetAssetState,
+  EventSetParams as PryzmRefractorV1EventSetParams,
 } from "./pryzm/refractor/v1/event_pb.js";
 export {
   AssetState as PryzmRefractorV1AssetState,
@@ -1183,7 +1196,8 @@ export {
   WeightUpdateTiming as PryzmAmmV1WeightUpdateTiming,
 } from "./pryzm/amm/v1/weight_update_timing_pb.js";
 export {
-  VirtualBalancePoolToken as PryzmAmmV1VirtualBalancePoolToken,
+  TemporalVirtualBalancePoolToken as PryzmAmmV1TemporalVirtualBalancePoolToken,
+  PermanentVirtualBalancePoolToken as PryzmAmmV1PermanentVirtualBalancePoolToken,
 } from "./pryzm/amm/v1/virtual_balance_pool_token_pb.js";
 export {
   MsgSingleSwap as PryzmAmmV1MsgSingleSwap,
@@ -1229,6 +1243,8 @@ export {
   MsgSetCircuitBreakersResponse as PryzmAmmV1MsgSetCircuitBreakersResponse,
   MsgSetRecoveryMode as PryzmAmmV1MsgSetRecoveryMode,
   MsgSetRecoveryModeResponse as PryzmAmmV1MsgSetRecoveryModeResponse,
+  MsgSetPoolJoinBlocked as PryzmAmmV1MsgSetPoolJoinBlocked,
+  MsgSetPoolJoinBlockedResponse as PryzmAmmV1MsgSetPoolJoinBlockedResponse,
   MsgRecoveryExit as PryzmAmmV1MsgRecoveryExit,
   MsgRecoveryExitResponse as PryzmAmmV1MsgRecoveryExitResponse,
   MsgSetPauseMode as PryzmAmmV1MsgSetPauseMode,
@@ -1306,6 +1322,7 @@ export {
   MsgAddMaturityToYammService as PryzmAmmV1MsgAddMaturityToYammService,
   MsgSetInitializationAllowListService as PryzmAmmV1MsgSetInitializationAllowListService,
   MsgSetPoolAdminsService as PryzmAmmV1MsgSetPoolAdminsService,
+  MsgSetPoolJoinBlockedService as PryzmAmmV1MsgSetPoolJoinBlockedService,
   MsgSetPauseAllowListService as PryzmAmmV1MsgSetPauseAllowListService,
   MsgSetPauseWindowService as PryzmAmmV1MsgSetPauseWindowService,
   MsgSetOrderPairDisabledService as PryzmAmmV1MsgSetOrderPairDisabledService,
@@ -1339,6 +1356,10 @@ export {
   QueryAllPoolTokenWeightResponse as PryzmAmmV1QueryAllPoolTokenWeightResponse,
   QueryGetPoolTokenWeightRequest as PryzmAmmV1QueryGetPoolTokenWeightRequest,
   QueryGetPoolTokenWeightResponse as PryzmAmmV1QueryGetPoolTokenWeightResponse,
+  QueryAllPoolTokenInfoRequest as PryzmAmmV1QueryAllPoolTokenInfoRequest,
+  QueryAllPoolTokenInfoResponse as PryzmAmmV1QueryAllPoolTokenInfoResponse,
+  QueryGetPoolTokenInfoRequest as PryzmAmmV1QueryGetPoolTokenInfoRequest,
+  QueryGetPoolTokenInfoResponse as PryzmAmmV1QueryGetPoolTokenInfoResponse,
   QueryGetPoolRequest as PryzmAmmV1QueryGetPoolRequest,
   QueryGetPoolResponse as PryzmAmmV1QueryGetPoolResponse,
   QueryAllPoolRequest as PryzmAmmV1QueryAllPoolRequest,
@@ -1375,6 +1396,10 @@ export {
   QueryGetIntroducingPoolTokenResponse as PryzmAmmV1QueryGetIntroducingPoolTokenResponse,
   QueryAllIntroducingPoolTokenRequest as PryzmAmmV1QueryAllIntroducingPoolTokenRequest,
   QueryAllIntroducingPoolTokenResponse as PryzmAmmV1QueryAllIntroducingPoolTokenResponse,
+  QueryGetPermanentVirtualBalancePoolTokenRequest as PryzmAmmV1QueryGetPermanentVirtualBalancePoolTokenRequest,
+  QueryGetPermanentVirtualBalancePoolTokenResponse as PryzmAmmV1QueryGetPermanentVirtualBalancePoolTokenResponse,
+  QueryAllPermanentVirtualBalancePoolTokenRequest as PryzmAmmV1QueryAllPermanentVirtualBalancePoolTokenRequest,
+  QueryAllPermanentVirtualBalancePoolTokenResponse as PryzmAmmV1QueryAllPermanentVirtualBalancePoolTokenResponse,
   QueryGetExpiringPoolTokenRequest as PryzmAmmV1QueryGetExpiringPoolTokenRequest,
   QueryGetExpiringPoolTokenResponse as PryzmAmmV1QueryGetExpiringPoolTokenResponse,
   QueryAllExpiringPoolTokenRequest as PryzmAmmV1QueryAllExpiringPoolTokenRequest,
@@ -1429,6 +1454,8 @@ export {
   QueryPoolTokenAllForPoolService as PryzmAmmV1QueryPoolTokenAllForPoolService,
   QueryPoolTokenWeightAllService as PryzmAmmV1QueryPoolTokenWeightAllService,
   QueryPoolTokenWeightService as PryzmAmmV1QueryPoolTokenWeightService,
+  QueryPoolTokenInfoAllService as PryzmAmmV1QueryPoolTokenInfoAllService,
+  QueryPoolTokenInfoService as PryzmAmmV1QueryPoolTokenInfoService,
   QueryPoolService as PryzmAmmV1QueryPoolService,
   QueryPoolAllService as PryzmAmmV1QueryPoolAllService,
   QueryWeightedTokenService as PryzmAmmV1QueryWeightedTokenService,
@@ -1445,6 +1472,8 @@ export {
   QuerySimulateExitExactTokensService as PryzmAmmV1QuerySimulateExitExactTokensService,
   QuerySimulateExitAllTokensExactLptService as PryzmAmmV1QuerySimulateExitAllTokensExactLptService,
   QuerySpotPriceService as PryzmAmmV1QuerySpotPriceService,
+  QueryPermanentVirtualBalancePoolTokenService as PryzmAmmV1QueryPermanentVirtualBalancePoolTokenService,
+  QueryPermanentVirtualBalancePoolTokenAllService as PryzmAmmV1QueryPermanentVirtualBalancePoolTokenAllService,
   QueryIntroducingPoolTokenService as PryzmAmmV1QueryIntroducingPoolTokenService,
   QueryIntroducingPoolTokenAllService as PryzmAmmV1QueryIntroducingPoolTokenAllService,
   QueryExpiringPoolTokenService as PryzmAmmV1QueryExpiringPoolTokenService,
@@ -1475,6 +1504,7 @@ export {
   CircuitBreaker as PryzmAmmV1CircuitBreaker,
   PoolToken as PryzmAmmV1PoolToken,
   TokenAmount as PryzmAmmV1TokenAmount,
+  TokenInfo as PryzmAmmV1TokenInfo,
 } from "./pryzm/amm/v1/pool_token_pb.js";
 export {
   PoolType as PryzmAmmV1PoolType,
@@ -1491,10 +1521,13 @@ export {
   GeneralPoolParameters as PryzmAmmV1GeneralPoolParameters,
   AuthorizationParameters as PryzmAmmV1AuthorizationParameters,
   GasParameters as PryzmAmmV1GasParameters,
+  WeightedPoolParameters as PryzmAmmV1WeightedPoolParameters,
   Params as PryzmAmmV1Params,
 } from "./pryzm/amm/v1/params_pb.js";
 export {
   PairMatchProposal as PryzmAmmV1PairMatchProposal,
+  MatchedOrderSummary as PryzmAmmV1MatchedOrderSummary,
+  MatchedPairSummary as PryzmAmmV1MatchedPairSummary,
 } from "./pryzm/amm/v1/pair_match_proposal_pb.js";
 export {
   Order as PryzmAmmV1Order,
@@ -1553,8 +1586,6 @@ export {
   EventSetVaultPaused as PryzmAmmV1EventSetVaultPaused,
   EventExecuteOrder as PryzmAmmV1EventExecuteOrder,
   EventExecuteOrdersForPair as PryzmAmmV1EventExecuteOrdersForPair,
-  EventExecuteMatchProposalOrder as PryzmAmmV1EventExecuteMatchProposalOrder,
-  EventExecuteMatchProposalPair as PryzmAmmV1EventExecuteMatchProposalPair,
   EventExecuteMatchProposal as PryzmAmmV1EventExecuteMatchProposal,
   EventExitPool as PryzmAmmV1EventExitPool,
   EventJoinPool as PryzmAmmV1EventJoinPool,
@@ -1570,6 +1601,8 @@ export {
   EventSetPendingTokenIntroduction as PryzmAmmV1EventSetPendingTokenIntroduction,
   EventRemovePendingTokenIntroduction as PryzmAmmV1EventRemovePendingTokenIntroduction,
   EventSetParams as PryzmAmmV1EventSetParams,
+  EventSetPermanentVirtualBalancePoolToken as PryzmAmmV1EventSetPermanentVirtualBalancePoolToken,
+  EventRemovePermanentVirtualBalancePoolToken as PryzmAmmV1EventRemovePermanentVirtualBalancePoolToken,
 } from "./pryzm/amm/v1/event_pb.js";
 export {
   MsgSetValidatorSetPreference as OsmosisValsetprefV1beta1MsgSetValidatorSetPreference,
@@ -1692,8 +1725,6 @@ export {
   MsgSetDenomMetadataResponse as OsmosisTokenfactoryV1beta1MsgSetDenomMetadataResponse,
   MsgForceTransfer as OsmosisTokenfactoryV1beta1MsgForceTransfer,
   MsgForceTransferResponse as OsmosisTokenfactoryV1beta1MsgForceTransferResponse,
-  MsgUpdateParams as OsmosisTokenfactoryV1beta1MsgUpdateParams,
-  MsgUpdateParamsResponse as OsmosisTokenfactoryV1beta1MsgUpdateParamsResponse,
 } from "./osmosis/tokenfactory/v1beta1/tx_pb.js";
 export {
   MsgCreateDenomService as OsmosisTokenfactoryV1beta1MsgCreateDenomService,
@@ -1703,7 +1734,6 @@ export {
   MsgSetDenomMetadataService as OsmosisTokenfactoryV1beta1MsgSetDenomMetadataService,
   MsgSetBeforeSendHookService as OsmosisTokenfactoryV1beta1MsgSetBeforeSendHookService,
   MsgForceTransferService as OsmosisTokenfactoryV1beta1MsgForceTransferService,
-  MsgUpdateParamsService as OsmosisTokenfactoryV1beta1MsgUpdateParamsService,
 } from "./osmosis/tokenfactory/v1beta1/tx_cosmes.js";
 export {
   QueryParamsRequest as OsmosisTokenfactoryV1beta1QueryParamsRequest,
@@ -1714,15 +1744,15 @@ export {
   QueryDenomsFromCreatorResponse as OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorResponse,
   QueryBeforeSendHookAddressRequest as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressRequest,
   QueryBeforeSendHookAddressResponse as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressResponse,
-  QueryFullDenomRequest as OsmosisTokenfactoryV1beta1QueryFullDenomRequest,
-  QueryFullDenomResponse as OsmosisTokenfactoryV1beta1QueryFullDenomResponse,
+  QueryAllBeforeSendHooksAddressesRequest as OsmosisTokenfactoryV1beta1QueryAllBeforeSendHooksAddressesRequest,
+  QueryAllBeforeSendHooksAddressesResponse as OsmosisTokenfactoryV1beta1QueryAllBeforeSendHooksAddressesResponse,
 } from "./osmosis/tokenfactory/v1beta1/query_pb.js";
 export {
   QueryParamsService as OsmosisTokenfactoryV1beta1QueryParamsService,
   QueryDenomAuthorityMetadataService as OsmosisTokenfactoryV1beta1QueryDenomAuthorityMetadataService,
   QueryDenomsFromCreatorService as OsmosisTokenfactoryV1beta1QueryDenomsFromCreatorService,
   QueryBeforeSendHookAddressService as OsmosisTokenfactoryV1beta1QueryBeforeSendHookAddressService,
-  QueryFullDenomService as OsmosisTokenfactoryV1beta1QueryFullDenomService,
+  QueryAllBeforeSendHooksAddressesService as OsmosisTokenfactoryV1beta1QueryAllBeforeSendHooksAddressesService,
 } from "./osmosis/tokenfactory/v1beta1/query_cosmes.js";
 export {
   Params as OsmosisTokenfactoryV1beta1Params,
@@ -2591,11 +2621,14 @@ export {
   PoolsResponse as OsmosisCosmwasmpoolV1beta1PoolsResponse,
   ContractInfoByPoolIdRequest as OsmosisCosmwasmpoolV1beta1ContractInfoByPoolIdRequest,
   ContractInfoByPoolIdResponse as OsmosisCosmwasmpoolV1beta1ContractInfoByPoolIdResponse,
+  PoolRawFilteredStateRequest as OsmosisCosmwasmpoolV1beta1PoolRawFilteredStateRequest,
+  PoolRawFilteredStateResponse as OsmosisCosmwasmpoolV1beta1PoolRawFilteredStateResponse,
 } from "./osmosis/cosmwasmpool/v1beta1/query_pb.js";
 export {
   QueryPoolsService as OsmosisCosmwasmpoolV1beta1QueryPoolsService,
   QueryParamsService as OsmosisCosmwasmpoolV1beta1QueryParamsService,
   QueryContractInfoByPoolIdService as OsmosisCosmwasmpoolV1beta1QueryContractInfoByPoolIdService,
+  QueryPoolRawFilteredStateService as OsmosisCosmwasmpoolV1beta1QueryPoolRawFilteredStateService,
 } from "./osmosis/cosmwasmpool/v1beta1/query_cosmes.js";
 export {
   Params as OsmosisCosmwasmpoolV1beta1Params,
@@ -2783,6 +2816,170 @@ export {
   Options as OsmosisAccumV1beta1Options,
   Record as OsmosisAccumV1beta1Record,
 } from "./osmosis/accum/v1beta1/accum_pb.js";
+export {
+  VaultType as NobleDollarVaultsV1VaultType,
+  PausedType as NobleDollarVaultsV1PausedType,
+  Reward as NobleDollarVaultsV1Reward,
+  Position as NobleDollarVaultsV1Position,
+  PositionEntry as NobleDollarVaultsV1PositionEntry,
+  Stats as NobleDollarVaultsV1Stats,
+} from "./noble/dollar/vaults/v1/vaults_pb.js";
+export {
+  MsgLock as NobleDollarVaultsV1MsgLock,
+  MsgLockResponse as NobleDollarVaultsV1MsgLockResponse,
+  MsgUnlock as NobleDollarVaultsV1MsgUnlock,
+  MsgUnlockResponse as NobleDollarVaultsV1MsgUnlockResponse,
+  MsgSetPausedState as NobleDollarVaultsV1MsgSetPausedState,
+  MsgSetPausedStateResponse as NobleDollarVaultsV1MsgSetPausedStateResponse,
+} from "./noble/dollar/vaults/v1/tx_pb.js";
+export {
+  MsgLockService as NobleDollarVaultsV1MsgLockService,
+  MsgUnlockService as NobleDollarVaultsV1MsgUnlockService,
+  MsgSetPausedStateService as NobleDollarVaultsV1MsgSetPausedStateService,
+} from "./noble/dollar/vaults/v1/tx_cosmes.js";
+export {
+  QueryPositionsByProvider as NobleDollarVaultsV1QueryPositionsByProvider,
+  QueryPositionsByProviderResponse as NobleDollarVaultsV1QueryPositionsByProviderResponse,
+  QueryPaused as NobleDollarVaultsV1QueryPaused,
+  QueryPausedResponse as NobleDollarVaultsV1QueryPausedResponse,
+  QueryPendingRewards as NobleDollarVaultsV1QueryPendingRewards,
+  QueryPendingRewardsResponse as NobleDollarVaultsV1QueryPendingRewardsResponse,
+  QueryPendingRewardsByProvider as NobleDollarVaultsV1QueryPendingRewardsByProvider,
+  QueryPendingRewardsByProviderResponse as NobleDollarVaultsV1QueryPendingRewardsByProviderResponse,
+  QueryStats as NobleDollarVaultsV1QueryStats,
+  QueryStatsResponse as NobleDollarVaultsV1QueryStatsResponse,
+} from "./noble/dollar/vaults/v1/query_pb.js";
+export {
+  QueryPositionsByProviderService as NobleDollarVaultsV1QueryPositionsByProviderService,
+  QueryPendingRewardsService as NobleDollarVaultsV1QueryPendingRewardsService,
+  QueryPendingRewardsByProviderService as NobleDollarVaultsV1QueryPendingRewardsByProviderService,
+  QueryPausedService as NobleDollarVaultsV1QueryPausedService,
+  QueryStatsService as NobleDollarVaultsV1QueryStatsService,
+} from "./noble/dollar/vaults/v1/query_cosmes.js";
+export {
+  GenesisState as NobleDollarVaultsV1GenesisState,
+} from "./noble/dollar/vaults/v1/genesis_pb.js";
+export {
+  PositionLocked as NobleDollarVaultsV1PositionLocked,
+  PositionUnlocked as NobleDollarVaultsV1PositionUnlocked,
+  PausedStateUpdated as NobleDollarVaultsV1PausedStateUpdated,
+  RewardClaimed as NobleDollarVaultsV1RewardClaimed,
+} from "./noble/dollar/vaults/v1/events_pb.js";
+export {
+  MsgClaimYield as NobleDollarV1MsgClaimYield,
+  MsgClaimYieldResponse as NobleDollarV1MsgClaimYieldResponse,
+  MsgSetPausedState as NobleDollarV1MsgSetPausedState,
+  MsgSetPausedStateResponse as NobleDollarV1MsgSetPausedStateResponse,
+} from "./noble/dollar/v1/tx_pb.js";
+export {
+  MsgClaimYieldService as NobleDollarV1MsgClaimYieldService,
+  MsgSetPausedStateService as NobleDollarV1MsgSetPausedStateService,
+} from "./noble/dollar/v1/tx_cosmes.js";
+export {
+  QueryIndex as NobleDollarV1QueryIndex,
+  QueryIndexResponse as NobleDollarV1QueryIndexResponse,
+  QueryPaused as NobleDollarV1QueryPaused,
+  QueryPausedResponse as NobleDollarV1QueryPausedResponse,
+  QueryPrincipal as NobleDollarV1QueryPrincipal,
+  QueryPrincipalResponse as NobleDollarV1QueryPrincipalResponse,
+  QueryYield as NobleDollarV1QueryYield,
+  QueryYieldResponse as NobleDollarV1QueryYieldResponse,
+  QueryStats as NobleDollarV1QueryStats,
+  QueryStatsResponse as NobleDollarV1QueryStatsResponse,
+} from "./noble/dollar/v1/query_pb.js";
+export {
+  QueryIndexService as NobleDollarV1QueryIndexService,
+  QueryPausedService as NobleDollarV1QueryPausedService,
+  QueryPrincipalService as NobleDollarV1QueryPrincipalService,
+  QueryYieldService as NobleDollarV1QueryYieldService,
+  QueryStatsService as NobleDollarV1QueryStatsService,
+} from "./noble/dollar/v1/query_cosmes.js";
+export {
+  GenesisState as NobleDollarV1GenesisState,
+} from "./noble/dollar/v1/genesis_pb.js";
+export {
+  Paused as NobleDollarV1Paused,
+  Unpaused as NobleDollarV1Unpaused,
+  YieldClaimed as NobleDollarV1YieldClaimed,
+  IndexUpdated as NobleDollarV1IndexUpdated,
+} from "./noble/dollar/v1/events_pb.js";
+export {
+  Stats as NobleDollarV1Stats,
+} from "./noble/dollar/v1/dollar_pb.js";
+export {
+  MsgDeliver as NobleDollarPortalV1MsgDeliver,
+  MsgDeliverResponse as NobleDollarPortalV1MsgDeliverResponse,
+  MsgTransfer as NobleDollarPortalV1MsgTransfer,
+  MsgTransferResponse as NobleDollarPortalV1MsgTransferResponse,
+  MsgSetPausedState as NobleDollarPortalV1MsgSetPausedState,
+  MsgSetPausedStateResponse as NobleDollarPortalV1MsgSetPausedStateResponse,
+  MsgSetPeer as NobleDollarPortalV1MsgSetPeer,
+  MsgSetPeerResponse as NobleDollarPortalV1MsgSetPeerResponse,
+  MsgSetBridgingPath as NobleDollarPortalV1MsgSetBridgingPath,
+  MsgSetBridgingPathResponse as NobleDollarPortalV1MsgSetBridgingPathResponse,
+  MsgTransferOwnership as NobleDollarPortalV1MsgTransferOwnership,
+  MsgTransferOwnershipResponse as NobleDollarPortalV1MsgTransferOwnershipResponse,
+} from "./noble/dollar/portal/v1/tx_pb.js";
+export {
+  MsgDeliverService as NobleDollarPortalV1MsgDeliverService,
+  MsgTransferService as NobleDollarPortalV1MsgTransferService,
+  MsgSetPausedStateService as NobleDollarPortalV1MsgSetPausedStateService,
+  MsgSetPeerService as NobleDollarPortalV1MsgSetPeerService,
+  MsgSetBridgingPathService as NobleDollarPortalV1MsgSetBridgingPathService,
+  MsgTransferOwnershipService as NobleDollarPortalV1MsgTransferOwnershipService,
+} from "./noble/dollar/portal/v1/tx_cosmes.js";
+export {
+  QueryOwner as NobleDollarPortalV1QueryOwner,
+  QueryOwnerResponse as NobleDollarPortalV1QueryOwnerResponse,
+  QueryPaused as NobleDollarPortalV1QueryPaused,
+  QueryPausedResponse as NobleDollarPortalV1QueryPausedResponse,
+  QueryPeers as NobleDollarPortalV1QueryPeers,
+  QueryPeersResponse as NobleDollarPortalV1QueryPeersResponse,
+  QueryDestinationTokens as NobleDollarPortalV1QueryDestinationTokens,
+  QueryDestinationTokensResponse as NobleDollarPortalV1QueryDestinationTokensResponse,
+  QueryNonce as NobleDollarPortalV1QueryNonce,
+  QueryNonceResponse as NobleDollarPortalV1QueryNonceResponse,
+} from "./noble/dollar/portal/v1/query_pb.js";
+export {
+  QueryOwnerService as NobleDollarPortalV1QueryOwnerService,
+  QueryPausedService as NobleDollarPortalV1QueryPausedService,
+  QueryPeersService as NobleDollarPortalV1QueryPeersService,
+  QueryDestinationTokensService as NobleDollarPortalV1QueryDestinationTokensService,
+  QueryNonceService as NobleDollarPortalV1QueryNonceService,
+} from "./noble/dollar/portal/v1/query_cosmes.js";
+export {
+  Peer as NobleDollarPortalV1Peer,
+  BridgingPath as NobleDollarPortalV1BridgingPath,
+} from "./noble/dollar/portal/v1/portal_pb.js";
+export {
+  MsgDeliverInjection as NobleDollarPortalV1MsgDeliverInjection,
+} from "./noble/dollar/portal/v1/injection_pb.js";
+export {
+  GenesisState as NobleDollarPortalV1GenesisState,
+} from "./noble/dollar/portal/v1/genesis_pb.js";
+export {
+  Delivered as NobleDollarPortalV1Delivered,
+  MTokenReceived as NobleDollarPortalV1MTokenReceived,
+  TransferRedeemed as NobleDollarPortalV1TransferRedeemed,
+  USDNTokenSent as NobleDollarPortalV1USDNTokenSent,
+  PeerUpdated as NobleDollarPortalV1PeerUpdated,
+  BridgingPathSet as NobleDollarPortalV1BridgingPathSet,
+  OwnershipTransferred as NobleDollarPortalV1OwnershipTransferred,
+  Paused as NobleDollarPortalV1Paused,
+  Unpaused as NobleDollarPortalV1Unpaused,
+} from "./noble/dollar/portal/v1/events_pb.js";
+export {
+  TransceiverMessage as NobleDollarPortalNttV1TransceiverMessage,
+} from "./noble/dollar/portal/ntt/v1/transceiver_pb.js";
+export {
+  NativeTokenTransfer as NobleDollarPortalNttV1NativeTokenTransfer,
+} from "./noble/dollar/portal/ntt/v1/ntt_pb.js";
+export {
+  ManagerMessage as NobleDollarPortalNttV1ManagerMessage,
+} from "./noble/dollar/portal/ntt/v1/manager_pb.js";
+export {
+  Module as NobleDollarModuleV1Module,
+} from "./noble/dollar/module/v1/module_pb.js";
 export {
   MsgTransfer as NeutronTransferV1MsgTransfer,
   MsgTransferResponse as NeutronTransferV1MsgTransferResponse,
@@ -4451,6 +4648,9 @@ export {
   EventContractDeregistered as InjectiveWasmxV1EventContractDeregistered,
 } from "./injective/wasmx/v1/events_pb.js";
 export {
+  ContractExecutionCompatAuthorization as InjectiveWasmxV1ContractExecutionCompatAuthorization,
+} from "./injective/wasmx/v1/authz_pb.js";
+export {
   TxResponseGenericMessage as InjectiveTypesV1beta1TxResponseGenericMessage,
   TxResponseData as InjectiveTypesV1beta1TxResponseData,
 } from "./injective/types/v1beta1/tx_response_pb.js";
@@ -4470,6 +4670,7 @@ export {
   MsgChangeAdmin as InjectiveTokenfactoryV1beta1MsgChangeAdmin,
   MsgChangeAdminResponse as InjectiveTokenfactoryV1beta1MsgChangeAdminResponse,
   MsgSetDenomMetadata as InjectiveTokenfactoryV1beta1MsgSetDenomMetadata,
+  MsgSetDenomMetadata_AdminBurnDisabled as InjectiveTokenfactoryV1beta1MsgSetDenomMetadata_AdminBurnDisabled,
   MsgSetDenomMetadataResponse as InjectiveTokenfactoryV1beta1MsgSetDenomMetadataResponse,
   MsgUpdateParams as InjectiveTokenfactoryV1beta1MsgUpdateParams,
   MsgUpdateParamsResponse as InjectiveTokenfactoryV1beta1MsgUpdateParamsResponse,
@@ -4506,11 +4707,11 @@ export {
   GenesisDenom as InjectiveTokenfactoryV1beta1GenesisDenom,
 } from "./injective/tokenfactory/v1beta1/genesis_pb.js";
 export {
-  EventCreateTFDenom as InjectiveTokenfactoryV1beta1EventCreateTFDenom,
-  EventMintTFDenom as InjectiveTokenfactoryV1beta1EventMintTFDenom,
-  EventBurnDenom as InjectiveTokenfactoryV1beta1EventBurnDenom,
-  EventChangeTFAdmin as InjectiveTokenfactoryV1beta1EventChangeTFAdmin,
-  EventSetTFDenomMetadata as InjectiveTokenfactoryV1beta1EventSetTFDenomMetadata,
+  EventCreateDenom as InjectiveTokenfactoryV1beta1EventCreateDenom,
+  EventMint as InjectiveTokenfactoryV1beta1EventMint,
+  EventBurn as InjectiveTokenfactoryV1beta1EventBurn,
+  EventChangeAdmin as InjectiveTokenfactoryV1beta1EventChangeAdmin,
+  EventSetDenomMetadata as InjectiveTokenfactoryV1beta1EventSetDenomMetadata,
 } from "./injective/tokenfactory/v1beta1/events_pb.js";
 export {
   DenomAuthorityMetadata as InjectiveTokenfactoryV1beta1DenomAuthorityMetadata,
@@ -4548,59 +4749,74 @@ export {
   MsgUpdateParamsResponse as InjectivePermissionsV1beta1MsgUpdateParamsResponse,
   MsgCreateNamespace as InjectivePermissionsV1beta1MsgCreateNamespace,
   MsgCreateNamespaceResponse as InjectivePermissionsV1beta1MsgCreateNamespaceResponse,
-  MsgDeleteNamespace as InjectivePermissionsV1beta1MsgDeleteNamespace,
-  MsgDeleteNamespaceResponse as InjectivePermissionsV1beta1MsgDeleteNamespaceResponse,
   MsgUpdateNamespace as InjectivePermissionsV1beta1MsgUpdateNamespace,
-  MsgUpdateNamespace_MsgSetWasmHook as InjectivePermissionsV1beta1MsgUpdateNamespace_MsgSetWasmHook,
-  MsgUpdateNamespace_MsgSetMintsPaused as InjectivePermissionsV1beta1MsgUpdateNamespace_MsgSetMintsPaused,
-  MsgUpdateNamespace_MsgSetSendsPaused as InjectivePermissionsV1beta1MsgUpdateNamespace_MsgSetSendsPaused,
-  MsgUpdateNamespace_MsgSetBurnsPaused as InjectivePermissionsV1beta1MsgUpdateNamespace_MsgSetBurnsPaused,
+  MsgUpdateNamespace_SetContractHook as InjectivePermissionsV1beta1MsgUpdateNamespace_SetContractHook,
   MsgUpdateNamespaceResponse as InjectivePermissionsV1beta1MsgUpdateNamespaceResponse,
-  MsgUpdateNamespaceRoles as InjectivePermissionsV1beta1MsgUpdateNamespaceRoles,
-  MsgUpdateNamespaceRolesResponse as InjectivePermissionsV1beta1MsgUpdateNamespaceRolesResponse,
-  MsgRevokeNamespaceRoles as InjectivePermissionsV1beta1MsgRevokeNamespaceRoles,
-  MsgRevokeNamespaceRolesResponse as InjectivePermissionsV1beta1MsgRevokeNamespaceRolesResponse,
+  MsgUpdateActorRoles as InjectivePermissionsV1beta1MsgUpdateActorRoles,
+  MsgUpdateActorRolesResponse as InjectivePermissionsV1beta1MsgUpdateActorRolesResponse,
   MsgClaimVoucher as InjectivePermissionsV1beta1MsgClaimVoucher,
   MsgClaimVoucherResponse as InjectivePermissionsV1beta1MsgClaimVoucherResponse,
 } from "./injective/permissions/v1beta1/tx_pb.js";
 export {
   MsgUpdateParamsService as InjectivePermissionsV1beta1MsgUpdateParamsService,
   MsgCreateNamespaceService as InjectivePermissionsV1beta1MsgCreateNamespaceService,
-  MsgDeleteNamespaceService as InjectivePermissionsV1beta1MsgDeleteNamespaceService,
   MsgUpdateNamespaceService as InjectivePermissionsV1beta1MsgUpdateNamespaceService,
-  MsgUpdateNamespaceRolesService as InjectivePermissionsV1beta1MsgUpdateNamespaceRolesService,
-  MsgRevokeNamespaceRolesService as InjectivePermissionsV1beta1MsgRevokeNamespaceRolesService,
+  MsgUpdateActorRolesService as InjectivePermissionsV1beta1MsgUpdateActorRolesService,
   MsgClaimVoucherService as InjectivePermissionsV1beta1MsgClaimVoucherService,
 } from "./injective/permissions/v1beta1/tx_cosmes.js";
 export {
   QueryParamsRequest as InjectivePermissionsV1beta1QueryParamsRequest,
   QueryParamsResponse as InjectivePermissionsV1beta1QueryParamsResponse,
-  QueryAllNamespacesRequest as InjectivePermissionsV1beta1QueryAllNamespacesRequest,
-  QueryAllNamespacesResponse as InjectivePermissionsV1beta1QueryAllNamespacesResponse,
-  QueryNamespaceByDenomRequest as InjectivePermissionsV1beta1QueryNamespaceByDenomRequest,
-  QueryNamespaceByDenomResponse as InjectivePermissionsV1beta1QueryNamespaceByDenomResponse,
-  QueryAddressesByRoleRequest as InjectivePermissionsV1beta1QueryAddressesByRoleRequest,
-  QueryAddressesByRoleResponse as InjectivePermissionsV1beta1QueryAddressesByRoleResponse,
-  QueryAddressRolesRequest as InjectivePermissionsV1beta1QueryAddressRolesRequest,
-  QueryAddressRolesResponse as InjectivePermissionsV1beta1QueryAddressRolesResponse,
-  QueryVouchersForAddressRequest as InjectivePermissionsV1beta1QueryVouchersForAddressRequest,
-  QueryVouchersForAddressResponse as InjectivePermissionsV1beta1QueryVouchersForAddressResponse,
+  QueryNamespaceDenomsRequest as InjectivePermissionsV1beta1QueryNamespaceDenomsRequest,
+  QueryNamespaceDenomsResponse as InjectivePermissionsV1beta1QueryNamespaceDenomsResponse,
+  QueryNamespacesRequest as InjectivePermissionsV1beta1QueryNamespacesRequest,
+  QueryNamespacesResponse as InjectivePermissionsV1beta1QueryNamespacesResponse,
+  QueryNamespaceRequest as InjectivePermissionsV1beta1QueryNamespaceRequest,
+  QueryNamespaceResponse as InjectivePermissionsV1beta1QueryNamespaceResponse,
+  QueryActorsByRoleRequest as InjectivePermissionsV1beta1QueryActorsByRoleRequest,
+  QueryActorsByRoleResponse as InjectivePermissionsV1beta1QueryActorsByRoleResponse,
+  QueryRolesByActorRequest as InjectivePermissionsV1beta1QueryRolesByActorRequest,
+  QueryRolesByActorResponse as InjectivePermissionsV1beta1QueryRolesByActorResponse,
+  QueryRoleManagersRequest as InjectivePermissionsV1beta1QueryRoleManagersRequest,
+  QueryRoleManagersResponse as InjectivePermissionsV1beta1QueryRoleManagersResponse,
+  QueryRoleManagerRequest as InjectivePermissionsV1beta1QueryRoleManagerRequest,
+  QueryRoleManagerResponse as InjectivePermissionsV1beta1QueryRoleManagerResponse,
+  QueryPolicyStatusesRequest as InjectivePermissionsV1beta1QueryPolicyStatusesRequest,
+  QueryPolicyStatusesResponse as InjectivePermissionsV1beta1QueryPolicyStatusesResponse,
+  QueryPolicyManagerCapabilitiesRequest as InjectivePermissionsV1beta1QueryPolicyManagerCapabilitiesRequest,
+  QueryPolicyManagerCapabilitiesResponse as InjectivePermissionsV1beta1QueryPolicyManagerCapabilitiesResponse,
+  QueryVouchersRequest as InjectivePermissionsV1beta1QueryVouchersRequest,
+  QueryVouchersResponse as InjectivePermissionsV1beta1QueryVouchersResponse,
+  QueryVoucherRequest as InjectivePermissionsV1beta1QueryVoucherRequest,
+  QueryVoucherResponse as InjectivePermissionsV1beta1QueryVoucherResponse,
+  QueryModuleStateRequest as InjectivePermissionsV1beta1QueryModuleStateRequest,
+  QueryModuleStateResponse as InjectivePermissionsV1beta1QueryModuleStateResponse,
 } from "./injective/permissions/v1beta1/query_pb.js";
 export {
   QueryParamsService as InjectivePermissionsV1beta1QueryParamsService,
-  QueryAllNamespacesService as InjectivePermissionsV1beta1QueryAllNamespacesService,
-  QueryNamespaceByDenomService as InjectivePermissionsV1beta1QueryNamespaceByDenomService,
-  QueryAddressRolesService as InjectivePermissionsV1beta1QueryAddressRolesService,
-  QueryAddressesByRoleService as InjectivePermissionsV1beta1QueryAddressesByRoleService,
-  QueryVouchersForAddressService as InjectivePermissionsV1beta1QueryVouchersForAddressService,
+  QueryNamespaceDenomsService as InjectivePermissionsV1beta1QueryNamespaceDenomsService,
+  QueryNamespacesService as InjectivePermissionsV1beta1QueryNamespacesService,
+  QueryNamespaceService as InjectivePermissionsV1beta1QueryNamespaceService,
+  QueryRolesByActorService as InjectivePermissionsV1beta1QueryRolesByActorService,
+  QueryActorsByRoleService as InjectivePermissionsV1beta1QueryActorsByRoleService,
+  QueryRoleManagersService as InjectivePermissionsV1beta1QueryRoleManagersService,
+  QueryRoleManagerService as InjectivePermissionsV1beta1QueryRoleManagerService,
+  QueryPolicyStatusesService as InjectivePermissionsV1beta1QueryPolicyStatusesService,
+  QueryPolicyManagerCapabilitiesService as InjectivePermissionsV1beta1QueryPolicyManagerCapabilitiesService,
+  QueryVouchersService as InjectivePermissionsV1beta1QueryVouchersService,
+  QueryVoucherService as InjectivePermissionsV1beta1QueryVoucherService,
+  QueryPermissionsModuleStateService as InjectivePermissionsV1beta1QueryPermissionsModuleStateService,
 } from "./injective/permissions/v1beta1/query_cosmes.js";
 export {
   Action as InjectivePermissionsV1beta1Action,
   Namespace as InjectivePermissionsV1beta1Namespace,
-  AddressRoles as InjectivePermissionsV1beta1AddressRoles,
+  ActorRoles as InjectivePermissionsV1beta1ActorRoles,
+  RoleActors as InjectivePermissionsV1beta1RoleActors,
+  RoleManager as InjectivePermissionsV1beta1RoleManager,
+  PolicyStatus as InjectivePermissionsV1beta1PolicyStatus,
   Role as InjectivePermissionsV1beta1Role,
+  PolicyManagerCapability as InjectivePermissionsV1beta1PolicyManagerCapability,
   RoleIDs as InjectivePermissionsV1beta1RoleIDs,
-  Voucher as InjectivePermissionsV1beta1Voucher,
   AddressVoucher as InjectivePermissionsV1beta1AddressVoucher,
 } from "./injective/permissions/v1beta1/permissions_pb.js";
 export {
@@ -4687,10 +4903,6 @@ export {
   QueryMissingPeggoNoncesService as InjectivePeggyV1QueryMissingPeggoNoncesService,
 } from "./injective/peggy/v1/query_cosmes.js";
 export {
-  BlacklistEthereumAddressesProposal as InjectivePeggyV1BlacklistEthereumAddressesProposal,
-  RevokeEthereumBlacklistProposal as InjectivePeggyV1RevokeEthereumBlacklistProposal,
-} from "./injective/peggy/v1/proposal_pb.js";
-export {
   IDSet as InjectivePeggyV1IDSet,
   BatchFees as InjectivePeggyV1BatchFees,
 } from "./injective/peggy/v1/pool_pb.js";
@@ -4764,6 +4976,9 @@ export {
   EventCancelSendToEth as InjectivePeggyV1EventCancelSendToEth,
   EventSubmitBadSignatureEvidence as InjectivePeggyV1EventSubmitBadSignatureEvidence,
   EventValidatorSlash as InjectivePeggyV1EventValidatorSlash,
+  EventDepositReceived as InjectivePeggyV1EventDepositReceived,
+  EventWithdrawalsCompleted as InjectivePeggyV1EventWithdrawalsCompleted,
+  Withdrawal as InjectivePeggyV1Withdrawal,
 } from "./injective/peggy/v1/events_pb.js";
 export {
   SignType as InjectivePeggyV1SignType,
@@ -5140,6 +5355,8 @@ export {
   MsgAuthorizeStakeGrantsResponse as InjectiveExchangeV1beta1MsgAuthorizeStakeGrantsResponse,
   MsgActivateStakeGrant as InjectiveExchangeV1beta1MsgActivateStakeGrant,
   MsgActivateStakeGrantResponse as InjectiveExchangeV1beta1MsgActivateStakeGrantResponse,
+  MsgBatchExchangeModification as InjectiveExchangeV1beta1MsgBatchExchangeModification,
+  MsgBatchExchangeModificationResponse as InjectiveExchangeV1beta1MsgBatchExchangeModificationResponse,
 } from "./injective/exchange/v1beta1/tx_pb.js";
 export {
   MsgDepositService as InjectiveExchangeV1beta1MsgDepositService,
@@ -5177,6 +5394,7 @@ export {
   MsgUpdateDerivativeMarketService as InjectiveExchangeV1beta1MsgUpdateDerivativeMarketService,
   MsgAuthorizeStakeGrantsService as InjectiveExchangeV1beta1MsgAuthorizeStakeGrantsService,
   MsgActivateStakeGrantService as InjectiveExchangeV1beta1MsgActivateStakeGrantService,
+  MsgBatchExchangeModificationService as InjectiveExchangeV1beta1MsgBatchExchangeModificationService,
 } from "./injective/exchange/v1beta1/tx_cosmes.js";
 export {
   OrderSide as InjectiveExchangeV1beta1OrderSide,
@@ -5303,6 +5521,11 @@ export {
   QueryTraderDerivativeConditionalOrdersRequest as InjectiveExchangeV1beta1QueryTraderDerivativeConditionalOrdersRequest,
   TrimmedDerivativeConditionalOrder as InjectiveExchangeV1beta1TrimmedDerivativeConditionalOrder,
   QueryTraderDerivativeConditionalOrdersResponse as InjectiveExchangeV1beta1QueryTraderDerivativeConditionalOrdersResponse,
+  QueryFullSpotOrderbookRequest as InjectiveExchangeV1beta1QueryFullSpotOrderbookRequest,
+  QueryFullSpotOrderbookResponse as InjectiveExchangeV1beta1QueryFullSpotOrderbookResponse,
+  QueryFullDerivativeOrderbookRequest as InjectiveExchangeV1beta1QueryFullDerivativeOrderbookRequest,
+  QueryFullDerivativeOrderbookResponse as InjectiveExchangeV1beta1QueryFullDerivativeOrderbookResponse,
+  TrimmedLimitOrder as InjectiveExchangeV1beta1TrimmedLimitOrder,
   QueryMarketAtomicExecutionFeeMultiplierRequest as InjectiveExchangeV1beta1QueryMarketAtomicExecutionFeeMultiplierRequest,
   QueryMarketAtomicExecutionFeeMultiplierResponse as InjectiveExchangeV1beta1QueryMarketAtomicExecutionFeeMultiplierResponse,
   QueryActiveStakeGrantRequest as InjectiveExchangeV1beta1QueryActiveStakeGrantRequest,
@@ -5311,8 +5534,19 @@ export {
   QueryGrantAuthorizationResponse as InjectiveExchangeV1beta1QueryGrantAuthorizationResponse,
   QueryGrantAuthorizationsRequest as InjectiveExchangeV1beta1QueryGrantAuthorizationsRequest,
   QueryGrantAuthorizationsResponse as InjectiveExchangeV1beta1QueryGrantAuthorizationsResponse,
+  QueryMarketBalanceRequest as InjectiveExchangeV1beta1QueryMarketBalanceRequest,
+  QueryMarketBalanceResponse as InjectiveExchangeV1beta1QueryMarketBalanceResponse,
+  QueryMarketBalancesRequest as InjectiveExchangeV1beta1QueryMarketBalancesRequest,
+  QueryMarketBalancesResponse as InjectiveExchangeV1beta1QueryMarketBalancesResponse,
+  MarketBalance as InjectiveExchangeV1beta1MarketBalance,
+  QueryDenomMinNotionalRequest as InjectiveExchangeV1beta1QueryDenomMinNotionalRequest,
+  QueryDenomMinNotionalResponse as InjectiveExchangeV1beta1QueryDenomMinNotionalResponse,
+  QueryDenomMinNotionalsRequest as InjectiveExchangeV1beta1QueryDenomMinNotionalsRequest,
+  QueryDenomMinNotionalsResponse as InjectiveExchangeV1beta1QueryDenomMinNotionalsResponse,
 } from "./injective/exchange/v1beta1/query_pb.js";
 export {
+  QueryL3DerivativeOrderBookService as InjectiveExchangeV1beta1QueryL3DerivativeOrderBookService,
+  QueryL3SpotOrderBookService as InjectiveExchangeV1beta1QueryL3SpotOrderBookService,
   QueryQueryExchangeParamsService as InjectiveExchangeV1beta1QueryQueryExchangeParamsService,
   QuerySubaccountDepositsService as InjectiveExchangeV1beta1QuerySubaccountDepositsService,
   QuerySubaccountDepositService as InjectiveExchangeV1beta1QuerySubaccountDepositService,
@@ -5373,6 +5607,10 @@ export {
   QueryActiveStakeGrantService as InjectiveExchangeV1beta1QueryActiveStakeGrantService,
   QueryGrantAuthorizationService as InjectiveExchangeV1beta1QueryGrantAuthorizationService,
   QueryGrantAuthorizationsService as InjectiveExchangeV1beta1QueryGrantAuthorizationsService,
+  QueryMarketBalanceService as InjectiveExchangeV1beta1QueryMarketBalanceService,
+  QueryMarketBalancesService as InjectiveExchangeV1beta1QueryMarketBalancesService,
+  QueryDenomMinNotionalService as InjectiveExchangeV1beta1QueryDenomMinNotionalService,
+  QueryDenomMinNotionalsService as InjectiveExchangeV1beta1QueryDenomMinNotionalsService,
 } from "./injective/exchange/v1beta1/query_cosmes.js";
 export {
   ExchangeType as InjectiveExchangeV1beta1ExchangeType,
@@ -5397,6 +5635,7 @@ export {
   FeeDiscountProposal as InjectiveExchangeV1beta1FeeDiscountProposal,
   BatchCommunityPoolSpendProposal as InjectiveExchangeV1beta1BatchCommunityPoolSpendProposal,
   AtomicMarketOrderFeeMultiplierScheduleProposal as InjectiveExchangeV1beta1AtomicMarketOrderFeeMultiplierScheduleProposal,
+  DenomMinNotionalProposal as InjectiveExchangeV1beta1DenomMinNotionalProposal,
 } from "./injective/exchange/v1beta1/proposal_pb.js";
 export {
   GenesisState as InjectiveExchangeV1beta1GenesisState,
@@ -5474,6 +5713,7 @@ export {
   GrantAuthorization as InjectiveExchangeV1beta1GrantAuthorization,
   ActiveGrant as InjectiveExchangeV1beta1ActiveGrant,
   EffectiveGrant as InjectiveExchangeV1beta1EffectiveGrant,
+  DenomMinNotional as InjectiveExchangeV1beta1DenomMinNotional,
 } from "./injective/exchange/v1beta1/exchange_pb.js";
 export {
   EventBatchSpotExecution as InjectiveExchangeV1beta1EventBatchSpotExecution,
@@ -5481,6 +5721,8 @@ export {
   EventLostFundsFromLiquidation as InjectiveExchangeV1beta1EventLostFundsFromLiquidation,
   EventBatchDerivativePosition as InjectiveExchangeV1beta1EventBatchDerivativePosition,
   EventDerivativeMarketPaused as InjectiveExchangeV1beta1EventDerivativeMarketPaused,
+  EventSettledMarketBalance as InjectiveExchangeV1beta1EventSettledMarketBalance,
+  EventNotSettledMarketBalance as InjectiveExchangeV1beta1EventNotSettledMarketBalance,
   EventMarketBeyondBankruptcy as InjectiveExchangeV1beta1EventMarketBeyondBankruptcy,
   EventAllPositionsHaircut as InjectiveExchangeV1beta1EventAllPositionsHaircut,
   EventBinaryOptionsMarketUpdate as InjectiveExchangeV1beta1EventBinaryOptionsMarketUpdate,
@@ -6622,7 +6864,6 @@ export {
 export {
   BalanceBorrowed as ElysStablestakeBalanceBorrowed,
   InterestBlock as ElysStablestakeInterestBlock,
-  LegacyInterestBlock as ElysStablestakeLegacyInterestBlock,
 } from "./elys/stablestake/types_pb.js";
 export {
   MsgBond as ElysStablestakeMsgBond,
@@ -6631,11 +6872,17 @@ export {
   MsgUnbondResponse as ElysStablestakeMsgUnbondResponse,
   MsgUpdateParams as ElysStablestakeMsgUpdateParams,
   MsgUpdateParamsResponse as ElysStablestakeMsgUpdateParamsResponse,
+  MsgAddPool as ElysStablestakeMsgAddPool,
+  MsgAddPoolResponse as ElysStablestakeMsgAddPoolResponse,
+  MsgUpdatePool as ElysStablestakeMsgUpdatePool,
+  MsgUpdatePoolResponse as ElysStablestakeMsgUpdatePoolResponse,
 } from "./elys/stablestake/tx_pb.js";
 export {
   MsgBondService as ElysStablestakeMsgBondService,
   MsgUnbondService as ElysStablestakeMsgUnbondService,
   MsgUpdateParamsService as ElysStablestakeMsgUpdateParamsService,
+  MsgAddPoolService as ElysStablestakeMsgAddPoolService,
+  MsgUpdatePoolService as ElysStablestakeMsgUpdatePoolService,
 } from "./elys/stablestake/tx_cosmes.js";
 export {
   QueryParamsRequest as ElysStablestakeQueryParamsRequest,
@@ -6646,14 +6893,22 @@ export {
   QueryAllAmmPoolsResponse as ElysStablestakeQueryAllAmmPoolsResponse,
   QueryBorrowRatioRequest as ElysStablestakeQueryBorrowRatioRequest,
   QueryBorrowRatioResponse as ElysStablestakeQueryBorrowRatioResponse,
+  QueryGetPoolRequest as ElysStablestakeQueryGetPoolRequest,
+  QueryGetPoolResponse as ElysStablestakeQueryGetPoolResponse,
+  QueryAllPoolRequest as ElysStablestakeQueryAllPoolRequest,
+  QueryAllPoolResponse as ElysStablestakeQueryAllPoolResponse,
+  PoolResponse as ElysStablestakePoolResponse,
 } from "./elys/stablestake/query_pb.js";
 export {
   QueryParamsService as ElysStablestakeQueryParamsService,
   QueryBorrowRatioService as ElysStablestakeQueryBorrowRatioService,
+  QueryPoolService as ElysStablestakeQueryPoolService,
+  QueryPoolsService as ElysStablestakeQueryPoolsService,
   QueryAmmPoolService as ElysStablestakeQueryAmmPoolService,
   QueryAllAmmPoolsService as ElysStablestakeQueryAllAmmPoolsService,
 } from "./elys/stablestake/query_cosmes.js";
 export {
+  Pool as ElysStablestakePool,
   AmmPool as ElysStablestakeAmmPool,
 } from "./elys/stablestake/pool_pb.js";
 export {
@@ -6797,67 +7052,8 @@ export {
   GenesisState as ElysParameterGenesisState,
 } from "./elys/parameter/genesis_pb.js";
 export {
-  FeedPrice as ElysOracleFeedPrice,
-  MsgFeedPrice as ElysOracleMsgFeedPrice,
-  MsgFeedPriceResponse as ElysOracleMsgFeedPriceResponse,
-  MsgSetPriceFeeder as ElysOracleMsgSetPriceFeeder,
-  MsgSetPriceFeederResponse as ElysOracleMsgSetPriceFeederResponse,
-  MsgDeletePriceFeeder as ElysOracleMsgDeletePriceFeeder,
-  MsgDeletePriceFeederResponse as ElysOracleMsgDeletePriceFeederResponse,
-  MsgFeedMultiplePrices as ElysOracleMsgFeedMultiplePrices,
-  MsgFeedMultiplePricesResponse as ElysOracleMsgFeedMultiplePricesResponse,
-  MsgRemoveAssetInfo as ElysOracleMsgRemoveAssetInfo,
-  MsgRemoveAssetInfoResponse as ElysOracleMsgRemoveAssetInfoResponse,
-  MsgAddPriceFeeders as ElysOracleMsgAddPriceFeeders,
-  MsgAddPriceFeedersResponse as ElysOracleMsgAddPriceFeedersResponse,
-  MsgRemovePriceFeeders as ElysOracleMsgRemovePriceFeeders,
-  MsgRemovePriceFeedersResponse as ElysOracleMsgRemovePriceFeedersResponse,
-  MsgUpdateParams as ElysOracleMsgUpdateParams,
-  MsgUpdateParamsResponse as ElysOracleMsgUpdateParamsResponse,
-  MsgCreateAssetInfo as ElysOracleMsgCreateAssetInfo,
-  MsgCreateAssetInfoResponse as ElysOracleMsgCreateAssetInfoResponse,
-} from "./elys/oracle/tx_pb.js";
-export {
-  MsgFeedPriceService as ElysOracleMsgFeedPriceService,
-  MsgFeedMultiplePricesService as ElysOracleMsgFeedMultiplePricesService,
-  MsgSetPriceFeederService as ElysOracleMsgSetPriceFeederService,
-  MsgDeletePriceFeederService as ElysOracleMsgDeletePriceFeederService,
-  MsgRemoveAssetInfoService as ElysOracleMsgRemoveAssetInfoService,
-  MsgAddPriceFeedersService as ElysOracleMsgAddPriceFeedersService,
-  MsgRemovePriceFeedersService as ElysOracleMsgRemovePriceFeedersService,
-  MsgUpdateParamsService as ElysOracleMsgUpdateParamsService,
-  MsgCreateAssetInfoService as ElysOracleMsgCreateAssetInfoService,
 } from "./elys/oracle/tx_cosmes.js";
 export {
-  QueryParamsRequest as ElysOracleQueryParamsRequest,
-  QueryParamsResponse as ElysOracleQueryParamsResponse,
-  QueryBandPriceRequest as ElysOracleQueryBandPriceRequest,
-  QueryBandPriceResponse as ElysOracleQueryBandPriceResponse,
-  QueryLastBandRequestIdRequest as ElysOracleQueryLastBandRequestIdRequest,
-  QueryLastBandRequestIdResponse as ElysOracleQueryLastBandRequestIdResponse,
-  QueryGetAssetInfoRequest as ElysOracleQueryGetAssetInfoRequest,
-  QueryGetAssetInfoResponse as ElysOracleQueryGetAssetInfoResponse,
-  QueryAllAssetInfoRequest as ElysOracleQueryAllAssetInfoRequest,
-  QueryAllAssetInfoResponse as ElysOracleQueryAllAssetInfoResponse,
-  QueryGetPriceRequest as ElysOracleQueryGetPriceRequest,
-  QueryGetPriceResponse as ElysOracleQueryGetPriceResponse,
-  QueryAllPriceRequest as ElysOracleQueryAllPriceRequest,
-  QueryAllPriceResponse as ElysOracleQueryAllPriceResponse,
-  QueryGetPriceFeederRequest as ElysOracleQueryGetPriceFeederRequest,
-  QueryGetPriceFeederResponse as ElysOracleQueryGetPriceFeederResponse,
-  QueryAllPriceFeederRequest as ElysOracleQueryAllPriceFeederRequest,
-  QueryAllPriceFeederResponse as ElysOracleQueryAllPriceFeederResponse,
-} from "./elys/oracle/query_pb.js";
-export {
-  QueryParamsService as ElysOracleQueryParamsService,
-  QueryBandPriceResultService as ElysOracleQueryBandPriceResultService,
-  QueryLastBandRequestIdService as ElysOracleQueryLastBandRequestIdService,
-  QueryAssetInfoService as ElysOracleQueryAssetInfoService,
-  QueryAssetInfoAllService as ElysOracleQueryAssetInfoAllService,
-  QueryPriceService as ElysOracleQueryPriceService,
-  QueryPriceAllService as ElysOracleQueryPriceAllService,
-  QueryPriceFeederService as ElysOracleQueryPriceFeederService,
-  QueryPriceFeederAllService as ElysOracleQueryPriceFeederAllService,
 } from "./elys/oracle/query_cosmes.js";
 export {
   Price as ElysOraclePrice,
@@ -6982,7 +7178,6 @@ export {
 export {
   PositionRequest as ElysLeveragelpPositionRequest,
   Position as ElysLeveragelpPosition,
-  LegacyPosition as ElysLeveragelpLegacyPosition,
   QueryPosition as ElysLeveragelpQueryPosition,
   PositionAndInterest as ElysLeveragelpPositionAndInterest,
 } from "./elys/leveragelp/types_pb.js";
@@ -7079,6 +7274,7 @@ export {
 export {
   Pool as ElysLeveragelpPool,
   LegacyPool as ElysLeveragelpLegacyPool,
+  AssetLeverageAmount as ElysLeveragelpAssetLeverageAmount,
 } from "./elys/leveragelp/pool_pb.js";
 export {
   LegacyParams as ElysLeveragelpLegacyParams,
@@ -7211,6 +7407,8 @@ export {
   QueryTotalAirDropClaimedResponse as ElysCommitmentQueryTotalAirDropClaimedResponse,
   QueryKolRequest as ElysCommitmentQueryKolRequest,
   QueryKolResponse as ElysCommitmentQueryKolResponse,
+  QueryTotalSupplyRequest as ElysCommitmentQueryTotalSupplyRequest,
+  QueryTotalSupplyResponse as ElysCommitmentQueryTotalSupplyResponse,
 } from "./elys/commitment/query_pb.js";
 export {
   QueryParamsService as ElysCommitmentQueryParamsService,
@@ -7221,6 +7419,7 @@ export {
   QueryAirDropService as ElysCommitmentQueryAirDropService,
   QueryTotalAirdropClaimedService as ElysCommitmentQueryTotalAirdropClaimedService,
   QueryKolService as ElysCommitmentQueryKolService,
+  QueryTotalSupplyService as ElysCommitmentQueryTotalSupplyService,
 } from "./elys/commitment/query_cosmes.js";
 export {
   EarnType as ElysCommitmentEarnType,
@@ -7236,6 +7435,7 @@ export {
   Lockup as ElysCommitmentLockup,
   CommittedTokens as ElysCommitmentCommittedTokens,
   VestingTokens as ElysCommitmentVestingTokens,
+  TotalSupply as ElysCommitmentTotalSupply,
 } from "./elys/commitment/commitments_pb.js";
 export {
   AtomStaker as ElysCommitmentAtomStaker,
@@ -7491,142 +7691,6 @@ export {
 export {
   GenesisState as DymensionxyzDymensionPoolmanagerV1beta1GenesisState,
 } from "./dymensionxyz/dymension/poolmanager/v1beta1/genesis_pb.js";
-export {
-  MsgLockTokens as DymensionxyzDymensionLockupMsgLockTokens,
-  MsgLockTokensResponse as DymensionxyzDymensionLockupMsgLockTokensResponse,
-  MsgBeginUnlockingAll as DymensionxyzDymensionLockupMsgBeginUnlockingAll,
-  MsgBeginUnlockingAllResponse as DymensionxyzDymensionLockupMsgBeginUnlockingAllResponse,
-  MsgBeginUnlocking as DymensionxyzDymensionLockupMsgBeginUnlocking,
-  MsgBeginUnlockingResponse as DymensionxyzDymensionLockupMsgBeginUnlockingResponse,
-  MsgExtendLockup as DymensionxyzDymensionLockupMsgExtendLockup,
-  MsgExtendLockupResponse as DymensionxyzDymensionLockupMsgExtendLockupResponse,
-  MsgForceUnlock as DymensionxyzDymensionLockupMsgForceUnlock,
-  MsgForceUnlockResponse as DymensionxyzDymensionLockupMsgForceUnlockResponse,
-} from "./dymensionxyz/dymension/lockup/tx_pb.js";
-export {
-  MsgLockTokensService as DymensionxyzDymensionLockupMsgLockTokensService,
-  MsgBeginUnlockingAllService as DymensionxyzDymensionLockupMsgBeginUnlockingAllService,
-  MsgBeginUnlockingService as DymensionxyzDymensionLockupMsgBeginUnlockingService,
-  MsgExtendLockupService as DymensionxyzDymensionLockupMsgExtendLockupService,
-  MsgForceUnlockService as DymensionxyzDymensionLockupMsgForceUnlockService,
-} from "./dymensionxyz/dymension/lockup/tx_cosmes.js";
-export {
-  ModuleBalanceRequest as DymensionxyzDymensionLockupModuleBalanceRequest,
-  ModuleBalanceResponse as DymensionxyzDymensionLockupModuleBalanceResponse,
-  ModuleLockedAmountRequest as DymensionxyzDymensionLockupModuleLockedAmountRequest,
-  ModuleLockedAmountResponse as DymensionxyzDymensionLockupModuleLockedAmountResponse,
-  AccountUnlockableCoinsRequest as DymensionxyzDymensionLockupAccountUnlockableCoinsRequest,
-  AccountUnlockableCoinsResponse as DymensionxyzDymensionLockupAccountUnlockableCoinsResponse,
-  AccountUnlockingCoinsRequest as DymensionxyzDymensionLockupAccountUnlockingCoinsRequest,
-  AccountUnlockingCoinsResponse as DymensionxyzDymensionLockupAccountUnlockingCoinsResponse,
-  AccountLockedCoinsRequest as DymensionxyzDymensionLockupAccountLockedCoinsRequest,
-  AccountLockedCoinsResponse as DymensionxyzDymensionLockupAccountLockedCoinsResponse,
-  AccountLockedPastTimeRequest as DymensionxyzDymensionLockupAccountLockedPastTimeRequest,
-  AccountLockedPastTimeResponse as DymensionxyzDymensionLockupAccountLockedPastTimeResponse,
-  AccountLockedPastTimeNotUnlockingOnlyRequest as DymensionxyzDymensionLockupAccountLockedPastTimeNotUnlockingOnlyRequest,
-  AccountLockedPastTimeNotUnlockingOnlyResponse as DymensionxyzDymensionLockupAccountLockedPastTimeNotUnlockingOnlyResponse,
-  AccountUnlockedBeforeTimeRequest as DymensionxyzDymensionLockupAccountUnlockedBeforeTimeRequest,
-  AccountUnlockedBeforeTimeResponse as DymensionxyzDymensionLockupAccountUnlockedBeforeTimeResponse,
-  AccountLockedPastTimeDenomRequest as DymensionxyzDymensionLockupAccountLockedPastTimeDenomRequest,
-  AccountLockedPastTimeDenomResponse as DymensionxyzDymensionLockupAccountLockedPastTimeDenomResponse,
-  LockedDenomRequest as DymensionxyzDymensionLockupLockedDenomRequest,
-  LockedDenomResponse as DymensionxyzDymensionLockupLockedDenomResponse,
-  LockedRequest as DymensionxyzDymensionLockupLockedRequest,
-  LockedResponse as DymensionxyzDymensionLockupLockedResponse,
-  NextLockIDRequest as DymensionxyzDymensionLockupNextLockIDRequest,
-  NextLockIDResponse as DymensionxyzDymensionLockupNextLockIDResponse,
-  AccountLockedLongerDurationRequest as DymensionxyzDymensionLockupAccountLockedLongerDurationRequest,
-  AccountLockedLongerDurationResponse as DymensionxyzDymensionLockupAccountLockedLongerDurationResponse,
-  AccountLockedDurationRequest as DymensionxyzDymensionLockupAccountLockedDurationRequest,
-  AccountLockedDurationResponse as DymensionxyzDymensionLockupAccountLockedDurationResponse,
-  AccountLockedLongerDurationNotUnlockingOnlyRequest as DymensionxyzDymensionLockupAccountLockedLongerDurationNotUnlockingOnlyRequest,
-  AccountLockedLongerDurationNotUnlockingOnlyResponse as DymensionxyzDymensionLockupAccountLockedLongerDurationNotUnlockingOnlyResponse,
-  AccountLockedLongerDurationDenomRequest as DymensionxyzDymensionLockupAccountLockedLongerDurationDenomRequest,
-  AccountLockedLongerDurationDenomResponse as DymensionxyzDymensionLockupAccountLockedLongerDurationDenomResponse,
-  QueryParamsRequest as DymensionxyzDymensionLockupQueryParamsRequest,
-  QueryParamsResponse as DymensionxyzDymensionLockupQueryParamsResponse,
-} from "./dymensionxyz/dymension/lockup/query_pb.js";
-export {
-  QueryModuleBalanceService as DymensionxyzDymensionLockupQueryModuleBalanceService,
-  QueryModuleLockedAmountService as DymensionxyzDymensionLockupQueryModuleLockedAmountService,
-  QueryAccountUnlockableCoinsService as DymensionxyzDymensionLockupQueryAccountUnlockableCoinsService,
-  QueryAccountUnlockingCoinsService as DymensionxyzDymensionLockupQueryAccountUnlockingCoinsService,
-  QueryAccountLockedCoinsService as DymensionxyzDymensionLockupQueryAccountLockedCoinsService,
-  QueryAccountLockedPastTimeService as DymensionxyzDymensionLockupQueryAccountLockedPastTimeService,
-  QueryAccountLockedPastTimeNotUnlockingOnlyService as DymensionxyzDymensionLockupQueryAccountLockedPastTimeNotUnlockingOnlyService,
-  QueryAccountUnlockedBeforeTimeService as DymensionxyzDymensionLockupQueryAccountUnlockedBeforeTimeService,
-  QueryAccountLockedPastTimeDenomService as DymensionxyzDymensionLockupQueryAccountLockedPastTimeDenomService,
-  QueryLockedDenomService as DymensionxyzDymensionLockupQueryLockedDenomService,
-  QueryLockedByIDService as DymensionxyzDymensionLockupQueryLockedByIDService,
-  QueryNextLockIDService as DymensionxyzDymensionLockupQueryNextLockIDService,
-  QueryAccountLockedLongerDurationService as DymensionxyzDymensionLockupQueryAccountLockedLongerDurationService,
-  QueryAccountLockedDurationService as DymensionxyzDymensionLockupQueryAccountLockedDurationService,
-  QueryAccountLockedLongerDurationNotUnlockingOnlyService as DymensionxyzDymensionLockupQueryAccountLockedLongerDurationNotUnlockingOnlyService,
-  QueryAccountLockedLongerDurationDenomService as DymensionxyzDymensionLockupQueryAccountLockedLongerDurationDenomService,
-  QueryParamsService as DymensionxyzDymensionLockupQueryParamsService,
-} from "./dymensionxyz/dymension/lockup/query_cosmes.js";
-export {
-  Params as DymensionxyzDymensionLockupParams,
-} from "./dymensionxyz/dymension/lockup/params_pb.js";
-export {
-  LockQueryType as DymensionxyzDymensionLockupLockQueryType,
-  PeriodLock as DymensionxyzDymensionLockupPeriodLock,
-  QueryCondition as DymensionxyzDymensionLockupQueryCondition,
-} from "./dymensionxyz/dymension/lockup/lock_pb.js";
-export {
-  GenesisState as DymensionxyzDymensionLockupGenesisState,
-} from "./dymensionxyz/dymension/lockup/genesis_pb.js";
-export {
-  MsgCreateGauge as DymensionxyzDymensionIncentivesMsgCreateGauge,
-  MsgCreateGaugeResponse as DymensionxyzDymensionIncentivesMsgCreateGaugeResponse,
-  MsgAddToGauge as DymensionxyzDymensionIncentivesMsgAddToGauge,
-  MsgAddToGaugeResponse as DymensionxyzDymensionIncentivesMsgAddToGaugeResponse,
-} from "./dymensionxyz/dymension/incentives/tx_pb.js";
-export {
-  MsgCreateGaugeService as DymensionxyzDymensionIncentivesMsgCreateGaugeService,
-  MsgAddToGaugeService as DymensionxyzDymensionIncentivesMsgAddToGaugeService,
-} from "./dymensionxyz/dymension/incentives/tx_cosmes.js";
-export {
-  ModuleToDistributeCoinsRequest as DymensionxyzDymensionIncentivesModuleToDistributeCoinsRequest,
-  ModuleToDistributeCoinsResponse as DymensionxyzDymensionIncentivesModuleToDistributeCoinsResponse,
-  GaugeByIDRequest as DymensionxyzDymensionIncentivesGaugeByIDRequest,
-  GaugeByIDResponse as DymensionxyzDymensionIncentivesGaugeByIDResponse,
-  GaugesRequest as DymensionxyzDymensionIncentivesGaugesRequest,
-  GaugesResponse as DymensionxyzDymensionIncentivesGaugesResponse,
-  ActiveGaugesRequest as DymensionxyzDymensionIncentivesActiveGaugesRequest,
-  ActiveGaugesResponse as DymensionxyzDymensionIncentivesActiveGaugesResponse,
-  ActiveGaugesPerDenomRequest as DymensionxyzDymensionIncentivesActiveGaugesPerDenomRequest,
-  ActiveGaugesPerDenomResponse as DymensionxyzDymensionIncentivesActiveGaugesPerDenomResponse,
-  UpcomingGaugesRequest as DymensionxyzDymensionIncentivesUpcomingGaugesRequest,
-  UpcomingGaugesResponse as DymensionxyzDymensionIncentivesUpcomingGaugesResponse,
-  UpcomingGaugesPerDenomRequest as DymensionxyzDymensionIncentivesUpcomingGaugesPerDenomRequest,
-  UpcomingGaugesPerDenomResponse as DymensionxyzDymensionIncentivesUpcomingGaugesPerDenomResponse,
-  RewardsEstRequest as DymensionxyzDymensionIncentivesRewardsEstRequest,
-  RewardsEstResponse as DymensionxyzDymensionIncentivesRewardsEstResponse,
-  QueryLockableDurationsRequest as DymensionxyzDymensionIncentivesQueryLockableDurationsRequest,
-  QueryLockableDurationsResponse as DymensionxyzDymensionIncentivesQueryLockableDurationsResponse,
-} from "./dymensionxyz/dymension/incentives/query_pb.js";
-export {
-  QueryModuleToDistributeCoinsService as DymensionxyzDymensionIncentivesQueryModuleToDistributeCoinsService,
-  QueryGaugeByIDService as DymensionxyzDymensionIncentivesQueryGaugeByIDService,
-  QueryGaugesService as DymensionxyzDymensionIncentivesQueryGaugesService,
-  QueryActiveGaugesService as DymensionxyzDymensionIncentivesQueryActiveGaugesService,
-  QueryActiveGaugesPerDenomService as DymensionxyzDymensionIncentivesQueryActiveGaugesPerDenomService,
-  QueryUpcomingGaugesService as DymensionxyzDymensionIncentivesQueryUpcomingGaugesService,
-  QueryUpcomingGaugesPerDenomService as DymensionxyzDymensionIncentivesQueryUpcomingGaugesPerDenomService,
-  QueryRewardsEstService as DymensionxyzDymensionIncentivesQueryRewardsEstService,
-  QueryLockableDurationsService as DymensionxyzDymensionIncentivesQueryLockableDurationsService,
-} from "./dymensionxyz/dymension/incentives/query_cosmes.js";
-export {
-  Params as DymensionxyzDymensionIncentivesParams,
-} from "./dymensionxyz/dymension/incentives/params_pb.js";
-export {
-  GenesisState as DymensionxyzDymensionIncentivesGenesisState,
-} from "./dymensionxyz/dymension/incentives/genesis_pb.js";
-export {
-  Gauge as DymensionxyzDymensionIncentivesGauge,
-  LockableDurationsInfo as DymensionxyzDymensionIncentivesLockableDurationsInfo,
-} from "./dymensionxyz/dymension/incentives/gauge_pb.js";
 export {
   QuerySpotPriceRequest as DymensionxyzDymensionGammV2QuerySpotPriceRequest,
   QuerySpotPriceResponse as DymensionxyzDymensionGammV2QuerySpotPriceResponse,

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.stablestake.Query";
 
@@ -29,6 +29,30 @@ export const QueryBorrowRatioService = {
   method: "BorrowRatio",
   Request: QueryBorrowRatioRequest,
   Response: QueryBorrowRatioResponse,
+} as const;
+
+/**
+ * Queries a single pool given its index.
+ *
+ * @generated from rpc elys.stablestake.Query.Pool
+ */
+export const QueryPoolService = {
+  typeName: TYPE_NAME,
+  method: "Pool",
+  Request: QueryGetPoolRequest,
+  Response: QueryGetPoolResponse,
+} as const;
+
+/**
+ * Queries a list of all pools.
+ *
+ * @generated from rpc elys.stablestake.Query.Pools
+ */
+export const QueryPoolsService = {
+  typeName: TYPE_NAME,
+  method: "Pools",
+  Request: QueryAllPoolRequest,
+  Response: QueryAllPoolResponse,
 } as const;
 
 /**

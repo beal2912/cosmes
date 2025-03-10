@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAddressesByRoleRequest, QueryAddressesByRoleResponse, QueryAddressRolesRequest, QueryAddressRolesResponse, QueryAllNamespacesRequest, QueryAllNamespacesResponse, QueryNamespaceByDenomRequest, QueryNamespaceByDenomResponse, QueryParamsRequest, QueryParamsResponse, QueryVouchersForAddressRequest, QueryVouchersForAddressResponse } from "./query_pb.js";
+import { QueryActorsByRoleRequest, QueryActorsByRoleResponse, QueryModuleStateRequest, QueryModuleStateResponse, QueryNamespaceDenomsRequest, QueryNamespaceDenomsResponse, QueryNamespaceRequest, QueryNamespaceResponse, QueryNamespacesRequest, QueryNamespacesResponse, QueryParamsRequest, QueryParamsResponse, QueryPolicyManagerCapabilitiesRequest, QueryPolicyManagerCapabilitiesResponse, QueryPolicyStatusesRequest, QueryPolicyStatusesResponse, QueryRoleManagerRequest, QueryRoleManagerResponse, QueryRoleManagersRequest, QueryRoleManagersResponse, QueryRolesByActorRequest, QueryRolesByActorResponse, QueryVoucherRequest, QueryVoucherResponse, QueryVouchersRequest, QueryVouchersResponse } from "./query_pb.js";
 
 const TYPE_NAME = "injective.permissions.v1beta1.Query";
 
@@ -21,68 +21,148 @@ export const QueryParamsService = {
 } as const;
 
 /**
- * AllNamespaces defines a gRPC query method that returns the permissions
+ * NamespaceDenoms defines a gRPC query method that returns the denoms for which a namespace exists
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.NamespaceDenoms
+ */
+export const QueryNamespaceDenomsService = {
+  typeName: TYPE_NAME,
+  method: "NamespaceDenoms",
+  Request: QueryNamespaceDenomsRequest,
+  Response: QueryNamespaceDenomsResponse,
+} as const;
+
+/**
+ * Namespaces defines a gRPC query method that returns the permissions
  * module's created namespaces.
  *
- * @generated from rpc injective.permissions.v1beta1.Query.AllNamespaces
+ * @generated from rpc injective.permissions.v1beta1.Query.Namespaces
  */
-export const QueryAllNamespacesService = {
+export const QueryNamespacesService = {
   typeName: TYPE_NAME,
-  method: "AllNamespaces",
-  Request: QueryAllNamespacesRequest,
-  Response: QueryAllNamespacesResponse,
+  method: "Namespaces",
+  Request: QueryNamespacesRequest,
+  Response: QueryNamespacesResponse,
 } as const;
 
 /**
- * NamespaceByDenom defines a gRPC query method that returns the permissions
+ * Namespace defines a gRPC query method that returns the permissions
  * module's namespace associated with the provided denom.
  *
- * @generated from rpc injective.permissions.v1beta1.Query.NamespaceByDenom
+ * @generated from rpc injective.permissions.v1beta1.Query.Namespace
  */
-export const QueryNamespaceByDenomService = {
+export const QueryNamespaceService = {
   typeName: TYPE_NAME,
-  method: "NamespaceByDenom",
-  Request: QueryNamespaceByDenomRequest,
-  Response: QueryNamespaceByDenomResponse,
+  method: "Namespace",
+  Request: QueryNamespaceRequest,
+  Response: QueryNamespaceResponse,
 } as const;
 
 /**
- * AddressRoles defines a gRPC query method that returns address roles in the
- * namespace
+ * RolesByActor defines a gRPC query method that returns roles for the actor in the namespace
  *
- * @generated from rpc injective.permissions.v1beta1.Query.AddressRoles
+ * @generated from rpc injective.permissions.v1beta1.Query.RolesByActor
  */
-export const QueryAddressRolesService = {
+export const QueryRolesByActorService = {
   typeName: TYPE_NAME,
-  method: "AddressRoles",
-  Request: QueryAddressRolesRequest,
-  Response: QueryAddressRolesResponse,
+  method: "RolesByActor",
+  Request: QueryRolesByActorRequest,
+  Response: QueryRolesByActorResponse,
 } as const;
 
 /**
- * AddressesByRole defines a gRPC query method that returns a namespace's
- * roles associated with the provided address.
+ * ActorsByRole defines a gRPC query method that returns a namespace's roles associated with the provided actor.
  *
- * @generated from rpc injective.permissions.v1beta1.Query.AddressesByRole
+ * @generated from rpc injective.permissions.v1beta1.Query.ActorsByRole
  */
-export const QueryAddressesByRoleService = {
+export const QueryActorsByRoleService = {
   typeName: TYPE_NAME,
-  method: "AddressesByRole",
-  Request: QueryAddressesByRoleRequest,
-  Response: QueryAddressesByRoleResponse,
+  method: "ActorsByRole",
+  Request: QueryActorsByRoleRequest,
+  Response: QueryActorsByRoleResponse,
 } as const;
 
 /**
- * VouchersForAddress defines a gRPC query method that returns a map of
- * vouchers that are held by permissions module for this address, keyed by the
- * originator address
+ * RoleManagers defines a gRPC query method that returns a namespace's role managers
  *
- * @generated from rpc injective.permissions.v1beta1.Query.VouchersForAddress
+ * @generated from rpc injective.permissions.v1beta1.Query.RoleManagers
  */
-export const QueryVouchersForAddressService = {
+export const QueryRoleManagersService = {
   typeName: TYPE_NAME,
-  method: "VouchersForAddress",
-  Request: QueryVouchersForAddressRequest,
-  Response: QueryVouchersForAddressResponse,
+  method: "RoleManagers",
+  Request: QueryRoleManagersRequest,
+  Response: QueryRoleManagersResponse,
+} as const;
+
+/**
+ * RoleManager defines a gRPC query method that returns the roles a given role manager manages for a given namespace
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.RoleManager
+ */
+export const QueryRoleManagerService = {
+  typeName: TYPE_NAME,
+  method: "RoleManager",
+  Request: QueryRoleManagerRequest,
+  Response: QueryRoleManagerResponse,
+} as const;
+
+/**
+ * PolicyStatuses defines a gRPC query method that returns a namespace's policy statuses
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.PolicyStatuses
+ */
+export const QueryPolicyStatusesService = {
+  typeName: TYPE_NAME,
+  method: "PolicyStatuses",
+  Request: QueryPolicyStatusesRequest,
+  Response: QueryPolicyStatusesResponse,
+} as const;
+
+/**
+ * PolicyManagerCapabilities defines a gRPC query method that returns a namespace's policy manager capabilities
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.PolicyManagerCapabilities
+ */
+export const QueryPolicyManagerCapabilitiesService = {
+  typeName: TYPE_NAME,
+  method: "PolicyManagerCapabilities",
+  Request: QueryPolicyManagerCapabilitiesRequest,
+  Response: QueryPolicyManagerCapabilitiesResponse,
+} as const;
+
+/**
+ * Vouchers defines a gRPC query method for the vouchers for a given denom
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.Vouchers
+ */
+export const QueryVouchersService = {
+  typeName: TYPE_NAME,
+  method: "Vouchers",
+  Request: QueryVouchersRequest,
+  Response: QueryVouchersResponse,
+} as const;
+
+/**
+ * Voucher defines a gRPC query method for the vouchers for a given denom and address
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.Voucher
+ */
+export const QueryVoucherService = {
+  typeName: TYPE_NAME,
+  method: "Voucher",
+  Request: QueryVoucherRequest,
+  Response: QueryVoucherResponse,
+} as const;
+
+/**
+ * Retrieves the entire permissions module's state
+ *
+ * @generated from rpc injective.permissions.v1beta1.Query.PermissionsModuleState
+ */
+export const QueryPermissionsModuleStateService = {
+  typeName: TYPE_NAME,
+  method: "PermissionsModuleState",
+  Request: QueryModuleStateRequest,
+  Response: QueryModuleStateResponse,
 } as const;
 

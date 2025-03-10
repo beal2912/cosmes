@@ -39,6 +39,14 @@ export class Params extends Message<Params> {
    */
   restakingCap = "";
 
+  /**
+   * MaxEntries represents the maximum number of entries for unbonding
+   * delegation.
+   *
+   * @generated from field: uint32 max_entries = 4;
+   */
+  maxEntries = 0;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -50,6 +58,7 @@ export class Params extends Message<Params> {
     { no: 1, name: "unbonding_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "allowed_denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 3, name: "restaking_cap", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "max_entries", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

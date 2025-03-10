@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgClaimVoucher, MsgClaimVoucherResponse, MsgCreateNamespace, MsgCreateNamespaceResponse, MsgDeleteNamespace, MsgDeleteNamespaceResponse, MsgRevokeNamespaceRoles, MsgRevokeNamespaceRolesResponse, MsgUpdateNamespace, MsgUpdateNamespaceResponse, MsgUpdateNamespaceRoles, MsgUpdateNamespaceRolesResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgClaimVoucher, MsgClaimVoucherResponse, MsgCreateNamespace, MsgCreateNamespaceResponse, MsgUpdateActorRoles, MsgUpdateActorRolesResponse, MsgUpdateNamespace, MsgUpdateNamespaceResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "injective.permissions.v1beta1.Msg";
 
@@ -28,16 +28,6 @@ export const MsgCreateNamespaceService = {
 } as const;
 
 /**
- * @generated from rpc injective.permissions.v1beta1.Msg.DeleteNamespace
- */
-export const MsgDeleteNamespaceService = {
-  typeName: TYPE_NAME,
-  method: "DeleteNamespace",
-  Request: MsgDeleteNamespace,
-  Response: MsgDeleteNamespaceResponse,
-} as const;
-
-/**
  * @generated from rpc injective.permissions.v1beta1.Msg.UpdateNamespace
  */
 export const MsgUpdateNamespaceService = {
@@ -48,23 +38,13 @@ export const MsgUpdateNamespaceService = {
 } as const;
 
 /**
- * @generated from rpc injective.permissions.v1beta1.Msg.UpdateNamespaceRoles
+ * @generated from rpc injective.permissions.v1beta1.Msg.UpdateActorRoles
  */
-export const MsgUpdateNamespaceRolesService = {
+export const MsgUpdateActorRolesService = {
   typeName: TYPE_NAME,
-  method: "UpdateNamespaceRoles",
-  Request: MsgUpdateNamespaceRoles,
-  Response: MsgUpdateNamespaceRolesResponse,
-} as const;
-
-/**
- * @generated from rpc injective.permissions.v1beta1.Msg.RevokeNamespaceRoles
- */
-export const MsgRevokeNamespaceRolesService = {
-  typeName: TYPE_NAME,
-  method: "RevokeNamespaceRoles",
-  Request: MsgRevokeNamespaceRoles,
-  Response: MsgRevokeNamespaceRolesResponse,
+  method: "UpdateActorRoles",
+  Request: MsgUpdateActorRoles,
+  Response: MsgUpdateActorRolesResponse,
 } as const;
 
 /**

@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { CampaignRewardPool, DenomDecimals, FeeDiscountSchedule, MarketFeeMultiplier, MarketStatus, TradingRewardCampaignInfo } from "./exchange_pb.js";
+import { CampaignRewardPool, DenomDecimals, DenomMinNotional, FeeDiscountSchedule, MarketFeeMultiplier, MarketStatus, TradingRewardCampaignInfo } from "./exchange_pb.js";
 import { OracleType } from "../../oracle/v1beta1/oracle_pb.js";
 import { CommunityPoolSpendProposal } from "../../../cosmos/distribution/v1beta1/distribution_pb.js";
 
@@ -115,6 +115,20 @@ export class SpotMarketParamUpdateProposal extends Message<SpotMarketParamUpdate
    */
   adminInfo?: AdminInfo;
 
+  /**
+   * base token decimals
+   *
+   * @generated from field: uint32 base_decimals = 13;
+   */
+  baseDecimals = 0;
+
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 14;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<SpotMarketParamUpdateProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -135,6 +149,8 @@ export class SpotMarketParamUpdateProposal extends Message<SpotMarketParamUpdate
     { no: 10, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 12, name: "admin_info", kind: "message", T: AdminInfo },
+    { no: 13, name: "base_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 14, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SpotMarketParamUpdateProposal {
@@ -272,6 +288,11 @@ export class BatchExchangeModificationProposal extends Message<BatchExchangeModi
    */
   marketForcedSettlementProposals: MarketForcedSettlementProposal[] = [];
 
+  /**
+   * @generated from field: injective.exchange.v1beta1.DenomMinNotionalProposal denom_min_notional_proposal = 14;
+   */
+  denomMinNotionalProposal?: DenomMinNotionalProposal;
+
   constructor(data?: PartialMessage<BatchExchangeModificationProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -293,6 +314,7 @@ export class BatchExchangeModificationProposal extends Message<BatchExchangeModi
     { no: 11, name: "denom_decimals_update_proposal", kind: "message", T: UpdateDenomDecimalsProposal },
     { no: 12, name: "fee_discount_proposal", kind: "message", T: FeeDiscountProposal },
     { no: 13, name: "market_forced_settlement_proposals", kind: "message", T: MarketForcedSettlementProposal, repeated: true },
+    { no: 14, name: "denom_min_notional_proposal", kind: "message", T: DenomMinNotionalProposal },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BatchExchangeModificationProposal {
@@ -391,6 +413,20 @@ export class SpotMarketLaunchProposal extends Message<SpotMarketLaunchProposal> 
    */
   adminInfo?: AdminInfo;
 
+  /**
+   * base token decimals
+   *
+   * @generated from field: uint32 base_decimals = 14;
+   */
+  baseDecimals = 0;
+
+  /**
+   * quote token decimals
+   *
+   * @generated from field: uint32 quote_decimals = 15;
+   */
+  quoteDecimals = 0;
+
   constructor(data?: PartialMessage<SpotMarketLaunchProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -410,6 +446,8 @@ export class SpotMarketLaunchProposal extends Message<SpotMarketLaunchProposal> 
     { no: 9, name: "taker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "admin_info", kind: "message", T: AdminInfo },
+    { no: 14, name: "base_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 15, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SpotMarketLaunchProposal {
@@ -1878,6 +1916,55 @@ export class AtomicMarketOrderFeeMultiplierScheduleProposal extends Message<Atom
 
   static equals(a: AtomicMarketOrderFeeMultiplierScheduleProposal | PlainMessage<AtomicMarketOrderFeeMultiplierScheduleProposal> | undefined, b: AtomicMarketOrderFeeMultiplierScheduleProposal | PlainMessage<AtomicMarketOrderFeeMultiplierScheduleProposal> | undefined): boolean {
     return proto3.util.equals(AtomicMarketOrderFeeMultiplierScheduleProposal, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v1beta1.DenomMinNotionalProposal
+ */
+export class DenomMinNotionalProposal extends Message<DenomMinNotionalProposal> {
+  /**
+   * @generated from field: string title = 1;
+   */
+  title = "";
+
+  /**
+   * @generated from field: string description = 2;
+   */
+  description = "";
+
+  /**
+   * @generated from field: repeated injective.exchange.v1beta1.DenomMinNotional denom_min_notionals = 3;
+   */
+  denomMinNotionals: DenomMinNotional[] = [];
+
+  constructor(data?: PartialMessage<DenomMinNotionalProposal>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.DenomMinNotionalProposal";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "title", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "description", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "denom_min_notionals", kind: "message", T: DenomMinNotional, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DenomMinNotionalProposal {
+    return new DenomMinNotionalProposal().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DenomMinNotionalProposal {
+    return new DenomMinNotionalProposal().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DenomMinNotionalProposal {
+    return new DenomMinNotionalProposal().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DenomMinNotionalProposal | PlainMessage<DenomMinNotionalProposal> | undefined, b: DenomMinNotionalProposal | PlainMessage<DenomMinNotionalProposal> | undefined): boolean {
+    return proto3.util.equals(DenomMinNotionalProposal, a, b);
   }
 }
 

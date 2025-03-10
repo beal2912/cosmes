@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgRedeem, MsgRedeemResponse, MsgRefract, MsgRefractResponse } from "./tx_pb.js";
+import { MsgDepositCAsset, MsgDepositCAssetResponse, MsgRedeem, MsgRedeemResponse, MsgRefract, MsgRefractResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "pryzm.refractor.v1.Msg";
 
@@ -18,8 +18,6 @@ export const MsgRefractService = {
 } as const;
 
 /**
- * this line is used by starport scaffolding # proto/tx/rpc
- *
  * @generated from rpc pryzm.refractor.v1.Msg.Redeem
  */
 export const MsgRedeemService = {
@@ -27,5 +25,27 @@ export const MsgRedeemService = {
   method: "Redeem",
   Request: MsgRedeem,
   Response: MsgRedeemResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.refractor.v1.Msg.UpdateParams
+ */
+export const MsgUpdateParamsService = {
+  typeName: TYPE_NAME,
+  method: "UpdateParams",
+  Request: MsgUpdateParams,
+  Response: MsgUpdateParamsResponse,
+} as const;
+
+/**
+ * this line is used by starport scaffolding # proto/tx/rpc
+ *
+ * @generated from rpc pryzm.refractor.v1.Msg.DepositCAsset
+ */
+export const MsgDepositCAssetService = {
+  typeName: TYPE_NAME,
+  method: "DepositCAsset",
+  Request: MsgDepositCAsset,
+  Response: MsgDepositCAssetResponse,
 } as const;
 

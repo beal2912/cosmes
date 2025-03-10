@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgCreateDenom, MsgCreateDenomResponse, MsgForceTransfer, MsgForceTransferResponse, MsgMint, MsgMintResponse, MsgSetBeforeSendHook, MsgSetBeforeSendHookResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgCreateDenom, MsgCreateDenomResponse, MsgForceTransfer, MsgForceTransferResponse, MsgMint, MsgMintResponse, MsgSetBeforeSendHook, MsgSetBeforeSendHookResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "osmosis.tokenfactory.v1beta1.Msg";
 
@@ -75,15 +75,5 @@ export const MsgForceTransferService = {
   method: "ForceTransfer",
   Request: MsgForceTransfer,
   Response: MsgForceTransferResponse,
-} as const;
-
-/**
- * @generated from rpc osmosis.tokenfactory.v1beta1.Msg.UpdateParams
- */
-export const MsgUpdateParamsService = {
-  typeName: TYPE_NAME,
-  method: "UpdateParams",
-  Request: MsgUpdateParams,
-  Response: MsgUpdateParamsResponse,
 } as const;
 

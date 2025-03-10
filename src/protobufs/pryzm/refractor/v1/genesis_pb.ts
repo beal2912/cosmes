@@ -6,6 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { AssetState } from "./asset_state_pb.js";
+import { Params } from "./params_pb.js";
 
 /**
  * GenesisState defines the refractor module's genesis state.
@@ -14,11 +15,16 @@ import { AssetState } from "./asset_state_pb.js";
  */
 export class GenesisState extends Message<GenesisState> {
   /**
-   * this line is used by starport scaffolding # genesis/proto/state
-   *
    * @generated from field: repeated pryzm.refractor.v1.AssetState asset_state_list = 1;
    */
   assetStateList: AssetState[] = [];
+
+  /**
+   * this line is used by starport scaffolding # genesis/proto/state
+   *
+   * @generated from field: pryzm.refractor.v1.Params params = 2;
+   */
+  params?: Params;
 
   constructor(data?: PartialMessage<GenesisState>) {
     super();
@@ -29,6 +35,7 @@ export class GenesisState extends Message<GenesisState> {
   static readonly typeName = "pryzm.refractor.v1.GenesisState";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "asset_state_list", kind: "message", T: AssetState, repeated: true },
+    { no: 2, name: "params", kind: "message", T: Params },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryGetAssetStateRequest, QueryGetAssetStateResponse, QueryGetCPExchangeRateRequest, QueryGetCPExchangeRateResponse, QuerySimulateRedeemRequest, QuerySimulateRedeemResponse, QuerySimulateRefractRequest, QuerySimulateRefractResponse } from "./query_pb.js";
+import { QueryGetAssetStateRequest, QueryGetAssetStateResponse, QueryGetCPExchangeRateRequest, QueryGetCPExchangeRateResponse, QueryParamsRequest, QueryParamsResponse, QuerySimulateRedeemRequest, QuerySimulateRedeemResponse, QuerySimulateRefractRequest, QuerySimulateRefractResponse } from "./query_pb.js";
 
 const TYPE_NAME = "pryzm.refractor.v1.Query";
 
@@ -45,5 +45,15 @@ export const QuerySimulateRedeemService = {
   method: "SimulateRedeem",
   Request: QuerySimulateRedeemRequest,
   Response: QuerySimulateRedeemResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.refractor.v1.Query.Params
+ */
+export const QueryParamsService = {
+  typeName: TYPE_NAME,
+  method: "Params",
+  Request: QueryParamsRequest,
+  Response: QueryParamsResponse,
 } as const;
 

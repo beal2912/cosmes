@@ -270,6 +270,16 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
    */
   weightBalanceRatio = "";
 
+  /**
+   * @generated from field: string slippage = 3;
+   */
+  slippage = "";
+
+  /**
+   * @generated from field: string swap_fee = 4;
+   */
+  swapFee = "";
+
   constructor(data?: PartialMessage<MsgExitPoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -280,6 +290,8 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "token_out", kind: "message", T: Coin, repeated: true },
     { no: 2, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgExitPoolResponse {

@@ -45,6 +45,11 @@ export class Debt extends Message<Debt> {
    */
   lastInterestCalcBlock = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 8;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<Debt>) {
     super();
     proto3.util.initPartial(data, this);
@@ -60,6 +65,7 @@ export class Debt extends Message<Debt> {
     { no: 5, name: "borrow_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 6, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 7, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 8, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Debt {

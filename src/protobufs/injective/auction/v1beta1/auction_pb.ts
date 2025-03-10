@@ -25,6 +25,14 @@ export class Params extends Message<Params> {
    */
   minNextBidIncrementRate = "";
 
+  /**
+   * inj_basket_max_cap defines the maximum cap for INJ contained in an auction
+   * basket
+   *
+   * @generated from field: string inj_basket_max_cap = 3;
+   */
+  injBasketMaxCap = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -35,6 +43,7 @@ export class Params extends Message<Params> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "auction_period", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "min_next_bid_increment_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "inj_basket_max_cap", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {
@@ -64,9 +73,9 @@ export class Bid extends Message<Bid> {
   bidder = "";
 
   /**
-   * @generated from field: string amount = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
-  amount = "";
+  amount?: Coin;
 
   constructor(data?: PartialMessage<Bid>) {
     super();
@@ -77,7 +86,7 @@ export class Bid extends Message<Bid> {
   static readonly typeName = "injective.auction.v1beta1.Bid";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "bidder", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Bid {
@@ -111,9 +120,9 @@ export class LastAuctionResult extends Message<LastAuctionResult> {
   /**
    * amount describes the amount the winner get from the auction
    *
-   * @generated from field: string amount = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
-  amount = "";
+  amount?: Coin;
 
   /**
    * round defines the round number of auction
@@ -131,7 +140,7 @@ export class LastAuctionResult extends Message<LastAuctionResult> {
   static readonly typeName = "injective.auction.v1beta1.LastAuctionResult";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "winner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "message", T: Coin },
     { no: 3, name: "round", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
@@ -166,9 +175,9 @@ export class EventBid extends Message<EventBid> {
   /**
    * amount describes the amount the bidder put on the auction
    *
-   * @generated from field: string amount = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
-  amount = "";
+  amount?: Coin;
 
   /**
    * round defines the round number of auction
@@ -186,7 +195,7 @@ export class EventBid extends Message<EventBid> {
   static readonly typeName = "injective.auction.v1beta1.EventBid";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "bidder", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "message", T: Coin },
     { no: 3, name: "round", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
@@ -221,9 +230,9 @@ export class EventAuctionResult extends Message<EventAuctionResult> {
   /**
    * amount describes the amount the winner get from the auction
    *
-   * @generated from field: string amount = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
-  amount = "";
+  amount?: Coin;
 
   /**
    * round defines the round number of auction
@@ -241,7 +250,7 @@ export class EventAuctionResult extends Message<EventAuctionResult> {
   static readonly typeName = "injective.auction.v1beta1.EventAuctionResult";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "winner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "message", T: Coin },
     { no: 3, name: "round", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 

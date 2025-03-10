@@ -286,6 +286,92 @@ export class EventDerivativeMarketPaused extends Message<EventDerivativeMarketPa
 }
 
 /**
+ * @generated from message injective.exchange.v1beta1.EventSettledMarketBalance
+ */
+export class EventSettledMarketBalance extends Message<EventSettledMarketBalance> {
+  /**
+   * @generated from field: string market_id = 1;
+   */
+  marketId = "";
+
+  /**
+   * @generated from field: string amount = 2;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<EventSettledMarketBalance>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.EventSettledMarketBalance";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSettledMarketBalance {
+    return new EventSettledMarketBalance().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventSettledMarketBalance {
+    return new EventSettledMarketBalance().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventSettledMarketBalance {
+    return new EventSettledMarketBalance().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventSettledMarketBalance | PlainMessage<EventSettledMarketBalance> | undefined, b: EventSettledMarketBalance | PlainMessage<EventSettledMarketBalance> | undefined): boolean {
+    return proto3.util.equals(EventSettledMarketBalance, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v1beta1.EventNotSettledMarketBalance
+ */
+export class EventNotSettledMarketBalance extends Message<EventNotSettledMarketBalance> {
+  /**
+   * @generated from field: string market_id = 1;
+   */
+  marketId = "";
+
+  /**
+   * @generated from field: string amount = 2;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<EventNotSettledMarketBalance>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.EventNotSettledMarketBalance";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventNotSettledMarketBalance {
+    return new EventNotSettledMarketBalance().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventNotSettledMarketBalance {
+    return new EventNotSettledMarketBalance().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventNotSettledMarketBalance {
+    return new EventNotSettledMarketBalance().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventNotSettledMarketBalance | PlainMessage<EventNotSettledMarketBalance> | undefined, b: EventNotSettledMarketBalance | PlainMessage<EventNotSettledMarketBalance> | undefined): boolean {
+    return proto3.util.equals(EventNotSettledMarketBalance, a, b);
+  }
+}
+
+/**
  * @generated from message injective.exchange.v1beta1.EventMarketBeyondBankruptcy
  */
 export class EventMarketBeyondBankruptcy extends Message<EventMarketBeyondBankruptcy> {

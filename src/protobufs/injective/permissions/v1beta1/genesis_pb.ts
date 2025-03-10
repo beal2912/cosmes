@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { Namespace } from "./permissions_pb.js";
+import { AddressVoucher, Namespace } from "./permissions_pb.js";
 
 /**
  * GenesisState defines the permissions module's genesis state.
@@ -26,6 +26,11 @@ export class GenesisState extends Message<GenesisState> {
    */
   namespaces: Namespace[] = [];
 
+  /**
+   * @generated from field: repeated injective.permissions.v1beta1.AddressVoucher vouchers = 3;
+   */
+  vouchers: AddressVoucher[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -36,6 +41,7 @@ export class GenesisState extends Message<GenesisState> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "params", kind: "message", T: Params },
     { no: 2, name: "namespaces", kind: "message", T: Namespace, repeated: true },
+    { no: 3, name: "vouchers", kind: "message", T: AddressVoucher, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

@@ -14,7 +14,8 @@ import { WhitelistedRoute } from "./whitelisted_route_pb.js";
 import { YammConfiguration } from "./yamm_configuration_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 import { ScheduleOrder } from "./schedule_order_pb.js";
-import { VirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
+import { PermanentVirtualBalancePoolToken, TemporalVirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
+import { MatchedPairSummary } from "./pair_match_proposal_pb.js";
 import { ExitSummary, ExitType, JoinSummary, JoinType, SwapStep, SwapSummary, SwapType } from "./operations_pb.js";
 import { OraclePricePair } from "./oracle_price_pair_pb.js";
 import { PendingTokenIntroduction } from "./pending_token_introduction_pb.js";
@@ -800,9 +801,9 @@ export class EventRemoveExecutableOrder extends Message<EventRemoveExecutableOrd
  */
 export class EventSetIntroducingPoolToken extends Message<EventSetIntroducingPoolToken> {
   /**
-   * @generated from field: pryzm.amm.v1.VirtualBalancePoolToken virtual_balance_token = 1;
+   * @generated from field: pryzm.amm.v1.TemporalVirtualBalancePoolToken virtual_balance_token = 1;
    */
-  virtualBalanceToken?: VirtualBalancePoolToken;
+  virtualBalanceToken?: TemporalVirtualBalancePoolToken;
 
   constructor(data?: PartialMessage<EventSetIntroducingPoolToken>) {
     super();
@@ -812,7 +813,7 @@ export class EventSetIntroducingPoolToken extends Message<EventSetIntroducingPoo
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.EventSetIntroducingPoolToken";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "virtual_balance_token", kind: "message", T: VirtualBalancePoolToken },
+    { no: 1, name: "virtual_balance_token", kind: "message", T: TemporalVirtualBalancePoolToken },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetIntroducingPoolToken {
@@ -880,9 +881,9 @@ export class EventRemoveIntroducingPoolToken extends Message<EventRemoveIntroduc
  */
 export class EventSetExpiringPoolToken extends Message<EventSetExpiringPoolToken> {
   /**
-   * @generated from field: pryzm.amm.v1.VirtualBalancePoolToken virtual_balance_token = 1;
+   * @generated from field: pryzm.amm.v1.TemporalVirtualBalancePoolToken virtual_balance_token = 1;
    */
-  virtualBalanceToken?: VirtualBalancePoolToken;
+  virtualBalanceToken?: TemporalVirtualBalancePoolToken;
 
   constructor(data?: PartialMessage<EventSetExpiringPoolToken>) {
     super();
@@ -892,7 +893,7 @@ export class EventSetExpiringPoolToken extends Message<EventSetExpiringPoolToken
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "pryzm.amm.v1.EventSetExpiringPoolToken";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "virtual_balance_token", kind: "message", T: VirtualBalancePoolToken },
+    { no: 1, name: "virtual_balance_token", kind: "message", T: TemporalVirtualBalancePoolToken },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetExpiringPoolToken {
@@ -1206,155 +1207,6 @@ export class EventExecuteOrdersForPair extends Message<EventExecuteOrdersForPair
 }
 
 /**
- * @generated from message pryzm.amm.v1.EventExecuteMatchProposalOrder
- */
-export class EventExecuteMatchProposalOrder extends Message<EventExecuteMatchProposalOrder> {
-  /**
-   * Note that if virtual=true, order_id is set to zero and should be ignored,
-   * otherwise we still might have order_id=0 referring to an actual order
-   *
-   * @generated from field: uint64 order_id = 1;
-   */
-  orderId = protoInt64.zero;
-
-  /**
-   * @generated from field: string match_amount = 3;
-   */
-  matchAmount = "";
-
-  /**
-   * @generated from field: string output_amount = 4;
-   */
-  outputAmount = "";
-
-  /**
-   * @generated from field: bool virtual = 5;
-   */
-  virtual = false;
-
-  constructor(data?: PartialMessage<EventExecuteMatchProposalOrder>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "pryzm.amm.v1.EventExecuteMatchProposalOrder";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "output_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "virtual", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventExecuteMatchProposalOrder {
-    return new EventExecuteMatchProposalOrder().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventExecuteMatchProposalOrder {
-    return new EventExecuteMatchProposalOrder().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventExecuteMatchProposalOrder {
-    return new EventExecuteMatchProposalOrder().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: EventExecuteMatchProposalOrder | PlainMessage<EventExecuteMatchProposalOrder> | undefined, b: EventExecuteMatchProposalOrder | PlainMessage<EventExecuteMatchProposalOrder> | undefined): boolean {
-    return proto3.util.equals(EventExecuteMatchProposalOrder, a, b);
-  }
-}
-
-/**
- * @generated from message pryzm.amm.v1.EventExecuteMatchProposalPair
- */
-export class EventExecuteMatchProposalPair extends Message<EventExecuteMatchProposalPair> {
-  /**
-   * @generated from field: uint64 pool_id = 1;
-   */
-  poolId = protoInt64.zero;
-
-  /**
-   * @generated from field: string token_in = 2;
-   */
-  tokenIn = "";
-
-  /**
-   * @generated from field: string token_out = 3;
-   */
-  tokenOut = "";
-
-  /**
-   * @generated from field: bool whitelisted_route = 4;
-   */
-  whitelistedRoute = false;
-
-  /**
-   * @generated from field: string buy_price = 5;
-   */
-  buyPrice = "";
-
-  /**
-   * @generated from field: string sell_price = 6;
-   */
-  sellPrice = "";
-
-  /**
-   * @generated from field: repeated pryzm.amm.v1.EventExecuteMatchProposalOrder buy_orders = 7;
-   */
-  buyOrders: EventExecuteMatchProposalOrder[] = [];
-
-  /**
-   * @generated from field: repeated pryzm.amm.v1.EventExecuteMatchProposalOrder sell_orders = 8;
-   */
-  sellOrders: EventExecuteMatchProposalOrder[] = [];
-
-  /**
-   * @generated from field: string buy_match_amount = 9;
-   */
-  buyMatchAmount = "";
-
-  /**
-   * @generated from field: string sell_match_amount = 10;
-   */
-  sellMatchAmount = "";
-
-  constructor(data?: PartialMessage<EventExecuteMatchProposalPair>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "pryzm.amm.v1.EventExecuteMatchProposalPair";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "token_in", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "token_out", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "whitelisted_route", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 5, name: "buy_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "sell_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "buy_orders", kind: "message", T: EventExecuteMatchProposalOrder, repeated: true },
-    { no: 8, name: "sell_orders", kind: "message", T: EventExecuteMatchProposalOrder, repeated: true },
-    { no: 9, name: "buy_match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "sell_match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventExecuteMatchProposalPair {
-    return new EventExecuteMatchProposalPair().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventExecuteMatchProposalPair {
-    return new EventExecuteMatchProposalPair().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventExecuteMatchProposalPair {
-    return new EventExecuteMatchProposalPair().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: EventExecuteMatchProposalPair | PlainMessage<EventExecuteMatchProposalPair> | undefined, b: EventExecuteMatchProposalPair | PlainMessage<EventExecuteMatchProposalPair> | undefined): boolean {
-    return proto3.util.equals(EventExecuteMatchProposalPair, a, b);
-  }
-}
-
-/**
  * @generated from message pryzm.amm.v1.EventExecuteMatchProposal
  */
 export class EventExecuteMatchProposal extends Message<EventExecuteMatchProposal> {
@@ -1364,9 +1216,9 @@ export class EventExecuteMatchProposal extends Message<EventExecuteMatchProposal
   proposer = "";
 
   /**
-   * @generated from field: repeated pryzm.amm.v1.EventExecuteMatchProposalPair pairs = 2;
+   * @generated from field: repeated pryzm.amm.v1.MatchedPairSummary pairs = 2;
    */
-  pairs: EventExecuteMatchProposalPair[] = [];
+  pairs: MatchedPairSummary[] = [];
 
   /**
    * @generated from field: repeated cosmos.base.v1beta1.Coin proposer_reward = 3;
@@ -1382,7 +1234,7 @@ export class EventExecuteMatchProposal extends Message<EventExecuteMatchProposal
   static readonly typeName = "pryzm.amm.v1.EventExecuteMatchProposal";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "proposer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "pairs", kind: "message", T: EventExecuteMatchProposalPair, repeated: true },
+    { no: 2, name: "pairs", kind: "message", T: MatchedPairSummary, repeated: true },
     { no: 3, name: "proposer_reward", kind: "message", T: Coin, repeated: true },
   ]);
 
@@ -2122,6 +1974,86 @@ export class EventSetParams extends Message<EventSetParams> {
 
   static equals(a: EventSetParams | PlainMessage<EventSetParams> | undefined, b: EventSetParams | PlainMessage<EventSetParams> | undefined): boolean {
     return proto3.util.equals(EventSetParams, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.EventSetPermanentVirtualBalancePoolToken
+ */
+export class EventSetPermanentVirtualBalancePoolToken extends Message<EventSetPermanentVirtualBalancePoolToken> {
+  /**
+   * @generated from field: pryzm.amm.v1.PermanentVirtualBalancePoolToken virtual_balance_token = 1;
+   */
+  virtualBalanceToken?: PermanentVirtualBalancePoolToken;
+
+  constructor(data?: PartialMessage<EventSetPermanentVirtualBalancePoolToken>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.EventSetPermanentVirtualBalancePoolToken";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "virtual_balance_token", kind: "message", T: PermanentVirtualBalancePoolToken },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetPermanentVirtualBalancePoolToken {
+    return new EventSetPermanentVirtualBalancePoolToken().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventSetPermanentVirtualBalancePoolToken {
+    return new EventSetPermanentVirtualBalancePoolToken().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventSetPermanentVirtualBalancePoolToken {
+    return new EventSetPermanentVirtualBalancePoolToken().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventSetPermanentVirtualBalancePoolToken | PlainMessage<EventSetPermanentVirtualBalancePoolToken> | undefined, b: EventSetPermanentVirtualBalancePoolToken | PlainMessage<EventSetPermanentVirtualBalancePoolToken> | undefined): boolean {
+    return proto3.util.equals(EventSetPermanentVirtualBalancePoolToken, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.EventRemovePermanentVirtualBalancePoolToken
+ */
+export class EventRemovePermanentVirtualBalancePoolToken extends Message<EventRemovePermanentVirtualBalancePoolToken> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string denom = 2;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<EventRemovePermanentVirtualBalancePoolToken>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.EventRemovePermanentVirtualBalancePoolToken";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventRemovePermanentVirtualBalancePoolToken {
+    return new EventRemovePermanentVirtualBalancePoolToken().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventRemovePermanentVirtualBalancePoolToken {
+    return new EventRemovePermanentVirtualBalancePoolToken().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventRemovePermanentVirtualBalancePoolToken {
+    return new EventRemovePermanentVirtualBalancePoolToken().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventRemovePermanentVirtualBalancePoolToken | PlainMessage<EventRemovePermanentVirtualBalancePoolToken> | undefined, b: EventRemovePermanentVirtualBalancePoolToken | PlainMessage<EventRemovePermanentVirtualBalancePoolToken> | undefined): boolean {
+    return proto3.util.equals(EventRemovePermanentVirtualBalancePoolToken, a, b);
   }
 }
 

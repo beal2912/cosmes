@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAirDropRequest, QueryAirDropResponse, QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryKolRequest, QueryKolResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse, QueryTotalAirDropClaimedRequest, QueryTotalAirDropClaimedResponse } from "./query_pb.js";
+import { QueryAirDropRequest, QueryAirDropResponse, QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryKolRequest, QueryKolResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse, QueryTotalAirDropClaimedRequest, QueryTotalAirDropClaimedResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.commitment.Query";
 
@@ -95,5 +95,15 @@ export const QueryKolService = {
   method: "Kol",
   Request: QueryKolRequest,
   Response: QueryKolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.TotalSupply
+ */
+export const QueryTotalSupplyService = {
+  typeName: TYPE_NAME,
+  method: "TotalSupply",
+  Request: QueryTotalSupplyRequest,
+  Response: QueryTotalSupplyResponse,
 } as const;
 

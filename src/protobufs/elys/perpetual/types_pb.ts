@@ -283,14 +283,14 @@ export class FundingRateBlock extends Message<FundingRateBlock> {
   fundingRateShort = "";
 
   /**
-   * @generated from field: string funding_amount_short = 3;
+   * @generated from field: string funding_share_short = 3;
    */
-  fundingAmountShort = "";
+  fundingShareShort = "";
 
   /**
-   * @generated from field: string funding_amount_long = 4;
+   * @generated from field: string funding_share_long = 4;
    */
-  fundingAmountLong = "";
+  fundingShareLong = "";
 
   /**
    * @generated from field: int64 block_height = 5;
@@ -312,8 +312,8 @@ export class FundingRateBlock extends Message<FundingRateBlock> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "funding_rate_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "funding_rate_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "funding_amount_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "funding_amount_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "funding_share_short", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "funding_share_long", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 6, name: "block_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);

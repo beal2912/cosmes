@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllDisabledOrderPairRequest, QueryAllDisabledOrderPairResponse, QueryAllExecutableOrderRequest, QueryAllExecutableOrderResponse, QueryAllExpiringPoolTokenRequest, QueryAllExpiringPoolTokenResponse, QueryAllIntroducingPoolTokenRequest, QueryAllIntroducingPoolTokenResponse, QueryAllOraclePricePairRequest, QueryAllOraclePricePairResponse, QueryAllOrderRequest, QueryAllOrderResponse, QueryAllPendingTokenIntroductionRequest, QueryAllPendingTokenIntroductionResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAllPoolTokenForPoolRequest, QueryAllPoolTokenForPoolResponse, QueryAllPoolTokenRequest, QueryAllPoolTokenResponse, QueryAllPoolTokenWeightRequest, QueryAllPoolTokenWeightResponse, QueryAllScheduleOrderRequest, QueryAllScheduleOrderResponse, QueryAllWeightedTokenRequest, QueryAllWeightedTokenResponse, QueryAllWeightUpdateTimingRequest, QueryAllWeightUpdateTimingResponse, QueryAllWhitelistedRouteRequest, QueryAllWhitelistedRouteResponse, QueryAllYammConfigurationRequest, QueryAllYammConfigurationResponse, QueryGetExecutableOrderRequest, QueryGetExecutableOrderResponse, QueryGetExpiringPoolTokenRequest, QueryGetExpiringPoolTokenResponse, QueryGetIntroducingPoolTokenRequest, QueryGetIntroducingPoolTokenResponse, QueryGetOraclePricePairRequest, QueryGetOraclePricePairResponse, QueryGetOrderRequest, QueryGetOrderResponse, QueryGetPendingTokenIntroductionRequest, QueryGetPendingTokenIntroductionResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryGetPoolTokenRequest, QueryGetPoolTokenResponse, QueryGetPoolTokenWeightRequest, QueryGetPoolTokenWeightResponse, QueryGetScheduleOrderRequest, QueryGetScheduleOrderResponse, QueryGetWeightedTokenRequest, QueryGetWeightedTokenResponse, QueryGetWeightUpdateTimingRequest, QueryGetWeightUpdateTimingResponse, QueryGetWhitelistedRouteRequest, QueryGetWhitelistedRouteResponse, QueryGetYammConfigurationRequest, QueryGetYammConfigurationResponse, QueryLpTokenRequest, QueryLpTokenResponse, QueryOrderPairDisabledRequest, QueryOrderPairDisabledResponse, QueryOrderStepBoundsRequest, QueryOrderStepBoundsResponse, QueryParamsRequest, QueryParamsResponse, QuerySimulateBatchSwapRequest, QuerySimulateBatchSwapResponse, QuerySimulateExitAllTokensExactLptRequest, QuerySimulateExitAllTokensExactLptResponse, QuerySimulateExitExactTokensRequest, QuerySimulateExitExactTokensResponse, QuerySimulateExitTokenExactLptRequest, QuerySimulateExitTokenExactLptResponse, QuerySimulateInitializePoolRequest, QuerySimulateInitializePoolResponse, QuerySimulateJoinAllTokensExactLptRequest, QuerySimulateJoinAllTokensExactLptResponse, QuerySimulateJoinExactTokensRequest, QuerySimulateJoinExactTokensResponse, QuerySimulateJoinTokenExactLptRequest, QuerySimulateJoinTokenExactLptResponse, QuerySimulateSingleSwapRequest, QuerySimulateSingleSwapResponse, QuerySimulateZeroImpactJoinYammRequest, QuerySimulateZeroImpactJoinYammResponse, QuerySpotPriceRequest, QuerySpotPriceResponse, QueryVaultPauseModeRequest, QueryVaultPauseModeResponse, QueryYammPoolIdRequest, QueryYammPoolIdResponse } from "./query_pb.js";
+import { QueryAllDisabledOrderPairRequest, QueryAllDisabledOrderPairResponse, QueryAllExecutableOrderRequest, QueryAllExecutableOrderResponse, QueryAllExpiringPoolTokenRequest, QueryAllExpiringPoolTokenResponse, QueryAllIntroducingPoolTokenRequest, QueryAllIntroducingPoolTokenResponse, QueryAllOraclePricePairRequest, QueryAllOraclePricePairResponse, QueryAllOrderRequest, QueryAllOrderResponse, QueryAllPendingTokenIntroductionRequest, QueryAllPendingTokenIntroductionResponse, QueryAllPermanentVirtualBalancePoolTokenRequest, QueryAllPermanentVirtualBalancePoolTokenResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAllPoolTokenForPoolRequest, QueryAllPoolTokenForPoolResponse, QueryAllPoolTokenInfoRequest, QueryAllPoolTokenInfoResponse, QueryAllPoolTokenRequest, QueryAllPoolTokenResponse, QueryAllPoolTokenWeightRequest, QueryAllPoolTokenWeightResponse, QueryAllScheduleOrderRequest, QueryAllScheduleOrderResponse, QueryAllWeightedTokenRequest, QueryAllWeightedTokenResponse, QueryAllWeightUpdateTimingRequest, QueryAllWeightUpdateTimingResponse, QueryAllWhitelistedRouteRequest, QueryAllWhitelistedRouteResponse, QueryAllYammConfigurationRequest, QueryAllYammConfigurationResponse, QueryGetExecutableOrderRequest, QueryGetExecutableOrderResponse, QueryGetExpiringPoolTokenRequest, QueryGetExpiringPoolTokenResponse, QueryGetIntroducingPoolTokenRequest, QueryGetIntroducingPoolTokenResponse, QueryGetOraclePricePairRequest, QueryGetOraclePricePairResponse, QueryGetOrderRequest, QueryGetOrderResponse, QueryGetPendingTokenIntroductionRequest, QueryGetPendingTokenIntroductionResponse, QueryGetPermanentVirtualBalancePoolTokenRequest, QueryGetPermanentVirtualBalancePoolTokenResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryGetPoolTokenInfoRequest, QueryGetPoolTokenInfoResponse, QueryGetPoolTokenRequest, QueryGetPoolTokenResponse, QueryGetPoolTokenWeightRequest, QueryGetPoolTokenWeightResponse, QueryGetScheduleOrderRequest, QueryGetScheduleOrderResponse, QueryGetWeightedTokenRequest, QueryGetWeightedTokenResponse, QueryGetWeightUpdateTimingRequest, QueryGetWeightUpdateTimingResponse, QueryGetWhitelistedRouteRequest, QueryGetWhitelistedRouteResponse, QueryGetYammConfigurationRequest, QueryGetYammConfigurationResponse, QueryLpTokenRequest, QueryLpTokenResponse, QueryOrderPairDisabledRequest, QueryOrderPairDisabledResponse, QueryOrderStepBoundsRequest, QueryOrderStepBoundsResponse, QueryParamsRequest, QueryParamsResponse, QuerySimulateBatchSwapRequest, QuerySimulateBatchSwapResponse, QuerySimulateExitAllTokensExactLptRequest, QuerySimulateExitAllTokensExactLptResponse, QuerySimulateExitExactTokensRequest, QuerySimulateExitExactTokensResponse, QuerySimulateExitTokenExactLptRequest, QuerySimulateExitTokenExactLptResponse, QuerySimulateInitializePoolRequest, QuerySimulateInitializePoolResponse, QuerySimulateJoinAllTokensExactLptRequest, QuerySimulateJoinAllTokensExactLptResponse, QuerySimulateJoinExactTokensRequest, QuerySimulateJoinExactTokensResponse, QuerySimulateJoinTokenExactLptRequest, QuerySimulateJoinTokenExactLptResponse, QuerySimulateSingleSwapRequest, QuerySimulateSingleSwapResponse, QuerySimulateZeroImpactJoinYammRequest, QuerySimulateZeroImpactJoinYammResponse, QuerySpotPriceRequest, QuerySpotPriceResponse, QueryVaultPauseModeRequest, QueryVaultPauseModeResponse, QueryYammPoolIdRequest, QueryYammPoolIdResponse } from "./query_pb.js";
 
 const TYPE_NAME = "pryzm.amm.v1.Query";
 
@@ -79,6 +79,34 @@ export const QueryPoolTokenWeightService = {
   method: "PoolTokenWeight",
   Request: QueryGetPoolTokenWeightRequest,
   Response: QueryGetPoolTokenWeightResponse,
+} as const;
+
+/**
+ * Queries a list of TokenInfo
+ * computing normalized weights requires reading all tokens from the context
+ * and computing weight for all of them. And the number of tokens in a pool is not expected to
+ * be high.
+ * therefore, this query is not paginated
+ *
+ * @generated from rpc pryzm.amm.v1.Query.PoolTokenInfoAll
+ */
+export const QueryPoolTokenInfoAllService = {
+  typeName: TYPE_NAME,
+  method: "PoolTokenInfoAll",
+  Request: QueryAllPoolTokenInfoRequest,
+  Response: QueryAllPoolTokenInfoResponse,
+} as const;
+
+/**
+ * Queries a TokenInfo
+ *
+ * @generated from rpc pryzm.amm.v1.Query.PoolTokenInfo
+ */
+export const QueryPoolTokenInfoService = {
+  typeName: TYPE_NAME,
+  method: "PoolTokenInfo",
+  Request: QueryGetPoolTokenInfoRequest,
+  Response: QueryGetPoolTokenInfoResponse,
 } as const;
 
 /**
@@ -271,6 +299,30 @@ export const QuerySpotPriceService = {
   method: "SpotPrice",
   Request: QuerySpotPriceRequest,
   Response: QuerySpotPriceResponse,
+} as const;
+
+/**
+ * Queries a PermanentVirtualBalancePoolToken by index.
+ *
+ * @generated from rpc pryzm.amm.v1.Query.PermanentVirtualBalancePoolToken
+ */
+export const QueryPermanentVirtualBalancePoolTokenService = {
+  typeName: TYPE_NAME,
+  method: "PermanentVirtualBalancePoolToken",
+  Request: QueryGetPermanentVirtualBalancePoolTokenRequest,
+  Response: QueryGetPermanentVirtualBalancePoolTokenResponse,
+} as const;
+
+/**
+ * Queries a list of PermanentVirtualBalancePoolToken items.
+ *
+ * @generated from rpc pryzm.amm.v1.Query.PermanentVirtualBalancePoolTokenAll
+ */
+export const QueryPermanentVirtualBalancePoolTokenAllService = {
+  typeName: TYPE_NAME,
+  method: "PermanentVirtualBalancePoolTokenAll",
+  Request: QueryAllPermanentVirtualBalancePoolTokenRequest,
+  Response: QueryAllPermanentVirtualBalancePoolTokenResponse,
 } as const;
 
 /**

@@ -210,6 +210,11 @@ export class Pool extends Message<Pool> {
    */
   swapFeeUpdateParams?: SwapFeeUpdateParams;
 
+  /**
+   * @generated from field: bool join_blocked = 16;
+   */
+  joinBlocked = false;
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -233,6 +238,7 @@ export class Pool extends Message<Pool> {
     { no: 13, name: "admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 14, name: "pause_allow_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 15, name: "swap_fee_update_params", kind: "message", T: SwapFeeUpdateParams },
+    { no: 16, name: "join_blocked", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

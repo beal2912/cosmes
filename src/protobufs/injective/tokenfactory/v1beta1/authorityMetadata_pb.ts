@@ -21,6 +21,13 @@ export class DenomAuthorityMetadata extends Message<DenomAuthorityMetadata> {
    */
   admin = "";
 
+  /**
+   * true if the admin can burn tokens from other addresses
+   *
+   * @generated from field: bool admin_burn_allowed = 2;
+   */
+  adminBurnAllowed = false;
+
   constructor(data?: PartialMessage<DenomAuthorityMetadata>) {
     super();
     proto3.util.initPartial(data, this);
@@ -30,6 +37,7 @@ export class DenomAuthorityMetadata extends Message<DenomAuthorityMetadata> {
   static readonly typeName = "injective.tokenfactory.v1beta1.DenomAuthorityMetadata";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "admin_burn_allowed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DenomAuthorityMetadata {

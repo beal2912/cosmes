@@ -50,6 +50,13 @@ export class MsgCreateDenom extends Message<MsgCreateDenom> {
    */
   decimals = 0;
 
+  /**
+   * true if admins are allowed to burn tokens from other addresses
+   *
+   * @generated from field: bool allow_admin_burn = 6;
+   */
+  allowAdminBurn = false;
+
   constructor(data?: PartialMessage<MsgCreateDenom>) {
     super();
     proto3.util.initPartial(data, this);
@@ -63,6 +70,7 @@ export class MsgCreateDenom extends Message<MsgCreateDenom> {
     { no: 3, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "symbol", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 6, name: "allow_admin_burn", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateDenom {
@@ -123,8 +131,8 @@ export class MsgCreateDenomResponse extends Message<MsgCreateDenomResponse> {
 }
 
 /**
- * MsgMint is the sdk.Msg type for allowing an admin account to mint
- * more of a token.  For now, we only support minting to the sender account
+ * MsgMint is the sdk.Msg type for allowing an admin account or other permitted accounts to mint
+ * more of a token.
  *
  * @generated from message injective.tokenfactory.v1beta1.MsgMint
  */
@@ -139,6 +147,11 @@ export class MsgMint extends Message<MsgMint> {
    */
   amount?: Coin;
 
+  /**
+   * @generated from field: string receiver = 3;
+   */
+  receiver = "";
+
   constructor(data?: PartialMessage<MsgMint>) {
     super();
     proto3.util.initPartial(data, this);
@@ -149,6 +162,7 @@ export class MsgMint extends Message<MsgMint> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "message", T: Coin },
+    { no: 3, name: "receiver", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgMint {
@@ -201,7 +215,7 @@ export class MsgMintResponse extends Message<MsgMintResponse> {
 
 /**
  * MsgBurn is the sdk.Msg type for allowing an admin account to burn
- * a token.  For now, we only support burning from the sender account.
+ * a token.
  *
  * @generated from message injective.tokenfactory.v1beta1.MsgBurn
  */
@@ -216,6 +230,11 @@ export class MsgBurn extends Message<MsgBurn> {
    */
   amount?: Coin;
 
+  /**
+   * @generated from field: string burnFromAddress = 3;
+   */
+  burnFromAddress = "";
+
   constructor(data?: PartialMessage<MsgBurn>) {
     super();
     proto3.util.initPartial(data, this);
@@ -226,6 +245,7 @@ export class MsgBurn extends Message<MsgBurn> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "message", T: Coin },
+    { no: 3, name: "burnFromAddress", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBurn {
@@ -379,6 +399,11 @@ export class MsgSetDenomMetadata extends Message<MsgSetDenomMetadata> {
    */
   metadata?: Metadata;
 
+  /**
+   * @generated from field: injective.tokenfactory.v1beta1.MsgSetDenomMetadata.AdminBurnDisabled admin_burn_disabled = 3;
+   */
+  adminBurnDisabled?: MsgSetDenomMetadata_AdminBurnDisabled;
+
   constructor(data?: PartialMessage<MsgSetDenomMetadata>) {
     super();
     proto3.util.initPartial(data, this);
@@ -389,6 +414,7 @@ export class MsgSetDenomMetadata extends Message<MsgSetDenomMetadata> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "metadata", kind: "message", T: Metadata },
+    { no: 3, name: "admin_burn_disabled", kind: "message", T: MsgSetDenomMetadata_AdminBurnDisabled },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDenomMetadata {
@@ -405,6 +431,45 @@ export class MsgSetDenomMetadata extends Message<MsgSetDenomMetadata> {
 
   static equals(a: MsgSetDenomMetadata | PlainMessage<MsgSetDenomMetadata> | undefined, b: MsgSetDenomMetadata | PlainMessage<MsgSetDenomMetadata> | undefined): boolean {
     return proto3.util.equals(MsgSetDenomMetadata, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.tokenfactory.v1beta1.MsgSetDenomMetadata.AdminBurnDisabled
+ */
+export class MsgSetDenomMetadata_AdminBurnDisabled extends Message<MsgSetDenomMetadata_AdminBurnDisabled> {
+  /**
+   * true if the admin burn capability should be disabled
+   *
+   * @generated from field: bool should_disable = 1;
+   */
+  shouldDisable = false;
+
+  constructor(data?: PartialMessage<MsgSetDenomMetadata_AdminBurnDisabled>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.tokenfactory.v1beta1.MsgSetDenomMetadata.AdminBurnDisabled";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "should_disable", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDenomMetadata_AdminBurnDisabled {
+    return new MsgSetDenomMetadata_AdminBurnDisabled().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetDenomMetadata_AdminBurnDisabled {
+    return new MsgSetDenomMetadata_AdminBurnDisabled().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetDenomMetadata_AdminBurnDisabled {
+    return new MsgSetDenomMetadata_AdminBurnDisabled().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetDenomMetadata_AdminBurnDisabled | PlainMessage<MsgSetDenomMetadata_AdminBurnDisabled> | undefined, b: MsgSetDenomMetadata_AdminBurnDisabled | PlainMessage<MsgSetDenomMetadata_AdminBurnDisabled> | undefined): boolean {
+    return proto3.util.equals(MsgSetDenomMetadata_AdminBurnDisabled, a, b);
   }
 }
 

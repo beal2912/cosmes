@@ -8,7 +8,7 @@ import { QueryCalcExitPoolCoinsFromSharesRequest, QueryCalcExitPoolCoinsFromShar
 const TYPE_NAME = "dymensionxyz.dymension.gamm.v1beta1.Query";
 
 /**
- * Params returns lockup params.
+ * Params returns gamm module params.
  *
  * @generated from rpc dymensionxyz.dymension.gamm.v1beta1.Query.Params
  */

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgBond, MsgBondResponse, MsgUnbond, MsgUnbondResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgAddPool, MsgAddPoolResponse, MsgBond, MsgBondResponse, MsgUnbond, MsgUnbondResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePool, MsgUpdatePoolResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.stablestake.Msg";
 
@@ -35,5 +35,25 @@ export const MsgUpdateParamsService = {
   method: "UpdateParams",
   Request: MsgUpdateParams,
   Response: MsgUpdateParamsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Msg.AddPool
+ */
+export const MsgAddPoolService = {
+  typeName: TYPE_NAME,
+  method: "AddPool",
+  Request: MsgAddPool,
+  Response: MsgAddPoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Msg.UpdatePool
+ */
+export const MsgUpdatePoolService = {
+  typeName: TYPE_NAME,
+  method: "UpdatePool",
+  Request: MsgUpdatePool,
+  Response: MsgUpdatePoolResponse,
 } as const;
 

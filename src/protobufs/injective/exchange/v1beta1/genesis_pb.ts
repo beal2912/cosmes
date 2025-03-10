@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { ActiveGrant, AggregateSubaccountVolumeRecord, BinaryOptionsMarket, CampaignRewardPool, DenomDecimals, Deposit, DerivativeLimitOrder, DerivativeMarket, DerivativeMarketOrder, DerivativeMarketSettlementInfo, ExpiryFuturesMarketInfo, FeeDiscountSchedule, FeeDiscountTierTTL, GrantAuthorization, MarketFeeMultiplier, MarketVolume, Params, PerpetualMarketFunding, PerpetualMarketInfo, Position, SpotLimitOrder, SpotMarket, SubaccountTradeNonce, TradeRecords, TradingRewardCampaignInfo } from "./exchange_pb.js";
+import { ActiveGrant, AggregateSubaccountVolumeRecord, BinaryOptionsMarket, CampaignRewardPool, DenomDecimals, DenomMinNotional, Deposit, DerivativeLimitOrder, DerivativeMarket, DerivativeMarketOrder, DerivativeMarketSettlementInfo, ExpiryFuturesMarketInfo, FeeDiscountSchedule, FeeDiscountTierTTL, GrantAuthorization, MarketFeeMultiplier, MarketVolume, Params, PerpetualMarketFunding, PerpetualMarketInfo, Position, SpotLimitOrder, SpotMarket, SubaccountTradeNonce, TradeRecords, TradingRewardCampaignInfo } from "./exchange_pb.js";
 
 /**
  * GenesisState defines the exchange module's genesis state.
@@ -264,6 +264,11 @@ export class GenesisState extends Message<GenesisState> {
    */
   activeGrants: FullActiveGrant[] = [];
 
+  /**
+   * @generated from field: repeated injective.exchange.v1beta1.DenomMinNotional denom_min_notionals = 37;
+   */
+  denomMinNotionals: DenomMinNotional[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -308,6 +313,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 34, name: "market_volumes", kind: "message", T: MarketVolume, repeated: true },
     { no: 35, name: "grant_authorizations", kind: "message", T: FullGrantAuthorizations, repeated: true },
     { no: 36, name: "active_grants", kind: "message", T: FullActiveGrant, repeated: true },
+    { no: 37, name: "denom_min_notionals", kind: "message", T: DenomMinNotional, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

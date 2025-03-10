@@ -6,8 +6,9 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { Namespace } from "./permissions_pb.js";
+import { AddressVoucher, Namespace, PolicyManagerCapability, PolicyStatus, RoleManager } from "./permissions_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
+import { GenesisState } from "./genesis_pb.js";
 
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -84,162 +85,230 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
- * QueryAllNamespacesRequest is the request type for the Query/AllNamespaces RPC
+ * QueryNamespaceDenomsRequest is the request type for the Query/NamespaceDenoms RPC
  * method.
  *
- * @generated from message injective.permissions.v1beta1.QueryAllNamespacesRequest
+ * @generated from message injective.permissions.v1beta1.QueryNamespaceDenomsRequest
  */
-export class QueryAllNamespacesRequest extends Message<QueryAllNamespacesRequest> {
-  constructor(data?: PartialMessage<QueryAllNamespacesRequest>) {
+export class QueryNamespaceDenomsRequest extends Message<QueryNamespaceDenomsRequest> {
+  constructor(data?: PartialMessage<QueryNamespaceDenomsRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAllNamespacesRequest";
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceDenomsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllNamespacesRequest {
-    return new QueryAllNamespacesRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceDenomsRequest {
+    return new QueryNamespaceDenomsRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllNamespacesRequest {
-    return new QueryAllNamespacesRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceDenomsRequest {
+    return new QueryNamespaceDenomsRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllNamespacesRequest {
-    return new QueryAllNamespacesRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceDenomsRequest {
+    return new QueryNamespaceDenomsRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAllNamespacesRequest | PlainMessage<QueryAllNamespacesRequest> | undefined, b: QueryAllNamespacesRequest | PlainMessage<QueryAllNamespacesRequest> | undefined): boolean {
-    return proto3.util.equals(QueryAllNamespacesRequest, a, b);
+  static equals(a: QueryNamespaceDenomsRequest | PlainMessage<QueryNamespaceDenomsRequest> | undefined, b: QueryNamespaceDenomsRequest | PlainMessage<QueryNamespaceDenomsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryNamespaceDenomsRequest, a, b);
   }
 }
 
 /**
- * QueryAllNamespacesResponse is the response type for the Query/AllNamespaces
+ * QueryNamespaceDenomsResponse is the response type for the Query/NamespaceDenoms
  * RPC method.
  *
- * @generated from message injective.permissions.v1beta1.QueryAllNamespacesResponse
+ * @generated from message injective.permissions.v1beta1.QueryNamespaceDenomsResponse
  */
-export class QueryAllNamespacesResponse extends Message<QueryAllNamespacesResponse> {
+export class QueryNamespaceDenomsResponse extends Message<QueryNamespaceDenomsResponse> {
+  /**
+   * @generated from field: repeated string denoms = 1;
+   */
+  denoms: string[] = [];
+
+  constructor(data?: PartialMessage<QueryNamespaceDenomsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceDenomsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceDenomsResponse {
+    return new QueryNamespaceDenomsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceDenomsResponse {
+    return new QueryNamespaceDenomsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceDenomsResponse {
+    return new QueryNamespaceDenomsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryNamespaceDenomsResponse | PlainMessage<QueryNamespaceDenomsResponse> | undefined, b: QueryNamespaceDenomsResponse | PlainMessage<QueryNamespaceDenomsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryNamespaceDenomsResponse, a, b);
+  }
+}
+
+/**
+ * QueryNamespacesRequest is the request type for the Query/Namespaces RPC
+ * method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryNamespacesRequest
+ */
+export class QueryNamespacesRequest extends Message<QueryNamespacesRequest> {
+  constructor(data?: PartialMessage<QueryNamespacesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespacesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespacesRequest {
+    return new QueryNamespacesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespacesRequest {
+    return new QueryNamespacesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespacesRequest {
+    return new QueryNamespacesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryNamespacesRequest | PlainMessage<QueryNamespacesRequest> | undefined, b: QueryNamespacesRequest | PlainMessage<QueryNamespacesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryNamespacesRequest, a, b);
+  }
+}
+
+/**
+ * QueryNamespacesResponse is the response type for the Query/Namespaces
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryNamespacesResponse
+ */
+export class QueryNamespacesResponse extends Message<QueryNamespacesResponse> {
   /**
    * @generated from field: repeated injective.permissions.v1beta1.Namespace namespaces = 1;
    */
   namespaces: Namespace[] = [];
 
-  constructor(data?: PartialMessage<QueryAllNamespacesResponse>) {
+  constructor(data?: PartialMessage<QueryNamespacesResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAllNamespacesResponse";
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespacesResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "namespaces", kind: "message", T: Namespace, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllNamespacesResponse {
-    return new QueryAllNamespacesResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespacesResponse {
+    return new QueryNamespacesResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllNamespacesResponse {
-    return new QueryAllNamespacesResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespacesResponse {
+    return new QueryNamespacesResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllNamespacesResponse {
-    return new QueryAllNamespacesResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespacesResponse {
+    return new QueryNamespacesResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAllNamespacesResponse | PlainMessage<QueryAllNamespacesResponse> | undefined, b: QueryAllNamespacesResponse | PlainMessage<QueryAllNamespacesResponse> | undefined): boolean {
-    return proto3.util.equals(QueryAllNamespacesResponse, a, b);
+  static equals(a: QueryNamespacesResponse | PlainMessage<QueryNamespacesResponse> | undefined, b: QueryNamespacesResponse | PlainMessage<QueryNamespacesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryNamespacesResponse, a, b);
   }
 }
 
 /**
- * QueryNamespaceByDenomRequest is the request type for the
- * Query/NamespaceByDenom RPC method.
+ * QueryNamespaceRequest is the request type for the
+ * Query/Namespace RPC method.
  *
- * @generated from message injective.permissions.v1beta1.QueryNamespaceByDenomRequest
+ * @generated from message injective.permissions.v1beta1.QueryNamespaceRequest
  */
-export class QueryNamespaceByDenomRequest extends Message<QueryNamespaceByDenomRequest> {
+export class QueryNamespaceRequest extends Message<QueryNamespaceRequest> {
   /**
    * @generated from field: string denom = 1;
    */
   denom = "";
 
-  /**
-   * @generated from field: bool include_roles = 2;
-   */
-  includeRoles = false;
-
-  constructor(data?: PartialMessage<QueryNamespaceByDenomRequest>) {
+  constructor(data?: PartialMessage<QueryNamespaceRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceByDenomRequest";
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "include_roles", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceByDenomRequest {
-    return new QueryNamespaceByDenomRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceRequest {
+    return new QueryNamespaceRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceByDenomRequest {
-    return new QueryNamespaceByDenomRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceRequest {
+    return new QueryNamespaceRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceByDenomRequest {
-    return new QueryNamespaceByDenomRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceRequest {
+    return new QueryNamespaceRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryNamespaceByDenomRequest | PlainMessage<QueryNamespaceByDenomRequest> | undefined, b: QueryNamespaceByDenomRequest | PlainMessage<QueryNamespaceByDenomRequest> | undefined): boolean {
-    return proto3.util.equals(QueryNamespaceByDenomRequest, a, b);
+  static equals(a: QueryNamespaceRequest | PlainMessage<QueryNamespaceRequest> | undefined, b: QueryNamespaceRequest | PlainMessage<QueryNamespaceRequest> | undefined): boolean {
+    return proto3.util.equals(QueryNamespaceRequest, a, b);
   }
 }
 
 /**
- * QueryNamespaceByDenomResponse is the response type for the
+ * QueryNamespaceResponse is the response type for the
  * Query/NamespaceByDenom RPC method.
  *
- * @generated from message injective.permissions.v1beta1.QueryNamespaceByDenomResponse
+ * @generated from message injective.permissions.v1beta1.QueryNamespaceResponse
  */
-export class QueryNamespaceByDenomResponse extends Message<QueryNamespaceByDenomResponse> {
+export class QueryNamespaceResponse extends Message<QueryNamespaceResponse> {
   /**
    * @generated from field: injective.permissions.v1beta1.Namespace namespace = 1;
    */
   namespace?: Namespace;
 
-  constructor(data?: PartialMessage<QueryNamespaceByDenomResponse>) {
+  constructor(data?: PartialMessage<QueryNamespaceResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceByDenomResponse";
+  static readonly typeName = "injective.permissions.v1beta1.QueryNamespaceResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "namespace", kind: "message", T: Namespace },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceByDenomResponse {
-    return new QueryNamespaceByDenomResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryNamespaceResponse {
+    return new QueryNamespaceResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceByDenomResponse {
-    return new QueryNamespaceByDenomResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryNamespaceResponse {
+    return new QueryNamespaceResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceByDenomResponse {
-    return new QueryNamespaceByDenomResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryNamespaceResponse {
+    return new QueryNamespaceResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryNamespaceByDenomResponse | PlainMessage<QueryNamespaceByDenomResponse> | undefined, b: QueryNamespaceByDenomResponse | PlainMessage<QueryNamespaceByDenomResponse> | undefined): boolean {
-    return proto3.util.equals(QueryNamespaceByDenomResponse, a, b);
+  static equals(a: QueryNamespaceResponse | PlainMessage<QueryNamespaceResponse> | undefined, b: QueryNamespaceResponse | PlainMessage<QueryNamespaceResponse> | undefined): boolean {
+    return proto3.util.equals(QueryNamespaceResponse, a, b);
   }
 }
 
@@ -247,9 +316,9 @@ export class QueryNamespaceByDenomResponse extends Message<QueryNamespaceByDenom
  * QueryAddressesByRoleRequest is the request type for the Query/AddressesByRole
  * RPC method.
  *
- * @generated from message injective.permissions.v1beta1.QueryAddressesByRoleRequest
+ * @generated from message injective.permissions.v1beta1.QueryActorsByRoleRequest
  */
-export class QueryAddressesByRoleRequest extends Message<QueryAddressesByRoleRequest> {
+export class QueryActorsByRoleRequest extends Message<QueryActorsByRoleRequest> {
   /**
    * @generated from field: string denom = 1;
    */
@@ -260,32 +329,32 @@ export class QueryAddressesByRoleRequest extends Message<QueryAddressesByRoleReq
    */
   role = "";
 
-  constructor(data?: PartialMessage<QueryAddressesByRoleRequest>) {
+  constructor(data?: PartialMessage<QueryActorsByRoleRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAddressesByRoleRequest";
+  static readonly typeName = "injective.permissions.v1beta1.QueryActorsByRoleRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "role", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAddressesByRoleRequest {
-    return new QueryAddressesByRoleRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryActorsByRoleRequest {
+    return new QueryActorsByRoleRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAddressesByRoleRequest {
-    return new QueryAddressesByRoleRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryActorsByRoleRequest {
+    return new QueryActorsByRoleRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAddressesByRoleRequest {
-    return new QueryAddressesByRoleRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryActorsByRoleRequest {
+    return new QueryActorsByRoleRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAddressesByRoleRequest | PlainMessage<QueryAddressesByRoleRequest> | undefined, b: QueryAddressesByRoleRequest | PlainMessage<QueryAddressesByRoleRequest> | undefined): boolean {
-    return proto3.util.equals(QueryAddressesByRoleRequest, a, b);
+  static equals(a: QueryActorsByRoleRequest | PlainMessage<QueryActorsByRoleRequest> | undefined, b: QueryActorsByRoleRequest | PlainMessage<QueryActorsByRoleRequest> | undefined): boolean {
+    return proto3.util.equals(QueryActorsByRoleRequest, a, b);
   }
 }
 
@@ -293,46 +362,532 @@ export class QueryAddressesByRoleRequest extends Message<QueryAddressesByRoleReq
  * QueryAddressesByRoleResponse is the response type for the
  * Query/AddressesByRole RPC method.
  *
- * @generated from message injective.permissions.v1beta1.QueryAddressesByRoleResponse
+ * @generated from message injective.permissions.v1beta1.QueryActorsByRoleResponse
  */
-export class QueryAddressesByRoleResponse extends Message<QueryAddressesByRoleResponse> {
+export class QueryActorsByRoleResponse extends Message<QueryActorsByRoleResponse> {
   /**
-   * @generated from field: repeated string addresses = 1;
+   * @generated from field: repeated string actors = 1;
    */
-  addresses: string[] = [];
+  actors: string[] = [];
 
-  constructor(data?: PartialMessage<QueryAddressesByRoleResponse>) {
+  constructor(data?: PartialMessage<QueryActorsByRoleResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAddressesByRoleResponse";
+  static readonly typeName = "injective.permissions.v1beta1.QueryActorsByRoleResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 1, name: "actors", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAddressesByRoleResponse {
-    return new QueryAddressesByRoleResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryActorsByRoleResponse {
+    return new QueryActorsByRoleResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAddressesByRoleResponse {
-    return new QueryAddressesByRoleResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryActorsByRoleResponse {
+    return new QueryActorsByRoleResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAddressesByRoleResponse {
-    return new QueryAddressesByRoleResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryActorsByRoleResponse {
+    return new QueryActorsByRoleResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAddressesByRoleResponse | PlainMessage<QueryAddressesByRoleResponse> | undefined, b: QueryAddressesByRoleResponse | PlainMessage<QueryAddressesByRoleResponse> | undefined): boolean {
-    return proto3.util.equals(QueryAddressesByRoleResponse, a, b);
+  static equals(a: QueryActorsByRoleResponse | PlainMessage<QueryActorsByRoleResponse> | undefined, b: QueryActorsByRoleResponse | PlainMessage<QueryActorsByRoleResponse> | undefined): boolean {
+    return proto3.util.equals(QueryActorsByRoleResponse, a, b);
   }
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.QueryAddressRolesRequest
+ * QueryRolesByActorRequest is the request type for the
+ * Query/RolesByActor RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRolesByActorRequest
  */
-export class QueryAddressRolesRequest extends Message<QueryAddressRolesRequest> {
+export class QueryRolesByActorRequest extends Message<QueryRolesByActorRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string actor = 2;
+   */
+  actor = "";
+
+  constructor(data?: PartialMessage<QueryRolesByActorRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRolesByActorRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "actor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRolesByActorRequest {
+    return new QueryRolesByActorRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRolesByActorRequest {
+    return new QueryRolesByActorRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRolesByActorRequest {
+    return new QueryRolesByActorRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRolesByActorRequest | PlainMessage<QueryRolesByActorRequest> | undefined, b: QueryRolesByActorRequest | PlainMessage<QueryRolesByActorRequest> | undefined): boolean {
+    return proto3.util.equals(QueryRolesByActorRequest, a, b);
+  }
+}
+
+/**
+ * QueryRolesByActorResponse is the response type for the
+ * Query/RolesByActor RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRolesByActorResponse
+ */
+export class QueryRolesByActorResponse extends Message<QueryRolesByActorResponse> {
+  /**
+   * @generated from field: repeated string roles = 1;
+   */
+  roles: string[] = [];
+
+  constructor(data?: PartialMessage<QueryRolesByActorResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRolesByActorResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "roles", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRolesByActorResponse {
+    return new QueryRolesByActorResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRolesByActorResponse {
+    return new QueryRolesByActorResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRolesByActorResponse {
+    return new QueryRolesByActorResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRolesByActorResponse | PlainMessage<QueryRolesByActorResponse> | undefined, b: QueryRolesByActorResponse | PlainMessage<QueryRolesByActorResponse> | undefined): boolean {
+    return proto3.util.equals(QueryRolesByActorResponse, a, b);
+  }
+}
+
+/**
+ * QueryRoleManagersRequest is the request type for the Query/RoleManagers
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRoleManagersRequest
+ */
+export class QueryRoleManagersRequest extends Message<QueryRoleManagersRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryRoleManagersRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRoleManagersRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRoleManagersRequest {
+    return new QueryRoleManagersRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRoleManagersRequest {
+    return new QueryRoleManagersRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRoleManagersRequest {
+    return new QueryRoleManagersRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRoleManagersRequest | PlainMessage<QueryRoleManagersRequest> | undefined, b: QueryRoleManagersRequest | PlainMessage<QueryRoleManagersRequest> | undefined): boolean {
+    return proto3.util.equals(QueryRoleManagersRequest, a, b);
+  }
+}
+
+/**
+ * QueryRoleManagersResponse is the response type for the
+ * Query/RoleManagers RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRoleManagersResponse
+ */
+export class QueryRoleManagersResponse extends Message<QueryRoleManagersResponse> {
+  /**
+   * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 1;
+   */
+  roleManagers: RoleManager[] = [];
+
+  constructor(data?: PartialMessage<QueryRoleManagersResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRoleManagersResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "role_managers", kind: "message", T: RoleManager, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRoleManagersResponse {
+    return new QueryRoleManagersResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRoleManagersResponse {
+    return new QueryRoleManagersResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRoleManagersResponse {
+    return new QueryRoleManagersResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRoleManagersResponse | PlainMessage<QueryRoleManagersResponse> | undefined, b: QueryRoleManagersResponse | PlainMessage<QueryRoleManagersResponse> | undefined): boolean {
+    return proto3.util.equals(QueryRoleManagersResponse, a, b);
+  }
+}
+
+/**
+ * QueryRoleManagerRequest is the request type for the Query/RoleManager
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRoleManagerRequest
+ */
+export class QueryRoleManagerRequest extends Message<QueryRoleManagerRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string manager = 2;
+   */
+  manager = "";
+
+  constructor(data?: PartialMessage<QueryRoleManagerRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRoleManagerRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "manager", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRoleManagerRequest {
+    return new QueryRoleManagerRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRoleManagerRequest {
+    return new QueryRoleManagerRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRoleManagerRequest {
+    return new QueryRoleManagerRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRoleManagerRequest | PlainMessage<QueryRoleManagerRequest> | undefined, b: QueryRoleManagerRequest | PlainMessage<QueryRoleManagerRequest> | undefined): boolean {
+    return proto3.util.equals(QueryRoleManagerRequest, a, b);
+  }
+}
+
+/**
+ * QueryRoleManagerResponse is the response type for the
+ * Query/RoleManager RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryRoleManagerResponse
+ */
+export class QueryRoleManagerResponse extends Message<QueryRoleManagerResponse> {
+  /**
+   * @generated from field: injective.permissions.v1beta1.RoleManager role_manager = 1;
+   */
+  roleManager?: RoleManager;
+
+  constructor(data?: PartialMessage<QueryRoleManagerResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryRoleManagerResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "role_manager", kind: "message", T: RoleManager },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRoleManagerResponse {
+    return new QueryRoleManagerResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRoleManagerResponse {
+    return new QueryRoleManagerResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRoleManagerResponse {
+    return new QueryRoleManagerResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRoleManagerResponse | PlainMessage<QueryRoleManagerResponse> | undefined, b: QueryRoleManagerResponse | PlainMessage<QueryRoleManagerResponse> | undefined): boolean {
+    return proto3.util.equals(QueryRoleManagerResponse, a, b);
+  }
+}
+
+/**
+ * QueryPolicyStatusesRequest is the request type for the Query/PolicyStatuses
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryPolicyStatusesRequest
+ */
+export class QueryPolicyStatusesRequest extends Message<QueryPolicyStatusesRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryPolicyStatusesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryPolicyStatusesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPolicyStatusesRequest {
+    return new QueryPolicyStatusesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPolicyStatusesRequest {
+    return new QueryPolicyStatusesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPolicyStatusesRequest {
+    return new QueryPolicyStatusesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPolicyStatusesRequest | PlainMessage<QueryPolicyStatusesRequest> | undefined, b: QueryPolicyStatusesRequest | PlainMessage<QueryPolicyStatusesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPolicyStatusesRequest, a, b);
+  }
+}
+
+/**
+ * QueryRoleManagerResponse is the response type for the
+ * Query/RoleManager RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryPolicyStatusesResponse
+ */
+export class QueryPolicyStatusesResponse extends Message<QueryPolicyStatusesResponse> {
+  /**
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyStatus policy_statuses = 1;
+   */
+  policyStatuses: PolicyStatus[] = [];
+
+  constructor(data?: PartialMessage<QueryPolicyStatusesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryPolicyStatusesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "policy_statuses", kind: "message", T: PolicyStatus, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPolicyStatusesResponse {
+    return new QueryPolicyStatusesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPolicyStatusesResponse {
+    return new QueryPolicyStatusesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPolicyStatusesResponse {
+    return new QueryPolicyStatusesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPolicyStatusesResponse | PlainMessage<QueryPolicyStatusesResponse> | undefined, b: QueryPolicyStatusesResponse | PlainMessage<QueryPolicyStatusesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPolicyStatusesResponse, a, b);
+  }
+}
+
+/**
+ * QueryPolicyManagerCapabilitiesRequest is the request type for the Query/PolicyManagerCapabilities
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryPolicyManagerCapabilitiesRequest
+ */
+export class QueryPolicyManagerCapabilitiesRequest extends Message<QueryPolicyManagerCapabilitiesRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryPolicyManagerCapabilitiesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryPolicyManagerCapabilitiesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPolicyManagerCapabilitiesRequest {
+    return new QueryPolicyManagerCapabilitiesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPolicyManagerCapabilitiesRequest {
+    return new QueryPolicyManagerCapabilitiesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPolicyManagerCapabilitiesRequest {
+    return new QueryPolicyManagerCapabilitiesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPolicyManagerCapabilitiesRequest | PlainMessage<QueryPolicyManagerCapabilitiesRequest> | undefined, b: QueryPolicyManagerCapabilitiesRequest | PlainMessage<QueryPolicyManagerCapabilitiesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPolicyManagerCapabilitiesRequest, a, b);
+  }
+}
+
+/**
+ * QueryPolicyManagerCapabilitiesResponse is the response type for the
+ * Query/PolicyManagerCapabilities RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryPolicyManagerCapabilitiesResponse
+ */
+export class QueryPolicyManagerCapabilitiesResponse extends Message<QueryPolicyManagerCapabilitiesResponse> {
+  /**
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyManagerCapability policy_manager_capabilities = 1;
+   */
+  policyManagerCapabilities: PolicyManagerCapability[] = [];
+
+  constructor(data?: PartialMessage<QueryPolicyManagerCapabilitiesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryPolicyManagerCapabilitiesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "policy_manager_capabilities", kind: "message", T: PolicyManagerCapability, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPolicyManagerCapabilitiesResponse {
+    return new QueryPolicyManagerCapabilitiesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPolicyManagerCapabilitiesResponse {
+    return new QueryPolicyManagerCapabilitiesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPolicyManagerCapabilitiesResponse {
+    return new QueryPolicyManagerCapabilitiesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPolicyManagerCapabilitiesResponse | PlainMessage<QueryPolicyManagerCapabilitiesResponse> | undefined, b: QueryPolicyManagerCapabilitiesResponse | PlainMessage<QueryPolicyManagerCapabilitiesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPolicyManagerCapabilitiesResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.permissions.v1beta1.QueryVouchersRequest
+ */
+export class QueryVouchersRequest extends Message<QueryVouchersRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryVouchersRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryVouchersRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVouchersRequest {
+    return new QueryVouchersRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVouchersRequest {
+    return new QueryVouchersRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVouchersRequest {
+    return new QueryVouchersRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryVouchersRequest | PlainMessage<QueryVouchersRequest> | undefined, b: QueryVouchersRequest | PlainMessage<QueryVouchersRequest> | undefined): boolean {
+    return proto3.util.equals(QueryVouchersRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.permissions.v1beta1.QueryVouchersResponse
+ */
+export class QueryVouchersResponse extends Message<QueryVouchersResponse> {
+  /**
+   * @generated from field: repeated injective.permissions.v1beta1.AddressVoucher vouchers = 1;
+   */
+  vouchers: AddressVoucher[] = [];
+
+  constructor(data?: PartialMessage<QueryVouchersResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.QueryVouchersResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "vouchers", kind: "message", T: AddressVoucher, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVouchersResponse {
+    return new QueryVouchersResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVouchersResponse {
+    return new QueryVouchersResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVouchersResponse {
+    return new QueryVouchersResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryVouchersResponse | PlainMessage<QueryVouchersResponse> | undefined, b: QueryVouchersResponse | PlainMessage<QueryVouchersResponse> | undefined): boolean {
+    return proto3.util.equals(QueryVouchersResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.permissions.v1beta1.QueryVoucherRequest
+ */
+export class QueryVoucherRequest extends Message<QueryVoucherRequest> {
   /**
    * @generated from field: string denom = 1;
    */
@@ -343,143 +898,143 @@ export class QueryAddressRolesRequest extends Message<QueryAddressRolesRequest> 
    */
   address = "";
 
-  constructor(data?: PartialMessage<QueryAddressRolesRequest>) {
+  constructor(data?: PartialMessage<QueryVoucherRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAddressRolesRequest";
+  static readonly typeName = "injective.permissions.v1beta1.QueryVoucherRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAddressRolesRequest {
-    return new QueryAddressRolesRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVoucherRequest {
+    return new QueryVoucherRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAddressRolesRequest {
-    return new QueryAddressRolesRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVoucherRequest {
+    return new QueryVoucherRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAddressRolesRequest {
-    return new QueryAddressRolesRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVoucherRequest {
+    return new QueryVoucherRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAddressRolesRequest | PlainMessage<QueryAddressRolesRequest> | undefined, b: QueryAddressRolesRequest | PlainMessage<QueryAddressRolesRequest> | undefined): boolean {
-    return proto3.util.equals(QueryAddressRolesRequest, a, b);
+  static equals(a: QueryVoucherRequest | PlainMessage<QueryVoucherRequest> | undefined, b: QueryVoucherRequest | PlainMessage<QueryVoucherRequest> | undefined): boolean {
+    return proto3.util.equals(QueryVoucherRequest, a, b);
   }
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.QueryAddressRolesResponse
+ * @generated from message injective.permissions.v1beta1.QueryVoucherResponse
  */
-export class QueryAddressRolesResponse extends Message<QueryAddressRolesResponse> {
+export class QueryVoucherResponse extends Message<QueryVoucherResponse> {
   /**
-   * @generated from field: repeated string roles = 1;
+   * @generated from field: cosmos.base.v1beta1.Coin voucher = 1;
    */
-  roles: string[] = [];
+  voucher?: Coin;
 
-  constructor(data?: PartialMessage<QueryAddressRolesResponse>) {
+  constructor(data?: PartialMessage<QueryVoucherResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryAddressRolesResponse";
+  static readonly typeName = "injective.permissions.v1beta1.QueryVoucherResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "roles", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 1, name: "voucher", kind: "message", T: Coin },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAddressRolesResponse {
-    return new QueryAddressRolesResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVoucherResponse {
+    return new QueryVoucherResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAddressRolesResponse {
-    return new QueryAddressRolesResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVoucherResponse {
+    return new QueryVoucherResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAddressRolesResponse {
-    return new QueryAddressRolesResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVoucherResponse {
+    return new QueryVoucherResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryAddressRolesResponse | PlainMessage<QueryAddressRolesResponse> | undefined, b: QueryAddressRolesResponse | PlainMessage<QueryAddressRolesResponse> | undefined): boolean {
-    return proto3.util.equals(QueryAddressRolesResponse, a, b);
+  static equals(a: QueryVoucherResponse | PlainMessage<QueryVoucherResponse> | undefined, b: QueryVoucherResponse | PlainMessage<QueryVoucherResponse> | undefined): boolean {
+    return proto3.util.equals(QueryVoucherResponse, a, b);
   }
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.QueryVouchersForAddressRequest
+ * QueryModuleStateRequest is the request type for the Query/PermissionsModuleState
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryModuleStateRequest
  */
-export class QueryVouchersForAddressRequest extends Message<QueryVouchersForAddressRequest> {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address = "";
-
-  constructor(data?: PartialMessage<QueryVouchersForAddressRequest>) {
+export class QueryModuleStateRequest extends Message<QueryModuleStateRequest> {
+  constructor(data?: PartialMessage<QueryModuleStateRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryVouchersForAddressRequest";
+  static readonly typeName = "injective.permissions.v1beta1.QueryModuleStateRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVouchersForAddressRequest {
-    return new QueryVouchersForAddressRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryModuleStateRequest {
+    return new QueryModuleStateRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVouchersForAddressRequest {
-    return new QueryVouchersForAddressRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryModuleStateRequest {
+    return new QueryModuleStateRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVouchersForAddressRequest {
-    return new QueryVouchersForAddressRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryModuleStateRequest {
+    return new QueryModuleStateRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryVouchersForAddressRequest | PlainMessage<QueryVouchersForAddressRequest> | undefined, b: QueryVouchersForAddressRequest | PlainMessage<QueryVouchersForAddressRequest> | undefined): boolean {
-    return proto3.util.equals(QueryVouchersForAddressRequest, a, b);
+  static equals(a: QueryModuleStateRequest | PlainMessage<QueryModuleStateRequest> | undefined, b: QueryModuleStateRequest | PlainMessage<QueryModuleStateRequest> | undefined): boolean {
+    return proto3.util.equals(QueryModuleStateRequest, a, b);
   }
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.QueryVouchersForAddressResponse
+ * QueryModuleStateResponse is the response type for the Query/PermissionsModuleState
+ * RPC method.
+ *
+ * @generated from message injective.permissions.v1beta1.QueryModuleStateResponse
  */
-export class QueryVouchersForAddressResponse extends Message<QueryVouchersForAddressResponse> {
+export class QueryModuleStateResponse extends Message<QueryModuleStateResponse> {
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin vouchers = 1;
+   * @generated from field: injective.permissions.v1beta1.GenesisState state = 1;
    */
-  vouchers: Coin[] = [];
+  state?: GenesisState;
 
-  constructor(data?: PartialMessage<QueryVouchersForAddressResponse>) {
+  constructor(data?: PartialMessage<QueryModuleStateResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.QueryVouchersForAddressResponse";
+  static readonly typeName = "injective.permissions.v1beta1.QueryModuleStateResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "vouchers", kind: "message", T: Coin, repeated: true },
+    { no: 1, name: "state", kind: "message", T: GenesisState },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryVouchersForAddressResponse {
-    return new QueryVouchersForAddressResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryModuleStateResponse {
+    return new QueryModuleStateResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryVouchersForAddressResponse {
-    return new QueryVouchersForAddressResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryModuleStateResponse {
+    return new QueryModuleStateResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryVouchersForAddressResponse {
-    return new QueryVouchersForAddressResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryModuleStateResponse {
+    return new QueryModuleStateResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryVouchersForAddressResponse | PlainMessage<QueryVouchersForAddressResponse> | undefined, b: QueryVouchersForAddressResponse | PlainMessage<QueryVouchersForAddressResponse> | undefined): boolean {
-    return proto3.util.equals(QueryVouchersForAddressResponse, a, b);
+  static equals(a: QueryModuleStateResponse | PlainMessage<QueryModuleStateResponse> | undefined, b: QueryModuleStateResponse | PlainMessage<QueryModuleStateResponse> | undefined): boolean {
+    return proto3.util.equals(QueryModuleStateResponse, a, b);
   }
 }
 

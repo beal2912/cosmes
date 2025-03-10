@@ -96,6 +96,11 @@ export class Position extends Message<Position> {
    */
   stopLossPrice = "";
 
+  /**
+   * @generated from field: uint64 borrow_pool_id = 9;
+   */
+  borrowPoolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<Position>) {
     super();
     proto3.util.initPartial(data, this);
@@ -112,6 +117,7 @@ export class Position extends Message<Position> {
     { no: 6, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 7, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 8, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "borrow_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Position {
@@ -128,93 +134,6 @@ export class Position extends Message<Position> {
 
   static equals(a: Position | PlainMessage<Position> | undefined, b: Position | PlainMessage<Position> | undefined): boolean {
     return proto3.util.equals(Position, a, b);
-  }
-}
-
-/**
- * @generated from message elys.leveragelp.LegacyPosition
- */
-export class LegacyPosition extends Message<LegacyPosition> {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address = "";
-
-  /**
-   * @generated from field: cosmos.base.v1beta1.Coin collateral = 2;
-   */
-  collateral?: Coin;
-
-  /**
-   * For recording
-   *
-   * @generated from field: string liabilities = 3;
-   */
-  liabilities = "";
-
-  /**
-   * @generated from field: string leverage = 4;
-   */
-  leverage = "";
-
-  /**
-   * @generated from field: string leveraged_lp_amount = 5;
-   */
-  leveragedLpAmount = "";
-
-  /**
-   * @generated from field: string position_health = 6;
-   */
-  positionHealth = "";
-
-  /**
-   * @generated from field: uint64 id = 7;
-   */
-  id = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 amm_pool_id = 8;
-   */
-  ammPoolId = protoInt64.zero;
-
-  /**
-   * @generated from field: string stop_loss_price = 9;
-   */
-  stopLossPrice = "";
-
-  constructor(data?: PartialMessage<LegacyPosition>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.LegacyPosition";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "collateral", kind: "message", T: Coin },
-    { no: 3, name: "liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "leveraged_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "position_health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 8, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 9, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPosition {
-    return new LegacyPosition().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPosition {
-    return new LegacyPosition().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPosition {
-    return new LegacyPosition().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: LegacyPosition | PlainMessage<LegacyPosition> | undefined, b: LegacyPosition | PlainMessage<LegacyPosition> | undefined): boolean {
-    return proto3.util.equals(LegacyPosition, a, b);
   }
 }
 

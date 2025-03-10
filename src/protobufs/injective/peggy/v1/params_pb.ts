@@ -121,6 +121,13 @@ export class Params extends Message<Params> {
    */
   admins: string[] = [];
 
+  /**
+   * address for receiving Peggy Deposits from sanctioned Ethereum addresses
+   *
+   * @generated from field: string segregated_wallet_address = 23;
+   */
+  segregatedWalletAddress = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -151,6 +158,7 @@ export class Params extends Message<Params> {
     { no: 20, name: "bridge_contract_start_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 21, name: "valset_reward", kind: "message", T: Coin },
     { no: 22, name: "admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 23, name: "segregated_wallet_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

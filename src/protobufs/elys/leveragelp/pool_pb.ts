@@ -35,6 +35,11 @@ export class Pool extends Message<Pool> {
    */
   maxLeveragelpRatio = "";
 
+  /**
+   * @generated from field: repeated elys.leveragelp.AssetLeverageAmount asset_leverage_amounts = 6;
+   */
+  assetLeverageAmounts: AssetLeverageAmount[] = [];
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -48,6 +53,7 @@ export class Pool extends Message<Pool> {
     { no: 3, name: "leveraged_lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "max_leveragelp_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "asset_leverage_amounts", kind: "message", T: AssetLeverageAmount, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {
@@ -119,6 +125,49 @@ export class LegacyPool extends Message<LegacyPool> {
 
   static equals(a: LegacyPool | PlainMessage<LegacyPool> | undefined, b: LegacyPool | PlainMessage<LegacyPool> | undefined): boolean {
     return proto3.util.equals(LegacyPool, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.AssetLeverageAmount
+ */
+export class AssetLeverageAmount extends Message<AssetLeverageAmount> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string leveraged_amount = 2;
+   */
+  leveragedAmount = "";
+
+  constructor(data?: PartialMessage<AssetLeverageAmount>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.AssetLeverageAmount";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "leveraged_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AssetLeverageAmount {
+    return new AssetLeverageAmount().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AssetLeverageAmount {
+    return new AssetLeverageAmount().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AssetLeverageAmount {
+    return new AssetLeverageAmount().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: AssetLeverageAmount | PlainMessage<AssetLeverageAmount> | undefined, b: AssetLeverageAmount | PlainMessage<AssetLeverageAmount> | undefined): boolean {
+    return proto3.util.equals(AssetLeverageAmount, a, b);
   }
 }
 

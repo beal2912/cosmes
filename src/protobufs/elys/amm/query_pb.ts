@@ -522,6 +522,16 @@ export class QueryJoinPoolEstimationResponse extends Message<QueryJoinPoolEstima
    */
   weightBalanceRatio = "";
 
+  /**
+   * @generated from field: string swap_fee = 5;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: string taker_fee = 6;
+   */
+  takerFee = "";
+
   constructor(data?: PartialMessage<QueryJoinPoolEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -534,6 +544,8 @@ export class QueryJoinPoolEstimationResponse extends Message<QueryJoinPoolEstima
     { no: 2, name: "amounts_in", kind: "message", T: Coin, repeated: true },
     { no: 3, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryJoinPoolEstimationResponse {
@@ -611,6 +623,26 @@ export class QueryExitPoolEstimationResponse extends Message<QueryExitPoolEstima
    */
   amountsOut: Coin[] = [];
 
+  /**
+   * @generated from field: string weight_balance_ratio = 2;
+   */
+  weightBalanceRatio = "";
+
+  /**
+   * @generated from field: string slippage = 3;
+   */
+  slippage = "";
+
+  /**
+   * @generated from field: string swap_fee = 4;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: string taker_fee = 5;
+   */
+  takerFee = "";
+
   constructor(data?: PartialMessage<QueryExitPoolEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -620,6 +652,10 @@ export class QueryExitPoolEstimationResponse extends Message<QueryExitPoolEstima
   static readonly typeName = "elys.amm.QueryExitPoolEstimationResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amounts_out", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryExitPoolEstimationResponse {

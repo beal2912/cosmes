@@ -14,24 +14,82 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
  */
 export enum Action {
   /**
+   * 0 is reserved for ACTION_UNSPECIFIED
+   *
    * @generated from enum value: UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
+   * 1 is reserved for MINT
+   *
    * @generated from enum value: MINT = 1;
    */
   MINT = 1,
 
   /**
+   * 2 is reserved for RECEIVE
+   *
    * @generated from enum value: RECEIVE = 2;
    */
   RECEIVE = 2,
 
   /**
+   * 4 is reserved for BURN
+   *
    * @generated from enum value: BURN = 4;
    */
   BURN = 4,
+
+  /**
+   * 8 is reserved for SEND
+   *
+   * @generated from enum value: SEND = 8;
+   */
+  SEND = 8,
+
+  /**
+   * 16 is reserved for SUPER_BURN
+   *
+   * @generated from enum value: SUPER_BURN = 16;
+   */
+  SUPER_BURN = 16,
+
+  /**
+   * 2^27 is reserved for MODIFY_POLICY_MANAGERS
+   *
+   * 2^27 or 134217728
+   *
+   * @generated from enum value: MODIFY_POLICY_MANAGERS = 134217728;
+   */
+  MODIFY_POLICY_MANAGERS = 134217728,
+
+  /**
+   * 2^28 is reserved for MODIFY_CONTRACT_HOOK
+   *
+   * 2^28 or 268435456
+   *
+   * @generated from enum value: MODIFY_CONTRACT_HOOK = 268435456;
+   */
+  MODIFY_CONTRACT_HOOK = 268435456,
+
+  /**
+   * 2^29 is reserved for MODIFY_ROLE_PERMISSIONS
+   *
+   * 2^29 or 536870912
+   *
+   * @generated from enum value: MODIFY_ROLE_PERMISSIONS = 536870912;
+   */
+  MODIFY_ROLE_PERMISSIONS = 536870912,
+
+  /**
+   * 2^30 is reserved for MODIFY_ROLE_MANAGERS
+   *
+   * 2^30 or 1073741824
+   *
+   * @generated from enum value: MODIFY_ROLE_MANAGERS = 1073741824;
+   */
+  MODIFY_ROLE_MANAGERS = 1073741824,
 }
 // Retrieve enum metadata with: proto3.getEnumType(Action)
 proto3.util.setEnumType(Action, "injective.permissions.v1beta1.Action", [
@@ -39,6 +97,12 @@ proto3.util.setEnumType(Action, "injective.permissions.v1beta1.Action", [
   { no: 1, name: "MINT" },
   { no: 2, name: "RECEIVE" },
   { no: 4, name: "BURN" },
+  { no: 8, name: "SEND" },
+  { no: 16, name: "SUPER_BURN" },
+  { no: 134217728, name: "MODIFY_POLICY_MANAGERS" },
+  { no: 268435456, name: "MODIFY_CONTRACT_HOOK" },
+  { no: 536870912, name: "MODIFY_ROLE_PERMISSIONS" },
+  { no: 1073741824, name: "MODIFY_ROLE_MANAGERS" },
 ]);
 
 /**
@@ -57,36 +121,44 @@ export class Namespace extends Message<Namespace> {
   /**
    * address of smart contract to apply code-based restrictions
    *
-   * @generated from field: string wasm_hook = 2;
+   * @generated from field: string contract_hook = 2;
    */
-  wasmHook = "";
-
-  /**
-   * @generated from field: bool mints_paused = 3;
-   */
-  mintsPaused = false;
-
-  /**
-   * @generated from field: bool sends_paused = 4;
-   */
-  sendsPaused = false;
-
-  /**
-   * @generated from field: bool burns_paused = 5;
-   */
-  burnsPaused = false;
+  contractHook = "";
 
   /**
    * permissions for each role
    *
-   * @generated from field: repeated injective.permissions.v1beta1.Role role_permissions = 6;
+   * @generated from field: repeated injective.permissions.v1beta1.Role role_permissions = 3;
    */
   rolePermissions: Role[] = [];
 
   /**
-   * @generated from field: repeated injective.permissions.v1beta1.AddressRoles address_roles = 7;
+   * roles for each actor
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.ActorRoles actor_roles = 4;
    */
-  addressRoles: AddressRoles[] = [];
+  actorRoles: ActorRoles[] = [];
+
+  /**
+   *  managers for each role
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 5;
+   */
+  roleManagers: RoleManager[] = [];
+
+  /**
+   * status for each policy
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyStatus policy_statuses = 6;
+   */
+  policyStatuses: PolicyStatus[] = [];
+
+  /**
+   * capabilities for each manager for each policy
+   *
+   * @generated from field: repeated injective.permissions.v1beta1.PolicyManagerCapability policy_manager_capabilities = 7;
+   */
+  policyManagerCapabilities: PolicyManagerCapability[] = [];
 
   constructor(data?: PartialMessage<Namespace>) {
     super();
@@ -97,12 +169,12 @@ export class Namespace extends Message<Namespace> {
   static readonly typeName = "injective.permissions.v1beta1.Namespace";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "wasm_hook", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "mints_paused", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 4, name: "sends_paused", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 5, name: "burns_paused", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 6, name: "role_permissions", kind: "message", T: Role, repeated: true },
-    { no: 7, name: "address_roles", kind: "message", T: AddressRoles, repeated: true },
+    { no: 2, name: "contract_hook", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "role_permissions", kind: "message", T: Role, repeated: true },
+    { no: 4, name: "actor_roles", kind: "message", T: ActorRoles, repeated: true },
+    { no: 5, name: "role_managers", kind: "message", T: RoleManager, repeated: true },
+    { no: 6, name: "policy_statuses", kind: "message", T: PolicyStatus, repeated: true },
+    { no: 7, name: "policy_manager_capabilities", kind: "message", T: PolicyManagerCapability, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Namespace {
@@ -123,45 +195,188 @@ export class Namespace extends Message<Namespace> {
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.AddressRoles
+ * AddressRoles defines roles for an actor
+ *
+ * @generated from message injective.permissions.v1beta1.ActorRoles
  */
-export class AddressRoles extends Message<AddressRoles> {
+export class ActorRoles extends Message<ActorRoles> {
   /**
-   * @generated from field: string address = 1;
+   * @generated from field: string actor = 1;
    */
-  address = "";
+  actor = "";
 
   /**
    * @generated from field: repeated string roles = 2;
    */
   roles: string[] = [];
 
-  constructor(data?: PartialMessage<AddressRoles>) {
+  constructor(data?: PartialMessage<ActorRoles>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.AddressRoles";
+  static readonly typeName = "injective.permissions.v1beta1.ActorRoles";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "actor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "roles", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddressRoles {
-    return new AddressRoles().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ActorRoles {
+    return new ActorRoles().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AddressRoles {
-    return new AddressRoles().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ActorRoles {
+    return new ActorRoles().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AddressRoles {
-    return new AddressRoles().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ActorRoles {
+    return new ActorRoles().fromJsonString(jsonString, options);
   }
 
-  static equals(a: AddressRoles | PlainMessage<AddressRoles> | undefined, b: AddressRoles | PlainMessage<AddressRoles> | undefined): boolean {
-    return proto3.util.equals(AddressRoles, a, b);
+  static equals(a: ActorRoles | PlainMessage<ActorRoles> | undefined, b: ActorRoles | PlainMessage<ActorRoles> | undefined): boolean {
+    return proto3.util.equals(ActorRoles, a, b);
+  }
+}
+
+/**
+ * RoleActors defines actors for a role
+ *
+ * @generated from message injective.permissions.v1beta1.RoleActors
+ */
+export class RoleActors extends Message<RoleActors> {
+  /**
+   * @generated from field: string role = 1;
+   */
+  role = "";
+
+  /**
+   * @generated from field: repeated string actors = 2;
+   */
+  actors: string[] = [];
+
+  constructor(data?: PartialMessage<RoleActors>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.RoleActors";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "role", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "actors", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RoleActors {
+    return new RoleActors().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RoleActors {
+    return new RoleActors().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RoleActors {
+    return new RoleActors().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: RoleActors | PlainMessage<RoleActors> | undefined, b: RoleActors | PlainMessage<RoleActors> | undefined): boolean {
+    return proto3.util.equals(RoleActors, a, b);
+  }
+}
+
+/**
+ * RoleManager defines roles for a manager address
+ *
+ * @generated from message injective.permissions.v1beta1.RoleManager
+ */
+export class RoleManager extends Message<RoleManager> {
+  /**
+   * @generated from field: string manager = 1;
+   */
+  manager = "";
+
+  /**
+   * @generated from field: repeated string roles = 2;
+   */
+  roles: string[] = [];
+
+  constructor(data?: PartialMessage<RoleManager>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.RoleManager";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "manager", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "roles", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RoleManager {
+    return new RoleManager().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): RoleManager {
+    return new RoleManager().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): RoleManager {
+    return new RoleManager().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: RoleManager | PlainMessage<RoleManager> | undefined, b: RoleManager | PlainMessage<RoleManager> | undefined): boolean {
+    return proto3.util.equals(RoleManager, a, b);
+  }
+}
+
+/**
+ * PolicyStatus defines the status of a policy
+ *
+ * @generated from message injective.permissions.v1beta1.PolicyStatus
+ */
+export class PolicyStatus extends Message<PolicyStatus> {
+  /**
+   * @generated from field: injective.permissions.v1beta1.Action action = 1;
+   */
+  action = Action.UNSPECIFIED;
+
+  /**
+   * @generated from field: bool is_disabled = 2;
+   */
+  isDisabled = false;
+
+  /**
+   * @generated from field: bool is_sealed = 3;
+   */
+  isSealed = false;
+
+  constructor(data?: PartialMessage<PolicyStatus>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.PolicyStatus";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "action", kind: "enum", T: proto3.getEnumType(Action) },
+    { no: 2, name: "is_disabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "is_sealed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PolicyStatus {
+    return new PolicyStatus().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PolicyStatus {
+    return new PolicyStatus().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PolicyStatus {
+    return new PolicyStatus().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PolicyStatus | PlainMessage<PolicyStatus> | undefined, b: PolicyStatus | PlainMessage<PolicyStatus> | undefined): boolean {
+    return proto3.util.equals(PolicyStatus, a, b);
   }
 }
 
@@ -172,12 +387,17 @@ export class AddressRoles extends Message<AddressRoles> {
  */
 export class Role extends Message<Role> {
   /**
-   * @generated from field: string role = 1;
+   * @generated from field: string name = 1;
    */
-  role = "";
+  name = "";
 
   /**
-   * @generated from field: uint32 permissions = 2;
+   * @generated from field: uint32 role_id = 2;
+   */
+  roleId = 0;
+
+  /**
+   * @generated from field: uint32 permissions = 3;
    */
   permissions = 0;
 
@@ -189,8 +409,9 @@ export class Role extends Message<Role> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "injective.permissions.v1beta1.Role";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "role", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "role_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 3, name: "permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Role {
@@ -207,6 +428,63 @@ export class Role extends Message<Role> {
 
   static equals(a: Role | PlainMessage<Role> | undefined, b: Role | PlainMessage<Role> | undefined): boolean {
     return proto3.util.equals(Role, a, b);
+  }
+}
+
+/**
+ * PolicyManagerCapability defines the capabilities of a manager for a policy
+ *
+ * @generated from message injective.permissions.v1beta1.PolicyManagerCapability
+ */
+export class PolicyManagerCapability extends Message<PolicyManagerCapability> {
+  /**
+   * @generated from field: string manager = 1;
+   */
+  manager = "";
+
+  /**
+   * @generated from field: injective.permissions.v1beta1.Action action = 2;
+   */
+  action = Action.UNSPECIFIED;
+
+  /**
+   * @generated from field: bool can_disable = 3;
+   */
+  canDisable = false;
+
+  /**
+   * @generated from field: bool can_seal = 4;
+   */
+  canSeal = false;
+
+  constructor(data?: PartialMessage<PolicyManagerCapability>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.permissions.v1beta1.PolicyManagerCapability";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "manager", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "action", kind: "enum", T: proto3.getEnumType(Action) },
+    { no: 3, name: "can_disable", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "can_seal", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PolicyManagerCapability {
+    return new PolicyManagerCapability().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PolicyManagerCapability {
+    return new PolicyManagerCapability().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PolicyManagerCapability {
+    return new PolicyManagerCapability().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PolicyManagerCapability | PlainMessage<PolicyManagerCapability> | undefined, b: PolicyManagerCapability | PlainMessage<PolicyManagerCapability> | undefined): boolean {
+    return proto3.util.equals(PolicyManagerCapability, a, b);
   }
 }
 
@@ -250,43 +528,8 @@ export class RoleIDs extends Message<RoleIDs> {
 }
 
 /**
- * @generated from message injective.permissions.v1beta1.Voucher
- */
-export class Voucher extends Message<Voucher> {
-  /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin coins = 1;
-   */
-  coins: Coin[] = [];
-
-  constructor(data?: PartialMessage<Voucher>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.permissions.v1beta1.Voucher";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "coins", kind: "message", T: Coin, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Voucher {
-    return new Voucher().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Voucher {
-    return new Voucher().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Voucher {
-    return new Voucher().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: Voucher | PlainMessage<Voucher> | undefined, b: Voucher | PlainMessage<Voucher> | undefined): boolean {
-    return proto3.util.equals(Voucher, a, b);
-  }
-}
-
-/**
+ * AddressVoucher is used to represent a voucher for a specific address
+ *
  * @generated from message injective.permissions.v1beta1.AddressVoucher
  */
 export class AddressVoucher extends Message<AddressVoucher> {
@@ -296,9 +539,9 @@ export class AddressVoucher extends Message<AddressVoucher> {
   address = "";
 
   /**
-   * @generated from field: injective.permissions.v1beta1.Voucher voucher = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin voucher = 2;
    */
-  voucher?: Voucher;
+  voucher?: Coin;
 
   constructor(data?: PartialMessage<AddressVoucher>) {
     super();
@@ -309,7 +552,7 @@ export class AddressVoucher extends Message<AddressVoucher> {
   static readonly typeName = "injective.permissions.v1beta1.AddressVoucher";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "voucher", kind: "message", T: Voucher },
+    { no: 2, name: "voucher", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddressVoucher {

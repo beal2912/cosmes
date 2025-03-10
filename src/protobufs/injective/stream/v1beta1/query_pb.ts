@@ -465,9 +465,9 @@ export class SpotOrderUpdate extends Message<SpotOrderUpdate> {
   status = OrderUpdateStatus.Unspecified;
 
   /**
-   * @generated from field: bytes order_hash = 2;
+   * @generated from field: string order_hash = 2;
    */
-  orderHash = new Uint8Array(0);
+  orderHash = "";
 
   /**
    * @generated from field: string cid = 3;
@@ -488,7 +488,7 @@ export class SpotOrderUpdate extends Message<SpotOrderUpdate> {
   static readonly typeName = "injective.stream.v1beta1.SpotOrderUpdate";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "status", kind: "enum", T: proto3.getEnumType(OrderUpdateStatus) },
-    { no: 2, name: "order_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "order_hash", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "order", kind: "message", T: SpotOrder },
   ]);
@@ -563,9 +563,9 @@ export class DerivativeOrderUpdate extends Message<DerivativeOrderUpdate> {
   status = OrderUpdateStatus.Unspecified;
 
   /**
-   * @generated from field: bytes order_hash = 2;
+   * @generated from field: string order_hash = 2;
    */
-  orderHash = new Uint8Array(0);
+  orderHash = "";
 
   /**
    * @generated from field: string cid = 3;
@@ -586,7 +586,7 @@ export class DerivativeOrderUpdate extends Message<DerivativeOrderUpdate> {
   static readonly typeName = "injective.stream.v1beta1.DerivativeOrderUpdate";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "status", kind: "enum", T: proto3.getEnumType(OrderUpdateStatus) },
-    { no: 2, name: "order_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "order_hash", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "order", kind: "message", T: DerivativeOrder },
   ]);
@@ -821,9 +821,9 @@ export class SpotTrade extends Message<SpotTrade> {
   fee = "";
 
   /**
-   * @generated from field: bytes order_hash = 8;
+   * @generated from field: string order_hash = 8;
    */
-  orderHash = new Uint8Array(0);
+  orderHash = "";
 
   /**
    * @generated from field: string fee_recipient_address = 9;
@@ -855,7 +855,7 @@ export class SpotTrade extends Message<SpotTrade> {
     { no: 5, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "subaccount_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "order_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 8, name: "order_hash", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "fee_recipient_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "trade_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },

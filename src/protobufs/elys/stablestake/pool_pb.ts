@@ -8,6 +8,103 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * @generated from message elys.stablestake.Pool
+ */
+export class Pool extends Message<Pool> {
+  /**
+   * @generated from field: string deposit_denom = 1;
+   */
+  depositDenom = "";
+
+  /**
+   * @generated from field: string interest_rate = 2;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: string interest_rate_max = 3;
+   */
+  interestRateMax = "";
+
+  /**
+   * @generated from field: string interest_rate_min = 4;
+   */
+  interestRateMin = "";
+
+  /**
+   * @generated from field: string interest_rate_increase = 5;
+   */
+  interestRateIncrease = "";
+
+  /**
+   * @generated from field: string interest_rate_decrease = 6;
+   */
+  interestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 7;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: string total_value = 8;
+   */
+  totalValue = "";
+
+  /**
+   * @generated from field: string max_leverage_ratio = 9;
+   */
+  maxLeverageRatio = "";
+
+  /**
+   * @generated from field: string max_withdraw_ratio = 10;
+   */
+  maxWithdrawRatio = "";
+
+  /**
+   * @generated from field: uint64 id = 11;
+   */
+  id = protoInt64.zero;
+
+  constructor(data?: PartialMessage<Pool>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.Pool";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "deposit_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "max_withdraw_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {
+    return new Pool().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Pool {
+    return new Pool().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Pool {
+    return new Pool().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: Pool | PlainMessage<Pool> | undefined, b: Pool | PlainMessage<Pool> | undefined): boolean {
+    return proto3.util.equals(Pool, a, b);
+  }
+}
+
+/**
  * @generated from message elys.stablestake.AmmPool
  */
 export class AmmPool extends Message<AmmPool> {

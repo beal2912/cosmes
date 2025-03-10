@@ -73,3 +73,152 @@ export class PairMatchProposal extends Message<PairMatchProposal> {
   }
 }
 
+/**
+ * @generated from message pryzm.amm.v1.MatchedOrderSummary
+ */
+export class MatchedOrderSummary extends Message<MatchedOrderSummary> {
+  /**
+   * Note that if virtual=true, order_id is set to zero and should be ignored,
+   * otherwise we still might have order_id=0 referring to an actual order
+   *
+   * @generated from field: uint64 order_id = 1;
+   */
+  orderId = protoInt64.zero;
+
+  /**
+   * @generated from field: string match_amount = 3;
+   */
+  matchAmount = "";
+
+  /**
+   * @generated from field: string output_amount = 4;
+   */
+  outputAmount = "";
+
+  /**
+   * @generated from field: bool virtual = 5;
+   */
+  virtual = false;
+
+  constructor(data?: PartialMessage<MatchedOrderSummary>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.MatchedOrderSummary";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "output_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "virtual", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MatchedOrderSummary {
+    return new MatchedOrderSummary().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MatchedOrderSummary {
+    return new MatchedOrderSummary().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MatchedOrderSummary {
+    return new MatchedOrderSummary().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MatchedOrderSummary | PlainMessage<MatchedOrderSummary> | undefined, b: MatchedOrderSummary | PlainMessage<MatchedOrderSummary> | undefined): boolean {
+    return proto3.util.equals(MatchedOrderSummary, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.MatchedPairSummary
+ */
+export class MatchedPairSummary extends Message<MatchedPairSummary> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string token_in = 2;
+   */
+  tokenIn = "";
+
+  /**
+   * @generated from field: string token_out = 3;
+   */
+  tokenOut = "";
+
+  /**
+   * @generated from field: bool whitelisted_route = 4;
+   */
+  whitelistedRoute = false;
+
+  /**
+   * @generated from field: string buy_price = 5;
+   */
+  buyPrice = "";
+
+  /**
+   * @generated from field: string sell_price = 6;
+   */
+  sellPrice = "";
+
+  /**
+   * @generated from field: repeated pryzm.amm.v1.MatchedOrderSummary buy_orders = 7;
+   */
+  buyOrders: MatchedOrderSummary[] = [];
+
+  /**
+   * @generated from field: repeated pryzm.amm.v1.MatchedOrderSummary sell_orders = 8;
+   */
+  sellOrders: MatchedOrderSummary[] = [];
+
+  /**
+   * @generated from field: string buy_match_amount = 9;
+   */
+  buyMatchAmount = "";
+
+  /**
+   * @generated from field: string sell_match_amount = 10;
+   */
+  sellMatchAmount = "";
+
+  constructor(data?: PartialMessage<MatchedPairSummary>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.MatchedPairSummary";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "token_in", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "token_out", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "whitelisted_route", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "buy_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "sell_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "buy_orders", kind: "message", T: MatchedOrderSummary, repeated: true },
+    { no: 8, name: "sell_orders", kind: "message", T: MatchedOrderSummary, repeated: true },
+    { no: 9, name: "buy_match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "sell_match_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MatchedPairSummary {
+    return new MatchedPairSummary().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MatchedPairSummary {
+    return new MatchedPairSummary().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MatchedPairSummary {
+    return new MatchedPairSummary().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MatchedPairSummary | PlainMessage<MatchedPairSummary> | undefined, b: MatchedPairSummary | PlainMessage<MatchedPairSummary> | undefined): boolean {
+    return proto3.util.equals(MatchedPairSummary, a, b);
+  }
+}
+

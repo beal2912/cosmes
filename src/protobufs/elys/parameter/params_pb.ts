@@ -102,6 +102,16 @@ export class Params extends Message<Params> {
    */
   rewardsDataLifetime = protoInt64.zero;
 
+  /**
+   * @generated from field: string taker_fees = 6;
+   */
+  takerFees = "";
+
+  /**
+   * @generated from field: string taker_fee_collection_address = 7;
+   */
+  takerFeeCollectionAddress = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -115,6 +125,8 @@ export class Params extends Message<Params> {
     { no: 3, name: "min_self_delegation", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "total_blocks_per_year", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 5, name: "rewards_data_lifetime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "taker_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "taker_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

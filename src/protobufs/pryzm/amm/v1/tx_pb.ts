@@ -12,10 +12,10 @@ import { TokenWeight } from "./token_weight_pb.js";
 import { YammConfiguration } from "./yamm_configuration_pb.js";
 import { WhitelistedRoute } from "./whitelisted_route_pb.js";
 import { DisabledOrderPair, Order } from "./order_pb.js";
-import { PairMatchProposal } from "./pair_match_proposal_pb.js";
+import { MatchedPairSummary, PairMatchProposal } from "./pair_match_proposal_pb.js";
 import { TokenCircuitBreakerSettings } from "./token_circuit_breaker_settings_pb.js";
 import { OraclePricePair } from "./oracle_price_pair_pb.js";
-import { AuthorizationParameters, GasParameters, GeneralPoolParameters, OrderParameters, YammParameters } from "./params_pb.js";
+import { AuthorizationParameters, GasParameters, GeneralPoolParameters, OrderParameters, WeightedPoolParameters, YammParameters } from "./params_pb.js";
 
 /**
  * @generated from message pryzm.amm.v1.MsgSingleSwap
@@ -1012,6 +1012,11 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
    */
   swapFeeUpdateParams?: SwapFeeUpdateParams;
 
+  /**
+   * @generated from field: bool join_blocked = 17;
+   */
+  joinBlocked = false;
+
   constructor(data?: PartialMessage<MsgCreateWeightedPool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1031,6 +1036,7 @@ export class MsgCreateWeightedPool extends Message<MsgCreateWeightedPool> {
     { no: 14, name: "admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 15, name: "pause_allow_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 16, name: "swap_fee_update_params", kind: "message", T: SwapFeeUpdateParams },
+    { no: 17, name: "join_blocked", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateWeightedPool {
@@ -1194,6 +1200,13 @@ export class MsgInitializePool extends Message<MsgInitializePool> {
    */
   amountsIn: Coin[] = [];
 
+  /**
+   * this is only supported for weighted pools
+   *
+   * @generated from field: repeated cosmos.base.v1beta1.Coin permanent_virtual_balances = 4;
+   */
+  permanentVirtualBalances: Coin[] = [];
+
   constructor(data?: PartialMessage<MsgInitializePool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1205,6 +1218,7 @@ export class MsgInitializePool extends Message<MsgInitializePool> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "amounts_in", kind: "message", T: Coin, repeated: true },
+    { no: 4, name: "permanent_virtual_balances", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInitializePool {
@@ -1992,6 +2006,11 @@ export class MsgProposeMatchResponse extends Message<MsgProposeMatchResponse> {
    */
   proposerReward: Coin[] = [];
 
+  /**
+   * @generated from field: repeated pryzm.amm.v1.MatchedPairSummary matched_pairs = 2;
+   */
+  matchedPairs: MatchedPairSummary[] = [];
+
   constructor(data?: PartialMessage<MsgProposeMatchResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2001,6 +2020,7 @@ export class MsgProposeMatchResponse extends Message<MsgProposeMatchResponse> {
   static readonly typeName = "pryzm.amm.v1.MsgProposeMatchResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "proposer_reward", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "matched_pairs", kind: "message", T: MatchedPairSummary, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgProposeMatchResponse {
@@ -2177,6 +2197,86 @@ export class MsgSetRecoveryModeResponse extends Message<MsgSetRecoveryModeRespon
 
   static equals(a: MsgSetRecoveryModeResponse | PlainMessage<MsgSetRecoveryModeResponse> | undefined, b: MsgSetRecoveryModeResponse | PlainMessage<MsgSetRecoveryModeResponse> | undefined): boolean {
     return proto3.util.equals(MsgSetRecoveryModeResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.MsgSetPoolJoinBlocked
+ */
+export class MsgSetPoolJoinBlocked extends Message<MsgSetPoolJoinBlocked> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 2;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: bool join_blocked = 3;
+   */
+  joinBlocked = false;
+
+  constructor(data?: PartialMessage<MsgSetPoolJoinBlocked>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.MsgSetPoolJoinBlocked";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "join_blocked", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetPoolJoinBlocked {
+    return new MsgSetPoolJoinBlocked().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetPoolJoinBlocked {
+    return new MsgSetPoolJoinBlocked().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetPoolJoinBlocked {
+    return new MsgSetPoolJoinBlocked().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetPoolJoinBlocked | PlainMessage<MsgSetPoolJoinBlocked> | undefined, b: MsgSetPoolJoinBlocked | PlainMessage<MsgSetPoolJoinBlocked> | undefined): boolean {
+    return proto3.util.equals(MsgSetPoolJoinBlocked, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.MsgSetPoolJoinBlockedResponse
+ */
+export class MsgSetPoolJoinBlockedResponse extends Message<MsgSetPoolJoinBlockedResponse> {
+  constructor(data?: PartialMessage<MsgSetPoolJoinBlockedResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.MsgSetPoolJoinBlockedResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetPoolJoinBlockedResponse {
+    return new MsgSetPoolJoinBlockedResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetPoolJoinBlockedResponse {
+    return new MsgSetPoolJoinBlockedResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetPoolJoinBlockedResponse {
+    return new MsgSetPoolJoinBlockedResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetPoolJoinBlockedResponse | PlainMessage<MsgSetPoolJoinBlockedResponse> | undefined, b: MsgSetPoolJoinBlockedResponse | PlainMessage<MsgSetPoolJoinBlockedResponse> | undefined): boolean {
+    return proto3.util.equals(MsgSetPoolJoinBlockedResponse, a, b);
   }
 }
 
@@ -3208,6 +3308,11 @@ export class MsgUpdateParams extends Message<MsgUpdateParams> {
    */
   gasParameters?: GasParameters;
 
+  /**
+   * @generated from field: pryzm.amm.v1.WeightedPoolParameters weighted_pool_parameters = 7;
+   */
+  weightedPoolParameters?: WeightedPoolParameters;
+
   constructor(data?: PartialMessage<MsgUpdateParams>) {
     super();
     proto3.util.initPartial(data, this);
@@ -3222,6 +3327,7 @@ export class MsgUpdateParams extends Message<MsgUpdateParams> {
     { no: 4, name: "order_parameters", kind: "message", T: OrderParameters },
     { no: 5, name: "authorization_parameters", kind: "message", T: AuthorizationParameters },
     { no: 6, name: "gas_parameters", kind: "message", T: GasParameters },
+    { no: 7, name: "weighted_pool_parameters", kind: "message", T: WeightedPoolParameters },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateParams {

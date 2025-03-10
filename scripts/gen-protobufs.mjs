@@ -121,6 +121,12 @@ const REPOS = [
     tag: "main",
     paths: ["proto"],
   },
+  {
+    repo: "noble-assets/dollar",
+    tag: "main",
+    paths: ["proto"],
+  },
+  
 ];
 /**
  * TODO: Add more repos here when necessary.
@@ -152,7 +158,8 @@ console.log("Copying Third Party Proto...");
 {
   //cpSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"),join(TMP_DIR,id("elys-network/elys#main"),""),{recursive: true})
   copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("elys-network/elys#main"),"proto"))
-  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("onomyprotocol/market#main"),"proto"))
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("noble-assets/dollar#main"),"proto"))
+  //copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("onomyprotocol/market#main"),"proto"))
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/alliance") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/gogoproto") , { recursive: true, force: true });

@@ -253,7 +253,7 @@ export class Pool extends Message<Pool> {
   totalShares?: Coin;
 
   /**
-   * These are assumed to be sorted by denomiation.
+   * These are assumed to be sorted by denomination.
    * They contain the pool asset and the information about the weight
    *
    * @generated from field: repeated dymensionxyz.dymension.gamm.v1beta1.PoolAsset pool_assets = 6;

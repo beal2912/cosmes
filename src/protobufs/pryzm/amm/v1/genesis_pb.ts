@@ -9,7 +9,7 @@ import { Pool } from "./pool_pb.js";
 import { PoolToken } from "./pool_token_pb.js";
 import { Params } from "./params_pb.js";
 import { WeightedPoolProperties } from "./weighted_token_pb.js";
-import { VirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
+import { PermanentVirtualBalancePoolToken, TemporalVirtualBalancePoolToken } from "./virtual_balance_pool_token_pb.js";
 import { YammConfiguration } from "./yamm_configuration_pb.js";
 import { WhitelistedRoute } from "./whitelisted_route_pb.js";
 import { DisabledOrderPair, Order } from "./order_pb.js";
@@ -136,14 +136,14 @@ export class GenesisState extends Message<GenesisState> {
   yammPoolAssetIdList: YammPoolAssetId[] = [];
 
   /**
-   * @generated from field: repeated pryzm.amm.v1.VirtualBalancePoolToken introducing_pool_token_list = 5;
+   * @generated from field: repeated pryzm.amm.v1.TemporalVirtualBalancePoolToken introducing_pool_token_list = 5;
    */
-  introducingPoolTokenList: VirtualBalancePoolToken[] = [];
+  introducingPoolTokenList: TemporalVirtualBalancePoolToken[] = [];
 
   /**
-   * @generated from field: repeated pryzm.amm.v1.VirtualBalancePoolToken expiring_pool_token_list = 6;
+   * @generated from field: repeated pryzm.amm.v1.TemporalVirtualBalancePoolToken expiring_pool_token_list = 6;
    */
-  expiringPoolTokenList: VirtualBalancePoolToken[] = [];
+  expiringPoolTokenList: TemporalVirtualBalancePoolToken[] = [];
 
   /**
    * @generated from field: repeated pryzm.amm.v1.YammConfiguration yamm_configuration_list = 7;
@@ -196,11 +196,16 @@ export class GenesisState extends Message<GenesisState> {
   disabledOrderPairList: DisabledOrderPair[] = [];
 
   /**
-   * this line is used by starport scaffolding # genesis/proto/state
-   *
    * @generated from field: bytes next_executable_order_key = 17;
    */
   nextExecutableOrderKey = new Uint8Array(0);
+
+  /**
+   * this line is used by starport scaffolding # genesis/proto/state
+   *
+   * @generated from field: repeated pryzm.amm.v1.PermanentVirtualBalancePoolToken permanent_virtual_balance_pool_token_list = 18;
+   */
+  permanentVirtualBalancePoolTokenList: PermanentVirtualBalancePoolToken[] = [];
 
   constructor(data?: PartialMessage<GenesisState>) {
     super();
@@ -214,8 +219,8 @@ export class GenesisState extends Message<GenesisState> {
     { no: 2, name: "pool_list", kind: "message", T: GenesisPoolData, repeated: true },
     { no: 3, name: "weighted_pool_properties_list", kind: "message", T: WeightedPoolProperties, repeated: true },
     { no: 4, name: "yamm_pool_asset_id_list", kind: "message", T: YammPoolAssetId, repeated: true },
-    { no: 5, name: "introducing_pool_token_list", kind: "message", T: VirtualBalancePoolToken, repeated: true },
-    { no: 6, name: "expiring_pool_token_list", kind: "message", T: VirtualBalancePoolToken, repeated: true },
+    { no: 5, name: "introducing_pool_token_list", kind: "message", T: TemporalVirtualBalancePoolToken, repeated: true },
+    { no: 6, name: "expiring_pool_token_list", kind: "message", T: TemporalVirtualBalancePoolToken, repeated: true },
     { no: 7, name: "yamm_configuration_list", kind: "message", T: YammConfiguration, repeated: true },
     { no: 8, name: "whitelisted_route_list", kind: "message", T: WhitelistedRoute, repeated: true },
     { no: 9, name: "order_list", kind: "message", T: Order, repeated: true },
@@ -227,6 +232,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 15, name: "pending_token_introduction_list", kind: "message", T: PendingTokenIntroduction, repeated: true },
     { no: 16, name: "disabled_order_pair_list", kind: "message", T: DisabledOrderPair, repeated: true },
     { no: 17, name: "next_executable_order_key", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 18, name: "permanent_virtual_balance_pool_token_list", kind: "message", T: PermanentVirtualBalancePoolToken, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

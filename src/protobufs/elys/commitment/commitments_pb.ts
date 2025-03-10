@@ -223,3 +223,46 @@ export class VestingTokens extends Message<VestingTokens> {
   }
 }
 
+/**
+ * @generated from message elys.commitment.TotalSupply
+ */
+export class TotalSupply extends Message<TotalSupply> {
+  /**
+   * @generated from field: string total_eden_supply = 1;
+   */
+  totalEdenSupply = "";
+
+  /**
+   * @generated from field: string total_edenb_supply = 2;
+   */
+  totalEdenbSupply = "";
+
+  constructor(data?: PartialMessage<TotalSupply>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.TotalSupply";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_eden_supply", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_edenb_supply", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TotalSupply {
+    return new TotalSupply().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TotalSupply {
+    return new TotalSupply().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TotalSupply {
+    return new TotalSupply().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: TotalSupply | PlainMessage<TotalSupply> | undefined, b: TotalSupply | PlainMessage<TotalSupply> | undefined): boolean {
+    return proto3.util.equals(TotalSupply, a, b);
+  }
+}
+

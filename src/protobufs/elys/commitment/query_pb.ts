@@ -710,3 +710,77 @@ export class QueryKolResponse extends Message<QueryKolResponse> {
   }
 }
 
+/**
+ * @generated from message elys.commitment.QueryTotalSupplyRequest
+ */
+export class QueryTotalSupplyRequest extends Message<QueryTotalSupplyRequest> {
+  constructor(data?: PartialMessage<QueryTotalSupplyRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalSupplyRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalSupplyRequest {
+    return new QueryTotalSupplyRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalSupplyRequest {
+    return new QueryTotalSupplyRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalSupplyRequest {
+    return new QueryTotalSupplyRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalSupplyRequest | PlainMessage<QueryTotalSupplyRequest> | undefined, b: QueryTotalSupplyRequest | PlainMessage<QueryTotalSupplyRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTotalSupplyRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryTotalSupplyResponse
+ */
+export class QueryTotalSupplyResponse extends Message<QueryTotalSupplyResponse> {
+  /**
+   * @generated from field: string total_eden = 1;
+   */
+  totalEden = "";
+
+  /**
+   * @generated from field: string total_edenb = 2;
+   */
+  totalEdenb = "";
+
+  constructor(data?: PartialMessage<QueryTotalSupplyResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalSupplyResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_eden", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "total_edenb", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalSupplyResponse {
+    return new QueryTotalSupplyResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalSupplyResponse {
+    return new QueryTotalSupplyResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalSupplyResponse {
+    return new QueryTotalSupplyResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalSupplyResponse | PlainMessage<QueryTotalSupplyResponse> | undefined, b: QueryTotalSupplyResponse | PlainMessage<QueryTotalSupplyResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTotalSupplyResponse, a, b);
+  }
+}
+

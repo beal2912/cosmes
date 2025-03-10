@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { AmmPool } from "./pool_pb.js";
+import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
 
 /**
  * QueryParamsRequest is request type for the Query/Params RPC method.
@@ -230,6 +231,11 @@ export class QueryAllAmmPoolsResponse extends Message<QueryAllAmmPoolsResponse> 
  * @generated from message elys.stablestake.QueryBorrowRatioRequest
  */
 export class QueryBorrowRatioRequest extends Message<QueryBorrowRatioRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryBorrowRatioRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -238,6 +244,7 @@ export class QueryBorrowRatioRequest extends Message<QueryBorrowRatioRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.stablestake.QueryBorrowRatioRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBorrowRatioRequest {
@@ -306,6 +313,281 @@ export class QueryBorrowRatioResponse extends Message<QueryBorrowRatioResponse> 
 
   static equals(a: QueryBorrowRatioResponse | PlainMessage<QueryBorrowRatioResponse> | undefined, b: QueryBorrowRatioResponse | PlainMessage<QueryBorrowRatioResponse> | undefined): boolean {
     return proto3.util.equals(QueryBorrowRatioResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryGetPoolRequest
+ */
+export class QueryGetPoolRequest extends Message<QueryGetPoolRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryGetPoolRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryGetPoolRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolRequest {
+    return new QueryGetPoolRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPoolRequest {
+    return new QueryGetPoolRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPoolRequest {
+    return new QueryGetPoolRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPoolRequest | PlainMessage<QueryGetPoolRequest> | undefined, b: QueryGetPoolRequest | PlainMessage<QueryGetPoolRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetPoolRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryGetPoolResponse
+ */
+export class QueryGetPoolResponse extends Message<QueryGetPoolResponse> {
+  /**
+   * @generated from field: elys.stablestake.PoolResponse pool = 1;
+   */
+  pool?: PoolResponse;
+
+  constructor(data?: PartialMessage<QueryGetPoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryGetPoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool", kind: "message", T: PoolResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolResponse {
+    return new QueryGetPoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetPoolResponse {
+    return new QueryGetPoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetPoolResponse {
+    return new QueryGetPoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetPoolResponse | PlainMessage<QueryGetPoolResponse> | undefined, b: QueryGetPoolResponse | PlainMessage<QueryGetPoolResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetPoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAllPoolRequest
+ */
+export class QueryAllPoolRequest extends Message<QueryAllPoolRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryAllPoolRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAllPoolRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPoolRequest {
+    return new QueryAllPoolRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPoolRequest {
+    return new QueryAllPoolRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPoolRequest {
+    return new QueryAllPoolRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPoolRequest | PlainMessage<QueryAllPoolRequest> | undefined, b: QueryAllPoolRequest | PlainMessage<QueryAllPoolRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAllPoolRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.QueryAllPoolResponse
+ */
+export class QueryAllPoolResponse extends Message<QueryAllPoolResponse> {
+  /**
+   * @generated from field: repeated elys.stablestake.PoolResponse pools = 1;
+   */
+  pools: PoolResponse[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryAllPoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.QueryAllPoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pools", kind: "message", T: PoolResponse, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPoolResponse {
+    return new QueryAllPoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAllPoolResponse {
+    return new QueryAllPoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAllPoolResponse {
+    return new QueryAllPoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryAllPoolResponse | PlainMessage<QueryAllPoolResponse> | undefined, b: QueryAllPoolResponse | PlainMessage<QueryAllPoolResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAllPoolResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.PoolResponse
+ */
+export class PoolResponse extends Message<PoolResponse> {
+  /**
+   * @generated from field: string deposit_denom = 1;
+   */
+  depositDenom = "";
+
+  /**
+   * @generated from field: string redemption_rate = 2;
+   */
+  redemptionRate = "";
+
+  /**
+   * @generated from field: string interest_rate = 3;
+   */
+  interestRate = "";
+
+  /**
+   * @generated from field: string interest_rate_max = 4;
+   */
+  interestRateMax = "";
+
+  /**
+   * @generated from field: string interest_rate_min = 5;
+   */
+  interestRateMin = "";
+
+  /**
+   * @generated from field: string interest_rate_increase = 6;
+   */
+  interestRateIncrease = "";
+
+  /**
+   * @generated from field: string interest_rate_decrease = 7;
+   */
+  interestRateDecrease = "";
+
+  /**
+   * @generated from field: string health_gain_factor = 8;
+   */
+  healthGainFactor = "";
+
+  /**
+   * @generated from field: string total_value = 9;
+   */
+  totalValue = "";
+
+  /**
+   * @generated from field: string max_leverage_ratio = 10;
+   */
+  maxLeverageRatio = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 11;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string total_deposit = 12;
+   */
+  totalDeposit = "";
+
+  /**
+   * @generated from field: string total_borrow = 13;
+   */
+  totalBorrow = "";
+
+  /**
+   * @generated from field: string borrow_ratio = 14;
+   */
+  borrowRatio = "";
+
+  /**
+   * @generated from field: string max_withdraw_ratio = 15;
+   */
+  maxWithdrawRatio = "";
+
+  constructor(data?: PartialMessage<PoolResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.PoolResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "deposit_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "redemption_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "interest_rate_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "interest_rate_min", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 12, name: "total_deposit", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "total_borrow", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "borrow_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "max_withdraw_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolResponse {
+    return new PoolResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PoolResponse {
+    return new PoolResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PoolResponse {
+    return new PoolResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PoolResponse | PlainMessage<PoolResponse> | undefined, b: PoolResponse | PlainMessage<PoolResponse> | undefined): boolean {
+    return proto3.util.equals(PoolResponse, a, b);
   }
 }
 

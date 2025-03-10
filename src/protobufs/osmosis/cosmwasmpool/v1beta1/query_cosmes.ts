@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ContractInfoByPoolIdRequest, ContractInfoByPoolIdResponse, ParamsRequest, ParamsResponse, PoolsRequest, PoolsResponse } from "./query_pb.js";
+import { ContractInfoByPoolIdRequest, ContractInfoByPoolIdResponse, ParamsRequest, ParamsResponse, PoolRawFilteredStateRequest, PoolRawFilteredStateResponse, PoolsRequest, PoolsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "osmosis.cosmwasmpool.v1beta1.Query";
 
@@ -39,5 +39,15 @@ export const QueryContractInfoByPoolIdService = {
   method: "ContractInfoByPoolId",
   Request: ContractInfoByPoolIdRequest,
   Response: ContractInfoByPoolIdResponse,
+} as const;
+
+/**
+ * @generated from rpc osmosis.cosmwasmpool.v1beta1.Query.PoolRawFilteredState
+ */
+export const QueryPoolRawFilteredStateService = {
+  typeName: TYPE_NAME,
+  method: "PoolRawFilteredState",
+  Request: PoolRawFilteredStateRequest,
+  Response: PoolRawFilteredStateResponse,
 } as const;
 

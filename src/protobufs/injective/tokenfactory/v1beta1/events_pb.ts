@@ -9,9 +9,9 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 import { Metadata } from "../../../cosmos/bank/v1beta1/bank_pb.js";
 
 /**
- * @generated from message injective.tokenfactory.v1beta1.EventCreateTFDenom
+ * @generated from message injective.tokenfactory.v1beta1.EventCreateDenom
  */
-export class EventCreateTFDenom extends Message<EventCreateTFDenom> {
+export class EventCreateDenom extends Message<EventCreateDenom> {
   /**
    * @generated from field: string account = 1;
    */
@@ -22,125 +22,137 @@ export class EventCreateTFDenom extends Message<EventCreateTFDenom> {
    */
   denom = "";
 
-  constructor(data?: PartialMessage<EventCreateTFDenom>) {
+  constructor(data?: PartialMessage<EventCreateDenom>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.tokenfactory.v1beta1.EventCreateTFDenom";
+  static readonly typeName = "injective.tokenfactory.v1beta1.EventCreateDenom";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "account", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventCreateTFDenom {
-    return new EventCreateTFDenom().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventCreateDenom {
+    return new EventCreateDenom().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventCreateTFDenom {
-    return new EventCreateTFDenom().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventCreateDenom {
+    return new EventCreateDenom().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventCreateTFDenom {
-    return new EventCreateTFDenom().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventCreateDenom {
+    return new EventCreateDenom().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventCreateTFDenom | PlainMessage<EventCreateTFDenom> | undefined, b: EventCreateTFDenom | PlainMessage<EventCreateTFDenom> | undefined): boolean {
-    return proto3.util.equals(EventCreateTFDenom, a, b);
+  static equals(a: EventCreateDenom | PlainMessage<EventCreateDenom> | undefined, b: EventCreateDenom | PlainMessage<EventCreateDenom> | undefined): boolean {
+    return proto3.util.equals(EventCreateDenom, a, b);
   }
 }
 
 /**
- * @generated from message injective.tokenfactory.v1beta1.EventMintTFDenom
+ * @generated from message injective.tokenfactory.v1beta1.EventMint
  */
-export class EventMintTFDenom extends Message<EventMintTFDenom> {
+export class EventMint extends Message<EventMint> {
   /**
-   * @generated from field: string recipient_address = 1;
+   * @generated from field: string minter = 1;
    */
-  recipientAddress = "";
+  minter = "";
 
   /**
    * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
   amount?: Coin;
 
-  constructor(data?: PartialMessage<EventMintTFDenom>) {
+  /**
+   * @generated from field: string receiver = 3;
+   */
+  receiver = "";
+
+  constructor(data?: PartialMessage<EventMint>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.tokenfactory.v1beta1.EventMintTFDenom";
+  static readonly typeName = "injective.tokenfactory.v1beta1.EventMint";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "recipient_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "minter", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "message", T: Coin },
+    { no: 3, name: "receiver", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventMintTFDenom {
-    return new EventMintTFDenom().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventMint {
+    return new EventMint().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventMintTFDenom {
-    return new EventMintTFDenom().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventMint {
+    return new EventMint().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventMintTFDenom {
-    return new EventMintTFDenom().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventMint {
+    return new EventMint().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventMintTFDenom | PlainMessage<EventMintTFDenom> | undefined, b: EventMintTFDenom | PlainMessage<EventMintTFDenom> | undefined): boolean {
-    return proto3.util.equals(EventMintTFDenom, a, b);
+  static equals(a: EventMint | PlainMessage<EventMint> | undefined, b: EventMint | PlainMessage<EventMint> | undefined): boolean {
+    return proto3.util.equals(EventMint, a, b);
   }
 }
 
 /**
- * @generated from message injective.tokenfactory.v1beta1.EventBurnDenom
+ * @generated from message injective.tokenfactory.v1beta1.EventBurn
  */
-export class EventBurnDenom extends Message<EventBurnDenom> {
+export class EventBurn extends Message<EventBurn> {
   /**
-   * @generated from field: string burner_address = 1;
+   * @generated from field: string burner = 1;
    */
-  burnerAddress = "";
+  burner = "";
 
   /**
    * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
   amount?: Coin;
 
-  constructor(data?: PartialMessage<EventBurnDenom>) {
+  /**
+   * @generated from field: string burn_from = 3;
+   */
+  burnFrom = "";
+
+  constructor(data?: PartialMessage<EventBurn>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.tokenfactory.v1beta1.EventBurnDenom";
+  static readonly typeName = "injective.tokenfactory.v1beta1.EventBurn";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "burner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "burner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "amount", kind: "message", T: Coin },
+    { no: 3, name: "burn_from", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventBurnDenom {
-    return new EventBurnDenom().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventBurn {
+    return new EventBurn().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventBurnDenom {
-    return new EventBurnDenom().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventBurn {
+    return new EventBurn().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventBurnDenom {
-    return new EventBurnDenom().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventBurn {
+    return new EventBurn().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventBurnDenom | PlainMessage<EventBurnDenom> | undefined, b: EventBurnDenom | PlainMessage<EventBurnDenom> | undefined): boolean {
-    return proto3.util.equals(EventBurnDenom, a, b);
+  static equals(a: EventBurn | PlainMessage<EventBurn> | undefined, b: EventBurn | PlainMessage<EventBurn> | undefined): boolean {
+    return proto3.util.equals(EventBurn, a, b);
   }
 }
 
 /**
- * @generated from message injective.tokenfactory.v1beta1.EventChangeTFAdmin
+ * @generated from message injective.tokenfactory.v1beta1.EventChangeAdmin
  */
-export class EventChangeTFAdmin extends Message<EventChangeTFAdmin> {
+export class EventChangeAdmin extends Message<EventChangeAdmin> {
   /**
    * @generated from field: string denom = 1;
    */
@@ -151,39 +163,39 @@ export class EventChangeTFAdmin extends Message<EventChangeTFAdmin> {
    */
   newAdminAddress = "";
 
-  constructor(data?: PartialMessage<EventChangeTFAdmin>) {
+  constructor(data?: PartialMessage<EventChangeAdmin>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.tokenfactory.v1beta1.EventChangeTFAdmin";
+  static readonly typeName = "injective.tokenfactory.v1beta1.EventChangeAdmin";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "new_admin_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventChangeTFAdmin {
-    return new EventChangeTFAdmin().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventChangeAdmin {
+    return new EventChangeAdmin().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventChangeTFAdmin {
-    return new EventChangeTFAdmin().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventChangeAdmin {
+    return new EventChangeAdmin().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventChangeTFAdmin {
-    return new EventChangeTFAdmin().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventChangeAdmin {
+    return new EventChangeAdmin().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventChangeTFAdmin | PlainMessage<EventChangeTFAdmin> | undefined, b: EventChangeTFAdmin | PlainMessage<EventChangeTFAdmin> | undefined): boolean {
-    return proto3.util.equals(EventChangeTFAdmin, a, b);
+  static equals(a: EventChangeAdmin | PlainMessage<EventChangeAdmin> | undefined, b: EventChangeAdmin | PlainMessage<EventChangeAdmin> | undefined): boolean {
+    return proto3.util.equals(EventChangeAdmin, a, b);
   }
 }
 
 /**
- * @generated from message injective.tokenfactory.v1beta1.EventSetTFDenomMetadata
+ * @generated from message injective.tokenfactory.v1beta1.EventSetDenomMetadata
  */
-export class EventSetTFDenomMetadata extends Message<EventSetTFDenomMetadata> {
+export class EventSetDenomMetadata extends Message<EventSetDenomMetadata> {
   /**
    * @generated from field: string denom = 1;
    */
@@ -194,32 +206,32 @@ export class EventSetTFDenomMetadata extends Message<EventSetTFDenomMetadata> {
    */
   metadata?: Metadata;
 
-  constructor(data?: PartialMessage<EventSetTFDenomMetadata>) {
+  constructor(data?: PartialMessage<EventSetDenomMetadata>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.tokenfactory.v1beta1.EventSetTFDenomMetadata";
+  static readonly typeName = "injective.tokenfactory.v1beta1.EventSetDenomMetadata";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "metadata", kind: "message", T: Metadata },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetTFDenomMetadata {
-    return new EventSetTFDenomMetadata().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventSetDenomMetadata {
+    return new EventSetDenomMetadata().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventSetTFDenomMetadata {
-    return new EventSetTFDenomMetadata().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventSetDenomMetadata {
+    return new EventSetDenomMetadata().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventSetTFDenomMetadata {
-    return new EventSetTFDenomMetadata().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventSetDenomMetadata {
+    return new EventSetDenomMetadata().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EventSetTFDenomMetadata | PlainMessage<EventSetTFDenomMetadata> | undefined, b: EventSetTFDenomMetadata | PlainMessage<EventSetTFDenomMetadata> | undefined): boolean {
-    return proto3.util.equals(EventSetTFDenomMetadata, a, b);
+  static equals(a: EventSetDenomMetadata | PlainMessage<EventSetDenomMetadata> | undefined, b: EventSetDenomMetadata | PlainMessage<EventSetDenomMetadata> | undefined): boolean {
+    return proto3.util.equals(EventSetDenomMetadata, a, b);
   }
 }
 
