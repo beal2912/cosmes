@@ -21,7 +21,8 @@ export class EventChargeFee extends Message<EventChargeFee> {
   takerFee = "";
 
   /**
-   * Beneficiary is the address that will receive the fee. Optional: may be empty.
+   * Beneficiary is the address that will receive the fee. Optional: may be
+   * empty.
    *
    * @generated from field: string beneficiary = 3;
    */

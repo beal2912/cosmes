@@ -8,6 +8,7 @@ import { BoolValue, Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params, StakingParams } from "./params_pb.js";
 import { HostChain, Validator } from "./host_chain_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
+import { RedelegationEntry } from "./reply_pb.js";
 import { Acknowledgement } from "./multisig_pb.js";
 import { Height } from "../../../ibc/core/client/v1/client_pb.js";
 
@@ -864,6 +865,86 @@ export class MsgRebalanceDelegationsResponse extends Message<MsgRebalanceDelegat
 
   static equals(a: MsgRebalanceDelegationsResponse | PlainMessage<MsgRebalanceDelegationsResponse> | undefined, b: MsgRebalanceDelegationsResponse | PlainMessage<MsgRebalanceDelegationsResponse> | undefined): boolean {
     return proto3.util.equals(MsgRebalanceDelegationsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgRedelegate
+ */
+export class MsgRedelegate extends Message<MsgRedelegate> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string host_chain = 2;
+   */
+  hostChain = "";
+
+  /**
+   * @generated from field: repeated pryzm.icstaking.v1.RedelegationEntry redelegations = 3;
+   */
+  redelegations: RedelegationEntry[] = [];
+
+  constructor(data?: PartialMessage<MsgRedelegate>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgRedelegate";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "host_chain", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "redelegations", kind: "message", T: RedelegationEntry, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRedelegate {
+    return new MsgRedelegate().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRedelegate {
+    return new MsgRedelegate().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRedelegate {
+    return new MsgRedelegate().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRedelegate | PlainMessage<MsgRedelegate> | undefined, b: MsgRedelegate | PlainMessage<MsgRedelegate> | undefined): boolean {
+    return proto3.util.equals(MsgRedelegate, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgRedelegateResponse
+ */
+export class MsgRedelegateResponse extends Message<MsgRedelegateResponse> {
+  constructor(data?: PartialMessage<MsgRedelegateResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgRedelegateResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRedelegateResponse {
+    return new MsgRedelegateResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRedelegateResponse {
+    return new MsgRedelegateResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRedelegateResponse {
+    return new MsgRedelegateResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRedelegateResponse | PlainMessage<MsgRedelegateResponse> | undefined, b: MsgRedelegateResponse | PlainMessage<MsgRedelegateResponse> | undefined): boolean {
+    return proto3.util.equals(MsgRedelegateResponse, a, b);
   }
 }
 

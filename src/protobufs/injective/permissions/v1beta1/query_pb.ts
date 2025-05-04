@@ -85,8 +85,8 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 }
 
 /**
- * QueryNamespaceDenomsRequest is the request type for the Query/NamespaceDenoms RPC
- * method.
+ * QueryNamespaceDenomsRequest is the request type for the Query/NamespaceDenoms
+ * RPC method.
  *
  * @generated from message injective.permissions.v1beta1.QueryNamespaceDenomsRequest
  */
@@ -119,8 +119,8 @@ export class QueryNamespaceDenomsRequest extends Message<QueryNamespaceDenomsReq
 }
 
 /**
- * QueryNamespaceDenomsResponse is the response type for the Query/NamespaceDenoms
- * RPC method.
+ * QueryNamespaceDenomsResponse is the response type for the
+ * Query/NamespaceDenoms RPC method.
  *
  * @generated from message injective.permissions.v1beta1.QueryNamespaceDenomsResponse
  */
@@ -731,8 +731,8 @@ export class QueryPolicyStatusesResponse extends Message<QueryPolicyStatusesResp
 }
 
 /**
- * QueryPolicyManagerCapabilitiesRequest is the request type for the Query/PolicyManagerCapabilities
- * RPC method.
+ * QueryPolicyManagerCapabilitiesRequest is the request type for the
+ * Query/PolicyManagerCapabilities RPC method.
  *
  * @generated from message injective.permissions.v1beta1.QueryPolicyManagerCapabilitiesRequest
  */
@@ -965,8 +965,8 @@ export class QueryVoucherResponse extends Message<QueryVoucherResponse> {
 }
 
 /**
- * QueryModuleStateRequest is the request type for the Query/PermissionsModuleState
- * RPC method.
+ * QueryModuleStateRequest is the request type for the
+ * Query/PermissionsModuleState RPC method.
  *
  * @generated from message injective.permissions.v1beta1.QueryModuleStateRequest
  */
@@ -999,8 +999,8 @@ export class QueryModuleStateRequest extends Message<QueryModuleStateRequest> {
 }
 
 /**
- * QueryModuleStateResponse is the response type for the Query/PermissionsModuleState
- * RPC method.
+ * QueryModuleStateResponse is the response type for the
+ * Query/PermissionsModuleState RPC method.
  *
  * @generated from message injective.permissions.v1beta1.QueryModuleStateResponse
  */

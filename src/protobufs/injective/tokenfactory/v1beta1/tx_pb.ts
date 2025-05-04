@@ -131,8 +131,8 @@ export class MsgCreateDenomResponse extends Message<MsgCreateDenomResponse> {
 }
 
 /**
- * MsgMint is the sdk.Msg type for allowing an admin account or other permitted accounts to mint
- * more of a token.
+ * MsgMint is the sdk.Msg type for allowing an admin account or other permitted
+ * accounts to mint more of a token.
  *
  * @generated from message injective.tokenfactory.v1beta1.MsgMint
  */

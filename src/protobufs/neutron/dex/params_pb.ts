@@ -32,6 +32,14 @@ export class Params extends Message<Params> {
    */
   goodTilPurgeAllowance = protoInt64.zero;
 
+  /**
+   * Whitelisted_lps have special LP privileges;
+   * currently, the only such privilege is depositing outside of the allowed fee_tiers.
+   *
+   * @generated from field: repeated string whitelisted_lps = 6;
+   */
+  whitelistedLps: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -44,6 +52,7 @@ export class Params extends Message<Params> {
     { no: 3, name: "paused", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 4, name: "max_jits_per_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 5, name: "good_til_purge_allowance", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "whitelisted_lps", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

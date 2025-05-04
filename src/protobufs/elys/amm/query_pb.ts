@@ -95,6 +95,11 @@ export class QueryGetPoolRequest extends Message<QueryGetPoolRequest> {
    */
   poolId = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 days = 2;
+   */
+  days = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryGetPoolRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -104,6 +109,7 @@ export class QueryGetPoolRequest extends Message<QueryGetPoolRequest> {
   static readonly typeName = "elys.amm.QueryGetPoolRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "days", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPoolRequest {
@@ -171,7 +177,12 @@ export class QueryGetPoolResponse extends Message<QueryGetPoolResponse> {
  */
 export class QueryAllPoolRequest extends Message<QueryAllPoolRequest> {
   /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   * @generated from field: uint64 days = 1;
+   */
+  days = protoInt64.zero;
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
    */
   pagination?: PageRequest;
 
@@ -183,7 +194,8 @@ export class QueryAllPoolRequest extends Message<QueryAllPoolRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.amm.QueryAllPoolRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+    { no: 1, name: "days", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "pagination", kind: "message", T: PageRequest },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAllPoolRequest {
@@ -456,6 +468,55 @@ export class QuerySwapEstimationRequest extends Message<QuerySwapEstimationReque
 }
 
 /**
+ * @generated from message elys.amm.QuerySwapEstimationExactAmountOutRequest
+ */
+export class QuerySwapEstimationExactAmountOutRequest extends Message<QuerySwapEstimationExactAmountOutRequest> {
+  /**
+   * @generated from field: repeated elys.amm.SwapAmountOutRoute routes = 1;
+   */
+  routes: SwapAmountOutRoute[] = [];
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin token_out = 2;
+   */
+  tokenOut?: Coin;
+
+  /**
+   * @generated from field: string discount = 3;
+   */
+  discount = "";
+
+  constructor(data?: PartialMessage<QuerySwapEstimationExactAmountOutRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.QuerySwapEstimationExactAmountOutRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "routes", kind: "message", T: SwapAmountOutRoute, repeated: true },
+    { no: 2, name: "token_out", kind: "message", T: Coin },
+    { no: 3, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySwapEstimationExactAmountOutRequest {
+    return new QuerySwapEstimationExactAmountOutRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QuerySwapEstimationExactAmountOutRequest {
+    return new QuerySwapEstimationExactAmountOutRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QuerySwapEstimationExactAmountOutRequest {
+    return new QuerySwapEstimationExactAmountOutRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QuerySwapEstimationExactAmountOutRequest | PlainMessage<QuerySwapEstimationExactAmountOutRequest> | undefined, b: QuerySwapEstimationExactAmountOutRequest | PlainMessage<QuerySwapEstimationExactAmountOutRequest> | undefined): boolean {
+    return proto3.util.equals(QuerySwapEstimationExactAmountOutRequest, a, b);
+  }
+}
+
+/**
  * @generated from message elys.amm.QueryJoinPoolEstimationRequest
  */
 export class QueryJoinPoolEstimationRequest extends Message<QueryJoinPoolEstimationRequest> {
@@ -532,6 +593,11 @@ export class QueryJoinPoolEstimationResponse extends Message<QueryJoinPoolEstima
    */
   takerFee = "";
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin weight_balance_reward_amount = 7;
+   */
+  weightBalanceRewardAmount?: Coin;
+
   constructor(data?: PartialMessage<QueryJoinPoolEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -546,6 +612,7 @@ export class QueryJoinPoolEstimationResponse extends Message<QueryJoinPoolEstima
     { no: 4, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "weight_balance_reward_amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryJoinPoolEstimationResponse {
@@ -643,6 +710,11 @@ export class QueryExitPoolEstimationResponse extends Message<QueryExitPoolEstima
    */
   takerFee = "";
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin weight_balance_reward_amount = 6;
+   */
+  weightBalanceRewardAmount?: Coin;
+
   constructor(data?: PartialMessage<QueryExitPoolEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -656,6 +728,7 @@ export class QueryExitPoolEstimationResponse extends Message<QueryExitPoolEstima
     { no: 3, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "weight_balance_reward_amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryExitPoolEstimationResponse {
@@ -714,6 +787,11 @@ export class QuerySwapEstimationResponse extends Message<QuerySwapEstimationResp
    */
   weightBalanceRatio = "";
 
+  /**
+   * @generated from field: string taker_fee = 8;
+   */
+  takerFee = "";
+
   constructor(data?: PartialMessage<QuerySwapEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -729,6 +807,7 @@ export class QuerySwapEstimationResponse extends Message<QuerySwapEstimationResp
     { no: 5, name: "available_liquidity", kind: "message", T: Coin },
     { no: 6, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySwapEstimationResponse {
@@ -745,6 +824,79 @@ export class QuerySwapEstimationResponse extends Message<QuerySwapEstimationResp
 
   static equals(a: QuerySwapEstimationResponse | PlainMessage<QuerySwapEstimationResponse> | undefined, b: QuerySwapEstimationResponse | PlainMessage<QuerySwapEstimationResponse> | undefined): boolean {
     return proto3.util.equals(QuerySwapEstimationResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.amm.QuerySwapEstimationExactAmountOutResponse
+ */
+export class QuerySwapEstimationExactAmountOutResponse extends Message<QuerySwapEstimationExactAmountOutResponse> {
+  /**
+   * @generated from field: string spot_price = 1;
+   */
+  spotPrice = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin token_in = 2;
+   */
+  tokenIn?: Coin;
+
+  /**
+   * @generated from field: string swap_fee = 3;
+   */
+  swapFee = "";
+
+  /**
+   * @generated from field: string discount = 4;
+   */
+  discount = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin available_liquidity = 5;
+   */
+  availableLiquidity?: Coin;
+
+  /**
+   * @generated from field: string slippage = 6;
+   */
+  slippage = "";
+
+  /**
+   * @generated from field: string weight_balance_ratio = 7;
+   */
+  weightBalanceRatio = "";
+
+  constructor(data?: PartialMessage<QuerySwapEstimationExactAmountOutResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.QuerySwapEstimationExactAmountOutResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "spot_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token_in", kind: "message", T: Coin },
+    { no: 3, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "discount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "available_liquidity", kind: "message", T: Coin },
+    { no: 6, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySwapEstimationExactAmountOutResponse {
+    return new QuerySwapEstimationExactAmountOutResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QuerySwapEstimationExactAmountOutResponse {
+    return new QuerySwapEstimationExactAmountOutResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QuerySwapEstimationExactAmountOutResponse {
+    return new QuerySwapEstimationExactAmountOutResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QuerySwapEstimationExactAmountOutResponse | PlainMessage<QuerySwapEstimationExactAmountOutResponse> | undefined, b: QuerySwapEstimationExactAmountOutResponse | PlainMessage<QuerySwapEstimationExactAmountOutResponse> | undefined): boolean {
+    return proto3.util.equals(QuerySwapEstimationExactAmountOutResponse, a, b);
   }
 }
 
@@ -1239,6 +1391,16 @@ export class QuerySwapEstimationByDenomResponse extends Message<QuerySwapEstimat
    */
   priceImpact = "";
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin weight_balance_reward_amount = 11;
+   */
+  weightBalanceRewardAmount?: Coin;
+
+  /**
+   * @generated from field: string taker_fee = 12;
+   */
+  takerFee = "";
+
   constructor(data?: PartialMessage<QuerySwapEstimationByDenomResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1257,6 +1419,8 @@ export class QuerySwapEstimationByDenomResponse extends Message<QuerySwapEstimat
     { no: 8, name: "weight_balance_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "price_impact", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "weight_balance_reward_amount", kind: "message", T: Coin },
+    { no: 12, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySwapEstimationByDenomResponse {
@@ -1316,6 +1480,86 @@ export class QueryAMMPriceRequest extends Message<QueryAMMPriceRequest> {
 
   static equals(a: QueryAMMPriceRequest | PlainMessage<QueryAMMPriceRequest> | undefined, b: QueryAMMPriceRequest | PlainMessage<QueryAMMPriceRequest> | undefined): boolean {
     return proto3.util.equals(QueryAMMPriceRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.amm.QueryWeightAndSlippageFeeRequest
+ */
+export class QueryWeightAndSlippageFeeRequest extends Message<QueryWeightAndSlippageFeeRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string date = 2;
+   */
+  date = "";
+
+  constructor(data?: PartialMessage<QueryWeightAndSlippageFeeRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.QueryWeightAndSlippageFeeRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "date", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryWeightAndSlippageFeeRequest {
+    return new QueryWeightAndSlippageFeeRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryWeightAndSlippageFeeRequest {
+    return new QueryWeightAndSlippageFeeRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryWeightAndSlippageFeeRequest {
+    return new QueryWeightAndSlippageFeeRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryWeightAndSlippageFeeRequest | PlainMessage<QueryWeightAndSlippageFeeRequest> | undefined, b: QueryWeightAndSlippageFeeRequest | PlainMessage<QueryWeightAndSlippageFeeRequest> | undefined): boolean {
+    return proto3.util.equals(QueryWeightAndSlippageFeeRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.amm.QueryWeightAndSlippageFeeResponse
+ */
+export class QueryWeightAndSlippageFeeResponse extends Message<QueryWeightAndSlippageFeeResponse> {
+  /**
+   * @generated from field: string value = 1;
+   */
+  value = "";
+
+  constructor(data?: PartialMessage<QueryWeightAndSlippageFeeResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.amm.QueryWeightAndSlippageFeeResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryWeightAndSlippageFeeResponse {
+    return new QueryWeightAndSlippageFeeResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryWeightAndSlippageFeeResponse {
+    return new QueryWeightAndSlippageFeeResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryWeightAndSlippageFeeResponse {
+    return new QueryWeightAndSlippageFeeResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryWeightAndSlippageFeeResponse | PlainMessage<QueryWeightAndSlippageFeeResponse> | undefined, b: QueryWeightAndSlippageFeeResponse | PlainMessage<QueryWeightAndSlippageFeeResponse> | undefined): boolean {
+    return proto3.util.equals(QueryWeightAndSlippageFeeResponse, a, b);
   }
 }
 

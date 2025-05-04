@@ -60,6 +60,16 @@ export class DepositOptions extends Message<DepositOptions> {
    */
   failTxOnBel = false;
 
+  /**
+   * @generated from field: bool swap_on_deposit = 3;
+   */
+  swapOnDeposit = false;
+
+  /**
+   * @generated from field: uint64 swap_on_deposit_slop_tolerance_bps = 4;
+   */
+  swapOnDepositSlopToleranceBps = protoInt64.zero;
+
   constructor(data?: PartialMessage<DepositOptions>) {
     super();
     proto3.util.initPartial(data, this);
@@ -70,6 +80,8 @@ export class DepositOptions extends Message<DepositOptions> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "disable_autoswap", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 2, name: "fail_tx_on_bel", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "swap_on_deposit", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "swap_on_deposit_slop_tolerance_bps", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DepositOptions {
@@ -812,7 +824,7 @@ export class MsgMultiHopSwap extends Message<MsgMultiHopSwap> {
 
   /**
    * If pickBestRoute == true then all routes are run and the route with the
-   * best price is chosen otherwise, the first succesful route is used.
+   * best price is chosen otherwise, the first successful route is used.
    *
    * @generated from field: bool pick_best_route = 6;
    */

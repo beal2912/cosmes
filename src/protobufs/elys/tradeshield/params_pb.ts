@@ -69,6 +69,11 @@ export class Params extends Message<Params> {
    */
   minimumDeposit = "";
 
+  /**
+   * @generated from field: string tolerance = 12;
+   */
+  tolerance = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -88,6 +93,7 @@ export class Params extends Message<Params> {
     { no: 9, name: "reward_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "margin_error", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "minimum_deposit", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "tolerance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

@@ -11,6 +11,8 @@ import { Message, proto3 } from "@bufbuild/protobuf";
  */
 export class Params extends Message<Params> {
   /**
+   * List of contract addresses allowed to send asynchronous acknowledgments.
+   *
    * @generated from field: repeated string allowed_async_ack_contracts = 1;
    */
   allowedAsyncAckContracts: string[] = [];

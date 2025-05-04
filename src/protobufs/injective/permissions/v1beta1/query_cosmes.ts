@@ -21,7 +21,8 @@ export const QueryParamsService = {
 } as const;
 
 /**
- * NamespaceDenoms defines a gRPC query method that returns the denoms for which a namespace exists
+ * NamespaceDenoms defines a gRPC query method that returns the denoms for
+ * which a namespace exists
  *
  * @generated from rpc injective.permissions.v1beta1.Query.NamespaceDenoms
  */
@@ -59,7 +60,8 @@ export const QueryNamespaceService = {
 } as const;
 
 /**
- * RolesByActor defines a gRPC query method that returns roles for the actor in the namespace
+ * RolesByActor defines a gRPC query method that returns roles for the actor
+ * in the namespace
  *
  * @generated from rpc injective.permissions.v1beta1.Query.RolesByActor
  */
@@ -71,7 +73,8 @@ export const QueryRolesByActorService = {
 } as const;
 
 /**
- * ActorsByRole defines a gRPC query method that returns a namespace's roles associated with the provided actor.
+ * ActorsByRole defines a gRPC query method that returns a namespace's roles
+ * associated with the provided actor.
  *
  * @generated from rpc injective.permissions.v1beta1.Query.ActorsByRole
  */
@@ -83,7 +86,8 @@ export const QueryActorsByRoleService = {
 } as const;
 
 /**
- * RoleManagers defines a gRPC query method that returns a namespace's role managers
+ * RoleManagers defines a gRPC query method that returns a namespace's role
+ * managers
  *
  * @generated from rpc injective.permissions.v1beta1.Query.RoleManagers
  */
@@ -95,7 +99,8 @@ export const QueryRoleManagersService = {
 } as const;
 
 /**
- * RoleManager defines a gRPC query method that returns the roles a given role manager manages for a given namespace
+ * RoleManager defines a gRPC query method that returns the roles a given role
+ * manager manages for a given namespace
  *
  * @generated from rpc injective.permissions.v1beta1.Query.RoleManager
  */
@@ -107,7 +112,8 @@ export const QueryRoleManagerService = {
 } as const;
 
 /**
- * PolicyStatuses defines a gRPC query method that returns a namespace's policy statuses
+ * PolicyStatuses defines a gRPC query method that returns a namespace's
+ * policy statuses
  *
  * @generated from rpc injective.permissions.v1beta1.Query.PolicyStatuses
  */
@@ -119,7 +125,8 @@ export const QueryPolicyStatusesService = {
 } as const;
 
 /**
- * PolicyManagerCapabilities defines a gRPC query method that returns a namespace's policy manager capabilities
+ * PolicyManagerCapabilities defines a gRPC query method that returns a
+ * namespace's policy manager capabilities
  *
  * @generated from rpc injective.permissions.v1beta1.Query.PolicyManagerCapabilities
  */
@@ -143,7 +150,8 @@ export const QueryVouchersService = {
 } as const;
 
 /**
- * Voucher defines a gRPC query method for the vouchers for a given denom and address
+ * Voucher defines a gRPC query method for the vouchers for a given denom and
+ * address
  *
  * @generated from rpc injective.permissions.v1beta1.Query.Voucher
  */

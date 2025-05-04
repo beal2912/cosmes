@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Any, Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Coin } from "../../../../cosmos/base/v1beta1/coin_pb.js";
+import { Params } from "./params_pb.js";
 
 /**
  * GenesisState defines the gamm module's genesis state.
@@ -57,104 +57,6 @@ export class GenesisState extends Message<GenesisState> {
 
   static equals(a: GenesisState | PlainMessage<GenesisState> | undefined, b: GenesisState | PlainMessage<GenesisState> | undefined): boolean {
     return proto3.util.equals(GenesisState, a, b);
-  }
-}
-
-/**
- * @generated from message dymensionxyz.dymension.gamm.v1beta1.Params
- */
-export class Params extends Message<Params> {
-  /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin pool_creation_fee = 1;
-   */
-  poolCreationFee: Coin[] = [];
-
-  /**
-   * @generated from field: bool enable_global_pool_fees = 2;
-   */
-  enableGlobalPoolFees = false;
-
-  /**
-   * @generated from field: dymensionxyz.dymension.gamm.v1beta1.GlobalFees global_fees = 3;
-   */
-  globalFees?: GlobalFees;
-
-  /**
-   * @generated from field: string taker_fee = 4;
-   */
-  takerFee = "";
-
-  constructor(data?: PartialMessage<Params>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "dymensionxyz.dymension.gamm.v1beta1.Params";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool_creation_fee", kind: "message", T: Coin, repeated: true },
-    { no: 2, name: "enable_global_pool_fees", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 3, name: "global_fees", kind: "message", T: GlobalFees },
-    { no: 4, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {
-    return new Params().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Params {
-    return new Params().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Params {
-    return new Params().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: Params | PlainMessage<Params> | undefined, b: Params | PlainMessage<Params> | undefined): boolean {
-    return proto3.util.equals(Params, a, b);
-  }
-}
-
-/**
- * @generated from message dymensionxyz.dymension.gamm.v1beta1.GlobalFees
- */
-export class GlobalFees extends Message<GlobalFees> {
-  /**
-   * @generated from field: string swap_fee = 1;
-   */
-  swapFee = "";
-
-  /**
-   * @generated from field: string exit_fee = 2;
-   */
-  exitFee = "";
-
-  constructor(data?: PartialMessage<GlobalFees>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "dymensionxyz.dymension.gamm.v1beta1.GlobalFees";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "exit_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GlobalFees {
-    return new GlobalFees().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GlobalFees {
-    return new GlobalFees().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GlobalFees {
-    return new GlobalFees().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: GlobalFees | PlainMessage<GlobalFees> | undefined, b: GlobalFees | PlainMessage<GlobalFees> | undefined): boolean {
-    return proto3.util.equals(GlobalFees, a, b);
   }
 }
 

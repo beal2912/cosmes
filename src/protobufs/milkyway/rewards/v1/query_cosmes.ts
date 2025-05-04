@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryDelegatorTotalRewardsRequest, QueryDelegatorTotalRewardsResponse, QueryDelegatorWithdrawAddressRequest, QueryDelegatorWithdrawAddressResponse, QueryOperatorCommissionRequest, QueryOperatorCommissionResponse, QueryOperatorDelegationRewardsRequest, QueryOperatorDelegationRewardsResponse, QueryOperatorOutstandingRewardsRequest, QueryOperatorOutstandingRewardsResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolDelegationRewardsRequest, QueryPoolDelegationRewardsResponse, QueryPoolOutstandingRewardsRequest, QueryPoolOutstandingRewardsResponse, QueryRewardsPlanRequest, QueryRewardsPlanResponse, QueryRewardsPlansRequest, QueryRewardsPlansResponse, QueryServiceDelegationRewardsRequest, QueryServiceDelegationRewardsResponse, QueryServiceOutstandingRewardsRequest, QueryServiceOutstandingRewardsResponse } from "./query_pb.js";
+import { QueryDelegatorTotalRewardsRequest, QueryDelegatorTotalRewardsResponse, QueryDelegatorWithdrawAddressRequest, QueryDelegatorWithdrawAddressResponse, QueryOperatorCommissionRequest, QueryOperatorCommissionResponse, QueryOperatorDelegationRewardsRequest, QueryOperatorDelegationRewardsResponse, QueryOperatorOutstandingRewardsRequest, QueryOperatorOutstandingRewardsResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolDelegationRewardsRequest, QueryPoolDelegationRewardsResponse, QueryPoolOutstandingRewardsRequest, QueryPoolOutstandingRewardsResponse, QueryPoolServiceTotalDelegatorSharesRequest, QueryPoolServiceTotalDelegatorSharesResponse, QueryRewardsPlanRequest, QueryRewardsPlanResponse, QueryRewardsPlansRequest, QueryRewardsPlansResponse, QueryServiceDelegationRewardsRequest, QueryServiceDelegationRewardsResponse, QueryServiceOutstandingRewardsRequest, QueryServiceOutstandingRewardsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "milkyway.rewards.v1.Query";
 
@@ -90,6 +90,19 @@ export const QueryOperatorCommissionService = {
   method: "OperatorCommission",
   Request: QueryOperatorCommissionRequest,
   Response: QueryOperatorCommissionResponse,
+} as const;
+
+/**
+ * PoolServiceTotalDelegatorShares queries the total delegator shares for a
+ * pool-service pair.
+ *
+ * @generated from rpc milkyway.rewards.v1.Query.PoolServiceTotalDelegatorShares
+ */
+export const QueryPoolServiceTotalDelegatorSharesService = {
+  typeName: TYPE_NAME,
+  method: "PoolServiceTotalDelegatorShares",
+  Request: QueryPoolServiceTotalDelegatorSharesRequest,
+  Response: QueryPoolServiceTotalDelegatorSharesResponse,
 } as const;
 
 /**

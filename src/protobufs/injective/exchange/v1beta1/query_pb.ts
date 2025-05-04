@@ -6215,9 +6215,9 @@ export class QueryMarketBalanceRequest extends Message<QueryMarketBalanceRequest
  */
 export class QueryMarketBalanceResponse extends Message<QueryMarketBalanceResponse> {
   /**
-   * @generated from field: string balance = 1;
+   * @generated from field: injective.exchange.v1beta1.MarketBalance balance = 1;
    */
-  balance = "";
+  balance?: MarketBalance;
 
   constructor(data?: PartialMessage<QueryMarketBalanceResponse>) {
     super();
@@ -6227,7 +6227,7 @@ export class QueryMarketBalanceResponse extends Message<QueryMarketBalanceRespon
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "injective.exchange.v1beta1.QueryMarketBalanceResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "balance", kind: "message", T: MarketBalance },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryMarketBalanceResponse {

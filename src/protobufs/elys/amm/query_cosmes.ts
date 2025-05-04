@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllDenomLiquidityRequest, QueryAllDenomLiquidityResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryBalanceRequest, QueryBalanceResponse, QueryExitPoolEstimationRequest, QueryExitPoolEstimationResponse, QueryGetDenomLiquidityRequest, QueryGetDenomLiquidityResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryInRouteByDenomRequest, QueryInRouteByDenomResponse, QueryJoinPoolEstimationRequest, QueryJoinPoolEstimationResponse, QueryOutRouteByDenomRequest, QueryOutRouteByDenomResponse, QueryParamsRequest, QueryParamsResponse, QuerySlippageTrackAllRequest, QuerySlippageTrackAllResponse, QuerySlippageTrackRequest, QuerySlippageTrackResponse, QuerySwapEstimationByDenomRequest, QuerySwapEstimationByDenomResponse, QuerySwapEstimationRequest, QuerySwapEstimationResponse } from "./query_pb.js";
+import { QueryAllDenomLiquidityRequest, QueryAllDenomLiquidityResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryBalanceRequest, QueryBalanceResponse, QueryExitPoolEstimationRequest, QueryExitPoolEstimationResponse, QueryGetDenomLiquidityRequest, QueryGetDenomLiquidityResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryInRouteByDenomRequest, QueryInRouteByDenomResponse, QueryJoinPoolEstimationRequest, QueryJoinPoolEstimationResponse, QueryOutRouteByDenomRequest, QueryOutRouteByDenomResponse, QueryParamsRequest, QueryParamsResponse, QuerySlippageTrackAllRequest, QuerySlippageTrackAllResponse, QuerySlippageTrackRequest, QuerySlippageTrackResponse, QuerySwapEstimationByDenomRequest, QuerySwapEstimationByDenomResponse, QuerySwapEstimationExactAmountOutRequest, QuerySwapEstimationExactAmountOutResponse, QuerySwapEstimationRequest, QuerySwapEstimationResponse, QueryWeightAndSlippageFeeRequest, QueryWeightAndSlippageFeeResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.amm.Query";
 
@@ -64,7 +64,7 @@ export const QueryDenomLiquidityAllService = {
 } as const;
 
 /**
- * Queries a list of SwapEstimation items.
+ * Queries a list of SwapEstimation items, uses swap exact amount in route.
  *
  * @generated from rpc elys.amm.Query.SwapEstimation
  */
@@ -73,6 +73,18 @@ export const QuerySwapEstimationService = {
   method: "SwapEstimation",
   Request: QuerySwapEstimationRequest,
   Response: QuerySwapEstimationResponse,
+} as const;
+
+/**
+ * Queries a list of SwapEstimation items, uses swap exact amount out route.
+ *
+ * @generated from rpc elys.amm.Query.SwapEstimationExactAmountOut
+ */
+export const QuerySwapEstimationExactAmountOutService = {
+  typeName: TYPE_NAME,
+  method: "SwapEstimationExactAmountOut",
+  Request: QuerySwapEstimationExactAmountOutRequest,
+  Response: QuerySwapEstimationExactAmountOutResponse,
 } as const;
 
 /**
@@ -169,5 +181,17 @@ export const QuerySwapEstimationByDenomService = {
   method: "SwapEstimationByDenom",
   Request: QuerySwapEstimationByDenomRequest,
   Response: QuerySwapEstimationByDenomResponse,
+} as const;
+
+/**
+ * Queries WeightAndSlippageFee for a pool and date
+ *
+ * @generated from rpc elys.amm.Query.WeightAndSlippageFee
+ */
+export const QueryWeightAndSlippageFeeService = {
+  typeName: TYPE_NAME,
+  method: "WeightAndSlippageFee",
+  Request: QueryWeightAndSlippageFeeRequest,
+  Response: QueryWeightAndSlippageFeeResponse,
 } as const;
 

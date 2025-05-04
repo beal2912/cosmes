@@ -47,9 +47,9 @@ export class Pool extends Message<Pool> {
   healthGainFactor = "";
 
   /**
-   * @generated from field: string total_value = 8;
+   * @generated from field: string net_amount = 8;
    */
-  totalValue = "";
+  netAmount = "";
 
   /**
    * @generated from field: string max_leverage_ratio = 9;
@@ -81,7 +81,7 @@ export class Pool extends Message<Pool> {
     { no: 5, name: "interest_rate_increase", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "interest_rate_decrease", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "health_gain_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "total_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "net_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "max_withdraw_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },

@@ -7,95 +7,6 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
- * Params defines the parameters for the module.
- *
- * @generated from message elys.amm.LegacyParams
- */
-export class LegacyParams extends Message<LegacyParams> {
-  /**
-   * @generated from field: string pool_creation_fee = 1;
-   */
-  poolCreationFee = "";
-
-  /**
-   * default 1 week: 604,800
-   *
-   * @generated from field: uint64 slippage_track_duration = 2;
-   */
-  slippageTrackDuration = protoInt64.zero;
-
-  /**
-   * @generated from field: repeated string base_assets = 3;
-   */
-  baseAssets: string[] = [];
-
-  /**
-   * @generated from field: string weight_breaking_fee_exponent = 4;
-   */
-  weightBreakingFeeExponent = "";
-
-  /**
-   * @generated from field: string weight_breaking_fee_multiplier = 5;
-   */
-  weightBreakingFeeMultiplier = "";
-
-  /**
-   * @generated from field: string weight_breaking_fee_portion = 6;
-   */
-  weightBreakingFeePortion = "";
-
-  /**
-   * @generated from field: string weight_recovery_fee_portion = 7;
-   */
-  weightRecoveryFeePortion = "";
-
-  /**
-   * @generated from field: string threshold_weight_difference = 8;
-   */
-  thresholdWeightDifference = "";
-
-  /**
-   * @generated from field: repeated string allowed_pool_creators = 9;
-   */
-  allowedPoolCreators: string[] = [];
-
-  constructor(data?: PartialMessage<LegacyParams>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.amm.LegacyParams";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool_creation_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "slippage_track_duration", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "base_assets", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-    { no: 4, name: "weight_breaking_fee_exponent", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "weight_breaking_fee_multiplier", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "weight_breaking_fee_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "weight_recovery_fee_portion", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "threshold_weight_difference", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "allowed_pool_creators", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyParams {
-    return new LegacyParams().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyParams {
-    return new LegacyParams().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: LegacyParams | PlainMessage<LegacyParams> | undefined, b: LegacyParams | PlainMessage<LegacyParams> | undefined): boolean {
-    return proto3.util.equals(LegacyParams, a, b);
-  }
-}
-
-/**
  * @generated from message elys.amm.Params
  */
 export class Params extends Message<Params> {
@@ -161,6 +72,11 @@ export class Params extends Message<Params> {
    */
   minSlippage = "";
 
+  /**
+   * @generated from field: repeated string allowed_upfront_swap_makers = 13;
+   */
+  allowedUpfrontSwapMakers: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -181,6 +97,7 @@ export class Params extends Message<Params> {
     { no: 10, name: "threshold_weight_difference_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "lp_lockup_duration", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 12, name: "min_slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "allowed_upfront_swap_makers", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

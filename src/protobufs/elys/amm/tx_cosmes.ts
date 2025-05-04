@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCreatePool, MsgCreatePoolResponse, MsgExitPool, MsgExitPoolResponse, MsgFeedMultipleExternalLiquidity, MsgFeedMultipleExternalLiquidityResponse, MsgJoinPool, MsgJoinPoolResponse, MsgSwapByDenom, MsgSwapByDenomResponse, MsgSwapExactAmountIn, MsgSwapExactAmountInResponse, MsgSwapExactAmountOut, MsgSwapExactAmountOutResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolParams, MsgUpdatePoolParamsResponse } from "./tx_pb.js";
+import { MsgCreatePool, MsgCreatePoolResponse, MsgExitPool, MsgExitPoolResponse, MsgFeedMultipleExternalLiquidity, MsgFeedMultipleExternalLiquidityResponse, MsgJoinPool, MsgJoinPoolResponse, MsgSwapByDenom, MsgSwapByDenomResponse, MsgSwapExactAmountIn, MsgSwapExactAmountInResponse, MsgSwapExactAmountOut, MsgSwapExactAmountOutResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolParams, MsgUpdatePoolParamsResponse, MsgUpFrontSwapExactAmountIn, MsgUpFrontSwapExactAmountInResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.amm.Msg";
 
@@ -35,6 +35,16 @@ export const MsgExitPoolService = {
   method: "ExitPool",
   Request: MsgExitPool,
   Response: MsgExitPoolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.amm.Msg.UpFrontSwapExactAmountIn
+ */
+export const MsgUpFrontSwapExactAmountInService = {
+  typeName: TYPE_NAME,
+  method: "UpFrontSwapExactAmountIn",
+  Request: MsgUpFrontSwapExactAmountIn,
+  Response: MsgUpFrontSwapExactAmountInResponse,
 } as const;
 
 /**

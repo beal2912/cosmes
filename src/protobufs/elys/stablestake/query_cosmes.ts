@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryDebtRequest, QueryDebtResponse, QueryGetInterestRequest, QueryGetInterestResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.stablestake.Query";
 
@@ -73,5 +73,25 @@ export const QueryAllAmmPoolsService = {
   method: "AllAmmPools",
   Request: QueryAllAmmPoolsRequest,
   Response: QueryAllAmmPoolsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Query.Debt
+ */
+export const QueryDebtService = {
+  typeName: TYPE_NAME,
+  method: "Debt",
+  Request: QueryDebtRequest,
+  Response: QueryDebtResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Query.GetInterest
+ */
+export const QueryGetInterestService = {
+  typeName: TYPE_NAME,
+  method: "GetInterest",
+  Request: QueryGetInterestRequest,
+  Response: QueryGetInterestResponse,
 } as const;
 

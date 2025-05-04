@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryBaseDenomRequest, QueryBaseDenomResponse, QueryDenomPoolIdRequest, QueryDenomPoolIdResponse, QueryDenomSpotPriceRequest, QueryDenomSpotPriceResponse, QueryFeeTokensRequest, QueryFeeTokensResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryBaseDenomRequest, QueryBaseDenomResponse, QueryDenomRouteRequest, QueryDenomRouteResponse, QueryFeeTokenRequest, QueryFeeTokenResponse, QueryFeeTokensRequest, QueryFeeTokensResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "dymensionxyz.dymension.txfees.v1beta1.Query";
 
@@ -20,9 +20,21 @@ export const QueryParamsService = {
 } as const;
 
 /**
+ * FeeToken returns a single fee token by denom
+ *
+ * @generated from rpc dymensionxyz.dymension.txfees.v1beta1.Query.FeeToken
+ */
+export const QueryFeeTokenService = {
+  typeName: TYPE_NAME,
+  method: "FeeToken",
+  Request: QueryFeeTokenRequest,
+  Response: QueryFeeTokenResponse,
+} as const;
+
+/**
  * FeeTokens returns a list of all the accepted fee tokens and their
- * corresponding pools. It does not include the BaseDenom, which has its own
- * query endpoint
+ * corresponding pools.
+ * It does not include the BaseDenom, which has its own query endpoint
  *
  * @generated from rpc dymensionxyz.dymension.txfees.v1beta1.Query.FeeTokens
  */
@@ -34,27 +46,15 @@ export const QueryFeeTokensService = {
 } as const;
 
 /**
- * DenomSpotPrice returns all spot prices by each registered token denom.
+ * Returns the swap route for a specified denom
  *
- * @generated from rpc dymensionxyz.dymension.txfees.v1beta1.Query.DenomSpotPrice
+ * @generated from rpc dymensionxyz.dymension.txfees.v1beta1.Query.DenomRoute
  */
-export const QueryDenomSpotPriceService = {
+export const QueryDenomRouteService = {
   typeName: TYPE_NAME,
-  method: "DenomSpotPrice",
-  Request: QueryDenomSpotPriceRequest,
-  Response: QueryDenomSpotPriceResponse,
-} as const;
-
-/**
- * Returns the poolID for a specified denom input.
- *
- * @generated from rpc dymensionxyz.dymension.txfees.v1beta1.Query.DenomPoolId
- */
-export const QueryDenomPoolIdService = {
-  typeName: TYPE_NAME,
-  method: "DenomPoolId",
-  Request: QueryDenomPoolIdRequest,
-  Response: QueryDenomPoolIdResponse,
+  method: "DenomRoute",
+  Request: QueryDenomRouteRequest,
+  Response: QueryDenomRouteResponse,
 } as const;
 
 /**

@@ -485,6 +485,14 @@ export class Params extends Message<Params> {
    */
   injAuctionMaxCap = "";
 
+  /**
+   * fixed_gas_enabled indicates if msg server will consume fixed gas amount for
+   * certain msg types
+   *
+   * @generated from field: bool fixed_gas_enabled = 29;
+   */
+  fixedGasEnabled = false;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -521,6 +529,7 @@ export class Params extends Message<Params> {
     { no: 26, name: "margin_decrease_price_timestamp_threshold_seconds", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 27, name: "exchange_admins", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 28, name: "inj_auction_max_cap", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 29, name: "fixed_gas_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

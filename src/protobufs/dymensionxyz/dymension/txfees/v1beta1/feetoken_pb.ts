@@ -4,7 +4,8 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { Message, proto3 } from "@bufbuild/protobuf";
+import { SwapAmountInRoute } from "../../poolmanager/v1beta1/swap_route_pb.js";
 
 /**
  * FeeToken is a struct that specifies a coin denom, and pool ID pair.
@@ -21,9 +22,9 @@ export class FeeToken extends Message<FeeToken> {
   denom = "";
 
   /**
-   * @generated from field: uint64 poolID = 2;
+   * @generated from field: repeated dymensionxyz.dymension.poolmanager.v1beta1.SwapAmountInRoute route = 3;
    */
-  poolID = protoInt64.zero;
+  route: SwapAmountInRoute[] = [];
 
   constructor(data?: PartialMessage<FeeToken>) {
     super();
@@ -34,7 +35,7 @@ export class FeeToken extends Message<FeeToken> {
   static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.FeeToken";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "poolID", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "route", kind: "message", T: SwapAmountInRoute, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FeeToken {

@@ -8,6 +8,7 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination_pb.js";
 import { AccumulatedCommission, DecPool, DelegationDelegatorReward, OutstandingRewards, RewardsPlan } from "./models_pb.js";
+import { DecCoin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
  * QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -578,6 +579,99 @@ export class QueryOperatorCommissionResponse extends Message<QueryOperatorCommis
 
   static equals(a: QueryOperatorCommissionResponse | PlainMessage<QueryOperatorCommissionResponse> | undefined, b: QueryOperatorCommissionResponse | PlainMessage<QueryOperatorCommissionResponse> | undefined): boolean {
     return proto3.util.equals(QueryOperatorCommissionResponse, a, b);
+  }
+}
+
+/**
+ * QueryPoolServiceTotalDelegatorSharesRequest is the request type for the
+ * Query/PoolServiceTotalDelegatorShares RPC method.
+ *
+ * @generated from message milkyway.rewards.v1.QueryPoolServiceTotalDelegatorSharesRequest
+ */
+export class QueryPoolServiceTotalDelegatorSharesRequest extends Message<QueryPoolServiceTotalDelegatorSharesRequest> {
+  /**
+   * pool_id defines the pool ID to query for.
+   *
+   * @generated from field: uint32 pool_id = 1;
+   */
+  poolId = 0;
+
+  /**
+   * service_id defines the service ID to query for.
+   *
+   * @generated from field: uint32 service_id = 2;
+   */
+  serviceId = 0;
+
+  constructor(data?: PartialMessage<QueryPoolServiceTotalDelegatorSharesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "milkyway.rewards.v1.QueryPoolServiceTotalDelegatorSharesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 2, name: "service_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPoolServiceTotalDelegatorSharesRequest {
+    return new QueryPoolServiceTotalDelegatorSharesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPoolServiceTotalDelegatorSharesRequest {
+    return new QueryPoolServiceTotalDelegatorSharesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPoolServiceTotalDelegatorSharesRequest {
+    return new QueryPoolServiceTotalDelegatorSharesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPoolServiceTotalDelegatorSharesRequest | PlainMessage<QueryPoolServiceTotalDelegatorSharesRequest> | undefined, b: QueryPoolServiceTotalDelegatorSharesRequest | PlainMessage<QueryPoolServiceTotalDelegatorSharesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPoolServiceTotalDelegatorSharesRequest, a, b);
+  }
+}
+
+/**
+ * QueryPoolServiceTotalDelegatorSharesResponse is the response type for the
+ * Query/PoolServiceTotalDelegatorShares RPC method.
+ *
+ * @generated from message milkyway.rewards.v1.QueryPoolServiceTotalDelegatorSharesResponse
+ */
+export class QueryPoolServiceTotalDelegatorSharesResponse extends Message<QueryPoolServiceTotalDelegatorSharesResponse> {
+  /**
+   * total_delegator_shares defines the total delegator shares for a
+   * pool-service pair.
+   *
+   * @generated from field: repeated cosmos.base.v1beta1.DecCoin shares = 1;
+   */
+  shares: DecCoin[] = [];
+
+  constructor(data?: PartialMessage<QueryPoolServiceTotalDelegatorSharesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "milkyway.rewards.v1.QueryPoolServiceTotalDelegatorSharesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "shares", kind: "message", T: DecCoin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPoolServiceTotalDelegatorSharesResponse {
+    return new QueryPoolServiceTotalDelegatorSharesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPoolServiceTotalDelegatorSharesResponse {
+    return new QueryPoolServiceTotalDelegatorSharesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPoolServiceTotalDelegatorSharesResponse {
+    return new QueryPoolServiceTotalDelegatorSharesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPoolServiceTotalDelegatorSharesResponse | PlainMessage<QueryPoolServiceTotalDelegatorSharesResponse> | undefined, b: QueryPoolServiceTotalDelegatorSharesResponse | PlainMessage<QueryPoolServiceTotalDelegatorSharesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPoolServiceTotalDelegatorSharesResponse, a, b);
   }
 }
 

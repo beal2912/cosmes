@@ -147,6 +147,11 @@ export class Params extends Message<Params> {
    */
   exitBuffer = "";
 
+  /**
+   * @generated from field: bool stop_loss_enabled = 11;
+   */
+  stopLossEnabled = false;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -165,6 +170,7 @@ export class Params extends Message<Params> {
     { no: 8, name: "number_per_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 9, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
     { no: 10, name: "exit_buffer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "stop_loss_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

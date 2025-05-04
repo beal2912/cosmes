@@ -937,6 +937,11 @@ export class QueryOpenEstResponse extends Message<QueryOpenEstResponse> {
    */
   takerFee = "";
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin weight_balance_reward_amount = 7;
+   */
+  weightBalanceRewardAmount?: Coin;
+
   constructor(data?: PartialMessage<QueryOpenEstResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -951,6 +956,7 @@ export class QueryOpenEstResponse extends Message<QueryOpenEstResponse> {
     { no: 4, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "weight_balance_reward_amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstResponse {
@@ -1248,6 +1254,11 @@ export class QueryCommittedTokensLockedRequest extends Message<QueryCommittedTok
    */
   address = "";
 
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
+   */
+  pagination?: PageRequest;
+
   constructor(data?: PartialMessage<QueryCommittedTokensLockedRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1257,6 +1268,7 @@ export class QueryCommittedTokensLockedRequest extends Message<QueryCommittedTok
   static readonly typeName = "elys.leveragelp.QueryCommittedTokensLockedRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pagination", kind: "message", T: PageRequest },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCommittedTokensLockedRequest {
@@ -1277,6 +1289,73 @@ export class QueryCommittedTokensLockedRequest extends Message<QueryCommittedTok
 }
 
 /**
+ * @generated from message elys.leveragelp.PositionCommitedToken
+ */
+export class PositionCommitedToken extends Message<PositionCommitedToken> {
+  /**
+   * @generated from field: uint64 amm_pool_id = 1;
+   */
+  ammPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 position_id = 2;
+   */
+  positionId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 borrow_pool_id = 3;
+   */
+  borrowPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string collateral_denom = 4;
+   */
+  collateralDenom = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin locked_committed = 5;
+   */
+  lockedCommitted?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin total_committed = 6;
+   */
+  totalCommitted?: Coin;
+
+  constructor(data?: PartialMessage<PositionCommitedToken>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.PositionCommitedToken";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "borrow_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "collateral_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "locked_committed", kind: "message", T: Coin },
+    { no: 6, name: "total_committed", kind: "message", T: Coin },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionCommitedToken {
+    return new PositionCommitedToken().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PositionCommitedToken {
+    return new PositionCommitedToken().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PositionCommitedToken {
+    return new PositionCommitedToken().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PositionCommitedToken | PlainMessage<PositionCommitedToken> | undefined, b: PositionCommitedToken | PlainMessage<PositionCommitedToken> | undefined): boolean {
+    return proto3.util.equals(PositionCommitedToken, a, b);
+  }
+}
+
+/**
  * @generated from message elys.leveragelp.QueryCommittedTokensLockedResponse
  */
 export class QueryCommittedTokensLockedResponse extends Message<QueryCommittedTokensLockedResponse> {
@@ -1286,14 +1365,14 @@ export class QueryCommittedTokensLockedResponse extends Message<QueryCommittedTo
   address = "";
 
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin locked_committed = 2;
+   * @generated from field: repeated elys.leveragelp.PositionCommitedToken position_commited_token = 2;
    */
-  lockedCommitted: Coin[] = [];
+  positionCommitedToken: PositionCommitedToken[] = [];
 
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin total_committed = 3;
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 3;
    */
-  totalCommitted: Coin[] = [];
+  pagination?: PageResponse;
 
   constructor(data?: PartialMessage<QueryCommittedTokensLockedResponse>) {
     super();
@@ -1304,8 +1383,8 @@ export class QueryCommittedTokensLockedResponse extends Message<QueryCommittedTo
   static readonly typeName = "elys.leveragelp.QueryCommittedTokensLockedResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "locked_committed", kind: "message", T: Coin, repeated: true },
-    { no: 3, name: "total_committed", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "position_commited_token", kind: "message", T: PositionCommitedToken, repeated: true },
+    { no: 3, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCommittedTokensLockedResponse {

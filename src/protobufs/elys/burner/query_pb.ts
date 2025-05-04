@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { History } from "./history_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
@@ -88,14 +88,9 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
  */
 export class QueryGetHistoryRequest extends Message<QueryGetHistoryRequest> {
   /**
-   * @generated from field: string timestamp = 1;
+   * @generated from field: uint64 block = 1;
    */
-  timestamp = "";
-
-  /**
-   * @generated from field: string denom = 2;
-   */
-  denom = "";
+  block = protoInt64.zero;
 
   constructor(data?: PartialMessage<QueryGetHistoryRequest>) {
     super();
@@ -105,8 +100,7 @@ export class QueryGetHistoryRequest extends Message<QueryGetHistoryRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.burner.QueryGetHistoryRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "timestamp", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetHistoryRequest {

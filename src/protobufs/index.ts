@@ -139,331 +139,496 @@ export {
   ABCIFinalizeBlockService as TendermintAbciABCIFinalizeBlockService,
 } from "./tendermint/abci/types_cosmes.js";
 export {
-  MsgUpdateParams as SunriseTokenconverterMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseTokenconverterMsgUpdateParamsResponse,
-  MsgConvert as SunriseTokenconverterMsgConvert,
-  MsgConvertResponse as SunriseTokenconverterMsgConvertResponse,
-} from "./sunrise/tokenconverter/tx_pb.js";
+  MsgUpdateParams as SunriseTokenconverterV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseTokenconverterV1MsgUpdateParamsResponse,
+  MsgConvert as SunriseTokenconverterV1MsgConvert,
+  MsgConvertResponse as SunriseTokenconverterV1MsgConvertResponse,
+} from "./sunrise/tokenconverter/v1/tx_pb.js";
 export {
-  MsgUpdateParamsService as SunriseTokenconverterMsgUpdateParamsService,
-  MsgConvertService as SunriseTokenconverterMsgConvertService,
-} from "./sunrise/tokenconverter/tx_cosmes.js";
+  MsgUpdateParamsService as SunriseTokenconverterV1MsgUpdateParamsService,
+  MsgConvertService as SunriseTokenconverterV1MsgConvertService,
+} from "./sunrise/tokenconverter/v1/tx_cosmes.js";
 export {
-  QueryParamsRequest as SunriseTokenconverterQueryParamsRequest,
-  QueryParamsResponse as SunriseTokenconverterQueryParamsResponse,
-} from "./sunrise/tokenconverter/query_pb.js";
+  QueryParamsRequest as SunriseTokenconverterV1QueryParamsRequest,
+  QueryParamsResponse as SunriseTokenconverterV1QueryParamsResponse,
+} from "./sunrise/tokenconverter/v1/query_pb.js";
 export {
-  QueryParamsService as SunriseTokenconverterQueryParamsService,
-} from "./sunrise/tokenconverter/query_cosmes.js";
+  QueryParamsService as SunriseTokenconverterV1QueryParamsService,
+} from "./sunrise/tokenconverter/v1/query_cosmes.js";
 export {
-  Params as SunriseTokenconverterParams,
-} from "./sunrise/tokenconverter/params_pb.js";
+  Params as SunriseTokenconverterV1Params,
+} from "./sunrise/tokenconverter/v1/params_pb.js";
 export {
-  GenesisState as SunriseTokenconverterGenesisState,
-} from "./sunrise/tokenconverter/genesis_pb.js";
+  GenesisState as SunriseTokenconverterV1GenesisState,
+} from "./sunrise/tokenconverter/v1/genesis_pb.js";
 export {
-  EventConvert as SunriseTokenconverterEventConvert,
-} from "./sunrise/tokenconverter/events_pb.js";
+  EventConvert as SunriseTokenconverterV1EventConvert,
+  EventConvertReverse as SunriseTokenconverterV1EventConvertReverse,
+} from "./sunrise/tokenconverter/v1/events_pb.js";
 export {
-  Module as SunriseTokenconverterModuleModule,
-} from "./sunrise/tokenconverter/module/module_pb.js";
+  Module as SunriseTokenconverterModuleV1Module,
+} from "./sunrise/tokenconverter/module/v1/module_pb.js";
 export {
-  MsgUpdateParams as SunriseSwapMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseSwapMsgUpdateParamsResponse,
-  MsgSwapExactAmountIn as SunriseSwapMsgSwapExactAmountIn,
-  MsgSwapExactAmountInResponse as SunriseSwapMsgSwapExactAmountInResponse,
-  MsgSwapExactAmountOut as SunriseSwapMsgSwapExactAmountOut,
-  MsgSwapExactAmountOutResponse as SunriseSwapMsgSwapExactAmountOutResponse,
-} from "./sunrise/swap/tx_pb.js";
+  MsgUpdateParams as SunriseSwapV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseSwapV1MsgUpdateParamsResponse,
+  MsgSwapExactAmountIn as SunriseSwapV1MsgSwapExactAmountIn,
+  MsgSwapExactAmountInResponse as SunriseSwapV1MsgSwapExactAmountInResponse,
+  MsgSwapExactAmountOut as SunriseSwapV1MsgSwapExactAmountOut,
+  MsgSwapExactAmountOutResponse as SunriseSwapV1MsgSwapExactAmountOutResponse,
+} from "./sunrise/swap/v1/tx_pb.js";
 export {
-  MsgUpdateParamsService as SunriseSwapMsgUpdateParamsService,
-  MsgSwapExactAmountInService as SunriseSwapMsgSwapExactAmountInService,
-  MsgSwapExactAmountOutService as SunriseSwapMsgSwapExactAmountOutService,
-} from "./sunrise/swap/tx_cosmes.js";
+  MsgUpdateParamsService as SunriseSwapV1MsgUpdateParamsService,
+  MsgSwapExactAmountInService as SunriseSwapV1MsgSwapExactAmountInService,
+  MsgSwapExactAmountOutService as SunriseSwapV1MsgSwapExactAmountOutService,
+} from "./sunrise/swap/v1/tx_cosmes.js";
 export {
-  RoutePool as SunriseSwapRoutePool,
-  RouteSeries as SunriseSwapRouteSeries,
-  RouteParallel as SunriseSwapRouteParallel,
-  Route as SunriseSwapRoute,
-  RouteResultPool as SunriseSwapRouteResultPool,
-  RouteResultSeries as SunriseSwapRouteResultSeries,
-  RouteResultParallel as SunriseSwapRouteResultParallel,
-  RouteResult as SunriseSwapRouteResult,
-} from "./sunrise/swap/route_pb.js";
+  RoutePool as SunriseSwapV1RoutePool,
+  RouteSeries as SunriseSwapV1RouteSeries,
+  RouteParallel as SunriseSwapV1RouteParallel,
+  Route as SunriseSwapV1Route,
+  RouteResultPool as SunriseSwapV1RouteResultPool,
+  RouteResultSeries as SunriseSwapV1RouteResultSeries,
+  RouteResultParallel as SunriseSwapV1RouteResultParallel,
+  RouteResult as SunriseSwapV1RouteResult,
+} from "./sunrise/swap/v1/route_pb.js";
 export {
-  QueryParamsRequest as SunriseSwapQueryParamsRequest,
-  QueryParamsResponse as SunriseSwapQueryParamsResponse,
-  QueryIncomingInFlightPacketRequest as SunriseSwapQueryIncomingInFlightPacketRequest,
-  QueryIncomingInFlightPacketResponse as SunriseSwapQueryIncomingInFlightPacketResponse,
-  QueryIncomingInFlightPacketsRequest as SunriseSwapQueryIncomingInFlightPacketsRequest,
-  QueryIncomingInFlightPacketsResponse as SunriseSwapQueryIncomingInFlightPacketsResponse,
-  QueryOutgoingInFlightPacketRequest as SunriseSwapQueryOutgoingInFlightPacketRequest,
-  QueryOutgoingInFlightPacketResponse as SunriseSwapQueryOutgoingInFlightPacketResponse,
-  QueryOutgoingInFlightPacketsRequest as SunriseSwapQueryOutgoingInFlightPacketsRequest,
-  QueryOutgoingInFlightPacketsResponse as SunriseSwapQueryOutgoingInFlightPacketsResponse,
-  QueryCalculationSwapExactAmountInRequest as SunriseSwapQueryCalculationSwapExactAmountInRequest,
-  QueryCalculationSwapExactAmountInResponse as SunriseSwapQueryCalculationSwapExactAmountInResponse,
-  QueryCalculationSwapExactAmountOutRequest as SunriseSwapQueryCalculationSwapExactAmountOutRequest,
-  QueryCalculationSwapExactAmountOutResponse as SunriseSwapQueryCalculationSwapExactAmountOutResponse,
-} from "./sunrise/swap/query_pb.js";
+  QueryParamsRequest as SunriseSwapV1QueryParamsRequest,
+  QueryParamsResponse as SunriseSwapV1QueryParamsResponse,
+  QueryIncomingInFlightPacketRequest as SunriseSwapV1QueryIncomingInFlightPacketRequest,
+  QueryIncomingInFlightPacketResponse as SunriseSwapV1QueryIncomingInFlightPacketResponse,
+  QueryIncomingInFlightPacketsRequest as SunriseSwapV1QueryIncomingInFlightPacketsRequest,
+  QueryIncomingInFlightPacketsResponse as SunriseSwapV1QueryIncomingInFlightPacketsResponse,
+  QueryOutgoingInFlightPacketRequest as SunriseSwapV1QueryOutgoingInFlightPacketRequest,
+  QueryOutgoingInFlightPacketResponse as SunriseSwapV1QueryOutgoingInFlightPacketResponse,
+  QueryOutgoingInFlightPacketsRequest as SunriseSwapV1QueryOutgoingInFlightPacketsRequest,
+  QueryOutgoingInFlightPacketsResponse as SunriseSwapV1QueryOutgoingInFlightPacketsResponse,
+  QueryCalculationSwapExactAmountInRequest as SunriseSwapV1QueryCalculationSwapExactAmountInRequest,
+  QueryCalculationSwapExactAmountInResponse as SunriseSwapV1QueryCalculationSwapExactAmountInResponse,
+  QueryCalculationSwapExactAmountOutRequest as SunriseSwapV1QueryCalculationSwapExactAmountOutRequest,
+  QueryCalculationSwapExactAmountOutResponse as SunriseSwapV1QueryCalculationSwapExactAmountOutResponse,
+} from "./sunrise/swap/v1/query_pb.js";
 export {
-  QueryParamsService as SunriseSwapQueryParamsService,
-  QueryIncomingInFlightPacketService as SunriseSwapQueryIncomingInFlightPacketService,
-  QueryIncomingInFlightPacketsService as SunriseSwapQueryIncomingInFlightPacketsService,
-  QueryOutgoingInFlightPacketService as SunriseSwapQueryOutgoingInFlightPacketService,
-  QueryOutgoingInFlightPacketsService as SunriseSwapQueryOutgoingInFlightPacketsService,
-  QueryCalculationSwapExactAmountInService as SunriseSwapQueryCalculationSwapExactAmountInService,
-  QueryCalculationSwapExactAmountOutService as SunriseSwapQueryCalculationSwapExactAmountOutService,
-} from "./sunrise/swap/query_cosmes.js";
+  QueryParamsService as SunriseSwapV1QueryParamsService,
+  QueryIncomingInFlightPacketService as SunriseSwapV1QueryIncomingInFlightPacketService,
+  QueryIncomingInFlightPacketsService as SunriseSwapV1QueryIncomingInFlightPacketsService,
+  QueryOutgoingInFlightPacketService as SunriseSwapV1QueryOutgoingInFlightPacketService,
+  QueryOutgoingInFlightPacketsService as SunriseSwapV1QueryOutgoingInFlightPacketsService,
+  QueryCalculationSwapExactAmountInService as SunriseSwapV1QueryCalculationSwapExactAmountInService,
+  QueryCalculationSwapExactAmountOutService as SunriseSwapV1QueryCalculationSwapExactAmountOutService,
+} from "./sunrise/swap/v1/query_cosmes.js";
 export {
-  Params as SunriseSwapParams,
-} from "./sunrise/swap/params_pb.js";
+  Params as SunriseSwapV1Params,
+} from "./sunrise/swap/v1/params_pb.js";
 export {
-  PacketMetadata as SunriseSwapPacketMetadata,
-  ForwardMetadata as SunriseSwapForwardMetadata,
-  ExactAmountIn as SunriseSwapExactAmountIn,
-  ExactAmountOut as SunriseSwapExactAmountOut,
-  SwapMetadata as SunriseSwapSwapMetadata,
-} from "./sunrise/swap/metadata_pb.js";
+  PacketMetadata as SunriseSwapV1PacketMetadata,
+  ForwardMetadata as SunriseSwapV1ForwardMetadata,
+  ExactAmountIn as SunriseSwapV1ExactAmountIn,
+  ExactAmountOut as SunriseSwapV1ExactAmountOut,
+  SwapMetadata as SunriseSwapV1SwapMetadata,
+} from "./sunrise/swap/v1/metadata_pb.js";
 export {
-  PacketIndex as SunriseSwapPacketIndex,
-  IncomingInFlightPacket as SunriseSwapIncomingInFlightPacket,
-  OutgoingInFlightPacket as SunriseSwapOutgoingInFlightPacket,
-} from "./sunrise/swap/in_flight_packet_pb.js";
+  PacketIndex as SunriseSwapV1PacketIndex,
+  IncomingInFlightPacket as SunriseSwapV1IncomingInFlightPacket,
+  OutgoingInFlightPacket as SunriseSwapV1OutgoingInFlightPacket,
+} from "./sunrise/swap/v1/in_flight_packet_pb.js";
 export {
-  GenesisState as SunriseSwapGenesisState,
-} from "./sunrise/swap/genesis_pb.js";
+  GenesisState as SunriseSwapV1GenesisState,
+} from "./sunrise/swap/v1/genesis_pb.js";
 export {
-  Module as SunriseSwapModuleModule,
-} from "./sunrise/swap/module/module_pb.js";
+  Module as SunriseSwapModuleV1Module,
+} from "./sunrise/swap/module/v1/module_pb.js";
 export {
-  MsgUpdateParams as SunriseLiquiditypoolMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseLiquiditypoolMsgUpdateParamsResponse,
-  MsgCreatePool as SunriseLiquiditypoolMsgCreatePool,
-  MsgCreatePoolResponse as SunriseLiquiditypoolMsgCreatePoolResponse,
-  MsgCreatePosition as SunriseLiquiditypoolMsgCreatePosition,
-  MsgCreatePositionResponse as SunriseLiquiditypoolMsgCreatePositionResponse,
-  MsgIncreaseLiquidity as SunriseLiquiditypoolMsgIncreaseLiquidity,
-  MsgIncreaseLiquidityResponse as SunriseLiquiditypoolMsgIncreaseLiquidityResponse,
-  MsgDecreaseLiquidity as SunriseLiquiditypoolMsgDecreaseLiquidity,
-  MsgDecreaseLiquidityResponse as SunriseLiquiditypoolMsgDecreaseLiquidityResponse,
-  MsgClaimRewards as SunriseLiquiditypoolMsgClaimRewards,
-  MsgClaimRewardsResponse as SunriseLiquiditypoolMsgClaimRewardsResponse,
-} from "./sunrise/liquiditypool/tx_pb.js";
+  MsgUpdateParams as SunriseShareclassV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseShareclassV1MsgUpdateParamsResponse,
+  MsgNonVotingDelegate as SunriseShareclassV1MsgNonVotingDelegate,
+  MsgNonVotingDelegateResponse as SunriseShareclassV1MsgNonVotingDelegateResponse,
+  MsgNonVotingUndelegate as SunriseShareclassV1MsgNonVotingUndelegate,
+  MsgNonVotingUndelegateResponse as SunriseShareclassV1MsgNonVotingUndelegateResponse,
+  MsgClaimRewards as SunriseShareclassV1MsgClaimRewards,
+  MsgClaimRewardsResponse as SunriseShareclassV1MsgClaimRewardsResponse,
+  MsgCreateValidator as SunriseShareclassV1MsgCreateValidator,
+  MsgCreateValidatorResponse as SunriseShareclassV1MsgCreateValidatorResponse,
+} from "./sunrise/shareclass/v1/tx_pb.js";
 export {
-  MsgUpdateParamsService as SunriseLiquiditypoolMsgUpdateParamsService,
-  MsgCreatePoolService as SunriseLiquiditypoolMsgCreatePoolService,
-  MsgCreatePositionService as SunriseLiquiditypoolMsgCreatePositionService,
-  MsgIncreaseLiquidityService as SunriseLiquiditypoolMsgIncreaseLiquidityService,
-  MsgDecreaseLiquidityService as SunriseLiquiditypoolMsgDecreaseLiquidityService,
-  MsgClaimRewardsService as SunriseLiquiditypoolMsgClaimRewardsService,
-} from "./sunrise/liquiditypool/tx_cosmes.js";
+  MsgUpdateParamsService as SunriseShareclassV1MsgUpdateParamsService,
+  MsgNonVotingDelegateService as SunriseShareclassV1MsgNonVotingDelegateService,
+  MsgNonVotingUndelegateService as SunriseShareclassV1MsgNonVotingUndelegateService,
+  MsgClaimRewardsService as SunriseShareclassV1MsgClaimRewardsService,
+  MsgCreateValidatorService as SunriseShareclassV1MsgCreateValidatorService,
+} from "./sunrise/shareclass/v1/tx_cosmes.js";
 export {
-  TickInfo as SunriseLiquiditypoolTickInfo,
-} from "./sunrise/liquiditypool/ticker_pb.js";
+  QueryParamsRequest as SunriseShareclassV1QueryParamsRequest,
+  QueryParamsResponse as SunriseShareclassV1QueryParamsResponse,
+  QueryCalculateBondingAmountRequest as SunriseShareclassV1QueryCalculateBondingAmountRequest,
+  QueryCalculateBondingAmountResponse as SunriseShareclassV1QueryCalculateBondingAmountResponse,
+  QueryCalculateShareRequest as SunriseShareclassV1QueryCalculateShareRequest,
+  QueryCalculateShareResponse as SunriseShareclassV1QueryCalculateShareResponse,
+  QueryAddressBondedRequest as SunriseShareclassV1QueryAddressBondedRequest,
+  QueryAddressBondedResponse as SunriseShareclassV1QueryAddressBondedResponse,
+  QueryClaimableRewardsRequest as SunriseShareclassV1QueryClaimableRewardsRequest,
+  QueryClaimableRewardsResponse as SunriseShareclassV1QueryClaimableRewardsResponse,
+  QueryAddressUnbondingRequest as SunriseShareclassV1QueryAddressUnbondingRequest,
+  QueryAddressUnbondingResponse as SunriseShareclassV1QueryAddressUnbondingResponse,
+} from "./sunrise/shareclass/v1/query_pb.js";
 export {
-  QueryParamsRequest as SunriseLiquiditypoolQueryParamsRequest,
-  QueryParamsResponse as SunriseLiquiditypoolQueryParamsResponse,
-  QueryPoolRequest as SunriseLiquiditypoolQueryPoolRequest,
-  PoolInfo as SunriseLiquiditypoolPoolInfo,
-  QueryPoolResponse as SunriseLiquiditypoolQueryPoolResponse,
-  QueryPoolsRequest as SunriseLiquiditypoolQueryPoolsRequest,
-  QueryPoolsResponse as SunriseLiquiditypoolQueryPoolsResponse,
-  QueryPositionRequest as SunriseLiquiditypoolQueryPositionRequest,
-  PositionInfo as SunriseLiquiditypoolPositionInfo,
-  QueryPositionResponse as SunriseLiquiditypoolQueryPositionResponse,
-  QueryPositionsRequest as SunriseLiquiditypoolQueryPositionsRequest,
-  QueryPositionsResponse as SunriseLiquiditypoolQueryPositionsResponse,
-  QueryPoolPositionsRequest as SunriseLiquiditypoolQueryPoolPositionsRequest,
-  QueryPoolPositionsResponse as SunriseLiquiditypoolQueryPoolPositionsResponse,
-  QueryAddressPositionsRequest as SunriseLiquiditypoolQueryAddressPositionsRequest,
-  QueryAddressPositionsResponse as SunriseLiquiditypoolQueryAddressPositionsResponse,
-  QueryPositionFeesRequest as SunriseLiquiditypoolQueryPositionFeesRequest,
-  QueryPositionFeesResponse as SunriseLiquiditypoolQueryPositionFeesResponse,
-  QueryCalculationCreatePositionRequest as SunriseLiquiditypoolQueryCalculationCreatePositionRequest,
-  QueryCalculationCreatePositionResponse as SunriseLiquiditypoolQueryCalculationCreatePositionResponse,
-  QueryCalculationIncreaseLiquidityRequest as SunriseLiquiditypoolQueryCalculationIncreaseLiquidityRequest,
-  QueryCalculationIncreaseLiquidityResponse as SunriseLiquiditypoolQueryCalculationIncreaseLiquidityResponse,
-} from "./sunrise/liquiditypool/query_pb.js";
+  QueryParamsService as SunriseShareclassV1QueryParamsService,
+  QueryCalculateBondingAmountService as SunriseShareclassV1QueryCalculateBondingAmountService,
+  QueryCalculateShareService as SunriseShareclassV1QueryCalculateShareService,
+  QueryAddressBondedService as SunriseShareclassV1QueryAddressBondedService,
+  QueryClaimableRewardsService as SunriseShareclassV1QueryClaimableRewardsService,
+  QueryAddressUnbondingService as SunriseShareclassV1QueryAddressUnbondingService,
+} from "./sunrise/shareclass/v1/query_cosmes.js";
 export {
-  QueryParamsService as SunriseLiquiditypoolQueryParamsService,
-  QueryPoolService as SunriseLiquiditypoolQueryPoolService,
-  QueryPoolsService as SunriseLiquiditypoolQueryPoolsService,
-  QueryPositionService as SunriseLiquiditypoolQueryPositionService,
-  QueryPositionsService as SunriseLiquiditypoolQueryPositionsService,
-  QueryPoolPositionsService as SunriseLiquiditypoolQueryPoolPositionsService,
-  QueryAddressPositionsService as SunriseLiquiditypoolQueryAddressPositionsService,
-  QueryPositionFeesService as SunriseLiquiditypoolQueryPositionFeesService,
-  QueryCalculationCreatePositionService as SunriseLiquiditypoolQueryCalculationCreatePositionService,
-  QueryCalculationIncreaseLiquidityService as SunriseLiquiditypoolQueryCalculationIncreaseLiquidityService,
-} from "./sunrise/liquiditypool/query_cosmes.js";
+  Params as SunriseShareclassV1Params,
+} from "./sunrise/shareclass/v1/params_pb.js";
 export {
-  Position as SunriseLiquiditypoolPosition,
-} from "./sunrise/liquiditypool/position_pb.js";
+  GenesisState as SunriseShareclassV1GenesisState,
+  GenesisRewardMultiplier as SunriseShareclassV1GenesisRewardMultiplier,
+  GenesisUserLastRewardMultiplier as SunriseShareclassV1GenesisUserLastRewardMultiplier,
+  GenesisLastRewardHandlingTime as SunriseShareclassV1GenesisLastRewardHandlingTime,
+} from "./sunrise/shareclass/v1/genesis_pb.js";
 export {
-  Pool as SunriseLiquiditypoolPool,
-  TickParams as SunriseLiquiditypoolTickParams,
-} from "./sunrise/liquiditypool/pool_pb.js";
+  ValidatorBond as SunriseShareclassV1ValidatorBond,
+  Unbonding as SunriseShareclassV1Unbonding,
+} from "./sunrise/shareclass/v1/bond_pb.js";
 export {
-  Params as SunriseLiquiditypoolParams,
-} from "./sunrise/liquiditypool/params_pb.js";
+  Module as SunriseShareclassModuleV1Module,
+} from "./sunrise/shareclass/module/v1/module_pb.js";
 export {
-  GenesisState as SunriseLiquiditypoolGenesisState,
-} from "./sunrise/liquiditypool/genesis_pb.js";
+  MsgUpdateParams as SunriseLockupV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseLockupV1MsgUpdateParamsResponse,
+  MsgInitLockupAccount as SunriseLockupV1MsgInitLockupAccount,
+  MsgInitLockupAccountResponse as SunriseLockupV1MsgInitLockupAccountResponse,
+  MsgNonVotingDelegate as SunriseLockupV1MsgNonVotingDelegate,
+  MsgNonVotingDelegateResponse as SunriseLockupV1MsgNonVotingDelegateResponse,
+  MsgNonVotingUndelegate as SunriseLockupV1MsgNonVotingUndelegate,
+  MsgNonVotingUndelegateResponse as SunriseLockupV1MsgNonVotingUndelegateResponse,
+  MsgClaimRewards as SunriseLockupV1MsgClaimRewards,
+  MsgClaimRewardsResponse as SunriseLockupV1MsgClaimRewardsResponse,
+  MsgSend as SunriseLockupV1MsgSend,
+  MsgSendResponse as SunriseLockupV1MsgSendResponse,
+} from "./sunrise/lockup/v1/tx_pb.js";
 export {
-  EventCreatePool as SunriseLiquiditypoolEventCreatePool,
-  EventCreatePosition as SunriseLiquiditypoolEventCreatePosition,
-  EventIncreaseLiquidity as SunriseLiquiditypoolEventIncreaseLiquidity,
-  EventDecreaseLiquidity as SunriseLiquiditypoolEventDecreaseLiquidity,
-  EventClaimRewards as SunriseLiquiditypoolEventClaimRewards,
-  EventSwapExactAmountIn as SunriseLiquiditypoolEventSwapExactAmountIn,
-  EventSwapExactAmountOut as SunriseLiquiditypoolEventSwapExactAmountOut,
-} from "./sunrise/liquiditypool/events_pb.js";
+  MsgUpdateParamsService as SunriseLockupV1MsgUpdateParamsService,
+  MsgInitLockupAccountService as SunriseLockupV1MsgInitLockupAccountService,
+  MsgNonVotingDelegateService as SunriseLockupV1MsgNonVotingDelegateService,
+  MsgNonVotingUndelegateService as SunriseLockupV1MsgNonVotingUndelegateService,
+  MsgClaimRewardsService as SunriseLockupV1MsgClaimRewardsService,
+  MsgSendService as SunriseLockupV1MsgSendService,
+} from "./sunrise/lockup/v1/tx_cosmes.js";
 export {
-  AccumulatorObject as SunriseLiquiditypoolAccumulatorObject,
-  AccumulatorPosition as SunriseLiquiditypoolAccumulatorPosition,
-} from "./sunrise/liquiditypool/accumulator_pb.js";
+  QueryParamsRequest as SunriseLockupV1QueryParamsRequest,
+  QueryParamsResponse as SunriseLockupV1QueryParamsResponse,
+  QueryLockupAccountsRequest as SunriseLockupV1QueryLockupAccountsRequest,
+  QueryLockupAccountsResponse as SunriseLockupV1QueryLockupAccountsResponse,
+  QueryLockupAccountRequest as SunriseLockupV1QueryLockupAccountRequest,
+  QueryLockupAccountResponse as SunriseLockupV1QueryLockupAccountResponse,
+  QuerySpendableAmountRequest as SunriseLockupV1QuerySpendableAmountRequest,
+  QuerySpendableAmountResponse as SunriseLockupV1QuerySpendableAmountResponse,
+} from "./sunrise/lockup/v1/query_pb.js";
 export {
-  Module as SunriseLiquiditypoolModuleModule,
-} from "./sunrise/liquiditypool/module/module_pb.js";
+  QueryParamsService as SunriseLockupV1QueryParamsService,
+  QueryLockupAccountsService as SunriseLockupV1QueryLockupAccountsService,
+  QueryLockupAccountService as SunriseLockupV1QueryLockupAccountService,
+  QuerySpendableAmountService as SunriseLockupV1QuerySpendableAmountService,
+} from "./sunrise/lockup/v1/query_cosmes.js";
 export {
-  MsgUpdateParams as SunriseLiquidityincentiveMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseLiquidityincentiveMsgUpdateParamsResponse,
-  MsgVoteGauge as SunriseLiquidityincentiveMsgVoteGauge,
-  MsgVoteGaugeResponse as SunriseLiquidityincentiveMsgVoteGaugeResponse,
-  MsgCollectVoteRewards as SunriseLiquidityincentiveMsgCollectVoteRewards,
-  MsgCollectVoteRewardsResponse as SunriseLiquidityincentiveMsgCollectVoteRewardsResponse,
-} from "./sunrise/liquidityincentive/tx_pb.js";
+  Params as SunriseLockupV1Params,
+} from "./sunrise/lockup/v1/params_pb.js";
 export {
-  MsgUpdateParamsService as SunriseLiquidityincentiveMsgUpdateParamsService,
-  MsgVoteGaugeService as SunriseLiquidityincentiveMsgVoteGaugeService,
-  MsgCollectVoteRewardsService as SunriseLiquidityincentiveMsgCollectVoteRewardsService,
-} from "./sunrise/liquidityincentive/tx_cosmes.js";
+  LockupAccount as SunriseLockupV1LockupAccount,
+  UnbondingEntries as SunriseLockupV1UnbondingEntries,
+  UnbondingEntry as SunriseLockupV1UnbondingEntry,
+} from "./sunrise/lockup/v1/lockup_account_pb.js";
 export {
-  QueryParamsRequest as SunriseLiquidityincentiveQueryParamsRequest,
-  QueryParamsResponse as SunriseLiquidityincentiveQueryParamsResponse,
-  QueryEpochRequest as SunriseLiquidityincentiveQueryEpochRequest,
-  QueryEpochResponse as SunriseLiquidityincentiveQueryEpochResponse,
-  QueryEpochsRequest as SunriseLiquidityincentiveQueryEpochsRequest,
-  QueryEpochsResponse as SunriseLiquidityincentiveQueryEpochsResponse,
-  QueryGaugeRequest as SunriseLiquidityincentiveQueryGaugeRequest,
-  QueryGaugeResponse as SunriseLiquidityincentiveQueryGaugeResponse,
-  QueryGaugesRequest as SunriseLiquidityincentiveQueryGaugesRequest,
-  QueryGaugesResponse as SunriseLiquidityincentiveQueryGaugesResponse,
-  QueryVoteRequest as SunriseLiquidityincentiveQueryVoteRequest,
-  QueryVoteResponse as SunriseLiquidityincentiveQueryVoteResponse,
-  QueryVotesRequest as SunriseLiquidityincentiveQueryVotesRequest,
-  QueryVotesResponse as SunriseLiquidityincentiveQueryVotesResponse,
-} from "./sunrise/liquidityincentive/query_pb.js";
+  GenesisState as SunriseLockupV1GenesisState,
+} from "./sunrise/lockup/v1/genesis_pb.js";
 export {
-  QueryParamsService as SunriseLiquidityincentiveQueryParamsService,
-  QueryEpochService as SunriseLiquidityincentiveQueryEpochService,
-  QueryEpochsService as SunriseLiquidityincentiveQueryEpochsService,
-  QueryGaugeService as SunriseLiquidityincentiveQueryGaugeService,
-  QueryGaugesService as SunriseLiquidityincentiveQueryGaugesService,
-  QueryVoteService as SunriseLiquidityincentiveQueryVoteService,
-  QueryVotesService as SunriseLiquidityincentiveQueryVotesService,
-} from "./sunrise/liquidityincentive/query_cosmes.js";
+  Module as SunriseLockupModuleV1Module,
+} from "./sunrise/lockup/module/v1/module_pb.js";
 export {
-  Params as SunriseLiquidityincentiveParams,
-} from "./sunrise/liquidityincentive/params_pb.js";
+  MsgUpdateParams as SunriseLiquiditypoolV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseLiquiditypoolV1MsgUpdateParamsResponse,
+  MsgCreatePool as SunriseLiquiditypoolV1MsgCreatePool,
+  MsgCreatePoolResponse as SunriseLiquiditypoolV1MsgCreatePoolResponse,
+  MsgCreatePosition as SunriseLiquiditypoolV1MsgCreatePosition,
+  MsgCreatePositionResponse as SunriseLiquiditypoolV1MsgCreatePositionResponse,
+  MsgIncreaseLiquidity as SunriseLiquiditypoolV1MsgIncreaseLiquidity,
+  MsgIncreaseLiquidityResponse as SunriseLiquiditypoolV1MsgIncreaseLiquidityResponse,
+  MsgDecreaseLiquidity as SunriseLiquiditypoolV1MsgDecreaseLiquidity,
+  MsgDecreaseLiquidityResponse as SunriseLiquiditypoolV1MsgDecreaseLiquidityResponse,
+  MsgClaimRewards as SunriseLiquiditypoolV1MsgClaimRewards,
+  MsgClaimRewardsResponse as SunriseLiquiditypoolV1MsgClaimRewardsResponse,
+} from "./sunrise/liquiditypool/v1/tx_pb.js";
 export {
-  GenesisState as SunriseLiquidityincentiveGenesisState,
-} from "./sunrise/liquidityincentive/genesis_pb.js";
+  MsgUpdateParamsService as SunriseLiquiditypoolV1MsgUpdateParamsService,
+  MsgCreatePoolService as SunriseLiquiditypoolV1MsgCreatePoolService,
+  MsgCreatePositionService as SunriseLiquiditypoolV1MsgCreatePositionService,
+  MsgIncreaseLiquidityService as SunriseLiquiditypoolV1MsgIncreaseLiquidityService,
+  MsgDecreaseLiquidityService as SunriseLiquiditypoolV1MsgDecreaseLiquidityService,
+  MsgClaimRewardsService as SunriseLiquiditypoolV1MsgClaimRewardsService,
+} from "./sunrise/liquiditypool/v1/tx_cosmes.js";
 export {
-  Gauge as SunriseLiquidityincentiveGauge,
-  TallyResult as SunriseLiquidityincentiveTallyResult,
-  PoolWeight as SunriseLiquidityincentivePoolWeight,
-  Vote as SunriseLiquidityincentiveVote,
-} from "./sunrise/liquidityincentive/gauge_pb.js";
+  TickInfo as SunriseLiquiditypoolV1TickInfo,
+} from "./sunrise/liquiditypool/v1/ticker_pb.js";
 export {
-  EventVoteGauge as SunriseLiquidityincentiveEventVoteGauge,
-  EventCollectVoteRewards as SunriseLiquidityincentiveEventCollectVoteRewards,
-} from "./sunrise/liquidityincentive/events_pb.js";
+  QueryParamsRequest as SunriseLiquiditypoolV1QueryParamsRequest,
+  QueryParamsResponse as SunriseLiquiditypoolV1QueryParamsResponse,
+  QueryPoolRequest as SunriseLiquiditypoolV1QueryPoolRequest,
+  PoolInfo as SunriseLiquiditypoolV1PoolInfo,
+  QueryPoolResponse as SunriseLiquiditypoolV1QueryPoolResponse,
+  QueryPoolsRequest as SunriseLiquiditypoolV1QueryPoolsRequest,
+  QueryPoolsResponse as SunriseLiquiditypoolV1QueryPoolsResponse,
+  QueryPositionRequest as SunriseLiquiditypoolV1QueryPositionRequest,
+  PositionInfo as SunriseLiquiditypoolV1PositionInfo,
+  QueryPositionResponse as SunriseLiquiditypoolV1QueryPositionResponse,
+  QueryPositionsRequest as SunriseLiquiditypoolV1QueryPositionsRequest,
+  QueryPositionsResponse as SunriseLiquiditypoolV1QueryPositionsResponse,
+  QueryPoolPositionsRequest as SunriseLiquiditypoolV1QueryPoolPositionsRequest,
+  QueryPoolPositionsResponse as SunriseLiquiditypoolV1QueryPoolPositionsResponse,
+  QueryAddressPositionsRequest as SunriseLiquiditypoolV1QueryAddressPositionsRequest,
+  QueryAddressPositionsResponse as SunriseLiquiditypoolV1QueryAddressPositionsResponse,
+  QueryPositionFeesRequest as SunriseLiquiditypoolV1QueryPositionFeesRequest,
+  QueryPositionFeesResponse as SunriseLiquiditypoolV1QueryPositionFeesResponse,
+  QueryCalculationCreatePositionRequest as SunriseLiquiditypoolV1QueryCalculationCreatePositionRequest,
+  QueryCalculationCreatePositionResponse as SunriseLiquiditypoolV1QueryCalculationCreatePositionResponse,
+  QueryCalculationIncreaseLiquidityRequest as SunriseLiquiditypoolV1QueryCalculationIncreaseLiquidityRequest,
+  QueryCalculationIncreaseLiquidityResponse as SunriseLiquiditypoolV1QueryCalculationIncreaseLiquidityResponse,
+} from "./sunrise/liquiditypool/v1/query_pb.js";
 export {
-  Epoch as SunriseLiquidityincentiveEpoch,
-} from "./sunrise/liquidityincentive/epoch_pb.js";
+  QueryParamsService as SunriseLiquiditypoolV1QueryParamsService,
+  QueryPoolService as SunriseLiquiditypoolV1QueryPoolService,
+  QueryPoolsService as SunriseLiquiditypoolV1QueryPoolsService,
+  QueryPositionService as SunriseLiquiditypoolV1QueryPositionService,
+  QueryPositionsService as SunriseLiquiditypoolV1QueryPositionsService,
+  QueryPoolPositionsService as SunriseLiquiditypoolV1QueryPoolPositionsService,
+  QueryAddressPositionsService as SunriseLiquiditypoolV1QueryAddressPositionsService,
+  QueryPositionFeesService as SunriseLiquiditypoolV1QueryPositionFeesService,
+  QueryCalculationCreatePositionService as SunriseLiquiditypoolV1QueryCalculationCreatePositionService,
+  QueryCalculationIncreaseLiquidityService as SunriseLiquiditypoolV1QueryCalculationIncreaseLiquidityService,
+} from "./sunrise/liquiditypool/v1/query_cosmes.js";
 export {
-  Module as SunriseLiquidityincentiveModuleModule,
-} from "./sunrise/liquidityincentive/module/module_pb.js";
+  Position as SunriseLiquiditypoolV1Position,
+} from "./sunrise/liquiditypool/v1/position_pb.js";
 export {
-  MsgUpdateParams as SunriseFeeMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseFeeMsgUpdateParamsResponse,
-} from "./sunrise/fee/tx_pb.js";
+  Pool as SunriseLiquiditypoolV1Pool,
+  TickParams as SunriseLiquiditypoolV1TickParams,
+} from "./sunrise/liquiditypool/v1/pool_pb.js";
 export {
-  MsgUpdateParamsService as SunriseFeeMsgUpdateParamsService,
-} from "./sunrise/fee/tx_cosmes.js";
+  Params as SunriseLiquiditypoolV1Params,
+} from "./sunrise/liquiditypool/v1/params_pb.js";
 export {
-  QueryParamsRequest as SunriseFeeQueryParamsRequest,
-  QueryParamsResponse as SunriseFeeQueryParamsResponse,
-} from "./sunrise/fee/query_pb.js";
+  GenesisState as SunriseLiquiditypoolV1GenesisState,
+} from "./sunrise/liquiditypool/v1/genesis_pb.js";
 export {
-  QueryParamsService as SunriseFeeQueryParamsService,
-} from "./sunrise/fee/query_cosmes.js";
+  EventCreatePool as SunriseLiquiditypoolV1EventCreatePool,
+  EventCreatePosition as SunriseLiquiditypoolV1EventCreatePosition,
+  EventIncreaseLiquidity as SunriseLiquiditypoolV1EventIncreaseLiquidity,
+  EventDecreaseLiquidity as SunriseLiquiditypoolV1EventDecreaseLiquidity,
+  EventClaimRewards as SunriseLiquiditypoolV1EventClaimRewards,
+  EventSwapExactAmountIn as SunriseLiquiditypoolV1EventSwapExactAmountIn,
+  EventSwapExactAmountOut as SunriseLiquiditypoolV1EventSwapExactAmountOut,
+} from "./sunrise/liquiditypool/v1/events_pb.js";
 export {
-  Params as SunriseFeeParams,
-} from "./sunrise/fee/params_pb.js";
+  AccumulatorObject as SunriseLiquiditypoolV1AccumulatorObject,
+  AccumulatorPosition as SunriseLiquiditypoolV1AccumulatorPosition,
+} from "./sunrise/liquiditypool/v1/accumulator_pb.js";
 export {
-  GenesisState as SunriseFeeGenesisState,
-} from "./sunrise/fee/genesis_pb.js";
+  Module as SunriseLiquiditypoolModuleV1Module,
+} from "./sunrise/liquiditypool/module/v1/module_pb.js";
 export {
-  EventFeeBurn as SunriseFeeEventFeeBurn,
-} from "./sunrise/fee/events_pb.js";
+  MsgUpdateParams as SunriseLiquidityincentiveV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseLiquidityincentiveV1MsgUpdateParamsResponse,
+  MsgVoteGauge as SunriseLiquidityincentiveV1MsgVoteGauge,
+  MsgVoteGaugeResponse as SunriseLiquidityincentiveV1MsgVoteGaugeResponse,
+  MsgRegisterBribe as SunriseLiquidityincentiveV1MsgRegisterBribe,
+  MsgRegisterBribeResponse as SunriseLiquidityincentiveV1MsgRegisterBribeResponse,
+  MsgClaimBribes as SunriseLiquidityincentiveV1MsgClaimBribes,
+  MsgClaimBribesResponse as SunriseLiquidityincentiveV1MsgClaimBribesResponse,
+} from "./sunrise/liquidityincentive/v1/tx_pb.js";
 export {
-  Module as SunriseFeeModuleModule,
-} from "./sunrise/fee/module/module_pb.js";
+  MsgUpdateParamsService as SunriseLiquidityincentiveV1MsgUpdateParamsService,
+  MsgVoteGaugeService as SunriseLiquidityincentiveV1MsgVoteGaugeService,
+  MsgRegisterBribeService as SunriseLiquidityincentiveV1MsgRegisterBribeService,
+  MsgClaimBribesService as SunriseLiquidityincentiveV1MsgClaimBribesService,
+} from "./sunrise/liquidityincentive/v1/tx_cosmes.js";
 export {
-  VoteExtension as SunriseDaVoteExtension,
-} from "./sunrise/da/vote_extension_pb.js";
+  QueryParamsRequest as SunriseLiquidityincentiveV1QueryParamsRequest,
+  QueryParamsResponse as SunriseLiquidityincentiveV1QueryParamsResponse,
+  QueryEpochRequest as SunriseLiquidityincentiveV1QueryEpochRequest,
+  QueryEpochResponse as SunriseLiquidityincentiveV1QueryEpochResponse,
+  QueryEpochsRequest as SunriseLiquidityincentiveV1QueryEpochsRequest,
+  QueryEpochsResponse as SunriseLiquidityincentiveV1QueryEpochsResponse,
+  QueryGaugeRequest as SunriseLiquidityincentiveV1QueryGaugeRequest,
+  QueryGaugeResponse as SunriseLiquidityincentiveV1QueryGaugeResponse,
+  QueryGaugesRequest as SunriseLiquidityincentiveV1QueryGaugesRequest,
+  QueryGaugesResponse as SunriseLiquidityincentiveV1QueryGaugesResponse,
+  QueryVoteRequest as SunriseLiquidityincentiveV1QueryVoteRequest,
+  QueryVoteResponse as SunriseLiquidityincentiveV1QueryVoteResponse,
+  QueryVotesRequest as SunriseLiquidityincentiveV1QueryVotesRequest,
+  QueryVotesResponse as SunriseLiquidityincentiveV1QueryVotesResponse,
+  QueryBribesRequest as SunriseLiquidityincentiveV1QueryBribesRequest,
+  QueryBribesResponse as SunriseLiquidityincentiveV1QueryBribesResponse,
+  QueryBribeRequest as SunriseLiquidityincentiveV1QueryBribeRequest,
+  QueryBribeResponse as SunriseLiquidityincentiveV1QueryBribeResponse,
+  QueryBribesByEpochIdRequest as SunriseLiquidityincentiveV1QueryBribesByEpochIdRequest,
+  QueryBribesByEpochIdResponse as SunriseLiquidityincentiveV1QueryBribesByEpochIdResponse,
+  QueryBribesByPoolIdRequest as SunriseLiquidityincentiveV1QueryBribesByPoolIdRequest,
+  QueryBribesByPoolIdResponse as SunriseLiquidityincentiveV1QueryBribesByPoolIdResponse,
+  QueryBribesByEpochAndPoolIdRequest as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdRequest,
+  QueryBribesByEpochAndPoolIdResponse as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdResponse,
+  QueryBribeAllocationsRequest as SunriseLiquidityincentiveV1QueryBribeAllocationsRequest,
+  QueryBribeAllocationsResponse as SunriseLiquidityincentiveV1QueryBribeAllocationsResponse,
+  QueryBribeAllocationsByAddressRequest as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressRequest,
+  QueryBribeAllocationsByAddressResponse as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressResponse,
+  QueryBribeAllocationRequest as SunriseLiquidityincentiveV1QueryBribeAllocationRequest,
+  QueryBribeAllocationResponse as SunriseLiquidityincentiveV1QueryBribeAllocationResponse,
+} from "./sunrise/liquidityincentive/v1/query_pb.js";
 export {
-  MsgUpdateParams as SunriseDaMsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseDaMsgUpdateParamsResponse,
-  MsgPublishData as SunriseDaMsgPublishData,
-  MsgPublishDataResponse as SunriseDaMsgPublishDataResponse,
-  MsgChallengeForFraud as SunriseDaMsgChallengeForFraud,
-  MsgChallengeForFraudResponse as SunriseDaMsgChallengeForFraudResponse,
-  MsgSubmitProof as SunriseDaMsgSubmitProof,
-  MsgSubmitProofResponse as SunriseDaMsgSubmitProofResponse,
-} from "./sunrise/da/tx_pb.js";
+  QueryParamsService as SunriseLiquidityincentiveV1QueryParamsService,
+  QueryEpochService as SunriseLiquidityincentiveV1QueryEpochService,
+  QueryEpochsService as SunriseLiquidityincentiveV1QueryEpochsService,
+  QueryGaugeService as SunriseLiquidityincentiveV1QueryGaugeService,
+  QueryGaugesService as SunriseLiquidityincentiveV1QueryGaugesService,
+  QueryVoteService as SunriseLiquidityincentiveV1QueryVoteService,
+  QueryVotesService as SunriseLiquidityincentiveV1QueryVotesService,
+  QueryBribesService as SunriseLiquidityincentiveV1QueryBribesService,
+  QueryBribeService as SunriseLiquidityincentiveV1QueryBribeService,
+  QueryBribesByEpochIdService as SunriseLiquidityincentiveV1QueryBribesByEpochIdService,
+  QueryBribesByPoolIdService as SunriseLiquidityincentiveV1QueryBribesByPoolIdService,
+  QueryBribesByEpochAndPoolIdService as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdService,
+  QueryBribeAllocationsService as SunriseLiquidityincentiveV1QueryBribeAllocationsService,
+  QueryBribeAllocationsByAddressService as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressService,
+  QueryBribeAllocationService as SunriseLiquidityincentiveV1QueryBribeAllocationService,
+} from "./sunrise/liquidityincentive/v1/query_cosmes.js";
 export {
-  MsgUpdateParamsService as SunriseDaMsgUpdateParamsService,
-  MsgPublishDataService as SunriseDaMsgPublishDataService,
-  MsgChallengeForFraudService as SunriseDaMsgChallengeForFraudService,
-  MsgSubmitProofService as SunriseDaMsgSubmitProofService,
-} from "./sunrise/da/tx_cosmes.js";
+  Params as SunriseLiquidityincentiveV1Params,
+} from "./sunrise/liquidityincentive/v1/params_pb.js";
 export {
-  QueryParamsRequest as SunriseDaQueryParamsRequest,
-  QueryParamsResponse as SunriseDaQueryParamsResponse,
-  QueryPublishedDataRequest as SunriseDaQueryPublishedDataRequest,
-  QueryPublishedDataResponse as SunriseDaQueryPublishedDataResponse,
-  QueryAllPublishedDataRequest as SunriseDaQueryAllPublishedDataRequest,
-  QueryAllPublishedDataResponse as SunriseDaQueryAllPublishedDataResponse,
-  QueryZkpProofThresholdRequest as SunriseDaQueryZkpProofThresholdRequest,
-  QueryZkpProofThresholdResponse as SunriseDaQueryZkpProofThresholdResponse,
-} from "./sunrise/da/query_pb.js";
+  GenesisState as SunriseLiquidityincentiveV1GenesisState,
+} from "./sunrise/liquidityincentive/v1/genesis_pb.js";
 export {
-  QueryParamsService as SunriseDaQueryParamsService,
-  QueryPublishedDataService as SunriseDaQueryPublishedDataService,
-  QueryAllPublishedDataService as SunriseDaQueryAllPublishedDataService,
-  QueryZkpProofThresholdService as SunriseDaQueryZkpProofThresholdService,
-} from "./sunrise/da/query_cosmes.js";
+  Gauge as SunriseLiquidityincentiveV1Gauge,
+  TallyResult as SunriseLiquidityincentiveV1TallyResult,
+  PoolWeight as SunriseLiquidityincentiveV1PoolWeight,
+  Vote as SunriseLiquidityincentiveV1Vote,
+} from "./sunrise/liquidityincentive/v1/gauge_pb.js";
 export {
-  PublishedData as SunriseDaPublishedData,
-  Proof as SunriseDaProof,
-} from "./sunrise/da/published_data_pb.js";
+  EventVoteGauge as SunriseLiquidityincentiveV1EventVoteGauge,
+  EventRegisterBribe as SunriseLiquidityincentiveV1EventRegisterBribe,
+  EventClaimBribes as SunriseLiquidityincentiveV1EventClaimBribes,
+} from "./sunrise/liquidityincentive/v1/events_pb.js";
 export {
-  Params as SunriseDaParams,
-} from "./sunrise/da/params_pb.js";
+  Epoch as SunriseLiquidityincentiveV1Epoch,
+} from "./sunrise/liquidityincentive/v1/epoch_pb.js";
 export {
-  Metadata as SunriseDaMetadata,
-  MetadataUriWrapper as SunriseDaMetadataUriWrapper,
-} from "./sunrise/da/metadata_pb.js";
+  Bribe as SunriseLiquidityincentiveV1Bribe,
+  BribeAllocation as SunriseLiquidityincentiveV1BribeAllocation,
+} from "./sunrise/liquidityincentive/v1/bribe_pb.js";
 export {
-  GenesisState as SunriseDaGenesisState,
-} from "./sunrise/da/genesis_pb.js";
+  Module as SunriseLiquidityincentiveModuleV1Module,
+} from "./sunrise/liquidityincentive/module/v1/module_pb.js";
 export {
-  Module as SunriseDaModuleModule,
-} from "./sunrise/da/module/module_pb.js";
+  MsgUpdateParams as SunriseFeeV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseFeeV1MsgUpdateParamsResponse,
+} from "./sunrise/fee/v1/tx_pb.js";
+export {
+  MsgUpdateParamsService as SunriseFeeV1MsgUpdateParamsService,
+} from "./sunrise/fee/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as SunriseFeeV1QueryParamsRequest,
+  QueryParamsResponse as SunriseFeeV1QueryParamsResponse,
+} from "./sunrise/fee/v1/query_pb.js";
+export {
+  QueryParamsService as SunriseFeeV1QueryParamsService,
+} from "./sunrise/fee/v1/query_cosmes.js";
+export {
+  Params as SunriseFeeV1Params,
+} from "./sunrise/fee/v1/params_pb.js";
+export {
+  GenesisState as SunriseFeeV1GenesisState,
+} from "./sunrise/fee/v1/genesis_pb.js";
+export {
+  Module as SunriseFeeModuleV1Module,
+} from "./sunrise/fee/module/v1/module_pb.js";
+export {
+  VoteExtension as SunriseDaV1VoteExtension,
+} from "./sunrise/da/v1/vote_extension_pb.js";
+export {
+  MsgUpdateParams as SunriseDaV1MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseDaV1MsgUpdateParamsResponse,
+  MsgPublishData as SunriseDaV1MsgPublishData,
+  MsgPublishDataResponse as SunriseDaV1MsgPublishDataResponse,
+  MsgSubmitInvalidity as SunriseDaV1MsgSubmitInvalidity,
+  MsgSubmitInvalidityResponse as SunriseDaV1MsgSubmitInvalidityResponse,
+  MsgSubmitValidityProof as SunriseDaV1MsgSubmitValidityProof,
+  MsgSubmitValidityProofResponse as SunriseDaV1MsgSubmitValidityProofResponse,
+  MsgRegisterProofDeputy as SunriseDaV1MsgRegisterProofDeputy,
+  MsgRegisterProofDeputyResponse as SunriseDaV1MsgRegisterProofDeputyResponse,
+  MsgUnregisterProofDeputy as SunriseDaV1MsgUnregisterProofDeputy,
+  MsgUnregisterProofDeputyResponse as SunriseDaV1MsgUnregisterProofDeputyResponse,
+} from "./sunrise/da/v1/tx_pb.js";
+export {
+  MsgUpdateParamsService as SunriseDaV1MsgUpdateParamsService,
+  MsgPublishDataService as SunriseDaV1MsgPublishDataService,
+  MsgSubmitInvalidityService as SunriseDaV1MsgSubmitInvalidityService,
+  MsgSubmitValidityProofService as SunriseDaV1MsgSubmitValidityProofService,
+  MsgRegisterProofDeputyService as SunriseDaV1MsgRegisterProofDeputyService,
+  MsgUnregisterProofDeputyService as SunriseDaV1MsgUnregisterProofDeputyService,
+} from "./sunrise/da/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as SunriseDaV1QueryParamsRequest,
+  QueryParamsResponse as SunriseDaV1QueryParamsResponse,
+  QueryPublishedDataRequest as SunriseDaV1QueryPublishedDataRequest,
+  QueryPublishedDataResponse as SunriseDaV1QueryPublishedDataResponse,
+  QueryAllPublishedDataRequest as SunriseDaV1QueryAllPublishedDataRequest,
+  QueryAllPublishedDataResponse as SunriseDaV1QueryAllPublishedDataResponse,
+  QueryValidityProofRequest as SunriseDaV1QueryValidityProofRequest,
+  QueryValidityProofResponse as SunriseDaV1QueryValidityProofResponse,
+  QueryAllValidityProofsRequest as SunriseDaV1QueryAllValidityProofsRequest,
+  QueryAllValidityProofsResponse as SunriseDaV1QueryAllValidityProofsResponse,
+  QueryInvalidityRequest as SunriseDaV1QueryInvalidityRequest,
+  QueryInvalidityResponse as SunriseDaV1QueryInvalidityResponse,
+  QueryAllInvalidityRequest as SunriseDaV1QueryAllInvalidityRequest,
+  QueryAllInvalidityResponse as SunriseDaV1QueryAllInvalidityResponse,
+  QueryValidatorShardIndicesRequest as SunriseDaV1QueryValidatorShardIndicesRequest,
+  QueryValidatorShardIndicesResponse as SunriseDaV1QueryValidatorShardIndicesResponse,
+  QueryZkpProofThresholdRequest as SunriseDaV1QueryZkpProofThresholdRequest,
+  QueryZkpProofThresholdResponse as SunriseDaV1QueryZkpProofThresholdResponse,
+  QueryProofDeputyRequest as SunriseDaV1QueryProofDeputyRequest,
+  QueryProofDeputyResponse as SunriseDaV1QueryProofDeputyResponse,
+} from "./sunrise/da/v1/query_pb.js";
+export {
+  QueryParamsService as SunriseDaV1QueryParamsService,
+  QueryPublishedDataService as SunriseDaV1QueryPublishedDataService,
+  QueryAllPublishedDataService as SunriseDaV1QueryAllPublishedDataService,
+  QueryValidityProofService as SunriseDaV1QueryValidityProofService,
+  QueryAllValidityProofsService as SunriseDaV1QueryAllValidityProofsService,
+  QueryInvalidityService as SunriseDaV1QueryInvalidityService,
+  QueryAllInvalidityService as SunriseDaV1QueryAllInvalidityService,
+  QueryValidatorShardIndicesService as SunriseDaV1QueryValidatorShardIndicesService,
+  QueryZkpProofThresholdService as SunriseDaV1QueryZkpProofThresholdService,
+  QueryProofDeputyService as SunriseDaV1QueryProofDeputyService,
+} from "./sunrise/da/v1/query_cosmes.js";
+export {
+  Status as SunriseDaV1Status,
+  PublishedData as SunriseDaV1PublishedData,
+  Proof as SunriseDaV1Proof,
+  Invalidity as SunriseDaV1Invalidity,
+} from "./sunrise/da/v1/published_data_pb.js";
+export {
+  Params as SunriseDaV1Params,
+} from "./sunrise/da/v1/params_pb.js";
+export {
+  Metadata as SunriseDaV1Metadata,
+  MetadataUriWrapper as SunriseDaV1MetadataUriWrapper,
+} from "./sunrise/da/v1/metadata_pb.js";
+export {
+  GenesisState as SunriseDaV1GenesisState,
+} from "./sunrise/da/v1/genesis_pb.js";
+export {
+  Module as SunriseDaModuleV1Module,
+} from "./sunrise/da/module/v1/module_pb.js";
 export {
   Params as RefractedlabsOracleV1Params,
 } from "./refractedlabs/oracle/v1/params_pb.js";
@@ -931,6 +1096,8 @@ export {
   MsgInstantUnstakeResponse as PryzmIcstakingV1MsgInstantUnstakeResponse,
   MsgRebalanceDelegations as PryzmIcstakingV1MsgRebalanceDelegations,
   MsgRebalanceDelegationsResponse as PryzmIcstakingV1MsgRebalanceDelegationsResponse,
+  MsgRedelegate as PryzmIcstakingV1MsgRedelegate,
+  MsgRedelegateResponse as PryzmIcstakingV1MsgRedelegateResponse,
   MsgRegisterInterchainAccount as PryzmIcstakingV1MsgRegisterInterchainAccount,
   MsgRegisterInterchainAccountResponse as PryzmIcstakingV1MsgRegisterInterchainAccountResponse,
   MsgCreateMultiSigConnection as PryzmIcstakingV1MsgCreateMultiSigConnection,
@@ -954,6 +1121,7 @@ export {
   MsgRedeemUnstakedService as PryzmIcstakingV1MsgRedeemUnstakedService,
   MsgInstantUnstakeService as PryzmIcstakingV1MsgInstantUnstakeService,
   MsgRebalanceDelegationsService as PryzmIcstakingV1MsgRebalanceDelegationsService,
+  MsgRedelegateService as PryzmIcstakingV1MsgRedelegateService,
   MsgRegisterInterchainAccountService as PryzmIcstakingV1MsgRegisterInterchainAccountService,
   MsgCreateMultiSigConnectionService as PryzmIcstakingV1MsgCreateMultiSigConnectionService,
   MsgUpdateMultiSigConnectionService as PryzmIcstakingV1MsgUpdateMultiSigConnectionService,
@@ -1648,22 +1816,10 @@ export {
   MsgSetFeeTokensService as OsmosisTxfeesV1beta1MsgSetFeeTokensService,
 } from "./osmosis/txfees/v1beta1/tx_cosmes.js";
 export {
-  QueryFeeTokensRequest as OsmosisTxfeesV1beta1QueryFeeTokensRequest,
-  QueryFeeTokensResponse as OsmosisTxfeesV1beta1QueryFeeTokensResponse,
-  QueryDenomSpotPriceRequest as OsmosisTxfeesV1beta1QueryDenomSpotPriceRequest,
-  QueryDenomSpotPriceResponse as OsmosisTxfeesV1beta1QueryDenomSpotPriceResponse,
-  QueryDenomPoolIdRequest as OsmosisTxfeesV1beta1QueryDenomPoolIdRequest,
-  QueryDenomPoolIdResponse as OsmosisTxfeesV1beta1QueryDenomPoolIdResponse,
-  QueryBaseDenomRequest as OsmosisTxfeesV1beta1QueryBaseDenomRequest,
-  QueryBaseDenomResponse as OsmosisTxfeesV1beta1QueryBaseDenomResponse,
   QueryEipBaseFeeRequest as OsmosisTxfeesV1beta1QueryEipBaseFeeRequest,
   QueryEipBaseFeeResponse as OsmosisTxfeesV1beta1QueryEipBaseFeeResponse,
 } from "./osmosis/txfees/v1beta1/query_pb.js";
 export {
-  QueryFeeTokensService as OsmosisTxfeesV1beta1QueryFeeTokensService,
-  QueryDenomSpotPriceService as OsmosisTxfeesV1beta1QueryDenomSpotPriceService,
-  QueryDenomPoolIdService as OsmosisTxfeesV1beta1QueryDenomPoolIdService,
-  QueryBaseDenomService as OsmosisTxfeesV1beta1QueryBaseDenomService,
   QueryGetEipBaseFeeService as OsmosisTxfeesV1beta1QueryGetEipBaseFeeService,
 } from "./osmosis/txfees/v1beta1/query_cosmes.js";
 export {
@@ -2997,6 +3153,65 @@ export {
   QueryDenomHashService as NeutronTransferV1QueryDenomHashService,
 } from "./neutron/transfer/v1/query_cosmes.js";
 export {
+  QueryVerifyStateValuesRequest as NeutronStateVerifierV1QueryVerifyStateValuesRequest,
+  QueryVerifyStateValuesResponse as NeutronStateVerifierV1QueryVerifyStateValuesResponse,
+  QueryConsensusStateRequest as NeutronStateVerifierV1QueryConsensusStateRequest,
+  QueryConsensusStateResponse as NeutronStateVerifierV1QueryConsensusStateResponse,
+} from "./neutron/state_verifier/v1/query_pb.js";
+export {
+  QueryVerifyStateValuesService as NeutronStateVerifierV1QueryVerifyStateValuesService,
+  QueryQueryConsensusStateService as NeutronStateVerifierV1QueryQueryConsensusStateService,
+} from "./neutron/state_verifier/v1/query_cosmes.js";
+export {
+  ConsensusState as NeutronStateVerifierV1ConsensusState,
+  GenesisState as NeutronStateVerifierV1GenesisState,
+} from "./neutron/state_verifier/v1/genesis_pb.js";
+export {
+  MsgUpdateParams as NeutronRevenueMsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronRevenueMsgUpdateParamsResponse,
+  MsgFundTreasury as NeutronRevenueMsgFundTreasury,
+  MsgFundTreasuryResponse as NeutronRevenueMsgFundTreasuryResponse,
+} from "./neutron/revenue/tx_pb.js";
+export {
+  MsgUpdateParamsService as NeutronRevenueMsgUpdateParamsService,
+  MsgFundTreasuryService as NeutronRevenueMsgFundTreasuryService,
+} from "./neutron/revenue/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronRevenueQueryParamsRequest,
+  QueryParamsResponse as NeutronRevenueQueryParamsResponse,
+  QueryPaymentInfoRequest as NeutronRevenueQueryPaymentInfoRequest,
+  QueryPaymentInfoResponse as NeutronRevenueQueryPaymentInfoResponse,
+  QueryValidatorStatsRequest as NeutronRevenueQueryValidatorStatsRequest,
+  QueryValidatorStatsResponse as NeutronRevenueQueryValidatorStatsResponse,
+  QueryValidatorsStatsRequest as NeutronRevenueQueryValidatorsStatsRequest,
+  QueryValidatorsStatsResponse as NeutronRevenueQueryValidatorsStatsResponse,
+  ValidatorStats as NeutronRevenueValidatorStats,
+} from "./neutron/revenue/query_pb.js";
+export {
+  QueryParamsService as NeutronRevenueQueryParamsService,
+  QueryPaymentInfoService as NeutronRevenueQueryPaymentInfoService,
+  QueryValidatorStatsService as NeutronRevenueQueryValidatorStatsService,
+  QueryValidatorsStatsService as NeutronRevenueQueryValidatorsStatsService,
+} from "./neutron/revenue/query_cosmes.js";
+export {
+  Params as NeutronRevenueParams,
+  RewardQuote as NeutronRevenueRewardQuote,
+  PaymentScheduleType as NeutronRevenuePaymentScheduleType,
+  MonthlyPaymentScheduleType as NeutronRevenueMonthlyPaymentScheduleType,
+  BlockBasedPaymentScheduleType as NeutronRevenueBlockBasedPaymentScheduleType,
+  EmptyPaymentScheduleType as NeutronRevenueEmptyPaymentScheduleType,
+  PerformanceRequirement as NeutronRevenuePerformanceRequirement,
+} from "./neutron/revenue/params_pb.js";
+export {
+  GenesisState as NeutronRevenueGenesisState,
+  PaymentSchedule as NeutronRevenuePaymentSchedule,
+  ValidatorInfo as NeutronRevenueValidatorInfo,
+  MonthlyPaymentSchedule as NeutronRevenueMonthlyPaymentSchedule,
+  BlockBasedPaymentSchedule as NeutronRevenueBlockBasedPaymentSchedule,
+  EmptyPaymentSchedule as NeutronRevenueEmptyPaymentSchedule,
+  RewardAssetPrice as NeutronRevenueRewardAssetPrice,
+} from "./neutron/revenue/genesis_pb.js";
+export {
   MsgRegisterInterchainAccount as NeutronInterchaintxsV1MsgRegisterInterchainAccount,
   MsgRegisterInterchainAccountResponse as NeutronInterchaintxsV1MsgRegisterInterchainAccountResponse,
   MsgSubmitTx as NeutronInterchaintxsV1MsgSubmitTx,
@@ -3096,6 +3311,28 @@ export {
 export {
   GenesisState as NeutronIbcratelimitV1beta1GenesisState,
 } from "./neutron/ibcratelimit/v1beta1/genesis_pb.js";
+export {
+  MsgManageHookSubscription as NeutronHarpoonMsgManageHookSubscription,
+  MsgManageHookSubscriptionResponse as NeutronHarpoonMsgManageHookSubscriptionResponse,
+  HookSubscription as NeutronHarpoonHookSubscription,
+} from "./neutron/harpoon/tx_pb.js";
+export {
+  MsgManageHookSubscriptionService as NeutronHarpoonMsgManageHookSubscriptionService,
+} from "./neutron/harpoon/tx_cosmes.js";
+export {
+  QuerySubscribedContractsRequest as NeutronHarpoonQuerySubscribedContractsRequest,
+  QuerySubscribedContractsResponse as NeutronHarpoonQuerySubscribedContractsResponse,
+} from "./neutron/harpoon/query_pb.js";
+export {
+  QuerySubscribedContractsService as NeutronHarpoonQuerySubscribedContractsService,
+} from "./neutron/harpoon/query_cosmes.js";
+export {
+  HookType as NeutronHarpoonHookType,
+  HookSubscriptions as NeutronHarpoonHookSubscriptions,
+} from "./neutron/harpoon/hooks_pb.js";
+export {
+  GenesisState as NeutronHarpoonGenesisState,
+} from "./neutron/harpoon/genesis_pb.js";
 export {
   MsgUpdateParams as NeutronFeerefunderMsgUpdateParams,
   MsgUpdateParamsResponse as NeutronFeerefunderMsgUpdateParamsResponse,
@@ -3316,6 +3553,10 @@ export {
   Params as NeutronDexV2Params,
 } from "./neutron/dex/v2/params_pb.js";
 export {
+  PubKey as NeutronCryptoV1beta1Ethsecp256k1PubKey,
+  PrivKey as NeutronCryptoV1beta1Ethsecp256k1PrivKey,
+} from "./neutron/crypto/v1beta1/ethsecp256k1/keys_pb.js";
+export {
   MsgAddSchedule as NeutronCronMsgAddSchedule,
   MsgAddScheduleResponse as NeutronCronMsgAddScheduleResponse,
   MsgRemoveSchedule as NeutronCronMsgRemoveSchedule,
@@ -3471,6 +3712,8 @@ export {
   QueryServiceOutstandingRewardsResponse as MilkywayRewardsV1QueryServiceOutstandingRewardsResponse,
   QueryOperatorCommissionRequest as MilkywayRewardsV1QueryOperatorCommissionRequest,
   QueryOperatorCommissionResponse as MilkywayRewardsV1QueryOperatorCommissionResponse,
+  QueryPoolServiceTotalDelegatorSharesRequest as MilkywayRewardsV1QueryPoolServiceTotalDelegatorSharesRequest,
+  QueryPoolServiceTotalDelegatorSharesResponse as MilkywayRewardsV1QueryPoolServiceTotalDelegatorSharesResponse,
   QueryPoolDelegationRewardsRequest as MilkywayRewardsV1QueryPoolDelegationRewardsRequest,
   QueryPoolDelegationRewardsResponse as MilkywayRewardsV1QueryPoolDelegationRewardsResponse,
   QueryOperatorDelegationRewardsRequest as MilkywayRewardsV1QueryOperatorDelegationRewardsRequest,
@@ -3490,6 +3733,7 @@ export {
   QueryOperatorOutstandingRewardsService as MilkywayRewardsV1QueryOperatorOutstandingRewardsService,
   QueryServiceOutstandingRewardsService as MilkywayRewardsV1QueryServiceOutstandingRewardsService,
   QueryOperatorCommissionService as MilkywayRewardsV1QueryOperatorCommissionService,
+  QueryPoolServiceTotalDelegatorSharesService as MilkywayRewardsV1QueryPoolServiceTotalDelegatorSharesService,
   QueryPoolDelegationRewardsService as MilkywayRewardsV1QueryPoolDelegationRewardsService,
   QueryOperatorDelegationRewardsService as MilkywayRewardsV1QueryOperatorDelegationRewardsService,
   QueryServiceDelegationRewardsService as MilkywayRewardsV1QueryServiceDelegationRewardsService,
@@ -3833,6 +4077,32 @@ export {
 export {
   GenesisState as MilkywayLiquidvestingV1GenesisState,
 } from "./milkyway/liquidvesting/v1/genesis_pb.js";
+export {
+  QueryInvestorsRewardRatioRequest as MilkywayInvestorsV1QueryInvestorsRewardRatioRequest,
+  QueryInvestorsRewardRatioResponse as MilkywayInvestorsV1QueryInvestorsRewardRatioResponse,
+  QueryVestingInvestorsRequest as MilkywayInvestorsV1QueryVestingInvestorsRequest,
+  QueryVestingInvestorsResponse as MilkywayInvestorsV1QueryVestingInvestorsResponse,
+} from "./milkyway/investors/v1/query_pb.js";
+export {
+  QueryInvestorsRewardRatioService as MilkywayInvestorsV1QueryInvestorsRewardRatioService,
+  QueryVestingInvestorsService as MilkywayInvestorsV1QueryVestingInvestorsService,
+} from "./milkyway/investors/v1/query_cosmes.js";
+export {
+  VestingInvestorRewards as MilkywayInvestorsV1VestingInvestorRewards,
+} from "./milkyway/investors/v1/models_pb.js";
+export {
+  MsgAddVestingInvestor as MilkywayInvestorsV1MsgAddVestingInvestor,
+  MsgAddVestingInvestorResponse as MilkywayInvestorsV1MsgAddVestingInvestorResponse,
+  MsgUpdateInvestorsRewardRatio as MilkywayInvestorsV1MsgUpdateInvestorsRewardRatio,
+  MsgUpdateInvestorsRewardRatioResponse as MilkywayInvestorsV1MsgUpdateInvestorsRewardRatioResponse,
+} from "./milkyway/investors/v1/messages_pb.js";
+export {
+  MsgAddVestingInvestorService as MilkywayInvestorsV1MsgAddVestingInvestorService,
+  MsgUpdateInvestorsRewardRatioService as MilkywayInvestorsV1MsgUpdateInvestorsRewardRatioService,
+} from "./milkyway/investors/v1/messages_cosmes.js";
+export {
+  GenesisState as MilkywayInvestorsV1GenesisState,
+} from "./milkyway/investors/v1/genesis_pb.js";
 export {
   QueryAssetsRequest as MilkywayAssetsV1QueryAssetsRequest,
   QueryAssetsResponse as MilkywayAssetsV1QueryAssetsResponse,
@@ -4660,6 +4930,30 @@ export {
 export {
   EthAccount as InjectiveTypesV1beta1EthAccount,
 } from "./injective/types/v1beta1/account_pb.js";
+export {
+  Params as InjectiveTxfeesV1beta1Params,
+} from "./injective/txfees/v1beta1/txfees_pb.js";
+export {
+  MsgUpdateParams as InjectiveTxfeesV1beta1MsgUpdateParams,
+  MsgUpdateParamsResponse as InjectiveTxfeesV1beta1MsgUpdateParamsResponse,
+} from "./injective/txfees/v1beta1/tx_pb.js";
+export {
+  MsgUpdateParamsService as InjectiveTxfeesV1beta1MsgUpdateParamsService,
+} from "./injective/txfees/v1beta1/tx_cosmes.js";
+export {
+  EipBaseFee as InjectiveTxfeesV1beta1EipBaseFee,
+  QueryParamsRequest as InjectiveTxfeesV1beta1QueryParamsRequest,
+  QueryParamsResponse as InjectiveTxfeesV1beta1QueryParamsResponse,
+  QueryEipBaseFeeRequest as InjectiveTxfeesV1beta1QueryEipBaseFeeRequest,
+  QueryEipBaseFeeResponse as InjectiveTxfeesV1beta1QueryEipBaseFeeResponse,
+} from "./injective/txfees/v1beta1/query_pb.js";
+export {
+  QueryParamsService as InjectiveTxfeesV1beta1QueryParamsService,
+  QueryGetEipBaseFeeService as InjectiveTxfeesV1beta1QueryGetEipBaseFeeService,
+} from "./injective/txfees/v1beta1/query_cosmes.js";
+export {
+  GenesisState as InjectiveTxfeesV1beta1GenesisState,
+} from "./injective/txfees/v1beta1/genesis_pb.js";
 export {
   MsgCreateDenom as InjectiveTokenfactoryV1beta1MsgCreateDenom,
   MsgCreateDenomResponse as InjectiveTokenfactoryV1beta1MsgCreateDenomResponse,
@@ -6898,6 +7192,10 @@ export {
   QueryAllPoolRequest as ElysStablestakeQueryAllPoolRequest,
   QueryAllPoolResponse as ElysStablestakeQueryAllPoolResponse,
   PoolResponse as ElysStablestakePoolResponse,
+  QueryDebtRequest as ElysStablestakeQueryDebtRequest,
+  QueryDebtResponse as ElysStablestakeQueryDebtResponse,
+  QueryGetInterestRequest as ElysStablestakeQueryGetInterestRequest,
+  QueryGetInterestResponse as ElysStablestakeQueryGetInterestResponse,
 } from "./elys/stablestake/query_pb.js";
 export {
   QueryParamsService as ElysStablestakeQueryParamsService,
@@ -6906,6 +7204,8 @@ export {
   QueryPoolsService as ElysStablestakeQueryPoolsService,
   QueryAmmPoolService as ElysStablestakeQueryAmmPoolService,
   QueryAllAmmPoolsService as ElysStablestakeQueryAllAmmPoolsService,
+  QueryDebtService as ElysStablestakeQueryDebtService,
+  QueryGetInterestService as ElysStablestakeQueryGetInterestService,
 } from "./elys/stablestake/query_cosmes.js";
 export {
   Pool as ElysStablestakePool,
@@ -7052,8 +7352,61 @@ export {
   GenesisState as ElysParameterGenesisState,
 } from "./elys/parameter/genesis_pb.js";
 export {
+  FeedPrice as ElysOracleFeedPrice,
+  MsgFeedPrice as ElysOracleMsgFeedPrice,
+  MsgFeedPriceResponse as ElysOracleMsgFeedPriceResponse,
+  MsgSetPriceFeeder as ElysOracleMsgSetPriceFeeder,
+  MsgSetPriceFeederResponse as ElysOracleMsgSetPriceFeederResponse,
+  MsgDeletePriceFeeder as ElysOracleMsgDeletePriceFeeder,
+  MsgDeletePriceFeederResponse as ElysOracleMsgDeletePriceFeederResponse,
+  MsgFeedMultiplePrices as ElysOracleMsgFeedMultiplePrices,
+  MsgFeedMultiplePricesResponse as ElysOracleMsgFeedMultiplePricesResponse,
+  MsgRemoveAssetInfo as ElysOracleMsgRemoveAssetInfo,
+  MsgRemoveAssetInfoResponse as ElysOracleMsgRemoveAssetInfoResponse,
+  MsgAddPriceFeeders as ElysOracleMsgAddPriceFeeders,
+  MsgAddPriceFeedersResponse as ElysOracleMsgAddPriceFeedersResponse,
+  MsgRemovePriceFeeders as ElysOracleMsgRemovePriceFeeders,
+  MsgRemovePriceFeedersResponse as ElysOracleMsgRemovePriceFeedersResponse,
+  MsgUpdateParams as ElysOracleMsgUpdateParams,
+  MsgUpdateParamsResponse as ElysOracleMsgUpdateParamsResponse,
+  MsgCreateAssetInfo as ElysOracleMsgCreateAssetInfo,
+  MsgCreateAssetInfoResponse as ElysOracleMsgCreateAssetInfoResponse,
+} from "./elys/oracle/tx_pb.js";
+export {
+  MsgFeedPriceService as ElysOracleMsgFeedPriceService,
+  MsgFeedMultiplePricesService as ElysOracleMsgFeedMultiplePricesService,
+  MsgSetPriceFeederService as ElysOracleMsgSetPriceFeederService,
+  MsgDeletePriceFeederService as ElysOracleMsgDeletePriceFeederService,
+  MsgRemoveAssetInfoService as ElysOracleMsgRemoveAssetInfoService,
+  MsgAddPriceFeedersService as ElysOracleMsgAddPriceFeedersService,
+  MsgRemovePriceFeedersService as ElysOracleMsgRemovePriceFeedersService,
+  MsgUpdateParamsService as ElysOracleMsgUpdateParamsService,
+  MsgCreateAssetInfoService as ElysOracleMsgCreateAssetInfoService,
 } from "./elys/oracle/tx_cosmes.js";
 export {
+  QueryParamsRequest as ElysOracleQueryParamsRequest,
+  QueryParamsResponse as ElysOracleQueryParamsResponse,
+  QueryGetAssetInfoRequest as ElysOracleQueryGetAssetInfoRequest,
+  QueryGetAssetInfoResponse as ElysOracleQueryGetAssetInfoResponse,
+  QueryAllAssetInfoRequest as ElysOracleQueryAllAssetInfoRequest,
+  QueryAllAssetInfoResponse as ElysOracleQueryAllAssetInfoResponse,
+  QueryGetPriceRequest as ElysOracleQueryGetPriceRequest,
+  QueryGetPriceResponse as ElysOracleQueryGetPriceResponse,
+  QueryAllPriceRequest as ElysOracleQueryAllPriceRequest,
+  QueryAllPriceResponse as ElysOracleQueryAllPriceResponse,
+  QueryGetPriceFeederRequest as ElysOracleQueryGetPriceFeederRequest,
+  QueryGetPriceFeederResponse as ElysOracleQueryGetPriceFeederResponse,
+  QueryAllPriceFeederRequest as ElysOracleQueryAllPriceFeederRequest,
+  QueryAllPriceFeederResponse as ElysOracleQueryAllPriceFeederResponse,
+} from "./elys/oracle/query_pb.js";
+export {
+  QueryParamsService as ElysOracleQueryParamsService,
+  QueryAssetInfoService as ElysOracleQueryAssetInfoService,
+  QueryAssetInfoAllService as ElysOracleQueryAssetInfoAllService,
+  QueryPriceService as ElysOracleQueryPriceService,
+  QueryPriceAllService as ElysOracleQueryPriceAllService,
+  QueryPriceFeederService as ElysOracleQueryPriceFeederService,
+  QueryPriceFeederAllService as ElysOracleQueryPriceFeederAllService,
 } from "./elys/oracle/query_cosmes.js";
 export {
   Price as ElysOraclePrice,
@@ -7252,6 +7605,7 @@ export {
   QueryRewardsResponse as ElysLeveragelpQueryRewardsResponse,
   QueryCloseEstResponse as ElysLeveragelpQueryCloseEstResponse,
   QueryCommittedTokensLockedRequest as ElysLeveragelpQueryCommittedTokensLockedRequest,
+  PositionCommitedToken as ElysLeveragelpPositionCommitedToken,
   QueryCommittedTokensLockedResponse as ElysLeveragelpQueryCommittedTokensLockedResponse,
 } from "./elys/leveragelp/query_pb.js";
 export {
@@ -7526,6 +7880,8 @@ export {
   MsgJoinPoolResponse as ElysAmmMsgJoinPoolResponse,
   MsgExitPool as ElysAmmMsgExitPool,
   MsgExitPoolResponse as ElysAmmMsgExitPoolResponse,
+  MsgUpFrontSwapExactAmountIn as ElysAmmMsgUpFrontSwapExactAmountIn,
+  MsgUpFrontSwapExactAmountInResponse as ElysAmmMsgUpFrontSwapExactAmountInResponse,
   MsgSwapExactAmountIn as ElysAmmMsgSwapExactAmountIn,
   MsgSwapExactAmountInResponse as ElysAmmMsgSwapExactAmountInResponse,
   MsgSwapExactAmountOut as ElysAmmMsgSwapExactAmountOut,
@@ -7545,6 +7901,7 @@ export {
   MsgCreatePoolService as ElysAmmMsgCreatePoolService,
   MsgJoinPoolService as ElysAmmMsgJoinPoolService,
   MsgExitPoolService as ElysAmmMsgExitPoolService,
+  MsgUpFrontSwapExactAmountInService as ElysAmmMsgUpFrontSwapExactAmountInService,
   MsgSwapExactAmountInService as ElysAmmMsgSwapExactAmountInService,
   MsgSwapExactAmountOutService as ElysAmmMsgSwapExactAmountOutService,
   MsgSwapByDenomService as ElysAmmMsgSwapByDenomService,
@@ -7568,11 +7925,13 @@ export {
   QueryAllDenomLiquidityRequest as ElysAmmQueryAllDenomLiquidityRequest,
   QueryAllDenomLiquidityResponse as ElysAmmQueryAllDenomLiquidityResponse,
   QuerySwapEstimationRequest as ElysAmmQuerySwapEstimationRequest,
+  QuerySwapEstimationExactAmountOutRequest as ElysAmmQuerySwapEstimationExactAmountOutRequest,
   QueryJoinPoolEstimationRequest as ElysAmmQueryJoinPoolEstimationRequest,
   QueryJoinPoolEstimationResponse as ElysAmmQueryJoinPoolEstimationResponse,
   QueryExitPoolEstimationRequest as ElysAmmQueryExitPoolEstimationRequest,
   QueryExitPoolEstimationResponse as ElysAmmQueryExitPoolEstimationResponse,
   QuerySwapEstimationResponse as ElysAmmQuerySwapEstimationResponse,
+  QuerySwapEstimationExactAmountOutResponse as ElysAmmQuerySwapEstimationExactAmountOutResponse,
   QuerySlippageTrackRequest as ElysAmmQuerySlippageTrackRequest,
   QuerySlippageTrackResponse as ElysAmmQuerySlippageTrackResponse,
   QuerySlippageTrackAllRequest as ElysAmmQuerySlippageTrackAllRequest,
@@ -7586,6 +7945,8 @@ export {
   QuerySwapEstimationByDenomRequest as ElysAmmQuerySwapEstimationByDenomRequest,
   QuerySwapEstimationByDenomResponse as ElysAmmQuerySwapEstimationByDenomResponse,
   QueryAMMPriceRequest as ElysAmmQueryAMMPriceRequest,
+  QueryWeightAndSlippageFeeRequest as ElysAmmQueryWeightAndSlippageFeeRequest,
+  QueryWeightAndSlippageFeeResponse as ElysAmmQueryWeightAndSlippageFeeResponse,
 } from "./elys/amm/query_pb.js";
 export {
   QueryParamsService as ElysAmmQueryParamsService,
@@ -7594,6 +7955,7 @@ export {
   QueryDenomLiquidityService as ElysAmmQueryDenomLiquidityService,
   QueryDenomLiquidityAllService as ElysAmmQueryDenomLiquidityAllService,
   QuerySwapEstimationService as ElysAmmQuerySwapEstimationService,
+  QuerySwapEstimationExactAmountOutService as ElysAmmQuerySwapEstimationExactAmountOutService,
   QueryJoinPoolEstimationService as ElysAmmQueryJoinPoolEstimationService,
   QueryExitPoolEstimationService as ElysAmmQueryExitPoolEstimationService,
   QuerySlippageTrackService as ElysAmmQuerySlippageTrackService,
@@ -7602,6 +7964,7 @@ export {
   QueryInRouteByDenomService as ElysAmmQueryInRouteByDenomService,
   QueryOutRouteByDenomService as ElysAmmQueryOutRouteByDenomService,
   QuerySwapEstimationByDenomService as ElysAmmQuerySwapEstimationByDenomService,
+  QueryWeightAndSlippageFeeService as ElysAmmQueryWeightAndSlippageFeeService,
 } from "./elys/amm/query_cosmes.js";
 export {
   ProposalCreateBalancerPool as ElysAmmProposalCreateBalancerPool,
@@ -7623,7 +7986,6 @@ export {
   PoolAsset as ElysAmmPoolAsset,
 } from "./elys/amm/pool_asset_pb.js";
 export {
-  LegacyParams as ElysAmmLegacyParams,
   Params as ElysAmmParams,
 } from "./elys/amm/params_pb.js";
 export {
@@ -7654,10 +8016,12 @@ export {
 export {
   QueryParamsRequest as DymensionxyzDymensionTxfeesV1beta1QueryParamsRequest,
   QueryParamsResponse as DymensionxyzDymensionTxfeesV1beta1QueryParamsResponse,
+  QueryFeeTokenRequest as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokenRequest,
+  QueryFeeTokenResponse as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokenResponse,
   QueryFeeTokensRequest as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokensRequest,
   QueryFeeTokensResponse as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokensResponse,
-  QueryDenomSpotPriceRequest as DymensionxyzDymensionTxfeesV1beta1QueryDenomSpotPriceRequest,
-  QueryDenomSpotPriceResponse as DymensionxyzDymensionTxfeesV1beta1QueryDenomSpotPriceResponse,
+  QueryDenomRouteRequest as DymensionxyzDymensionTxfeesV1beta1QueryDenomRouteRequest,
+  QueryDenomRouteResponse as DymensionxyzDymensionTxfeesV1beta1QueryDenomRouteResponse,
   QueryDenomPoolIdRequest as DymensionxyzDymensionTxfeesV1beta1QueryDenomPoolIdRequest,
   QueryDenomPoolIdResponse as DymensionxyzDymensionTxfeesV1beta1QueryDenomPoolIdResponse,
   QueryBaseDenomRequest as DymensionxyzDymensionTxfeesV1beta1QueryBaseDenomRequest,
@@ -7665,9 +8029,9 @@ export {
 } from "./dymensionxyz/dymension/txfees/v1beta1/query_pb.js";
 export {
   QueryParamsService as DymensionxyzDymensionTxfeesV1beta1QueryParamsService,
+  QueryFeeTokenService as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokenService,
   QueryFeeTokensService as DymensionxyzDymensionTxfeesV1beta1QueryFeeTokensService,
-  QueryDenomSpotPriceService as DymensionxyzDymensionTxfeesV1beta1QueryDenomSpotPriceService,
-  QueryDenomPoolIdService as DymensionxyzDymensionTxfeesV1beta1QueryDenomPoolIdService,
+  QueryDenomRouteService as DymensionxyzDymensionTxfeesV1beta1QueryDenomRouteService,
   QueryBaseDenomService as DymensionxyzDymensionTxfeesV1beta1QueryBaseDenomService,
 } from "./dymensionxyz/dymension/txfees/v1beta1/query_cosmes.js";
 export {
@@ -7778,9 +8142,11 @@ export {
   QueryEstimateSwapExactAmountOutService as DymensionxyzDymensionGammV1beta1QueryEstimateSwapExactAmountOutService,
 } from "./dymensionxyz/dymension/gamm/v1beta1/query_cosmes.js";
 export {
-  GenesisState as DymensionxyzDymensionGammV1beta1GenesisState,
   Params as DymensionxyzDymensionGammV1beta1Params,
   GlobalFees as DymensionxyzDymensionGammV1beta1GlobalFees,
+} from "./dymensionxyz/dymension/gamm/v1beta1/params_pb.js";
+export {
+  GenesisState as DymensionxyzDymensionGammV1beta1GenesisState,
 } from "./dymensionxyz/dymension/gamm/v1beta1/genesis_pb.js";
 export {
   SmoothWeightChangeParams as DymensionxyzDymensionGammV1beta1SmoothWeightChangeParams,
@@ -9245,6 +9611,333 @@ export {
   Module as CosmosAppRuntimeV1alpha1Module,
   StoreKeyConfig as CosmosAppRuntimeV1alpha1StoreKeyConfig,
 } from "./cosmos/app/runtime/v1alpha1/module_pb.js";
+export {
+  MsgUpdateParams as CoreumFeemodelV1MsgUpdateParams,
+  EmptyResponse as CoreumFeemodelV1EmptyResponse,
+} from "./coreum/feemodel/v1/tx_pb.js";
+export {
+  MsgUpdateParamsService as CoreumFeemodelV1MsgUpdateParamsService,
+} from "./coreum/feemodel/v1/tx_cosmes.js";
+export {
+  QueryMinGasPriceRequest as CoreumFeemodelV1QueryMinGasPriceRequest,
+  QueryMinGasPriceResponse as CoreumFeemodelV1QueryMinGasPriceResponse,
+  QueryRecommendedGasPriceRequest as CoreumFeemodelV1QueryRecommendedGasPriceRequest,
+  QueryRecommendedGasPriceResponse as CoreumFeemodelV1QueryRecommendedGasPriceResponse,
+  QueryParamsRequest as CoreumFeemodelV1QueryParamsRequest,
+  QueryParamsResponse as CoreumFeemodelV1QueryParamsResponse,
+} from "./coreum/feemodel/v1/query_pb.js";
+export {
+  QueryMinGasPriceService as CoreumFeemodelV1QueryMinGasPriceService,
+  QueryRecommendedGasPriceService as CoreumFeemodelV1QueryRecommendedGasPriceService,
+  QueryParamsService as CoreumFeemodelV1QueryParamsService,
+} from "./coreum/feemodel/v1/query_cosmes.js";
+export {
+  ModelParams as CoreumFeemodelV1ModelParams,
+  Params as CoreumFeemodelV1Params,
+} from "./coreum/feemodel/v1/params_pb.js";
+export {
+  GenesisState as CoreumFeemodelV1GenesisState,
+} from "./coreum/feemodel/v1/genesis_pb.js";
+export {
+  MsgUpdateParams as CoreumDexV1MsgUpdateParams,
+  MsgPlaceOrder as CoreumDexV1MsgPlaceOrder,
+  MsgCancelOrder as CoreumDexV1MsgCancelOrder,
+  MsgCancelOrdersByDenom as CoreumDexV1MsgCancelOrdersByDenom,
+  EmptyResponse as CoreumDexV1EmptyResponse,
+} from "./coreum/dex/v1/tx_pb.js";
+export {
+  MsgUpdateParamsService as CoreumDexV1MsgUpdateParamsService,
+  MsgPlaceOrderService as CoreumDexV1MsgPlaceOrderService,
+  MsgCancelOrderService as CoreumDexV1MsgCancelOrderService,
+  MsgCancelOrdersByDenomService as CoreumDexV1MsgCancelOrdersByDenomService,
+} from "./coreum/dex/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as CoreumDexV1QueryParamsRequest,
+  QueryParamsResponse as CoreumDexV1QueryParamsResponse,
+  QueryOrderRequest as CoreumDexV1QueryOrderRequest,
+  QueryOrderResponse as CoreumDexV1QueryOrderResponse,
+  QueryOrdersRequest as CoreumDexV1QueryOrdersRequest,
+  QueryOrdersResponse as CoreumDexV1QueryOrdersResponse,
+  QueryOrderBooksRequest as CoreumDexV1QueryOrderBooksRequest,
+  QueryOrderBooksResponse as CoreumDexV1QueryOrderBooksResponse,
+  QueryOrderBookParamsRequest as CoreumDexV1QueryOrderBookParamsRequest,
+  QueryOrderBookParamsResponse as CoreumDexV1QueryOrderBookParamsResponse,
+  QueryOrderBookOrdersRequest as CoreumDexV1QueryOrderBookOrdersRequest,
+  QueryOrderBookOrdersResponse as CoreumDexV1QueryOrderBookOrdersResponse,
+  QueryAccountDenomOrdersCountRequest as CoreumDexV1QueryAccountDenomOrdersCountRequest,
+  QueryAccountDenomOrdersCountResponse as CoreumDexV1QueryAccountDenomOrdersCountResponse,
+} from "./coreum/dex/v1/query_pb.js";
+export {
+  QueryParamsService as CoreumDexV1QueryParamsService,
+  QueryOrderService as CoreumDexV1QueryOrderService,
+  QueryOrdersService as CoreumDexV1QueryOrdersService,
+  QueryOrderBooksService as CoreumDexV1QueryOrderBooksService,
+  QueryOrderBookParamsService as CoreumDexV1QueryOrderBookParamsService,
+  QueryOrderBookOrdersService as CoreumDexV1QueryOrderBookOrdersService,
+  QueryAccountDenomOrdersCountService as CoreumDexV1QueryAccountDenomOrdersCountService,
+} from "./coreum/dex/v1/query_cosmes.js";
+export {
+  Params as CoreumDexV1Params,
+} from "./coreum/dex/v1/params_pb.js";
+export {
+  Side as CoreumDexV1Side,
+  OrderType as CoreumDexV1OrderType,
+  TimeInForce as CoreumDexV1TimeInForce,
+  GoodTil as CoreumDexV1GoodTil,
+  CancelGoodTil as CoreumDexV1CancelGoodTil,
+  Order as CoreumDexV1Order,
+  OrderData as CoreumDexV1OrderData,
+  OrderBookData as CoreumDexV1OrderBookData,
+  OrderBookRecordData as CoreumDexV1OrderBookRecordData,
+} from "./coreum/dex/v1/order_pb.js";
+export {
+  GenesisState as CoreumDexV1GenesisState,
+  OrderBookDataWithID as CoreumDexV1OrderBookDataWithID,
+  AccountDenomOrdersCount as CoreumDexV1AccountDenomOrdersCount,
+} from "./coreum/dex/v1/genesis_pb.js";
+export {
+  EventOrderPlaced as CoreumDexV1EventOrderPlaced,
+  EventOrderReduced as CoreumDexV1EventOrderReduced,
+  EventOrderCreated as CoreumDexV1EventOrderCreated,
+  EventOrderClosed as CoreumDexV1EventOrderClosed,
+} from "./coreum/dex/v1/event_pb.js";
+export {
+  EventGas as CoreumDeterministicgasV1EventGas,
+} from "./coreum/deterministicgas/v1/event_pb.js";
+export {
+  GenesisState as CoreumDelayV1GenesisState,
+  DelayedItem as CoreumDelayV1DelayedItem,
+  BlockItem as CoreumDelayV1BlockItem,
+} from "./coreum/delay/v1/genesis_pb.js";
+export {
+  MsgUpdateStakingParams as CoreumCustomparamsV1MsgUpdateStakingParams,
+  EmptyResponse as CoreumCustomparamsV1EmptyResponse,
+} from "./coreum/customparams/v1/tx_pb.js";
+export {
+  MsgUpdateStakingParamsService as CoreumCustomparamsV1MsgUpdateStakingParamsService,
+} from "./coreum/customparams/v1/tx_cosmes.js";
+export {
+  QueryStakingParamsRequest as CoreumCustomparamsV1QueryStakingParamsRequest,
+  QueryStakingParamsResponse as CoreumCustomparamsV1QueryStakingParamsResponse,
+} from "./coreum/customparams/v1/query_pb.js";
+export {
+  QueryStakingParamsService as CoreumCustomparamsV1QueryStakingParamsService,
+} from "./coreum/customparams/v1/query_cosmes.js";
+export {
+  StakingParams as CoreumCustomparamsV1StakingParams,
+} from "./coreum/customparams/v1/params_pb.js";
+export {
+  GenesisState as CoreumCustomparamsV1GenesisState,
+} from "./coreum/customparams/v1/genesis_pb.js";
+export {
+  DataEditor as CoreumAssetNftV1DataEditor,
+  DataBytes as CoreumAssetNftV1DataBytes,
+  DataDynamicItem as CoreumAssetNftV1DataDynamicItem,
+  DataDynamicIndexedItem as CoreumAssetNftV1DataDynamicIndexedItem,
+  DataDynamic as CoreumAssetNftV1DataDynamic,
+} from "./coreum/asset/nft/v1/types_pb.js";
+export {
+  MsgIssueClass as CoreumAssetNftV1MsgIssueClass,
+  MsgMint as CoreumAssetNftV1MsgMint,
+  MsgUpdateData as CoreumAssetNftV1MsgUpdateData,
+  MsgBurn as CoreumAssetNftV1MsgBurn,
+  MsgFreeze as CoreumAssetNftV1MsgFreeze,
+  MsgUnfreeze as CoreumAssetNftV1MsgUnfreeze,
+  MsgClassFreeze as CoreumAssetNftV1MsgClassFreeze,
+  MsgClassUnfreeze as CoreumAssetNftV1MsgClassUnfreeze,
+  MsgAddToWhitelist as CoreumAssetNftV1MsgAddToWhitelist,
+  MsgRemoveFromWhitelist as CoreumAssetNftV1MsgRemoveFromWhitelist,
+  MsgAddToClassWhitelist as CoreumAssetNftV1MsgAddToClassWhitelist,
+  MsgRemoveFromClassWhitelist as CoreumAssetNftV1MsgRemoveFromClassWhitelist,
+  MsgUpdateParams as CoreumAssetNftV1MsgUpdateParams,
+  EmptyResponse as CoreumAssetNftV1EmptyResponse,
+} from "./coreum/asset/nft/v1/tx_pb.js";
+export {
+  MsgIssueClassService as CoreumAssetNftV1MsgIssueClassService,
+  MsgMintService as CoreumAssetNftV1MsgMintService,
+  MsgUpdateDataService as CoreumAssetNftV1MsgUpdateDataService,
+  MsgBurnService as CoreumAssetNftV1MsgBurnService,
+  MsgFreezeService as CoreumAssetNftV1MsgFreezeService,
+  MsgUnfreezeService as CoreumAssetNftV1MsgUnfreezeService,
+  MsgAddToWhitelistService as CoreumAssetNftV1MsgAddToWhitelistService,
+  MsgRemoveFromWhitelistService as CoreumAssetNftV1MsgRemoveFromWhitelistService,
+  MsgAddToClassWhitelistService as CoreumAssetNftV1MsgAddToClassWhitelistService,
+  MsgRemoveFromClassWhitelistService as CoreumAssetNftV1MsgRemoveFromClassWhitelistService,
+  MsgClassFreezeService as CoreumAssetNftV1MsgClassFreezeService,
+  MsgClassUnfreezeService as CoreumAssetNftV1MsgClassUnfreezeService,
+  MsgUpdateParamsService as CoreumAssetNftV1MsgUpdateParamsService,
+} from "./coreum/asset/nft/v1/tx_cosmes.js";
+export {
+  QueryParamsRequest as CoreumAssetNftV1QueryParamsRequest,
+  QueryParamsResponse as CoreumAssetNftV1QueryParamsResponse,
+  QueryClassRequest as CoreumAssetNftV1QueryClassRequest,
+  QueryClassResponse as CoreumAssetNftV1QueryClassResponse,
+  QueryClassesRequest as CoreumAssetNftV1QueryClassesRequest,
+  QueryClassesResponse as CoreumAssetNftV1QueryClassesResponse,
+  QueryFrozenRequest as CoreumAssetNftV1QueryFrozenRequest,
+  QueryFrozenResponse as CoreumAssetNftV1QueryFrozenResponse,
+  QueryClassFrozenRequest as CoreumAssetNftV1QueryClassFrozenRequest,
+  QueryClassFrozenResponse as CoreumAssetNftV1QueryClassFrozenResponse,
+  QueryWhitelistedRequest as CoreumAssetNftV1QueryWhitelistedRequest,
+  QueryWhitelistedResponse as CoreumAssetNftV1QueryWhitelistedResponse,
+  QueryWhitelistedAccountsForNFTRequest as CoreumAssetNftV1QueryWhitelistedAccountsForNFTRequest,
+  QueryWhitelistedAccountsForNFTResponse as CoreumAssetNftV1QueryWhitelistedAccountsForNFTResponse,
+  QueryClassWhitelistedAccountsRequest as CoreumAssetNftV1QueryClassWhitelistedAccountsRequest,
+  QueryClassWhitelistedAccountsResponse as CoreumAssetNftV1QueryClassWhitelistedAccountsResponse,
+  QueryClassFrozenAccountsRequest as CoreumAssetNftV1QueryClassFrozenAccountsRequest,
+  QueryClassFrozenAccountsResponse as CoreumAssetNftV1QueryClassFrozenAccountsResponse,
+  QueryBurntNFTRequest as CoreumAssetNftV1QueryBurntNFTRequest,
+  QueryBurntNFTResponse as CoreumAssetNftV1QueryBurntNFTResponse,
+  QueryBurntNFTsInClassRequest as CoreumAssetNftV1QueryBurntNFTsInClassRequest,
+  QueryBurntNFTsInClassResponse as CoreumAssetNftV1QueryBurntNFTsInClassResponse,
+} from "./coreum/asset/nft/v1/query_pb.js";
+export {
+  QueryParamsService as CoreumAssetNftV1QueryParamsService,
+  QueryClassService as CoreumAssetNftV1QueryClassService,
+  QueryClassesService as CoreumAssetNftV1QueryClassesService,
+  QueryFrozenService as CoreumAssetNftV1QueryFrozenService,
+  QueryClassFrozenService as CoreumAssetNftV1QueryClassFrozenService,
+  QueryClassFrozenAccountsService as CoreumAssetNftV1QueryClassFrozenAccountsService,
+  QueryWhitelistedService as CoreumAssetNftV1QueryWhitelistedService,
+  QueryWhitelistedAccountsForNFTService as CoreumAssetNftV1QueryWhitelistedAccountsForNFTService,
+  QueryClassWhitelistedAccountsService as CoreumAssetNftV1QueryClassWhitelistedAccountsService,
+  QueryBurntNFTService as CoreumAssetNftV1QueryBurntNFTService,
+  QueryBurntNFTsInClassService as CoreumAssetNftV1QueryBurntNFTsInClassService,
+} from "./coreum/asset/nft/v1/query_cosmes.js";
+export {
+  Params as CoreumAssetNftV1Params,
+} from "./coreum/asset/nft/v1/params_pb.js";
+export {
+  ClassFeature as CoreumAssetNftV1ClassFeature,
+  ClassDefinition as CoreumAssetNftV1ClassDefinition,
+  Class as CoreumAssetNftV1Class,
+} from "./coreum/asset/nft/v1/nft_pb.js";
+export {
+  GenesisState as CoreumAssetNftV1GenesisState,
+  FrozenNFT as CoreumAssetNftV1FrozenNFT,
+  WhitelistedNFTAccounts as CoreumAssetNftV1WhitelistedNFTAccounts,
+  ClassWhitelistedAccounts as CoreumAssetNftV1ClassWhitelistedAccounts,
+  ClassFrozenAccounts as CoreumAssetNftV1ClassFrozenAccounts,
+  BurntNFT as CoreumAssetNftV1BurntNFT,
+} from "./coreum/asset/nft/v1/genesis_pb.js";
+export {
+  EventClassIssued as CoreumAssetNftV1EventClassIssued,
+  EventFrozen as CoreumAssetNftV1EventFrozen,
+  EventUnfrozen as CoreumAssetNftV1EventUnfrozen,
+  EventClassFrozen as CoreumAssetNftV1EventClassFrozen,
+  EventClassUnfrozen as CoreumAssetNftV1EventClassUnfrozen,
+  EventAddedToWhitelist as CoreumAssetNftV1EventAddedToWhitelist,
+  EventRemovedFromWhitelist as CoreumAssetNftV1EventRemovedFromWhitelist,
+  EventAddedToClassWhitelist as CoreumAssetNftV1EventAddedToClassWhitelist,
+  EventRemovedFromClassWhitelist as CoreumAssetNftV1EventRemovedFromClassWhitelist,
+} from "./coreum/asset/nft/v1/event_pb.js";
+export {
+  SendAuthorization as CoreumAssetNftV1SendAuthorization,
+  NFTIdentifier as CoreumAssetNftV1NFTIdentifier,
+} from "./coreum/asset/nft/v1/authz_pb.js";
+export {
+  MsgIssue as CoreumAssetFtV1MsgIssue,
+  ExtensionIssueSettings as CoreumAssetFtV1ExtensionIssueSettings,
+  MsgMint as CoreumAssetFtV1MsgMint,
+  MsgBurn as CoreumAssetFtV1MsgBurn,
+  MsgFreeze as CoreumAssetFtV1MsgFreeze,
+  MsgUnfreeze as CoreumAssetFtV1MsgUnfreeze,
+  MsgSetFrozen as CoreumAssetFtV1MsgSetFrozen,
+  MsgGloballyFreeze as CoreumAssetFtV1MsgGloballyFreeze,
+  MsgGloballyUnfreeze as CoreumAssetFtV1MsgGloballyUnfreeze,
+  MsgClawback as CoreumAssetFtV1MsgClawback,
+  MsgSetWhitelistedLimit as CoreumAssetFtV1MsgSetWhitelistedLimit,
+  MsgTransferAdmin as CoreumAssetFtV1MsgTransferAdmin,
+  MsgClearAdmin as CoreumAssetFtV1MsgClearAdmin,
+  MsgUpdateParams as CoreumAssetFtV1MsgUpdateParams,
+  MsgUpdateDEXUnifiedRefAmount as CoreumAssetFtV1MsgUpdateDEXUnifiedRefAmount,
+  MsgUpdateDEXWhitelistedDenoms as CoreumAssetFtV1MsgUpdateDEXWhitelistedDenoms,
+  EmptyResponse as CoreumAssetFtV1EmptyResponse,
+} from "./coreum/asset/ft/v1/tx_pb.js";
+export {
+  MsgIssueService as CoreumAssetFtV1MsgIssueService,
+  MsgMintService as CoreumAssetFtV1MsgMintService,
+  MsgBurnService as CoreumAssetFtV1MsgBurnService,
+  MsgFreezeService as CoreumAssetFtV1MsgFreezeService,
+  MsgUnfreezeService as CoreumAssetFtV1MsgUnfreezeService,
+  MsgSetFrozenService as CoreumAssetFtV1MsgSetFrozenService,
+  MsgGloballyFreezeService as CoreumAssetFtV1MsgGloballyFreezeService,
+  MsgGloballyUnfreezeService as CoreumAssetFtV1MsgGloballyUnfreezeService,
+  MsgClawbackService as CoreumAssetFtV1MsgClawbackService,
+  MsgSetWhitelistedLimitService as CoreumAssetFtV1MsgSetWhitelistedLimitService,
+  MsgTransferAdminService as CoreumAssetFtV1MsgTransferAdminService,
+  MsgClearAdminService as CoreumAssetFtV1MsgClearAdminService,
+  MsgUpdateParamsService as CoreumAssetFtV1MsgUpdateParamsService,
+  MsgUpdateDEXUnifiedRefAmountService as CoreumAssetFtV1MsgUpdateDEXUnifiedRefAmountService,
+  MsgUpdateDEXWhitelistedDenomsService as CoreumAssetFtV1MsgUpdateDEXWhitelistedDenomsService,
+} from "./coreum/asset/ft/v1/tx_cosmes.js";
+export {
+  Feature as CoreumAssetFtV1Feature,
+  Definition as CoreumAssetFtV1Definition,
+  Token as CoreumAssetFtV1Token,
+  DelayedTokenUpgradeV1 as CoreumAssetFtV1DelayedTokenUpgradeV1,
+  TokenUpgradeV1Status as CoreumAssetFtV1TokenUpgradeV1Status,
+  TokenUpgradeStatuses as CoreumAssetFtV1TokenUpgradeStatuses,
+  DEXSettings as CoreumAssetFtV1DEXSettings,
+} from "./coreum/asset/ft/v1/token_pb.js";
+export {
+  QueryParamsRequest as CoreumAssetFtV1QueryParamsRequest,
+  QueryParamsResponse as CoreumAssetFtV1QueryParamsResponse,
+  QueryTokenRequest as CoreumAssetFtV1QueryTokenRequest,
+  QueryTokenResponse as CoreumAssetFtV1QueryTokenResponse,
+  QueryTokenUpgradeStatusesRequest as CoreumAssetFtV1QueryTokenUpgradeStatusesRequest,
+  QueryTokenUpgradeStatusesResponse as CoreumAssetFtV1QueryTokenUpgradeStatusesResponse,
+  QueryTokensRequest as CoreumAssetFtV1QueryTokensRequest,
+  QueryTokensResponse as CoreumAssetFtV1QueryTokensResponse,
+  QueryBalanceRequest as CoreumAssetFtV1QueryBalanceRequest,
+  QueryBalanceResponse as CoreumAssetFtV1QueryBalanceResponse,
+  QueryFrozenBalancesRequest as CoreumAssetFtV1QueryFrozenBalancesRequest,
+  QueryFrozenBalancesResponse as CoreumAssetFtV1QueryFrozenBalancesResponse,
+  QueryFrozenBalanceRequest as CoreumAssetFtV1QueryFrozenBalanceRequest,
+  QueryFrozenBalanceResponse as CoreumAssetFtV1QueryFrozenBalanceResponse,
+  QueryWhitelistedBalancesRequest as CoreumAssetFtV1QueryWhitelistedBalancesRequest,
+  QueryWhitelistedBalancesResponse as CoreumAssetFtV1QueryWhitelistedBalancesResponse,
+  QueryWhitelistedBalanceRequest as CoreumAssetFtV1QueryWhitelistedBalanceRequest,
+  QueryWhitelistedBalanceResponse as CoreumAssetFtV1QueryWhitelistedBalanceResponse,
+  QueryDEXSettingsRequest as CoreumAssetFtV1QueryDEXSettingsRequest,
+  QueryDEXSettingsResponse as CoreumAssetFtV1QueryDEXSettingsResponse,
+} from "./coreum/asset/ft/v1/query_pb.js";
+export {
+  QueryParamsService as CoreumAssetFtV1QueryParamsService,
+  QueryTokensService as CoreumAssetFtV1QueryTokensService,
+  QueryTokenService as CoreumAssetFtV1QueryTokenService,
+  QueryTokenUpgradeStatusesService as CoreumAssetFtV1QueryTokenUpgradeStatusesService,
+  QueryBalanceService as CoreumAssetFtV1QueryBalanceService,
+  QueryFrozenBalancesService as CoreumAssetFtV1QueryFrozenBalancesService,
+  QueryFrozenBalanceService as CoreumAssetFtV1QueryFrozenBalanceService,
+  QueryWhitelistedBalancesService as CoreumAssetFtV1QueryWhitelistedBalancesService,
+  QueryWhitelistedBalanceService as CoreumAssetFtV1QueryWhitelistedBalanceService,
+  QueryDEXSettingsService as CoreumAssetFtV1QueryDEXSettingsService,
+} from "./coreum/asset/ft/v1/query_cosmes.js";
+export {
+  Params as CoreumAssetFtV1Params,
+} from "./coreum/asset/ft/v1/params_pb.js";
+export {
+  GenesisState as CoreumAssetFtV1GenesisState,
+  Balance as CoreumAssetFtV1Balance,
+  PendingTokenUpgrade as CoreumAssetFtV1PendingTokenUpgrade,
+  DEXSettingsWithDenom as CoreumAssetFtV1DEXSettingsWithDenom,
+} from "./coreum/asset/ft/v1/genesis_pb.js";
+export {
+  EventIssued as CoreumAssetFtV1EventIssued,
+  EventFrozenAmountChanged as CoreumAssetFtV1EventFrozenAmountChanged,
+  EventAmountClawedBack as CoreumAssetFtV1EventAmountClawedBack,
+  EventWhitelistedAmountChanged as CoreumAssetFtV1EventWhitelistedAmountChanged,
+  EventDEXLockedAmountChanged as CoreumAssetFtV1EventDEXLockedAmountChanged,
+  EventDEXExpectedToReceiveAmountChanged as CoreumAssetFtV1EventDEXExpectedToReceiveAmountChanged,
+  EventAdminTransferred as CoreumAssetFtV1EventAdminTransferred,
+  EventAdminCleared as CoreumAssetFtV1EventAdminCleared,
+  EventDEXSettingsChanged as CoreumAssetFtV1EventDEXSettingsChanged,
+} from "./coreum/asset/ft/v1/event_pb.js";
+export {
+  MintAuthorization as CoreumAssetFtV1MintAuthorization,
+  BurnAuthorization as CoreumAssetFtV1BurnAuthorization,
+} from "./coreum/asset/ft/v1/authz_pb.js";
 export {
   CaptchaVersion as CaptchaCaptchaVersion,
   CaptchaRequest as CaptchaCaptchaRequest,

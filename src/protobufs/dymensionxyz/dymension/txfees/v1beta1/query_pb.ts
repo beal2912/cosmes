@@ -7,6 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./genesis_pb.js";
 import { FeeToken } from "./feetoken_pb.js";
+import { SwapAmountInRoute } from "../../poolmanager/v1beta1/swap_route_pb.js";
 
 /**
  * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryParamsRequest
@@ -73,6 +74,80 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
 
   static equals(a: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined, b: QueryParamsResponse | PlainMessage<QueryParamsResponse> | undefined): boolean {
     return proto3.util.equals(QueryParamsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryFeeTokenRequest
+ */
+export class QueryFeeTokenRequest extends Message<QueryFeeTokenRequest> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  constructor(data?: PartialMessage<QueryFeeTokenRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryFeeTokenRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFeeTokenRequest {
+    return new QueryFeeTokenRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryFeeTokenRequest {
+    return new QueryFeeTokenRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryFeeTokenRequest {
+    return new QueryFeeTokenRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryFeeTokenRequest | PlainMessage<QueryFeeTokenRequest> | undefined, b: QueryFeeTokenRequest | PlainMessage<QueryFeeTokenRequest> | undefined): boolean {
+    return proto3.util.equals(QueryFeeTokenRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryFeeTokenResponse
+ */
+export class QueryFeeTokenResponse extends Message<QueryFeeTokenResponse> {
+  /**
+   * @generated from field: dymensionxyz.dymension.txfees.v1beta1.FeeToken fee_token = 1;
+   */
+  feeToken?: FeeToken;
+
+  constructor(data?: PartialMessage<QueryFeeTokenResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryFeeTokenResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "fee_token", kind: "message", T: FeeToken },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFeeTokenResponse {
+    return new QueryFeeTokenResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryFeeTokenResponse {
+    return new QueryFeeTokenResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryFeeTokenResponse {
+    return new QueryFeeTokenResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryFeeTokenResponse | PlainMessage<QueryFeeTokenResponse> | undefined, b: QueryFeeTokenResponse | PlainMessage<QueryFeeTokenResponse> | undefined): boolean {
+    return proto3.util.equals(QueryFeeTokenResponse, a, b);
   }
 }
 
@@ -145,88 +220,76 @@ export class QueryFeeTokensResponse extends Message<QueryFeeTokensResponse> {
 }
 
 /**
- * QueryDenomSpotPriceRequest defines grpc request structure for querying spot
- * price for the specified tx fee denom
- *
- * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryDenomSpotPriceRequest
+ * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryDenomRouteRequest
  */
-export class QueryDenomSpotPriceRequest extends Message<QueryDenomSpotPriceRequest> {
+export class QueryDenomRouteRequest extends Message<QueryDenomRouteRequest> {
   /**
    * @generated from field: string denom = 1;
    */
   denom = "";
 
-  constructor(data?: PartialMessage<QueryDenomSpotPriceRequest>) {
+  constructor(data?: PartialMessage<QueryDenomRouteRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryDenomSpotPriceRequest";
+  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryDenomRouteRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomSpotPriceRequest {
-    return new QueryDenomSpotPriceRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomRouteRequest {
+    return new QueryDenomRouteRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomSpotPriceRequest {
-    return new QueryDenomSpotPriceRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomRouteRequest {
+    return new QueryDenomRouteRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomSpotPriceRequest {
-    return new QueryDenomSpotPriceRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomRouteRequest {
+    return new QueryDenomRouteRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomSpotPriceRequest | PlainMessage<QueryDenomSpotPriceRequest> | undefined, b: QueryDenomSpotPriceRequest | PlainMessage<QueryDenomSpotPriceRequest> | undefined): boolean {
-    return proto3.util.equals(QueryDenomSpotPriceRequest, a, b);
+  static equals(a: QueryDenomRouteRequest | PlainMessage<QueryDenomRouteRequest> | undefined, b: QueryDenomRouteRequest | PlainMessage<QueryDenomRouteRequest> | undefined): boolean {
+    return proto3.util.equals(QueryDenomRouteRequest, a, b);
   }
 }
 
 /**
- * QueryDenomSpotPriceRequest defines grpc response structure for querying spot
- * price for the specified tx fee denom
- *
- * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryDenomSpotPriceResponse
+ * @generated from message dymensionxyz.dymension.txfees.v1beta1.QueryDenomRouteResponse
  */
-export class QueryDenomSpotPriceResponse extends Message<QueryDenomSpotPriceResponse> {
+export class QueryDenomRouteResponse extends Message<QueryDenomRouteResponse> {
   /**
-   * @generated from field: uint64 poolID = 1;
+   * @generated from field: repeated dymensionxyz.dymension.poolmanager.v1beta1.SwapAmountInRoute route = 1;
    */
-  poolID = protoInt64.zero;
+  route: SwapAmountInRoute[] = [];
 
-  /**
-   * @generated from field: string spot_price = 2;
-   */
-  spotPrice = "";
-
-  constructor(data?: PartialMessage<QueryDenomSpotPriceResponse>) {
+  constructor(data?: PartialMessage<QueryDenomRouteResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryDenomSpotPriceResponse";
+  static readonly typeName = "dymensionxyz.dymension.txfees.v1beta1.QueryDenomRouteResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "poolID", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "spot_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "route", kind: "message", T: SwapAmountInRoute, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomSpotPriceResponse {
-    return new QueryDenomSpotPriceResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomRouteResponse {
+    return new QueryDenomRouteResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomSpotPriceResponse {
-    return new QueryDenomSpotPriceResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomRouteResponse {
+    return new QueryDenomRouteResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomSpotPriceResponse {
-    return new QueryDenomSpotPriceResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomRouteResponse {
+    return new QueryDenomRouteResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomSpotPriceResponse | PlainMessage<QueryDenomSpotPriceResponse> | undefined, b: QueryDenomSpotPriceResponse | PlainMessage<QueryDenomSpotPriceResponse> | undefined): boolean {
-    return proto3.util.equals(QueryDenomSpotPriceResponse, a, b);
+  static equals(a: QueryDenomRouteResponse | PlainMessage<QueryDenomRouteResponse> | undefined, b: QueryDenomRouteResponse | PlainMessage<QueryDenomRouteResponse> | undefined): boolean {
+    return proto3.util.equals(QueryDenomRouteResponse, a, b);
   }
 }
 

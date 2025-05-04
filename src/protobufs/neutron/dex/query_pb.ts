@@ -1106,7 +1106,7 @@ export class QueryEstimateMultiHopSwapRequest extends Message<QueryEstimateMulti
 
   /**
    * If pickBestRoute == true then all routes are run and the route with the
-   * best price is chosen otherwise, the first succesful route is used.
+   * best price is chosen otherwise, the first successful route is used.
    *
    * @generated from field: bool pick_best_route = 6;
    */

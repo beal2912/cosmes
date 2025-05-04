@@ -8,6 +8,7 @@ import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { Debt } from "./debt_pb.js";
 import { InterestBlock } from "./types_pb.js";
+import { AmmPool, Pool } from "./pool_pb.js";
 
 /**
  * GenesisState defines the stablestake module's genesis state.
@@ -30,6 +31,16 @@ export class GenesisState extends Message<GenesisState> {
    */
   interestList: InterestBlock[] = [];
 
+  /**
+   * @generated from field: repeated elys.stablestake.Pool pools = 4;
+   */
+  pools: Pool[] = [];
+
+  /**
+   * @generated from field: repeated elys.stablestake.AmmPool amm_pools = 5;
+   */
+  ammPools: AmmPool[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -41,6 +52,8 @@ export class GenesisState extends Message<GenesisState> {
     { no: 1, name: "params", kind: "message", T: Params },
     { no: 2, name: "debt_list", kind: "message", T: Debt, repeated: true },
     { no: 3, name: "interest_list", kind: "message", T: InterestBlock, repeated: true },
+    { no: 4, name: "pools", kind: "message", T: Pool, repeated: true },
+    { no: 5, name: "amm_pools", kind: "message", T: AmmPool, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

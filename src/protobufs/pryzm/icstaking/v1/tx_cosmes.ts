@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAcknowledgeMultiSigPacket, MsgAcknowledgeMultiSigPacketResponse, MsgCreateMultiSigConnection, MsgCreateMultiSigConnectionResponse, MsgInstantUnstake, MsgInstantUnstakeResponse, MsgRebalanceDelegations, MsgRebalanceDelegationsResponse, MsgRedeemUnstaked, MsgRedeemUnstakedResponse, MsgRegisterHostAccounts, MsgRegisterHostAccountsResponse, MsgRegisterHostChain, MsgRegisterHostChainResponse, MsgRegisterInterchainAccount, MsgRegisterInterchainAccountResponse, MsgRetryFailedLsmTransfer, MsgRetryFailedLsmTransferResponse, MsgStake, MsgStakeLsmShares, MsgStakeLsmSharesResponse, MsgStakeResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateHostChain, MsgUpdateHostChainResponse, MsgUpdateMultiSigConnection, MsgUpdateMultiSigConnectionResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgAcknowledgeMultiSigPacket, MsgAcknowledgeMultiSigPacketResponse, MsgCreateMultiSigConnection, MsgCreateMultiSigConnectionResponse, MsgInstantUnstake, MsgInstantUnstakeResponse, MsgRebalanceDelegations, MsgRebalanceDelegationsResponse, MsgRedeemUnstaked, MsgRedeemUnstakedResponse, MsgRedelegate, MsgRedelegateResponse, MsgRegisterHostAccounts, MsgRegisterHostAccountsResponse, MsgRegisterHostChain, MsgRegisterHostChainResponse, MsgRegisterInterchainAccount, MsgRegisterInterchainAccountResponse, MsgRetryFailedLsmTransfer, MsgRetryFailedLsmTransferResponse, MsgStake, MsgStakeLsmShares, MsgStakeLsmSharesResponse, MsgStakeResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateHostChain, MsgUpdateHostChainResponse, MsgUpdateMultiSigConnection, MsgUpdateMultiSigConnectionResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "pryzm.icstaking.v1.Msg";
 
@@ -95,6 +95,16 @@ export const MsgRebalanceDelegationsService = {
   method: "RebalanceDelegations",
   Request: MsgRebalanceDelegations,
   Response: MsgRebalanceDelegationsResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.icstaking.v1.Msg.Redelegate
+ */
+export const MsgRedelegateService = {
+  typeName: TYPE_NAME,
+  method: "Redelegate",
+  Request: MsgRedelegate,
+  Response: MsgRedelegateResponse,
 } as const;
 
 /**

@@ -4,26 +4,25 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
  * @generated from message elys.burner.History
  */
 export class History extends Message<History> {
   /**
-   * @generated from field: string timestamp = 1;
+   * renaming the tags because its not being used till now anywhere, mainnet or
+   * testnet or devnet
+   *
+   * @generated from field: uint64 block = 1;
    */
-  timestamp = "";
+  block = protoInt64.zero;
 
   /**
-   * @generated from field: string denom = 2;
+   * @generated from field: repeated cosmos.base.v1beta1.Coin burned_coins = 2;
    */
-  denom = "";
-
-  /**
-   * @generated from field: string amount = 3;
-   */
-  amount = "";
+  burnedCoins: Coin[] = [];
 
   constructor(data?: PartialMessage<History>) {
     super();
@@ -33,9 +32,8 @@ export class History extends Message<History> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.burner.History";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "timestamp", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "burned_coins", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): History {

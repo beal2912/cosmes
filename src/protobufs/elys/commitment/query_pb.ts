@@ -755,6 +755,11 @@ export class QueryTotalSupplyResponse extends Message<QueryTotalSupplyResponse> 
    */
   totalEdenb = "";
 
+  /**
+   * @generated from field: string total_eden_vested = 3;
+   */
+  totalEdenVested = "";
+
   constructor(data?: PartialMessage<QueryTotalSupplyResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -765,6 +770,7 @@ export class QueryTotalSupplyResponse extends Message<QueryTotalSupplyResponse> 
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "total_eden", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "total_edenb", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "total_eden_vested", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalSupplyResponse {

@@ -1073,6 +1073,11 @@ export class QueryAprRequest extends Message<QueryAprRequest> {
    */
   denom = "";
 
+  /**
+   * @generated from field: uint64 days = 3;
+   */
+  days = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryAprRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1083,6 +1088,7 @@ export class QueryAprRequest extends Message<QueryAprRequest> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "withdraw_type", kind: "enum", T: proto3.getEnumType(EarnType) },
     { no: 2, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "days", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAprRequest {
@@ -1143,6 +1149,11 @@ export class QueryAprResponse extends Message<QueryAprResponse> {
  * @generated from message elys.masterchef.QueryAprsRequest
  */
 export class QueryAprsRequest extends Message<QueryAprsRequest> {
+  /**
+   * @generated from field: uint64 days = 1;
+   */
+  days = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryAprsRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1151,6 +1162,7 @@ export class QueryAprsRequest extends Message<QueryAprsRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.masterchef.QueryAprsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "days", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAprsRequest {

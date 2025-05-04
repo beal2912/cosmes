@@ -3,5 +3,91 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import { QueryAllAssetInfoRequest, QueryAllAssetInfoResponse, QueryAllPriceFeederRequest, QueryAllPriceFeederResponse, QueryAllPriceRequest, QueryAllPriceResponse, QueryGetAssetInfoRequest, QueryGetAssetInfoResponse, QueryGetPriceFeederRequest, QueryGetPriceFeederResponse, QueryGetPriceRequest, QueryGetPriceResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+
 const TYPE_NAME = "elys.oracle.Query";
+
+/**
+ * Parameters queries the parameters of the module.
+ *
+ * @generated from rpc elys.oracle.Query.Params
+ */
+export const QueryParamsService = {
+  typeName: TYPE_NAME,
+  method: "Params",
+  Request: QueryParamsRequest,
+  Response: QueryParamsResponse,
+} as const;
+
+/**
+ * Queries a AssetInfo by denom.
+ *
+ * @generated from rpc elys.oracle.Query.AssetInfo
+ */
+export const QueryAssetInfoService = {
+  typeName: TYPE_NAME,
+  method: "AssetInfo",
+  Request: QueryGetAssetInfoRequest,
+  Response: QueryGetAssetInfoResponse,
+} as const;
+
+/**
+ * Queries a list of AssetInfo items.
+ *
+ * @generated from rpc elys.oracle.Query.AssetInfoAll
+ */
+export const QueryAssetInfoAllService = {
+  typeName: TYPE_NAME,
+  method: "AssetInfoAll",
+  Request: QueryAllAssetInfoRequest,
+  Response: QueryAllAssetInfoResponse,
+} as const;
+
+/**
+ * Queries a Price by asset.
+ *
+ * @generated from rpc elys.oracle.Query.Price
+ */
+export const QueryPriceService = {
+  typeName: TYPE_NAME,
+  method: "Price",
+  Request: QueryGetPriceRequest,
+  Response: QueryGetPriceResponse,
+} as const;
+
+/**
+ * Queries a list of Price items.
+ *
+ * @generated from rpc elys.oracle.Query.PriceAll
+ */
+export const QueryPriceAllService = {
+  typeName: TYPE_NAME,
+  method: "PriceAll",
+  Request: QueryAllPriceRequest,
+  Response: QueryAllPriceResponse,
+} as const;
+
+/**
+ * Queries a PriceFeeder by feeder.
+ *
+ * @generated from rpc elys.oracle.Query.PriceFeeder
+ */
+export const QueryPriceFeederService = {
+  typeName: TYPE_NAME,
+  method: "PriceFeeder",
+  Request: QueryGetPriceFeederRequest,
+  Response: QueryGetPriceFeederResponse,
+} as const;
+
+/**
+ * Queries a list of PriceFeeder items.
+ *
+ * @generated from rpc elys.oracle.Query.PriceFeederAll
+ */
+export const QueryPriceFeederAllService = {
+  typeName: TYPE_NAME,
+  method: "PriceFeederAll",
+  Request: QueryAllPriceFeederRequest,
+  Response: QueryAllPriceFeederResponse,
+} as const;
 

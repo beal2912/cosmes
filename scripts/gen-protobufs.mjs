@@ -126,6 +126,11 @@ const REPOS = [
     tag: "main",
     paths: ["proto"],
   },
+  {
+    repo: "CoreumFoundation/coreum",
+    tag: "master",
+    paths: ["proto"],
+  },
   
 ];
 /**
@@ -159,6 +164,7 @@ console.log("Copying Third Party Proto...");
   //cpSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"),join(TMP_DIR,id("elys-network/elys#main"),""),{recursive: true})
   copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("elys-network/elys#main"),"proto"))
   copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("noble-assets/dollar#main"),"proto"))
+  copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("CoreumFoundation/coreum#master"),"proto"))
   //copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.50.10"),"proto"), join(TMP_DIR,id("onomyprotocol/market#main"),"proto"))
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/alliance") , { recursive: true, force: true });
@@ -166,7 +172,7 @@ console.log("Copying Third Party Proto...");
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/cosmos_proto") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/google") , { recursive: true, force: true });
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/ibc") , { recursive: true, force: true });
-  //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
+  //rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/") , { recursive: true, force: true });
   //copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/cosmos-sdk#v0.47.9"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
   copyDirectoryRecursiveSync(join(TMP_DIR, id("cosmos/ibc-go#v8.5.2"),"proto"), join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto"));
   rmSync( join(TMP_DIR,id("pryzm-finance/pryzmjs#main"),"proto/amino") , { recursive: true, force: true });
