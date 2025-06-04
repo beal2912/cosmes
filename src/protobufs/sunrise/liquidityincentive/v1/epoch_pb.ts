@@ -24,12 +24,17 @@ export class Epoch extends Message<Epoch> {
   startBlock = protoInt64.zero;
 
   /**
-   * @generated from field: int64 end_block = 3;
+   * @generated from field: int64 start_time = 3;
+   */
+  startTime = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 end_block = 4;
    */
   endBlock = protoInt64.zero;
 
   /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Gauge gauges = 4;
+   * @generated from field: repeated sunrise.liquidityincentive.v1.Gauge gauges = 5;
    */
   gauges: Gauge[] = [];
 
@@ -43,8 +48,9 @@ export class Epoch extends Message<Epoch> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "start_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 3, name: "end_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 4, name: "gauges", kind: "message", T: Gauge, repeated: true },
+    { no: 3, name: "start_time", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 4, name: "end_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 5, name: "gauges", kind: "message", T: Gauge, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Epoch {

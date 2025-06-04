@@ -203,9 +203,9 @@ export class MsgNonVotingDelegate extends Message<MsgNonVotingDelegate> {
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   /**
    * @generated from field: string validator_address = 3;
@@ -226,7 +226,7 @@ export class MsgNonVotingDelegate extends Message<MsgNonVotingDelegate> {
   static readonly typeName = "sunrise.lockup.v1.MsgNonVotingDelegate";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "validator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "amount", kind: "message", T: Coin },
   ]);
@@ -293,9 +293,9 @@ export class MsgNonVotingUndelegate extends Message<MsgNonVotingUndelegate> {
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   /**
    * @generated from field: string validator_address = 3;
@@ -316,7 +316,7 @@ export class MsgNonVotingUndelegate extends Message<MsgNonVotingUndelegate> {
   static readonly typeName = "sunrise.lockup.v1.MsgNonVotingUndelegate";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "validator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "amount", kind: "message", T: Coin },
   ]);
@@ -383,9 +383,9 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   /**
    * @generated from field: string validator_address = 3;
@@ -401,7 +401,7 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
   static readonly typeName = "sunrise.lockup.v1.MsgClaimRewards";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "validator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -467,9 +467,9 @@ export class MsgSend extends Message<MsgSend> {
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   /**
    * @generated from field: string recipient = 3;
@@ -477,9 +477,9 @@ export class MsgSend extends Message<MsgSend> {
   recipient = "";
 
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin amount = 4;
+   * @generated from field: repeated cosmos.base.v1beta1.Coin amount = 4;
    */
-  amount?: Coin;
+  amount: Coin[] = [];
 
   constructor(data?: PartialMessage<MsgSend>) {
     super();
@@ -490,9 +490,9 @@ export class MsgSend extends Message<MsgSend> {
   static readonly typeName = "sunrise.lockup.v1.MsgSend";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "recipient", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "amount", kind: "message", T: Coin },
+    { no: 4, name: "amount", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSend {

@@ -235,6 +235,9 @@ export {
   GenesisState as SunriseSwapV1GenesisState,
 } from "./sunrise/swap/v1/genesis_pb.js";
 export {
+  SwapBeforeFeeExtension as SunriseSwapV1SwapBeforeFeeExtension,
+} from "./sunrise/swap/v1/extension_pb.js";
+export {
   Module as SunriseSwapModuleV1Module,
 } from "./sunrise/swap/module/v1/module_pb.js";
 export {
@@ -439,6 +442,8 @@ export {
 export {
   MsgUpdateParams as SunriseLiquidityincentiveV1MsgUpdateParams,
   MsgUpdateParamsResponse as SunriseLiquidityincentiveV1MsgUpdateParamsResponse,
+  MsgStartNewEpoch as SunriseLiquidityincentiveV1MsgStartNewEpoch,
+  MsgStartNewEpochResponse as SunriseLiquidityincentiveV1MsgStartNewEpochResponse,
   MsgVoteGauge as SunriseLiquidityincentiveV1MsgVoteGauge,
   MsgVoteGaugeResponse as SunriseLiquidityincentiveV1MsgVoteGaugeResponse,
   MsgRegisterBribe as SunriseLiquidityincentiveV1MsgRegisterBribe,
@@ -448,6 +453,7 @@ export {
 } from "./sunrise/liquidityincentive/v1/tx_pb.js";
 export {
   MsgUpdateParamsService as SunriseLiquidityincentiveV1MsgUpdateParamsService,
+  MsgStartNewEpochService as SunriseLiquidityincentiveV1MsgStartNewEpochService,
   MsgVoteGaugeService as SunriseLiquidityincentiveV1MsgVoteGaugeService,
   MsgRegisterBribeService as SunriseLiquidityincentiveV1MsgRegisterBribeService,
   MsgClaimBribesService as SunriseLiquidityincentiveV1MsgClaimBribesService,
@@ -459,10 +465,6 @@ export {
   QueryEpochResponse as SunriseLiquidityincentiveV1QueryEpochResponse,
   QueryEpochsRequest as SunriseLiquidityincentiveV1QueryEpochsRequest,
   QueryEpochsResponse as SunriseLiquidityincentiveV1QueryEpochsResponse,
-  QueryGaugeRequest as SunriseLiquidityincentiveV1QueryGaugeRequest,
-  QueryGaugeResponse as SunriseLiquidityincentiveV1QueryGaugeResponse,
-  QueryGaugesRequest as SunriseLiquidityincentiveV1QueryGaugesRequest,
-  QueryGaugesResponse as SunriseLiquidityincentiveV1QueryGaugesResponse,
   QueryVoteRequest as SunriseLiquidityincentiveV1QueryVoteRequest,
   QueryVoteResponse as SunriseLiquidityincentiveV1QueryVoteResponse,
   QueryVotesRequest as SunriseLiquidityincentiveV1QueryVotesRequest,
@@ -471,35 +473,24 @@ export {
   QueryBribesResponse as SunriseLiquidityincentiveV1QueryBribesResponse,
   QueryBribeRequest as SunriseLiquidityincentiveV1QueryBribeRequest,
   QueryBribeResponse as SunriseLiquidityincentiveV1QueryBribeResponse,
-  QueryBribesByEpochIdRequest as SunriseLiquidityincentiveV1QueryBribesByEpochIdRequest,
-  QueryBribesByEpochIdResponse as SunriseLiquidityincentiveV1QueryBribesByEpochIdResponse,
-  QueryBribesByPoolIdRequest as SunriseLiquidityincentiveV1QueryBribesByPoolIdRequest,
-  QueryBribesByPoolIdResponse as SunriseLiquidityincentiveV1QueryBribesByPoolIdResponse,
-  QueryBribesByEpochAndPoolIdRequest as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdRequest,
-  QueryBribesByEpochAndPoolIdResponse as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdResponse,
   QueryBribeAllocationsRequest as SunriseLiquidityincentiveV1QueryBribeAllocationsRequest,
   QueryBribeAllocationsResponse as SunriseLiquidityincentiveV1QueryBribeAllocationsResponse,
-  QueryBribeAllocationsByAddressRequest as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressRequest,
-  QueryBribeAllocationsByAddressResponse as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressResponse,
   QueryBribeAllocationRequest as SunriseLiquidityincentiveV1QueryBribeAllocationRequest,
   QueryBribeAllocationResponse as SunriseLiquidityincentiveV1QueryBribeAllocationResponse,
+  QueryTallyResultRequest as SunriseLiquidityincentiveV1QueryTallyResultRequest,
+  QueryTallyResultResponse as SunriseLiquidityincentiveV1QueryTallyResultResponse,
 } from "./sunrise/liquidityincentive/v1/query_pb.js";
 export {
   QueryParamsService as SunriseLiquidityincentiveV1QueryParamsService,
   QueryEpochService as SunriseLiquidityincentiveV1QueryEpochService,
   QueryEpochsService as SunriseLiquidityincentiveV1QueryEpochsService,
-  QueryGaugeService as SunriseLiquidityincentiveV1QueryGaugeService,
-  QueryGaugesService as SunriseLiquidityincentiveV1QueryGaugesService,
   QueryVoteService as SunriseLiquidityincentiveV1QueryVoteService,
   QueryVotesService as SunriseLiquidityincentiveV1QueryVotesService,
   QueryBribesService as SunriseLiquidityincentiveV1QueryBribesService,
   QueryBribeService as SunriseLiquidityincentiveV1QueryBribeService,
-  QueryBribesByEpochIdService as SunriseLiquidityincentiveV1QueryBribesByEpochIdService,
-  QueryBribesByPoolIdService as SunriseLiquidityincentiveV1QueryBribesByPoolIdService,
-  QueryBribesByEpochAndPoolIdService as SunriseLiquidityincentiveV1QueryBribesByEpochAndPoolIdService,
   QueryBribeAllocationsService as SunriseLiquidityincentiveV1QueryBribeAllocationsService,
-  QueryBribeAllocationsByAddressService as SunriseLiquidityincentiveV1QueryBribeAllocationsByAddressService,
   QueryBribeAllocationService as SunriseLiquidityincentiveV1QueryBribeAllocationService,
+  QueryTallyResultService as SunriseLiquidityincentiveV1QueryTallyResultService,
 } from "./sunrise/liquidityincentive/v1/query_cosmes.js";
 export {
   Params as SunriseLiquidityincentiveV1Params,
@@ -509,11 +500,11 @@ export {
 } from "./sunrise/liquidityincentive/v1/genesis_pb.js";
 export {
   Gauge as SunriseLiquidityincentiveV1Gauge,
-  TallyResult as SunriseLiquidityincentiveV1TallyResult,
   PoolWeight as SunriseLiquidityincentiveV1PoolWeight,
   Vote as SunriseLiquidityincentiveV1Vote,
 } from "./sunrise/liquidityincentive/v1/gauge_pb.js";
 export {
+  EventStartNewEpoch as SunriseLiquidityincentiveV1EventStartNewEpoch,
   EventVoteGauge as SunriseLiquidityincentiveV1EventVoteGauge,
   EventRegisterBribe as SunriseLiquidityincentiveV1EventRegisterBribe,
   EventClaimBribes as SunriseLiquidityincentiveV1EventClaimBribes,
@@ -552,80 +543,80 @@ export {
   Module as SunriseFeeModuleV1Module,
 } from "./sunrise/fee/module/v1/module_pb.js";
 export {
-  VoteExtension as SunriseDaV1VoteExtension,
-} from "./sunrise/da/v1/vote_extension_pb.js";
+  VoteExtension as SunriseDaV0VoteExtension,
+} from "./sunrise/da/v0/vote_extension_pb.js";
 export {
-  MsgUpdateParams as SunriseDaV1MsgUpdateParams,
-  MsgUpdateParamsResponse as SunriseDaV1MsgUpdateParamsResponse,
-  MsgPublishData as SunriseDaV1MsgPublishData,
-  MsgPublishDataResponse as SunriseDaV1MsgPublishDataResponse,
-  MsgSubmitInvalidity as SunriseDaV1MsgSubmitInvalidity,
-  MsgSubmitInvalidityResponse as SunriseDaV1MsgSubmitInvalidityResponse,
-  MsgSubmitValidityProof as SunriseDaV1MsgSubmitValidityProof,
-  MsgSubmitValidityProofResponse as SunriseDaV1MsgSubmitValidityProofResponse,
-  MsgRegisterProofDeputy as SunriseDaV1MsgRegisterProofDeputy,
-  MsgRegisterProofDeputyResponse as SunriseDaV1MsgRegisterProofDeputyResponse,
-  MsgUnregisterProofDeputy as SunriseDaV1MsgUnregisterProofDeputy,
-  MsgUnregisterProofDeputyResponse as SunriseDaV1MsgUnregisterProofDeputyResponse,
-} from "./sunrise/da/v1/tx_pb.js";
+  MsgUpdateParams as SunriseDaV0MsgUpdateParams,
+  MsgUpdateParamsResponse as SunriseDaV0MsgUpdateParamsResponse,
+  MsgPublishData as SunriseDaV0MsgPublishData,
+  MsgPublishDataResponse as SunriseDaV0MsgPublishDataResponse,
+  MsgSubmitInvalidity as SunriseDaV0MsgSubmitInvalidity,
+  MsgSubmitInvalidityResponse as SunriseDaV0MsgSubmitInvalidityResponse,
+  MsgSubmitValidityProof as SunriseDaV0MsgSubmitValidityProof,
+  MsgSubmitValidityProofResponse as SunriseDaV0MsgSubmitValidityProofResponse,
+  MsgRegisterProofDeputy as SunriseDaV0MsgRegisterProofDeputy,
+  MsgRegisterProofDeputyResponse as SunriseDaV0MsgRegisterProofDeputyResponse,
+  MsgUnregisterProofDeputy as SunriseDaV0MsgUnregisterProofDeputy,
+  MsgUnregisterProofDeputyResponse as SunriseDaV0MsgUnregisterProofDeputyResponse,
+} from "./sunrise/da/v0/tx_pb.js";
 export {
-  MsgUpdateParamsService as SunriseDaV1MsgUpdateParamsService,
-  MsgPublishDataService as SunriseDaV1MsgPublishDataService,
-  MsgSubmitInvalidityService as SunriseDaV1MsgSubmitInvalidityService,
-  MsgSubmitValidityProofService as SunriseDaV1MsgSubmitValidityProofService,
-  MsgRegisterProofDeputyService as SunriseDaV1MsgRegisterProofDeputyService,
-  MsgUnregisterProofDeputyService as SunriseDaV1MsgUnregisterProofDeputyService,
-} from "./sunrise/da/v1/tx_cosmes.js";
+  MsgUpdateParamsService as SunriseDaV0MsgUpdateParamsService,
+  MsgPublishDataService as SunriseDaV0MsgPublishDataService,
+  MsgSubmitInvalidityService as SunriseDaV0MsgSubmitInvalidityService,
+  MsgSubmitValidityProofService as SunriseDaV0MsgSubmitValidityProofService,
+  MsgRegisterProofDeputyService as SunriseDaV0MsgRegisterProofDeputyService,
+  MsgUnregisterProofDeputyService as SunriseDaV0MsgUnregisterProofDeputyService,
+} from "./sunrise/da/v0/tx_cosmes.js";
 export {
-  QueryParamsRequest as SunriseDaV1QueryParamsRequest,
-  QueryParamsResponse as SunriseDaV1QueryParamsResponse,
-  QueryPublishedDataRequest as SunriseDaV1QueryPublishedDataRequest,
-  QueryPublishedDataResponse as SunriseDaV1QueryPublishedDataResponse,
-  QueryAllPublishedDataRequest as SunriseDaV1QueryAllPublishedDataRequest,
-  QueryAllPublishedDataResponse as SunriseDaV1QueryAllPublishedDataResponse,
-  QueryValidityProofRequest as SunriseDaV1QueryValidityProofRequest,
-  QueryValidityProofResponse as SunriseDaV1QueryValidityProofResponse,
-  QueryAllValidityProofsRequest as SunriseDaV1QueryAllValidityProofsRequest,
-  QueryAllValidityProofsResponse as SunriseDaV1QueryAllValidityProofsResponse,
-  QueryInvalidityRequest as SunriseDaV1QueryInvalidityRequest,
-  QueryInvalidityResponse as SunriseDaV1QueryInvalidityResponse,
-  QueryAllInvalidityRequest as SunriseDaV1QueryAllInvalidityRequest,
-  QueryAllInvalidityResponse as SunriseDaV1QueryAllInvalidityResponse,
-  QueryValidatorShardIndicesRequest as SunriseDaV1QueryValidatorShardIndicesRequest,
-  QueryValidatorShardIndicesResponse as SunriseDaV1QueryValidatorShardIndicesResponse,
-  QueryZkpProofThresholdRequest as SunriseDaV1QueryZkpProofThresholdRequest,
-  QueryZkpProofThresholdResponse as SunriseDaV1QueryZkpProofThresholdResponse,
-  QueryProofDeputyRequest as SunriseDaV1QueryProofDeputyRequest,
-  QueryProofDeputyResponse as SunriseDaV1QueryProofDeputyResponse,
-} from "./sunrise/da/v1/query_pb.js";
+  QueryParamsRequest as SunriseDaV0QueryParamsRequest,
+  QueryParamsResponse as SunriseDaV0QueryParamsResponse,
+  QueryPublishedDataRequest as SunriseDaV0QueryPublishedDataRequest,
+  QueryPublishedDataResponse as SunriseDaV0QueryPublishedDataResponse,
+  QueryAllPublishedDataRequest as SunriseDaV0QueryAllPublishedDataRequest,
+  QueryAllPublishedDataResponse as SunriseDaV0QueryAllPublishedDataResponse,
+  QueryValidityProofRequest as SunriseDaV0QueryValidityProofRequest,
+  QueryValidityProofResponse as SunriseDaV0QueryValidityProofResponse,
+  QueryAllValidityProofsRequest as SunriseDaV0QueryAllValidityProofsRequest,
+  QueryAllValidityProofsResponse as SunriseDaV0QueryAllValidityProofsResponse,
+  QueryInvalidityRequest as SunriseDaV0QueryInvalidityRequest,
+  QueryInvalidityResponse as SunriseDaV0QueryInvalidityResponse,
+  QueryAllInvalidityRequest as SunriseDaV0QueryAllInvalidityRequest,
+  QueryAllInvalidityResponse as SunriseDaV0QueryAllInvalidityResponse,
+  QueryValidatorShardIndicesRequest as SunriseDaV0QueryValidatorShardIndicesRequest,
+  QueryValidatorShardIndicesResponse as SunriseDaV0QueryValidatorShardIndicesResponse,
+  QueryZkpProofThresholdRequest as SunriseDaV0QueryZkpProofThresholdRequest,
+  QueryZkpProofThresholdResponse as SunriseDaV0QueryZkpProofThresholdResponse,
+  QueryProofDeputyRequest as SunriseDaV0QueryProofDeputyRequest,
+  QueryProofDeputyResponse as SunriseDaV0QueryProofDeputyResponse,
+} from "./sunrise/da/v0/query_pb.js";
 export {
-  QueryParamsService as SunriseDaV1QueryParamsService,
-  QueryPublishedDataService as SunriseDaV1QueryPublishedDataService,
-  QueryAllPublishedDataService as SunriseDaV1QueryAllPublishedDataService,
-  QueryValidityProofService as SunriseDaV1QueryValidityProofService,
-  QueryAllValidityProofsService as SunriseDaV1QueryAllValidityProofsService,
-  QueryInvalidityService as SunriseDaV1QueryInvalidityService,
-  QueryAllInvalidityService as SunriseDaV1QueryAllInvalidityService,
-  QueryValidatorShardIndicesService as SunriseDaV1QueryValidatorShardIndicesService,
-  QueryZkpProofThresholdService as SunriseDaV1QueryZkpProofThresholdService,
-  QueryProofDeputyService as SunriseDaV1QueryProofDeputyService,
-} from "./sunrise/da/v1/query_cosmes.js";
+  QueryParamsService as SunriseDaV0QueryParamsService,
+  QueryPublishedDataService as SunriseDaV0QueryPublishedDataService,
+  QueryAllPublishedDataService as SunriseDaV0QueryAllPublishedDataService,
+  QueryValidityProofService as SunriseDaV0QueryValidityProofService,
+  QueryAllValidityProofsService as SunriseDaV0QueryAllValidityProofsService,
+  QueryInvalidityService as SunriseDaV0QueryInvalidityService,
+  QueryAllInvalidityService as SunriseDaV0QueryAllInvalidityService,
+  QueryValidatorShardIndicesService as SunriseDaV0QueryValidatorShardIndicesService,
+  QueryZkpProofThresholdService as SunriseDaV0QueryZkpProofThresholdService,
+  QueryProofDeputyService as SunriseDaV0QueryProofDeputyService,
+} from "./sunrise/da/v0/query_cosmes.js";
 export {
-  Status as SunriseDaV1Status,
-  PublishedData as SunriseDaV1PublishedData,
-  Proof as SunriseDaV1Proof,
-  Invalidity as SunriseDaV1Invalidity,
-} from "./sunrise/da/v1/published_data_pb.js";
+  Status as SunriseDaV0Status,
+  PublishedData as SunriseDaV0PublishedData,
+  Proof as SunriseDaV0Proof,
+  Invalidity as SunriseDaV0Invalidity,
+} from "./sunrise/da/v0/published_data_pb.js";
 export {
-  Params as SunriseDaV1Params,
-} from "./sunrise/da/v1/params_pb.js";
+  Params as SunriseDaV0Params,
+} from "./sunrise/da/v0/params_pb.js";
 export {
-  Metadata as SunriseDaV1Metadata,
-  MetadataUriWrapper as SunriseDaV1MetadataUriWrapper,
-} from "./sunrise/da/v1/metadata_pb.js";
+  Metadata as SunriseDaV0Metadata,
+  MetadataUriWrapper as SunriseDaV0MetadataUriWrapper,
+} from "./sunrise/da/v0/metadata_pb.js";
 export {
-  GenesisState as SunriseDaV1GenesisState,
-} from "./sunrise/da/v1/genesis_pb.js";
+  GenesisState as SunriseDaV0GenesisState,
+} from "./sunrise/da/v0/genesis_pb.js";
 export {
   Module as SunriseDaModuleV1Module,
 } from "./sunrise/da/module/v1/module_pb.js";
@@ -2977,6 +2968,7 @@ export {
   PausedType as NobleDollarVaultsV1PausedType,
   Reward as NobleDollarVaultsV1Reward,
   Position as NobleDollarVaultsV1Position,
+  PositionRewards as NobleDollarVaultsV1PositionRewards,
   PositionEntry as NobleDollarVaultsV1PositionEntry,
   Stats as NobleDollarVaultsV1Stats,
 } from "./noble/dollar/vaults/v1/vaults_pb.js";
@@ -6919,19 +6911,6 @@ export {
   PrivKey as EthermintCryptoV1Ethsecp256k1PrivKey,
 } from "./ethermint/crypto/v1/ethsecp256k1/keys_pb.js";
 export {
-  QueryParamsRequest as ElysTransferhookQueryParamsRequest,
-  QueryParamsResponse as ElysTransferhookQueryParamsResponse,
-} from "./elys/transferhook/query_pb.js";
-export {
-  QueryParamsService as ElysTransferhookQueryParamsService,
-} from "./elys/transferhook/query_cosmes.js";
-export {
-  Params as ElysTransferhookParams,
-} from "./elys/transferhook/params_pb.js";
-export {
-  GenesisState as ElysTransferhookGenesisState,
-} from "./elys/transferhook/genesis_pb.js";
-export {
   Status as ElysTradeshieldStatus,
   PerpetualOrderType as ElysTradeshieldPerpetualOrderType,
   Date as ElysTradeshieldDate,
@@ -7127,6 +7106,9 @@ export {
   Price as ElysTierPrice,
   QueryGetAllPricesRequest as ElysTierQueryGetAllPricesRequest,
   QueryGetAllPricesResponse as ElysTierQueryGetAllPricesResponse,
+  OraclePrice as ElysTierOraclePrice,
+  QueryGetOraclePricesRequest as ElysTierQueryGetOraclePricesRequest,
+  QueryGetOraclePricesResponse as ElysTierQueryGetOraclePricesResponse,
 } from "./elys/tier/query_pb.js";
 export {
   QueryParamsService as ElysTierQueryParamsService,
@@ -7144,6 +7126,7 @@ export {
   QueryStakedService as ElysTierQueryStakedService,
   QueryGetUsersPoolDataService as ElysTierQueryGetUsersPoolDataService,
   QueryGetAllPricesService as ElysTierQueryGetAllPricesService,
+  QueryGetOraclePricesService as ElysTierQueryGetOraclePricesService,
 } from "./elys/tier/query_cosmes.js";
 export {
   LegacyPortfolio as ElysTierLegacyPortfolio,
@@ -7272,8 +7255,8 @@ export {
   PositionsResponse as ElysPerpetualPositionsResponse,
   PositionsByPoolRequest as ElysPerpetualPositionsByPoolRequest,
   PositionsByPoolResponse as ElysPerpetualPositionsByPoolResponse,
-  StatusRequest as ElysPerpetualStatusRequest,
-  StatusResponse as ElysPerpetualStatusResponse,
+  PerpetualCounterRequest as ElysPerpetualPerpetualCounterRequest,
+  PerpetualCounterResponse as ElysPerpetualPerpetualCounterResponse,
   PositionsForAddressRequest as ElysPerpetualPositionsForAddressRequest,
   PositionsForAddressResponse as ElysPerpetualPositionsForAddressResponse,
   WhitelistRequest as ElysPerpetualWhitelistRequest,
@@ -7296,7 +7279,7 @@ export {
   QueryParamsService as ElysPerpetualQueryParamsService,
   QueryGetPositionsService as ElysPerpetualQueryGetPositionsService,
   QueryGetPositionsByPoolService as ElysPerpetualQueryGetPositionsByPoolService,
-  QueryGetStatusService as ElysPerpetualQueryGetStatusService,
+  QueryPerpetualCounterService as ElysPerpetualQueryPerpetualCounterService,
   QueryGetPositionsForAddressService as ElysPerpetualQueryGetPositionsForAddressService,
   QueryGetWhitelistService as ElysPerpetualQueryGetWhitelistService,
   QueryIsWhitelistedService as ElysPerpetualQueryIsWhitelistedService,
@@ -7308,11 +7291,10 @@ export {
 } from "./elys/perpetual/query_cosmes.js";
 export {
   PoolAsset as ElysPerpetualPoolAsset,
-  LegacyPool as ElysPerpetualLegacyPool,
   Pool as ElysPerpetualPool,
+  PerpetualCounter as ElysPerpetualPerpetualCounter,
 } from "./elys/perpetual/pool_pb.js";
 export {
-  LegacyParams as ElysPerpetualLegacyParams,
   Params as ElysPerpetualParams,
 } from "./elys/perpetual/params_pb.js";
 export {
@@ -7329,6 +7311,8 @@ export {
   MsgUpdateTotalBlocksPerYearResponse as ElysParameterMsgUpdateTotalBlocksPerYearResponse,
   MsgUpdateRewardsDataLifetime as ElysParameterMsgUpdateRewardsDataLifetime,
   MsgUpdateRewardsDataLifetimeResponse as ElysParameterMsgUpdateRewardsDataLifetimeResponse,
+  MsgUpdateTakerFees as ElysParameterMsgUpdateTakerFees,
+  MsgUpdateTakerFeesResponse as ElysParameterMsgUpdateTakerFeesResponse,
 } from "./elys/parameter/tx_pb.js";
 export {
   MsgUpdateMinCommissionService as ElysParameterMsgUpdateMinCommissionService,
@@ -7336,6 +7320,7 @@ export {
   MsgUpdateMinSelfDelegationService as ElysParameterMsgUpdateMinSelfDelegationService,
   MsgUpdateTotalBlocksPerYearService as ElysParameterMsgUpdateTotalBlocksPerYearService,
   MsgUpdateRewardsDataLifetimeService as ElysParameterMsgUpdateRewardsDataLifetimeService,
+  MsgUpdateTakerFeesService as ElysParameterMsgUpdateTakerFeesService,
 } from "./elys/parameter/tx_cosmes.js";
 export {
   QueryParamsRequest as ElysParameterQueryParamsRequest,
@@ -7465,6 +7450,8 @@ export {
   QueryExternalIncentiveResponse as ElysMasterchefQueryExternalIncentiveResponse,
   QueryPoolInfoRequest as ElysMasterchefQueryPoolInfoRequest,
   QueryPoolInfoResponse as ElysMasterchefQueryPoolInfoResponse,
+  QueryListPoolInfosRequest as ElysMasterchefQueryListPoolInfosRequest,
+  QueryListPoolInfosResponse as ElysMasterchefQueryListPoolInfosResponse,
   QueryPoolRewardInfoRequest as ElysMasterchefQueryPoolRewardInfoRequest,
   QueryPoolRewardInfoResponse as ElysMasterchefQueryPoolRewardInfoResponse,
   QueryUserRewardInfoRequest as ElysMasterchefQueryUserRewardInfoRequest,
@@ -7488,11 +7475,16 @@ export {
   QueryPoolRewardsRequest as ElysMasterchefQueryPoolRewardsRequest,
   PoolRewards as ElysMasterchefPoolRewards,
   QueryPoolRewardsResponse as ElysMasterchefQueryPoolRewardsResponse,
+  QueryTotalPendingRewardsRequest as ElysMasterchefQueryTotalPendingRewardsRequest,
+  QueryTotalPendingRewardsResponse as ElysMasterchefQueryTotalPendingRewardsResponse,
+  QueryPendingRewardsRequest as ElysMasterchefQueryPendingRewardsRequest,
+  QueryPendingRewardsResponse as ElysMasterchefQueryPendingRewardsResponse,
 } from "./elys/masterchef/query_pb.js";
 export {
   QueryParamsService as ElysMasterchefQueryParamsService,
   QueryExternalIncentiveService as ElysMasterchefQueryExternalIncentiveService,
   QueryPoolInfoService as ElysMasterchefQueryPoolInfoService,
+  QueryListPoolInfosService as ElysMasterchefQueryListPoolInfosService,
   QueryPoolRewardInfoService as ElysMasterchefQueryPoolRewardInfoService,
   QueryUserRewardInfoService as ElysMasterchefQueryUserRewardInfoService,
   QueryUserPendingRewardService as ElysMasterchefQueryUserPendingRewardService,
@@ -7505,6 +7497,8 @@ export {
   QueryPoolRewardsService as ElysMasterchefQueryPoolRewardsService,
   QueryAllLiquidityPoolTVLService as ElysMasterchefQueryAllLiquidityPoolTVLService,
   QueryChainTVLService as ElysMasterchefQueryChainTVLService,
+  QueryTotalPendingRewardsService as ElysMasterchefQueryTotalPendingRewardsService,
+  QueryPendingRewardsService as ElysMasterchefQueryPendingRewardsService,
 } from "./elys/masterchef/query_cosmes.js";
 export {
   PoolInfo as ElysMasterchefPoolInfo,
@@ -7654,6 +7648,7 @@ export {
   MsgWithdrawAllRewardsService as ElysEstakingMsgWithdrawAllRewardsService,
 } from "./elys/estaking/tx_cosmes.js";
 export {
+  TokenType as ElysEstakingTokenType,
   QueryParamsRequest as ElysEstakingQueryParamsRequest,
   QueryParamsResponse as ElysEstakingQueryParamsResponse,
   QueryRewardsRequest as ElysEstakingQueryRewardsRequest,
@@ -7661,11 +7656,14 @@ export {
   QueryRewardsResponse as ElysEstakingQueryRewardsResponse,
   QueryInvariantRequest as ElysEstakingQueryInvariantRequest,
   QueryInvariantResponse as ElysEstakingQueryInvariantResponse,
+  QueryEdenBBurnAmountRequest as ElysEstakingQueryEdenBBurnAmountRequest,
+  QueryEdenBBurnAmountResponse as ElysEstakingQueryEdenBBurnAmountResponse,
 } from "./elys/estaking/query_pb.js";
 export {
   QueryParamsService as ElysEstakingQueryParamsService,
   QueryRewardsService as ElysEstakingQueryRewardsService,
   QueryInvariantService as ElysEstakingQueryInvariantService,
+  QueryEdenBBurnAmountService as ElysEstakingQueryEdenBBurnAmountService,
 } from "./elys/estaking/query_cosmes.js";
 export {
   LegacyParams as ElysEstakingLegacyParams,
@@ -7726,6 +7724,8 @@ export {
   MsgClaimKolResponse as ElysCommitmentMsgClaimKolResponse,
   MsgUpdateAirdropParams as ElysCommitmentMsgUpdateAirdropParams,
   MsgUpdateAirdropParamsResponse as ElysCommitmentMsgUpdateAirdropParamsResponse,
+  MsgClaimRewardProgram as ElysCommitmentMsgClaimRewardProgram,
+  MsgClaimRewardProgramResponse as ElysCommitmentMsgClaimRewardProgramResponse,
 } from "./elys/commitment/tx_pb.js";
 export {
   MsgCommitClaimedRewardsService as ElysCommitmentMsgCommitClaimedRewardsService,
@@ -7742,6 +7742,7 @@ export {
   MsgUnstakeService as ElysCommitmentMsgUnstakeService,
   MsgClaimAirdropService as ElysCommitmentMsgClaimAirdropService,
   MsgClaimKolService as ElysCommitmentMsgClaimKolService,
+  MsgClaimRewardProgramService as ElysCommitmentMsgClaimRewardProgramService,
 } from "./elys/commitment/tx_cosmes.js";
 export {
   QueryParamsRequest as ElysCommitmentQueryParamsRequest,
@@ -7763,6 +7764,10 @@ export {
   QueryKolResponse as ElysCommitmentQueryKolResponse,
   QueryTotalSupplyRequest as ElysCommitmentQueryTotalSupplyRequest,
   QueryTotalSupplyResponse as ElysCommitmentQueryTotalSupplyResponse,
+  QueryRewardProgramRequest as ElysCommitmentQueryRewardProgramRequest,
+  QueryRewardProgramResponse as ElysCommitmentQueryRewardProgramResponse,
+  QueryTotalRewardProgramClaimedRequest as ElysCommitmentQueryTotalRewardProgramClaimedRequest,
+  QueryTotalRewardProgramClaimedResponse as ElysCommitmentQueryTotalRewardProgramClaimedResponse,
 } from "./elys/commitment/query_pb.js";
 export {
   QueryParamsService as ElysCommitmentQueryParamsService,
@@ -7774,6 +7779,8 @@ export {
   QueryTotalAirdropClaimedService as ElysCommitmentQueryTotalAirdropClaimedService,
   QueryKolService as ElysCommitmentQueryKolService,
   QueryTotalSupplyService as ElysCommitmentQueryTotalSupplyService,
+  QueryRewardProgramService as ElysCommitmentQueryRewardProgramService,
+  QueryTotalRewardProgramClaimedService as ElysCommitmentQueryTotalRewardProgramClaimedService,
 } from "./elys/commitment/query_cosmes.js";
 export {
   EarnType as ElysCommitmentEarnType,
@@ -7799,6 +7806,7 @@ export {
   AirdropClaimed as ElysCommitmentAirdropClaimed,
   TotalClaimed as ElysCommitmentTotalClaimed,
   KolList as ElysCommitmentKolList,
+  RewardProgram as ElysCommitmentRewardProgram,
 } from "./elys/commitment/airdrop_pb.js";
 export {
   MsgUpdateParams as ElysBurnerMsgUpdateParams,

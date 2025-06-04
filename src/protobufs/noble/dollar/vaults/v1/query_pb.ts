@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { PausedType, PositionEntry } from "./vaults_pb.js";
+import { PausedType, PositionEntry, PositionRewards } from "./vaults_pb.js";
 
 /**
  * @generated from message noble.dollar.vaults.v1.QueryPositionsByProvider
@@ -263,6 +263,11 @@ export class QueryPendingRewardsByProviderResponse extends Message<QueryPendingR
    */
   pendingRewards = "";
 
+  /**
+   * @generated from field: repeated noble.dollar.vaults.v1.PositionRewards positions_rewards = 2;
+   */
+  positionsRewards: PositionRewards[] = [];
+
   constructor(data?: PartialMessage<QueryPendingRewardsByProviderResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -272,6 +277,7 @@ export class QueryPendingRewardsByProviderResponse extends Message<QueryPendingR
   static readonly typeName = "noble.dollar.vaults.v1.QueryPendingRewardsByProviderResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pending_rewards", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "positions_rewards", kind: "message", T: PositionRewards, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingRewardsByProviderResponse {

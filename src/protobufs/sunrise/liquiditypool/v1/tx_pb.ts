@@ -126,7 +126,7 @@ export class MsgCreatePool extends Message<MsgCreatePool> {
   priceRatio = "";
 
   /**
-   * basically 0 and [0, 1). In the 1:1 stable pair, 0.5 would work
+   * basically 0 and (-1, 0]. In the 1:1 stable pair, 0.5 would work
    *
    * @generated from field: string base_offset = 6;
    */

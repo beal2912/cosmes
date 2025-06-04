@@ -944,6 +944,16 @@ export class MsgUpdateEnabledPools extends Message<MsgUpdateEnabledPools> {
    */
   enabledPools: bigint[] = [];
 
+  /**
+   * @generated from field: repeated uint64 add_pools = 3;
+   */
+  addPools: bigint[] = [];
+
+  /**
+   * @generated from field: repeated uint64 remove_pools = 4;
+   */
+  removePools: bigint[] = [];
+
   constructor(data?: PartialMessage<MsgUpdateEnabledPools>) {
     super();
     proto3.util.initPartial(data, this);
@@ -954,6 +964,8 @@ export class MsgUpdateEnabledPools extends Message<MsgUpdateEnabledPools> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 3, name: "add_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 4, name: "remove_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateEnabledPools {

@@ -112,6 +112,16 @@ export class Params extends Message<Params> {
    */
   takerFeeCollectionAddress = "";
 
+  /**
+   * @generated from field: bool enable_taker_fee_swap = 8;
+   */
+  enableTakerFeeSwap = false;
+
+  /**
+   * @generated from field: uint64 taker_fee_collection_interval = 9;
+   */
+  takerFeeCollectionInterval = protoInt64.zero;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -127,6 +137,8 @@ export class Params extends Message<Params> {
     { no: 5, name: "rewards_data_lifetime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 6, name: "taker_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "taker_fee_collection_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "enable_taker_fee_swap", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 9, name: "taker_fee_collection_interval", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

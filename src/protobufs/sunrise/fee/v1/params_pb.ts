@@ -22,11 +22,6 @@ export class Params extends Message<Params> {
    */
   burnRatio = "";
 
-  /**
-   * @generated from field: repeated string bypass_denoms = 3;
-   */
-  bypassDenoms: string[] = [];
-
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -37,7 +32,6 @@ export class Params extends Message<Params> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "burn_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "bypass_denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

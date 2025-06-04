@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCancelVest, MsgCancelVestResponse, MsgClaimAirdrop, MsgClaimAirdropResponse, MsgClaimKol, MsgClaimKolResponse, MsgClaimVesting, MsgClaimVestingResponse, MsgCommitClaimedRewards, MsgCommitClaimedRewardsResponse, MsgStake, MsgStakeResponse, MsgUncommitTokens, MsgUncommitTokensResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateAirdropParams, MsgUpdateAirdropParamsResponse, MsgUpdateEnableVestNow, MsgUpdateEnableVestNowResponse, MsgUpdateVestingInfo, MsgUpdateVestingInfoResponse, MsgVest, MsgVestLiquid, MsgVestLiquidResponse, MsgVestNow, MsgVestNowResponse, MsgVestResponse } from "./tx_pb.js";
+import { MsgCancelVest, MsgCancelVestResponse, MsgClaimAirdrop, MsgClaimAirdropResponse, MsgClaimKol, MsgClaimKolResponse, MsgClaimRewardProgram, MsgClaimRewardProgramResponse, MsgClaimVesting, MsgClaimVestingResponse, MsgCommitClaimedRewards, MsgCommitClaimedRewardsResponse, MsgStake, MsgStakeResponse, MsgUncommitTokens, MsgUncommitTokensResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateAirdropParams, MsgUpdateAirdropParamsResponse, MsgUpdateEnableVestNow, MsgUpdateEnableVestNowResponse, MsgUpdateVestingInfo, MsgUpdateVestingInfoResponse, MsgVest, MsgVestLiquid, MsgVestLiquidResponse, MsgVestNow, MsgVestNowResponse, MsgVestResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.commitment.Msg";
 
@@ -170,5 +170,15 @@ export const MsgClaimKolService = {
   method: "ClaimKol",
   Request: MsgClaimKol,
   Response: MsgClaimKolResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Msg.ClaimRewardProgram
+ */
+export const MsgClaimRewardProgramService = {
+  typeName: TYPE_NAME,
+  method: "ClaimRewardProgram",
+  Request: MsgClaimRewardProgram,
+  Response: MsgClaimRewardProgramResponse,
 } as const;
 

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllLiquidityPoolTVLRequest, QueryAllLiquidityPoolTVLResponse, QueryAprRequest, QueryAprResponse, QueryAprsRequest, QueryAprsResponse, QueryChainTVLRequest, QueryChainTVLResponse, QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryParamsRequest, QueryParamsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryPoolRewardsRequest, QueryPoolRewardsResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
+import { QueryAllLiquidityPoolTVLRequest, QueryAllLiquidityPoolTVLResponse, QueryAprRequest, QueryAprResponse, QueryAprsRequest, QueryAprsResponse, QueryChainTVLRequest, QueryChainTVLResponse, QueryExternalIncentiveRequest, QueryExternalIncentiveResponse, QueryListFeeInfoRequest, QueryListFeeInfoResponse, QueryListPoolInfosRequest, QueryListPoolInfosResponse, QueryParamsRequest, QueryParamsResponse, QueryPendingRewardsRequest, QueryPendingRewardsResponse, QueryPoolAprsRequest, QueryPoolAprsResponse, QueryPoolInfoRequest, QueryPoolInfoResponse, QueryPoolRewardInfoRequest, QueryPoolRewardInfoResponse, QueryPoolRewardsRequest, QueryPoolRewardsResponse, QueryShowFeeInfoRequest, QueryShowFeeInfoResponse, QueryStableStakeAprRequest, QueryStableStakeAprResponse, QueryTotalPendingRewardsRequest, QueryTotalPendingRewardsResponse, QueryUserPendingRewardRequest, QueryUserPendingRewardResponse, QueryUserRewardInfoRequest, QueryUserRewardInfoResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Query";
 
@@ -37,6 +37,16 @@ export const QueryPoolInfoService = {
   method: "PoolInfo",
   Request: QueryPoolInfoRequest,
   Response: QueryPoolInfoResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Query.ListPoolInfos
+ */
+export const QueryListPoolInfosService = {
+  typeName: TYPE_NAME,
+  method: "ListPoolInfos",
+  Request: QueryListPoolInfosRequest,
+  Response: QueryListPoolInfosResponse,
 } as const;
 
 /**
@@ -167,5 +177,25 @@ export const QueryChainTVLService = {
   method: "ChainTVL",
   Request: QueryChainTVLRequest,
   Response: QueryChainTVLResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Query.TotalPendingRewards
+ */
+export const QueryTotalPendingRewardsService = {
+  typeName: TYPE_NAME,
+  method: "TotalPendingRewards",
+  Request: QueryTotalPendingRewardsRequest,
+  Response: QueryTotalPendingRewardsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Query.PendingRewards
+ */
+export const QueryPendingRewardsService = {
+  typeName: TYPE_NAME,
+  method: "PendingRewards",
+  Request: QueryPendingRewardsRequest,
+  Response: QueryPendingRewardsResponse,
 } as const;
 

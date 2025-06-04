@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryInvariantRequest, QueryInvariantResponse, QueryParamsRequest, QueryParamsResponse, QueryRewardsRequest, QueryRewardsResponse } from "./query_pb.js";
+import { QueryEdenBBurnAmountRequest, QueryEdenBBurnAmountResponse, QueryInvariantRequest, QueryInvariantResponse, QueryParamsRequest, QueryParamsResponse, QueryRewardsRequest, QueryRewardsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.estaking.Query";
 
@@ -41,5 +41,18 @@ export const QueryInvariantService = {
   method: "Invariant",
   Request: QueryInvariantRequest,
   Response: QueryInvariantResponse,
+} as const;
+
+/**
+ * EdenBBurnAmount queries the amount of EdenB that will be burned when
+ * unstaking
+ *
+ * @generated from rpc elys.estaking.Query.EdenBBurnAmount
+ */
+export const QueryEdenBBurnAmountService = {
+  typeName: TYPE_NAME,
+  method: "EdenBBurnAmount",
+  Request: QueryEdenBBurnAmountRequest,
+  Response: QueryEdenBBurnAmountResponse,
 } as const;
 

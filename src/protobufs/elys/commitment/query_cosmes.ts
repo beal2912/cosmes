@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAirDropRequest, QueryAirDropResponse, QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryKolRequest, QueryKolResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse, QueryTotalAirDropClaimedRequest, QueryTotalAirDropClaimedResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse } from "./query_pb.js";
+import { QueryAirDropRequest, QueryAirDropResponse, QueryCommitmentVestingInfoRequest, QueryCommitmentVestingInfoResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryKolRequest, QueryKolResponse, QueryNumberOfCommitmentsRequest, QueryNumberOfCommitmentsResponse, QueryParamsRequest, QueryParamsResponse, QueryRewardProgramRequest, QueryRewardProgramResponse, QueryShowCommitmentsRequest, QueryShowCommitmentsResponse, QueryTotalAirDropClaimedRequest, QueryTotalAirDropClaimedResponse, QueryTotalRewardProgramClaimedRequest, QueryTotalRewardProgramClaimedResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.commitment.Query";
 
@@ -105,5 +105,25 @@ export const QueryTotalSupplyService = {
   method: "TotalSupply",
   Request: QueryTotalSupplyRequest,
   Response: QueryTotalSupplyResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.RewardProgram
+ */
+export const QueryRewardProgramService = {
+  typeName: TYPE_NAME,
+  method: "RewardProgram",
+  Request: QueryRewardProgramRequest,
+  Response: QueryRewardProgramResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.commitment.Query.TotalRewardProgramClaimed
+ */
+export const QueryTotalRewardProgramClaimedService = {
+  typeName: TYPE_NAME,
+  method: "TotalRewardProgramClaimed",
+  Request: QueryTotalRewardProgramClaimedRequest,
+  Response: QueryTotalRewardProgramClaimedResponse,
 } as const;
 

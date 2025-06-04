@@ -89,7 +89,7 @@ export class Pool extends Message<Pool> {
 
 /**
  * TickParams
- * PriceRatio^(Tick - BaseOffSet)
+ * PriceRatio^(Tick + BaseOffSet)
  *
  * @generated from message sunrise.liquiditypool.v1.TickParams
  */
@@ -102,7 +102,7 @@ export class TickParams extends Message<TickParams> {
   priceRatio = "";
 
   /**
-   * basically 0 and [0, 1). In the 1:1 stable pair, 0.5 would work
+   * basically 0 and (-1, 0]. In the 1:1 stable pair, -0.5 would work
    *
    * @generated from field: string base_offset = 2;
    */

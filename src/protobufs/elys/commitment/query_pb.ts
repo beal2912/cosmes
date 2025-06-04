@@ -790,3 +790,151 @@ export class QueryTotalSupplyResponse extends Message<QueryTotalSupplyResponse> 
   }
 }
 
+/**
+ * @generated from message elys.commitment.QueryRewardProgramRequest
+ */
+export class QueryRewardProgramRequest extends Message<QueryRewardProgramRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  constructor(data?: PartialMessage<QueryRewardProgramRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryRewardProgramRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRewardProgramRequest {
+    return new QueryRewardProgramRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRewardProgramRequest {
+    return new QueryRewardProgramRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRewardProgramRequest {
+    return new QueryRewardProgramRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRewardProgramRequest | PlainMessage<QueryRewardProgramRequest> | undefined, b: QueryRewardProgramRequest | PlainMessage<QueryRewardProgramRequest> | undefined): boolean {
+    return proto3.util.equals(QueryRewardProgramRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryRewardProgramResponse
+ */
+export class QueryRewardProgramResponse extends Message<QueryRewardProgramResponse> {
+  /**
+   * @generated from field: string amount = 1;
+   */
+  amount = "";
+
+  /**
+   * @generated from field: bool claimed = 2;
+   */
+  claimed = false;
+
+  constructor(data?: PartialMessage<QueryRewardProgramResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryRewardProgramResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "claimed", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRewardProgramResponse {
+    return new QueryRewardProgramResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRewardProgramResponse {
+    return new QueryRewardProgramResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRewardProgramResponse {
+    return new QueryRewardProgramResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryRewardProgramResponse | PlainMessage<QueryRewardProgramResponse> | undefined, b: QueryRewardProgramResponse | PlainMessage<QueryRewardProgramResponse> | undefined): boolean {
+    return proto3.util.equals(QueryRewardProgramResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryTotalRewardProgramClaimedRequest
+ */
+export class QueryTotalRewardProgramClaimedRequest extends Message<QueryTotalRewardProgramClaimedRequest> {
+  constructor(data?: PartialMessage<QueryTotalRewardProgramClaimedRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalRewardProgramClaimedRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalRewardProgramClaimedRequest {
+    return new QueryTotalRewardProgramClaimedRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalRewardProgramClaimedRequest {
+    return new QueryTotalRewardProgramClaimedRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalRewardProgramClaimedRequest {
+    return new QueryTotalRewardProgramClaimedRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalRewardProgramClaimedRequest | PlainMessage<QueryTotalRewardProgramClaimedRequest> | undefined, b: QueryTotalRewardProgramClaimedRequest | PlainMessage<QueryTotalRewardProgramClaimedRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTotalRewardProgramClaimedRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.commitment.QueryTotalRewardProgramClaimedResponse
+ */
+export class QueryTotalRewardProgramClaimedResponse extends Message<QueryTotalRewardProgramClaimedResponse> {
+  /**
+   * @generated from field: string total_eden_claimed = 1;
+   */
+  totalEdenClaimed = "";
+
+  constructor(data?: PartialMessage<QueryTotalRewardProgramClaimedResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.commitment.QueryTotalRewardProgramClaimedResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_eden_claimed", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalRewardProgramClaimedResponse {
+    return new QueryTotalRewardProgramClaimedResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalRewardProgramClaimedResponse {
+    return new QueryTotalRewardProgramClaimedResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalRewardProgramClaimedResponse {
+    return new QueryTotalRewardProgramClaimedResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalRewardProgramClaimedResponse | PlainMessage<QueryTotalRewardProgramClaimedResponse> | undefined, b: QueryTotalRewardProgramClaimedResponse | PlainMessage<QueryTotalRewardProgramClaimedResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTotalRewardProgramClaimedResponse, a, b);
+  }
+}
+

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgUpdateMaxVotingPower, MsgUpdateMaxVotingPowerResponse, MsgUpdateMinCommission, MsgUpdateMinCommissionResponse, MsgUpdateMinSelfDelegation, MsgUpdateMinSelfDelegationResponse, MsgUpdateRewardsDataLifetime, MsgUpdateRewardsDataLifetimeResponse, MsgUpdateTotalBlocksPerYear, MsgUpdateTotalBlocksPerYearResponse } from "./tx_pb.js";
+import { MsgUpdateMaxVotingPower, MsgUpdateMaxVotingPowerResponse, MsgUpdateMinCommission, MsgUpdateMinCommissionResponse, MsgUpdateMinSelfDelegation, MsgUpdateMinSelfDelegationResponse, MsgUpdateRewardsDataLifetime, MsgUpdateRewardsDataLifetimeResponse, MsgUpdateTakerFees, MsgUpdateTakerFeesResponse, MsgUpdateTotalBlocksPerYear, MsgUpdateTotalBlocksPerYearResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.parameter.Msg";
 
@@ -55,5 +55,15 @@ export const MsgUpdateRewardsDataLifetimeService = {
   method: "UpdateRewardsDataLifetime",
   Request: MsgUpdateRewardsDataLifetime,
   Response: MsgUpdateRewardsDataLifetimeResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.parameter.Msg.UpdateTakerFees
+ */
+export const MsgUpdateTakerFeesService = {
+  typeName: TYPE_NAME,
+  method: "UpdateTakerFees",
+  Request: MsgUpdateTakerFees,
+  Response: MsgUpdateTakerFeesResponse,
 } as const;
 

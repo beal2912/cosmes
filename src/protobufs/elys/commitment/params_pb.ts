@@ -203,6 +203,16 @@ export class Params extends Message<Params> {
    */
   endKolClaimHeight = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 start_reward_program_claim_height = 10;
+   */
+  startRewardProgramClaimHeight = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 end_reward_program_claim_height = 11;
+   */
+  endRewardProgramClaimHeight = protoInt64.zero;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -220,6 +230,8 @@ export class Params extends Message<Params> {
     { no: 7, name: "enable_claim", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 8, name: "start_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 9, name: "end_kol_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 10, name: "start_reward_program_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 11, name: "end_reward_program_claim_height", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

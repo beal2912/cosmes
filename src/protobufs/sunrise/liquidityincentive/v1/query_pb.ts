@@ -248,180 +248,6 @@ export class QueryEpochsResponse extends Message<QueryEpochsResponse> {
 }
 
 /**
- * QueryGaugeRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryGaugeRequest
- */
-export class QueryGaugeRequest extends Message<QueryGaugeRequest> {
-  /**
-   * @generated from field: uint64 previous_epoch_id = 1;
-   */
-  previousEpochId = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 pool_id = 2;
-   */
-  poolId = protoInt64.zero;
-
-  constructor(data?: PartialMessage<QueryGaugeRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryGaugeRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "previous_epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugeRequest {
-    return new QueryGaugeRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugeRequest {
-    return new QueryGaugeRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugeRequest {
-    return new QueryGaugeRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryGaugeRequest | PlainMessage<QueryGaugeRequest> | undefined, b: QueryGaugeRequest | PlainMessage<QueryGaugeRequest> | undefined): boolean {
-    return proto3.util.equals(QueryGaugeRequest, a, b);
-  }
-}
-
-/**
- * QueryGaugeResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryGaugeResponse
- */
-export class QueryGaugeResponse extends Message<QueryGaugeResponse> {
-  /**
-   * @generated from field: sunrise.liquidityincentive.v1.Gauge gauge = 1;
-   */
-  gauge?: Gauge;
-
-  constructor(data?: PartialMessage<QueryGaugeResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryGaugeResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "gauge", kind: "message", T: Gauge },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugeResponse {
-    return new QueryGaugeResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugeResponse {
-    return new QueryGaugeResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugeResponse {
-    return new QueryGaugeResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryGaugeResponse | PlainMessage<QueryGaugeResponse> | undefined, b: QueryGaugeResponse | PlainMessage<QueryGaugeResponse> | undefined): boolean {
-    return proto3.util.equals(QueryGaugeResponse, a, b);
-  }
-}
-
-/**
- * QueryGaugesRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryGaugesRequest
- */
-export class QueryGaugesRequest extends Message<QueryGaugesRequest> {
-  /**
-   * @generated from field: uint64 previous_epoch_id = 1;
-   */
-  previousEpochId = protoInt64.zero;
-
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
-   */
-  pagination?: PageRequest;
-
-  constructor(data?: PartialMessage<QueryGaugesRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryGaugesRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "previous_epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "pagination", kind: "message", T: PageRequest },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugesRequest {
-    return new QueryGaugesRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugesRequest {
-    return new QueryGaugesRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugesRequest {
-    return new QueryGaugesRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryGaugesRequest | PlainMessage<QueryGaugesRequest> | undefined, b: QueryGaugesRequest | PlainMessage<QueryGaugesRequest> | undefined): boolean {
-    return proto3.util.equals(QueryGaugesRequest, a, b);
-  }
-}
-
-/**
- * QueryGaugesResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryGaugesResponse
- */
-export class QueryGaugesResponse extends Message<QueryGaugesResponse> {
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Gauge gauge = 1;
-   */
-  gauge: Gauge[] = [];
-
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
-  constructor(data?: PartialMessage<QueryGaugesResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryGaugesResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "gauge", kind: "message", T: Gauge, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGaugesResponse {
-    return new QueryGaugesResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGaugesResponse {
-    return new QueryGaugesResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGaugesResponse {
-    return new QueryGaugesResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryGaugesResponse | PlainMessage<QueryGaugesResponse> | undefined, b: QueryGaugesResponse | PlainMessage<QueryGaugesResponse> | undefined): boolean {
-    return proto3.util.equals(QueryGaugesResponse, a, b);
-  }
-}
-
-/**
  * QueryVoteRequest
  *
  * @generated from message sunrise.liquidityincentive.v1.QueryVoteRequest
@@ -590,9 +416,18 @@ export class QueryVotesResponse extends Message<QueryVotesResponse> {
  */
 export class QueryBribesRequest extends Message<QueryBribesRequest> {
   /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   * Optional filter by epoch_id. If empty, not applied.
+   *
+   * @generated from field: string epoch_id = 1;
    */
-  pagination?: PageRequest;
+  epochId = "";
+
+  /**
+   * Optional filter by pool_id. If empty, not applied.
+   *
+   * @generated from field: string pool_id = 2;
+   */
+  poolId = "";
 
   constructor(data?: PartialMessage<QueryBribesRequest>) {
     super();
@@ -602,7 +437,8 @@ export class QueryBribesRequest extends Message<QueryBribesRequest> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+    { no: 1, name: "epoch_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesRequest {
@@ -633,11 +469,6 @@ export class QueryBribesResponse extends Message<QueryBribesResponse> {
    */
   bribes: Bribe[] = [];
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
   constructor(data?: PartialMessage<QueryBribesResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -647,7 +478,6 @@ export class QueryBribesResponse extends Message<QueryBribesResponse> {
   static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "bribes", kind: "message", T: Bribe, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesResponse {
@@ -746,273 +576,24 @@ export class QueryBribeResponse extends Message<QueryBribeResponse> {
 }
 
 /**
- * QueryBribesByEpochIdRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByEpochIdRequest
- */
-export class QueryBribesByEpochIdRequest extends Message<QueryBribesByEpochIdRequest> {
-  /**
-   * @generated from field: uint64 epoch_id = 1;
-   */
-  epochId = protoInt64.zero;
-
-  constructor(data?: PartialMessage<QueryBribesByEpochIdRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByEpochIdRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByEpochIdRequest {
-    return new QueryBribesByEpochIdRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByEpochIdRequest {
-    return new QueryBribesByEpochIdRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByEpochIdRequest {
-    return new QueryBribesByEpochIdRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByEpochIdRequest | PlainMessage<QueryBribesByEpochIdRequest> | undefined, b: QueryBribesByEpochIdRequest | PlainMessage<QueryBribesByEpochIdRequest> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByEpochIdRequest, a, b);
-  }
-}
-
-/**
- * QueryBribesByEpochIdResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByEpochIdResponse
- */
-export class QueryBribesByEpochIdResponse extends Message<QueryBribesByEpochIdResponse> {
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Bribe bribes = 1;
-   */
-  bribes: Bribe[] = [];
-
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
-  constructor(data?: PartialMessage<QueryBribesByEpochIdResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByEpochIdResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "bribes", kind: "message", T: Bribe, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByEpochIdResponse {
-    return new QueryBribesByEpochIdResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByEpochIdResponse {
-    return new QueryBribesByEpochIdResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByEpochIdResponse {
-    return new QueryBribesByEpochIdResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByEpochIdResponse | PlainMessage<QueryBribesByEpochIdResponse> | undefined, b: QueryBribesByEpochIdResponse | PlainMessage<QueryBribesByEpochIdResponse> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByEpochIdResponse, a, b);
-  }
-}
-
-/**
- * QueryBribesByPoolIdRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByPoolIdRequest
- */
-export class QueryBribesByPoolIdRequest extends Message<QueryBribesByPoolIdRequest> {
-  /**
-   * @generated from field: uint64 pool_id = 1;
-   */
-  poolId = protoInt64.zero;
-
-  constructor(data?: PartialMessage<QueryBribesByPoolIdRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByPoolIdRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByPoolIdRequest {
-    return new QueryBribesByPoolIdRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByPoolIdRequest {
-    return new QueryBribesByPoolIdRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByPoolIdRequest {
-    return new QueryBribesByPoolIdRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByPoolIdRequest | PlainMessage<QueryBribesByPoolIdRequest> | undefined, b: QueryBribesByPoolIdRequest | PlainMessage<QueryBribesByPoolIdRequest> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByPoolIdRequest, a, b);
-  }
-}
-
-/**
- * QueryBribesByPoolIdResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByPoolIdResponse
- */
-export class QueryBribesByPoolIdResponse extends Message<QueryBribesByPoolIdResponse> {
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Bribe bribes = 1;
-   */
-  bribes: Bribe[] = [];
-
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
-  constructor(data?: PartialMessage<QueryBribesByPoolIdResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByPoolIdResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "bribes", kind: "message", T: Bribe, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByPoolIdResponse {
-    return new QueryBribesByPoolIdResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByPoolIdResponse {
-    return new QueryBribesByPoolIdResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByPoolIdResponse {
-    return new QueryBribesByPoolIdResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByPoolIdResponse | PlainMessage<QueryBribesByPoolIdResponse> | undefined, b: QueryBribesByPoolIdResponse | PlainMessage<QueryBribesByPoolIdResponse> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByPoolIdResponse, a, b);
-  }
-}
-
-/**
- * QueryBribesByEpochAndPoolIdRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByEpochAndPoolIdRequest
- */
-export class QueryBribesByEpochAndPoolIdRequest extends Message<QueryBribesByEpochAndPoolIdRequest> {
-  /**
-   * @generated from field: uint64 epoch_id = 1;
-   */
-  epochId = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 pool_id = 2;
-   */
-  poolId = protoInt64.zero;
-
-  constructor(data?: PartialMessage<QueryBribesByEpochAndPoolIdRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByEpochAndPoolIdRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByEpochAndPoolIdRequest {
-    return new QueryBribesByEpochAndPoolIdRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByEpochAndPoolIdRequest {
-    return new QueryBribesByEpochAndPoolIdRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByEpochAndPoolIdRequest {
-    return new QueryBribesByEpochAndPoolIdRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByEpochAndPoolIdRequest | PlainMessage<QueryBribesByEpochAndPoolIdRequest> | undefined, b: QueryBribesByEpochAndPoolIdRequest | PlainMessage<QueryBribesByEpochAndPoolIdRequest> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByEpochAndPoolIdRequest, a, b);
-  }
-}
-
-/**
- * QueryBribesByEpochAndPoolIdResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribesByEpochAndPoolIdResponse
- */
-export class QueryBribesByEpochAndPoolIdResponse extends Message<QueryBribesByEpochAndPoolIdResponse> {
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Bribe bribes = 1;
-   */
-  bribes: Bribe[] = [];
-
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
-  constructor(data?: PartialMessage<QueryBribesByEpochAndPoolIdResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribesByEpochAndPoolIdResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "bribes", kind: "message", T: Bribe, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribesByEpochAndPoolIdResponse {
-    return new QueryBribesByEpochAndPoolIdResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribesByEpochAndPoolIdResponse {
-    return new QueryBribesByEpochAndPoolIdResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribesByEpochAndPoolIdResponse {
-    return new QueryBribesByEpochAndPoolIdResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribesByEpochAndPoolIdResponse | PlainMessage<QueryBribesByEpochAndPoolIdResponse> | undefined, b: QueryBribesByEpochAndPoolIdResponse | PlainMessage<QueryBribesByEpochAndPoolIdResponse> | undefined): boolean {
-    return proto3.util.equals(QueryBribesByEpochAndPoolIdResponse, a, b);
-  }
-}
-
-/**
  * QueryBribeAllocationsRequest
  *
  * @generated from message sunrise.liquidityincentive.v1.QueryBribeAllocationsRequest
  */
 export class QueryBribeAllocationsRequest extends Message<QueryBribeAllocationsRequest> {
   /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   * Optional filter by address. If empty, not applied.
+   *
+   * @generated from field: string address = 1;
    */
-  pagination?: PageRequest;
+  address = "";
+
+  /**
+   * Optional filter by epoch_id. If empty, not applied.
+   *
+   * @generated from field: string epoch_id = 2;
+   */
+  epochId = "";
 
   constructor(data?: PartialMessage<QueryBribeAllocationsRequest>) {
     super();
@@ -1022,7 +603,8 @@ export class QueryBribeAllocationsRequest extends Message<QueryBribeAllocationsR
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribeAllocationsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "epoch_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribeAllocationsRequest {
@@ -1053,11 +635,6 @@ export class QueryBribeAllocationsResponse extends Message<QueryBribeAllocations
    */
   bribeAllocations: BribeAllocation[] = [];
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
   constructor(data?: PartialMessage<QueryBribeAllocationsResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1067,7 +644,6 @@ export class QueryBribeAllocationsResponse extends Message<QueryBribeAllocations
   static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribeAllocationsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "bribe_allocations", kind: "message", T: BribeAllocation, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribeAllocationsResponse {
@@ -1088,84 +664,6 @@ export class QueryBribeAllocationsResponse extends Message<QueryBribeAllocations
 }
 
 /**
- * QueryBribeAllocationsByAddressRequest
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribeAllocationsByAddressRequest
- */
-export class QueryBribeAllocationsByAddressRequest extends Message<QueryBribeAllocationsByAddressRequest> {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address = "";
-
-  constructor(data?: PartialMessage<QueryBribeAllocationsByAddressRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribeAllocationsByAddressRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribeAllocationsByAddressRequest {
-    return new QueryBribeAllocationsByAddressRequest().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribeAllocationsByAddressRequest {
-    return new QueryBribeAllocationsByAddressRequest().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribeAllocationsByAddressRequest {
-    return new QueryBribeAllocationsByAddressRequest().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribeAllocationsByAddressRequest | PlainMessage<QueryBribeAllocationsByAddressRequest> | undefined, b: QueryBribeAllocationsByAddressRequest | PlainMessage<QueryBribeAllocationsByAddressRequest> | undefined): boolean {
-    return proto3.util.equals(QueryBribeAllocationsByAddressRequest, a, b);
-  }
-}
-
-/**
- * QueryBribeAllocationsByAddressResponse
- *
- * @generated from message sunrise.liquidityincentive.v1.QueryBribeAllocationsByAddressResponse
- */
-export class QueryBribeAllocationsByAddressResponse extends Message<QueryBribeAllocationsByAddressResponse> {
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.BribeAllocation bribe_allocations = 1;
-   */
-  bribeAllocations: BribeAllocation[] = [];
-
-  constructor(data?: PartialMessage<QueryBribeAllocationsByAddressResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribeAllocationsByAddressResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "bribe_allocations", kind: "message", T: BribeAllocation, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribeAllocationsByAddressResponse {
-    return new QueryBribeAllocationsByAddressResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryBribeAllocationsByAddressResponse {
-    return new QueryBribeAllocationsByAddressResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryBribeAllocationsByAddressResponse {
-    return new QueryBribeAllocationsByAddressResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryBribeAllocationsByAddressResponse | PlainMessage<QueryBribeAllocationsByAddressResponse> | undefined, b: QueryBribeAllocationsByAddressResponse | PlainMessage<QueryBribeAllocationsByAddressResponse> | undefined): boolean {
-    return proto3.util.equals(QueryBribeAllocationsByAddressResponse, a, b);
-  }
-}
-
-/**
  * QueryBribeAllocationRequest
  *
  * @generated from message sunrise.liquidityincentive.v1.QueryBribeAllocationRequest
@@ -1177,14 +675,14 @@ export class QueryBribeAllocationRequest extends Message<QueryBribeAllocationReq
   address = "";
 
   /**
-   * @generated from field: uint64 epoch_id = 2;
+   * @generated from field: string epoch_id = 2;
    */
-  epochId = protoInt64.zero;
+  epochId = "";
 
   /**
-   * @generated from field: uint64 pool_id = 3;
+   * @generated from field: string pool_id = 3;
    */
-  poolId = protoInt64.zero;
+  poolId = "";
 
   constructor(data?: PartialMessage<QueryBribeAllocationRequest>) {
     super();
@@ -1195,8 +693,8 @@ export class QueryBribeAllocationRequest extends Message<QueryBribeAllocationReq
   static readonly typeName = "sunrise.liquidityincentive.v1.QueryBribeAllocationRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "epoch_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryBribeAllocationRequest {
@@ -1252,6 +750,84 @@ export class QueryBribeAllocationResponse extends Message<QueryBribeAllocationRe
 
   static equals(a: QueryBribeAllocationResponse | PlainMessage<QueryBribeAllocationResponse> | undefined, b: QueryBribeAllocationResponse | PlainMessage<QueryBribeAllocationResponse> | undefined): boolean {
     return proto3.util.equals(QueryBribeAllocationResponse, a, b);
+  }
+}
+
+/**
+ * QueryTallyResultRequest
+ *
+ * @generated from message sunrise.liquidityincentive.v1.QueryTallyResultRequest
+ */
+export class QueryTallyResultRequest extends Message<QueryTallyResultRequest> {
+  constructor(data?: PartialMessage<QueryTallyResultRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.v1.QueryTallyResultRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTallyResultRequest {
+    return new QueryTallyResultRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTallyResultRequest | PlainMessage<QueryTallyResultRequest> | undefined, b: QueryTallyResultRequest | PlainMessage<QueryTallyResultRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTallyResultRequest, a, b);
+  }
+}
+
+/**
+ * QueryTallyResultResponse
+ *
+ * @generated from message sunrise.liquidityincentive.v1.QueryTallyResultResponse
+ */
+export class QueryTallyResultResponse extends Message<QueryTallyResultResponse> {
+  /**
+   * @generated from field: int64 total_voting_power = 1;
+   */
+  totalVotingPower = protoInt64.zero;
+
+  /**
+   * @generated from field: repeated sunrise.liquidityincentive.v1.Gauge gauges = 2;
+   */
+  gauges: Gauge[] = [];
+
+  constructor(data?: PartialMessage<QueryTallyResultResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.v1.QueryTallyResultResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_voting_power", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "gauges", kind: "message", T: Gauge, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTallyResultResponse {
+    return new QueryTallyResultResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTallyResultResponse | PlainMessage<QueryTallyResultResponse> | undefined, b: QueryTallyResultResponse | PlainMessage<QueryTallyResultResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTallyResultResponse, a, b);
   }
 }
 

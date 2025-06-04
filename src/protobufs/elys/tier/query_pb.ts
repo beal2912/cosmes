@@ -1281,3 +1281,132 @@ export class QueryGetAllPricesResponse extends Message<QueryGetAllPricesResponse
   }
 }
 
+/**
+ * @generated from message elys.tier.OraclePrice
+ */
+export class OraclePrice extends Message<OraclePrice> {
+  /**
+   * @generated from field: string denom = 1;
+   */
+  denom = "";
+
+  /**
+   * @generated from field: string oracle_price = 2;
+   */
+  oraclePrice = "";
+
+  constructor(data?: PartialMessage<OraclePrice>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.OraclePrice";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "oracle_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OraclePrice {
+    return new OraclePrice().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OraclePrice {
+    return new OraclePrice().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OraclePrice {
+    return new OraclePrice().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OraclePrice | PlainMessage<OraclePrice> | undefined, b: OraclePrice | PlainMessage<OraclePrice> | undefined): boolean {
+    return proto3.util.equals(OraclePrice, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetOraclePricesRequest
+ */
+export class QueryGetOraclePricesRequest extends Message<QueryGetOraclePricesRequest> {
+  /**
+   * @generated from field: repeated string denoms = 1;
+   */
+  denoms: string[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryGetOraclePricesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetOraclePricesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetOraclePricesRequest {
+    return new QueryGetOraclePricesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetOraclePricesRequest {
+    return new QueryGetOraclePricesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetOraclePricesRequest {
+    return new QueryGetOraclePricesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetOraclePricesRequest | PlainMessage<QueryGetOraclePricesRequest> | undefined, b: QueryGetOraclePricesRequest | PlainMessage<QueryGetOraclePricesRequest> | undefined): boolean {
+    return proto3.util.equals(QueryGetOraclePricesRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tier.QueryGetOraclePricesResponse
+ */
+export class QueryGetOraclePricesResponse extends Message<QueryGetOraclePricesResponse> {
+  /**
+   * @generated from field: repeated elys.tier.OraclePrice prices = 1;
+   */
+  prices: OraclePrice[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryGetOraclePricesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tier.QueryGetOraclePricesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "prices", kind: "message", T: OraclePrice, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetOraclePricesResponse {
+    return new QueryGetOraclePricesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryGetOraclePricesResponse {
+    return new QueryGetOraclePricesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryGetOraclePricesResponse {
+    return new QueryGetOraclePricesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryGetOraclePricesResponse | PlainMessage<QueryGetOraclePricesResponse> | undefined, b: QueryGetOraclePricesResponse | PlainMessage<QueryGetOraclePricesResponse> | undefined): boolean {
+    return proto3.util.equals(QueryGetOraclePricesResponse, a, b);
+  }
+}
+

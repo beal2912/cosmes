@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstimationRequest, QueryCloseEstimationResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PerpetualCounterRequest, PerpetualCounterResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstimationRequest, QueryCloseEstimationResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Query";
 
@@ -44,15 +44,13 @@ export const QueryGetPositionsByPoolService = {
 } as const;
 
 /**
- * Retuns the total number of open and lifetime mtps.
- *
- * @generated from rpc elys.perpetual.Query.GetStatus
+ * @generated from rpc elys.perpetual.Query.PerpetualCounter
  */
-export const QueryGetStatusService = {
+export const QueryPerpetualCounterService = {
   typeName: TYPE_NAME,
-  method: "GetStatus",
-  Request: StatusRequest,
-  Response: StatusResponse,
+  method: "PerpetualCounter",
+  Request: PerpetualCounterRequest,
+  Response: PerpetualCounterResponse,
 } as const;
 
 /**

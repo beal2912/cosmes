@@ -172,9 +172,9 @@ export class QueryLockupAccountRequest extends Message<QueryLockupAccountRequest
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   constructor(data?: PartialMessage<QueryLockupAccountRequest>) {
     super();
@@ -185,7 +185,7 @@ export class QueryLockupAccountRequest extends Message<QueryLockupAccountRequest
   static readonly typeName = "sunrise.lockup.v1.QueryLockupAccountRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryLockupAccountRequest {
@@ -268,9 +268,9 @@ export class QuerySpendableAmountRequest extends Message<QuerySpendableAmountReq
   owner = "";
 
   /**
-   * @generated from field: uint64 id = 2;
+   * @generated from field: uint64 lockup_account_id = 2;
    */
-  id = protoInt64.zero;
+  lockupAccountId = protoInt64.zero;
 
   constructor(data?: PartialMessage<QuerySpendableAmountRequest>) {
     super();
@@ -281,7 +281,7 @@ export class QuerySpendableAmountRequest extends Message<QuerySpendableAmountReq
   static readonly typeName = "sunrise.lockup.v1.QuerySpendableAmountRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lockup_account_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySpendableAmountRequest {

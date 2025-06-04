@@ -9,9 +9,9 @@ import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Params } from "./params_pb.js";
 import { ExternalIncentive } from "./external_incentive_pb.js";
 import { PoolInfo, PoolRewardInfo, UserRewardInfo } from "./pool_pb.js";
+import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
 import { FeeInfo } from "./types_pb.js";
 import { EarnType } from "../commitment/params_pb.js";
-import { PageRequest } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
 
 /**
  * @generated from message elys.masterchef.QueryAllLiquidityPoolTVLRequest
@@ -139,9 +139,9 @@ export class QueryChainTVLResponse extends Message<QueryChainTVLResponse> {
   pools = "";
 
   /**
-   * @generated from field: string usdc_staking = 3;
+   * @generated from field: string net_vault_stakings = 3;
    */
-  usdcStaking = "";
+  netVaultStakings = "";
 
   /**
    * @generated from field: string staked_elys = 4;
@@ -158,6 +158,11 @@ export class QueryChainTVLResponse extends Message<QueryChainTVLResponse> {
    */
   netStakings: Coin[] = [];
 
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin vault_tokens = 7;
+   */
+  vaultTokens: Coin[] = [];
+
   constructor(data?: PartialMessage<QueryChainTVLResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -168,10 +173,11 @@ export class QueryChainTVLResponse extends Message<QueryChainTVLResponse> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "total", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "pools", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "usdc_staking", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "net_vault_stakings", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "staked_elys", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "staked_eden", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "net_stakings", kind: "message", T: Coin, repeated: true },
+    { no: 7, name: "vault_tokens", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryChainTVLResponse {
@@ -416,6 +422,86 @@ export class QueryPoolInfoResponse extends Message<QueryPoolInfoResponse> {
 
   static equals(a: QueryPoolInfoResponse | PlainMessage<QueryPoolInfoResponse> | undefined, b: QueryPoolInfoResponse | PlainMessage<QueryPoolInfoResponse> | undefined): boolean {
     return proto3.util.equals(QueryPoolInfoResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryListPoolInfosRequest
+ */
+export class QueryListPoolInfosRequest extends Message<QueryListPoolInfosRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryListPoolInfosRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryListPoolInfosRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryListPoolInfosRequest {
+    return new QueryListPoolInfosRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryListPoolInfosRequest {
+    return new QueryListPoolInfosRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryListPoolInfosRequest {
+    return new QueryListPoolInfosRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryListPoolInfosRequest | PlainMessage<QueryListPoolInfosRequest> | undefined, b: QueryListPoolInfosRequest | PlainMessage<QueryListPoolInfosRequest> | undefined): boolean {
+    return proto3.util.equals(QueryListPoolInfosRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryListPoolInfosResponse
+ */
+export class QueryListPoolInfosResponse extends Message<QueryListPoolInfosResponse> {
+  /**
+   * @generated from field: repeated elys.masterchef.QueryPoolInfoResponse list = 1;
+   */
+  list: QueryPoolInfoResponse[] = [];
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryListPoolInfosResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryListPoolInfosResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "list", kind: "message", T: QueryPoolInfoResponse, repeated: true },
+    { no: 2, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryListPoolInfosResponse {
+    return new QueryListPoolInfosResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryListPoolInfosResponse {
+    return new QueryListPoolInfosResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryListPoolInfosResponse {
+    return new QueryListPoolInfosResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryListPoolInfosResponse | PlainMessage<QueryListPoolInfosResponse> | undefined, b: QueryListPoolInfosResponse | PlainMessage<QueryListPoolInfosResponse> | undefined): boolean {
+    return proto3.util.equals(QueryListPoolInfosResponse, a, b);
   }
 }
 
@@ -1417,6 +1503,166 @@ export class QueryPoolRewardsResponse extends Message<QueryPoolRewardsResponse> 
 
   static equals(a: QueryPoolRewardsResponse | PlainMessage<QueryPoolRewardsResponse> | undefined, b: QueryPoolRewardsResponse | PlainMessage<QueryPoolRewardsResponse> | undefined): boolean {
     return proto3.util.equals(QueryPoolRewardsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryTotalPendingRewardsRequest
+ */
+export class QueryTotalPendingRewardsRequest extends Message<QueryTotalPendingRewardsRequest> {
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 1;
+   */
+  pagination?: PageRequest;
+
+  constructor(data?: PartialMessage<QueryTotalPendingRewardsRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryTotalPendingRewardsRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pagination", kind: "message", T: PageRequest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalPendingRewardsRequest {
+    return new QueryTotalPendingRewardsRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalPendingRewardsRequest {
+    return new QueryTotalPendingRewardsRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalPendingRewardsRequest {
+    return new QueryTotalPendingRewardsRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalPendingRewardsRequest | PlainMessage<QueryTotalPendingRewardsRequest> | undefined, b: QueryTotalPendingRewardsRequest | PlainMessage<QueryTotalPendingRewardsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryTotalPendingRewardsRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryTotalPendingRewardsResponse
+ */
+export class QueryTotalPendingRewardsResponse extends Message<QueryTotalPendingRewardsResponse> {
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin total_pending_rewards = 1;
+   */
+  totalPendingRewards: Coin[] = [];
+
+  /**
+   * @generated from field: uint64 count = 2;
+   */
+  count = protoInt64.zero;
+
+  /**
+   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 3;
+   */
+  pagination?: PageResponse;
+
+  constructor(data?: PartialMessage<QueryTotalPendingRewardsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryTotalPendingRewardsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_pending_rewards", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pagination", kind: "message", T: PageResponse },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTotalPendingRewardsResponse {
+    return new QueryTotalPendingRewardsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTotalPendingRewardsResponse {
+    return new QueryTotalPendingRewardsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTotalPendingRewardsResponse {
+    return new QueryTotalPendingRewardsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryTotalPendingRewardsResponse | PlainMessage<QueryTotalPendingRewardsResponse> | undefined, b: QueryTotalPendingRewardsResponse | PlainMessage<QueryTotalPendingRewardsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryTotalPendingRewardsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryPendingRewardsRequest
+ */
+export class QueryPendingRewardsRequest extends Message<QueryPendingRewardsRequest> {
+  constructor(data?: PartialMessage<QueryPendingRewardsRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryPendingRewardsRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingRewardsRequest {
+    return new QueryPendingRewardsRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingRewardsRequest {
+    return new QueryPendingRewardsRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingRewardsRequest {
+    return new QueryPendingRewardsRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingRewardsRequest | PlainMessage<QueryPendingRewardsRequest> | undefined, b: QueryPendingRewardsRequest | PlainMessage<QueryPendingRewardsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryPendingRewardsRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.QueryPendingRewardsResponse
+ */
+export class QueryPendingRewardsResponse extends Message<QueryPendingRewardsResponse> {
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin total_pending_rewards = 1;
+   */
+  totalPendingRewards: Coin[] = [];
+
+  /**
+   * @generated from field: uint64 count = 2;
+   */
+  count = protoInt64.zero;
+
+  constructor(data?: PartialMessage<QueryPendingRewardsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.QueryPendingRewardsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "total_pending_rewards", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryPendingRewardsResponse {
+    return new QueryPendingRewardsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryPendingRewardsResponse {
+    return new QueryPendingRewardsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryPendingRewardsResponse {
+    return new QueryPendingRewardsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryPendingRewardsResponse | PlainMessage<QueryPendingRewardsResponse> | undefined, b: QueryPendingRewardsResponse | PlainMessage<QueryPendingRewardsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryPendingRewardsResponse, a, b);
   }
 }
 

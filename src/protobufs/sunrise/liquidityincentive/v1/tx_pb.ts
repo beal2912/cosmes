@@ -94,6 +94,78 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 }
 
 /**
+ * MsgStartNewEpoch
+ *
+ * @generated from message sunrise.liquidityincentive.v1.MsgStartNewEpoch
+ */
+export class MsgStartNewEpoch extends Message<MsgStartNewEpoch> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  constructor(data?: PartialMessage<MsgStartNewEpoch>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.v1.MsgStartNewEpoch";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgStartNewEpoch {
+    return new MsgStartNewEpoch().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgStartNewEpoch {
+    return new MsgStartNewEpoch().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgStartNewEpoch {
+    return new MsgStartNewEpoch().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgStartNewEpoch | PlainMessage<MsgStartNewEpoch> | undefined, b: MsgStartNewEpoch | PlainMessage<MsgStartNewEpoch> | undefined): boolean {
+    return proto3.util.equals(MsgStartNewEpoch, a, b);
+  }
+}
+
+/**
+ * MsgStartNewEpochResponse
+ *
+ * @generated from message sunrise.liquidityincentive.v1.MsgStartNewEpochResponse
+ */
+export class MsgStartNewEpochResponse extends Message<MsgStartNewEpochResponse> {
+  constructor(data?: PartialMessage<MsgStartNewEpochResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.v1.MsgStartNewEpochResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgStartNewEpochResponse {
+    return new MsgStartNewEpochResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgStartNewEpochResponse {
+    return new MsgStartNewEpochResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgStartNewEpochResponse {
+    return new MsgStartNewEpochResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgStartNewEpochResponse | PlainMessage<MsgStartNewEpochResponse> | undefined, b: MsgStartNewEpochResponse | PlainMessage<MsgStartNewEpochResponse> | undefined): boolean {
+    return proto3.util.equals(MsgStartNewEpochResponse, a, b);
+  }
+}
+
+/**
  * MsgVoteGauge
  *
  * @generated from message sunrise.liquidityincentive.v1.MsgVoteGauge
@@ -273,9 +345,9 @@ export class MsgClaimBribes extends Message<MsgClaimBribes> {
   sender = "";
 
   /**
-   * @generated from field: uint64 bribe_id = 2;
+   * @generated from field: repeated uint64 bribe_ids = 2;
    */
-  bribeId = protoInt64.zero;
+  bribeIds: bigint[] = [];
 
   constructor(data?: PartialMessage<MsgClaimBribes>) {
     super();
@@ -286,7 +358,7 @@ export class MsgClaimBribes extends Message<MsgClaimBribes> {
   static readonly typeName = "sunrise.liquidityincentive.v1.MsgClaimBribes";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "bribe_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "bribe_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimBribes {

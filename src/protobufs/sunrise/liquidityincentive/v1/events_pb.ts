@@ -9,6 +9,57 @@ import { PoolWeight } from "./gauge_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * EventStartNewEpoch
+ *
+ * @generated from message sunrise.liquidityincentive.v1.EventStartNewEpoch
+ */
+export class EventStartNewEpoch extends Message<EventStartNewEpoch> {
+  /**
+   * @generated from field: uint64 epoch_id = 1;
+   */
+  epochId = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 start_block = 2;
+   */
+  startBlock = protoInt64.zero;
+
+  /**
+   * @generated from field: int64 end_block = 3;
+   */
+  endBlock = protoInt64.zero;
+
+  constructor(data?: PartialMessage<EventStartNewEpoch>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.liquidityincentive.v1.EventStartNewEpoch";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "start_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "end_block", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventStartNewEpoch {
+    return new EventStartNewEpoch().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventStartNewEpoch {
+    return new EventStartNewEpoch().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventStartNewEpoch {
+    return new EventStartNewEpoch().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventStartNewEpoch | PlainMessage<EventStartNewEpoch> | undefined, b: EventStartNewEpoch | PlainMessage<EventStartNewEpoch> | undefined): boolean {
+    return proto3.util.equals(EventStartNewEpoch, a, b);
+  }
+}
+
+/**
  * EventVoteGauge
  *
  * @generated from message sunrise.liquidityincentive.v1.EventVoteGauge

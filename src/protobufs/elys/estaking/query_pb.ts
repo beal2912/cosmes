@@ -9,6 +9,26 @@ import { Params } from "./params_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
+ * @generated from enum elys.estaking.TokenType
+ */
+export enum TokenType {
+  /**
+   * @generated from enum value: TOKEN_TYPE_ELYS = 0;
+   */
+  ELYS = 0,
+
+  /**
+   * @generated from enum value: TOKEN_TYPE_EDEN = 1;
+   */
+  EDEN = 1,
+}
+// Retrieve enum metadata with: proto3.getEnumType(TokenType)
+proto3.util.setEnumType(TokenType, "elys.estaking.TokenType", [
+  { no: 0, name: "TOKEN_TYPE_ELYS" },
+  { no: 1, name: "TOKEN_TYPE_EDEN" },
+]);
+
+/**
  * QueryParamsRequest is request type for the Query/Params RPC method.
  *
  * @generated from message elys.estaking.QueryParamsRequest
@@ -280,6 +300,92 @@ export class QueryInvariantResponse extends Message<QueryInvariantResponse> {
 
   static equals(a: QueryInvariantResponse | PlainMessage<QueryInvariantResponse> | undefined, b: QueryInvariantResponse | PlainMessage<QueryInvariantResponse> | undefined): boolean {
     return proto3.util.equals(QueryInvariantResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.estaking.QueryEdenBBurnAmountRequest
+ */
+export class QueryEdenBBurnAmountRequest extends Message<QueryEdenBBurnAmountRequest> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  /**
+   * @generated from field: elys.estaking.TokenType token_type = 2;
+   */
+  tokenType = TokenType.ELYS;
+
+  /**
+   * @generated from field: string amount = 3;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<QueryEdenBBurnAmountRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.estaking.QueryEdenBBurnAmountRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token_type", kind: "enum", T: proto3.getEnumType(TokenType) },
+    { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEdenBBurnAmountRequest {
+    return new QueryEdenBBurnAmountRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEdenBBurnAmountRequest {
+    return new QueryEdenBBurnAmountRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEdenBBurnAmountRequest {
+    return new QueryEdenBBurnAmountRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryEdenBBurnAmountRequest | PlainMessage<QueryEdenBBurnAmountRequest> | undefined, b: QueryEdenBBurnAmountRequest | PlainMessage<QueryEdenBBurnAmountRequest> | undefined): boolean {
+    return proto3.util.equals(QueryEdenBBurnAmountRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.estaking.QueryEdenBBurnAmountResponse
+ */
+export class QueryEdenBBurnAmountResponse extends Message<QueryEdenBBurnAmountResponse> {
+  /**
+   * @generated from field: string burn_edenb_amount = 1;
+   */
+  burnEdenbAmount = "";
+
+  constructor(data?: PartialMessage<QueryEdenBBurnAmountResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.estaking.QueryEdenBBurnAmountResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "burn_edenb_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryEdenBBurnAmountResponse {
+    return new QueryEdenBBurnAmountResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryEdenBBurnAmountResponse {
+    return new QueryEdenBBurnAmountResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryEdenBBurnAmountResponse {
+    return new QueryEdenBBurnAmountResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryEdenBBurnAmountResponse | PlainMessage<QueryEdenBBurnAmountResponse> | undefined, b: QueryEdenBBurnAmountResponse | PlainMessage<QueryEdenBBurnAmountResponse> | undefined): boolean {
+    return proto3.util.equals(QueryEdenBBurnAmountResponse, a, b);
   }
 }
 

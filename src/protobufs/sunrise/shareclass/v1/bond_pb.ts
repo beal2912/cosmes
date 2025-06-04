@@ -64,17 +64,27 @@ export class Unbonding extends Message<Unbonding> {
   id = protoInt64.zero;
 
   /**
-   * @generated from field: string address = 2;
+   * @generated from field: string recipient_address = 2;
    */
-  address = "";
+  recipientAddress = "";
 
   /**
-   * @generated from field: google.protobuf.Timestamp completion_time = 3;
+   * @generated from field: string delegator_address = 3;
+   */
+  delegatorAddress = "";
+
+  /**
+   * @generated from field: string validator_address = 4;
+   */
+  validatorAddress = "";
+
+  /**
+   * @generated from field: google.protobuf.Timestamp completion_time = 5;
    */
   completionTime?: Timestamp;
 
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin amount = 4;
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 6;
    */
   amount?: Coin;
 
@@ -87,9 +97,11 @@ export class Unbonding extends Message<Unbonding> {
   static readonly typeName = "sunrise.shareclass.v1.Unbonding";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "completion_time", kind: "message", T: Timestamp },
-    { no: 4, name: "amount", kind: "message", T: Coin },
+    { no: 2, name: "recipient_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "delegator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "validator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "completion_time", kind: "message", T: Timestamp },
+    { no: 6, name: "amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Unbonding {

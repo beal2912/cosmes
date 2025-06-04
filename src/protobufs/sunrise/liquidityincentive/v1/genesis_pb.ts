@@ -7,7 +7,8 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { Epoch } from "./epoch_pb.js";
-import { Gauge, Vote } from "./gauge_pb.js";
+import { Vote } from "./gauge_pb.js";
+import { Bribe, BribeAllocation } from "./bribe_pb.js";
 
 /**
  * GenesisState defines the liquidityincentive module's genesis state.
@@ -33,14 +34,24 @@ export class GenesisState extends Message<GenesisState> {
   epochCount = protoInt64.zero;
 
   /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Gauge gauges = 4;
-   */
-  gauges: Gauge[] = [];
-
-  /**
-   * @generated from field: repeated sunrise.liquidityincentive.v1.Vote votes = 5;
+   * @generated from field: repeated sunrise.liquidityincentive.v1.Vote votes = 4;
    */
   votes: Vote[] = [];
+
+  /**
+   * @generated from field: repeated sunrise.liquidityincentive.v1.Bribe bribes = 5;
+   */
+  bribes: Bribe[] = [];
+
+  /**
+   * @generated from field: uint64 bribe_count = 6;
+   */
+  bribeCount = protoInt64.zero;
+
+  /**
+   * @generated from field: repeated sunrise.liquidityincentive.v1.BribeAllocation bribe_allocations = 7;
+   */
+  bribeAllocations: BribeAllocation[] = [];
 
   constructor(data?: PartialMessage<GenesisState>) {
     super();
@@ -53,8 +64,10 @@ export class GenesisState extends Message<GenesisState> {
     { no: 1, name: "params", kind: "message", T: Params },
     { no: 2, name: "epochs", kind: "message", T: Epoch, repeated: true },
     { no: 3, name: "epoch_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 4, name: "gauges", kind: "message", T: Gauge, repeated: true },
-    { no: 5, name: "votes", kind: "message", T: Vote, repeated: true },
+    { no: 4, name: "votes", kind: "message", T: Vote, repeated: true },
+    { no: 5, name: "bribes", kind: "message", T: Bribe, repeated: true },
+    { no: 6, name: "bribe_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "bribe_allocations", kind: "message", T: BribeAllocation, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

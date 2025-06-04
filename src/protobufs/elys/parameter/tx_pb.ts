@@ -376,3 +376,89 @@ export class MsgUpdateRewardsDataLifetimeResponse extends Message<MsgUpdateRewar
   }
 }
 
+/**
+ * @generated from message elys.parameter.MsgUpdateTakerFees
+ */
+export class MsgUpdateTakerFees extends Message<MsgUpdateTakerFees> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string taker_fees = 2;
+   */
+  takerFees = "";
+
+  /**
+   * @generated from field: bool enable_taker_fee_swap = 3;
+   */
+  enableTakerFeeSwap = false;
+
+  /**
+   * @generated from field: uint64 taker_fee_collection_interval = 4;
+   */
+  takerFeeCollectionInterval = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgUpdateTakerFees>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.parameter.MsgUpdateTakerFees";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "taker_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "enable_taker_fee_swap", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 4, name: "taker_fee_collection_interval", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateTakerFees {
+    return new MsgUpdateTakerFees().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateTakerFees {
+    return new MsgUpdateTakerFees().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateTakerFees {
+    return new MsgUpdateTakerFees().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateTakerFees | PlainMessage<MsgUpdateTakerFees> | undefined, b: MsgUpdateTakerFees | PlainMessage<MsgUpdateTakerFees> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateTakerFees, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.parameter.MsgUpdateTakerFeesResponse
+ */
+export class MsgUpdateTakerFeesResponse extends Message<MsgUpdateTakerFeesResponse> {
+  constructor(data?: PartialMessage<MsgUpdateTakerFeesResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.parameter.MsgUpdateTakerFeesResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateTakerFeesResponse {
+    return new MsgUpdateTakerFeesResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateTakerFeesResponse {
+    return new MsgUpdateTakerFeesResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateTakerFeesResponse {
+    return new MsgUpdateTakerFeesResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateTakerFeesResponse | PlainMessage<MsgUpdateTakerFeesResponse> | undefined, b: MsgUpdateTakerFeesResponse | PlainMessage<MsgUpdateTakerFeesResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateTakerFeesResponse, a, b);
+  }
+}
+

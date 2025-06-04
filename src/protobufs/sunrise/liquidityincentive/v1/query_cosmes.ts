@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryBribeAllocationRequest, QueryBribeAllocationResponse, QueryBribeAllocationsByAddressRequest, QueryBribeAllocationsByAddressResponse, QueryBribeAllocationsRequest, QueryBribeAllocationsResponse, QueryBribeRequest, QueryBribeResponse, QueryBribesByEpochAndPoolIdRequest, QueryBribesByEpochAndPoolIdResponse, QueryBribesByEpochIdRequest, QueryBribesByEpochIdResponse, QueryBribesByPoolIdRequest, QueryBribesByPoolIdResponse, QueryBribesRequest, QueryBribesResponse, QueryEpochRequest, QueryEpochResponse, QueryEpochsRequest, QueryEpochsResponse, QueryGaugeRequest, QueryGaugeResponse, QueryGaugesRequest, QueryGaugesResponse, QueryParamsRequest, QueryParamsResponse, QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse } from "./query_pb.js";
+import { QueryBribeAllocationRequest, QueryBribeAllocationResponse, QueryBribeAllocationsRequest, QueryBribeAllocationsResponse, QueryBribeRequest, QueryBribeResponse, QueryBribesRequest, QueryBribesResponse, QueryEpochRequest, QueryEpochResponse, QueryEpochsRequest, QueryEpochsResponse, QueryParamsRequest, QueryParamsResponse, QueryTallyResultRequest, QueryTallyResultResponse, QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse } from "./query_pb.js";
 
 const TYPE_NAME = "sunrise.liquidityincentive.v1.Query";
 
@@ -44,30 +44,6 @@ export const QueryEpochsService = {
 } as const;
 
 /**
- * Gauge
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.Gauge
- */
-export const QueryGaugeService = {
-  typeName: TYPE_NAME,
-  method: "Gauge",
-  Request: QueryGaugeRequest,
-  Response: QueryGaugeResponse,
-} as const;
-
-/**
- * Gauges
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.Gauges
- */
-export const QueryGaugesService = {
-  typeName: TYPE_NAME,
-  method: "Gauges",
-  Request: QueryGaugesRequest,
-  Response: QueryGaugesResponse,
-} as const;
-
-/**
  * Vote
  *
  * @generated from rpc sunrise.liquidityincentive.v1.Query.Vote
@@ -92,7 +68,7 @@ export const QueryVotesService = {
 } as const;
 
 /**
- * Bribes
+ * Bribes queries bribes with optional filters for epoch_id and pool_id.
  *
  * @generated from rpc sunrise.liquidityincentive.v1.Query.Bribes
  */
@@ -104,7 +80,7 @@ export const QueryBribesService = {
 } as const;
 
 /**
- * Bribe
+ * Bribe queries a Bribe by its ID.
  *
  * @generated from rpc sunrise.liquidityincentive.v1.Query.Bribe
  */
@@ -116,43 +92,7 @@ export const QueryBribeService = {
 } as const;
 
 /**
- * BribesByEpochId
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.BribesByEpochId
- */
-export const QueryBribesByEpochIdService = {
-  typeName: TYPE_NAME,
-  method: "BribesByEpochId",
-  Request: QueryBribesByEpochIdRequest,
-  Response: QueryBribesByEpochIdResponse,
-} as const;
-
-/**
- * BribesByPoolId
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.BribesByPoolId
- */
-export const QueryBribesByPoolIdService = {
-  typeName: TYPE_NAME,
-  method: "BribesByPoolId",
-  Request: QueryBribesByPoolIdRequest,
-  Response: QueryBribesByPoolIdResponse,
-} as const;
-
-/**
- * BribesByEpochAndPoolId
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.BribesByEpochAndPoolId
- */
-export const QueryBribesByEpochAndPoolIdService = {
-  typeName: TYPE_NAME,
-  method: "BribesByEpochAndPoolId",
-  Request: QueryBribesByEpochAndPoolIdRequest,
-  Response: QueryBribesByEpochAndPoolIdResponse,
-} as const;
-
-/**
- * BribeAllocations
+ * BribeAllocations queries bribe allocations with an optional filter for address.
  *
  * @generated from rpc sunrise.liquidityincentive.v1.Query.BribeAllocations
  */
@@ -164,19 +104,7 @@ export const QueryBribeAllocationsService = {
 } as const;
 
 /**
- * BribeAllocationsByAddress
- *
- * @generated from rpc sunrise.liquidityincentive.v1.Query.BribeAllocationsByAddress
- */
-export const QueryBribeAllocationsByAddressService = {
-  typeName: TYPE_NAME,
-  method: "BribeAllocationsByAddress",
-  Request: QueryBribeAllocationsByAddressRequest,
-  Response: QueryBribeAllocationsByAddressResponse,
-} as const;
-
-/**
- * BribeAllocation
+ * BribeAllocation queries a BribeAllocation by address, epoch ID, and pool ID.
  *
  * @generated from rpc sunrise.liquidityincentive.v1.Query.BribeAllocation
  */
@@ -185,5 +113,17 @@ export const QueryBribeAllocationService = {
   method: "BribeAllocation",
   Request: QueryBribeAllocationRequest,
   Response: QueryBribeAllocationResponse,
+} as const;
+
+/**
+ * TallyResult queries the tally of next epoch.
+ *
+ * @generated from rpc sunrise.liquidityincentive.v1.Query.TallyResult
+ */
+export const QueryTallyResultService = {
+  typeName: TYPE_NAME,
+  method: "TallyResult",
+  Request: QueryTallyResultRequest,
+  Response: QueryTallyResultResponse,
 } as const;
 

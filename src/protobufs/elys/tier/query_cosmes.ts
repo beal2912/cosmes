@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAllPricesRequest, QueryGetAllPricesResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryGetUsersPoolDataRequest, QueryGetUsersPoolDataResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryLockedOrderRequest, QueryLockedOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
+import { QueryAllPortfolioRequest, QueryAllPortfolioResponse, QueryCalculateDiscountRequest, QueryCalculateDiscountResponse, QueryGetAllPricesRequest, QueryGetAllPricesResponse, QueryGetAmmPriceRequest, QueryGetAmmPriceResponse, QueryGetConsolidatedPriceRequest, QueryGetConsolidatedPriceResponse, QueryGetOraclePricesRequest, QueryGetOraclePricesResponse, QueryGetPortfolioRequest, QueryGetPortfolioResponse, QueryGetUsersPoolDataRequest, QueryGetUsersPoolDataResponse, QueryLeverageLpTotalRequest, QueryLeverageLpTotalResponse, QueryLiquidTotalRequest, QueryLiquidTotalResponse, QueryLockedOrderRequest, QueryLockedOrderResponse, QueryParamsRequest, QueryParamsResponse, QueryPerpetualRequest, QueryPerpetualResponse, QueryRewardsTotalRequest, QueryRewardsTotalResponse, QueryStakedPoolRequest, QueryStakedPoolResponse, QueryStakedRequest, QueryStakedResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.tier.Query";
 
@@ -183,5 +183,17 @@ export const QueryGetAllPricesService = {
   method: "GetAllPrices",
   Request: QueryGetAllPricesRequest,
   Response: QueryGetAllPricesResponse,
+} as const;
+
+/**
+ * Queries a list of Oracle prices from denoms.
+ *
+ * @generated from rpc elys.tier.Query.GetOraclePrices
+ */
+export const QueryGetOraclePricesService = {
+  typeName: TYPE_NAME,
+  method: "GetOraclePrices",
+  Request: QueryGetOraclePricesRequest,
+  Response: QueryGetOraclePricesResponse,
 } as const;
 

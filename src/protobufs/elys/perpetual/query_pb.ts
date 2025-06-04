@@ -9,7 +9,7 @@ import { MTP, Position } from "./types_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
-import { PoolAsset } from "./pool_pb.js";
+import { PerpetualCounter, PoolAsset } from "./pool_pb.js";
 
 /**
  * @generated from message elys.perpetual.Fees
@@ -380,76 +380,76 @@ export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
 }
 
 /**
- * @generated from message elys.perpetual.StatusRequest
+ * @generated from message elys.perpetual.PerpetualCounterRequest
  */
-export class StatusRequest extends Message<StatusRequest> {
-  constructor(data?: PartialMessage<StatusRequest>) {
+export class PerpetualCounterRequest extends Message<PerpetualCounterRequest> {
+  /**
+   * @generated from field: uint64 id = 1;
+   */
+  id = protoInt64.zero;
+
+  constructor(data?: PartialMessage<PerpetualCounterRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.StatusRequest";
+  static readonly typeName = "elys.perpetual.PerpetualCounterRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusRequest {
-    return new StatusRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualCounterRequest {
+    return new PerpetualCounterRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PerpetualCounterRequest {
+    return new PerpetualCounterRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PerpetualCounterRequest {
+    return new PerpetualCounterRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: StatusRequest | PlainMessage<StatusRequest> | undefined, b: StatusRequest | PlainMessage<StatusRequest> | undefined): boolean {
-    return proto3.util.equals(StatusRequest, a, b);
+  static equals(a: PerpetualCounterRequest | PlainMessage<PerpetualCounterRequest> | undefined, b: PerpetualCounterRequest | PlainMessage<PerpetualCounterRequest> | undefined): boolean {
+    return proto3.util.equals(PerpetualCounterRequest, a, b);
   }
 }
 
 /**
- * @generated from message elys.perpetual.StatusResponse
+ * @generated from message elys.perpetual.PerpetualCounterResponse
  */
-export class StatusResponse extends Message<StatusResponse> {
+export class PerpetualCounterResponse extends Message<PerpetualCounterResponse> {
   /**
-   * @generated from field: uint64 open_mtp_count = 1;
+   * @generated from field: elys.perpetual.PerpetualCounter result = 1;
    */
-  openMtpCount = protoInt64.zero;
+  result?: PerpetualCounter;
 
-  /**
-   * @generated from field: uint64 lifetime_mtp_count = 2;
-   */
-  lifetimeMtpCount = protoInt64.zero;
-
-  constructor(data?: PartialMessage<StatusResponse>) {
+  constructor(data?: PartialMessage<PerpetualCounterResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.perpetual.StatusResponse";
+  static readonly typeName = "elys.perpetual.PerpetualCounterResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "open_mtp_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "lifetime_mtp_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 1, name: "result", kind: "message", T: PerpetualCounter },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusResponse {
-    return new StatusResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualCounterResponse {
+    return new PerpetualCounterResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PerpetualCounterResponse {
+    return new PerpetualCounterResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PerpetualCounterResponse {
+    return new PerpetualCounterResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: StatusResponse | PlainMessage<StatusResponse> | undefined, b: StatusResponse | PlainMessage<StatusResponse> | undefined): boolean {
-    return proto3.util.equals(StatusResponse, a, b);
+  static equals(a: PerpetualCounterResponse | PlainMessage<PerpetualCounterResponse> | undefined, b: PerpetualCounterResponse | PlainMessage<PerpetualCounterResponse> | undefined): boolean {
+    return proto3.util.equals(PerpetualCounterResponse, a, b);
   }
 }
 
@@ -1167,39 +1167,44 @@ export class PoolResponse extends Message<PoolResponse> {
   ammPoolId = protoInt64.zero;
 
   /**
-   * @generated from field: string health = 2;
+   * @generated from field: string base_asset_liabilities_ratio = 2;
    */
-  health = "";
+  baseAssetLiabilitiesRatio = "";
 
   /**
-   * @generated from field: string borrow_interest_rate = 3;
+   * @generated from field: string quote_asset_liabilities_ratio = 3;
+   */
+  quoteAssetLiabilitiesRatio = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate = 4;
    */
   borrowInterestRate = "";
 
   /**
-   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 4;
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_long = 5;
    */
   poolAssetsLong: PoolAsset[] = [];
 
   /**
-   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 5;
+   * @generated from field: repeated elys.perpetual.PoolAsset pool_assets_short = 6;
    */
   poolAssetsShort: PoolAsset[] = [];
 
   /**
-   * @generated from field: int64 last_height_borrow_interest_rate_computed = 6;
+   * @generated from field: int64 last_height_borrow_interest_rate_computed = 7;
    */
   lastHeightBorrowInterestRateComputed = protoInt64.zero;
 
   /**
    * funding rate, if positive longs pay shorts, if negative shorts pay longs
    *
-   * @generated from field: string funding_rate = 7;
+   * @generated from field: string funding_rate = 8;
    */
   fundingRate = "";
 
   /**
-   * @generated from field: string net_open_interest = 8;
+   * @generated from field: string net_open_interest = 9;
    */
   netOpenInterest = "";
 
@@ -1207,32 +1212,32 @@ export class PoolResponse extends Message<PoolResponse> {
    * Rate at which long pays/receive from short
    * if negative longs pay, if positive long receives
    *
-   * @generated from field: string long_rate = 9;
+   * @generated from field: string long_rate = 10;
    */
   longRate = "";
 
   /**
-   * @generated from field: string short_rate = 10;
+   * @generated from field: string short_rate = 11;
    */
   shortRate = "";
 
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin total_liabilities = 11;
+   * @generated from field: cosmos.base.v1beta1.Coin total_liabilities = 12;
    */
   totalLiabilities?: Coin;
 
   /**
-   * @generated from field: string total_long_open_interest = 12;
+   * @generated from field: string total_long_open_interest = 13;
    */
   totalLongOpenInterest = "";
 
   /**
-   * @generated from field: string total_short_open_interest = 13;
+   * @generated from field: string total_short_open_interest = 14;
    */
   totalShortOpenInterest = "";
 
   /**
-   * @generated from field: string leverage_max = 14;
+   * @generated from field: string leverage_max = 15;
    */
   leverageMax = "";
 
@@ -1245,19 +1250,20 @@ export class PoolResponse extends Message<PoolResponse> {
   static readonly typeName = "elys.perpetual.PoolResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
-    { no: 5, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
-    { no: 6, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 7, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "net_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "long_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "short_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "total_liabilities", kind: "message", T: Coin },
-    { no: 12, name: "total_long_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "total_short_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "base_asset_liabilities_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "quote_asset_liabilities_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "pool_assets_long", kind: "message", T: PoolAsset, repeated: true },
+    { no: 6, name: "pool_assets_short", kind: "message", T: PoolAsset, repeated: true },
+    { no: 7, name: "last_height_borrow_interest_rate_computed", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 8, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "net_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "long_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "short_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "total_liabilities", kind: "message", T: Coin },
+    { no: 13, name: "total_long_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "total_short_open_interest", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolResponse {

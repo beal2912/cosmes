@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgClaimBribes, MsgClaimBribesResponse, MsgRegisterBribe, MsgRegisterBribeResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgVoteGauge, MsgVoteGaugeResponse } from "./tx_pb.js";
+import { MsgClaimBribes, MsgClaimBribesResponse, MsgRegisterBribe, MsgRegisterBribeResponse, MsgStartNewEpoch, MsgStartNewEpochResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgVoteGauge, MsgVoteGaugeResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "sunrise.liquidityincentive.v1.Msg";
 
@@ -18,6 +18,18 @@ export const MsgUpdateParamsService = {
   method: "UpdateParams",
   Request: MsgUpdateParams,
   Response: MsgUpdateParamsResponse,
+} as const;
+
+/**
+ * StartNewEpoch
+ *
+ * @generated from rpc sunrise.liquidityincentive.v1.Msg.StartNewEpoch
+ */
+export const MsgStartNewEpochService = {
+  typeName: TYPE_NAME,
+  method: "StartNewEpoch",
+  Request: MsgStartNewEpoch,
+  Response: MsgStartNewEpochResponse,
 } as const;
 
 /**

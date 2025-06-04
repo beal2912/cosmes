@@ -13,19 +13,14 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
  */
 export class Gauge extends Message<Gauge> {
   /**
-   * @generated from field: uint64 previous_epoch_id = 1;
-   */
-  previousEpochId = protoInt64.zero;
-
-  /**
-   * @generated from field: uint64 pool_id = 2;
+   * @generated from field: uint64 pool_id = 1;
    */
   poolId = protoInt64.zero;
 
   /**
-   * @generated from field: string count = 3;
+   * @generated from field: string voting_power = 2;
    */
-  count = "";
+  votingPower = "";
 
   constructor(data?: PartialMessage<Gauge>) {
     super();
@@ -35,9 +30,8 @@ export class Gauge extends Message<Gauge> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.liquidityincentive.v1.Gauge";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "previous_epoch_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "count", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "voting_power", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Gauge {
@@ -54,51 +48,6 @@ export class Gauge extends Message<Gauge> {
 
   static equals(a: Gauge | PlainMessage<Gauge> | undefined, b: Gauge | PlainMessage<Gauge> | undefined): boolean {
     return proto3.util.equals(Gauge, a, b);
-  }
-}
-
-/**
- * TallyResult
- *
- * @generated from message sunrise.liquidityincentive.v1.TallyResult
- */
-export class TallyResult extends Message<TallyResult> {
-  /**
-   * @generated from field: uint64 pool_id = 1;
-   */
-  poolId = protoInt64.zero;
-
-  /**
-   * @generated from field: string count = 2;
-   */
-  count = "";
-
-  constructor(data?: PartialMessage<TallyResult>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "sunrise.liquidityincentive.v1.TallyResult";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "count", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TallyResult {
-    return new TallyResult().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): TallyResult {
-    return new TallyResult().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): TallyResult {
-    return new TallyResult().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: TallyResult | PlainMessage<TallyResult> | undefined, b: TallyResult | PlainMessage<TallyResult> | undefined): boolean {
-    return proto3.util.equals(TallyResult, a, b);
   }
 }
 

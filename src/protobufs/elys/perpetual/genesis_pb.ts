@@ -6,7 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
-import { Pool } from "./pool_pb.js";
+import { PerpetualCounter, Pool } from "./pool_pb.js";
 import { MTP } from "./types_pb.js";
 
 /**
@@ -35,6 +35,11 @@ export class GenesisState extends Message<GenesisState> {
    */
   addressWhitelist: string[] = [];
 
+  /**
+   * @generated from field: repeated elys.perpetual.PerpetualCounter perpetual_counter = 5;
+   */
+  perpetualCounter: PerpetualCounter[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -47,6 +52,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 2, name: "pool_list", kind: "message", T: Pool, repeated: true },
     { no: 3, name: "mtp_list", kind: "message", T: MTP, repeated: true },
     { no: 4, name: "address_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 5, name: "perpetual_counter", kind: "message", T: PerpetualCounter, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {
