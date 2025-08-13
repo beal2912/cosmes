@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgConvert, MsgConvertResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgConvert, MsgConvertResponse, MsgSend, MsgSendResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "sunrise.tokenconverter.v1.Msg";
 
@@ -30,5 +30,17 @@ export const MsgConvertService = {
   method: "Convert",
   Request: MsgConvert,
   Response: MsgConvertResponse,
+} as const;
+
+/**
+ * Send
+ *
+ * @generated from rpc sunrise.tokenconverter.v1.Msg.Send
+ */
+export const MsgSendService = {
+  typeName: TYPE_NAME,
+  method: "Send",
+  Request: MsgSend,
+  Response: MsgSendResponse,
 } as const;
 

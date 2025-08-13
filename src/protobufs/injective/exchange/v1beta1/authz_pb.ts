@@ -5,6 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
+import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
  * spot authz messages
@@ -13,11 +14,15 @@ import { Message, proto3 } from "@bufbuild/protobuf";
  */
 export class CreateSpotLimitOrderAuthz extends Message<CreateSpotLimitOrderAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -56,11 +61,15 @@ export class CreateSpotLimitOrderAuthz extends Message<CreateSpotLimitOrderAuthz
  */
 export class CreateSpotMarketOrderAuthz extends Message<CreateSpotMarketOrderAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -99,11 +108,15 @@ export class CreateSpotMarketOrderAuthz extends Message<CreateSpotMarketOrderAut
  */
 export class BatchCreateSpotLimitOrdersAuthz extends Message<BatchCreateSpotLimitOrdersAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -142,11 +155,15 @@ export class BatchCreateSpotLimitOrdersAuthz extends Message<BatchCreateSpotLimi
  */
 export class CancelSpotOrderAuthz extends Message<CancelSpotOrderAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -185,11 +202,15 @@ export class CancelSpotOrderAuthz extends Message<CancelSpotOrderAuthz> {
  */
 export class BatchCancelSpotOrdersAuthz extends Message<BatchCancelSpotOrdersAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -230,11 +251,15 @@ export class BatchCancelSpotOrdersAuthz extends Message<BatchCancelSpotOrdersAut
  */
 export class CreateDerivativeLimitOrderAuthz extends Message<CreateDerivativeLimitOrderAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -273,11 +298,15 @@ export class CreateDerivativeLimitOrderAuthz extends Message<CreateDerivativeLim
  */
 export class CreateDerivativeMarketOrderAuthz extends Message<CreateDerivativeMarketOrderAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -316,11 +345,15 @@ export class CreateDerivativeMarketOrderAuthz extends Message<CreateDerivativeMa
  */
 export class BatchCreateDerivativeLimitOrdersAuthz extends Message<BatchCreateDerivativeLimitOrdersAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market IDs
+   *
    * @generated from field: repeated string market_ids = 2;
    */
   marketIds: string[] = [];
@@ -447,16 +480,22 @@ export class BatchCancelDerivativeOrdersAuthz extends Message<BatchCancelDerivat
  */
 export class BatchUpdateOrdersAuthz extends Message<BatchUpdateOrdersAuthz> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the spot market IDs
+   *
    * @generated from field: repeated string spot_markets = 2;
    */
   spotMarkets: string[] = [];
 
   /**
+   * the derivative market IDs
+   *
    * @generated from field: repeated string derivative_markets = 3;
    */
   derivativeMarkets: string[] = [];
@@ -488,6 +527,57 @@ export class BatchUpdateOrdersAuthz extends Message<BatchUpdateOrdersAuthz> {
 
   static equals(a: BatchUpdateOrdersAuthz | PlainMessage<BatchUpdateOrdersAuthz> | undefined, b: BatchUpdateOrdersAuthz | PlainMessage<BatchUpdateOrdersAuthz> | undefined): boolean {
     return proto3.util.equals(BatchUpdateOrdersAuthz, a, b);
+  }
+}
+
+/**
+ * GenericExchangeAuthorization gives the grantee permissions to execute
+ * the provided Exchange method on behalf of the granter's account.
+ *
+ * @generated from message injective.exchange.v1beta1.GenericExchangeAuthorization
+ */
+export class GenericExchangeAuthorization extends Message<GenericExchangeAuthorization> {
+  /**
+   * Msg, identified by it's type URL, to grant permissions to the grantee
+   *
+   * @generated from field: string msg = 1;
+   */
+  msg = "";
+
+  /**
+   * SpendLimit is the maximum amount of tokens that the grantee can spend on
+   * behalf of the granter. If not set, there is no spend limit.
+   *
+   * @generated from field: repeated cosmos.base.v1beta1.Coin spend_limit = 2;
+   */
+  spendLimit: Coin[] = [];
+
+  constructor(data?: PartialMessage<GenericExchangeAuthorization>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.GenericExchangeAuthorization";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "msg", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "spend_limit", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenericExchangeAuthorization {
+    return new GenericExchangeAuthorization().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GenericExchangeAuthorization {
+    return new GenericExchangeAuthorization().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GenericExchangeAuthorization {
+    return new GenericExchangeAuthorization().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GenericExchangeAuthorization | PlainMessage<GenericExchangeAuthorization> | undefined, b: GenericExchangeAuthorization | PlainMessage<GenericExchangeAuthorization> | undefined): boolean {
+    return proto3.util.equals(GenericExchangeAuthorization, a, b);
   }
 }
 

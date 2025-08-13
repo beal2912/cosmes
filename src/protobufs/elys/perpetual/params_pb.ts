@@ -56,37 +56,32 @@ export class Params extends Message<Params> {
   borrowInterestPaymentFundPercentage = "";
 
   /**
-   * @generated from field: string legacy_borrow_interest_payment_fund_address = 10;
-   */
-  legacyBorrowInterestPaymentFundAddress = "";
-
-  /**
-   * @generated from field: string safety_factor = 11;
+   * @generated from field: string safety_factor = 10;
    */
   safetyFactor = "";
 
   /**
-   * @generated from field: bool borrow_interest_payment_enabled = 12;
+   * @generated from field: bool borrow_interest_payment_enabled = 11;
    */
   borrowInterestPaymentEnabled = false;
 
   /**
-   * @generated from field: bool whitelisting_enabled = 13;
+   * @generated from field: bool whitelisting_enabled = 12;
    */
   whitelistingEnabled = false;
 
   /**
-   * @generated from field: string perpetual_swap_fee = 14;
+   * @generated from field: string perpetual_swap_fee = 13;
    */
   perpetualSwapFee = "";
 
   /**
-   * @generated from field: int64 max_limit_order = 15;
+   * @generated from field: int64 max_limit_order = 14;
    */
   maxLimitOrder = protoInt64.zero;
 
   /**
-   * @generated from field: string fixed_funding_rate = 16;
+   * @generated from field: string fixed_funding_rate = 15;
    */
   fixedFundingRate = "";
 
@@ -94,7 +89,7 @@ export class Params extends Message<Params> {
    * minimum value for take_profit_price/current price for long, should be
    * greater than 1
    *
-   * @generated from field: string minimum_long_take_profit_price_ratio = 17;
+   * @generated from field: string minimum_long_take_profit_price_ratio = 16;
    */
   minimumLongTakeProfitPriceRatio = "";
 
@@ -102,7 +97,7 @@ export class Params extends Message<Params> {
    * max value for take_profit_price/current price for long, should be greater
    * than 1
    *
-   * @generated from field: string maximum_long_take_profit_price_ratio = 18;
+   * @generated from field: string maximum_long_take_profit_price_ratio = 17;
    */
   maximumLongTakeProfitPriceRatio = "";
 
@@ -110,17 +105,12 @@ export class Params extends Message<Params> {
    * max value for take_profit_price/current price for short, should be less
    * than 1
    *
-   * @generated from field: string maximum_short_take_profit_price_ratio = 19;
-   */
-  maximumShortTakeProfitPriceRatio = "";
-
-  /**
    * No need for minimumShortTakeProfitPriceRatio as it will be 0, checked in
    * validate message
    *
-   * @generated from field: bool enable_take_profit_custody_liabilities = 20;
+   * @generated from field: string maximum_short_take_profit_price_ratio = 18;
    */
-  enableTakeProfitCustodyLiabilities = false;
+  maximumShortTakeProfitPriceRatio = "";
 
   /**
    * We create this and send this value to estimate swap ONLY when opening and
@@ -133,14 +123,39 @@ export class Params extends Message<Params> {
    * trader has no bonus only fee, then overall we are only applying the fee
    * half time
    *
-   * @generated from field: string weight_breaking_fee_factor = 21;
+   * @generated from field: string weight_breaking_fee_factor = 19;
    */
   weightBreakingFeeFactor = "";
 
   /**
-   * @generated from field: repeated uint64 enabled_pools = 22;
+   * @generated from field: repeated uint64 enabled_pools = 20;
    */
   enabledPools: bigint[] = [];
+
+  /**
+   * @generated from field: string minimum_notional_value = 21;
+   */
+  minimumNotionalValue = "";
+
+  /**
+   * @generated from field: string long_minimum_liability_amount = 22;
+   */
+  longMinimumLiabilityAmount = "";
+
+  /**
+   * @generated from field: string exit_buffer = 23;
+   */
+  exitBuffer = "";
+
+  /**
+   * @generated from field: string taker_fee = 24;
+   */
+  takerFee = "";
+
+  /**
+   * @generated from field: string minimum_funding_rate = 25;
+   */
+  minimumFundingRate = "";
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -159,19 +174,22 @@ export class Params extends Message<Params> {
     { no: 7, name: "max_open_positions", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 8, name: "pool_max_liabilities_threshold", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "borrow_interest_payment_fund_percentage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "legacy_borrow_interest_payment_fund_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 13, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 14, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 16, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 17, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 18, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "enable_take_profit_custody_liabilities", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 21, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 10, name: "safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "borrow_interest_payment_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 12, name: "whitelisting_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 13, name: "perpetual_swap_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "max_limit_order", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 15, name: "fixed_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "minimum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "maximum_long_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "maximum_short_take_profit_price_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "weight_breaking_fee_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 21, name: "minimum_notional_value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "long_minimum_liability_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 23, name: "exit_buffer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 24, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 25, name: "minimum_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

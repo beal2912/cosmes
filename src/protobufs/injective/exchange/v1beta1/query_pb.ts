@@ -119,11 +119,15 @@ export class Subaccount extends Message<Subaccount> {
  */
 export class QuerySubaccountOrdersRequest extends Message<QuerySubaccountOrdersRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
@@ -205,16 +209,22 @@ export class QuerySubaccountOrdersResponse extends Message<QuerySubaccountOrders
  */
 export class SubaccountOrderbookMetadataWithMarket extends Message<SubaccountOrderbookMetadataWithMarket> {
   /**
+   * the subaccount orderbook metadata
+   *
    * @generated from field: injective.exchange.v1beta1.SubaccountOrderbookMetadata metadata = 1;
    */
   metadata?: SubaccountOrderbookMetadata;
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
 
   /**
+   * true if the order is for buy orders
+   *
    * @generated from field: bool isBuy = 3;
    */
   isBuy = false;
@@ -331,11 +341,15 @@ export class QueryExchangeParamsResponse extends Message<QueryExchangeParamsResp
  */
 export class QuerySubaccountDepositsRequest extends Message<QuerySubaccountDepositsRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * subaccount details
+   *
    * @generated from field: injective.exchange.v1beta1.Subaccount subaccount = 2;
    */
   subaccount?: Subaccount;
@@ -996,11 +1010,15 @@ export class QueryAggregateMarketVolumesResponse extends Message<QueryAggregateM
  */
 export class QuerySubaccountDepositRequest extends Message<QuerySubaccountDepositRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the denom of the balance
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";
@@ -1261,21 +1279,31 @@ export class QuerySpotOrderbookRequest extends Message<QuerySpotOrderbookRequest
   marketId = "";
 
   /**
+   * the maximum number of orderbook entries to return per side (optional)
+   *
    * @generated from field: uint64 limit = 2;
    */
   limit = protoInt64.zero;
 
   /**
+   * the order side to return the orderbook entries for (optional)
+   *
    * @generated from field: injective.exchange.v1beta1.OrderSide order_side = 3;
    */
   orderSide = OrderSide.Side_Unspecified;
 
   /**
+   * limits the number of entries to return per side based on the cumulative
+   * notional (in chain format)
+   *
    * @generated from field: string limit_cumulative_notional = 4;
    */
   limitCumulativeNotional = "";
 
   /**
+   * limits the number of entries to return per side based on the cumulative
+   * quantity (in chain format)
+   *
    * @generated from field: string limit_cumulative_quantity = 5;
    */
   limitCumulativeQuantity = "";
@@ -1797,21 +1825,21 @@ export class QueryAccountAddressSpotOrdersRequest extends Message<QueryAccountAd
  */
 export class TrimmedSpotLimitOrder extends Message<TrimmedSpotLimitOrder> {
   /**
-   * price of the order
+   * price of the order (in chain format)
    *
    * @generated from field: string price = 1;
    */
   price = "";
 
   /**
-   * quantity of the order
+   * quantity of the order (in chain format)
    *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
-   * the amount of the quantity remaining fillable
+   * the amount of the quantity remaining fillable (in chain format)
    *
    * @generated from field: string fillable = 3;
    */
@@ -1825,11 +1853,15 @@ export class TrimmedSpotLimitOrder extends Message<TrimmedSpotLimitOrder> {
   isBuy = false;
 
   /**
+   * the order hash (optional)
+   *
    * @generated from field: string order_hash = 5;
    */
   orderHash = "";
 
   /**
+   * the client order ID (optional)
+   *
    * @generated from field: string cid = 6;
    */
   cid = "";
@@ -1997,21 +2029,21 @@ export class QuerySpotMidPriceAndTOBRequest extends Message<QuerySpotMidPriceAnd
  */
 export class QuerySpotMidPriceAndTOBResponse extends Message<QuerySpotMidPriceAndTOBResponse> {
   /**
-   * mid price of the market
+   * mid price of the market (in chain format)
    *
    * @generated from field: string mid_price = 1;
    */
   midPrice = "";
 
   /**
-   * best buy price of the market
+   * best buy price of the market (in chain format)
    *
    * @generated from field: string best_buy_price = 2;
    */
   bestBuyPrice = "";
 
   /**
-   * best sell price of the market
+   * best sell price of the market (in chain format)
    *
    * @generated from field: string best_sell_price = 3;
    */
@@ -2510,28 +2542,28 @@ export class QueryAccountAddressDerivativeOrdersRequest extends Message<QueryAcc
  */
 export class TrimmedDerivativeLimitOrder extends Message<TrimmedDerivativeLimitOrder> {
   /**
-   * price of the order
+   * price of the order (in chain format)
    *
    * @generated from field: string price = 1;
    */
   price = "";
 
   /**
-   * quantity of the order
+   * quantity of the order (in chain format)
    *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
-   * margin of the order
+   * margin of the order (in chain format)
    *
    * @generated from field: string margin = 3;
    */
   margin = "";
 
   /**
-   * the amount of the quantity remaining fillable
+   * the amount of the quantity remaining fillable (in chain format)
    *
    * @generated from field: string fillable = 4;
    */
@@ -2540,18 +2572,20 @@ export class TrimmedDerivativeLimitOrder extends Message<TrimmedDerivativeLimitO
   /**
    * true if the order is a buy
    *
-   * ensure omitempty is not in jsontag
-   *
    * @generated from field: bool isBuy = 5;
    */
   isBuy = false;
 
   /**
+   * the order hash (optional)
+   *
    * @generated from field: string order_hash = 6;
    */
   orderHash = "";
 
   /**
+   * the client order ID (optional)
+   *
    * @generated from field: string cid = 7;
    */
   cid = "";
@@ -2920,21 +2954,29 @@ export class PerpetualMarketState extends Message<PerpetualMarketState> {
  */
 export class FullDerivativeMarket extends Message<FullDerivativeMarket> {
   /**
+   * derivative market details
+   *
    * @generated from field: injective.exchange.v1beta1.DerivativeMarket market = 1;
    */
   market?: DerivativeMarket;
 
   /**
+   * perpetual market state or expiry futures market state
+   *
    * @generated from oneof injective.exchange.v1beta1.FullDerivativeMarket.info
    */
   info: {
     /**
+     * perpetual market info
+     *
      * @generated from field: injective.exchange.v1beta1.PerpetualMarketState perpetual_info = 2;
      */
     value: PerpetualMarketState;
     case: "perpetualInfo";
   } | {
     /**
+     * expiry futures market info
+     *
      * @generated from field: injective.exchange.v1beta1.ExpiryFuturesMarketInfo futures_info = 3;
      */
     value: ExpiryFuturesMarketInfo;
@@ -2942,6 +2984,8 @@ export class FullDerivativeMarket extends Message<FullDerivativeMarket> {
   } | { case: undefined; value?: undefined } = { case: undefined };
 
   /**
+   * mark price (in chain format)
+   *
    * @generated from field: string mark_price = 4;
    */
   markPrice = "";
@@ -3208,6 +3252,8 @@ export class QueryDerivativeMarketAddressResponse extends Message<QueryDerivativ
  */
 export class QuerySubaccountTradeNonceRequest extends Message<QuerySubaccountTradeNonceRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
@@ -3248,6 +3294,8 @@ export class QuerySubaccountTradeNonceRequest extends Message<QuerySubaccountTra
  */
 export class QuerySubaccountPositionsRequest extends Message<QuerySubaccountPositionsRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
@@ -3288,11 +3336,15 @@ export class QuerySubaccountPositionsRequest extends Message<QuerySubaccountPosi
  */
 export class QuerySubaccountPositionInMarketRequest extends Message<QuerySubaccountPositionInMarketRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
@@ -3334,11 +3386,15 @@ export class QuerySubaccountPositionInMarketRequest extends Message<QuerySubacco
  */
 export class QuerySubaccountEffectivePositionInMarketRequest extends Message<QuerySubaccountEffectivePositionInMarketRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
@@ -3380,6 +3436,8 @@ export class QuerySubaccountEffectivePositionInMarketRequest extends Message<Que
  */
 export class QuerySubaccountOrderMetadataRequest extends Message<QuerySubaccountOrderMetadataRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
@@ -3497,21 +3555,29 @@ export class QuerySubaccountPositionInMarketResponse extends Message<QuerySubacc
  */
 export class EffectivePosition extends Message<EffectivePosition> {
   /**
+   * whether the position is long or short
+   *
    * @generated from field: bool is_long = 1;
    */
   isLong = false;
 
   /**
+   * the quantity of the position (in chain format)
+   *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
+   * the entry price of the position (in chain format)
+   *
    * @generated from field: string entry_price = 3;
    */
   entryPrice = "";
 
   /**
+   * the effective margin of the position (in chain format)
+   *
    * @generated from field: string effective_margin = 4;
    */
   effectiveMargin = "";
@@ -4603,36 +4669,50 @@ export class QueryBalanceMismatchesRequest extends Message<QueryBalanceMismatche
  */
 export class BalanceMismatch extends Message<BalanceMismatch> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccountId = 1;
    */
   subaccountId = "";
 
   /**
+   * the denom of the balance
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";
 
   /**
+   * the available balance
+   *
    * @generated from field: string available = 3;
    */
   available = "";
 
   /**
+   * the total balance
+   *
    * @generated from field: string total = 4;
    */
   total = "";
 
   /**
+   * the balance hold
+   *
    * @generated from field: string balance_hold = 5;
    */
   balanceHold = "";
 
   /**
+   * the expected total balance
+   *
    * @generated from field: string expected_total = 6;
    */
   expectedTotal = "";
 
   /**
+   * the difference between the total balance and the expected total balance
+   *
    * @generated from field: string difference = 7;
    */
   difference = "";
@@ -4750,26 +4830,36 @@ export class QueryBalanceWithBalanceHoldsRequest extends Message<QueryBalanceWit
  */
 export class BalanceWithMarginHold extends Message<BalanceWithMarginHold> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccountId = 1;
    */
   subaccountId = "";
 
   /**
+   * the denom of the balance
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";
 
   /**
+   * the available balance
+   *
    * @generated from field: string available = 3;
    */
   available = "";
 
   /**
+   * the total balance
+   *
    * @generated from field: string total = 4;
    */
   total = "";
 
   /**
+   * the balance on hold
+   *
    * @generated from field: string balance_hold = 5;
    */
   balanceHold = "";
@@ -5005,21 +5095,29 @@ export class MitoVaultInfosRequest extends Message<MitoVaultInfosRequest> {
  */
 export class MitoVaultInfosResponse extends Message<MitoVaultInfosResponse> {
   /**
+   * list of master addresses
+   *
    * @generated from field: repeated string master_addresses = 1;
    */
   masterAddresses: string[] = [];
 
   /**
+   * list of derivative addresses
+   *
    * @generated from field: repeated string derivative_addresses = 2;
    */
   derivativeAddresses: string[] = [];
 
   /**
+   * list of spot addresses
+   *
    * @generated from field: repeated string spot_addresses = 3;
    */
   spotAddresses: string[] = [];
 
   /**
+   * list of cw20 addresses
+   *
    * @generated from field: repeated string cw20_addresses = 4;
    */
   cw20Addresses: string[] = [];
@@ -5467,11 +5565,15 @@ export class QueryBinaryMarketsResponse extends Message<QueryBinaryMarketsRespon
  */
 export class QueryTraderDerivativeConditionalOrdersRequest extends Message<QueryTraderDerivativeConditionalOrdersRequest> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
@@ -5510,28 +5612,28 @@ export class QueryTraderDerivativeConditionalOrdersRequest extends Message<Query
  */
 export class TrimmedDerivativeConditionalOrder extends Message<TrimmedDerivativeConditionalOrder> {
   /**
-   * price of the order
+   * price of the order (in chain format)
    *
    * @generated from field: string price = 1;
    */
   price = "";
 
   /**
-   * quantity of the order
+   * quantity of the order (in chain format)
    *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
-   * margin of the order
+   * margin of the order (in chain format)
    *
    * @generated from field: string margin = 3;
    */
   margin = "";
 
   /**
-   * price to trigger the order
+   * price to trigger the order (in chain format)
    *
    * @generated from field: string triggerPrice = 4;
    */
@@ -5540,23 +5642,27 @@ export class TrimmedDerivativeConditionalOrder extends Message<TrimmedDerivative
   /**
    * true if the order is a buy
    *
-   * ensure omitempty is not in jsontag
-   *
    * @generated from field: bool isBuy = 5;
    */
   isBuy = false;
 
   /**
+   * true if the order is a limit order
+   *
    * @generated from field: bool isLimit = 6;
    */
   isLimit = false;
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 7;
    */
   orderHash = "";
 
   /**
+   * the client ID
+   *
    * @generated from field: string cid = 8;
    */
   cid = "";
@@ -5805,23 +5911,29 @@ export class QueryFullDerivativeOrderbookResponse extends Message<QueryFullDeriv
  */
 export class TrimmedLimitOrder extends Message<TrimmedLimitOrder> {
   /**
+   * the price of the order (in chain format)
+   *
    * @generated from field: string price = 1;
    */
   price = "";
 
   /**
-   * quantity of the order
+   * the quantity of the order (in chain format)
    *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 3;
    */
   orderHash = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 4;
    */
   subaccountId = "";
@@ -5862,6 +5974,8 @@ export class TrimmedLimitOrder extends Message<TrimmedLimitOrder> {
  */
 export class QueryMarketAtomicExecutionFeeMultiplierRequest extends Message<QueryMarketAtomicExecutionFeeMultiplierRequest> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
@@ -6400,6 +6514,8 @@ export class QueryDenomMinNotionalRequest extends Message<QueryDenomMinNotionalR
  */
 export class QueryDenomMinNotionalResponse extends Message<QueryDenomMinNotionalResponse> {
   /**
+   * the minimum notional amount for the denom (in chain format)
+   *
    * @generated from field: string amount = 1;
    */
   amount = "";

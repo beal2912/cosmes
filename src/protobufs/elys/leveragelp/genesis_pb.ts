@@ -7,7 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { Pool } from "./pool_pb.js";
-import { Position } from "./types_pb.js";
+import { ADLCounter, FallbackCounter, Position, PositionCounter } from "./types_pb.js";
 
 /**
  * GenesisState defines the leveragelp module's genesis state.
@@ -35,6 +35,21 @@ export class GenesisState extends Message<GenesisState> {
    */
   addressWhitelist: string[] = [];
 
+  /**
+   * @generated from field: repeated elys.leveragelp.PositionCounter position_counter = 5;
+   */
+  positionCounter: PositionCounter[] = [];
+
+  /**
+   * @generated from field: repeated elys.leveragelp.ADLCounter adl_counter = 6;
+   */
+  adlCounter: ADLCounter[] = [];
+
+  /**
+   * @generated from field: elys.leveragelp.FallbackCounter fallback_counter = 7;
+   */
+  fallbackCounter?: FallbackCounter;
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -47,6 +62,9 @@ export class GenesisState extends Message<GenesisState> {
     { no: 2, name: "pool_list", kind: "message", T: Pool, repeated: true },
     { no: 3, name: "position_list", kind: "message", T: Position, repeated: true },
     { no: 4, name: "address_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 5, name: "position_counter", kind: "message", T: PositionCounter, repeated: true },
+    { no: 6, name: "adl_counter", kind: "message", T: ADLCounter, repeated: true },
+    { no: 7, name: "fallback_counter", kind: "message", T: FallbackCounter },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

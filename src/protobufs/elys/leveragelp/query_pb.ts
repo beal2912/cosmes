@@ -7,7 +7,7 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination_pb.js";
-import { PositionAndInterest, QueryPosition } from "./types_pb.js";
+import { PositionAndInterest, PositionCounter, QueryPosition } from "./types_pb.js";
 import { Pool } from "./pool_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 
@@ -252,76 +252,76 @@ export class PositionsByPoolResponse extends Message<PositionsByPoolResponse> {
 }
 
 /**
- * @generated from message elys.leveragelp.StatusRequest
+ * @generated from message elys.leveragelp.PositionCounterRequest
  */
-export class StatusRequest extends Message<StatusRequest> {
-  constructor(data?: PartialMessage<StatusRequest>) {
+export class PositionCounterRequest extends Message<PositionCounterRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<PositionCounterRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.StatusRequest";
+  static readonly typeName = "elys.leveragelp.PositionCounterRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusRequest {
-    return new StatusRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionCounterRequest {
+    return new PositionCounterRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PositionCounterRequest {
+    return new PositionCounterRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusRequest {
-    return new StatusRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PositionCounterRequest {
+    return new PositionCounterRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: StatusRequest | PlainMessage<StatusRequest> | undefined, b: StatusRequest | PlainMessage<StatusRequest> | undefined): boolean {
-    return proto3.util.equals(StatusRequest, a, b);
+  static equals(a: PositionCounterRequest | PlainMessage<PositionCounterRequest> | undefined, b: PositionCounterRequest | PlainMessage<PositionCounterRequest> | undefined): boolean {
+    return proto3.util.equals(PositionCounterRequest, a, b);
   }
 }
 
 /**
- * @generated from message elys.leveragelp.StatusResponse
+ * @generated from message elys.leveragelp.PositionCounterResponse
  */
-export class StatusResponse extends Message<StatusResponse> {
+export class PositionCounterResponse extends Message<PositionCounterResponse> {
   /**
-   * @generated from field: uint64 open_position_count = 1;
+   * @generated from field: elys.leveragelp.PositionCounter result = 1;
    */
-  openPositionCount = protoInt64.zero;
+  result?: PositionCounter;
 
-  /**
-   * @generated from field: uint64 lifetime_position_count = 2;
-   */
-  lifetimePositionCount = protoInt64.zero;
-
-  constructor(data?: PartialMessage<StatusResponse>) {
+  constructor(data?: PartialMessage<PositionCounterResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "elys.leveragelp.StatusResponse";
+  static readonly typeName = "elys.leveragelp.PositionCounterResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "open_position_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "lifetime_position_count", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 1, name: "result", kind: "message", T: PositionCounter },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StatusResponse {
-    return new StatusResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionCounterResponse {
+    return new PositionCounterResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PositionCounterResponse {
+    return new PositionCounterResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): StatusResponse {
-    return new StatusResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PositionCounterResponse {
+    return new PositionCounterResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: StatusResponse | PlainMessage<StatusResponse> | undefined, b: StatusResponse | PlainMessage<StatusResponse> | undefined): boolean {
-    return proto3.util.equals(StatusResponse, a, b);
+  static equals(a: PositionCounterResponse | PlainMessage<PositionCounterResponse> | undefined, b: PositionCounterResponse | PlainMessage<PositionCounterResponse> | undefined): boolean {
+    return proto3.util.equals(PositionCounterResponse, a, b);
   }
 }
 
@@ -334,11 +334,6 @@ export class PositionsForAddressRequest extends Message<PositionsForAddressReque
    */
   address = "";
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
-   */
-  pagination?: PageRequest;
-
   constructor(data?: PartialMessage<PositionsForAddressRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -348,7 +343,6 @@ export class PositionsForAddressRequest extends Message<PositionsForAddressReque
   static readonly typeName = "elys.leveragelp.PositionsForAddressRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "pagination", kind: "message", T: PageRequest },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionsForAddressRequest {
@@ -377,11 +371,6 @@ export class PositionsForAddressResponse extends Message<PositionsForAddressResp
    */
   positions: PositionAndInterest[] = [];
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 2;
-   */
-  pagination?: PageResponse;
-
   constructor(data?: PartialMessage<PositionsForAddressResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -391,7 +380,6 @@ export class PositionsForAddressResponse extends Message<PositionsForAddressResp
   static readonly typeName = "elys.leveragelp.PositionsForAddressResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "positions", kind: "message", T: PositionAndInterest, repeated: true },
-    { no: 2, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionsForAddressResponse {
@@ -782,6 +770,11 @@ export class QueryLiquidationPriceRequest extends Message<QueryLiquidationPriceR
    */
   positionId = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryLiquidationPriceRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -792,6 +785,7 @@ export class QueryLiquidationPriceRequest extends Message<QueryLiquidationPriceR
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryLiquidationPriceRequest {
@@ -995,6 +989,11 @@ export class QueryCloseEstRequest extends Message<QueryCloseEstRequest> {
    */
   lpAmount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryCloseEstRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1006,6 +1005,7 @@ export class QueryCloseEstRequest extends Message<QueryCloseEstRequest> {
     { no: 1, name: "owner", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCloseEstRequest {
@@ -1034,11 +1034,6 @@ export class QueryRewardsRequest extends Message<QueryRewardsRequest> {
    */
   address = "";
 
-  /**
-   * @generated from field: repeated uint64 ids = 2;
-   */
-  ids: bigint[] = [];
-
   constructor(data?: PartialMessage<QueryRewardsRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1048,7 +1043,6 @@ export class QueryRewardsRequest extends Message<QueryRewardsRequest> {
   static readonly typeName = "elys.leveragelp.QueryRewardsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRewardsRequest {
@@ -1073,14 +1067,19 @@ export class QueryRewardsRequest extends Message<QueryRewardsRequest> {
  */
 export class RewardInfo extends Message<RewardInfo> {
   /**
-   * @generated from field: uint64 position_id = 1;
+   * @generated from field: repeated cosmos.base.v1beta1.Coin reward = 1;
+   */
+  reward: Coin[] = [];
+
+  /**
+   * @generated from field: uint64 position_id = 2;
    */
   positionId = protoInt64.zero;
 
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin reward = 2;
+   * @generated from field: uint64 pool_id = 3;
    */
-  reward: Coin[] = [];
+  poolId = protoInt64.zero;
 
   constructor(data?: PartialMessage<RewardInfo>) {
     super();
@@ -1090,8 +1089,9 @@ export class RewardInfo extends Message<RewardInfo> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.leveragelp.RewardInfo";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 2, name: "reward", kind: "message", T: Coin, repeated: true },
+    { no: 1, name: "reward", kind: "message", T: Coin, repeated: true },
+    { no: 2, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RewardInfo {
@@ -1254,11 +1254,6 @@ export class QueryCommittedTokensLockedRequest extends Message<QueryCommittedTok
    */
   address = "";
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageRequest pagination = 2;
-   */
-  pagination?: PageRequest;
-
   constructor(data?: PartialMessage<QueryCommittedTokensLockedRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1268,7 +1263,6 @@ export class QueryCommittedTokensLockedRequest extends Message<QueryCommittedTok
   static readonly typeName = "elys.leveragelp.QueryCommittedTokensLockedRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "pagination", kind: "message", T: PageRequest },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCommittedTokensLockedRequest {
@@ -1369,11 +1363,6 @@ export class QueryCommittedTokensLockedResponse extends Message<QueryCommittedTo
    */
   positionCommitedToken: PositionCommitedToken[] = [];
 
-  /**
-   * @generated from field: cosmos.base.query.v1beta1.PageResponse pagination = 3;
-   */
-  pagination?: PageResponse;
-
   constructor(data?: PartialMessage<QueryCommittedTokensLockedResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1384,7 +1373,6 @@ export class QueryCommittedTokensLockedResponse extends Message<QueryCommittedTo
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "position_commited_token", kind: "message", T: PositionCommitedToken, repeated: true },
-    { no: 3, name: "pagination", kind: "message", T: PageResponse },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCommittedTokensLockedResponse {

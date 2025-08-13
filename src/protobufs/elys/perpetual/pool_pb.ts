@@ -12,32 +12,22 @@ import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
  */
 export class PoolAsset extends Message<PoolAsset> {
   /**
-   * @generated from field: string liabilities = 1;
-   */
-  liabilities = "";
-
-  /**
-   * @generated from field: string custody = 2;
-   */
-  custody = "";
-
-  /**
-   * @generated from field: string take_profit_liabilities = 3;
-   */
-  takeProfitLiabilities = "";
-
-  /**
-   * @generated from field: string take_profit_custody = 4;
-   */
-  takeProfitCustody = "";
-
-  /**
-   * @generated from field: string asset_denom = 5;
+   * @generated from field: string asset_denom = 1;
    */
   assetDenom = "";
 
   /**
-   * @generated from field: string collateral = 6;
+   * @generated from field: string liabilities = 2;
+   */
+  liabilities = "";
+
+  /**
+   * @generated from field: string custody = 3;
+   */
+  custody = "";
+
+  /**
+   * @generated from field: string collateral = 4;
    */
   collateral = "";
 
@@ -49,12 +39,10 @@ export class PoolAsset extends Message<PoolAsset> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.perpetual.PoolAsset";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "take_profit_liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "take_profit_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "asset_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "collateral", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolAsset {
@@ -130,6 +118,11 @@ export class Pool extends Message<Pool> {
    */
   leverageMax = "";
 
+  /**
+   * @generated from field: string mtp_safety_factor = 11;
+   */
+  mtpSafetyFactor = "";
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -148,6 +141,7 @@ export class Pool extends Message<Pool> {
     { no: 8, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "fees_collected", kind: "message", T: Coin, repeated: true },
     { no: 10, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "mtp_safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

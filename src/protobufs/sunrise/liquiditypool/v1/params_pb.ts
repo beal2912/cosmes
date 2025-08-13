@@ -24,6 +24,16 @@ export class Params extends Message<Params> {
    */
   withdrawFeeRate = "";
 
+  /**
+   * @generated from field: repeated string allowed_quote_denoms = 3;
+   */
+  allowedQuoteDenoms: string[] = [];
+
+  /**
+   * @generated from field: repeated string allowed_addresses = 4;
+   */
+  allowedAddresses: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -34,6 +44,8 @@ export class Params extends Message<Params> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "create_pool_gas", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 2, name: "withdraw_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "allowed_quote_denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 4, name: "allowed_addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

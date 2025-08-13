@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAddExternalIncentive, MsgAddExternalIncentiveResponse, MsgAddExternalRewardDenom, MsgAddExternalRewardDenomResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgTogglePoolEdenRewards, MsgTogglePoolEdenRewardsResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolMultipliers, MsgUpdatePoolMultipliersResponse } from "./tx_pb.js";
+import { MsgAddExternalIncentive, MsgAddExternalIncentiveResponse, MsgAddExternalRewardDenom, MsgAddExternalRewardDenomResponse, MsgClaimRewards, MsgClaimRewardsResponse, MsgTogglePoolEdenRewards, MsgTogglePoolEdenRewardsResponse, MsgToggleTakerFeeSwapAndBurn, MsgToggleTakerFeeSwapAndBurnResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePoolMultipliers, MsgUpdatePoolMultipliersResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.masterchef.Msg";
 
@@ -65,5 +65,15 @@ export const MsgTogglePoolEdenRewardsService = {
   method: "TogglePoolEdenRewards",
   Request: MsgTogglePoolEdenRewards,
   Response: MsgTogglePoolEdenRewardsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.masterchef.Msg.ToggleTakerFeeSwapAndBurn
+ */
+export const MsgToggleTakerFeeSwapAndBurnService = {
+  typeName: TYPE_NAME,
+  method: "ToggleTakerFeeSwapAndBurn",
+  Request: MsgToggleTakerFeeSwapAndBurn,
+  Response: MsgToggleTakerFeeSwapAndBurnResponse,
 } as const;
 

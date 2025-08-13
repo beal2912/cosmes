@@ -45,51 +45,71 @@ proto3.util.setEnumType(OrderUpdateStatus, "injective.stream.v1beta1.OrderUpdate
  */
 export class StreamRequest extends Message<StreamRequest> {
   /**
+   * filter for bank balances events
+   *
    * @generated from field: injective.stream.v1beta1.BankBalancesFilter bank_balances_filter = 1;
    */
   bankBalancesFilter?: BankBalancesFilter;
 
   /**
+   * filter for subaccount deposits events
+   *
    * @generated from field: injective.stream.v1beta1.SubaccountDepositsFilter subaccount_deposits_filter = 2;
    */
   subaccountDepositsFilter?: SubaccountDepositsFilter;
 
   /**
+   * filter for spot trades events
+   *
    * @generated from field: injective.stream.v1beta1.TradesFilter spot_trades_filter = 3;
    */
   spotTradesFilter?: TradesFilter;
 
   /**
+   * filter for derivative trades events
+   *
    * @generated from field: injective.stream.v1beta1.TradesFilter derivative_trades_filter = 4;
    */
   derivativeTradesFilter?: TradesFilter;
 
   /**
+   * filter for spot orders events
+   *
    * @generated from field: injective.stream.v1beta1.OrdersFilter spot_orders_filter = 5;
    */
   spotOrdersFilter?: OrdersFilter;
 
   /**
+   * filter for derivative orders events
+   *
    * @generated from field: injective.stream.v1beta1.OrdersFilter derivative_orders_filter = 6;
    */
   derivativeOrdersFilter?: OrdersFilter;
 
   /**
+   * filter for spot orderbooks events
+   *
    * @generated from field: injective.stream.v1beta1.OrderbookFilter spot_orderbooks_filter = 7;
    */
   spotOrderbooksFilter?: OrderbookFilter;
 
   /**
+   * filter for derivative orderbooks events
+   *
    * @generated from field: injective.stream.v1beta1.OrderbookFilter derivative_orderbooks_filter = 8;
    */
   derivativeOrderbooksFilter?: OrderbookFilter;
 
   /**
+   * filter for positions events
+   *
    * @generated from field: injective.stream.v1beta1.PositionsFilter positions_filter = 9;
    */
   positionsFilter?: PositionsFilter;
 
   /**
+   * filter for oracle prices events
+   *
    * @generated from field: injective.stream.v1beta1.OraclePriceFilter oracle_price_filter = 10;
    */
   oraclePriceFilter?: OraclePriceFilter;
@@ -374,11 +394,15 @@ export class BankBalance extends Message<BankBalance> {
  */
 export class SubaccountDeposits extends Message<SubaccountDeposits> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the deposits details
+   *
    * @generated from field: repeated injective.stream.v1beta1.SubaccountDeposit deposits = 2;
    */
   deposits: SubaccountDeposit[] = [];
@@ -613,16 +637,22 @@ export class DerivativeOrderUpdate extends Message<DerivativeOrderUpdate> {
  */
 export class DerivativeOrder extends Message<DerivativeOrder> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
 
   /**
+   * the derivative order details
+   *
    * @generated from field: injective.exchange.v1beta1.DerivativeLimitOrder order = 2;
    */
   order?: DerivativeLimitOrder;
 
   /**
+   * whether the order is a market order
+   *
    * @generated from field: bool is_market = 3;
    */
   isMarket = false;
@@ -662,36 +692,50 @@ export class DerivativeOrder extends Message<DerivativeOrder> {
  */
 export class Position extends Message<Position> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * whether the position is long or short
+   *
    * @generated from field: bool isLong = 3;
    */
   isLong = false;
 
   /**
+   * the quantity of the position
+   *
    * @generated from field: string quantity = 4;
    */
   quantity = "";
 
   /**
+   * the entry price of the position
+   *
    * @generated from field: string entry_price = 5;
    */
   entryPrice = "";
 
   /**
+   * the margin of the position
+   *
    * @generated from field: string margin = 6;
    */
   margin = "";
 
   /**
+   * the cumulative funding entry of the position
+   *
    * @generated from field: string cumulative_funding_entry = 7;
    */
   cumulativeFundingEntry = "";
@@ -784,58 +828,78 @@ export class OraclePrice extends Message<OraclePrice> {
  */
 export class SpotTrade extends Message<SpotTrade> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
 
   /**
+   * whether the trade is a buy or sell
+   *
    * @generated from field: bool is_buy = 2;
    */
   isBuy = false;
 
   /**
+   * the execution type
+   *
    * @generated from field: string executionType = 3;
    */
   executionType = "";
 
   /**
+   * the quantity of the trade
+   *
    * @generated from field: string quantity = 4;
    */
   quantity = "";
 
   /**
+   * the price of the trade
+   *
    * @generated from field: string price = 5;
    */
   price = "";
 
   /**
-   * bytes32 subaccount ID that executed the trade
+   * the subaccount ID that executed the trade
    *
    * @generated from field: string subaccount_id = 6;
    */
   subaccountId = "";
 
   /**
+   * the fee of the trade
+   *
    * @generated from field: string fee = 7;
    */
   fee = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 8;
    */
   orderHash = "";
 
   /**
+   * the fee recipient address
+   *
    * @generated from field: string fee_recipient_address = 9;
    */
   feeRecipientAddress = "";
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 10;
    */
   cid = "";
 
   /**
+   * the trade ID
+   *
    * @generated from field: string trade_id = 11;
    */
   tradeId = "";
@@ -883,56 +947,78 @@ export class SpotTrade extends Message<SpotTrade> {
  */
 export class DerivativeTrade extends Message<DerivativeTrade> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
 
   /**
+   * whether the trade is a buy or sell
+   *
    * @generated from field: bool is_buy = 2;
    */
   isBuy = false;
 
   /**
+   * the execution type
+   *
    * @generated from field: string executionType = 3;
    */
   executionType = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 4;
    */
   subaccountId = "";
 
   /**
+   * the position delta of the trade
+   *
    * @generated from field: injective.exchange.v1beta1.PositionDelta position_delta = 5;
    */
   positionDelta?: PositionDelta;
 
   /**
+   * the payout of the trade
+   *
    * @generated from field: string payout = 6;
    */
   payout = "";
 
   /**
+   * the fee of the trade
+   *
    * @generated from field: string fee = 7;
    */
   fee = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 8;
    */
   orderHash = "";
 
   /**
+   * the fee recipient address
+   *
    * @generated from field: string fee_recipient_address = 9;
    */
   feeRecipientAddress = "";
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 10;
    */
   cid = "";
 
   /**
+   * the trade ID
+   *
    * @generated from field: string trade_id = 11;
    */
   tradeId = "";

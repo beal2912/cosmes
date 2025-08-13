@@ -40,6 +40,11 @@ export class Pool extends Message<Pool> {
    */
   assetLeverageAmounts: AssetLeverageAmount[] = [];
 
+  /**
+   * @generated from field: string adl_trigger_ratio = 7;
+   */
+  adlTriggerRatio = "";
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -54,6 +59,7 @@ export class Pool extends Message<Pool> {
     { no: 4, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "max_leveragelp_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "asset_leverage_amounts", kind: "message", T: AssetLeverageAmount, repeated: true },
+    { no: 7, name: "adl_trigger_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {

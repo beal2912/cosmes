@@ -536,3 +536,71 @@ export class MsgTogglePoolEdenRewardsResponse extends Message<MsgTogglePoolEdenR
   }
 }
 
+/**
+ * @generated from message elys.masterchef.MsgToggleTakerFeeSwapAndBurn
+ */
+export class MsgToggleTakerFeeSwapAndBurn extends Message<MsgToggleTakerFeeSwapAndBurn> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  constructor(data?: PartialMessage<MsgToggleTakerFeeSwapAndBurn>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.MsgToggleTakerFeeSwapAndBurn";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgToggleTakerFeeSwapAndBurn {
+    return new MsgToggleTakerFeeSwapAndBurn().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgToggleTakerFeeSwapAndBurn {
+    return new MsgToggleTakerFeeSwapAndBurn().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgToggleTakerFeeSwapAndBurn {
+    return new MsgToggleTakerFeeSwapAndBurn().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgToggleTakerFeeSwapAndBurn | PlainMessage<MsgToggleTakerFeeSwapAndBurn> | undefined, b: MsgToggleTakerFeeSwapAndBurn | PlainMessage<MsgToggleTakerFeeSwapAndBurn> | undefined): boolean {
+    return proto3.util.equals(MsgToggleTakerFeeSwapAndBurn, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.masterchef.MsgToggleTakerFeeSwapAndBurnResponse
+ */
+export class MsgToggleTakerFeeSwapAndBurnResponse extends Message<MsgToggleTakerFeeSwapAndBurnResponse> {
+  constructor(data?: PartialMessage<MsgToggleTakerFeeSwapAndBurnResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.masterchef.MsgToggleTakerFeeSwapAndBurnResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgToggleTakerFeeSwapAndBurnResponse {
+    return new MsgToggleTakerFeeSwapAndBurnResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgToggleTakerFeeSwapAndBurnResponse {
+    return new MsgToggleTakerFeeSwapAndBurnResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgToggleTakerFeeSwapAndBurnResponse {
+    return new MsgToggleTakerFeeSwapAndBurnResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgToggleTakerFeeSwapAndBurnResponse | PlainMessage<MsgToggleTakerFeeSwapAndBurnResponse> | undefined, b: MsgToggleTakerFeeSwapAndBurnResponse | PlainMessage<MsgToggleTakerFeeSwapAndBurnResponse> | undefined): boolean {
+    return proto3.util.equals(MsgToggleTakerFeeSwapAndBurnResponse, a, b);
+  }
+}
+

@@ -21,6 +21,11 @@ export class PositionRequest extends Message<PositionRequest> {
    */
   id = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<PositionRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -31,6 +36,7 @@ export class PositionRequest extends Message<PositionRequest> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionRequest {
@@ -232,6 +238,147 @@ export class PositionAndInterest extends Message<PositionAndInterest> {
 
   static equals(a: PositionAndInterest | PlainMessage<PositionAndInterest> | undefined, b: PositionAndInterest | PlainMessage<PositionAndInterest> | undefined): boolean {
     return proto3.util.equals(PositionAndInterest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.PositionCounter
+ */
+export class PositionCounter extends Message<PositionCounter> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 counter = 2;
+   */
+  counter = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 total_open = 3;
+   */
+  totalOpen = protoInt64.zero;
+
+  constructor(data?: PartialMessage<PositionCounter>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.PositionCounter";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "counter", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "total_open", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionCounter {
+    return new PositionCounter().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PositionCounter {
+    return new PositionCounter().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PositionCounter {
+    return new PositionCounter().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PositionCounter | PlainMessage<PositionCounter> | undefined, b: PositionCounter | PlainMessage<PositionCounter> | undefined): boolean {
+    return proto3.util.equals(PositionCounter, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.ADLCounter
+ */
+export class ADLCounter extends Message<ADLCounter> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 counter = 2;
+   */
+  counter = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes next_key = 3;
+   */
+  nextKey = new Uint8Array(0);
+
+  constructor(data?: PartialMessage<ADLCounter>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.ADLCounter";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "counter", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "next_key", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ADLCounter {
+    return new ADLCounter().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ADLCounter {
+    return new ADLCounter().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ADLCounter {
+    return new ADLCounter().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ADLCounter | PlainMessage<ADLCounter> | undefined, b: ADLCounter | PlainMessage<ADLCounter> | undefined): boolean {
+    return proto3.util.equals(ADLCounter, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.FallbackCounter
+ */
+export class FallbackCounter extends Message<FallbackCounter> {
+  /**
+   * @generated from field: uint64 counter = 1;
+   */
+  counter = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes next_key = 2;
+   */
+  nextKey = new Uint8Array(0);
+
+  constructor(data?: PartialMessage<FallbackCounter>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.FallbackCounter";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "counter", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "next_key", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): FallbackCounter {
+    return new FallbackCounter().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): FallbackCounter {
+    return new FallbackCounter().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): FallbackCounter {
+    return new FallbackCounter().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: FallbackCounter | PlainMessage<FallbackCounter> | undefined, b: FallbackCounter | PlainMessage<FallbackCounter> | undefined): boolean {
+    return proto3.util.equals(FallbackCounter, a, b);
   }
 }
 

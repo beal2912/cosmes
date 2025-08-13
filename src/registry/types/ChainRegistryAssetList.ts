@@ -87,8 +87,6 @@ export interface Asset {
       png?: string;
       svg?: string;
       theme?: {
-        primary_color_hex?: string;
-        background_color_hex?: string;
         circle?: boolean;
         dark_mode?: boolean;
         monochrome?: boolean;
@@ -99,8 +97,6 @@ export interface Asset {
       png?: string;
       svg?: string;
       theme?: {
-        primary_color_hex?: string;
-        background_color_hex?: string;
         circle?: boolean;
         dark_mode?: boolean;
         monochrome?: boolean;

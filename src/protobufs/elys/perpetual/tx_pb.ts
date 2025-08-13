@@ -29,27 +29,22 @@ export class MsgOpen extends Message<MsgOpen> {
   leverage = "";
 
   /**
-   * @generated from field: string trading_asset = 4;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: cosmos.base.v1beta1.Coin collateral = 5;
+   * @generated from field: cosmos.base.v1beta1.Coin collateral = 4;
    */
   collateral?: Coin;
 
   /**
-   * @generated from field: string take_profit_price = 6;
+   * @generated from field: string take_profit_price = 5;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string stop_loss_price = 7;
+   * @generated from field: string stop_loss_price = 6;
    */
   stopLossPrice = "";
 
   /**
-   * @generated from field: uint64 pool_id = 8;
+   * @generated from field: uint64 pool_id = 7;
    */
   poolId = protoInt64.zero;
 
@@ -64,11 +59,10 @@ export class MsgOpen extends Message<MsgOpen> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
     { no: 3, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "collateral", kind: "message", T: Coin },
-    { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "collateral", kind: "message", T: Coin },
+    { no: 5, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgOpen {
@@ -144,6 +138,11 @@ export class MsgClose extends Message<MsgClose> {
    */
   amount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgClose>) {
     super();
     proto3.util.initPartial(data, this);
@@ -155,6 +154,7 @@ export class MsgClose extends Message<MsgClose> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClose {
@@ -549,6 +549,11 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
    */
   price = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgUpdateStopLoss>) {
     super();
     proto3.util.initPartial(data, this);
@@ -560,6 +565,7 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateStopLoss {
@@ -629,6 +635,11 @@ export class MsgUpdateTakeProfitPrice extends Message<MsgUpdateTakeProfitPrice> 
    */
   price = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgUpdateTakeProfitPrice>) {
     super();
     proto3.util.initPartial(data, this);
@@ -640,6 +651,7 @@ export class MsgUpdateTakeProfitPrice extends Message<MsgUpdateTakeProfitPrice> 
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateTakeProfitPrice {
@@ -774,6 +786,55 @@ export class MsgUpdateMaxLeverageForPoolResponse extends Message<MsgUpdateMaxLev
 }
 
 /**
+ * @generated from message elys.perpetual.PoolParams
+ */
+export class PoolParams extends Message<PoolParams> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string mtp_safety_factor = 2;
+   */
+  mtpSafetyFactor = "";
+
+  /**
+   * @generated from field: string leverage_max = 3;
+   */
+  leverageMax = "";
+
+  constructor(data?: PartialMessage<PoolParams>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.PoolParams";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "mtp_safety_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolParams {
+    return new PoolParams().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PoolParams {
+    return new PoolParams().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PoolParams {
+    return new PoolParams().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PoolParams | PlainMessage<PoolParams> | undefined, b: PoolParams | PlainMessage<PoolParams> | undefined): boolean {
+    return proto3.util.equals(PoolParams, a, b);
+  }
+}
+
+/**
  * @generated from message elys.perpetual.MsgUpdateEnabledPools
  */
 export class MsgUpdateEnabledPools extends Message<MsgUpdateEnabledPools> {
@@ -800,6 +861,11 @@ export class MsgUpdateEnabledPools extends Message<MsgUpdateEnabledPools> {
    */
   removePools: bigint[] = [];
 
+  /**
+   * @generated from field: repeated elys.perpetual.PoolParams update_pool_params = 5;
+   */
+  updatePoolParams: PoolParams[] = [];
+
   constructor(data?: PartialMessage<MsgUpdateEnabledPools>) {
     super();
     proto3.util.initPartial(data, this);
@@ -812,6 +878,7 @@ export class MsgUpdateEnabledPools extends Message<MsgUpdateEnabledPools> {
     { no: 2, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
     { no: 3, name: "add_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
     { no: 4, name: "remove_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 5, name: "update_pool_params", kind: "message", T: PoolParams, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateEnabledPools {
@@ -859,6 +926,92 @@ export class MsgUpdateEnabledPoolsResponse extends Message<MsgUpdateEnabledPools
 
   static equals(a: MsgUpdateEnabledPoolsResponse | PlainMessage<MsgUpdateEnabledPoolsResponse> | undefined, b: MsgUpdateEnabledPoolsResponse | PlainMessage<MsgUpdateEnabledPoolsResponse> | undefined): boolean {
     return proto3.util.equals(MsgUpdateEnabledPoolsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgAddCollateral
+ */
+export class MsgAddCollateral extends Message<MsgAddCollateral> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: uint64 id = 2;
+   */
+  id = protoInt64.zero;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin add_collateral = 3;
+   */
+  addCollateral?: Coin;
+
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgAddCollateral>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgAddCollateral";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "add_collateral", kind: "message", T: Coin },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateral {
+    return new MsgAddCollateral().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateral {
+    return new MsgAddCollateral().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateral {
+    return new MsgAddCollateral().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined, b: MsgAddCollateral | PlainMessage<MsgAddCollateral> | undefined): boolean {
+    return proto3.util.equals(MsgAddCollateral, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.MsgAddCollateralResponse
+ */
+export class MsgAddCollateralResponse extends Message<MsgAddCollateralResponse> {
+  constructor(data?: PartialMessage<MsgAddCollateralResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.MsgAddCollateralResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgAddCollateralResponse {
+    return new MsgAddCollateralResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
+    return new MsgAddCollateralResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgAddCollateralResponse {
+    return new MsgAddCollateralResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined, b: MsgAddCollateralResponse | PlainMessage<MsgAddCollateralResponse> | undefined): boolean {
+    return proto3.util.equals(MsgAddCollateralResponse, a, b);
   }
 }
 

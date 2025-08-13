@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PerpetualCounterRequest, PerpetualCounterResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstimationRequest, QueryCloseEstimationResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { IsWhitelistedRequest, IsWhitelistedResponse, MTPRequest, MTPResponse, ParamsRequest, ParamsResponse, PerpetualCounterRequest, PerpetualCounterResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstimationRequest, QueryCloseEstimationResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryOpenEstimationByFinalRequest, QueryOpenEstimationByFinalResponse, QueryOpenEstimationRequest, QueryOpenEstimationResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Query";
 
@@ -147,5 +147,15 @@ export const QueryCloseEstimationService = {
   method: "CloseEstimation",
   Request: QueryCloseEstimationRequest,
   Response: QueryCloseEstimationResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Query.OpenEstimationByFinal
+ */
+export const QueryOpenEstimationByFinalService = {
+  typeName: TYPE_NAME,
+  method: "OpenEstimationByFinal",
+  Request: QueryOpenEstimationByFinalRequest,
+  Response: QueryOpenEstimationByFinalResponse,
 } as const;
 

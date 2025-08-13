@@ -48,6 +48,13 @@ export class GenesisState extends Message<GenesisState> {
    */
   stats?: Stats;
 
+  /**
+   * season_one_ended indicates whether Vaults Season One has ended.
+   *
+   * @generated from field: bool season_one_ended = 7;
+   */
+  seasonOneEnded = false;
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -61,6 +68,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 4, name: "total_flexible_principal", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "paused", kind: "enum", T: proto3.getEnumType(PausedType) },
     { no: 6, name: "stats", kind: "message", T: Stats },
+    { no: 7, name: "season_one_ended", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

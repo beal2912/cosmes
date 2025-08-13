@@ -123,6 +123,13 @@ export class PublishedData extends Message<PublishedData> {
    */
   verifiedHeight = protoInt64.zero;
 
+  /**
+   * challenger_validators is the list of validators that were active when the data was challenging.
+   *
+   * @generated from field: repeated string challenging_validators = 13;
+   */
+  challengingValidators: string[] = [];
+
   constructor(data?: PartialMessage<PublishedData>) {
     super();
     proto3.util.initPartial(data, this);
@@ -143,6 +150,7 @@ export class PublishedData extends Message<PublishedData> {
     { no: 10, name: "published_timestamp", kind: "message", T: Timestamp },
     { no: 11, name: "data_source_info", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 12, name: "verified_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 13, name: "challenging_validators", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PublishedData {

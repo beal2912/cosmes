@@ -36,6 +36,13 @@ export class Params extends Message<Params> {
    */
   allowedPoolCreationDenoms: string[] = [];
 
+  /**
+   * Minimum swap amount in base denom. applies to both exact in and out.
+   *
+   * @generated from field: string min_swap_amount = 6;
+   */
+  minSwapAmount = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -49,6 +56,7 @@ export class Params extends Message<Params> {
     { no: 3, name: "global_fees", kind: "message", T: GlobalFees },
     { no: 4, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "allowed_pool_creation_denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 6, name: "min_swap_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

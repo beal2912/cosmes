@@ -242,9 +242,19 @@ export class QueryAllPendingSpotOrderResponse extends Message<QueryAllPendingSpo
  */
 export class QueryGetPendingPerpetualOrderRequest extends Message<QueryGetPendingPerpetualOrderRequest> {
   /**
-   * @generated from field: uint64 id = 1;
+   * @generated from field: string owner_address = 1;
    */
-  id = protoInt64.zero;
+  ownerAddress = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 2;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 order_id = 3;
+   */
+  orderId = protoInt64.zero;
 
   constructor(data?: PartialMessage<QueryGetPendingPerpetualOrderRequest>) {
     super();
@@ -254,7 +264,9 @@ export class QueryGetPendingPerpetualOrderRequest extends Message<QueryGetPendin
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "elys.tradeshield.QueryGetPendingPerpetualOrderRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryGetPendingPerpetualOrderRequest {

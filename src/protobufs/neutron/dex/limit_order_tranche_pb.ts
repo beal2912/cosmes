@@ -66,12 +66,18 @@ export class LimitOrderTranche extends Message<LimitOrderTranche> {
   key?: LimitOrderTrancheKey;
 
   /**
-   * @generated from field: string reserves_maker_denom = 2;
+   * DEPRECATED: reserves_maker_denom will be removed in future release, `dec_reserves_maker_denom` should always be used.
+   *
+   * @generated from field: string reserves_maker_denom = 2 [deprecated = true];
+   * @deprecated
    */
   reservesMakerDenom = "";
 
   /**
-   * @generated from field: string reserves_taker_denom = 3;
+   * DEPRECATED: reserves_taker_denom will be removed in future release, `dec_reserves_taker_denom` should always be used.
+   *
+   * @generated from field: string reserves_taker_denom = 3 [deprecated = true];
+   * @deprecated
    */
   reservesTakerDenom = "";
 
@@ -81,9 +87,12 @@ export class LimitOrderTranche extends Message<LimitOrderTranche> {
   totalMakerDenom = "";
 
   /**
+   * DEPRECATED: total_taker_denom will be removed in future release, `dec_total_taker_denom` should always be used.
+   *
    * LimitOrders with expiration_time set are valid as long as blockTime <= expiration_time
    *
-   * @generated from field: string total_taker_denom = 5;
+   * @generated from field: string total_taker_denom = 5 [deprecated = true];
+   * @deprecated
    */
   totalTakerDenom = "";
 
@@ -111,6 +120,21 @@ export class LimitOrderTranche extends Message<LimitOrderTranche> {
    */
   makerPrice = "";
 
+  /**
+   * @generated from field: string dec_reserves_maker_denom = 9;
+   */
+  decReservesMakerDenom = "";
+
+  /**
+   * @generated from field: string dec_reserves_taker_denom = 10;
+   */
+  decReservesTakerDenom = "";
+
+  /**
+   * @generated from field: string dec_total_taker_denom = 11;
+   */
+  decTotalTakerDenom = "";
+
   constructor(data?: PartialMessage<LimitOrderTranche>) {
     super();
     proto3.util.initPartial(data, this);
@@ -127,6 +151,9 @@ export class LimitOrderTranche extends Message<LimitOrderTranche> {
     { no: 6, name: "expiration_time", kind: "message", T: Timestamp },
     { no: 7, name: "price_taker_to_maker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 8, name: "maker_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "dec_reserves_maker_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "dec_reserves_taker_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "dec_total_taker_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LimitOrderTranche {

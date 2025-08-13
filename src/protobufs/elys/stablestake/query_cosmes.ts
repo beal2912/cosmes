@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryDebtRequest, QueryDebtResponse, QueryGetInterestRequest, QueryGetInterestResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { MaxBondableAmountRequest, MaxBondableAmountResponse, QueryAllAmmPoolsRequest, QueryAllAmmPoolsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryAmmPoolRequest, QueryAmmPoolResponse, QueryBorrowRatioRequest, QueryBorrowRatioResponse, QueryDebtRequest, QueryDebtResponse, QueryGetInterestRequest, QueryGetInterestResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "elys.stablestake.Query";
 
@@ -93,5 +93,15 @@ export const QueryGetInterestService = {
   method: "GetInterest",
   Request: QueryGetInterestRequest,
   Response: QueryGetInterestResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.stablestake.Query.MaxBondableAmount
+ */
+export const QueryMaxBondableAmountService = {
+  typeName: TYPE_NAME,
+  method: "MaxBondableAmount",
+  Request: MaxBondableAmountRequest,
+  Response: MaxBondableAmountResponse,
 } as const;
 

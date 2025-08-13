@@ -702,7 +702,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
 
   /**
    * min_price_tick_size defines the minimum tick size that the price and margin
-   * required for orders in the market
+   * required for orders in the market (in chain format)
    *
    * @generated from field: string min_price_tick_size = 15;
    */
@@ -710,7 +710,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
 
   /**
    * min_quantity_tick_size defines the minimum tick size of the quantity
-   * required for orders in the market
+   * required for orders in the market (in chain format)
    *
    * @generated from field: string min_quantity_tick_size = 16;
    */
@@ -718,7 +718,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
 
   /**
    * min_notional defines the minimum notional (in quote asset) required for
-   * orders in the market
+   * orders in the market (in chain format)
    *
    * @generated from field: string min_notional = 17;
    */
@@ -744,6 +744,13 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
    * @generated from field: uint32 quote_decimals = 20;
    */
   quoteDecimals = 0;
+
+  /**
+   * reduce_margin_ratio defines the ratio of the margin that is reduced
+   *
+   * @generated from field: string reduce_margin_ratio = 21;
+   */
+  reduceMarginRatio = "";
 
   constructor(data?: PartialMessage<DerivativeMarket>) {
     super();
@@ -773,6 +780,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
     { no: 18, name: "admin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 19, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 20, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 21, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DerivativeMarket {
@@ -1016,7 +1024,7 @@ export class ExpiryFuturesMarketInfo extends Message<ExpiryFuturesMarketInfo> {
 
   /**
    * expiration_twap_start_price_cumulative defines the cumulative price for the
-   * start of the TWAP window
+   * start of the TWAP window (in chain format)
    *
    * @generated from field: string expiration_twap_start_price_cumulative = 4;
    */
@@ -1024,7 +1032,7 @@ export class ExpiryFuturesMarketInfo extends Message<ExpiryFuturesMarketInfo> {
 
   /**
    * settlement_price defines the settlement price for a time expiry futures
-   * market.
+   * market (in chain format)
    *
    * @generated from field: string settlement_price = 5;
    */
@@ -1149,13 +1157,15 @@ export class PerpetualMarketFunding extends Message<PerpetualMarketFunding> {
 
   /**
    * cumulative_price defines the cumulative price for the current hour up to
-   * the last timestamp
+   * the last timestamp (in chain format)
    *
    * @generated from field: string cumulative_price = 2;
    */
   cumulativePrice = "";
 
   /**
+   * the last timestamp in seconds
+   *
    * @generated from field: int64 last_timestamp = 3;
    */
   lastTimestamp = protoInt64.zero;
@@ -1279,21 +1289,21 @@ export class NextFundingTimestamp extends Message<NextFundingTimestamp> {
  */
 export class MidPriceAndTOB extends Message<MidPriceAndTOB> {
   /**
-   * mid price of the market
+   * mid price of the market (in chain format)
    *
    * @generated from field: string mid_price = 1;
    */
   midPrice = "";
 
   /**
-   * best buy price of the market
+   * best buy price of the market (in chain format)
    *
    * @generated from field: string best_buy_price = 2;
    */
   bestBuyPrice = "";
 
   /**
-   * best sell price of the market
+   * best sell price of the market (in chain format)
    *
    * @generated from field: string best_sell_price = 3;
    */
@@ -1395,7 +1405,7 @@ export class SpotMarket extends Message<SpotMarket> {
 
   /**
    * min_price_tick_size defines the minimum tick size that the price required
-   * for orders in the market
+   * for orders in the market (in chain format)
    *
    * @generated from field: string min_price_tick_size = 9;
    */
@@ -1403,7 +1413,7 @@ export class SpotMarket extends Message<SpotMarket> {
 
   /**
    * min_quantity_tick_size defines the minimum tick size of the quantity
-   * required for orders in the market
+   * required for orders in the market (in chain format)
    *
    * @generated from field: string min_quantity_tick_size = 10;
    */
@@ -1411,7 +1421,7 @@ export class SpotMarket extends Message<SpotMarket> {
 
   /**
    * min_notional defines the minimum notional (in quote asset) required for
-   * orders in the market
+   * orders in the market (in chain format)
    *
    * @generated from field: string min_notional = 11;
    */
@@ -1917,37 +1927,45 @@ export class DerivativeOrder extends Message<DerivativeOrder> {
  */
 export class SubaccountOrderbookMetadata extends Message<SubaccountOrderbookMetadata> {
   /**
+   * The number of vanilla limit orders
+   *
    * @generated from field: uint32 vanilla_limit_order_count = 1;
    */
   vanillaLimitOrderCount = 0;
 
   /**
+   * The number of reduce-only limit orders
+   *
    * @generated from field: uint32 reduce_only_limit_order_count = 2;
    */
   reduceOnlyLimitOrderCount = 0;
 
   /**
-   * AggregateReduceOnlyQuantity is the aggregate fillable quantity of the
-   * subaccount's reduce-only limit orders in the given direction.
+   * The aggregate quantity of the subaccount's reduce-only limit orders (in
+   * chain format)
    *
    * @generated from field: string aggregate_reduce_only_quantity = 3;
    */
   aggregateReduceOnlyQuantity = "";
 
   /**
-   * AggregateVanillaQuantity is the aggregate fillable quantity of the
-   * subaccount's vanilla limit orders in the given direction.
+   * The aggregate quantity of the subaccount's vanilla limit orders (in chain
+   * format)
    *
    * @generated from field: string aggregate_vanilla_quantity = 4;
    */
   aggregateVanillaQuantity = "";
 
   /**
+   * The number of vanilla conditional orders
+   *
    * @generated from field: uint32 vanilla_conditional_order_count = 5;
    */
   vanillaConditionalOrderCount = 0;
 
   /**
+   * The number of reduce-only conditional orders
+   *
    * @generated from field: uint32 reduce_only_conditional_order_count = 6;
    */
   reduceOnlyConditionalOrderCount = 0;
@@ -2246,26 +2264,36 @@ export class DerivativeMarketOrder extends Message<DerivativeMarketOrder> {
  */
 export class Position extends Message<Position> {
   /**
+   * True if the position is long. False if the position is short.
+   *
    * @generated from field: bool isLong = 1;
    */
   isLong = false;
 
   /**
+   * The quantity of the position (in chain format)
+   *
    * @generated from field: string quantity = 2;
    */
   quantity = "";
 
   /**
+   * The entry price of the position (in chain format)
+   *
    * @generated from field: string entry_price = 3;
    */
   entryPrice = "";
 
   /**
+   * The margin of the position (in chain format)
+   *
    * @generated from field: string margin = 4;
    */
   margin = "";
 
   /**
+   * The cumulative funding
+   *
    * @generated from field: string cumulative_funding_entry = 5;
    */
   cumulativeFundingEntry = "";
@@ -2897,21 +2925,29 @@ export class TradingRewardCampaignInfo extends Message<TradingRewardCampaignInfo
  */
 export class FeeDiscountTierInfo extends Message<FeeDiscountTierInfo> {
   /**
+   * the maker discount rate
+   *
    * @generated from field: string maker_discount_rate = 1;
    */
   makerDiscountRate = "";
 
   /**
+   * the taker discount rate
+   *
    * @generated from field: string taker_discount_rate = 2;
    */
   takerDiscountRate = "";
 
   /**
+   * the staked amount required to qualify for the discount (in chain format)
+   *
    * @generated from field: string staked_amount = 3;
    */
   stakedAmount = "";
 
   /**
+   * the volume required to qualify for the discount (in chain format)
+   *
    * @generated from field: string volume = 4;
    */
   volume = "";
@@ -3230,16 +3266,22 @@ export class SubaccountIDs extends Message<SubaccountIDs> {
  */
 export class TradeRecord extends Message<TradeRecord> {
   /**
+   * the timestamp of the trade
+   *
    * @generated from field: int64 timestamp = 1;
    */
   timestamp = protoInt64.zero;
 
   /**
+   * the price of the trade (in chain format)
+   *
    * @generated from field: string price = 2;
    */
   price = "";
 
   /**
+   * the quantity of the trade (in chain format)
+   *
    * @generated from field: string quantity = 3;
    */
   quantity = "";
@@ -3279,14 +3321,14 @@ export class TradeRecord extends Message<TradeRecord> {
  */
 export class Level extends Message<Level> {
   /**
-   * price
+   * price (in chain format)
    *
    * @generated from field: string p = 1;
    */
   p = "";
 
   /**
-   * quantity
+   * quantity (in chain format)
    *
    * @generated from field: string q = 2;
    */
@@ -3326,11 +3368,15 @@ export class Level extends Message<Level> {
  */
 export class AggregateSubaccountVolumeRecord extends Message<AggregateSubaccountVolumeRecord> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the subaccount volumes for each market
+   *
    * @generated from field: repeated injective.exchange.v1beta1.MarketVolume market_volumes = 2;
    */
   marketVolumes: MarketVolume[] = [];
@@ -3633,11 +3679,15 @@ export class EffectiveGrant extends Message<EffectiveGrant> {
  */
 export class DenomMinNotional extends Message<DenomMinNotional> {
   /**
+   * the denom of the token
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * the minimum notional value for the token (in chain format)
+   *
    * @generated from field: string min_notional = 2;
    */
   minNotional = "";

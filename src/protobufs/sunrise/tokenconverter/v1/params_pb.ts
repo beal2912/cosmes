@@ -12,6 +12,21 @@ import { Message, proto3 } from "@bufbuild/protobuf";
  * @generated from message sunrise.tokenconverter.v1.Params
  */
 export class Params extends Message<Params> {
+  /**
+   * @generated from field: string non_transferable_denom = 1;
+   */
+  nonTransferableDenom = "";
+
+  /**
+   * @generated from field: string transferable_denom = 2;
+   */
+  transferableDenom = "";
+
+  /**
+   * @generated from field: repeated string allowed_addresses = 3;
+   */
+  allowedAddresses: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -20,6 +35,9 @@ export class Params extends Message<Params> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.tokenconverter.v1.Params";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "non_transferable_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "transferable_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "allowed_addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

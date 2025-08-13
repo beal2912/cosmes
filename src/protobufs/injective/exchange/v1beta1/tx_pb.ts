@@ -334,19 +334,23 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
  */
 export class MsgDeposit extends Message<MsgDeposit> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
    * (Optional) bytes32 subaccount ID to deposit funds into. If empty, the coin
-   * will be deposited to the sender's default subaccount address.
+   * will be deposited to the sender's default subaccount address
    *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the amount of the deposit (in chain format)
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 3;
    */
   amount?: Coin;
@@ -422,18 +426,22 @@ export class MsgDepositResponse extends Message<MsgDepositResponse> {
  */
 export class MsgWithdraw extends Message<MsgWithdraw> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
-   * bytes32 subaccount ID to withdraw funds from
+   * the subaccount ID to withdraw funds from
    *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the amount of the withdrawal (in chain format)
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 3;
    */
   amount?: Coin;
@@ -509,11 +517,15 @@ export class MsgWithdrawResponse extends Message<MsgWithdrawResponse> {
  */
 export class MsgCreateSpotLimitOrder extends Message<MsgCreateSpotLimitOrder> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the spot order to create
+   *
    * @generated from field: injective.exchange.v1beta1.SpotOrder order = 2;
    */
   order?: SpotOrder;
@@ -555,11 +567,15 @@ export class MsgCreateSpotLimitOrder extends Message<MsgCreateSpotLimitOrder> {
  */
 export class MsgCreateSpotLimitOrderResponse extends Message<MsgCreateSpotLimitOrderResponse> {
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 1;
    */
   orderHash = "";
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 2;
    */
   cid = "";
@@ -601,11 +617,15 @@ export class MsgCreateSpotLimitOrderResponse extends Message<MsgCreateSpotLimitO
  */
 export class MsgBatchCreateSpotLimitOrders extends Message<MsgBatchCreateSpotLimitOrders> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the spot orders details
+   *
    * @generated from field: repeated injective.exchange.v1beta1.SpotOrder orders = 2;
    */
   orders: SpotOrder[] = [];
@@ -647,16 +667,22 @@ export class MsgBatchCreateSpotLimitOrders extends Message<MsgBatchCreateSpotLim
  */
 export class MsgBatchCreateSpotLimitOrdersResponse extends Message<MsgBatchCreateSpotLimitOrdersResponse> {
   /**
+   * the order hashes
+   *
    * @generated from field: repeated string order_hashes = 1;
    */
   orderHashes: string[] = [];
 
   /**
+   * the client order IDs
+   *
    * @generated from field: repeated string created_orders_cids = 2;
    */
   createdOrdersCids: string[] = [];
 
   /**
+   * the failed client order IDs
+   *
    * @generated from field: repeated string failed_orders_cids = 3;
    */
   failedOrdersCids: string[] = [];
@@ -699,19 +725,21 @@ export class MsgBatchCreateSpotLimitOrdersResponse extends Message<MsgBatchCreat
  */
 export class MsgInstantSpotMarketLaunch extends Message<MsgInstantSpotMarketLaunch> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
-   * Ticker for the spot market.
+   * the ticker for the spot market
    *
    * @generated from field: string ticker = 2;
    */
   ticker = "";
 
   /**
-   * type of coin to use as the base currency
+   * the type of coin to use as the base currency
    *
    * @generated from field: string base_denom = 3;
    */
@@ -832,191 +860,6 @@ export class MsgInstantSpotMarketLaunchResponse extends Message<MsgInstantSpotMa
 }
 
 /**
- * MsgInstantPerpetualMarketLaunch defines a SDK message for creating a new
- * perpetual futures market by paying listing fee without governance
- *
- * @generated from message injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunch
- */
-export class MsgInstantPerpetualMarketLaunch extends Message<MsgInstantPerpetualMarketLaunch> {
-  /**
-   * @generated from field: string sender = 1;
-   */
-  sender = "";
-
-  /**
-   * Ticker for the derivative market.
-   *
-   * @generated from field: string ticker = 2;
-   */
-  ticker = "";
-
-  /**
-   * type of coin to use as the base currency
-   *
-   * @generated from field: string quote_denom = 3;
-   */
-  quoteDenom = "";
-
-  /**
-   * Oracle base currency
-   *
-   * @generated from field: string oracle_base = 4;
-   */
-  oracleBase = "";
-
-  /**
-   * Oracle quote currency
-   *
-   * @generated from field: string oracle_quote = 5;
-   */
-  oracleQuote = "";
-
-  /**
-   * Scale factor for oracle prices.
-   *
-   * @generated from field: uint32 oracle_scale_factor = 6;
-   */
-  oracleScaleFactor = 0;
-
-  /**
-   * Oracle type
-   *
-   * @generated from field: injective.oracle.v1beta1.OracleType oracle_type = 7;
-   */
-  oracleType = OracleType.Unspecified;
-
-  /**
-   * maker_fee_rate defines the trade fee rate for makers on the perpetual
-   * market
-   *
-   * @generated from field: string maker_fee_rate = 8;
-   */
-  makerFeeRate = "";
-
-  /**
-   * taker_fee_rate defines the trade fee rate for takers on the perpetual
-   * market
-   *
-   * @generated from field: string taker_fee_rate = 9;
-   */
-  takerFeeRate = "";
-
-  /**
-   * initial_margin_ratio defines the initial margin ratio for the perpetual
-   * market
-   *
-   * @generated from field: string initial_margin_ratio = 10;
-   */
-  initialMarginRatio = "";
-
-  /**
-   * maintenance_margin_ratio defines the maintenance margin ratio for the
-   * perpetual market
-   *
-   * @generated from field: string maintenance_margin_ratio = 11;
-   */
-  maintenanceMarginRatio = "";
-
-  /**
-   * min_price_tick_size defines the minimum tick size of the order's price and
-   * margin
-   *
-   * @generated from field: string min_price_tick_size = 12;
-   */
-  minPriceTickSize = "";
-
-  /**
-   * min_quantity_tick_size defines the minimum tick size of the order's
-   * quantity
-   *
-   * @generated from field: string min_quantity_tick_size = 13;
-   */
-  minQuantityTickSize = "";
-
-  /**
-   * min_notional defines the minimum notional (in quote asset) required for
-   * orders in the market
-   *
-   * @generated from field: string min_notional = 14;
-   */
-  minNotional = "";
-
-  constructor(data?: PartialMessage<MsgInstantPerpetualMarketLaunch>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunch";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "quote_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "oracle_base", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "oracle_quote", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "oracle_scale_factor", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
-    { no: 7, name: "oracle_type", kind: "enum", T: proto3.getEnumType(OracleType) },
-    { no: 8, name: "maker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "taker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "initial_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "maintenance_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantPerpetualMarketLaunch {
-    return new MsgInstantPerpetualMarketLaunch().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunch {
-    return new MsgInstantPerpetualMarketLaunch().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunch {
-    return new MsgInstantPerpetualMarketLaunch().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgInstantPerpetualMarketLaunch | PlainMessage<MsgInstantPerpetualMarketLaunch> | undefined, b: MsgInstantPerpetualMarketLaunch | PlainMessage<MsgInstantPerpetualMarketLaunch> | undefined): boolean {
-    return proto3.util.equals(MsgInstantPerpetualMarketLaunch, a, b);
-  }
-}
-
-/**
- * MsgInstantPerpetualMarketLaunchResponse defines the
- * Msg/InstantPerpetualMarketLaunchResponse response type.
- *
- * @generated from message injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunchResponse
- */
-export class MsgInstantPerpetualMarketLaunchResponse extends Message<MsgInstantPerpetualMarketLaunchResponse> {
-  constructor(data?: PartialMessage<MsgInstantPerpetualMarketLaunchResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunchResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
-    return new MsgInstantPerpetualMarketLaunchResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
-    return new MsgInstantPerpetualMarketLaunchResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
-    return new MsgInstantPerpetualMarketLaunchResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgInstantPerpetualMarketLaunchResponse | PlainMessage<MsgInstantPerpetualMarketLaunchResponse> | undefined, b: MsgInstantPerpetualMarketLaunchResponse | PlainMessage<MsgInstantPerpetualMarketLaunchResponse> | undefined): boolean {
-    return proto3.util.equals(MsgInstantPerpetualMarketLaunchResponse, a, b);
-  }
-}
-
-/**
  * MsgInstantBinaryOptionsMarketLaunch defines a SDK message for creating a new
  * perpetual futures market by paying listing fee without governance
  *
@@ -1024,26 +867,28 @@ export class MsgInstantPerpetualMarketLaunchResponse extends Message<MsgInstantP
  */
 export class MsgInstantBinaryOptionsMarketLaunch extends Message<MsgInstantBinaryOptionsMarketLaunch> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
-   * Ticker for the derivative contract.
+   * the ticker for the derivative contract
    *
    * @generated from field: string ticker = 2;
    */
   ticker = "";
 
   /**
-   * Oracle symbol
+   * the oracle symbol
    *
    * @generated from field: string oracle_symbol = 3;
    */
   oracleSymbol = "";
 
   /**
-   * Oracle Provider
+   * the oracle provider
    *
    * @generated from field: string oracle_provider = 4;
    */
@@ -1204,199 +1049,6 @@ export class MsgInstantBinaryOptionsMarketLaunchResponse extends Message<MsgInst
 
   static equals(a: MsgInstantBinaryOptionsMarketLaunchResponse | PlainMessage<MsgInstantBinaryOptionsMarketLaunchResponse> | undefined, b: MsgInstantBinaryOptionsMarketLaunchResponse | PlainMessage<MsgInstantBinaryOptionsMarketLaunchResponse> | undefined): boolean {
     return proto3.util.equals(MsgInstantBinaryOptionsMarketLaunchResponse, a, b);
-  }
-}
-
-/**
- * MsgInstantExpiryFuturesMarketLaunch defines a SDK message for creating a new
- * expiry futures market by paying listing fee without governance
- *
- * @generated from message injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunch
- */
-export class MsgInstantExpiryFuturesMarketLaunch extends Message<MsgInstantExpiryFuturesMarketLaunch> {
-  /**
-   * @generated from field: string sender = 1;
-   */
-  sender = "";
-
-  /**
-   * Ticker for the derivative market.
-   *
-   * @generated from field: string ticker = 2;
-   */
-  ticker = "";
-
-  /**
-   * type of coin to use as the quote currency
-   *
-   * @generated from field: string quote_denom = 3;
-   */
-  quoteDenom = "";
-
-  /**
-   * Oracle base currency
-   *
-   * @generated from field: string oracle_base = 4;
-   */
-  oracleBase = "";
-
-  /**
-   * Oracle quote currency
-   *
-   * @generated from field: string oracle_quote = 5;
-   */
-  oracleQuote = "";
-
-  /**
-   * Oracle type
-   *
-   * @generated from field: injective.oracle.v1beta1.OracleType oracle_type = 6;
-   */
-  oracleType = OracleType.Unspecified;
-
-  /**
-   * Scale factor for oracle prices.
-   *
-   * @generated from field: uint32 oracle_scale_factor = 7;
-   */
-  oracleScaleFactor = 0;
-
-  /**
-   * Expiration time of the market
-   *
-   * @generated from field: int64 expiry = 8;
-   */
-  expiry = protoInt64.zero;
-
-  /**
-   * maker_fee_rate defines the trade fee rate for makers on the expiry futures
-   * market
-   *
-   * @generated from field: string maker_fee_rate = 9;
-   */
-  makerFeeRate = "";
-
-  /**
-   * taker_fee_rate defines the trade fee rate for takers on the expiry futures
-   * market
-   *
-   * @generated from field: string taker_fee_rate = 10;
-   */
-  takerFeeRate = "";
-
-  /**
-   * initial_margin_ratio defines the initial margin ratio for the derivative
-   * market
-   *
-   * @generated from field: string initial_margin_ratio = 11;
-   */
-  initialMarginRatio = "";
-
-  /**
-   * maintenance_margin_ratio defines the maintenance margin ratio for the
-   * derivative market
-   *
-   * @generated from field: string maintenance_margin_ratio = 12;
-   */
-  maintenanceMarginRatio = "";
-
-  /**
-   * min_price_tick_size defines the minimum tick size of the order's price and
-   * margin
-   *
-   * @generated from field: string min_price_tick_size = 13;
-   */
-  minPriceTickSize = "";
-
-  /**
-   * min_quantity_tick_size defines the minimum tick size of the order's
-   * quantity
-   *
-   * @generated from field: string min_quantity_tick_size = 14;
-   */
-  minQuantityTickSize = "";
-
-  /**
-   * min_notional defines the minimum notional (in quote asset) required for
-   * orders in the market
-   *
-   * @generated from field: string min_notional = 15;
-   */
-  minNotional = "";
-
-  constructor(data?: PartialMessage<MsgInstantExpiryFuturesMarketLaunch>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunch";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "quote_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "oracle_base", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "oracle_quote", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "oracle_type", kind: "enum", T: proto3.getEnumType(OracleType) },
-    { no: 7, name: "oracle_scale_factor", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
-    { no: 8, name: "expiry", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 9, name: "maker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "taker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 11, name: "initial_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "maintenance_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
-    return new MsgInstantExpiryFuturesMarketLaunch().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
-    return new MsgInstantExpiryFuturesMarketLaunch().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
-    return new MsgInstantExpiryFuturesMarketLaunch().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgInstantExpiryFuturesMarketLaunch | PlainMessage<MsgInstantExpiryFuturesMarketLaunch> | undefined, b: MsgInstantExpiryFuturesMarketLaunch | PlainMessage<MsgInstantExpiryFuturesMarketLaunch> | undefined): boolean {
-    return proto3.util.equals(MsgInstantExpiryFuturesMarketLaunch, a, b);
-  }
-}
-
-/**
- * MsgInstantExpiryFuturesMarketLaunchResponse defines the
- * Msg/InstantExpiryFuturesMarketLaunch response type.
- *
- * @generated from message injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunchResponse
- */
-export class MsgInstantExpiryFuturesMarketLaunchResponse extends Message<MsgInstantExpiryFuturesMarketLaunchResponse> {
-  constructor(data?: PartialMessage<MsgInstantExpiryFuturesMarketLaunchResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunchResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
-    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
-    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
-    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgInstantExpiryFuturesMarketLaunchResponse | PlainMessage<MsgInstantExpiryFuturesMarketLaunchResponse> | undefined, b: MsgInstantExpiryFuturesMarketLaunchResponse | PlainMessage<MsgInstantExpiryFuturesMarketLaunchResponse> | undefined): boolean {
-    return proto3.util.equals(MsgInstantExpiryFuturesMarketLaunchResponse, a, b);
   }
 }
 
@@ -2100,59 +1752,79 @@ export class MsgBatchCancelBinaryOptionsOrdersResponse extends Message<MsgBatchC
  */
 export class MsgBatchUpdateOrders extends Message<MsgBatchUpdateOrders> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
-   * subaccount_id only used for the spot_market_ids_to_cancel_all and
-   * derivative_market_ids_to_cancel_all.
+   * the subaccount ID only used for the spot_market_ids_to_cancel_all and
+   * derivative_market_ids_to_cancel_all
    *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the spot market IDs to cancel all
+   *
    * @generated from field: repeated string spot_market_ids_to_cancel_all = 3;
    */
   spotMarketIdsToCancelAll: string[] = [];
 
   /**
+   * the derivative market IDs to cancel all
+   *
    * @generated from field: repeated string derivative_market_ids_to_cancel_all = 4;
    */
   derivativeMarketIdsToCancelAll: string[] = [];
 
   /**
+   * the spot orders to cancel
+   *
    * @generated from field: repeated injective.exchange.v1beta1.OrderData spot_orders_to_cancel = 5;
    */
   spotOrdersToCancel: OrderData[] = [];
 
   /**
+   * the derivative orders to cancel
+   *
    * @generated from field: repeated injective.exchange.v1beta1.OrderData derivative_orders_to_cancel = 6;
    */
   derivativeOrdersToCancel: OrderData[] = [];
 
   /**
+   * the spot orders to create
+   *
    * @generated from field: repeated injective.exchange.v1beta1.SpotOrder spot_orders_to_create = 7;
    */
   spotOrdersToCreate: SpotOrder[] = [];
 
   /**
+   * the derivative orders to create
+   *
    * @generated from field: repeated injective.exchange.v1beta1.DerivativeOrder derivative_orders_to_create = 8;
    */
   derivativeOrdersToCreate: DerivativeOrder[] = [];
 
   /**
+   * the binary options orders to cancel
+   *
    * @generated from field: repeated injective.exchange.v1beta1.OrderData binary_options_orders_to_cancel = 9;
    */
   binaryOptionsOrdersToCancel: OrderData[] = [];
 
   /**
+   * the binary options market IDs to cancel all
+   *
    * @generated from field: repeated string binary_options_market_ids_to_cancel_all = 10;
    */
   binaryOptionsMarketIdsToCancelAll: string[] = [];
 
   /**
+   * the binary options orders to create
+   *
    * @generated from field: repeated injective.exchange.v1beta1.DerivativeOrder binary_options_orders_to_create = 11;
    */
   binaryOptionsOrdersToCreate: DerivativeOrder[] = [];
@@ -2562,26 +2234,36 @@ export class MsgCreateBinaryOptionsMarketOrderResponse extends Message<MsgCreate
  */
 export class MsgCancelDerivativeOrder extends Message<MsgCancelDerivativeOrder> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 3;
    */
   subaccountId = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 4;
    */
   orderHash = "";
 
   /**
+   * the order mask
+   *
    * bitwise combination of OrderMask enum values
    *
    * @generated from field: int32 order_mask = 5;
@@ -2589,6 +2271,8 @@ export class MsgCancelDerivativeOrder extends Message<MsgCancelDerivativeOrder> 
   orderMask = 0;
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 6;
    */
   cid = "";
@@ -2668,33 +2352,43 @@ export class MsgCancelDerivativeOrderResponse extends Message<MsgCancelDerivativ
  */
 export class MsgCancelBinaryOptionsOrder extends Message<MsgCancelBinaryOptionsOrder> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 3;
    */
   subaccountId = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 4;
    */
   orderHash = "";
 
   /**
-   * bitwise combination of OrderMask enum values
+   * the order mask (bitwise combination of OrderMask enum values)
    *
    * @generated from field: int32 order_mask = 5;
    */
   orderMask = 0;
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 6;
    */
   cid = "";
@@ -2771,28 +2465,36 @@ export class MsgCancelBinaryOptionsOrderResponse extends Message<MsgCancelBinary
  */
 export class OrderData extends Message<OrderData> {
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 1;
    */
   marketId = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the order hash
+   *
    * @generated from field: string order_hash = 3;
    */
   orderHash = "";
 
   /**
-   * bitwise combination of OrderMask enum values
+   * the order mask (bitwise combination of OrderMask enum values)
    *
    * @generated from field: int32 order_mask = 4;
    */
   orderMask = 0;
 
   /**
+   * the client order ID
+   *
    * @generated from field: string cid = 5;
    */
   cid = "";
@@ -2837,11 +2539,15 @@ export class OrderData extends Message<OrderData> {
  */
 export class MsgBatchCancelDerivativeOrders extends Message<MsgBatchCancelDerivativeOrders> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * orders details
+   *
    * @generated from field: repeated injective.exchange.v1beta1.OrderData data = 2;
    */
   data: OrderData[] = [];
@@ -2922,21 +2628,29 @@ export class MsgBatchCancelDerivativeOrdersResponse extends Message<MsgBatchCanc
  */
 export class MsgSubaccountTransfer extends Message<MsgSubaccountTransfer> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the source subaccount ID
+   *
    * @generated from field: string source_subaccount_id = 2;
    */
   sourceSubaccountId = "";
 
   /**
+   * the destination subaccount ID
+   *
    * @generated from field: string destination_subaccount_id = 3;
    */
   destinationSubaccountId = "";
 
   /**
+   * the amount of the transfer
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 4;
    */
   amount?: Coin;
@@ -3103,16 +2817,22 @@ export class MsgExternalTransferResponse extends Message<MsgExternalTransferResp
  */
 export class MsgLiquidatePosition extends Message<MsgLiquidatePosition> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 3;
    */
   marketId = "";
@@ -3195,16 +2915,22 @@ export class MsgLiquidatePositionResponse extends Message<MsgLiquidatePositionRe
  */
 export class MsgEmergencySettleMarket extends Message<MsgEmergencySettleMarket> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 2;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 3;
    */
   marketId = "";
@@ -3280,27 +3006,36 @@ export class MsgEmergencySettleMarketResponse extends Message<MsgEmergencySettle
  */
 export class MsgIncreasePositionMargin extends Message<MsgIncreasePositionMargin> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the subaccount ID sending the funds
+   *
    * @generated from field: string source_subaccount_id = 2;
    */
   sourceSubaccountId = "";
 
   /**
+   * the subaccount ID the position belongs to
+   *
    * @generated from field: string destination_subaccount_id = 3;
    */
   destinationSubaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 4;
    */
   marketId = "";
 
   /**
-   * amount defines the amount of margin to add to the position
+   * amount defines the amount of margin to add to the position (in chain
+   * format)
    *
    * @generated from field: string amount = 5;
    */
@@ -3379,27 +3114,36 @@ export class MsgIncreasePositionMarginResponse extends Message<MsgIncreasePositi
  */
 export class MsgDecreasePositionMargin extends Message<MsgDecreasePositionMargin> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * the subaccount ID sending the funds
+   *
    * @generated from field: string source_subaccount_id = 2;
    */
   sourceSubaccountId = "";
 
   /**
+   * the subaccount ID the position belongs to
+   *
    * @generated from field: string destination_subaccount_id = 3;
    */
   destinationSubaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 4;
    */
   marketId = "";
 
   /**
-   * amount defines the amount of margin to withdraw from the position
+   * amount defines the amount of margin to withdraw from the position (in chain
+   * format)
    *
    * @generated from field: string amount = 5;
    */

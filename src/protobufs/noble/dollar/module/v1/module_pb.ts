@@ -41,6 +41,20 @@ export class Module extends Message<Module> {
    */
   vaultsMinimumUnlock = protoInt64.zero;
 
+  /**
+   * vaults_season_one_end_timestamp defines the Unix timestamp in seconds when Vaults Season One ends.
+   *
+   * @generated from field: int64 vaults_season_one_end_timestamp = 5;
+   */
+  vaultsSeasonOneEndTimestamp = protoInt64.zero;
+
+  /**
+   * vaults_season_two_yield_collector defines the address to collect Staked vault yield during Season Two.
+   *
+   * @generated from field: string vaults_season_two_yield_collector = 6;
+   */
+  vaultsSeasonTwoYieldCollector = "";
+
   constructor(data?: PartialMessage<Module>) {
     super();
     proto3.util.initPartial(data, this);
@@ -53,6 +67,8 @@ export class Module extends Message<Module> {
     { no: 2, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "vaults_minimum_lock", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 4, name: "vaults_minimum_unlock", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 5, name: "vaults_season_one_end_timestamp", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 6, name: "vaults_season_two_yield_collector", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Module {

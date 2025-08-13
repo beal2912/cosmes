@@ -87,82 +87,72 @@ export class MTP extends Message<MTP> {
   custody = "";
 
   /**
-   * @generated from field: string take_profit_liabilities = 12;
-   */
-  takeProfitLiabilities = "";
-
-  /**
-   * @generated from field: string take_profit_custody = 13;
-   */
-  takeProfitCustody = "";
-
-  /**
-   * @generated from field: string mtp_health = 14;
+   * @generated from field: string mtp_health = 12;
    */
   mtpHealth = "";
 
   /**
-   * @generated from field: elys.perpetual.Position position = 15;
+   * @generated from field: elys.perpetual.Position position = 13;
    */
   position = Position.UNSPECIFIED;
 
   /**
-   * @generated from field: uint64 id = 16;
+   * @generated from field: uint64 id = 14;
    */
   id = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 amm_pool_id = 17;
+   * @generated from field: uint64 amm_pool_id = 15;
    */
   ammPoolId = protoInt64.zero;
 
   /**
-   * @generated from field: string take_profit_price = 18;
+   * @generated from field: string take_profit_price = 16;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string take_profit_borrow_factor = 19;
+   * @generated from field: string take_profit_borrow_factor = 17;
    */
   takeProfitBorrowFactor = "";
 
   /**
-   * @generated from field: string funding_fee_paid_custody = 20;
+   * @generated from field: string funding_fee_paid_custody = 18;
    */
   fundingFeePaidCustody = "";
 
   /**
-   * @generated from field: string funding_fee_received_custody = 21;
+   * @generated from field: string funding_fee_received_custody = 19;
    */
   fundingFeeReceivedCustody = "";
 
   /**
-   * @generated from field: string open_price = 22;
+   * @generated from field: string open_price = 20;
    */
   openPrice = "";
 
   /**
-   * @generated from field: string stop_loss_price = 23;
+   * @generated from field: string stop_loss_price = 21;
    */
   stopLossPrice = "";
 
   /**
-   * @generated from field: uint64 last_interest_calc_time = 24;
+   * @generated from field: uint64 last_interest_calc_time = 22;
    */
   lastInterestCalcTime = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_interest_calc_block = 25;
+   * @generated from field: uint64 last_interest_calc_block = 23;
    */
   lastInterestCalcBlock = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_funding_calc_time = 26;
+   * @generated from field: uint64 last_funding_calc_time = 24;
    */
   lastFundingCalcTime = protoInt64.zero;
 
   /**
-   * @generated from field: uint64 last_funding_calc_block = 27;
+   * @generated from field: uint64 last_funding_calc_block = 25;
    */
   lastFundingCalcBlock = protoInt64.zero;
 
@@ -184,22 +174,20 @@ export class MTP extends Message<MTP> {
     { no: 8, name: "borrow_interest_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 10, name: "borrow_interest_unpaid_liability", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 12, name: "take_profit_liabilities", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "take_profit_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 14, name: "mtp_health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 15, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
-    { no: 16, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 17, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 18, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 19, name: "take_profit_borrow_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 20, name: "funding_fee_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 21, name: "funding_fee_received_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 22, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 23, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 24, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 25, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 26, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 27, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 12, name: "mtp_health", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
+    { no: 14, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 15, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 16, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "take_profit_borrow_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "funding_fee_paid_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "funding_fee_received_custody", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 21, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "last_interest_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 23, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 24, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 25, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MTP {
@@ -386,6 +374,11 @@ export class PositionRequest extends Message<PositionRequest> {
    */
   id = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<PositionRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -396,6 +389,7 @@ export class PositionRequest extends Message<PositionRequest> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PositionRequest {

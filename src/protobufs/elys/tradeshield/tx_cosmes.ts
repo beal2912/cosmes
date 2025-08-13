@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCancelPerpetualOrder, MsgCancelPerpetualOrderResponse, MsgCancelPerpetualOrders, MsgCancelPerpetualOrdersResponse, MsgCancelSpotOrder, MsgCancelSpotOrderResponse, MsgCancelSpotOrders, MsgCancelSpotOrdersResponse, MsgCreatePerpetualCloseOrder, MsgCreatePerpetualCloseOrderResponse, MsgCreatePerpetualOpenOrder, MsgCreatePerpetualOpenOrderResponse, MsgCreateSpotOrder, MsgCreateSpotOrderResponse, MsgExecuteOrders, MsgExecuteOrdersResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePerpetualOrder, MsgUpdatePerpetualOrderResponse, MsgUpdateSpotOrder, MsgUpdateSpotOrderResponse } from "./tx_pb.js";
+import { MsgCancelAllPerpetualOrders, MsgCancelAllPerpetualOrdersResponse, MsgCancelAllSpotOrders, MsgCancelAllSpotOrdersResponse, MsgCancelPerpetualOrder, MsgCancelPerpetualOrderResponse, MsgCancelPerpetualOrders, MsgCancelPerpetualOrdersResponse, MsgCancelSpotOrder, MsgCancelSpotOrderResponse, MsgCancelSpotOrders, MsgCancelSpotOrdersResponse, MsgCreatePerpetualCloseOrder, MsgCreatePerpetualCloseOrderResponse, MsgCreatePerpetualOpenOrder, MsgCreatePerpetualOpenOrderResponse, MsgCreateSpotOrder, MsgCreateSpotOrderResponse, MsgExecuteOrders, MsgExecuteOrdersResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdatePerpetualOrder, MsgUpdatePerpetualOrderResponse, MsgUpdateSpotOrder, MsgUpdateSpotOrderResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.tradeshield.Msg";
 
@@ -45,6 +45,16 @@ export const MsgCancelSpotOrdersService = {
   method: "CancelSpotOrders",
   Request: MsgCancelSpotOrders,
   Response: MsgCancelSpotOrdersResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.tradeshield.Msg.CancelAllSpotOrders
+ */
+export const MsgCancelAllSpotOrdersService = {
+  typeName: TYPE_NAME,
+  method: "CancelAllSpotOrders",
+  Request: MsgCancelAllSpotOrders,
+  Response: MsgCancelAllSpotOrdersResponse,
 } as const;
 
 /**
@@ -95,6 +105,16 @@ export const MsgCancelPerpetualOrdersService = {
   method: "CancelPerpetualOrders",
   Request: MsgCancelPerpetualOrders,
   Response: MsgCancelPerpetualOrdersResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.tradeshield.Msg.CancelAllPerpetualOrders
+ */
+export const MsgCancelAllPerpetualOrdersService = {
+  typeName: TYPE_NAME,
+  method: "CancelAllPerpetualOrders",
+  Request: MsgCancelAllPerpetualOrders,
+  Response: MsgCancelAllPerpetualOrdersResponse,
 } as const;
 
 /**

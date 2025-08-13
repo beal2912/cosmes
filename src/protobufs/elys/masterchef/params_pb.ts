@@ -126,6 +126,11 @@ export class Params extends Message<Params> {
    */
   protocolRevenueAddress = "";
 
+  /**
+   * @generated from field: string taker_manager = 7;
+   */
+  takerManager = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -140,6 +145,7 @@ export class Params extends Message<Params> {
     { no: 4, name: "max_eden_reward_apr_lps", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "supported_reward_denoms", kind: "message", T: SupportedRewardDenom, repeated: true },
     { no: 6, name: "protocol_revenue_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "taker_manager", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

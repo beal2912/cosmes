@@ -36,8 +36,12 @@ export class Params extends Message<Params> {
    * will be a desirable property in terms of UX as to allow users to set limit
    * orders at prices in terms of token1 (quote asset) that are easy to reason
    * about.
+   * DEPRECATED: Quote asset whitelisting requirement removed as per Proposal
+   * 819. Any asset can now be used as a quote asset in concentrated liquidity
+   * pools.
    *
-   * @generated from field: repeated string authorized_quote_denoms = 3;
+   * @generated from field: repeated string authorized_quote_denoms = 3 [deprecated = true];
+   * @deprecated
    */
   authorizedQuoteDenoms: string[] = [];
 
@@ -221,6 +225,15 @@ export class TakerFeeParams extends Message<TakerFeeParams> {
    */
   reducedFeeWhitelist: string[] = [];
 
+  /**
+   * community_pool_denom_whitelist is a list of denoms that should be sent
+   * directly to the community pool instead of being swapped to the
+   * `community_pool_denom_to_swap_non_whitelisted_assets_to`.
+   *
+   * @generated from field: repeated string community_pool_denom_whitelist = 7;
+   */
+  communityPoolDenomWhitelist: string[] = [];
+
   constructor(data?: PartialMessage<TakerFeeParams>) {
     super();
     proto3.util.initPartial(data, this);
@@ -235,6 +248,7 @@ export class TakerFeeParams extends Message<TakerFeeParams> {
     { no: 4, name: "admin_addresses", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 5, name: "community_pool_denom_to_swap_non_whitelisted_assets_to", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "reduced_fee_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 7, name: "community_pool_denom_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TakerFeeParams {

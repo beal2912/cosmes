@@ -517,3 +517,77 @@ export class MsgUnregisterProofDeputyResponse extends Message<MsgUnregisterProof
   }
 }
 
+/**
+ * MsgVerifyData defines the message to trigger the data verification process.
+ *
+ * @generated from message sunrise.da.v0.MsgVerifyData
+ */
+export class MsgVerifyData extends Message<MsgVerifyData> {
+  /**
+   * sender is the address of the account that triggers the process.
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  constructor(data?: PartialMessage<MsgVerifyData>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.da.v0.MsgVerifyData";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgVerifyData {
+    return new MsgVerifyData().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgVerifyData {
+    return new MsgVerifyData().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgVerifyData {
+    return new MsgVerifyData().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgVerifyData | PlainMessage<MsgVerifyData> | undefined, b: MsgVerifyData | PlainMessage<MsgVerifyData> | undefined): boolean {
+    return proto3.util.equals(MsgVerifyData, a, b);
+  }
+}
+
+/**
+ * MsgVerifyDataResponse defines the response for MsgVerifyData.
+ *
+ * @generated from message sunrise.da.v0.MsgVerifyDataResponse
+ */
+export class MsgVerifyDataResponse extends Message<MsgVerifyDataResponse> {
+  constructor(data?: PartialMessage<MsgVerifyDataResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.da.v0.MsgVerifyDataResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgVerifyDataResponse {
+    return new MsgVerifyDataResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgVerifyDataResponse {
+    return new MsgVerifyDataResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgVerifyDataResponse {
+    return new MsgVerifyDataResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgVerifyDataResponse | PlainMessage<MsgVerifyDataResponse> | undefined, b: MsgVerifyDataResponse | PlainMessage<MsgVerifyDataResponse> | undefined): boolean {
+    return proto3.util.equals(MsgVerifyDataResponse, a, b);
+  }
+}
+

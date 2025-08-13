@@ -867,6 +867,11 @@ export class MTPRequest extends Message<MTPRequest> {
    */
   id = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MTPRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -877,6 +882,7 @@ export class MTPRequest extends Message<MTPRequest> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MTPRequest {
@@ -948,32 +954,27 @@ export class QueryOpenEstimationRequest extends Message<QueryOpenEstimationReque
   leverage = "";
 
   /**
-   * @generated from field: string trading_asset = 3;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: cosmos.base.v1beta1.Coin collateral = 4;
+   * @generated from field: cosmos.base.v1beta1.Coin collateral = 3;
    */
   collateral?: Coin;
 
   /**
-   * @generated from field: string address = 5;
+   * @generated from field: string address = 4;
    */
   address = "";
 
   /**
-   * @generated from field: string take_profit_price = 6;
+   * @generated from field: string take_profit_price = 5;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: uint64 poolId = 7;
+   * @generated from field: uint64 poolId = 6;
    */
   poolId = protoInt64.zero;
 
   /**
-   * @generated from field: string limit_price = 8;
+   * @generated from field: string limit_price = 7;
    */
   limitPrice = "";
 
@@ -987,12 +988,11 @@ export class QueryOpenEstimationRequest extends Message<QueryOpenEstimationReque
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
     { no: 2, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "collateral", kind: "message", T: Coin },
-    { no: 5, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 8, name: "limit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "collateral", kind: "message", T: Coin },
+    { no: 4, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "limit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstimationRequest {
@@ -1111,6 +1111,16 @@ export class QueryOpenEstimationResponse extends Message<QueryOpenEstimationResp
    */
   weightBreakingFee = "";
 
+  /**
+   * @generated from field: string swap_fees = 20;
+   */
+  swapFees = "";
+
+  /**
+   * @generated from field: string taker_fees = 21;
+   */
+  takerFees = "";
+
   constructor(data?: PartialMessage<QueryOpenEstimationResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1138,6 +1148,8 @@ export class QueryOpenEstimationResponse extends Message<QueryOpenEstimationResp
     { no: 17, name: "liabilities", kind: "message", T: Coin },
     { no: 18, name: "limit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 19, name: "weight_breaking_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "swap_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 21, name: "taker_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstimationResponse {
@@ -1302,6 +1314,11 @@ export class QueryCloseEstimationRequest extends Message<QueryCloseEstimationReq
    */
   closeAmount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryCloseEstimationRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1313,6 +1330,7 @@ export class QueryCloseEstimationRequest extends Message<QueryCloseEstimationReq
     { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "close_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryCloseEstimationRequest {
@@ -1444,6 +1462,236 @@ export class QueryCloseEstimationResponse extends Message<QueryCloseEstimationRe
 
   static equals(a: QueryCloseEstimationResponse | PlainMessage<QueryCloseEstimationResponse> | undefined, b: QueryCloseEstimationResponse | PlainMessage<QueryCloseEstimationResponse> | undefined): boolean {
     return proto3.util.equals(QueryCloseEstimationResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryOpenEstimationByFinalRequest
+ */
+export class QueryOpenEstimationByFinalRequest extends Message<QueryOpenEstimationByFinalRequest> {
+  /**
+   * @generated from field: elys.perpetual.Position position = 1;
+   */
+  position = Position.UNSPECIFIED;
+
+  /**
+   * @generated from field: string leverage = 2;
+   */
+  leverage = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin final_amount = 3;
+   */
+  finalAmount?: Coin;
+
+  /**
+   * @generated from field: string address = 4;
+   */
+  address = "";
+
+  /**
+   * @generated from field: string take_profit_price = 5;
+   */
+  takeProfitPrice = "";
+
+  /**
+   * @generated from field: uint64 poolId = 6;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string collateral_denom = 7;
+   */
+  collateralDenom = "";
+
+  /**
+   * @generated from field: string limit_price = 8;
+   */
+  limitPrice = "";
+
+  constructor(data?: PartialMessage<QueryOpenEstimationByFinalRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryOpenEstimationByFinalRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
+    { no: 2, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "final_amount", kind: "message", T: Coin },
+    { no: 4, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "collateral_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "limit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstimationByFinalRequest {
+    return new QueryOpenEstimationByFinalRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryOpenEstimationByFinalRequest {
+    return new QueryOpenEstimationByFinalRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryOpenEstimationByFinalRequest {
+    return new QueryOpenEstimationByFinalRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryOpenEstimationByFinalRequest | PlainMessage<QueryOpenEstimationByFinalRequest> | undefined, b: QueryOpenEstimationByFinalRequest | PlainMessage<QueryOpenEstimationByFinalRequest> | undefined): boolean {
+    return proto3.util.equals(QueryOpenEstimationByFinalRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.perpetual.QueryOpenEstimationByFinalResponse
+ */
+export class QueryOpenEstimationByFinalResponse extends Message<QueryOpenEstimationByFinalResponse> {
+  /**
+   * @generated from field: elys.perpetual.Position position = 1;
+   */
+  position = Position.UNSPECIFIED;
+
+  /**
+   * @generated from field: string effective_leverage = 2;
+   */
+  effectiveLeverage = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin collateral = 3;
+   */
+  collateral?: Coin;
+
+  /**
+   * @generated from field: string hourly_interest_rate = 4;
+   */
+  hourlyInterestRate = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin position_size = 5;
+   */
+  positionSize?: Coin;
+
+  /**
+   * @generated from field: string open_price = 6;
+   */
+  openPrice = "";
+
+  /**
+   * @generated from field: string take_profit_price = 7;
+   */
+  takeProfitPrice = "";
+
+  /**
+   * @generated from field: string liquidation_price = 8;
+   */
+  liquidationPrice = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin estimated_pnl = 9;
+   */
+  estimatedPnl?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin available_liquidity = 10;
+   */
+  availableLiquidity?: Coin;
+
+  /**
+   * @generated from field: string slippage = 11;
+   */
+  slippage = "";
+
+  /**
+   * @generated from field: string borrow_interest_rate = 12;
+   */
+  borrowInterestRate = "";
+
+  /**
+   * @generated from field: string funding_rate = 13;
+   */
+  fundingRate = "";
+
+  /**
+   * @generated from field: string price_impact = 14;
+   */
+  priceImpact = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin custody = 15;
+   */
+  custody?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin liabilities = 16;
+   */
+  liabilities?: Coin;
+
+  /**
+   * @generated from field: string limit_price = 17;
+   */
+  limitPrice = "";
+
+  /**
+   * @generated from field: string weight_breaking_fee = 18;
+   */
+  weightBreakingFee = "";
+
+  /**
+   * @generated from field: string swap_fees = 19;
+   */
+  swapFees = "";
+
+  /**
+   * @generated from field: string taker_fees = 20;
+   */
+  takerFees = "";
+
+  constructor(data?: PartialMessage<QueryOpenEstimationByFinalResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.perpetual.QueryOpenEstimationByFinalResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "position", kind: "enum", T: proto3.getEnumType(Position) },
+    { no: 2, name: "effective_leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "collateral", kind: "message", T: Coin },
+    { no: 4, name: "hourly_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "position_size", kind: "message", T: Coin },
+    { no: 6, name: "open_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "liquidation_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "estimated_pnl", kind: "message", T: Coin },
+    { no: 10, name: "available_liquidity", kind: "message", T: Coin },
+    { no: 11, name: "slippage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "borrow_interest_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "price_impact", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "custody", kind: "message", T: Coin },
+    { no: 16, name: "liabilities", kind: "message", T: Coin },
+    { no: 17, name: "limit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "weight_breaking_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "swap_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 20, name: "taker_fees", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenEstimationByFinalResponse {
+    return new QueryOpenEstimationByFinalResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryOpenEstimationByFinalResponse {
+    return new QueryOpenEstimationByFinalResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryOpenEstimationByFinalResponse {
+    return new QueryOpenEstimationByFinalResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryOpenEstimationByFinalResponse | PlainMessage<QueryOpenEstimationByFinalResponse> | undefined, b: QueryOpenEstimationByFinalResponse | PlainMessage<QueryOpenEstimationByFinalResponse> | undefined): boolean {
+    return proto3.util.equals(QueryOpenEstimationByFinalResponse, a, b);
   }
 }
 

@@ -333,3 +333,71 @@ export class MsgWithdrawAllRewardsResponse extends Message<MsgWithdrawAllRewards
   }
 }
 
+/**
+ * @generated from message elys.estaking.MsgUnjailGovernor
+ */
+export class MsgUnjailGovernor extends Message<MsgUnjailGovernor> {
+  /**
+   * @generated from field: string address = 1;
+   */
+  address = "";
+
+  constructor(data?: PartialMessage<MsgUnjailGovernor>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.estaking.MsgUnjailGovernor";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUnjailGovernor {
+    return new MsgUnjailGovernor().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUnjailGovernor {
+    return new MsgUnjailGovernor().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUnjailGovernor {
+    return new MsgUnjailGovernor().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUnjailGovernor | PlainMessage<MsgUnjailGovernor> | undefined, b: MsgUnjailGovernor | PlainMessage<MsgUnjailGovernor> | undefined): boolean {
+    return proto3.util.equals(MsgUnjailGovernor, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.estaking.MsgUnjailGovernorResponse
+ */
+export class MsgUnjailGovernorResponse extends Message<MsgUnjailGovernorResponse> {
+  constructor(data?: PartialMessage<MsgUnjailGovernorResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.estaking.MsgUnjailGovernorResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUnjailGovernorResponse {
+    return new MsgUnjailGovernorResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUnjailGovernorResponse {
+    return new MsgUnjailGovernorResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUnjailGovernorResponse {
+    return new MsgUnjailGovernorResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUnjailGovernorResponse | PlainMessage<MsgUnjailGovernorResponse> | undefined, b: MsgUnjailGovernorResponse | PlainMessage<MsgUnjailGovernorResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUnjailGovernorResponse, a, b);
+  }
+}
+

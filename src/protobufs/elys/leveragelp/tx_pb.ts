@@ -125,6 +125,11 @@ export class MsgClose extends Message<MsgClose> {
    */
   lpAmount = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgClose>) {
     super();
     proto3.util.initPartial(data, this);
@@ -136,6 +141,7 @@ export class MsgClose extends Message<MsgClose> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "lp_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClose {
@@ -196,9 +202,21 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
   sender = "";
 
   /**
+   * not used anymore
+   *
    * @generated from field: repeated uint64 ids = 2;
    */
   ids: bigint[] = [];
+
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 position_id = 4;
+   */
+  positionId = protoInt64.zero;
 
   constructor(data?: PartialMessage<MsgClaimRewards>) {
     super();
@@ -210,6 +228,8 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimRewards {
@@ -506,6 +526,11 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
    */
   price = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 4;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgUpdateStopLoss>) {
     super();
     proto3.util.initPartial(data, this);
@@ -517,6 +542,7 @@ export class MsgUpdateStopLoss extends Message<MsgUpdateStopLoss> {
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "position", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateStopLoss {
@@ -577,9 +603,19 @@ export class AddPool extends Message<AddPool> {
   ammPoolId = protoInt64.zero;
 
   /**
+   * @generated from field: string pool_max_leverage_ratio = 2;
+   */
+  poolMaxLeverageRatio = "";
+
+  /**
    * @generated from field: string leverage_max = 3;
    */
   leverageMax = "";
+
+  /**
+   * @generated from field: string adl_trigger_ratio = 4;
+   */
+  adlTriggerRatio = "";
 
   constructor(data?: PartialMessage<AddPool>) {
     super();
@@ -590,7 +626,9 @@ export class AddPool extends Message<AddPool> {
   static readonly typeName = "elys.leveragelp.AddPool";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amm_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "pool_max_leverage_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "leverage_max", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "adl_trigger_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AddPool {
@@ -1013,6 +1051,74 @@ export class MsgUpdateEnabledPoolsResponse extends Message<MsgUpdateEnabledPools
 
   static equals(a: MsgUpdateEnabledPoolsResponse | PlainMessage<MsgUpdateEnabledPoolsResponse> | undefined, b: MsgUpdateEnabledPoolsResponse | PlainMessage<MsgUpdateEnabledPoolsResponse> | undefined): boolean {
     return proto3.util.equals(MsgUpdateEnabledPoolsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgClaimAllUserRewards
+ */
+export class MsgClaimAllUserRewards extends Message<MsgClaimAllUserRewards> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  constructor(data?: PartialMessage<MsgClaimAllUserRewards>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgClaimAllUserRewards";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimAllUserRewards {
+    return new MsgClaimAllUserRewards().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimAllUserRewards {
+    return new MsgClaimAllUserRewards().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimAllUserRewards {
+    return new MsgClaimAllUserRewards().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimAllUserRewards | PlainMessage<MsgClaimAllUserRewards> | undefined, b: MsgClaimAllUserRewards | PlainMessage<MsgClaimAllUserRewards> | undefined): boolean {
+    return proto3.util.equals(MsgClaimAllUserRewards, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.leveragelp.MsgClaimAllUserRewardsResponse
+ */
+export class MsgClaimAllUserRewardsResponse extends Message<MsgClaimAllUserRewardsResponse> {
+  constructor(data?: PartialMessage<MsgClaimAllUserRewardsResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.leveragelp.MsgClaimAllUserRewardsResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimAllUserRewardsResponse {
+    return new MsgClaimAllUserRewardsResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgClaimAllUserRewardsResponse {
+    return new MsgClaimAllUserRewardsResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgClaimAllUserRewardsResponse {
+    return new MsgClaimAllUserRewardsResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgClaimAllUserRewardsResponse | PlainMessage<MsgClaimAllUserRewardsResponse> | undefined, b: MsgClaimAllUserRewardsResponse | PlainMessage<MsgClaimAllUserRewardsResponse> | undefined): boolean {
+    return proto3.util.equals(MsgClaimAllUserRewardsResponse, a, b);
   }
 }
 

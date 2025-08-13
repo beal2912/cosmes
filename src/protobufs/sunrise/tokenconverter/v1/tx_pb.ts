@@ -6,6 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
 import { Params } from "./params_pb.js";
+import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
@@ -167,6 +168,90 @@ export class MsgConvertResponse extends Message<MsgConvertResponse> {
 
   static equals(a: MsgConvertResponse | PlainMessage<MsgConvertResponse> | undefined, b: MsgConvertResponse | PlainMessage<MsgConvertResponse> | undefined): boolean {
     return proto3.util.equals(MsgConvertResponse, a, b);
+  }
+}
+
+/**
+ * MsgSend
+ *
+ * @generated from message sunrise.tokenconverter.v1.MsgSend
+ */
+export class MsgSend extends Message<MsgSend> {
+  /**
+   * @generated from field: string from_address = 1;
+   */
+  fromAddress = "";
+
+  /**
+   * @generated from field: string to_address = 2;
+   */
+  toAddress = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin amount = 3;
+   */
+  amount: Coin[] = [];
+
+  constructor(data?: PartialMessage<MsgSend>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.tokenconverter.v1.MsgSend";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "from_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "to_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "amount", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSend {
+    return new MsgSend().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSend {
+    return new MsgSend().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSend {
+    return new MsgSend().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSend | PlainMessage<MsgSend> | undefined, b: MsgSend | PlainMessage<MsgSend> | undefined): boolean {
+    return proto3.util.equals(MsgSend, a, b);
+  }
+}
+
+/**
+ * MsgSendResponse
+ *
+ * @generated from message sunrise.tokenconverter.v1.MsgSendResponse
+ */
+export class MsgSendResponse extends Message<MsgSendResponse> {
+  constructor(data?: PartialMessage<MsgSendResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "sunrise.tokenconverter.v1.MsgSendResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSendResponse {
+    return new MsgSendResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSendResponse {
+    return new MsgSendResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSendResponse {
+    return new MsgSendResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSendResponse | PlainMessage<MsgSendResponse> | undefined, b: MsgSendResponse | PlainMessage<MsgSendResponse> | undefined): boolean {
+    return proto3.util.equals(MsgSendResponse, a, b);
   }
 }
 

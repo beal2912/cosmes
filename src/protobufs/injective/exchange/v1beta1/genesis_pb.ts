@@ -761,16 +761,22 @@ export class ConditionalDerivativeOrderBook extends Message<ConditionalDerivativ
  */
 export class Balance extends Message<Balance> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the denom of the balance
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";
 
   /**
+   * the token deposits details
+   *
    * @generated from field: injective.exchange.v1beta1.Deposit deposits = 3;
    */
   deposits?: Deposit;
@@ -810,16 +816,22 @@ export class Balance extends Message<Balance> {
  */
 export class DerivativePosition extends Message<DerivativePosition> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the market ID
+   *
    * @generated from field: string market_id = 2;
    */
   marketId = "";
 
   /**
+   * the position details
+   *
    * @generated from field: injective.exchange.v1beta1.Position position = 3;
    */
   position?: Position;
@@ -859,11 +871,15 @@ export class DerivativePosition extends Message<DerivativePosition> {
  */
 export class SubaccountNonce extends Message<SubaccountNonce> {
   /**
+   * the subaccount ID
+   *
    * @generated from field: string subaccount_id = 1;
    */
   subaccountId = "";
 
   /**
+   * the subaccount trade nonce
+   *
    * @generated from field: injective.exchange.v1beta1.SubaccountTradeNonce subaccount_trade_nonce = 2;
    */
   subaccountTradeNonce?: SubaccountTradeNonce;

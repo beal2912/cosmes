@@ -152,6 +152,11 @@ export class Params extends Message<Params> {
    */
   stopLossEnabled = false;
 
+  /**
+   * @generated from field: string liabilities_factor = 12;
+   */
+  liabilitiesFactor = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -171,6 +176,7 @@ export class Params extends Message<Params> {
     { no: 9, name: "enabled_pools", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
     { no: 10, name: "exit_buffer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 11, name: "stop_loss_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 12, name: "liabilities_factor", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

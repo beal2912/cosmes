@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 
 /**
  * Params defines the parameters for the module.
@@ -18,9 +18,24 @@ export class Params extends Message<Params> {
   feeDenom = "";
 
   /**
-   * @generated from field: string burn_ratio = 2;
+   * @generated from field: string burn_denom = 2;
+   */
+  burnDenom = "";
+
+  /**
+   * @generated from field: string burn_ratio = 3;
    */
   burnRatio = "";
+
+  /**
+   * @generated from field: uint64 burn_pool_id = 4;
+   */
+  burnPoolId = protoInt64.zero;
+
+  /**
+   * @generated from field: bool burn_enabled = 5;
+   */
+  burnEnabled = false;
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -31,7 +46,10 @@ export class Params extends Message<Params> {
   static readonly typeName = "sunrise.fee.v1.Params";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "fee_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "burn_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "burn_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "burn_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "burn_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: "burn_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

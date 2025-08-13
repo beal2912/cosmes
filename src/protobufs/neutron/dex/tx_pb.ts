@@ -6,6 +6,7 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64, Timestamp } from "@bufbuild/protobuf";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
+import { PrecDecCoin } from "./precdec_coin_pb.js";
 import { Params } from "./params_pb.js";
 
 /**
@@ -66,7 +67,8 @@ export class DepositOptions extends Message<DepositOptions> {
   swapOnDeposit = false;
 
   /**
-   * @generated from field: uint64 swap_on_deposit_slop_tolerance_bps = 4;
+   * @generated from field: uint64 swap_on_deposit_slop_tolerance_bps = 4 [deprecated = true];
+   * @deprecated
    */
   swapOnDepositSlopToleranceBps = protoInt64.zero;
 
@@ -234,12 +236,18 @@ export class FailedDeposit extends Message<FailedDeposit> {
  */
 export class MsgDepositResponse extends Message<MsgDepositResponse> {
   /**
-   * @generated from field: repeated string reserve0_deposited = 1;
+   * reserve0_deposited is DEPRECATED
+   *
+   * @generated from field: repeated string reserve0_deposited = 1 [deprecated = true];
+   * @deprecated
    */
   reserve0Deposited: string[] = [];
 
   /**
-   * @generated from field: repeated string reserve1_deposited = 2;
+   * reserve0_deposited is DEPRECATED
+   *
+   * @generated from field: repeated string reserve1_deposited = 2 [deprecated = true];
+   * @deprecated
    */
   reserve1Deposited: string[] = [];
 
@@ -253,6 +261,16 @@ export class MsgDepositResponse extends Message<MsgDepositResponse> {
    */
   sharesIssued: Coin[] = [];
 
+  /**
+   * @generated from field: repeated string dec_reserve0_deposited = 5;
+   */
+  decReserve0Deposited: string[] = [];
+
+  /**
+   * @generated from field: repeated string dec_reserve1_deposited = 6;
+   */
+  decReserve1Deposited: string[] = [];
+
   constructor(data?: PartialMessage<MsgDepositResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -265,6 +283,8 @@ export class MsgDepositResponse extends Message<MsgDepositResponse> {
     { no: 2, name: "reserve1_deposited", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 3, name: "failed_deposits", kind: "message", T: FailedDeposit, repeated: true },
     { no: 4, name: "shares_issued", kind: "message", T: Coin, repeated: true },
+    { no: 5, name: "dec_reserve0_deposited", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 6, name: "dec_reserve1_deposited", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDepositResponse {
@@ -362,12 +382,18 @@ export class MsgWithdrawal extends Message<MsgWithdrawal> {
  */
 export class MsgWithdrawalResponse extends Message<MsgWithdrawalResponse> {
   /**
-   * @generated from field: string reserve0_withdrawn = 1;
+   * reserve0_withdrawn is DEPRECATED
+   *
+   * @generated from field: string reserve0_withdrawn = 1 [deprecated = true];
+   * @deprecated
    */
   reserve0Withdrawn = "";
 
   /**
-   * @generated from field: string reserve1_withdrawn = 2;
+   * reserve1_withdrawn is DEPRECATED
+   *
+   * @generated from field: string reserve1_withdrawn = 2 [deprecated = true];
+   * @deprecated
    */
   reserve1Withdrawn = "";
 
@@ -375,6 +401,16 @@ export class MsgWithdrawalResponse extends Message<MsgWithdrawalResponse> {
    * @generated from field: repeated cosmos.base.v1beta1.Coin shares_burned = 3;
    */
   sharesBurned: Coin[] = [];
+
+  /**
+   * @generated from field: string dec_reserve0_withdrawn = 4;
+   */
+  decReserve0Withdrawn = "";
+
+  /**
+   * @generated from field: string dec_reserve1_withdrawn = 5;
+   */
+  decReserve1Withdrawn = "";
 
   constructor(data?: PartialMessage<MsgWithdrawalResponse>) {
     super();
@@ -387,6 +423,8 @@ export class MsgWithdrawalResponse extends Message<MsgWithdrawalResponse> {
     { no: 1, name: "reserve0_withdrawn", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "reserve1_withdrawn", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "shares_burned", kind: "message", T: Coin, repeated: true },
+    { no: 4, name: "dec_reserve0_withdrawn", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "dec_reserve1_withdrawn", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgWithdrawalResponse {
@@ -466,11 +504,10 @@ export class MsgPlaceLimitOrder extends Message<MsgPlaceLimitOrder> {
   limitSellPrice = "";
 
   /**
-   * min_average_sell_price is an optional parameter that sets a required minimum average price for the entire trade.
-   * if the min_average_sell_price is not met the trade will fail.
-   * If min_average_sell_price is omitted limit_sell_price will be used instead
+   * min_average_sell_price is DEPRECATED
    *
-   * @generated from field: string min_average_sell_price = 12;
+   * @generated from field: string min_average_sell_price = 12 [deprecated = true];
+   * @deprecated
    */
   minAverageSellPrice = "";
 
@@ -529,21 +566,37 @@ export class MsgPlaceLimitOrderResponse extends Message<MsgPlaceLimitOrderRespon
   coinIn?: Coin;
 
   /**
+   * taker_coin_out is DEPRECATED
+   *
+   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 3 [deprecated = true];
+   * @deprecated
+   */
+  takerCoinOut?: Coin;
+
+  /**
+   * taker_coin_in is DEPRECATED
+   *
+   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_in = 4 [deprecated = true];
+   * @deprecated
+   */
+  takerCoinIn?: Coin;
+
+  /**
    * Total amount of coin received from the taker portion of the limit order
    * This is the amount of coin immediately available in the users account after
    * executing the limit order. It does not include any future proceeds from the
    * maker portion which will have withdrawn in the future
    *
-   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 3;
+   * @generated from field: neutron.dex.PrecDecCoin dec_taker_coin_out = 5;
    */
-  takerCoinOut?: Coin;
+  decTakerCoinOut?: PrecDecCoin;
 
   /**
    * Total amount of the token in that was immediately swapped for takerOutCoin
    *
-   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_in = 4;
+   * @generated from field: neutron.dex.PrecDecCoin dec_taker_coin_in = 6;
    */
-  takerCoinIn?: Coin;
+  decTakerCoinIn?: PrecDecCoin;
 
   constructor(data?: PartialMessage<MsgPlaceLimitOrderResponse>) {
     super();
@@ -557,6 +610,8 @@ export class MsgPlaceLimitOrderResponse extends Message<MsgPlaceLimitOrderRespon
     { no: 2, name: "coin_in", kind: "message", T: Coin },
     { no: 3, name: "taker_coin_out", kind: "message", T: Coin },
     { no: 4, name: "taker_coin_in", kind: "message", T: Coin },
+    { no: 5, name: "dec_taker_coin_out", kind: "message", T: PrecDecCoin },
+    { no: 6, name: "dec_taker_coin_in", kind: "message", T: PrecDecCoin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgPlaceLimitOrderResponse {
@@ -624,18 +679,34 @@ export class MsgWithdrawFilledLimitOrder extends Message<MsgWithdrawFilledLimitO
  */
 export class MsgWithdrawFilledLimitOrderResponse extends Message<MsgWithdrawFilledLimitOrderResponse> {
   /**
-   * Total amount of taker reserves that were withdrawn
+   * taker_coin_out is DEPRECATED
    *
-   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 1;
+   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 1 [deprecated = true];
+   * @deprecated
    */
   takerCoinOut?: Coin;
 
   /**
-   * Total amount of maker reserves that were withdrawn --only applies to inactive LimitOrders
+   * maker_coin_out is DEPRECATED
    *
-   * @generated from field: cosmos.base.v1beta1.Coin maker_coin_out = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin maker_coin_out = 2 [deprecated = true];
+   * @deprecated
    */
   makerCoinOut?: Coin;
+
+  /**
+   * Total amount of taker reserves that were withdrawn
+   *
+   * @generated from field: neutron.dex.PrecDecCoin dec_taker_coin_out = 3;
+   */
+  decTakerCoinOut?: PrecDecCoin;
+
+  /**
+   * Total amount of maker reserves that were withdrawn --only applies to inactive LimitOrders
+   *
+   * @generated from field: neutron.dex.PrecDecCoin dec_maker_coin_out = 4;
+   */
+  decMakerCoinOut?: PrecDecCoin;
 
   constructor(data?: PartialMessage<MsgWithdrawFilledLimitOrderResponse>) {
     super();
@@ -647,6 +718,8 @@ export class MsgWithdrawFilledLimitOrderResponse extends Message<MsgWithdrawFill
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "taker_coin_out", kind: "message", T: Coin },
     { no: 2, name: "maker_coin_out", kind: "message", T: Coin },
+    { no: 3, name: "dec_taker_coin_out", kind: "message", T: PrecDecCoin },
+    { no: 4, name: "dec_maker_coin_out", kind: "message", T: PrecDecCoin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgWithdrawFilledLimitOrderResponse {
@@ -714,18 +787,34 @@ export class MsgCancelLimitOrder extends Message<MsgCancelLimitOrder> {
  */
 export class MsgCancelLimitOrderResponse extends Message<MsgCancelLimitOrderResponse> {
   /**
-   * Total amount of taker reserves that were withdrawn
+   * taker_coin_out is DEPRECATED
    *
-   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 1;
+   * @generated from field: cosmos.base.v1beta1.Coin taker_coin_out = 1 [deprecated = true];
+   * @deprecated
    */
   takerCoinOut?: Coin;
 
   /**
-   * Total amount of maker reserves that were canceled
+   * maker_coin_out is DEPRECATED
    *
-   * @generated from field: cosmos.base.v1beta1.Coin maker_coin_out = 2;
+   * @generated from field: cosmos.base.v1beta1.Coin maker_coin_out = 2 [deprecated = true];
+   * @deprecated
    */
   makerCoinOut?: Coin;
+
+  /**
+   * Total amount of taker reserves that were withdrawn
+   *
+   * @generated from field: neutron.dex.PrecDecCoin dec_taker_coin_out = 3;
+   */
+  decTakerCoinOut?: PrecDecCoin;
+
+  /**
+   * Total amount of maker reserves that were canceled
+   *
+   * @generated from field: neutron.dex.PrecDecCoin dec_maker_coin_out = 4;
+   */
+  decMakerCoinOut?: PrecDecCoin;
 
   constructor(data?: PartialMessage<MsgCancelLimitOrderResponse>) {
     super();
@@ -737,6 +826,8 @@ export class MsgCancelLimitOrderResponse extends Message<MsgCancelLimitOrderResp
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "taker_coin_out", kind: "message", T: Coin },
     { no: 2, name: "maker_coin_out", kind: "message", T: Coin },
+    { no: 3, name: "dec_taker_coin_out", kind: "message", T: PrecDecCoin },
+    { no: 4, name: "dec_maker_coin_out", kind: "message", T: PrecDecCoin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelLimitOrderResponse {
@@ -868,7 +959,10 @@ export class MsgMultiHopSwap extends Message<MsgMultiHopSwap> {
  */
 export class MsgMultiHopSwapResponse extends Message<MsgMultiHopSwapResponse> {
   /**
-   * @generated from field: cosmos.base.v1beta1.Coin coin_out = 1;
+   * coin_out is DEPRECATED
+   *
+   * @generated from field: cosmos.base.v1beta1.Coin coin_out = 1 [deprecated = true];
+   * @deprecated
    */
   coinOut?: Coin;
 
@@ -878,9 +972,22 @@ export class MsgMultiHopSwapResponse extends Message<MsgMultiHopSwapResponse> {
   route?: MultiHopRoute;
 
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin dust = 3;
+   * dust is DEPRECATED
+   *
+   * @generated from field: repeated cosmos.base.v1beta1.Coin dust = 3 [deprecated = true];
+   * @deprecated
    */
   dust: Coin[] = [];
+
+  /**
+   * @generated from field: neutron.dex.PrecDecCoin dec_coin_out = 4;
+   */
+  decCoinOut?: PrecDecCoin;
+
+  /**
+   * @generated from field: repeated neutron.dex.PrecDecCoin dec_dust = 5;
+   */
+  decDust: PrecDecCoin[] = [];
 
   constructor(data?: PartialMessage<MsgMultiHopSwapResponse>) {
     super();
@@ -893,6 +1000,8 @@ export class MsgMultiHopSwapResponse extends Message<MsgMultiHopSwapResponse> {
     { no: 1, name: "coin_out", kind: "message", T: Coin },
     { no: 2, name: "route", kind: "message", T: MultiHopRoute },
     { no: 3, name: "dust", kind: "message", T: Coin, repeated: true },
+    { no: 4, name: "dec_coin_out", kind: "message", T: PrecDecCoin },
+    { no: 5, name: "dec_dust", kind: "message", T: PrecDecCoin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgMultiHopSwapResponse {

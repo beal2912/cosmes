@@ -753,3 +753,77 @@ export class QueryGetInterestResponse extends Message<QueryGetInterestResponse> 
   }
 }
 
+/**
+ * @generated from message elys.stablestake.MaxBondableAmountRequest
+ */
+export class MaxBondableAmountRequest extends Message<MaxBondableAmountRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MaxBondableAmountRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MaxBondableAmountRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MaxBondableAmountRequest {
+    return new MaxBondableAmountRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MaxBondableAmountRequest {
+    return new MaxBondableAmountRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MaxBondableAmountRequest {
+    return new MaxBondableAmountRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MaxBondableAmountRequest | PlainMessage<MaxBondableAmountRequest> | undefined, b: MaxBondableAmountRequest | PlainMessage<MaxBondableAmountRequest> | undefined): boolean {
+    return proto3.util.equals(MaxBondableAmountRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.stablestake.MaxBondableAmountResponse
+ */
+export class MaxBondableAmountResponse extends Message<MaxBondableAmountResponse> {
+  /**
+   * @generated from field: string amount = 1;
+   */
+  amount = "";
+
+  constructor(data?: PartialMessage<MaxBondableAmountResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.stablestake.MaxBondableAmountResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MaxBondableAmountResponse {
+    return new MaxBondableAmountResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MaxBondableAmountResponse {
+    return new MaxBondableAmountResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MaxBondableAmountResponse {
+    return new MaxBondableAmountResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MaxBondableAmountResponse | PlainMessage<MaxBondableAmountResponse> | undefined, b: MaxBondableAmountResponse | PlainMessage<MaxBondableAmountResponse> | undefined): boolean {
+    return proto3.util.equals(MaxBondableAmountResponse, a, b);
+  }
+}
+

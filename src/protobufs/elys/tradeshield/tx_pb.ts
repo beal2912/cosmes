@@ -354,6 +354,74 @@ export class MsgCancelSpotOrdersResponse extends Message<MsgCancelSpotOrdersResp
 }
 
 /**
+ * @generated from message elys.tradeshield.MsgCancelAllSpotOrders
+ */
+export class MsgCancelAllSpotOrders extends Message<MsgCancelAllSpotOrders> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  constructor(data?: PartialMessage<MsgCancelAllSpotOrders>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.MsgCancelAllSpotOrders";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelAllSpotOrders {
+    return new MsgCancelAllSpotOrders().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelAllSpotOrders {
+    return new MsgCancelAllSpotOrders().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelAllSpotOrders {
+    return new MsgCancelAllSpotOrders().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelAllSpotOrders | PlainMessage<MsgCancelAllSpotOrders> | undefined, b: MsgCancelAllSpotOrders | PlainMessage<MsgCancelAllSpotOrders> | undefined): boolean {
+    return proto3.util.equals(MsgCancelAllSpotOrders, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.MsgCancelAllSpotOrdersResponse
+ */
+export class MsgCancelAllSpotOrdersResponse extends Message<MsgCancelAllSpotOrdersResponse> {
+  constructor(data?: PartialMessage<MsgCancelAllSpotOrdersResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.MsgCancelAllSpotOrdersResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelAllSpotOrdersResponse {
+    return new MsgCancelAllSpotOrdersResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelAllSpotOrdersResponse {
+    return new MsgCancelAllSpotOrdersResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelAllSpotOrdersResponse {
+    return new MsgCancelAllSpotOrdersResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelAllSpotOrdersResponse | PlainMessage<MsgCancelAllSpotOrdersResponse> | undefined, b: MsgCancelAllSpotOrdersResponse | PlainMessage<MsgCancelAllSpotOrdersResponse> | undefined): boolean {
+    return proto3.util.equals(MsgCancelAllSpotOrdersResponse, a, b);
+  }
+}
+
+/**
  * @generated from message elys.tradeshield.MsgCreatePerpetualOpenOrder
  */
 export class MsgCreatePerpetualOpenOrder extends Message<MsgCreatePerpetualOpenOrder> {
@@ -378,32 +446,27 @@ export class MsgCreatePerpetualOpenOrder extends Message<MsgCreatePerpetualOpenO
   collateral?: Coin;
 
   /**
-   * @generated from field: string trading_asset = 4;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: elys.tradeshield.PerpetualPosition position = 5;
+   * @generated from field: elys.tradeshield.PerpetualPosition position = 4;
    */
   position = PerpetualPosition.UNSPECIFIED;
 
   /**
-   * @generated from field: string leverage = 6;
+   * @generated from field: string leverage = 5;
    */
   leverage = "";
 
   /**
-   * @generated from field: string take_profit_price = 7;
+   * @generated from field: string take_profit_price = 6;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: string stop_loss_price = 8;
+   * @generated from field: string stop_loss_price = 7;
    */
   stopLossPrice = "";
 
   /**
-   * @generated from field: uint64 pool_id = 9;
+   * @generated from field: uint64 pool_id = 8;
    */
   poolId = protoInt64.zero;
 
@@ -419,12 +482,11 @@ export class MsgCreatePerpetualOpenOrder extends Message<MsgCreatePerpetualOpenO
     { no: 2, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
     { no: 10, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "collateral", kind: "message", T: Coin },
-    { no: 4, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 5, name: "position", kind: "enum", T: proto3.getEnumType(PerpetualPosition) },
-    { no: 6, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "position", kind: "enum", T: proto3.getEnumType(PerpetualPosition) },
+    { no: 5, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreatePerpetualOpenOrder {
@@ -496,14 +558,24 @@ export class MsgCreatePerpetualCloseOrder extends Message<MsgCreatePerpetualClos
   legacyTriggerPriceV1?: LegacyTriggerPriceV1;
 
   /**
+   * @generated from field: uint64 position_id = 3;
+   */
+  positionId = protoInt64.zero;
+
+  /**
    * @generated from field: string trigger_price = 4;
    */
   triggerPrice = "";
 
   /**
-   * @generated from field: uint64 position_id = 3;
+   * @generated from field: uint64 pool_id = 5;
    */
-  positionId = protoInt64.zero;
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 close_percentage = 6;
+   */
+  closePercentage = protoInt64.zero;
 
   constructor(data?: PartialMessage<MsgCreatePerpetualCloseOrder>) {
     super();
@@ -515,8 +587,10 @@ export class MsgCreatePerpetualCloseOrder extends Message<MsgCreatePerpetualClos
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
-    { no: 4, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 4, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 6, name: "close_percentage", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreatePerpetualCloseOrder {
@@ -597,6 +671,11 @@ export class MsgUpdatePerpetualOrder extends Message<MsgUpdatePerpetualOrder> {
    */
   triggerPrice = "";
 
+  /**
+   * @generated from field: uint64 pool_id = 5;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgUpdatePerpetualOrder>) {
     super();
     proto3.util.initPartial(data, this);
@@ -609,6 +688,7 @@ export class MsgUpdatePerpetualOrder extends Message<MsgUpdatePerpetualOrder> {
     { no: 2, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 3, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
     { no: 4, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdatePerpetualOrder {
@@ -673,6 +753,11 @@ export class MsgCancelPerpetualOrder extends Message<MsgCancelPerpetualOrder> {
    */
   orderId = protoInt64.zero;
 
+  /**
+   * @generated from field: uint64 pool_id = 3;
+   */
+  poolId = protoInt64.zero;
+
   constructor(data?: PartialMessage<MsgCancelPerpetualOrder>) {
     super();
     proto3.util.initPartial(data, this);
@@ -683,6 +768,7 @@ export class MsgCancelPerpetualOrder extends Message<MsgCancelPerpetualOrder> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelPerpetualOrder {
@@ -749,9 +835,14 @@ export class MsgCancelPerpetualOrders extends Message<MsgCancelPerpetualOrders> 
   ownerAddress = "";
 
   /**
-   * @generated from field: repeated uint64 order_ids = 2;
+   * @generated from field: repeated uint64 legacy_order_ids = 2;
    */
-  orderIds: bigint[] = [];
+  legacyOrderIds: bigint[] = [];
+
+  /**
+   * @generated from field: repeated elys.tradeshield.PerpetualOrderPoolKey orders = 3;
+   */
+  orders: PerpetualOrderPoolKey[] = [];
 
   constructor(data?: PartialMessage<MsgCancelPerpetualOrders>) {
     super();
@@ -762,7 +853,8 @@ export class MsgCancelPerpetualOrders extends Message<MsgCancelPerpetualOrders> 
   static readonly typeName = "elys.tradeshield.MsgCancelPerpetualOrders";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "order_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 2, name: "legacy_order_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 3, name: "orders", kind: "message", T: PerpetualOrderPoolKey, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelPerpetualOrders {
@@ -810,6 +902,74 @@ export class MsgCancelPerpetualOrdersResponse extends Message<MsgCancelPerpetual
 
   static equals(a: MsgCancelPerpetualOrdersResponse | PlainMessage<MsgCancelPerpetualOrdersResponse> | undefined, b: MsgCancelPerpetualOrdersResponse | PlainMessage<MsgCancelPerpetualOrdersResponse> | undefined): boolean {
     return proto3.util.equals(MsgCancelPerpetualOrdersResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.MsgCancelAllPerpetualOrders
+ */
+export class MsgCancelAllPerpetualOrders extends Message<MsgCancelAllPerpetualOrders> {
+  /**
+   * @generated from field: string owner_address = 1;
+   */
+  ownerAddress = "";
+
+  constructor(data?: PartialMessage<MsgCancelAllPerpetualOrders>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.MsgCancelAllPerpetualOrders";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelAllPerpetualOrders {
+    return new MsgCancelAllPerpetualOrders().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelAllPerpetualOrders {
+    return new MsgCancelAllPerpetualOrders().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelAllPerpetualOrders {
+    return new MsgCancelAllPerpetualOrders().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelAllPerpetualOrders | PlainMessage<MsgCancelAllPerpetualOrders> | undefined, b: MsgCancelAllPerpetualOrders | PlainMessage<MsgCancelAllPerpetualOrders> | undefined): boolean {
+    return proto3.util.equals(MsgCancelAllPerpetualOrders, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.MsgCancelAllPerpetualOrdersResponse
+ */
+export class MsgCancelAllPerpetualOrdersResponse extends Message<MsgCancelAllPerpetualOrdersResponse> {
+  constructor(data?: PartialMessage<MsgCancelAllPerpetualOrdersResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.MsgCancelAllPerpetualOrdersResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelAllPerpetualOrdersResponse {
+    return new MsgCancelAllPerpetualOrdersResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelAllPerpetualOrdersResponse {
+    return new MsgCancelAllPerpetualOrdersResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelAllPerpetualOrdersResponse {
+    return new MsgCancelAllPerpetualOrdersResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelAllPerpetualOrdersResponse | PlainMessage<MsgCancelAllPerpetualOrdersResponse> | undefined, b: MsgCancelAllPerpetualOrdersResponse | PlainMessage<MsgCancelAllPerpetualOrdersResponse> | undefined): boolean {
+    return proto3.util.equals(MsgCancelAllPerpetualOrdersResponse, a, b);
   }
 }
 
@@ -907,9 +1067,14 @@ export class MsgExecuteOrders extends Message<MsgExecuteOrders> {
   spotOrderIds: bigint[] = [];
 
   /**
-   * @generated from field: repeated uint64 perpetual_order_ids = 3;
+   * @generated from field: repeated uint64 legacy_perpetual_order_ids = 3;
    */
-  perpetualOrderIds: bigint[] = [];
+  legacyPerpetualOrderIds: bigint[] = [];
+
+  /**
+   * @generated from field: repeated elys.tradeshield.PerpetualOrderKey perpetual_orders = 4;
+   */
+  perpetualOrders: PerpetualOrderKey[] = [];
 
   constructor(data?: PartialMessage<MsgExecuteOrders>) {
     super();
@@ -921,7 +1086,8 @@ export class MsgExecuteOrders extends Message<MsgExecuteOrders> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "spot_order_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
-    { no: 3, name: "perpetual_order_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 3, name: "legacy_perpetual_order_ids", kind: "scalar", T: 4 /* ScalarType.UINT64 */, repeated: true },
+    { no: 4, name: "perpetual_orders", kind: "message", T: PerpetualOrderKey, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgExecuteOrders {
@@ -969,6 +1135,98 @@ export class MsgExecuteOrdersResponse extends Message<MsgExecuteOrdersResponse> 
 
   static equals(a: MsgExecuteOrdersResponse | PlainMessage<MsgExecuteOrdersResponse> | undefined, b: MsgExecuteOrdersResponse | PlainMessage<MsgExecuteOrdersResponse> | undefined): boolean {
     return proto3.util.equals(MsgExecuteOrdersResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.PerpetualOrderKey
+ */
+export class PerpetualOrderKey extends Message<PerpetualOrderKey> {
+  /**
+   * @generated from field: string owner_address = 1;
+   */
+  ownerAddress = "";
+
+  /**
+   * @generated from field: uint64 pool_id = 2;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 order_id = 3;
+   */
+  orderId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<PerpetualOrderKey>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.PerpetualOrderKey";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 3, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualOrderKey {
+    return new PerpetualOrderKey().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PerpetualOrderKey {
+    return new PerpetualOrderKey().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PerpetualOrderKey {
+    return new PerpetualOrderKey().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PerpetualOrderKey | PlainMessage<PerpetualOrderKey> | undefined, b: PerpetualOrderKey | PlainMessage<PerpetualOrderKey> | undefined): boolean {
+    return proto3.util.equals(PerpetualOrderKey, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.PerpetualOrderPoolKey
+ */
+export class PerpetualOrderPoolKey extends Message<PerpetualOrderPoolKey> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 order_id = 2;
+   */
+  orderId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<PerpetualOrderPoolKey>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.PerpetualOrderPoolKey";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualOrderPoolKey {
+    return new PerpetualOrderPoolKey().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PerpetualOrderPoolKey {
+    return new PerpetualOrderPoolKey().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PerpetualOrderPoolKey {
+    return new PerpetualOrderPoolKey().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PerpetualOrderPoolKey | PlainMessage<PerpetualOrderPoolKey> | undefined, b: PerpetualOrderPoolKey | PlainMessage<PerpetualOrderPoolKey> | undefined): boolean {
+    return proto3.util.equals(PerpetualOrderPoolKey, a, b);
   }
 }
 

@@ -66,7 +66,10 @@ export class PoolReserves extends Message<PoolReserves> {
   key?: PoolReservesKey;
 
   /**
-   * @generated from field: string reserves_maker_denom = 2;
+   * DEPRECATED: reserves_maker_denom will be removed in future release, `dec_reserves_maker_denom` should always be used.
+   *
+   * @generated from field: string reserves_maker_denom = 2 [deprecated = true];
+   * @deprecated
    */
   reservesMakerDenom = "";
 
@@ -94,6 +97,11 @@ export class PoolReserves extends Message<PoolReserves> {
    */
   makerPrice = "";
 
+  /**
+   * @generated from field: string dec_reserves_maker_denom = 6;
+   */
+  decReservesMakerDenom = "";
+
   constructor(data?: PartialMessage<PoolReserves>) {
     super();
     proto3.util.initPartial(data, this);
@@ -107,6 +115,7 @@ export class PoolReserves extends Message<PoolReserves> {
     { no: 3, name: "price_taker_to_maker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "price_opposite_taker_to_maker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "maker_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "dec_reserves_maker_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PoolReserves {

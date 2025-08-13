@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgUpdateParams, MsgUpdateParamsResponse, MsgWithdrawAllRewards, MsgWithdrawAllRewardsResponse, MsgWithdrawElysStakingRewards, MsgWithdrawElysStakingRewardsResponse, MsgWithdrawReward, MsgWithdrawRewardResponse } from "./tx_pb.js";
+import { MsgUnjailGovernor, MsgUnjailGovernorResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgWithdrawAllRewards, MsgWithdrawAllRewardsResponse, MsgWithdrawElysStakingRewards, MsgWithdrawElysStakingRewardsResponse, MsgWithdrawReward, MsgWithdrawRewardResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.estaking.Msg";
 
@@ -57,5 +57,15 @@ export const MsgWithdrawAllRewardsService = {
   method: "WithdrawAllRewards",
   Request: MsgWithdrawAllRewards,
   Response: MsgWithdrawAllRewardsResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.estaking.Msg.UnjailGovernor
+ */
+export const MsgUnjailGovernorService = {
+  typeName: TYPE_NAME,
+  method: "UnjailGovernor",
+  Request: MsgUnjailGovernor,
+  Response: MsgUnjailGovernorResponse,
 } as const;
 

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { IsWhitelistedRequest, IsWhitelistedResponse, ParamsRequest, ParamsResponse, PositionResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstRequest, QueryCloseEstResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryLiquidationPriceRequest, QueryLiquidationPriceResponse, QueryOpenEstRequest, QueryOpenEstResponse, QueryRewardsRequest, QueryRewardsResponse, StatusRequest, StatusResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
+import { IsWhitelistedRequest, IsWhitelistedResponse, ParamsRequest, ParamsResponse, PositionCounterRequest, PositionCounterResponse, PositionResponse, PositionsByPoolRequest, PositionsByPoolResponse, PositionsForAddressRequest, PositionsForAddressResponse, PositionsRequest, PositionsResponse, QueryAllPoolRequest, QueryAllPoolResponse, QueryCloseEstRequest, QueryCloseEstResponse, QueryCommittedTokensLockedRequest, QueryCommittedTokensLockedResponse, QueryGetPoolRequest, QueryGetPoolResponse, QueryLiquidationPriceRequest, QueryLiquidationPriceResponse, QueryOpenEstRequest, QueryOpenEstResponse, QueryRewardsRequest, QueryRewardsResponse, WhitelistRequest, WhitelistResponse } from "./query_pb.js";
 import { PositionRequest } from "./types_pb.js";
 
 const TYPE_NAME = "elys.leveragelp.Query";
@@ -45,15 +45,15 @@ export const QueryQueryPositionsByPoolService = {
 } as const;
 
 /**
- * Queries a list of GetStatus items.
+ * Queries a list of GetCounter items.
  *
- * @generated from rpc elys.leveragelp.Query.GetStatus
+ * @generated from rpc elys.leveragelp.Query.QueryPositionCounter
  */
-export const QueryGetStatusService = {
+export const QueryQueryPositionCounterService = {
   typeName: TYPE_NAME,
-  method: "GetStatus",
-  Request: StatusRequest,
-  Response: StatusResponse,
+  method: "QueryPositionCounter",
+  Request: PositionCounterRequest,
+  Response: PositionCounterResponse,
 } as const;
 
 /**

@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateEnabledPools, MsgUpdateEnabledPoolsResponse, MsgUpdateMaxLeverageForPool, MsgUpdateMaxLeverageForPoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
+import { MsgAddCollateral, MsgAddCollateralResponse, MsgClose, MsgClosePositions, MsgClosePositionsResponse, MsgCloseResponse, MsgDewhitelist, MsgDewhitelistResponse, MsgOpen, MsgOpenResponse, MsgUpdateEnabledPools, MsgUpdateEnabledPoolsResponse, MsgUpdateMaxLeverageForPool, MsgUpdateMaxLeverageForPoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateStopLoss, MsgUpdateStopLossResponse, MsgUpdateTakeProfitPrice, MsgUpdateTakeProfitPriceResponse, MsgWhitelist, MsgWhitelistResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "elys.perpetual.Msg";
 
@@ -15,6 +15,16 @@ export const MsgOpenService = {
   method: "Open",
   Request: MsgOpen,
   Response: MsgOpenResponse,
+} as const;
+
+/**
+ * @generated from rpc elys.perpetual.Msg.AddCollateral
+ */
+export const MsgAddCollateralService = {
+  typeName: TYPE_NAME,
+  method: "AddCollateral",
+  Request: MsgAddCollateral,
+  Response: MsgAddCollateralResponse,
 } as const;
 
 /**

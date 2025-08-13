@@ -221,12 +221,7 @@ export class PerpetualOrder extends Message<PerpetualOrder> {
   position = PerpetualPosition.UNSPECIFIED;
 
   /**
-   * @generated from field: elys.tradeshield.LegacyTriggerPriceV1 legacy_trigger_price_v1 = 5;
-   */
-  legacyTriggerPriceV1?: LegacyTriggerPriceV1;
-
-  /**
-   * @generated from field: string trigger_price = 14;
+   * @generated from field: string trigger_price = 5;
    */
   triggerPrice = "";
 
@@ -236,39 +231,39 @@ export class PerpetualOrder extends Message<PerpetualOrder> {
   collateral?: Coin;
 
   /**
-   * @generated from field: string trading_asset = 7;
-   */
-  tradingAsset = "";
-
-  /**
-   * @generated from field: string leverage = 8;
+   * @generated from field: string leverage = 7;
    */
   leverage = "";
 
   /**
-   * @generated from field: string take_profit_price = 9;
+   * @generated from field: string take_profit_price = 8;
    */
   takeProfitPrice = "";
 
   /**
-   * @generated from field: uint64 position_id = 10;
+   * @generated from field: uint64 position_id = 9;
    */
   positionId = protoInt64.zero;
 
   /**
-   * @generated from field: elys.tradeshield.Status status = 11;
+   * @generated from field: elys.tradeshield.Status status = 10;
    */
   status = Status.PENDING;
 
   /**
-   * @generated from field: string stop_loss_price = 12;
+   * @generated from field: string stop_loss_price = 11;
    */
   stopLossPrice = "";
 
   /**
-   * @generated from field: uint64 poolId = 13;
+   * @generated from field: uint64 poolId = 12;
    */
   poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: uint64 close_percentage = 13;
+   */
+  closePercentage = protoInt64.zero;
 
   constructor(data?: PartialMessage<PerpetualOrder>) {
     super();
@@ -282,16 +277,15 @@ export class PerpetualOrder extends Message<PerpetualOrder> {
     { no: 2, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "perpetual_order_type", kind: "enum", T: proto3.getEnumType(PerpetualOrderType) },
     { no: 4, name: "position", kind: "enum", T: proto3.getEnumType(PerpetualPosition) },
-    { no: 5, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
-    { no: 14, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "collateral", kind: "message", T: Coin },
-    { no: 7, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 9, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 10, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 11, name: "status", kind: "enum", T: proto3.getEnumType(Status) },
-    { no: 12, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 13, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 7, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 10, name: "status", kind: "enum", T: proto3.getEnumType(Status) },
+    { no: 11, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 13, name: "close_percentage", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualOrder {
@@ -369,6 +363,121 @@ export class PerpetualOrderExtraInfo extends Message<PerpetualOrderExtraInfo> {
 
   static equals(a: PerpetualOrderExtraInfo | PlainMessage<PerpetualOrderExtraInfo> | undefined, b: PerpetualOrderExtraInfo | PlainMessage<PerpetualOrderExtraInfo> | undefined): boolean {
     return proto3.util.equals(PerpetualOrderExtraInfo, a, b);
+  }
+}
+
+/**
+ * @generated from message elys.tradeshield.LegacyPerpetualOrder
+ */
+export class LegacyPerpetualOrder extends Message<LegacyPerpetualOrder> {
+  /**
+   * @generated from field: uint64 order_id = 1;
+   */
+  orderId = protoInt64.zero;
+
+  /**
+   * @generated from field: string owner_address = 2;
+   */
+  ownerAddress = "";
+
+  /**
+   * @generated from field: elys.tradeshield.PerpetualOrderType perpetual_order_type = 3;
+   */
+  perpetualOrderType = PerpetualOrderType.LIMITOPEN;
+
+  /**
+   * @generated from field: elys.tradeshield.PerpetualPosition position = 4;
+   */
+  position = PerpetualPosition.UNSPECIFIED;
+
+  /**
+   * @generated from field: elys.tradeshield.LegacyTriggerPriceV1 legacy_trigger_price_v1 = 5;
+   */
+  legacyTriggerPriceV1?: LegacyTriggerPriceV1;
+
+  /**
+   * @generated from field: string trigger_price = 14;
+   */
+  triggerPrice = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin collateral = 6;
+   */
+  collateral?: Coin;
+
+  /**
+   * @generated from field: string trading_asset = 7;
+   */
+  tradingAsset = "";
+
+  /**
+   * @generated from field: string leverage = 8;
+   */
+  leverage = "";
+
+  /**
+   * @generated from field: string take_profit_price = 9;
+   */
+  takeProfitPrice = "";
+
+  /**
+   * @generated from field: uint64 position_id = 10;
+   */
+  positionId = protoInt64.zero;
+
+  /**
+   * @generated from field: elys.tradeshield.Status status = 11;
+   */
+  status = Status.PENDING;
+
+  /**
+   * @generated from field: string stop_loss_price = 12;
+   */
+  stopLossPrice = "";
+
+  /**
+   * @generated from field: uint64 poolId = 13;
+   */
+  poolId = protoInt64.zero;
+
+  constructor(data?: PartialMessage<LegacyPerpetualOrder>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "elys.tradeshield.LegacyPerpetualOrder";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "order_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "owner_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "perpetual_order_type", kind: "enum", T: proto3.getEnumType(PerpetualOrderType) },
+    { no: 4, name: "position", kind: "enum", T: proto3.getEnumType(PerpetualPosition) },
+    { no: 5, name: "legacy_trigger_price_v1", kind: "message", T: LegacyTriggerPriceV1 },
+    { no: 14, name: "trigger_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "collateral", kind: "message", T: Coin },
+    { no: 7, name: "trading_asset", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 8, name: "leverage", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "take_profit_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "position_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 11, name: "status", kind: "enum", T: proto3.getEnumType(Status) },
+    { no: 12, name: "stop_loss_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "poolId", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): LegacyPerpetualOrder {
+    return new LegacyPerpetualOrder().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): LegacyPerpetualOrder {
+    return new LegacyPerpetualOrder().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): LegacyPerpetualOrder {
+    return new LegacyPerpetualOrder().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: LegacyPerpetualOrder | PlainMessage<LegacyPerpetualOrder> | undefined, b: LegacyPerpetualOrder | PlainMessage<LegacyPerpetualOrder> | undefined): boolean {
+    return proto3.util.equals(LegacyPerpetualOrder, a, b);
   }
 }
 

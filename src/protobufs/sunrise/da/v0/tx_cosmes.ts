@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgPublishData, MsgPublishDataResponse, MsgRegisterProofDeputy, MsgRegisterProofDeputyResponse, MsgSubmitInvalidity, MsgSubmitInvalidityResponse, MsgSubmitValidityProof, MsgSubmitValidityProofResponse, MsgUnregisterProofDeputy, MsgUnregisterProofDeputyResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgPublishData, MsgPublishDataResponse, MsgRegisterProofDeputy, MsgRegisterProofDeputyResponse, MsgSubmitInvalidity, MsgSubmitInvalidityResponse, MsgSubmitValidityProof, MsgSubmitValidityProofResponse, MsgUnregisterProofDeputy, MsgUnregisterProofDeputyResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgVerifyData, MsgVerifyDataResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "sunrise.da.v0.Msg";
 
@@ -78,5 +78,18 @@ export const MsgUnregisterProofDeputyService = {
   method: "UnregisterProofDeputy",
   Request: MsgUnregisterProofDeputy,
   Response: MsgUnregisterProofDeputyResponse,
+} as const;
+
+/**
+ * VerifyData triggers the verification and lifecycle management of DA data,
+ * which was previously handled in the EndBlocker. This can be called by anyone.
+ *
+ * @generated from rpc sunrise.da.v0.Msg.VerifyData
+ */
+export const MsgVerifyDataService = {
+  typeName: TYPE_NAME,
+  method: "VerifyData",
+  Request: MsgVerifyData,
+  Response: MsgVerifyDataResponse,
 } as const;
 

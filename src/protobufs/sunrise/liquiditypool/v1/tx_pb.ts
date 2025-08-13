@@ -610,9 +610,9 @@ export class MsgClaimRewards extends Message<MsgClaimRewards> {
  */
 export class MsgClaimRewardsResponse extends Message<MsgClaimRewardsResponse> {
   /**
-   * @generated from field: repeated cosmos.base.v1beta1.Coin claimed_fees = 1;
+   * @generated from field: repeated cosmos.base.v1beta1.Coin amount = 1;
    */
-  claimedFees: Coin[] = [];
+  amount: Coin[] = [];
 
   constructor(data?: PartialMessage<MsgClaimRewardsResponse>) {
     super();
@@ -622,7 +622,7 @@ export class MsgClaimRewardsResponse extends Message<MsgClaimRewardsResponse> {
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "sunrise.liquiditypool.v1.MsgClaimRewardsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "claimed_fees", kind: "message", T: Coin, repeated: true },
+    { no: 1, name: "amount", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgClaimRewardsResponse {

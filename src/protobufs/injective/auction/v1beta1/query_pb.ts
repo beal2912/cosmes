@@ -141,7 +141,7 @@ export class QueryCurrentAuctionBasketResponse extends Message<QueryCurrentAucti
   /**
    * auctionClosingTime describes auction close time for the round
    *
-   * @generated from field: int64 auctionClosingTime = 3;
+   * @generated from field: uint64 auctionClosingTime = 3;
    */
   auctionClosingTime = protoInt64.zero;
 
@@ -169,7 +169,7 @@ export class QueryCurrentAuctionBasketResponse extends Message<QueryCurrentAucti
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "amount", kind: "message", T: Coin, repeated: true },
     { no: 2, name: "auctionRound", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
-    { no: 3, name: "auctionClosingTime", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "auctionClosingTime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 4, name: "highestBidder", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "highestBidAmount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);

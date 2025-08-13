@@ -18,6 +18,11 @@ export class Params extends Message<Params> {
    */
   minFee?: Fee;
 
+  /**
+   * @generated from field: bool fee_enabled = 2;
+   */
+  feeEnabled = false;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -27,6 +32,7 @@ export class Params extends Message<Params> {
   static readonly typeName = "neutron.feerefunder.Params";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "min_fee", kind: "message", T: Fee },
+    { no: 2, name: "fee_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

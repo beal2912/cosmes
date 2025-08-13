@@ -15,6 +15,8 @@ import { Params } from "./auction_pb.js";
  */
 export class MsgBid extends Message<MsgBid> {
   /**
+   * the sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";

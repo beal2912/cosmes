@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { Params } from "./genesis_pb.js";
+import { Params } from "./params_pb.js";
 import { FeeToken } from "./feetoken_pb.js";
 import { SwapAmountInRoute } from "../../poolmanager/v1beta1/swap_route_pb.js";
 

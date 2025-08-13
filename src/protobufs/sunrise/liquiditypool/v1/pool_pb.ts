@@ -52,6 +52,11 @@ export class Pool extends Message<Pool> {
    */
   currentSqrtPrice = "";
 
+  /**
+   * @generated from field: string creator = 9;
+   */
+  creator = "";
+
   constructor(data?: PartialMessage<Pool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -68,6 +73,7 @@ export class Pool extends Message<Pool> {
     { no: 6, name: "current_tick", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 7, name: "current_tick_liquidity", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 8, name: "current_sqrt_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Pool {
