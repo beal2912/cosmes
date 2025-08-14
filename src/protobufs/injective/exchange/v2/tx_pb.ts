@@ -5493,3 +5493,87 @@ export class MsgAtomicMarketOrderFeeMultiplierScheduleResponse extends Message<M
   }
 }
 
+/**
+ * MsgSetDelegationTransferReceivers defines a message for setting delegation
+ * transfer receivers
+ *
+ * @generated from message injective.exchange.v2.MsgSetDelegationTransferReceivers
+ */
+export class MsgSetDelegationTransferReceivers extends Message<MsgSetDelegationTransferReceivers> {
+  /**
+   * the sender's Injective address (must be exchange admin)
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * list of receiver addresses to set as delegation transfer receivers
+   *
+   * @generated from field: repeated string receivers = 2;
+   */
+  receivers: string[] = [];
+
+  constructor(data?: PartialMessage<MsgSetDelegationTransferReceivers>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgSetDelegationTransferReceivers";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "receivers", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDelegationTransferReceivers {
+    return new MsgSetDelegationTransferReceivers().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceivers {
+    return new MsgSetDelegationTransferReceivers().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceivers {
+    return new MsgSetDelegationTransferReceivers().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetDelegationTransferReceivers | PlainMessage<MsgSetDelegationTransferReceivers> | undefined, b: MsgSetDelegationTransferReceivers | PlainMessage<MsgSetDelegationTransferReceivers> | undefined): boolean {
+    return proto3.util.equals(MsgSetDelegationTransferReceivers, a, b);
+  }
+}
+
+/**
+ * MsgSetDelegationTransferReceiversResponse defines the response for
+ * MsgSetDelegationTransferReceivers
+ *
+ * @generated from message injective.exchange.v2.MsgSetDelegationTransferReceiversResponse
+ */
+export class MsgSetDelegationTransferReceiversResponse extends Message<MsgSetDelegationTransferReceiversResponse> {
+  constructor(data?: PartialMessage<MsgSetDelegationTransferReceiversResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgSetDelegationTransferReceiversResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDelegationTransferReceiversResponse {
+    return new MsgSetDelegationTransferReceiversResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceiversResponse {
+    return new MsgSetDelegationTransferReceiversResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceiversResponse {
+    return new MsgSetDelegationTransferReceiversResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgSetDelegationTransferReceiversResponse | PlainMessage<MsgSetDelegationTransferReceiversResponse> | undefined, b: MsgSetDelegationTransferReceiversResponse | PlainMessage<MsgSetDelegationTransferReceiversResponse> | undefined): boolean {
+    return proto3.util.equals(MsgSetDelegationTransferReceiversResponse, a, b);
+  }
+}
+

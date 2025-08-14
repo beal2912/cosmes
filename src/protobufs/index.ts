@@ -2999,6 +2999,136 @@ export {
   Record as OsmosisAccumV1beta1Record,
 } from "./osmosis/accum/v1beta1/accum_pb.js";
 export {
+  MsgWithdrawProtocolFees as NobleSwapV1MsgWithdrawProtocolFees,
+  MsgWithdrawProtocolFeesResponse as NobleSwapV1MsgWithdrawProtocolFeesResponse,
+  MsgWithdrawRewards as NobleSwapV1MsgWithdrawRewards,
+  MsgWithdrawRewardsResponse as NobleSwapV1MsgWithdrawRewardsResponse,
+  MsgSwap as NobleSwapV1MsgSwap,
+  MsgSwapResponse as NobleSwapV1MsgSwapResponse,
+  MsgPauseByAlgorithm as NobleSwapV1MsgPauseByAlgorithm,
+  MsgPauseByAlgorithmResponse as NobleSwapV1MsgPauseByAlgorithmResponse,
+  MsgPauseByPoolIds as NobleSwapV1MsgPauseByPoolIds,
+  MsgPauseByPoolIdsResponse as NobleSwapV1MsgPauseByPoolIdsResponse,
+  MsgUnpauseByAlgorithm as NobleSwapV1MsgUnpauseByAlgorithm,
+  MsgUnpauseByAlgorithmResponse as NobleSwapV1MsgUnpauseByAlgorithmResponse,
+  MsgUnpauseByPoolIds as NobleSwapV1MsgUnpauseByPoolIds,
+  MsgUnpauseByPoolIdsResponse as NobleSwapV1MsgUnpauseByPoolIdsResponse,
+} from "./noble/swap/v1/tx_pb.js";
+export {
+  MsgSwapService as NobleSwapV1MsgSwapService,
+  MsgWithdrawProtocolFeesService as NobleSwapV1MsgWithdrawProtocolFeesService,
+  MsgWithdrawRewardsService as NobleSwapV1MsgWithdrawRewardsService,
+  MsgPauseByAlgorithmService as NobleSwapV1MsgPauseByAlgorithmService,
+  MsgPauseByPoolIdsService as NobleSwapV1MsgPauseByPoolIdsService,
+  MsgUnpauseByAlgorithmService as NobleSwapV1MsgUnpauseByAlgorithmService,
+  MsgUnpauseByPoolIdsService as NobleSwapV1MsgUnpauseByPoolIdsService,
+} from "./noble/swap/v1/tx_cosmes.js";
+export {
+  Route as NobleSwapV1Route,
+  Swap as NobleSwapV1Swap,
+} from "./noble/swap/v1/swap_pb.js";
+export {
+  Rate as NobleSwapV1Rate,
+} from "./noble/swap/v1/rate_pb.js";
+export {
+  QueryRates as NobleSwapV1QueryRates,
+  QueryRatesResponse as NobleSwapV1QueryRatesResponse,
+  QueryRate as NobleSwapV1QueryRate,
+  QueryRateResponse as NobleSwapV1QueryRateResponse,
+  QueryPaused as NobleSwapV1QueryPaused,
+  QueryPausedResponse as NobleSwapV1QueryPausedResponse,
+  QueryPools as NobleSwapV1QueryPools,
+  QueryPoolsResponse as NobleSwapV1QueryPoolsResponse,
+  QueryPool as NobleSwapV1QueryPool,
+  QueryPoolResponse as NobleSwapV1QueryPoolResponse,
+  QuerySimulateSwap as NobleSwapV1QuerySimulateSwap,
+} from "./noble/swap/v1/query_pb.js";
+export {
+  QueryPausedService as NobleSwapV1QueryPausedService,
+  QueryPoolsService as NobleSwapV1QueryPoolsService,
+  QueryPoolService as NobleSwapV1QueryPoolService,
+  QuerySimulateSwapService as NobleSwapV1QuerySimulateSwapService,
+  QueryRatesService as NobleSwapV1QueryRatesService,
+  QueryRateService as NobleSwapV1QueryRateService,
+} from "./noble/swap/v1/query_cosmes.js";
+export {
+  Pool as NobleSwapV1Pool,
+  PoolDetails as NobleSwapV1PoolDetails,
+} from "./noble/swap/v1/pool_pb.js";
+export {
+  GenesisState as NobleSwapV1GenesisState,
+} from "./noble/swap/v1/genesis_pb.js";
+export {
+  PoolsPaused as NobleSwapV1PoolsPaused,
+  PoolsUnpaused as NobleSwapV1PoolsUnpaused,
+  Swapped as NobleSwapV1Swapped,
+  WithdrawnProtocolFees as NobleSwapV1WithdrawnProtocolFees,
+  WithdrawnRewards as NobleSwapV1WithdrawnRewards,
+} from "./noble/swap/v1/events_pb.js";
+export {
+  Algorithm as NobleSwapV1Algorithm,
+} from "./noble/swap/v1/algorithm_pb.js";
+export {
+  MsgCreatePool as NobleSwapStableswapV1MsgCreatePool,
+  MsgCreatePoolResponse as NobleSwapStableswapV1MsgCreatePoolResponse,
+  MsgUpdatePool as NobleSwapStableswapV1MsgUpdatePool,
+  MsgUpdatePoolResponse as NobleSwapStableswapV1MsgUpdatePoolResponse,
+  MsgAddLiquidity as NobleSwapStableswapV1MsgAddLiquidity,
+  MsgAddLiquidityResponse as NobleSwapStableswapV1MsgAddLiquidityResponse,
+  MsgRemoveLiquidity as NobleSwapStableswapV1MsgRemoveLiquidity,
+  MsgRemoveLiquidityResponse as NobleSwapStableswapV1MsgRemoveLiquidityResponse,
+} from "./noble/swap/stableswap/v1/tx_pb.js";
+export {
+  MsgCreatePoolService as NobleSwapStableswapV1MsgCreatePoolService,
+  MsgUpdatePoolService as NobleSwapStableswapV1MsgUpdatePoolService,
+  MsgAddLiquidityService as NobleSwapStableswapV1MsgAddLiquidityService,
+  MsgRemoveLiquidityService as NobleSwapStableswapV1MsgRemoveLiquidityService,
+} from "./noble/swap/stableswap/v1/tx_cosmes.js";
+export {
+  QueryPositionsByProvider as NobleSwapStableswapV1QueryPositionsByProvider,
+  QueryPositionsByProviderResponse as NobleSwapStableswapV1QueryPositionsByProviderResponse,
+  QueryBondedPositionsByProvider as NobleSwapStableswapV1QueryBondedPositionsByProvider,
+  QueryBondedPositionsByProviderResponse as NobleSwapStableswapV1QueryBondedPositionsByProviderResponse,
+  QueryUnbondingPositionsByProvider as NobleSwapStableswapV1QueryUnbondingPositionsByProvider,
+  QueryUnbondingPositionsByProviderResponse as NobleSwapStableswapV1QueryUnbondingPositionsByProviderResponse,
+  QueryRewardsByProvider as NobleSwapStableswapV1QueryRewardsByProvider,
+  QueryRewardsByProviderResponse as NobleSwapStableswapV1QueryRewardsByProviderResponse,
+  QueryBondedPositionResponseEntry as NobleSwapStableswapV1QueryBondedPositionResponseEntry,
+  QueryUnbondingPositionResponseEntry as NobleSwapStableswapV1QueryUnbondingPositionResponseEntry,
+  QueryRewardsResponseEntry as NobleSwapStableswapV1QueryRewardsResponseEntry,
+} from "./noble/swap/stableswap/v1/query_pb.js";
+export {
+  QueryPositionsByProviderService as NobleSwapStableswapV1QueryPositionsByProviderService,
+  QueryBondedPositionsByProviderService as NobleSwapStableswapV1QueryBondedPositionsByProviderService,
+  QueryUnbondingPositionsByProviderService as NobleSwapStableswapV1QueryUnbondingPositionsByProviderService,
+  QueryRewardsByProviderService as NobleSwapStableswapV1QueryRewardsByProviderService,
+} from "./noble/swap/stableswap/v1/query_cosmes.js";
+export {
+  BondedPosition as NobleSwapStableswapV1BondedPosition,
+  UnbondingPosition as NobleSwapStableswapV1UnbondingPosition,
+} from "./noble/swap/stableswap/v1/position_pb.js";
+export {
+  Pool as NobleSwapStableswapV1Pool,
+} from "./noble/swap/stableswap/v1/pool_pb.js";
+export {
+  GenesisState as NobleSwapStableswapV1GenesisState,
+  BondedPositionEntry as NobleSwapStableswapV1BondedPositionEntry,
+  UnbondingPositionEntry as NobleSwapStableswapV1UnbondingPositionEntry,
+  PoolsTotalUnbondingSharesEntry as NobleSwapStableswapV1PoolsTotalUnbondingSharesEntry,
+  UsersTotalBondedSharesEntry as NobleSwapStableswapV1UsersTotalBondedSharesEntry,
+  UsersTotalUnbondingSharesEntry as NobleSwapStableswapV1UsersTotalUnbondingSharesEntry,
+} from "./noble/swap/stableswap/v1/genesis_pb.js";
+export {
+  PoolCreated as NobleSwapStableswapV1PoolCreated,
+  PoolUpdated as NobleSwapStableswapV1PoolUpdated,
+  LiquidityAdded as NobleSwapStableswapV1LiquidityAdded,
+  LiquidityRemoved as NobleSwapStableswapV1LiquidityRemoved,
+} from "./noble/swap/stableswap/v1/events_pb.js";
+export {
+  Module as NobleSwapModuleV1Module,
+  StableSwap as NobleSwapModuleV1StableSwap,
+} from "./noble/swap/module/v1/module_pb.js";
+export {
   VaultType as NobleDollarVaultsV1VaultType,
   PausedType as NobleDollarVaultsV1PausedType,
   Reward as NobleDollarVaultsV1Reward,
@@ -5779,6 +5909,8 @@ export {
   MsgFeeDiscountResponse as InjectiveExchangeV2MsgFeeDiscountResponse,
   MsgAtomicMarketOrderFeeMultiplierSchedule as InjectiveExchangeV2MsgAtomicMarketOrderFeeMultiplierSchedule,
   MsgAtomicMarketOrderFeeMultiplierScheduleResponse as InjectiveExchangeV2MsgAtomicMarketOrderFeeMultiplierScheduleResponse,
+  MsgSetDelegationTransferReceivers as InjectiveExchangeV2MsgSetDelegationTransferReceivers,
+  MsgSetDelegationTransferReceiversResponse as InjectiveExchangeV2MsgSetDelegationTransferReceiversResponse,
 } from "./injective/exchange/v2/tx_pb.js";
 export {
   MsgDepositService as InjectiveExchangeV2MsgDepositService,
@@ -5832,6 +5964,7 @@ export {
   MsgUpdateTradingRewardPendingPointsService as InjectiveExchangeV2MsgUpdateTradingRewardPendingPointsService,
   MsgUpdateFeeDiscountService as InjectiveExchangeV2MsgUpdateFeeDiscountService,
   MsgUpdateAtomicMarketOrderFeeMultiplierScheduleService as InjectiveExchangeV2MsgUpdateAtomicMarketOrderFeeMultiplierScheduleService,
+  MsgSetDelegationTransferReceiversService as InjectiveExchangeV2MsgSetDelegationTransferReceiversService,
 } from "./injective/exchange/v2/tx_cosmes.js";
 export {
   OrderSide as InjectiveExchangeV2OrderSide,

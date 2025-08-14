@@ -304,6 +304,14 @@ export class Params extends Message<Params> {
    */
   defaultReduceMarginRatio = "";
 
+  /**
+   * human_readable_upgrade_block_height defines the block height at which the
+   * human readable upgrade took place
+   *
+   * @generated from field: int64 human_readable_upgrade_block_height = 32;
+   */
+  humanReadableUpgradeBlockHeight = protoInt64.zero;
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -343,6 +351,7 @@ export class Params extends Message<Params> {
     { no: 29, name: "fixed_gas_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 30, name: "emit_legacy_version_events", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 31, name: "default_reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 32, name: "human_readable_upgrade_block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

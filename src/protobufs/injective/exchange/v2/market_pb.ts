@@ -1040,8 +1040,9 @@ export class PerpetualMarketFunding extends Message<PerpetualMarketFunding> {
   cumulativeFunding = "";
 
   /**
-   * cumulative_price defines the cumulative price for the current hour up to
-   * the last timestamp (in human readable format)
+   * cumulative_price defines the running time-integral of the perp premium
+   * ((VWAP - mark_price) / mark_price) i.e., sum(premium * seconds)
+   * used to compute the interval’s average premium for funding
    *
    * @generated from field: string cumulative_price = 2;
    */
