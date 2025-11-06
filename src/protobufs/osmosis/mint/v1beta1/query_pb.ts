@@ -157,3 +157,78 @@ export class QueryEpochProvisionsResponse extends Message<QueryEpochProvisionsRe
   }
 }
 
+/**
+ * QueryInflationRequest is the request type for the Query/Inflation RPC method.
+ *
+ * @generated from message osmosis.mint.v1beta1.QueryInflationRequest
+ */
+export class QueryInflationRequest extends Message<QueryInflationRequest> {
+  constructor(data?: PartialMessage<QueryInflationRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.mint.v1beta1.QueryInflationRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryInflationRequest {
+    return new QueryInflationRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryInflationRequest {
+    return new QueryInflationRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryInflationRequest {
+    return new QueryInflationRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryInflationRequest | PlainMessage<QueryInflationRequest> | undefined, b: QueryInflationRequest | PlainMessage<QueryInflationRequest> | undefined): boolean {
+    return proto3.util.equals(QueryInflationRequest, a, b);
+  }
+}
+
+/**
+ * QueryInflationResponse is the response type for the Query/Inflation RPC
+ * method.
+ *
+ * @generated from message osmosis.mint.v1beta1.QueryInflationResponse
+ */
+export class QueryInflationResponse extends Message<QueryInflationResponse> {
+  /**
+   * inflation is the current minting inflation value.
+   *
+   * @generated from field: bytes inflation = 1;
+   */
+  inflation = new Uint8Array(0);
+
+  constructor(data?: PartialMessage<QueryInflationResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "osmosis.mint.v1beta1.QueryInflationResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "inflation", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryInflationResponse {
+    return new QueryInflationResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryInflationResponse {
+    return new QueryInflationResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryInflationResponse {
+    return new QueryInflationResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryInflationResponse | PlainMessage<QueryInflationResponse> | undefined, b: QueryInflationResponse | PlainMessage<QueryInflationResponse> | undefined): boolean {
+    return proto3.util.equals(QueryInflationResponse, a, b);
+  }
+}
+

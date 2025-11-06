@@ -13,7 +13,7 @@ export type ChainRegistryChainInfo1 = {
   [k: string]: unknown | undefined;
 };
 /**
- * Detailed version identifier (e.g., 'v1.0.0-a1s2f43g').
+ * Git Upgrade Tag
  */
 export type Tag = string;
 /**
@@ -26,7 +26,7 @@ export type Version = string;
 export type Repo = string;
 
 export interface ChainRegistryChainInfo2 {
-  $schema?: string;
+  $schema: string;
   chain_name: string;
   /**
    * The 'type' of chain as the corresponding CAIP-2 Namespace value. E.G., 'cosmos' or 'eip155'. Namespaces cna be found here: https://github.com/ChainAgnostic/namespaces/tree/main.
@@ -56,7 +56,7 @@ export interface ChainRegistryChainInfo2 {
   pre_fork_chain_name?: string;
   pretty_name?: string;
   website?: string;
-  status?: "live" | "upcoming" | "killed";
+  status: "live" | "upcoming" | "killed";
   network_type?: "mainnet" | "testnet" | "devnet";
   /**
    * The default prefix for the human-readable part of addresses that identifies the coin type. Must be registered with SLIP-0173. E.g., 'cosmos'
@@ -193,7 +193,7 @@ export interface Sdk {
   tag?: Tag;
 }
 export interface Consensus {
-  type: "tendermint" | "cometbft" | "sei-tendermint";
+  type: "tendermint" | "cometbft" | "sei-tendermint" | "cometbls";
   version?: Version;
   repo?: Repo;
   tag?: Tag;

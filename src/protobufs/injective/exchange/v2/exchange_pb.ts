@@ -305,12 +305,30 @@ export class Params extends Message<Params> {
   defaultReduceMarginRatio = "";
 
   /**
-   * human_readable_upgrade_block_height defines the block height at which the
-   * human readable upgrade took place
+   * DO NOT USE THIS FIELD. It was introduced for a temporary bug fix.
    *
-   * @generated from field: int64 human_readable_upgrade_block_height = 32;
+   * @generated from field: int64 human_readable_upgrade_block_height = 32 [deprecated = true];
+   * @deprecated
    */
   humanReadableUpgradeBlockHeight = protoInt64.zero;
+
+  /**
+   * post_only_mode_blocks_amount defines the amount of blocks the post only
+   * mode will be enabled
+   *
+   * @generated from field: uint64 post_only_mode_blocks_amount = 33;
+   */
+  postOnlyModeBlocksAmount = protoInt64.zero;
+
+  /**
+   * min_post_only_mode_downtime_duration defines the minimum downtime duration
+   * that must pass before the post only mode is automatically enabled. The
+   * accepted values are the Downtime enum values from the downtime_duration
+   * module
+   *
+   * @generated from field: string min_post_only_mode_downtime_duration = 34;
+   */
+  minPostOnlyModeDowntimeDuration = "";
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -352,6 +370,8 @@ export class Params extends Message<Params> {
     { no: 30, name: "emit_legacy_version_events", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 31, name: "default_reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 32, name: "human_readable_upgrade_block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 33, name: "post_only_mode_blocks_amount", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 34, name: "min_post_only_mode_downtime_duration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

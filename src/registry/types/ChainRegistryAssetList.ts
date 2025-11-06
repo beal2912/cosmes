@@ -9,7 +9,7 @@
  * Asset lists are a similar mechanism to allow frontends and other UIs to fetch metadata associated with Cosmos SDK denoms, especially for assets sent over IBC.
  */
 export interface ChainRegistryAssetList {
-  $schema?: string;
+  $schema: string;
   chain_name: string;
   assets: Asset[];
 }
@@ -89,7 +89,6 @@ export interface Asset {
       theme?: {
         circle?: boolean;
         dark_mode?: boolean;
-        monochrome?: boolean;
       };
     },
     ...{
@@ -99,7 +98,6 @@ export interface Asset {
       theme?: {
         circle?: boolean;
         dark_mode?: boolean;
-        monochrome?: boolean;
       };
     }[]
   ];
@@ -110,7 +108,10 @@ export interface Asset {
   keywords?: string[];
   socials?: {
     website?: string;
-    twitter?: string;
+    /**
+     * X (formerly Twitter)
+     */
+    x?: string;
     telegram?: string;
     discord?: string;
     github?: string;

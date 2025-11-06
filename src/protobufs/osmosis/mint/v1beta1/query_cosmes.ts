@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { QueryEpochProvisionsRequest, QueryEpochProvisionsResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
+import { QueryEpochProvisionsRequest, QueryEpochProvisionsResponse, QueryInflationRequest, QueryInflationResponse, QueryParamsRequest, QueryParamsResponse } from "./query_pb.js";
 
 const TYPE_NAME = "osmosis.mint.v1beta1.Query";
 
@@ -29,5 +29,17 @@ export const QueryEpochProvisionsService = {
   method: "EpochProvisions",
   Request: QueryEpochProvisionsRequest,
   Response: QueryEpochProvisionsResponse,
+} as const;
+
+/**
+ * Inflation returns the current minting inflation value.
+ *
+ * @generated from rpc osmosis.mint.v1beta1.Query.Inflation
+ */
+export const QueryInflationService = {
+  typeName: TYPE_NAME,
+  method: "Inflation",
+  Request: QueryInflationRequest,
+  Response: QueryInflationResponse,
 } as const;
 

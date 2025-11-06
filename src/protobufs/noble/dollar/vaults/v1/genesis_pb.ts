@@ -55,6 +55,13 @@ export class GenesisState extends Message<GenesisState> {
    */
   seasonOneEnded = false;
 
+  /**
+   * season_two_yield_collector defines the yield collector during Vaults Season Two.
+   *
+   * @generated from field: string season_two_yield_collector = 8;
+   */
+  seasonTwoYieldCollector = "";
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -69,6 +76,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 5, name: "paused", kind: "enum", T: proto3.getEnumType(PausedType) },
     { no: 6, name: "stats", kind: "message", T: Stats },
     { no: 7, name: "season_one_ended", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 8, name: "season_two_yield_collector", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

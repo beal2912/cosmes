@@ -44,14 +44,16 @@ export class Module extends Message<Module> {
   /**
    * vaults_season_one_end_timestamp defines the Unix timestamp in seconds when Vaults Season One ends.
    *
-   * @generated from field: int64 vaults_season_one_end_timestamp = 5;
+   * @generated from field: int64 vaults_season_one_end_timestamp = 5 [deprecated = true];
+   * @deprecated
    */
   vaultsSeasonOneEndTimestamp = protoInt64.zero;
 
   /**
    * vaults_season_two_yield_collector defines the address to collect Staked vault yield during Season Two.
    *
-   * @generated from field: string vaults_season_two_yield_collector = 6;
+   * @generated from field: string vaults_season_two_yield_collector = 6 [deprecated = true];
+   * @deprecated
    */
   vaultsSeasonTwoYieldCollector = "";
 

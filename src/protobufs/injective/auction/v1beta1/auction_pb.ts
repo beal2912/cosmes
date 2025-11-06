@@ -33,6 +33,15 @@ export class Params extends Message<Params> {
    */
   injBasketMaxCap = "";
 
+  /**
+   * bidders_whitelist defines the list of addresses that are allowed to bid
+   * if empty, any address can bid; if populated, only whitelisted addresses can
+   * bid
+   *
+   * @generated from field: repeated string bidders_whitelist = 4;
+   */
+  biddersWhitelist: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -44,6 +53,7 @@ export class Params extends Message<Params> {
     { no: 1, name: "auction_period", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "min_next_bid_increment_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "inj_basket_max_cap", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "bidders_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

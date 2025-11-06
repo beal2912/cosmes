@@ -323,17 +323,17 @@ export class ContractInfo extends Message<ContractInfo> {
   ibcPortId = "";
 
   /**
-   * @generated from field: string ibc2_port_id = 7;
-   */
-  ibc2PortId = "";
-
-  /**
    * Extension is an extension point to store custom metadata within the
    * persistence model.
    *
-   * @generated from field: google.protobuf.Any extension = 8;
+   * @generated from field: google.protobuf.Any extension = 7;
    */
   extension?: Any;
+
+  /**
+   * @generated from field: string ibc2_port_id = 8;
+   */
+  ibc2PortId = "";
 
   constructor(data?: PartialMessage<ContractInfo>) {
     super();
@@ -349,8 +349,8 @@ export class ContractInfo extends Message<ContractInfo> {
     { no: 4, name: "label", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 5, name: "created", kind: "message", T: AbsoluteTxPosition },
     { no: 6, name: "ibc_port_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 7, name: "ibc2_port_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "extension", kind: "message", T: Any },
+    { no: 7, name: "extension", kind: "message", T: Any },
+    { no: 8, name: "ibc2_port_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ContractInfo {

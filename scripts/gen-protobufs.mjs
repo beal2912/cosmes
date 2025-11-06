@@ -136,7 +136,11 @@ const REPOS = [
     tag: "master",
     paths: ["proto"],
   },
-  
+  {
+    repo: "atomone-hub/atomone",
+    tag: "main",
+    paths: ["proto"],
+  },
 ];
 /**
  * TODO: Add more repos here when necessary.

@@ -17,6 +17,14 @@ export class Params extends Message<Params> {
    */
   whitelistedFeeTokenSetters: string[] = [];
 
+  /**
+   * fee_swap_intermediary_denom_list is a list of denoms that can be used as
+   * intermediary denoms for multi-hop swaps when swapping non-native fee tokens
+   *
+   * @generated from field: repeated string fee_swap_intermediary_denom_list = 2;
+   */
+  feeSwapIntermediaryDenomList: string[] = [];
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -26,6 +34,7 @@ export class Params extends Message<Params> {
   static readonly typeName = "osmosis.txfees.v1beta1.Params";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "whitelisted_fee_token_setters", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 2, name: "fee_swap_intermediary_denom_list", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

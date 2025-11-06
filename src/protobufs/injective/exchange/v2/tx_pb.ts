@@ -5577,3 +5577,77 @@ export class MsgSetDelegationTransferReceiversResponse extends Message<MsgSetDel
   }
 }
 
+/**
+ * MsgCancelPostOnlyMode defines a message for canceling post-only mode
+ *
+ * @generated from message injective.exchange.v2.MsgCancelPostOnlyMode
+ */
+export class MsgCancelPostOnlyMode extends Message<MsgCancelPostOnlyMode> {
+  /**
+   * the sender's Injective address
+   *
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  constructor(data?: PartialMessage<MsgCancelPostOnlyMode>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgCancelPostOnlyMode";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelPostOnlyMode {
+    return new MsgCancelPostOnlyMode().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelPostOnlyMode {
+    return new MsgCancelPostOnlyMode().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelPostOnlyMode {
+    return new MsgCancelPostOnlyMode().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelPostOnlyMode | PlainMessage<MsgCancelPostOnlyMode> | undefined, b: MsgCancelPostOnlyMode | PlainMessage<MsgCancelPostOnlyMode> | undefined): boolean {
+    return proto3.util.equals(MsgCancelPostOnlyMode, a, b);
+  }
+}
+
+/**
+ * MsgCancelPostOnlyModeResponse defines the response for MsgCancelPostOnlyMode
+ *
+ * @generated from message injective.exchange.v2.MsgCancelPostOnlyModeResponse
+ */
+export class MsgCancelPostOnlyModeResponse extends Message<MsgCancelPostOnlyModeResponse> {
+  constructor(data?: PartialMessage<MsgCancelPostOnlyModeResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgCancelPostOnlyModeResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCancelPostOnlyModeResponse {
+    return new MsgCancelPostOnlyModeResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCancelPostOnlyModeResponse {
+    return new MsgCancelPostOnlyModeResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCancelPostOnlyModeResponse {
+    return new MsgCancelPostOnlyModeResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCancelPostOnlyModeResponse | PlainMessage<MsgCancelPostOnlyModeResponse> | undefined, b: MsgCancelPostOnlyModeResponse | PlainMessage<MsgCancelPostOnlyModeResponse> | undefined): boolean {
+    return proto3.util.equals(MsgCancelPostOnlyModeResponse, a, b);
+  }
+}
+

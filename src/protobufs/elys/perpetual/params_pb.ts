@@ -157,6 +157,16 @@ export class Params extends Message<Params> {
    */
   minimumFundingRate = "";
 
+  /**
+   * @generated from field: string second_liquidation_trigger_ratio = 26;
+   */
+  secondLiquidationTriggerRatio = "";
+
+  /**
+   * @generated from field: string first_liquidation_closing_ratio = 27;
+   */
+  firstLiquidationClosingRatio = "";
+
   constructor(data?: PartialMessage<Params>) {
     super();
     proto3.util.initPartial(data, this);
@@ -190,6 +200,8 @@ export class Params extends Message<Params> {
     { no: 23, name: "exit_buffer", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 24, name: "taker_fee", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 25, name: "minimum_funding_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 26, name: "second_liquidation_trigger_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 27, name: "first_liquidation_closing_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

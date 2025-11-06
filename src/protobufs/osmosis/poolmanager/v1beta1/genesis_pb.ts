@@ -234,6 +234,16 @@ export class TakerFeeParams extends Message<TakerFeeParams> {
    */
   communityPoolDenomWhitelist: string[] = [];
 
+  /**
+   * daily_staking_rewards_smoothing_factor is the number of days over which
+   * staking rewards from taker fees are smoothed. A value of 1 means no
+   * smoothing. Staking rewards are accumulated in a buffer and distributed as
+   * (buffer_balance / daily_staking_rewards_smoothing_factor) per day epoch.
+   *
+   * @generated from field: uint64 daily_staking_rewards_smoothing_factor = 8;
+   */
+  dailyStakingRewardsSmoothingFactor = protoInt64.zero;
+
   constructor(data?: PartialMessage<TakerFeeParams>) {
     super();
     proto3.util.initPartial(data, this);
@@ -249,6 +259,7 @@ export class TakerFeeParams extends Message<TakerFeeParams> {
     { no: 5, name: "community_pool_denom_to_swap_non_whitelisted_assets_to", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 6, name: "reduced_fee_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 7, name: "community_pool_denom_whitelist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 8, name: "daily_staking_rewards_smoothing_factor", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TakerFeeParams {
@@ -285,6 +296,11 @@ export class TakerFeeDistributionPercentage extends Message<TakerFeeDistribution
    */
   communityPool = "";
 
+  /**
+   * @generated from field: string burn = 3;
+   */
+  burn = "";
+
   constructor(data?: PartialMessage<TakerFeeDistributionPercentage>) {
     super();
     proto3.util.initPartial(data, this);
@@ -295,6 +311,7 @@ export class TakerFeeDistributionPercentage extends Message<TakerFeeDistribution
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "staking_rewards", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "community_pool", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "burn", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TakerFeeDistributionPercentage {
@@ -333,6 +350,11 @@ export class TakerFeesTracker extends Message<TakerFeesTracker> {
    */
   heightAccountingStartsFrom = protoInt64.zero;
 
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin taker_fees_to_burn = 4;
+   */
+  takerFeesToBurn: Coin[] = [];
+
   constructor(data?: PartialMessage<TakerFeesTracker>) {
     super();
     proto3.util.initPartial(data, this);
@@ -344,6 +366,7 @@ export class TakerFeesTracker extends Message<TakerFeesTracker> {
     { no: 1, name: "taker_fees_to_stakers", kind: "message", T: Coin, repeated: true },
     { no: 2, name: "taker_fees_to_community_pool", kind: "message", T: Coin, repeated: true },
     { no: 3, name: "height_accounting_starts_from", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 4, name: "taker_fees_to_burn", kind: "message", T: Coin, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): TakerFeesTracker {

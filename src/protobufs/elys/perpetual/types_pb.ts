@@ -156,6 +156,11 @@ export class MTP extends Message<MTP> {
    */
   lastFundingCalcBlock = protoInt64.zero;
 
+  /**
+   * @generated from field: bool partial_liquidation_done = 26;
+   */
+  partialLiquidationDone = false;
+
   constructor(data?: PartialMessage<MTP>) {
     super();
     proto3.util.initPartial(data, this);
@@ -188,6 +193,7 @@ export class MTP extends Message<MTP> {
     { no: 23, name: "last_interest_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 24, name: "last_funding_calc_time", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 25, name: "last_funding_calc_block", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 26, name: "partial_liquidation_done", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MTP {
