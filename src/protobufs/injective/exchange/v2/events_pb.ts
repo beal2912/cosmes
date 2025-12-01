@@ -2042,6 +2042,11 @@ export class EventTriggerConditionalMarketOrderFailed extends Message<EventTrigg
    */
   triggerErr = "";
 
+  /**
+   * @generated from field: string cid = 6;
+   */
+  cid = "";
+
   constructor(data?: PartialMessage<EventTriggerConditionalMarketOrderFailed>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2055,6 +2060,7 @@ export class EventTriggerConditionalMarketOrderFailed extends Message<EventTrigg
     { no: 3, name: "mark_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "order_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 5, name: "trigger_err", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventTriggerConditionalMarketOrderFailed {
@@ -2103,6 +2109,11 @@ export class EventTriggerConditionalLimitOrderFailed extends Message<EventTrigge
    */
   triggerErr = "";
 
+  /**
+   * @generated from field: string cid = 6;
+   */
+  cid = "";
+
   constructor(data?: PartialMessage<EventTriggerConditionalLimitOrderFailed>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2116,6 +2127,7 @@ export class EventTriggerConditionalLimitOrderFailed extends Message<EventTrigge
     { no: 3, name: "mark_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "order_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 5, name: "trigger_err", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventTriggerConditionalLimitOrderFailed {

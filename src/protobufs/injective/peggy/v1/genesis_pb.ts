@@ -10,6 +10,7 @@ import { ERC20ToDenom, Valset } from "./types_pb.js";
 import { MsgConfirmBatch, MsgSetOrchestratorAddresses, MsgValsetConfirm } from "./msgs_pb.js";
 import { OutgoingTransferTx, OutgoingTxBatch } from "./batch_pb.js";
 import { Attestation } from "./attestation_pb.js";
+import { RateLimit } from "./rate_limit_pb.js";
 
 /**
  * GenesisState struct
@@ -92,6 +93,11 @@ export class GenesisState extends Message<GenesisState> {
    */
   ethereumBlacklist: string[] = [];
 
+  /**
+   * @generated from field: repeated injective.peggy.v1.RateLimit rate_limits = 16;
+   */
+  rateLimits: RateLimit[] = [];
+
   constructor(data?: PartialMessage<GenesisState>) {
     super();
     proto3.util.initPartial(data, this);
@@ -115,6 +121,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 13, name: "last_outgoing_pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 14, name: "last_observed_valset", kind: "message", T: Valset },
     { no: 15, name: "ethereum_blacklist", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 16, name: "rate_limits", kind: "message", T: RateLimit, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenesisState {

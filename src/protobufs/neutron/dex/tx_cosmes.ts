@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgCancelLimitOrder, MsgCancelLimitOrderResponse, MsgDeposit, MsgDepositResponse, MsgMultiHopSwap, MsgMultiHopSwapResponse, MsgPlaceLimitOrder, MsgPlaceLimitOrderResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgWithdrawal, MsgWithdrawalResponse, MsgWithdrawFilledLimitOrder, MsgWithdrawFilledLimitOrderResponse } from "./tx_pb.js";
+import { MsgCancelLimitOrder, MsgCancelLimitOrderResponse, MsgDeposit, MsgDepositResponse, MsgMultiHopSwap, MsgMultiHopSwapResponse, MsgPlaceLimitOrder, MsgPlaceLimitOrderResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgWithdrawal, MsgWithdrawalResponse, MsgWithdrawalWithShares, MsgWithdrawFilledLimitOrder, MsgWithdrawFilledLimitOrderResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "neutron.dex.Msg";
 
@@ -24,6 +24,16 @@ export const MsgWithdrawalService = {
   typeName: TYPE_NAME,
   method: "Withdrawal",
   Request: MsgWithdrawal,
+  Response: MsgWithdrawalResponse,
+} as const;
+
+/**
+ * @generated from rpc neutron.dex.Msg.WithdrawalWithShares
+ */
+export const MsgWithdrawalWithSharesService = {
+  typeName: TYPE_NAME,
+  method: "WithdrawalWithShares",
+  Request: MsgWithdrawalWithShares,
   Response: MsgWithdrawalResponse,
 } as const;
 

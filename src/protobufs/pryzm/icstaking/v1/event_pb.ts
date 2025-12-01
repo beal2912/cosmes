@@ -472,6 +472,79 @@ export class EventRedeemUnstaked extends Message<EventRedeemUnstaked> {
 }
 
 /**
+ * @generated from message pryzm.icstaking.v1.EventRedeemDelisted
+ */
+export class EventRedeemDelisted extends Message<EventRedeemDelisted> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string host_chain = 2;
+   */
+  hostChain = "";
+
+  /**
+   * @generated from field: string transfer_channel = 3;
+   */
+  transferChannel = "";
+
+  /**
+   * @generated from field: uint64 epoch = 4;
+   */
+  epoch = protoInt64.zero;
+
+  /**
+   * @generated from field: string c_amount = 5;
+   */
+  cAmount = "";
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 6;
+   */
+  amount?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin fee = 7;
+   */
+  fee?: Coin;
+
+  constructor(data?: PartialMessage<EventRedeemDelisted>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.EventRedeemDelisted";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "host_chain", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "transfer_channel", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "epoch", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 5, name: "c_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "amount", kind: "message", T: Coin },
+    { no: 7, name: "fee", kind: "message", T: Coin },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventRedeemDelisted {
+    return new EventRedeemDelisted().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventRedeemDelisted {
+    return new EventRedeemDelisted().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventRedeemDelisted {
+    return new EventRedeemDelisted().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventRedeemDelisted | PlainMessage<EventRedeemDelisted> | undefined, b: EventRedeemDelisted | PlainMessage<EventRedeemDelisted> | undefined): boolean {
+    return proto3.util.equals(EventRedeemDelisted, a, b);
+  }
+}
+
+/**
  * @generated from message pryzm.icstaking.v1.EventInstantUnstake
  */
 export class EventInstantUnstake extends Message<EventInstantUnstake> {

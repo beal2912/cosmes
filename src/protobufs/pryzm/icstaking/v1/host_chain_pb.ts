@@ -224,6 +224,11 @@ export class HostChain extends Message<HostChain> {
    */
   allowLsmShares = false;
 
+  /**
+   * @generated from field: bool delisted = 9;
+   */
+  delisted = false;
+
   constructor(data?: PartialMessage<HostChain>) {
     super();
     proto3.util.initPartial(data, this);
@@ -240,6 +245,7 @@ export class HostChain extends Message<HostChain> {
     { no: 6, name: "params", kind: "message", T: StakingParams },
     { no: 7, name: "validators", kind: "message", T: Validator, repeated: true },
     { no: 8, name: "allow_lsm_shares", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 9, name: "delisted", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): HostChain {

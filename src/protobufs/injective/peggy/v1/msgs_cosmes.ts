@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgBlacklistEthereumAddresses, MsgBlacklistEthereumAddressesResponse, MsgCancelSendToEth, MsgCancelSendToEthResponse, MsgConfirmBatch, MsgConfirmBatchResponse, MsgDepositClaim, MsgDepositClaimResponse, MsgERC20DeployedClaim, MsgERC20DeployedClaimResponse, MsgRequestBatch, MsgRequestBatchResponse, MsgRevokeEthereumBlacklist, MsgRevokeEthereumBlacklistResponse, MsgSendToEth, MsgSendToEthResponse, MsgSetOrchestratorAddresses, MsgSetOrchestratorAddressesResponse, MsgSubmitBadSignatureEvidence, MsgSubmitBadSignatureEvidenceResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgValsetConfirm, MsgValsetConfirmResponse, MsgValsetUpdatedClaim, MsgValsetUpdatedClaimResponse, MsgWithdrawClaim, MsgWithdrawClaimResponse } from "./msgs_pb.js";
+import { MsgBlacklistEthereumAddresses, MsgBlacklistEthereumAddressesResponse, MsgCancelSendToEth, MsgCancelSendToEthResponse, MsgConfirmBatch, MsgConfirmBatchResponse, MsgCreateRateLimit, MsgCreateRateLimitResponse, MsgDepositClaim, MsgDepositClaimResponse, MsgERC20DeployedClaim, MsgERC20DeployedClaimResponse, MsgRemoveRateLimit, MsgRemoveRateLimitResponse, MsgRequestBatch, MsgRequestBatchResponse, MsgRevokeEthereumBlacklist, MsgRevokeEthereumBlacklistResponse, MsgSendToEth, MsgSendToEthResponse, MsgSetOrchestratorAddresses, MsgSetOrchestratorAddressesResponse, MsgSubmitBadSignatureEvidence, MsgSubmitBadSignatureEvidenceResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgUpdateRateLimit, MsgUpdateRateLimitResponse, MsgValsetConfirm, MsgValsetConfirmResponse, MsgValsetUpdatedClaim, MsgValsetUpdatedClaimResponse, MsgWithdrawClaim, MsgWithdrawClaimResponse } from "./msgs_pb.js";
 
 const TYPE_NAME = "injective.peggy.v1.Msg";
 
@@ -150,5 +150,43 @@ export const MsgRevokeEthereumBlacklistService = {
   method: "RevokeEthereumBlacklist",
   Request: MsgRevokeEthereumBlacklist,
   Response: MsgRevokeEthereumBlacklistResponse,
+} as const;
+
+/**
+ *  CreateRateLimit imposes a (notional) limit on withdrawals for a particular
+ *  Peggy asset
+ *
+ * @generated from rpc injective.peggy.v1.Msg.CreateRateLimit
+ */
+export const MsgCreateRateLimitService = {
+  typeName: TYPE_NAME,
+  method: "CreateRateLimit",
+  Request: MsgCreateRateLimit,
+  Response: MsgCreateRateLimitResponse,
+} as const;
+
+/**
+ *  UpdateRateLimit updates the rate limit's metadata for a particular Peggy
+ *  asset
+ *
+ * @generated from rpc injective.peggy.v1.Msg.UpdateRateLimit
+ */
+export const MsgUpdateRateLimitService = {
+  typeName: TYPE_NAME,
+  method: "UpdateRateLimit",
+  Request: MsgUpdateRateLimit,
+  Response: MsgUpdateRateLimitResponse,
+} as const;
+
+/**
+ *  RemoveRateLimit lifts the rate limit for a particular Peggy asset
+ *
+ * @generated from rpc injective.peggy.v1.Msg.RemoveRateLimit
+ */
+export const MsgRemoveRateLimitService = {
+  typeName: TYPE_NAME,
+  method: "RemoveRateLimit",
+  Request: MsgRemoveRateLimit,
+  Response: MsgRemoveRateLimitResponse,
 } as const;
 

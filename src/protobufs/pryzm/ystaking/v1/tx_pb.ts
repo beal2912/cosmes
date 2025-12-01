@@ -322,6 +322,11 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
    */
   fee?: Coin;
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin transferred_y_amount = 3;
+   */
+  transferredYAmount?: Coin;
+
   constructor(data?: PartialMessage<MsgExitPoolResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -332,6 +337,7 @@ export class MsgExitPoolResponse extends Message<MsgExitPoolResponse> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "accrued_reward", kind: "message", T: Coin },
     { no: 2, name: "fee", kind: "message", T: Coin },
+    { no: 3, name: "transferred_y_amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgExitPoolResponse {

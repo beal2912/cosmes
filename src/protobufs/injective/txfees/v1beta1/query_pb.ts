@@ -12,6 +12,8 @@ import { Params } from "./txfees_pb.js";
  */
 export class EipBaseFee extends Message<EipBaseFee> {
   /**
+   * The current chain gas price
+   *
    * @generated from field: string base_fee = 1;
    */
   baseFee = "";

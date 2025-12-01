@@ -112,14 +112,14 @@ proto3.util.setEnumType(Action, "injective.permissions.v1beta1.Action", [
  */
 export class Namespace extends Message<Namespace> {
   /**
-   * tokenfactory denom to which this namespace applies to
+   * The tokenfactory denom to which this namespace applies to
    *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
-   * address of smart contract to apply code-based restrictions
+   * The address of smart contract to apply code-based restrictions
    *
    * @generated from field: string contract_hook = 2;
    */
@@ -140,7 +140,7 @@ export class Namespace extends Message<Namespace> {
   actorRoles: ActorRoles[] = [];
 
   /**
-   *  managers for each role
+   * managers for each role
    *
    * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 5;
    */
@@ -201,11 +201,15 @@ export class Namespace extends Message<Namespace> {
  */
 export class ActorRoles extends Message<ActorRoles> {
   /**
+   * The actor name
+   *
    * @generated from field: string actor = 1;
    */
   actor = "";
 
   /**
+   * The roles for the actor
+   *
    * @generated from field: repeated string roles = 2;
    */
   roles: string[] = [];
@@ -246,11 +250,15 @@ export class ActorRoles extends Message<ActorRoles> {
  */
 export class RoleActors extends Message<RoleActors> {
   /**
+   * The role name
+   *
    * @generated from field: string role = 1;
    */
   role = "";
 
   /**
+   * List of actor names associated with the role
+   *
    * @generated from field: repeated string actors = 2;
    */
   actors: string[] = [];
@@ -291,11 +299,15 @@ export class RoleActors extends Message<RoleActors> {
  */
 export class RoleManager extends Message<RoleManager> {
   /**
+   * The manager name
+   *
    * @generated from field: string manager = 1;
    */
   manager = "";
 
   /**
+   * List of roles associated with the manager
+   *
    * @generated from field: repeated string roles = 2;
    */
   roles: string[] = [];
@@ -336,16 +348,22 @@ export class RoleManager extends Message<RoleManager> {
  */
 export class PolicyStatus extends Message<PolicyStatus> {
   /**
+   * The action code number
+   *
    * @generated from field: injective.permissions.v1beta1.Action action = 1;
    */
   action = Action.UNSPECIFIED;
 
   /**
+   * Whether the policy is disabled
+   *
    * @generated from field: bool is_disabled = 2;
    */
   isDisabled = false;
 
   /**
+   * Whether the policy is sealed
+   *
    * @generated from field: bool is_sealed = 3;
    */
   isSealed = false;
@@ -387,16 +405,23 @@ export class PolicyStatus extends Message<PolicyStatus> {
  */
 export class Role extends Message<Role> {
   /**
+   * The role name
+   *
    * @generated from field: string name = 1;
    */
   name = "";
 
   /**
+   * The role ID
+   *
    * @generated from field: uint32 role_id = 2;
    */
   roleId = 0;
 
   /**
+   * Integer representing the bitwise combination of all actions assigned to the
+   * role
+   *
    * @generated from field: uint32 permissions = 3;
    */
   permissions = 0;
@@ -438,21 +463,29 @@ export class Role extends Message<Role> {
  */
 export class PolicyManagerCapability extends Message<PolicyManagerCapability> {
   /**
+   * The manager name
+   *
    * @generated from field: string manager = 1;
    */
   manager = "";
 
   /**
+   * The action code number
+   *
    * @generated from field: injective.permissions.v1beta1.Action action = 2;
    */
   action = Action.UNSPECIFIED;
 
   /**
+   * Whether the manager can disable the policy
+   *
    * @generated from field: bool can_disable = 3;
    */
   canDisable = false;
 
   /**
+   * Whether the manager can seal the policy
+   *
    * @generated from field: bool can_seal = 4;
    */
   canSeal = false;
@@ -534,11 +567,15 @@ export class RoleIDs extends Message<RoleIDs> {
  */
 export class AddressVoucher extends Message<AddressVoucher> {
   /**
+   * The Injective address that the voucher is for
+   *
    * @generated from field: string address = 1;
    */
   address = "";
 
   /**
+   * The voucher amount
+   *
    * @generated from field: cosmos.base.v1beta1.Coin voucher = 2;
    */
   voucher?: Coin;

@@ -219,11 +219,12 @@ export class GenesisState extends Message<GenesisState> {
   spotMarketIdsScheduledToForceClose: string[] = [];
 
   /**
-   * denom_decimals defines the denom decimals for the exchange.
+   * auction_exchange_transfer_denom_decimals defines the denom decimals for the
+   * exchange.
    *
-   * @generated from field: repeated injective.exchange.v2.DenomDecimals denom_decimals = 29;
+   * @generated from field: repeated injective.exchange.v2.DenomDecimals auction_exchange_transfer_denom_decimals = 29;
    */
-  denomDecimals: DenomDecimals[] = [];
+  auctionExchangeTransferDenomDecimals: DenomDecimals[] = [];
 
   /**
    * conditional_derivative_orderbook contains conditional orderbooks for all
@@ -307,7 +308,7 @@ export class GenesisState extends Message<GenesisState> {
     { no: 26, name: "binary_options_markets", kind: "message", T: BinaryOptionsMarket, repeated: true },
     { no: 27, name: "binary_options_market_ids_scheduled_for_settlement", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 28, name: "spot_market_ids_scheduled_to_force_close", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-    { no: 29, name: "denom_decimals", kind: "message", T: DenomDecimals, repeated: true },
+    { no: 29, name: "auction_exchange_transfer_denom_decimals", kind: "message", T: DenomDecimals, repeated: true },
     { no: 30, name: "conditional_derivative_orderbooks", kind: "message", T: ConditionalDerivativeOrderBook, repeated: true },
     { no: 31, name: "market_fee_multipliers", kind: "message", T: MarketFeeMultiplier, repeated: true },
     { no: 32, name: "orderbook_sequences", kind: "message", T: OrderbookSequence, repeated: true },

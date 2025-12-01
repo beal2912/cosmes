@@ -765,42 +765,42 @@ export class QueryAggregateMarketVolumeResponse extends Message<QueryAggregateMa
 }
 
 /**
- * QueryDenomDecimalRequest is the request type for the Query/DenomDecimal RPC
- * method.
+ * QueryAuctionExchangeTransferDenomDecimalRequest is the request type for the
+ * Query/DenomDecimal RPC method.
  *
- * @generated from message injective.exchange.v2.QueryDenomDecimalRequest
+ * @generated from message injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalRequest
  */
-export class QueryDenomDecimalRequest extends Message<QueryDenomDecimalRequest> {
+export class QueryAuctionExchangeTransferDenomDecimalRequest extends Message<QueryAuctionExchangeTransferDenomDecimalRequest> {
   /**
    * @generated from field: string denom = 1;
    */
   denom = "";
 
-  constructor(data?: PartialMessage<QueryDenomDecimalRequest>) {
+  constructor(data?: PartialMessage<QueryAuctionExchangeTransferDenomDecimalRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.QueryDenomDecimalRequest";
+  static readonly typeName = "injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomDecimalRequest {
-    return new QueryDenomDecimalRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAuctionExchangeTransferDenomDecimalRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomDecimalRequest {
-    return new QueryDenomDecimalRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomDecimalRequest {
-    return new QueryDenomDecimalRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomDecimalRequest | PlainMessage<QueryDenomDecimalRequest> | undefined, b: QueryDenomDecimalRequest | PlainMessage<QueryDenomDecimalRequest> | undefined): boolean {
-    return proto3.util.equals(QueryDenomDecimalRequest, a, b);
+  static equals(a: QueryAuctionExchangeTransferDenomDecimalRequest | PlainMessage<QueryAuctionExchangeTransferDenomDecimalRequest> | undefined, b: QueryAuctionExchangeTransferDenomDecimalRequest | PlainMessage<QueryAuctionExchangeTransferDenomDecimalRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAuctionExchangeTransferDenomDecimalRequest, a, b);
   }
 }
 
@@ -808,39 +808,39 @@ export class QueryDenomDecimalRequest extends Message<QueryDenomDecimalRequest> 
  * QueryDenomDecimalResponse is the response type for the Query/DenomDecimal RPC
  * method.
  *
- * @generated from message injective.exchange.v2.QueryDenomDecimalResponse
+ * @generated from message injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalResponse
  */
-export class QueryDenomDecimalResponse extends Message<QueryDenomDecimalResponse> {
+export class QueryAuctionExchangeTransferDenomDecimalResponse extends Message<QueryAuctionExchangeTransferDenomDecimalResponse> {
   /**
    * @generated from field: uint64 decimal = 1;
    */
   decimal = protoInt64.zero;
 
-  constructor(data?: PartialMessage<QueryDenomDecimalResponse>) {
+  constructor(data?: PartialMessage<QueryAuctionExchangeTransferDenomDecimalResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.QueryDenomDecimalResponse";
+  static readonly typeName = "injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "decimal", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomDecimalResponse {
-    return new QueryDenomDecimalResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAuctionExchangeTransferDenomDecimalResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomDecimalResponse {
-    return new QueryDenomDecimalResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomDecimalResponse {
-    return new QueryDenomDecimalResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomDecimalResponse | PlainMessage<QueryDenomDecimalResponse> | undefined, b: QueryDenomDecimalResponse | PlainMessage<QueryDenomDecimalResponse> | undefined): boolean {
-    return proto3.util.equals(QueryDenomDecimalResponse, a, b);
+  static equals(a: QueryAuctionExchangeTransferDenomDecimalResponse | PlainMessage<QueryAuctionExchangeTransferDenomDecimalResponse> | undefined, b: QueryAuctionExchangeTransferDenomDecimalResponse | PlainMessage<QueryAuctionExchangeTransferDenomDecimalResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAuctionExchangeTransferDenomDecimalResponse, a, b);
   }
 }
 
@@ -848,9 +848,9 @@ export class QueryDenomDecimalResponse extends Message<QueryDenomDecimalResponse
  * QueryDenomDecimalsRequest is the request type for the Query/DenomDecimals RPC
  * method.
  *
- * @generated from message injective.exchange.v2.QueryDenomDecimalsRequest
+ * @generated from message injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalsRequest
  */
-export class QueryDenomDecimalsRequest extends Message<QueryDenomDecimalsRequest> {
+export class QueryAuctionExchangeTransferDenomDecimalsRequest extends Message<QueryAuctionExchangeTransferDenomDecimalsRequest> {
   /**
    * denoms can be empty to query all denom decimals
    *
@@ -858,31 +858,31 @@ export class QueryDenomDecimalsRequest extends Message<QueryDenomDecimalsRequest
    */
   denoms: string[] = [];
 
-  constructor(data?: PartialMessage<QueryDenomDecimalsRequest>) {
+  constructor(data?: PartialMessage<QueryAuctionExchangeTransferDenomDecimalsRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.QueryDenomDecimalsRequest";
+  static readonly typeName = "injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denoms", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomDecimalsRequest {
-    return new QueryDenomDecimalsRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAuctionExchangeTransferDenomDecimalsRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalsRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomDecimalsRequest {
-    return new QueryDenomDecimalsRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalsRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalsRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomDecimalsRequest {
-    return new QueryDenomDecimalsRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalsRequest {
+    return new QueryAuctionExchangeTransferDenomDecimalsRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomDecimalsRequest | PlainMessage<QueryDenomDecimalsRequest> | undefined, b: QueryDenomDecimalsRequest | PlainMessage<QueryDenomDecimalsRequest> | undefined): boolean {
-    return proto3.util.equals(QueryDenomDecimalsRequest, a, b);
+  static equals(a: QueryAuctionExchangeTransferDenomDecimalsRequest | PlainMessage<QueryAuctionExchangeTransferDenomDecimalsRequest> | undefined, b: QueryAuctionExchangeTransferDenomDecimalsRequest | PlainMessage<QueryAuctionExchangeTransferDenomDecimalsRequest> | undefined): boolean {
+    return proto3.util.equals(QueryAuctionExchangeTransferDenomDecimalsRequest, a, b);
   }
 }
 
@@ -890,39 +890,39 @@ export class QueryDenomDecimalsRequest extends Message<QueryDenomDecimalsRequest
  * QueryDenomDecimalsRequest is the response type for the Query/DenomDecimals
  * RPC method.
  *
- * @generated from message injective.exchange.v2.QueryDenomDecimalsResponse
+ * @generated from message injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalsResponse
  */
-export class QueryDenomDecimalsResponse extends Message<QueryDenomDecimalsResponse> {
+export class QueryAuctionExchangeTransferDenomDecimalsResponse extends Message<QueryAuctionExchangeTransferDenomDecimalsResponse> {
   /**
    * @generated from field: repeated injective.exchange.v2.DenomDecimals denom_decimals = 1;
    */
   denomDecimals: DenomDecimals[] = [];
 
-  constructor(data?: PartialMessage<QueryDenomDecimalsResponse>) {
+  constructor(data?: PartialMessage<QueryAuctionExchangeTransferDenomDecimalsResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.QueryDenomDecimalsResponse";
+  static readonly typeName = "injective.exchange.v2.QueryAuctionExchangeTransferDenomDecimalsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "denom_decimals", kind: "message", T: DenomDecimals, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDenomDecimalsResponse {
-    return new QueryDenomDecimalsResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryAuctionExchangeTransferDenomDecimalsResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalsResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryDenomDecimalsResponse {
-    return new QueryDenomDecimalsResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalsResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalsResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryDenomDecimalsResponse {
-    return new QueryDenomDecimalsResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryAuctionExchangeTransferDenomDecimalsResponse {
+    return new QueryAuctionExchangeTransferDenomDecimalsResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: QueryDenomDecimalsResponse | PlainMessage<QueryDenomDecimalsResponse> | undefined, b: QueryDenomDecimalsResponse | PlainMessage<QueryDenomDecimalsResponse> | undefined): boolean {
-    return proto3.util.equals(QueryDenomDecimalsResponse, a, b);
+  static equals(a: QueryAuctionExchangeTransferDenomDecimalsResponse | PlainMessage<QueryAuctionExchangeTransferDenomDecimalsResponse> | undefined, b: QueryAuctionExchangeTransferDenomDecimalsResponse | PlainMessage<QueryAuctionExchangeTransferDenomDecimalsResponse> | undefined): boolean {
+    return proto3.util.equals(QueryAuctionExchangeTransferDenomDecimalsResponse, a, b);
   }
 }
 
@@ -1363,6 +1363,13 @@ export class QuerySpotOrderbookResponse extends Message<QuerySpotOrderbookRespon
    */
   sellsPriceLevel: Level[] = [];
 
+  /**
+   * the current orderbook sequence number
+   *
+   * @generated from field: uint64 seq = 3;
+   */
+  seq = protoInt64.zero;
+
   constructor(data?: PartialMessage<QuerySpotOrderbookResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1373,6 +1380,7 @@ export class QuerySpotOrderbookResponse extends Message<QuerySpotOrderbookRespon
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "buys_price_level", kind: "message", T: Level, repeated: true },
     { no: 2, name: "sells_price_level", kind: "message", T: Level, repeated: true },
+    { no: 3, name: "seq", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySpotOrderbookResponse {
@@ -2258,6 +2266,13 @@ export class QueryDerivativeOrderbookResponse extends Message<QueryDerivativeOrd
    */
   sellsPriceLevel: Level[] = [];
 
+  /**
+   * the current orderbook sequence number
+   *
+   * @generated from field: uint64 seq = 3;
+   */
+  seq = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryDerivativeOrderbookResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2268,6 +2283,7 @@ export class QueryDerivativeOrderbookResponse extends Message<QueryDerivativeOrd
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "buys_price_level", kind: "message", T: Level, repeated: true },
     { no: 2, name: "sells_price_level", kind: "message", T: Level, repeated: true },
+    { no: 3, name: "seq", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryDerivativeOrderbookResponse {
@@ -5887,6 +5903,13 @@ export class QueryFullSpotOrderbookResponse extends Message<QueryFullSpotOrderbo
    */
   Asks: TrimmedLimitOrder[] = [];
 
+  /**
+   * the current orderbook sequence number
+   *
+   * @generated from field: uint64 seq = 3;
+   */
+  seq = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryFullSpotOrderbookResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -5897,6 +5920,7 @@ export class QueryFullSpotOrderbookResponse extends Message<QueryFullSpotOrderbo
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "Bids", kind: "message", T: TrimmedLimitOrder, repeated: true },
     { no: 2, name: "Asks", kind: "message", T: TrimmedLimitOrder, repeated: true },
+    { no: 3, name: "seq", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFullSpotOrderbookResponse {
@@ -5969,6 +5993,13 @@ export class QueryFullDerivativeOrderbookResponse extends Message<QueryFullDeriv
    */
   Asks: TrimmedLimitOrder[] = [];
 
+  /**
+   * the current orderbook sequence number
+   *
+   * @generated from field: uint64 seq = 3;
+   */
+  seq = protoInt64.zero;
+
   constructor(data?: PartialMessage<QueryFullDerivativeOrderbookResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -5979,6 +6010,7 @@ export class QueryFullDerivativeOrderbookResponse extends Message<QueryFullDeriv
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "Bids", kind: "message", T: TrimmedLimitOrder, repeated: true },
     { no: 2, name: "Asks", kind: "message", T: TrimmedLimitOrder, repeated: true },
+    { no: 3, name: "seq", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryFullDerivativeOrderbookResponse {
@@ -6707,6 +6739,129 @@ export class QueryDenomMinNotionalsResponse extends Message<QueryDenomMinNotiona
 
   static equals(a: QueryDenomMinNotionalsResponse | PlainMessage<QueryDenomMinNotionalsResponse> | undefined, b: QueryDenomMinNotionalsResponse | PlainMessage<QueryDenomMinNotionalsResponse> | undefined): boolean {
     return proto3.util.equals(QueryDenomMinNotionalsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v2.OpenInterest
+ */
+export class OpenInterest extends Message<OpenInterest> {
+  /**
+   * the market ID
+   *
+   * @generated from field: string market_id = 1;
+   */
+  marketId = "";
+
+  /**
+   * the open interest of the market
+   *
+   * @generated from field: string balance = 2;
+   */
+  balance = "";
+
+  constructor(data?: PartialMessage<OpenInterest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.OpenInterest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "balance", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OpenInterest {
+    return new OpenInterest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OpenInterest {
+    return new OpenInterest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OpenInterest {
+    return new OpenInterest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OpenInterest | PlainMessage<OpenInterest> | undefined, b: OpenInterest | PlainMessage<OpenInterest> | undefined): boolean {
+    return proto3.util.equals(OpenInterest, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v2.QueryOpenInterestRequest
+ */
+export class QueryOpenInterestRequest extends Message<QueryOpenInterestRequest> {
+  /**
+   * market id
+   *
+   * @generated from field: string market_id = 1;
+   */
+  marketId = "";
+
+  constructor(data?: PartialMessage<QueryOpenInterestRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.QueryOpenInterestRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenInterestRequest {
+    return new QueryOpenInterestRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryOpenInterestRequest {
+    return new QueryOpenInterestRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryOpenInterestRequest {
+    return new QueryOpenInterestRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryOpenInterestRequest | PlainMessage<QueryOpenInterestRequest> | undefined, b: QueryOpenInterestRequest | PlainMessage<QueryOpenInterestRequest> | undefined): boolean {
+    return proto3.util.equals(QueryOpenInterestRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v2.QueryOpenInterestResponse
+ */
+export class QueryOpenInterestResponse extends Message<QueryOpenInterestResponse> {
+  /**
+   * @generated from field: injective.exchange.v2.OpenInterest amount = 1;
+   */
+  amount?: OpenInterest;
+
+  constructor(data?: PartialMessage<QueryOpenInterestResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.QueryOpenInterestResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amount", kind: "message", T: OpenInterest },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOpenInterestResponse {
+    return new QueryOpenInterestResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryOpenInterestResponse {
+    return new QueryOpenInterestResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryOpenInterestResponse {
+    return new QueryOpenInterestResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QueryOpenInterestResponse | PlainMessage<QueryOpenInterestResponse> | undefined, b: QueryOpenInterestResponse | PlainMessage<QueryOpenInterestResponse> | undefined): boolean {
+    return proto3.util.equals(QueryOpenInterestResponse, a, b);
   }
 }
 

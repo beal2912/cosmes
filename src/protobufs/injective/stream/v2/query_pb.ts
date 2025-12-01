@@ -115,6 +115,20 @@ export class StreamRequest extends Message<StreamRequest> {
    */
   oraclePriceFilter?: OraclePriceFilter;
 
+  /**
+   * filter for order failures events
+   *
+   * @generated from field: injective.stream.v2.OrderFailuresFilter order_failures_filter = 11;
+   */
+  orderFailuresFilter?: OrderFailuresFilter;
+
+  /**
+   * filter for conditional order trigger failures events
+   *
+   * @generated from field: injective.stream.v2.ConditionalOrderTriggerFailuresFilter conditional_order_trigger_failures_filter = 12;
+   */
+  conditionalOrderTriggerFailuresFilter?: ConditionalOrderTriggerFailuresFilter;
+
   constructor(data?: PartialMessage<StreamRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -133,6 +147,8 @@ export class StreamRequest extends Message<StreamRequest> {
     { no: 8, name: "derivative_orderbooks_filter", kind: "message", T: OrderbookFilter },
     { no: 9, name: "positions_filter", kind: "message", T: PositionsFilter },
     { no: 10, name: "oracle_price_filter", kind: "message", T: OraclePriceFilter },
+    { no: 11, name: "order_failures_filter", kind: "message", T: OrderFailuresFilter },
+    { no: 12, name: "conditional_order_trigger_failures_filter", kind: "message", T: ConditionalOrderTriggerFailuresFilter },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StreamRequest {
@@ -247,6 +263,20 @@ export class StreamResponse extends Message<StreamResponse> {
    */
   gasPrice = "";
 
+  /**
+   * list of order failures updates
+   *
+   * @generated from field: repeated injective.stream.v2.OrderFailureUpdate order_failures = 14;
+   */
+  orderFailures: OrderFailureUpdate[] = [];
+
+  /**
+   * list of conditional order trigger failures updates
+   *
+   * @generated from field: repeated injective.stream.v2.ConditionalOrderTriggerFailureUpdate conditional_order_trigger_failures = 15;
+   */
+  conditionalOrderTriggerFailures: ConditionalOrderTriggerFailureUpdate[] = [];
+
   constructor(data?: PartialMessage<StreamResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -268,6 +298,8 @@ export class StreamResponse extends Message<StreamResponse> {
     { no: 11, name: "positions", kind: "message", T: Position, repeated: true },
     { no: 12, name: "oracle_prices", kind: "message", T: OraclePrice, repeated: true },
     { no: 13, name: "gas_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "order_failures", kind: "message", T: OrderFailureUpdate, repeated: true },
+    { no: 15, name: "conditional_order_trigger_failures", kind: "message", T: ConditionalOrderTriggerFailureUpdate, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): StreamResponse {
@@ -1135,6 +1167,148 @@ export class DerivativeTrade extends Message<DerivativeTrade> {
 }
 
 /**
+ * @generated from message injective.stream.v2.OrderFailureUpdate
+ */
+export class OrderFailureUpdate extends Message<OrderFailureUpdate> {
+  /**
+   * the account address
+   *
+   * @generated from field: string account = 1;
+   */
+  account = "";
+
+  /**
+   * the order hash
+   *
+   * @generated from field: string order_hash = 2;
+   */
+  orderHash = "";
+
+  /**
+   * the client order ID
+   *
+   * @generated from field: string cid = 3;
+   */
+  cid = "";
+
+  /**
+   * the error code
+   *
+   * @generated from field: uint32 error_code = 4;
+   */
+  errorCode = 0;
+
+  constructor(data?: PartialMessage<OrderFailureUpdate>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.stream.v2.OrderFailureUpdate";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "account", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "order_hash", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "error_code", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OrderFailureUpdate {
+    return new OrderFailureUpdate().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OrderFailureUpdate {
+    return new OrderFailureUpdate().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OrderFailureUpdate {
+    return new OrderFailureUpdate().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OrderFailureUpdate | PlainMessage<OrderFailureUpdate> | undefined, b: OrderFailureUpdate | PlainMessage<OrderFailureUpdate> | undefined): boolean {
+    return proto3.util.equals(OrderFailureUpdate, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.stream.v2.ConditionalOrderTriggerFailureUpdate
+ */
+export class ConditionalOrderTriggerFailureUpdate extends Message<ConditionalOrderTriggerFailureUpdate> {
+  /**
+   * the market ID
+   *
+   * @generated from field: string market_id = 1;
+   */
+  marketId = "";
+
+  /**
+   * the subaccount ID
+   *
+   * @generated from field: string subaccount_id = 2;
+   */
+  subaccountId = "";
+
+  /**
+   * the mark price
+   *
+   * @generated from field: string mark_price = 3;
+   */
+  markPrice = "";
+
+  /**
+   * the order hash
+   *
+   * @generated from field: string order_hash = 4;
+   */
+  orderHash = "";
+
+  /**
+   * the client order ID
+   *
+   * @generated from field: string cid = 5;
+   */
+  cid = "";
+
+  /**
+   * the error code
+   *
+   * @generated from field: string error_description = 6;
+   */
+  errorDescription = "";
+
+  constructor(data?: PartialMessage<ConditionalOrderTriggerFailureUpdate>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.stream.v2.ConditionalOrderTriggerFailureUpdate";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "subaccount_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "mark_price", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "order_hash", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "cid", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "error_description", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ConditionalOrderTriggerFailureUpdate {
+    return new ConditionalOrderTriggerFailureUpdate().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ConditionalOrderTriggerFailureUpdate {
+    return new ConditionalOrderTriggerFailureUpdate().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ConditionalOrderTriggerFailureUpdate {
+    return new ConditionalOrderTriggerFailureUpdate().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ConditionalOrderTriggerFailureUpdate | PlainMessage<ConditionalOrderTriggerFailureUpdate> | undefined, b: ConditionalOrderTriggerFailureUpdate | PlainMessage<ConditionalOrderTriggerFailureUpdate> | undefined): boolean {
+    return proto3.util.equals(ConditionalOrderTriggerFailureUpdate, a, b);
+  }
+}
+
+/**
  * @generated from message injective.stream.v2.TradesFilter
  */
 export class TradesFilter extends Message<TradesFilter> {
@@ -1397,7 +1571,7 @@ export class SubaccountDepositsFilter extends Message<SubaccountDepositsFilter> 
  */
 export class OraclePriceFilter extends Message<OraclePriceFilter> {
   /**
-   * list of symbol to filter by
+   * list of symbols to filter by
    *
    * @generated from field: repeated string symbol = 1;
    */
@@ -1428,6 +1602,92 @@ export class OraclePriceFilter extends Message<OraclePriceFilter> {
 
   static equals(a: OraclePriceFilter | PlainMessage<OraclePriceFilter> | undefined, b: OraclePriceFilter | PlainMessage<OraclePriceFilter> | undefined): boolean {
     return proto3.util.equals(OraclePriceFilter, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.stream.v2.OrderFailuresFilter
+ */
+export class OrderFailuresFilter extends Message<OrderFailuresFilter> {
+  /**
+   * list of account addresses to filter by
+   *
+   * @generated from field: repeated string accounts = 1;
+   */
+  accounts: string[] = [];
+
+  constructor(data?: PartialMessage<OrderFailuresFilter>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.stream.v2.OrderFailuresFilter";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "accounts", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OrderFailuresFilter {
+    return new OrderFailuresFilter().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OrderFailuresFilter {
+    return new OrderFailuresFilter().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OrderFailuresFilter {
+    return new OrderFailuresFilter().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OrderFailuresFilter | PlainMessage<OrderFailuresFilter> | undefined, b: OrderFailuresFilter | PlainMessage<OrderFailuresFilter> | undefined): boolean {
+    return proto3.util.equals(OrderFailuresFilter, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.stream.v2.ConditionalOrderTriggerFailuresFilter
+ */
+export class ConditionalOrderTriggerFailuresFilter extends Message<ConditionalOrderTriggerFailuresFilter> {
+  /**
+   * list of subaccount IDs to filter by
+   *
+   * @generated from field: repeated string subaccount_ids = 1;
+   */
+  subaccountIds: string[] = [];
+
+  /**
+   * list of market IDs to filter by
+   *
+   * @generated from field: repeated string market_ids = 2;
+   */
+  marketIds: string[] = [];
+
+  constructor(data?: PartialMessage<ConditionalOrderTriggerFailuresFilter>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.stream.v2.ConditionalOrderTriggerFailuresFilter";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "subaccount_ids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 2, name: "market_ids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ConditionalOrderTriggerFailuresFilter {
+    return new ConditionalOrderTriggerFailuresFilter().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ConditionalOrderTriggerFailuresFilter {
+    return new ConditionalOrderTriggerFailuresFilter().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ConditionalOrderTriggerFailuresFilter {
+    return new ConditionalOrderTriggerFailuresFilter().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ConditionalOrderTriggerFailuresFilter | PlainMessage<ConditionalOrderTriggerFailuresFilter> | undefined, b: ConditionalOrderTriggerFailuresFilter | PlainMessage<ConditionalOrderTriggerFailuresFilter> | undefined): boolean {
+    return proto3.util.equals(ConditionalOrderTriggerFailuresFilter, a, b);
   }
 }
 

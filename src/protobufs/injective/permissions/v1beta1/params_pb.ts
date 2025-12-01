@@ -13,6 +13,8 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
  */
 export class Params extends Message<Params> {
   /**
+   * Max amount of gas allowed for wasm hook queries
+   *
    * @generated from field: uint64 wasm_hook_query_max_gas = 1;
    */
   wasmHookQueryMaxGas = protoInt64.zero;

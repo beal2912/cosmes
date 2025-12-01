@@ -378,6 +378,55 @@ export class MsgWithdrawal extends Message<MsgWithdrawal> {
 }
 
 /**
+ * @generated from message neutron.dex.MsgWithdrawalWithShares
+ */
+export class MsgWithdrawalWithShares extends Message<MsgWithdrawalWithShares> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string receiver = 2;
+   */
+  receiver = "";
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin shares_to_remove = 3;
+   */
+  sharesToRemove: Coin[] = [];
+
+  constructor(data?: PartialMessage<MsgWithdrawalWithShares>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "neutron.dex.MsgWithdrawalWithShares";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "receiver", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "shares_to_remove", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgWithdrawalWithShares {
+    return new MsgWithdrawalWithShares().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgWithdrawalWithShares {
+    return new MsgWithdrawalWithShares().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgWithdrawalWithShares {
+    return new MsgWithdrawalWithShares().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgWithdrawalWithShares | PlainMessage<MsgWithdrawalWithShares> | undefined, b: MsgWithdrawalWithShares | PlainMessage<MsgWithdrawalWithShares> | undefined): boolean {
+    return proto3.util.equals(MsgWithdrawalWithShares, a, b);
+  }
+}
+
+/**
  * @generated from message neutron.dex.MsgWithdrawalResponse
  */
 export class MsgWithdrawalResponse extends Message<MsgWithdrawalResponse> {

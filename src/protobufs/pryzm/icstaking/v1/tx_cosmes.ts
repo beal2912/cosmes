@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgAcknowledgeMultiSigPacket, MsgAcknowledgeMultiSigPacketResponse, MsgCreateMultiSigConnection, MsgCreateMultiSigConnectionResponse, MsgInstantUnstake, MsgInstantUnstakeResponse, MsgRebalanceDelegations, MsgRebalanceDelegationsResponse, MsgRedeemUnstaked, MsgRedeemUnstakedResponse, MsgRedelegate, MsgRedelegateResponse, MsgRegisterHostAccounts, MsgRegisterHostAccountsResponse, MsgRegisterHostChain, MsgRegisterHostChainResponse, MsgRegisterInterchainAccount, MsgRegisterInterchainAccountResponse, MsgRetryFailedLsmTransfer, MsgRetryFailedLsmTransferResponse, MsgStake, MsgStakeLsmShares, MsgStakeLsmSharesResponse, MsgStakeResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateHostChain, MsgUpdateHostChainResponse, MsgUpdateMultiSigConnection, MsgUpdateMultiSigConnectionResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgAcknowledgeMultiSigPacket, MsgAcknowledgeMultiSigPacketResponse, MsgCreateMultiSigConnection, MsgCreateMultiSigConnectionResponse, MsgDelistHostChain, MsgDelistHostChainResponse, MsgInstantUnstake, MsgInstantUnstakeResponse, MsgRebalanceDelegations, MsgRebalanceDelegationsResponse, MsgRedeemDelisted, MsgRedeemDelistedResponse, MsgRedeemUnstaked, MsgRedeemUnstakedResponse, MsgRedelegate, MsgRedelegateResponse, MsgRegisterHostAccounts, MsgRegisterHostAccountsResponse, MsgRegisterHostChain, MsgRegisterHostChainResponse, MsgRegisterInterchainAccount, MsgRegisterInterchainAccountResponse, MsgRetryFailedLsmTransfer, MsgRetryFailedLsmTransferResponse, MsgStake, MsgStakeLsmShares, MsgStakeLsmSharesResponse, MsgStakeResponse, MsgUndelegateDelistedHostChain, MsgUndelegateDelistedHostChainResponse, MsgUnstake, MsgUnstakeResponse, MsgUpdateHostChain, MsgUpdateHostChainResponse, MsgUpdateMultiSigConnection, MsgUpdateMultiSigConnectionResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "pryzm.icstaking.v1.Msg";
 
@@ -158,8 +158,6 @@ export const MsgRegisterHostAccountsService = {
 } as const;
 
 /**
- * this line is used by starport scaffolding # proto/tx/rpc
- *
  * @generated from rpc pryzm.icstaking.v1.Msg.RetryFailedLsmTransfer
  */
 export const MsgRetryFailedLsmTransferService = {
@@ -167,5 +165,37 @@ export const MsgRetryFailedLsmTransferService = {
   method: "RetryFailedLsmTransfer",
   Request: MsgRetryFailedLsmTransfer,
   Response: MsgRetryFailedLsmTransferResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.icstaking.v1.Msg.DelistHostChain
+ */
+export const MsgDelistHostChainService = {
+  typeName: TYPE_NAME,
+  method: "DelistHostChain",
+  Request: MsgDelistHostChain,
+  Response: MsgDelistHostChainResponse,
+} as const;
+
+/**
+ * @generated from rpc pryzm.icstaking.v1.Msg.UndelegateDelistedHostChain
+ */
+export const MsgUndelegateDelistedHostChainService = {
+  typeName: TYPE_NAME,
+  method: "UndelegateDelistedHostChain",
+  Request: MsgUndelegateDelistedHostChain,
+  Response: MsgUndelegateDelistedHostChainResponse,
+} as const;
+
+/**
+ * this line is used by starport scaffolding # proto/tx/rpc
+ *
+ * @generated from rpc pryzm.icstaking.v1.Msg.RedeemDelisted
+ */
+export const MsgRedeemDelistedService = {
+  typeName: TYPE_NAME,
+  method: "RedeemDelisted",
+  Request: MsgRedeemDelisted,
+  Response: MsgRedeemDelistedResponse,
 } as const;
 

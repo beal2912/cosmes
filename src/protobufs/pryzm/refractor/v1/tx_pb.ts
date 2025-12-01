@@ -116,6 +116,8 @@ export class MsgRedeem extends Message<MsgRedeem> {
   creator = "";
 
   /**
+   * set p_amount to zero coin if you want to redeem only y_amount (for delisted assets)
+   *
    * @generated from field: cosmos.base.v1beta1.Coin p_amount = 2;
    */
   pAmount?: Coin;

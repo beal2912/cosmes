@@ -681,7 +681,7 @@ export const QueryMarketVolatilityService = {
 } as const;
 
 /**
- * Retrieves a spot market's orderbook by marketID
+ * Retrieves all binary options markets
  *
  * @generated from rpc injective.exchange.v1beta1.Query.BinaryOptionsMarkets
  */

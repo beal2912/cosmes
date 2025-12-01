@@ -42,6 +42,8 @@ export class QueryEipBaseFeeRequest extends Message<QueryEipBaseFeeRequest> {
  */
 export class QueryEipBaseFeeResponse extends Message<QueryEipBaseFeeResponse> {
   /**
+   * The current chain gas price
+   *
    * @generated from field: string base_fee = 1;
    */
   baseFee = "";

@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
-import { MarketFeeMultiplier, MarketStatus } from "./market_pb.js";
+import { MarketFeeMultiplier, MarketStatus, OpenNotionalCap } from "./market_pb.js";
 import { OracleType } from "../../oracle/v1beta1/oracle_pb.js";
 import { CampaignRewardPool, DenomDecimals, DenomMinNotional, FeeDiscountSchedule, TradingRewardCampaignInfo } from "./exchange_pb.js";
 import { CommunityPoolSpendProposal } from "../../../cosmos/distribution/v1beta1/distribution_pb.js";
@@ -275,9 +275,9 @@ export class BatchExchangeModificationProposal extends Message<BatchExchangeModi
   binaryOptionsParamUpdateProposals: BinaryOptionsMarketParamUpdateProposal[] = [];
 
   /**
-   * @generated from field: injective.exchange.v2.UpdateDenomDecimalsProposal denom_decimals_update_proposal = 11;
+   * @generated from field: injective.exchange.v2.UpdateAuctionExchangeTransferDenomDecimalsProposal auction_exchange_transfer_denom_decimals_update_proposal = 11;
    */
-  denomDecimalsUpdateProposal?: UpdateDenomDecimalsProposal;
+  auctionExchangeTransferDenomDecimalsUpdateProposal?: UpdateAuctionExchangeTransferDenomDecimalsProposal;
 
   /**
    * @generated from field: injective.exchange.v2.FeeDiscountProposal fee_discount_proposal = 12;
@@ -312,7 +312,7 @@ export class BatchExchangeModificationProposal extends Message<BatchExchangeModi
     { no: 8, name: "trading_reward_campaign_update_proposal", kind: "message", T: TradingRewardCampaignUpdateProposal },
     { no: 9, name: "binary_options_market_launch_proposals", kind: "message", T: BinaryOptionsMarketLaunchProposal, repeated: true },
     { no: 10, name: "binary_options_param_update_proposals", kind: "message", T: BinaryOptionsMarketParamUpdateProposal, repeated: true },
-    { no: 11, name: "denom_decimals_update_proposal", kind: "message", T: UpdateDenomDecimalsProposal },
+    { no: 11, name: "auction_exchange_transfer_denom_decimals_update_proposal", kind: "message", T: UpdateAuctionExchangeTransferDenomDecimalsProposal },
     { no: 12, name: "fee_discount_proposal", kind: "message", T: FeeDiscountProposal },
     { no: 13, name: "market_forced_settlement_proposals", kind: "message", T: MarketForcedSettlementProposal, repeated: true },
     { no: 14, name: "denom_min_notional_proposal", kind: "message", T: DenomMinNotionalProposal },
@@ -595,6 +595,13 @@ export class PerpetualMarketLaunchProposal extends Message<PerpetualMarketLaunch
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 18;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<PerpetualMarketLaunchProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -620,6 +627,7 @@ export class PerpetualMarketLaunchProposal extends Message<PerpetualMarketLaunch
     { no: 15, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 16, name: "admin_info", kind: "message", T: AdminInfo },
     { no: 17, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 18, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PerpetualMarketLaunchProposal {
@@ -759,6 +767,13 @@ export class BinaryOptionsMarketLaunchProposal extends Message<BinaryOptionsMark
    */
   adminPermissions = 0;
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 18;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<BinaryOptionsMarketLaunchProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -784,6 +799,7 @@ export class BinaryOptionsMarketLaunchProposal extends Message<BinaryOptionsMark
     { no: 15, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 16, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 17, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 18, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BinaryOptionsMarketLaunchProposal {
@@ -937,6 +953,13 @@ export class ExpiryFuturesMarketLaunchProposal extends Message<ExpiryFuturesMark
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 19;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<ExpiryFuturesMarketLaunchProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -963,6 +986,7 @@ export class ExpiryFuturesMarketLaunchProposal extends Message<ExpiryFuturesMark
     { no: 16, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 17, name: "admin_info", kind: "message", T: AdminInfo },
     { no: 18, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ExpiryFuturesMarketLaunchProposal {
@@ -1107,6 +1131,13 @@ export class DerivativeMarketParamUpdateProposal extends Message<DerivativeMarke
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 19;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<DerivativeMarketParamUpdateProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1133,6 +1164,7 @@ export class DerivativeMarketParamUpdateProposal extends Message<DerivativeMarke
     { no: 16, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 17, name: "admin_info", kind: "message", T: AdminInfo },
     { no: 18, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 19, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DerivativeMarketParamUpdateProposal {
@@ -1251,9 +1283,9 @@ export class MarketForcedSettlementProposal extends Message<MarketForcedSettleme
 }
 
 /**
- * @generated from message injective.exchange.v2.UpdateDenomDecimalsProposal
+ * @generated from message injective.exchange.v2.UpdateAuctionExchangeTransferDenomDecimalsProposal
  */
-export class UpdateDenomDecimalsProposal extends Message<UpdateDenomDecimalsProposal> {
+export class UpdateAuctionExchangeTransferDenomDecimalsProposal extends Message<UpdateAuctionExchangeTransferDenomDecimalsProposal> {
   /**
    * @generated from field: string title = 1;
    */
@@ -1269,33 +1301,33 @@ export class UpdateDenomDecimalsProposal extends Message<UpdateDenomDecimalsProp
    */
   denomDecimals: DenomDecimals[] = [];
 
-  constructor(data?: PartialMessage<UpdateDenomDecimalsProposal>) {
+  constructor(data?: PartialMessage<UpdateAuctionExchangeTransferDenomDecimalsProposal>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.UpdateDenomDecimalsProposal";
+  static readonly typeName = "injective.exchange.v2.UpdateAuctionExchangeTransferDenomDecimalsProposal";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "title", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "description", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "denom_decimals", kind: "message", T: DenomDecimals, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateDenomDecimalsProposal {
-    return new UpdateDenomDecimalsProposal().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateAuctionExchangeTransferDenomDecimalsProposal {
+    return new UpdateAuctionExchangeTransferDenomDecimalsProposal().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateDenomDecimalsProposal {
-    return new UpdateDenomDecimalsProposal().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateAuctionExchangeTransferDenomDecimalsProposal {
+    return new UpdateAuctionExchangeTransferDenomDecimalsProposal().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateDenomDecimalsProposal {
-    return new UpdateDenomDecimalsProposal().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateAuctionExchangeTransferDenomDecimalsProposal {
+    return new UpdateAuctionExchangeTransferDenomDecimalsProposal().fromJsonString(jsonString, options);
   }
 
-  static equals(a: UpdateDenomDecimalsProposal | PlainMessage<UpdateDenomDecimalsProposal> | undefined, b: UpdateDenomDecimalsProposal | PlainMessage<UpdateDenomDecimalsProposal> | undefined): boolean {
-    return proto3.util.equals(UpdateDenomDecimalsProposal, a, b);
+  static equals(a: UpdateAuctionExchangeTransferDenomDecimalsProposal | PlainMessage<UpdateAuctionExchangeTransferDenomDecimalsProposal> | undefined, b: UpdateAuctionExchangeTransferDenomDecimalsProposal | PlainMessage<UpdateAuctionExchangeTransferDenomDecimalsProposal> | undefined): boolean {
+    return proto3.util.equals(UpdateAuctionExchangeTransferDenomDecimalsProposal, a, b);
   }
 }
 
@@ -1409,6 +1441,13 @@ export class BinaryOptionsMarketParamUpdateProposal extends Message<BinaryOption
    */
   minNotional = "";
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 17;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<BinaryOptionsMarketParamUpdateProposal>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1433,6 +1472,7 @@ export class BinaryOptionsMarketParamUpdateProposal extends Message<BinaryOption
     { no: 14, name: "oracle_params", kind: "message", T: ProviderOracleParams },
     { no: 15, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 16, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BinaryOptionsMarketParamUpdateProposal {

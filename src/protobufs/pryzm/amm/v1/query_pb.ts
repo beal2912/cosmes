@@ -1916,6 +1916,92 @@ export class QuerySimulateExitExactTokensResponse extends Message<QuerySimulateE
 }
 
 /**
+ * @generated from message pryzm.amm.v1.QuerySimulateRecoveryExitRequest
+ */
+export class QuerySimulateRecoveryExitRequest extends Message<QuerySimulateRecoveryExitRequest> {
+  /**
+   * @generated from field: uint64 pool_id = 1;
+   */
+  poolId = protoInt64.zero;
+
+  /**
+   * @generated from field: string lpt_in = 2;
+   */
+  lptIn = "";
+
+  constructor(data?: PartialMessage<QuerySimulateRecoveryExitRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QuerySimulateRecoveryExitRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pool_id", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+    { no: 2, name: "lpt_in", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySimulateRecoveryExitRequest {
+    return new QuerySimulateRecoveryExitRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QuerySimulateRecoveryExitRequest {
+    return new QuerySimulateRecoveryExitRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QuerySimulateRecoveryExitRequest {
+    return new QuerySimulateRecoveryExitRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QuerySimulateRecoveryExitRequest | PlainMessage<QuerySimulateRecoveryExitRequest> | undefined, b: QuerySimulateRecoveryExitRequest | PlainMessage<QuerySimulateRecoveryExitRequest> | undefined): boolean {
+    return proto3.util.equals(QuerySimulateRecoveryExitRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.amm.v1.QuerySimulateRecoveryExitResponse
+ */
+export class QuerySimulateRecoveryExitResponse extends Message<QuerySimulateRecoveryExitResponse> {
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin lpt_in = 1;
+   */
+  lptIn?: Coin;
+
+  /**
+   * @generated from field: repeated cosmos.base.v1beta1.Coin amounts_out = 2;
+   */
+  amountsOut: Coin[] = [];
+
+  constructor(data?: PartialMessage<QuerySimulateRecoveryExitResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.amm.v1.QuerySimulateRecoveryExitResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "lpt_in", kind: "message", T: Coin },
+    { no: 2, name: "amounts_out", kind: "message", T: Coin, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySimulateRecoveryExitResponse {
+    return new QuerySimulateRecoveryExitResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QuerySimulateRecoveryExitResponse {
+    return new QuerySimulateRecoveryExitResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QuerySimulateRecoveryExitResponse {
+    return new QuerySimulateRecoveryExitResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QuerySimulateRecoveryExitResponse | PlainMessage<QuerySimulateRecoveryExitResponse> | undefined, b: QuerySimulateRecoveryExitResponse | PlainMessage<QuerySimulateRecoveryExitResponse> | undefined): boolean {
+    return proto3.util.equals(QuerySimulateRecoveryExitResponse, a, b);
+  }
+}
+
+/**
  * @generated from message pryzm.amm.v1.QuerySimulateExitAllTokensExactLptRequest
  */
 export class QuerySimulateExitAllTokensExactLptRequest extends Message<QuerySimulateExitAllTokensExactLptRequest> {

@@ -7,6 +7,52 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
+ * @generated from message pryzm.assets.v1.DelistedMaturityLevel
+ */
+export class DelistedMaturityLevel extends Message<DelistedMaturityLevel> {
+  /**
+   * @generated from field: string symbol = 1;
+   */
+  symbol = "";
+
+  /**
+   * decimal number less than or equal to 1, representing how much of an asset's price is attributed to pAsset
+   * the rest would be attributed to yASSET.
+   *
+   * @generated from field: string p_asset_price_underlying_terms = 2;
+   */
+  pAssetPriceUnderlyingTerms = "";
+
+  constructor(data?: PartialMessage<DelistedMaturityLevel>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.assets.v1.DelistedMaturityLevel";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "symbol", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "p_asset_price_underlying_terms", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DelistedMaturityLevel {
+    return new DelistedMaturityLevel().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DelistedMaturityLevel {
+    return new DelistedMaturityLevel().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DelistedMaturityLevel {
+    return new DelistedMaturityLevel().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DelistedMaturityLevel | PlainMessage<DelistedMaturityLevel> | undefined, b: DelistedMaturityLevel | PlainMessage<DelistedMaturityLevel> | undefined): boolean {
+    return proto3.util.equals(DelistedMaturityLevel, a, b);
+  }
+}
+
+/**
  * The properties of a supported asset
  *
  * @generated from message pryzm.assets.v1.RefractableAsset
@@ -52,6 +98,16 @@ export class RefractableAsset extends Message<RefractableAsset> {
    */
   feeRatios?: FeeRatios;
 
+  /**
+   * @generated from field: bool delisted = 7;
+   */
+  delisted = false;
+
+  /**
+   * @generated from field: repeated pryzm.assets.v1.DelistedMaturityLevel delisted_maturities = 8;
+   */
+  delistedMaturities: DelistedMaturityLevel[] = [];
+
   constructor(data?: PartialMessage<RefractableAsset>) {
     super();
     proto3.util.initPartial(data, this);
@@ -66,6 +122,8 @@ export class RefractableAsset extends Message<RefractableAsset> {
     { no: 4, name: "disabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 5, name: "maturity_params", kind: "message", T: MaturityParams },
     { no: 6, name: "fee_ratios", kind: "message", T: FeeRatios },
+    { no: 7, name: "delisted", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 8, name: "delisted_maturities", kind: "message", T: DelistedMaturityLevel, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): RefractableAsset {

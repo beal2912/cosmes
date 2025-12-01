@@ -91,11 +91,15 @@ export class QueryParamsResponse extends Message<QueryParamsResponse> {
  */
 export class QueryDenomAuthorityMetadataRequest extends Message<QueryDenomAuthorityMetadataRequest> {
   /**
+   * The creator's Injective address
+   *
    * @generated from field: string creator = 1;
    */
   creator = "";
 
   /**
+   * The sub-denom
+   *
    * @generated from field: string sub_denom = 2;
    */
   subDenom = "";
@@ -137,6 +141,8 @@ export class QueryDenomAuthorityMetadataRequest extends Message<QueryDenomAuthor
  */
 export class QueryDenomAuthorityMetadataResponse extends Message<QueryDenomAuthorityMetadataResponse> {
   /**
+   * The authority metadata
+   *
    * @generated from field: injective.tokenfactory.v1beta1.DenomAuthorityMetadata authority_metadata = 1;
    */
   authorityMetadata?: DenomAuthorityMetadata;
@@ -177,6 +183,8 @@ export class QueryDenomAuthorityMetadataResponse extends Message<QueryDenomAutho
  */
 export class QueryDenomsFromCreatorRequest extends Message<QueryDenomsFromCreatorRequest> {
   /**
+   * The creator's Injective address
+   *
    * @generated from field: string creator = 1;
    */
   creator = "";
@@ -217,6 +225,8 @@ export class QueryDenomsFromCreatorRequest extends Message<QueryDenomsFromCreato
  */
 export class QueryDenomsFromCreatorResponse extends Message<QueryDenomsFromCreatorResponse> {
   /**
+   * The list of denoms
+   *
    * @generated from field: repeated string denoms = 1;
    */
   denoms: string[] = [];
@@ -291,6 +301,8 @@ export class QueryModuleStateRequest extends Message<QueryModuleStateRequest> {
  */
 export class QueryModuleStateResponse extends Message<QueryModuleStateResponse> {
   /**
+   * The module state
+   *
    * @generated from field: injective.tokenfactory.v1beta1.GenesisState state = 1;
    */
   state?: GenesisState;

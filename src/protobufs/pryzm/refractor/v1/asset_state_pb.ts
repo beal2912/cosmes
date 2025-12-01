@@ -16,7 +16,11 @@ export class AssetState extends Message<AssetState> {
   assetId = "";
 
   /**
-   * @generated from field: string total_p_amount = 2;
+   * deprecated: replaced by total_redeemable_underlying, for delisted assets this will not be a
+   * correct representation of the redeemable underlying assets
+   *
+   * @generated from field: string total_p_amount = 2 [deprecated = true];
+   * @deprecated
    */
   totalPAmount = "";
 
@@ -24,6 +28,20 @@ export class AssetState extends Message<AssetState> {
    * @generated from field: string last_seen_exchange_rate = 3;
    */
   lastSeenExchangeRate = "";
+
+  /**
+   * @generated from field: bool delisted = 4;
+   */
+  delisted = false;
+
+  /**
+   * this is the total number of pASSET tokens for a refractable asset, however, for delisted assets
+   * since we allow redemption using yASSETs as well as pASSETS, we won't always have equal number of p/y tokens,
+   * in that case, this would be a weighted sum of total p, and y tokens.
+   *
+   * @generated from field: string total_redeemable_underlying = 5;
+   */
+  totalRedeemableUnderlying = "";
 
   constructor(data?: PartialMessage<AssetState>) {
     super();
@@ -36,6 +54,8 @@ export class AssetState extends Message<AssetState> {
     { no: 1, name: "asset_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "total_p_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "last_seen_exchange_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "delisted", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "total_redeemable_underlying", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AssetState {

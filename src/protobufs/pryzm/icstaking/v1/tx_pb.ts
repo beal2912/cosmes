@@ -1464,3 +1464,243 @@ export class MsgRetryFailedLsmTransferResponse extends Message<MsgRetryFailedLsm
   }
 }
 
+/**
+ * @generated from message pryzm.icstaking.v1.MsgDelistHostChain
+ */
+export class MsgDelistHostChain extends Message<MsgDelistHostChain> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string host_chain = 2;
+   */
+  hostChain = "";
+
+  constructor(data?: PartialMessage<MsgDelistHostChain>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgDelistHostChain";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "host_chain", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDelistHostChain {
+    return new MsgDelistHostChain().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDelistHostChain {
+    return new MsgDelistHostChain().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDelistHostChain {
+    return new MsgDelistHostChain().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgDelistHostChain | PlainMessage<MsgDelistHostChain> | undefined, b: MsgDelistHostChain | PlainMessage<MsgDelistHostChain> | undefined): boolean {
+    return proto3.util.equals(MsgDelistHostChain, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgDelistHostChainResponse
+ */
+export class MsgDelistHostChainResponse extends Message<MsgDelistHostChainResponse> {
+  constructor(data?: PartialMessage<MsgDelistHostChainResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgDelistHostChainResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDelistHostChainResponse {
+    return new MsgDelistHostChainResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDelistHostChainResponse {
+    return new MsgDelistHostChainResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDelistHostChainResponse {
+    return new MsgDelistHostChainResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgDelistHostChainResponse | PlainMessage<MsgDelistHostChainResponse> | undefined, b: MsgDelistHostChainResponse | PlainMessage<MsgDelistHostChainResponse> | undefined): boolean {
+    return proto3.util.equals(MsgDelistHostChainResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgUndelegateDelistedHostChain
+ */
+export class MsgUndelegateDelistedHostChain extends Message<MsgUndelegateDelistedHostChain> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string host_chain = 2;
+   */
+  hostChain = "";
+
+  constructor(data?: PartialMessage<MsgUndelegateDelistedHostChain>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgUndelegateDelistedHostChain";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "host_chain", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUndelegateDelistedHostChain {
+    return new MsgUndelegateDelistedHostChain().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUndelegateDelistedHostChain {
+    return new MsgUndelegateDelistedHostChain().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUndelegateDelistedHostChain {
+    return new MsgUndelegateDelistedHostChain().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUndelegateDelistedHostChain | PlainMessage<MsgUndelegateDelistedHostChain> | undefined, b: MsgUndelegateDelistedHostChain | PlainMessage<MsgUndelegateDelistedHostChain> | undefined): boolean {
+    return proto3.util.equals(MsgUndelegateDelistedHostChain, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgUndelegateDelistedHostChainResponse
+ */
+export class MsgUndelegateDelistedHostChainResponse extends Message<MsgUndelegateDelistedHostChainResponse> {
+  constructor(data?: PartialMessage<MsgUndelegateDelistedHostChainResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgUndelegateDelistedHostChainResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUndelegateDelistedHostChainResponse {
+    return new MsgUndelegateDelistedHostChainResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUndelegateDelistedHostChainResponse {
+    return new MsgUndelegateDelistedHostChainResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUndelegateDelistedHostChainResponse {
+    return new MsgUndelegateDelistedHostChainResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUndelegateDelistedHostChainResponse | PlainMessage<MsgUndelegateDelistedHostChainResponse> | undefined, b: MsgUndelegateDelistedHostChainResponse | PlainMessage<MsgUndelegateDelistedHostChainResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUndelegateDelistedHostChainResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgRedeemDelisted
+ */
+export class MsgRedeemDelisted extends Message<MsgRedeemDelisted> {
+  /**
+   * @generated from field: string creator = 1;
+   */
+  creator = "";
+
+  /**
+   * @generated from field: string host_chain = 2;
+   */
+  hostChain = "";
+
+  /**
+   * @generated from field: string c_amount = 3;
+   */
+  cAmount = "";
+
+  constructor(data?: PartialMessage<MsgRedeemDelisted>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgRedeemDelisted";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "creator", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "host_chain", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "c_amount", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRedeemDelisted {
+    return new MsgRedeemDelisted().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRedeemDelisted {
+    return new MsgRedeemDelisted().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRedeemDelisted {
+    return new MsgRedeemDelisted().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRedeemDelisted | PlainMessage<MsgRedeemDelisted> | undefined, b: MsgRedeemDelisted | PlainMessage<MsgRedeemDelisted> | undefined): boolean {
+    return proto3.util.equals(MsgRedeemDelisted, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.icstaking.v1.MsgRedeemDelistedResponse
+ */
+export class MsgRedeemDelistedResponse extends Message<MsgRedeemDelistedResponse> {
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin amount = 1;
+   */
+  amount?: Coin;
+
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin fee = 2;
+   */
+  fee?: Coin;
+
+  constructor(data?: PartialMessage<MsgRedeemDelistedResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.icstaking.v1.MsgRedeemDelistedResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "amount", kind: "message", T: Coin },
+    { no: 2, name: "fee", kind: "message", T: Coin },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRedeemDelistedResponse {
+    return new MsgRedeemDelistedResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRedeemDelistedResponse {
+    return new MsgRedeemDelistedResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRedeemDelistedResponse {
+    return new MsgRedeemDelistedResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRedeemDelistedResponse | PlainMessage<MsgRedeemDelistedResponse> | undefined, b: MsgRedeemDelistedResponse | PlainMessage<MsgRedeemDelistedResponse> | undefined): boolean {
+    return proto3.util.equals(MsgRedeemDelistedResponse, a, b);
+  }
+}
+

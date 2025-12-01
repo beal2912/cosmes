@@ -24,6 +24,8 @@ import { Params } from "./params_pb.js";
  */
 export class MsgCreateDenom extends Message<MsgCreateDenom> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
@@ -36,16 +38,22 @@ export class MsgCreateDenom extends Message<MsgCreateDenom> {
   subdenom = "";
 
   /**
+   * The name
+   *
    * @generated from field: string name = 3;
    */
   name = "";
 
   /**
+   * The symbol
+   *
    * @generated from field: string symbol = 4;
    */
   symbol = "";
 
   /**
+   * The number of decimals
+   *
    * @generated from field: uint32 decimals = 5;
    */
   decimals = 0;
@@ -138,16 +146,22 @@ export class MsgCreateDenomResponse extends Message<MsgCreateDenomResponse> {
  */
 export class MsgMint extends Message<MsgMint> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The amount of tokens to mint
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
   amount?: Coin;
 
   /**
+   * The Injective address to receive the tokens
+   *
    * @generated from field: string receiver = 3;
    */
   receiver = "";
@@ -221,16 +235,22 @@ export class MsgMintResponse extends Message<MsgMintResponse> {
  */
 export class MsgBurn extends Message<MsgBurn> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The amount of tokens to burn
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 2;
    */
   amount?: Coin;
 
   /**
+   * The Injective address to burn the tokens from
+   *
    * @generated from field: string burnFromAddress = 3;
    */
   burnFromAddress = "";
@@ -304,16 +324,22 @@ export class MsgBurnResponse extends Message<MsgBurnResponse> {
  */
 export class MsgChangeAdmin extends Message<MsgChangeAdmin> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The denom
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";
 
   /**
+   * The new admin's Injective address
+   *
    * @generated from field: string new_admin = 3;
    */
   newAdmin = "";
@@ -390,11 +416,15 @@ export class MsgChangeAdminResponse extends Message<MsgChangeAdminResponse> {
  */
 export class MsgSetDenomMetadata extends Message<MsgSetDenomMetadata> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The metadata
+   *
    * @generated from field: cosmos.bank.v1beta1.Metadata metadata = 2;
    */
   metadata?: Metadata;

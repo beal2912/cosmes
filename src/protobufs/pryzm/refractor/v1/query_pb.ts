@@ -254,6 +254,8 @@ export class QuerySimulateRefractResponse extends Message<QuerySimulateRefractRe
  */
 export class QuerySimulateRedeemRequest extends Message<QuerySimulateRedeemRequest> {
   /**
+   * set p_amount to zero coin if you want to redeem only y_amount (for delisted assets)
+   *
    * @generated from field: cosmos.base.v1beta1.Coin p_amount = 1;
    */
   pAmount?: Coin;

@@ -1234,6 +1234,12 @@ export {
   MsgRegisterHostAccountsResponse as PryzmIcstakingV1MsgRegisterHostAccountsResponse,
   MsgRetryFailedLsmTransfer as PryzmIcstakingV1MsgRetryFailedLsmTransfer,
   MsgRetryFailedLsmTransferResponse as PryzmIcstakingV1MsgRetryFailedLsmTransferResponse,
+  MsgDelistHostChain as PryzmIcstakingV1MsgDelistHostChain,
+  MsgDelistHostChainResponse as PryzmIcstakingV1MsgDelistHostChainResponse,
+  MsgUndelegateDelistedHostChain as PryzmIcstakingV1MsgUndelegateDelistedHostChain,
+  MsgUndelegateDelistedHostChainResponse as PryzmIcstakingV1MsgUndelegateDelistedHostChainResponse,
+  MsgRedeemDelisted as PryzmIcstakingV1MsgRedeemDelisted,
+  MsgRedeemDelistedResponse as PryzmIcstakingV1MsgRedeemDelistedResponse,
 } from "./pryzm/icstaking/v1/tx_pb.js";
 export {
   MsgUpdateParamsService as PryzmIcstakingV1MsgUpdateParamsService,
@@ -1252,6 +1258,9 @@ export {
   MsgAcknowledgeMultiSigPacketService as PryzmIcstakingV1MsgAcknowledgeMultiSigPacketService,
   MsgRegisterHostAccountsService as PryzmIcstakingV1MsgRegisterHostAccountsService,
   MsgRetryFailedLsmTransferService as PryzmIcstakingV1MsgRetryFailedLsmTransferService,
+  MsgDelistHostChainService as PryzmIcstakingV1MsgDelistHostChainService,
+  MsgUndelegateDelistedHostChainService as PryzmIcstakingV1MsgUndelegateDelistedHostChainService,
+  MsgRedeemDelistedService as PryzmIcstakingV1MsgRedeemDelistedService,
 } from "./pryzm/icstaking/v1/tx_cosmes.js";
 export {
   SweepTransfer as PryzmIcstakingV1SweepTransfer,
@@ -1393,6 +1402,7 @@ export {
   EventStakeLsmShares as PryzmIcstakingV1EventStakeLsmShares,
   EventUnstake as PryzmIcstakingV1EventUnstake,
   EventRedeemUnstaked as PryzmIcstakingV1EventRedeemUnstaked,
+  EventRedeemDelisted as PryzmIcstakingV1EventRedeemDelisted,
   EventInstantUnstake as PryzmIcstakingV1EventInstantUnstake,
   EventSetMultiSigConnection as PryzmIcstakingV1EventSetMultiSigConnection,
   EventSetMultiSigPacket as PryzmIcstakingV1EventSetMultiSigPacket,
@@ -1409,6 +1419,8 @@ export {
   MsgUpdateFeeRatiosResponse as PryzmAssetsV1MsgUpdateFeeRatiosResponse,
   MsgUpdateParams as PryzmAssetsV1MsgUpdateParams,
   MsgUpdateParamsResponse as PryzmAssetsV1MsgUpdateParamsResponse,
+  MsgDelistRefractableAsset as PryzmAssetsV1MsgDelistRefractableAsset,
+  MsgDelistRefractableAssetResponse as PryzmAssetsV1MsgDelistRefractableAssetResponse,
   MsgIntroduceMaturityLevel as PryzmAssetsV1MsgIntroduceMaturityLevel,
   MsgIntroduceMaturityLevelResponse as PryzmAssetsV1MsgIntroduceMaturityLevelResponse,
 } from "./pryzm/assets/v1/tx_pb.js";
@@ -1419,8 +1431,10 @@ export {
   MsgUpdateMaturityParamsService as PryzmAssetsV1MsgUpdateMaturityParamsService,
   MsgUpdateFeeRatiosService as PryzmAssetsV1MsgUpdateFeeRatiosService,
   MsgIntroduceMaturityLevelService as PryzmAssetsV1MsgIntroduceMaturityLevelService,
+  MsgDelistRefractableAssetService as PryzmAssetsV1MsgDelistRefractableAssetService,
 } from "./pryzm/assets/v1/tx_cosmes.js";
 export {
+  DelistedMaturityLevel as PryzmAssetsV1DelistedMaturityLevel,
   RefractableAsset as PryzmAssetsV1RefractableAsset,
   MaturityParams as PryzmAssetsV1MaturityParams,
   FeeRatios as PryzmAssetsV1FeeRatios,
@@ -1680,6 +1694,8 @@ export {
   QuerySimulateExitTokenExactLptResponse as PryzmAmmV1QuerySimulateExitTokenExactLptResponse,
   QuerySimulateExitExactTokensRequest as PryzmAmmV1QuerySimulateExitExactTokensRequest,
   QuerySimulateExitExactTokensResponse as PryzmAmmV1QuerySimulateExitExactTokensResponse,
+  QuerySimulateRecoveryExitRequest as PryzmAmmV1QuerySimulateRecoveryExitRequest,
+  QuerySimulateRecoveryExitResponse as PryzmAmmV1QuerySimulateRecoveryExitResponse,
   QuerySimulateExitAllTokensExactLptRequest as PryzmAmmV1QuerySimulateExitAllTokensExactLptRequest,
   QuerySimulateExitAllTokensExactLptResponse as PryzmAmmV1QuerySimulateExitAllTokensExactLptResponse,
   QuerySpotPriceRequest as PryzmAmmV1QuerySpotPriceRequest,
@@ -1759,6 +1775,7 @@ export {
   QuerySimulateJoinAllTokensExactLptService as PryzmAmmV1QuerySimulateJoinAllTokensExactLptService,
   QuerySimulateJoinExactTokensService as PryzmAmmV1QuerySimulateJoinExactTokensService,
   QuerySimulateZeroImpactJoinYammService as PryzmAmmV1QuerySimulateZeroImpactJoinYammService,
+  QuerySimulateRecoveryExitService as PryzmAmmV1QuerySimulateRecoveryExitService,
   QuerySimulateJoinTokenExactLptService as PryzmAmmV1QuerySimulateJoinTokenExactLptService,
   QuerySimulateExitTokenExactLptService as PryzmAmmV1QuerySimulateExitTokenExactLptService,
   QuerySimulateExitExactTokensService as PryzmAmmV1QuerySimulateExitExactTokensService,
@@ -3432,6 +3449,302 @@ export {
   Module as NobleDollarModuleV1Module,
 } from "./noble/dollar/module/v1/module_pb.js";
 export {
+  MsgCreateDenom as NibiruTokenfactoryV1MsgCreateDenom,
+  MsgCreateDenomResponse as NibiruTokenfactoryV1MsgCreateDenomResponse,
+  MsgChangeAdmin as NibiruTokenfactoryV1MsgChangeAdmin,
+  MsgChangeAdminResponse as NibiruTokenfactoryV1MsgChangeAdminResponse,
+  MsgUpdateModuleParams as NibiruTokenfactoryV1MsgUpdateModuleParams,
+  MsgUpdateModuleParamsResponse as NibiruTokenfactoryV1MsgUpdateModuleParamsResponse,
+  MsgMint as NibiruTokenfactoryV1MsgMint,
+  MsgMintResponse as NibiruTokenfactoryV1MsgMintResponse,
+  MsgBurn as NibiruTokenfactoryV1MsgBurn,
+  MsgBurnResponse as NibiruTokenfactoryV1MsgBurnResponse,
+  MsgSetDenomMetadata as NibiruTokenfactoryV1MsgSetDenomMetadata,
+  MsgSetDenomMetadataResponse as NibiruTokenfactoryV1MsgSetDenomMetadataResponse,
+  MsgSudoSetDenomMetadata as NibiruTokenfactoryV1MsgSudoSetDenomMetadata,
+  MsgSudoSetDenomMetadataResponse as NibiruTokenfactoryV1MsgSudoSetDenomMetadataResponse,
+  MsgBurnNative as NibiruTokenfactoryV1MsgBurnNative,
+  MsgBurnNativeResponse as NibiruTokenfactoryV1MsgBurnNativeResponse,
+} from "./nibiru/tokenfactory/v1/tx_pb.js";
+export {
+  MsgCreateDenomService as NibiruTokenfactoryV1MsgCreateDenomService,
+  MsgChangeAdminService as NibiruTokenfactoryV1MsgChangeAdminService,
+  MsgUpdateModuleParamsService as NibiruTokenfactoryV1MsgUpdateModuleParamsService,
+  MsgMintService as NibiruTokenfactoryV1MsgMintService,
+  MsgBurnService as NibiruTokenfactoryV1MsgBurnService,
+  MsgSetDenomMetadataService as NibiruTokenfactoryV1MsgSetDenomMetadataService,
+  MsgSudoSetDenomMetadataService as NibiruTokenfactoryV1MsgSudoSetDenomMetadataService,
+  MsgBurnNativeService as NibiruTokenfactoryV1MsgBurnNativeService,
+} from "./nibiru/tokenfactory/v1/tx_cosmes.js";
+export {
+  DenomAuthorityMetadata as NibiruTokenfactoryV1DenomAuthorityMetadata,
+  ModuleParams as NibiruTokenfactoryV1ModuleParams,
+  TFDenom as NibiruTokenfactoryV1TFDenom,
+  GenesisState as NibiruTokenfactoryV1GenesisState,
+  GenesisDenom as NibiruTokenfactoryV1GenesisDenom,
+} from "./nibiru/tokenfactory/v1/state_pb.js";
+export {
+  QueryParamsRequest as NibiruTokenfactoryV1QueryParamsRequest,
+  QueryParamsResponse as NibiruTokenfactoryV1QueryParamsResponse,
+  QueryDenomsRequest as NibiruTokenfactoryV1QueryDenomsRequest,
+  QueryDenomsResponse as NibiruTokenfactoryV1QueryDenomsResponse,
+  QueryDenomInfoRequest as NibiruTokenfactoryV1QueryDenomInfoRequest,
+  QueryDenomInfoResponse as NibiruTokenfactoryV1QueryDenomInfoResponse,
+} from "./nibiru/tokenfactory/v1/query_pb.js";
+export {
+  QueryParamsService as NibiruTokenfactoryV1QueryParamsService,
+  QueryDenomsService as NibiruTokenfactoryV1QueryDenomsService,
+  QueryDenomInfoService as NibiruTokenfactoryV1QueryDenomInfoService,
+} from "./nibiru/tokenfactory/v1/query_cosmes.js";
+export {
+  EventCreateDenom as NibiruTokenfactoryV1EventCreateDenom,
+  EventChangeAdmin as NibiruTokenfactoryV1EventChangeAdmin,
+  EventMint as NibiruTokenfactoryV1EventMint,
+  EventBurn as NibiruTokenfactoryV1EventBurn,
+  EventSetDenomMetadata as NibiruTokenfactoryV1EventSetDenomMetadata,
+} from "./nibiru/tokenfactory/v1/event_pb.js";
+export {
+  Module as NibiruTokenfactoryModuleModule,
+  ModuleAccountPermission as NibiruTokenfactoryModuleModuleAccountPermission,
+} from "./nibiru/tokenfactory/module/module_pb.js";
+export {
+  MsgEditSudoers as NibiruSudoV1MsgEditSudoers,
+  MsgEditSudoersResponse as NibiruSudoV1MsgEditSudoersResponse,
+  MsgChangeRoot as NibiruSudoV1MsgChangeRoot,
+  MsgChangeRootResponse as NibiruSudoV1MsgChangeRootResponse,
+  MsgEditZeroGasActors as NibiruSudoV1MsgEditZeroGasActors,
+  MsgEditZeroGasActorsResponse as NibiruSudoV1MsgEditZeroGasActorsResponse,
+} from "./nibiru/sudo/v1/tx_pb.js";
+export {
+  MsgEditSudoersService as NibiruSudoV1MsgEditSudoersService,
+  MsgChangeRootService as NibiruSudoV1MsgChangeRootService,
+  MsgEditZeroGasActorsService as NibiruSudoV1MsgEditZeroGasActorsService,
+} from "./nibiru/sudo/v1/tx_cosmes.js";
+export {
+  Sudoers as NibiruSudoV1Sudoers,
+  GenesisState as NibiruSudoV1GenesisState,
+  ZeroGasActors as NibiruSudoV1ZeroGasActors,
+} from "./nibiru/sudo/v1/state_pb.js";
+export {
+  QuerySudoersRequest as NibiruSudoV1QuerySudoersRequest,
+  QuerySudoersResponse as NibiruSudoV1QuerySudoersResponse,
+  QueryZeroGasActorsRequest as NibiruSudoV1QueryZeroGasActorsRequest,
+  QueryZeroGasActorsResponse as NibiruSudoV1QueryZeroGasActorsResponse,
+} from "./nibiru/sudo/v1/query_pb.js";
+export {
+  QueryQuerySudoersService as NibiruSudoV1QueryQuerySudoersService,
+  QueryQueryZeroGasActorsService as NibiruSudoV1QueryQueryZeroGasActorsService,
+} from "./nibiru/sudo/v1/query_cosmes.js";
+export {
+  EventUpdateSudoers as NibiruSudoV1EventUpdateSudoers,
+} from "./nibiru/sudo/v1/event_pb.js";
+export {
+  Module as NibiruSudoModuleModule,
+  ModuleAccountPermission as NibiruSudoModuleModuleAccountPermission,
+} from "./nibiru/sudo/module/module_pb.js";
+export {
+  MsgAggregateExchangeRatePrevote as NibiruOracleV1MsgAggregateExchangeRatePrevote,
+  MsgAggregateExchangeRatePrevoteResponse as NibiruOracleV1MsgAggregateExchangeRatePrevoteResponse,
+  MsgAggregateExchangeRateVote as NibiruOracleV1MsgAggregateExchangeRateVote,
+  MsgAggregateExchangeRateVoteResponse as NibiruOracleV1MsgAggregateExchangeRateVoteResponse,
+  MsgDelegateFeedConsent as NibiruOracleV1MsgDelegateFeedConsent,
+  MsgDelegateFeedConsentResponse as NibiruOracleV1MsgDelegateFeedConsentResponse,
+  MsgEditOracleParams as NibiruOracleV1MsgEditOracleParams,
+  MsgEditOracleParamsResponse as NibiruOracleV1MsgEditOracleParamsResponse,
+  OracleParamsMsg as NibiruOracleV1OracleParamsMsg,
+} from "./nibiru/oracle/v1/tx_pb.js";
+export {
+  MsgAggregateExchangeRatePrevoteService as NibiruOracleV1MsgAggregateExchangeRatePrevoteService,
+  MsgAggregateExchangeRateVoteService as NibiruOracleV1MsgAggregateExchangeRateVoteService,
+  MsgDelegateFeedConsentService as NibiruOracleV1MsgDelegateFeedConsentService,
+  MsgEditOracleParamsService as NibiruOracleV1MsgEditOracleParamsService,
+} from "./nibiru/oracle/v1/tx_cosmes.js";
+export {
+  PriceSnapshot as NibiruOracleV1PriceSnapshot,
+} from "./nibiru/oracle/v1/state_pb.js";
+export {
+  QueryExchangeRateRequest as NibiruOracleV1QueryExchangeRateRequest,
+  QueryExchangeRateResponse as NibiruOracleV1QueryExchangeRateResponse,
+  QueryExchangeRatesRequest as NibiruOracleV1QueryExchangeRatesRequest,
+  QueryExchangeRatesResponse as NibiruOracleV1QueryExchangeRatesResponse,
+  QueryActivesRequest as NibiruOracleV1QueryActivesRequest,
+  QueryActivesResponse as NibiruOracleV1QueryActivesResponse,
+  QueryVoteTargetsRequest as NibiruOracleV1QueryVoteTargetsRequest,
+  QueryVoteTargetsResponse as NibiruOracleV1QueryVoteTargetsResponse,
+  QueryFeederDelegationRequest as NibiruOracleV1QueryFeederDelegationRequest,
+  QueryFeederDelegationResponse as NibiruOracleV1QueryFeederDelegationResponse,
+  QueryMissCounterRequest as NibiruOracleV1QueryMissCounterRequest,
+  QueryMissCounterResponse as NibiruOracleV1QueryMissCounterResponse,
+  QueryAggregatePrevoteRequest as NibiruOracleV1QueryAggregatePrevoteRequest,
+  QueryAggregatePrevoteResponse as NibiruOracleV1QueryAggregatePrevoteResponse,
+  QueryAggregatePrevotesRequest as NibiruOracleV1QueryAggregatePrevotesRequest,
+  QueryAggregatePrevotesResponse as NibiruOracleV1QueryAggregatePrevotesResponse,
+  QueryAggregateVoteRequest as NibiruOracleV1QueryAggregateVoteRequest,
+  QueryAggregateVoteResponse as NibiruOracleV1QueryAggregateVoteResponse,
+  QueryAggregateVotesRequest as NibiruOracleV1QueryAggregateVotesRequest,
+  QueryAggregateVotesResponse as NibiruOracleV1QueryAggregateVotesResponse,
+  QueryParamsRequest as NibiruOracleV1QueryParamsRequest,
+  QueryParamsResponse as NibiruOracleV1QueryParamsResponse,
+} from "./nibiru/oracle/v1/query_pb.js";
+export {
+  QueryExchangeRateService as NibiruOracleV1QueryExchangeRateService,
+  QueryExchangeRateTwapService as NibiruOracleV1QueryExchangeRateTwapService,
+  QueryExchangeRatesService as NibiruOracleV1QueryExchangeRatesService,
+  QueryActivesService as NibiruOracleV1QueryActivesService,
+  QueryVoteTargetsService as NibiruOracleV1QueryVoteTargetsService,
+  QueryFeederDelegationService as NibiruOracleV1QueryFeederDelegationService,
+  QueryMissCounterService as NibiruOracleV1QueryMissCounterService,
+  QueryAggregatePrevoteService as NibiruOracleV1QueryAggregatePrevoteService,
+  QueryAggregatePrevotesService as NibiruOracleV1QueryAggregatePrevotesService,
+  QueryAggregateVoteService as NibiruOracleV1QueryAggregateVoteService,
+  QueryAggregateVotesService as NibiruOracleV1QueryAggregateVotesService,
+  QueryParamsService as NibiruOracleV1QueryParamsService,
+} from "./nibiru/oracle/v1/query_cosmes.js";
+export {
+  Params as NibiruOracleV1Params,
+  AggregateExchangeRatePrevote as NibiruOracleV1AggregateExchangeRatePrevote,
+  AggregateExchangeRateVote as NibiruOracleV1AggregateExchangeRateVote,
+  ExchangeRateTuple as NibiruOracleV1ExchangeRateTuple,
+  ExchangeRateAtBlock as NibiruOracleV1ExchangeRateAtBlock,
+  Rewards as NibiruOracleV1Rewards,
+} from "./nibiru/oracle/v1/oracle_pb.js";
+export {
+  GenesisState as NibiruOracleV1GenesisState,
+  FeederDelegation as NibiruOracleV1FeederDelegation,
+  MissCounter as NibiruOracleV1MissCounter,
+} from "./nibiru/oracle/v1/genesis_pb.js";
+export {
+  EventPriceUpdate as NibiruOracleV1EventPriceUpdate,
+  EventDelegateFeederConsent as NibiruOracleV1EventDelegateFeederConsent,
+  EventAggregateVote as NibiruOracleV1EventAggregateVote,
+  EventAggregatePrevote as NibiruOracleV1EventAggregatePrevote,
+  EventValidatorPerformance as NibiruOracleV1EventValidatorPerformance,
+} from "./nibiru/oracle/v1/event_pb.js";
+export {
+  Module as NibiruOracleModuleModule,
+  ModuleAccountPermission as NibiruOracleModuleModuleAccountPermission,
+} from "./nibiru/oracle/module/module_pb.js";
+export {
+  MsgToggleInflation as NibiruInflationV1MsgToggleInflation,
+  MsgEditInflationParams as NibiruInflationV1MsgEditInflationParams,
+  MsgToggleInflationResponse as NibiruInflationV1MsgToggleInflationResponse,
+  MsgEditInflationParamsResponse as NibiruInflationV1MsgEditInflationParamsResponse,
+  MsgBurn as NibiruInflationV1MsgBurn,
+  MsgBurnResponse as NibiruInflationV1MsgBurnResponse,
+} from "./nibiru/inflation/v1/tx_pb.js";
+export {
+  MsgToggleInflationService as NibiruInflationV1MsgToggleInflationService,
+  MsgEditInflationParamsService as NibiruInflationV1MsgEditInflationParamsService,
+} from "./nibiru/inflation/v1/tx_cosmes.js";
+export {
+  QueryPeriodRequest as NibiruInflationV1QueryPeriodRequest,
+  QueryPeriodResponse as NibiruInflationV1QueryPeriodResponse,
+  QueryEpochMintProvisionRequest as NibiruInflationV1QueryEpochMintProvisionRequest,
+  QueryEpochMintProvisionResponse as NibiruInflationV1QueryEpochMintProvisionResponse,
+  QuerySkippedEpochsRequest as NibiruInflationV1QuerySkippedEpochsRequest,
+  QuerySkippedEpochsResponse as NibiruInflationV1QuerySkippedEpochsResponse,
+  QueryCirculatingSupplyRequest as NibiruInflationV1QueryCirculatingSupplyRequest,
+  QueryCirculatingSupplyResponse as NibiruInflationV1QueryCirculatingSupplyResponse,
+  QueryInflationRateRequest as NibiruInflationV1QueryInflationRateRequest,
+  QueryInflationRateResponse as NibiruInflationV1QueryInflationRateResponse,
+  QueryParamsRequest as NibiruInflationV1QueryParamsRequest,
+  QueryParamsResponse as NibiruInflationV1QueryParamsResponse,
+} from "./nibiru/inflation/v1/query_pb.js";
+export {
+  QueryPeriodService as NibiruInflationV1QueryPeriodService,
+  QueryEpochMintProvisionService as NibiruInflationV1QueryEpochMintProvisionService,
+  QuerySkippedEpochsService as NibiruInflationV1QuerySkippedEpochsService,
+  QueryCirculatingSupplyService as NibiruInflationV1QueryCirculatingSupplyService,
+  QueryInflationRateService as NibiruInflationV1QueryInflationRateService,
+  QueryParamsService as NibiruInflationV1QueryParamsService,
+} from "./nibiru/inflation/v1/query_cosmes.js";
+export {
+  InflationDistribution as NibiruInflationV1InflationDistribution,
+} from "./nibiru/inflation/v1/inflation_pb.js";
+export {
+  GenesisState as NibiruInflationV1GenesisState,
+  Params as NibiruInflationV1Params,
+} from "./nibiru/inflation/v1/genesis_pb.js";
+export {
+  EventInflationDistribution as NibiruInflationV1EventInflationDistribution,
+} from "./nibiru/inflation/v1/event_pb.js";
+export {
+  Module as NibiruInflationModuleModule,
+  ModuleAccountPermission as NibiruInflationModuleModuleAccountPermission,
+} from "./nibiru/inflation/module/module_pb.js";
+export {
+  GenesisState as NibiruGenmsgV1GenesisState,
+} from "./nibiru/genmsg/v1/genmsg_pb.js";
+export {
+  EpochInfo as NibiruEpochsV1EpochInfo,
+} from "./nibiru/epochs/v1/state_pb.js";
+export {
+  QueryEpochInfosRequest as NibiruEpochsV1QueryEpochInfosRequest,
+  QueryEpochInfosResponse as NibiruEpochsV1QueryEpochInfosResponse,
+  QueryCurrentEpochRequest as NibiruEpochsV1QueryCurrentEpochRequest,
+  QueryCurrentEpochResponse as NibiruEpochsV1QueryCurrentEpochResponse,
+} from "./nibiru/epochs/v1/query_pb.js";
+export {
+  QueryEpochInfosService as NibiruEpochsV1QueryEpochInfosService,
+  QueryCurrentEpochService as NibiruEpochsV1QueryCurrentEpochService,
+} from "./nibiru/epochs/v1/query_cosmes.js";
+export {
+  GenesisState as NibiruEpochsV1GenesisState,
+} from "./nibiru/epochs/v1/genesis_pb.js";
+export {
+  EventEpochStart as NibiruEpochsV1EventEpochStart,
+  EventEpochEnd as NibiruEpochsV1EventEpochEnd,
+} from "./nibiru/epochs/v1/event_pb.js";
+export {
+  Module as NibiruEpochsModuleModule,
+  ModuleAccountPermission as NibiruEpochsModuleModuleAccountPermission,
+} from "./nibiru/epochs/module/module_pb.js";
+export {
+  MsgRegisterFeeShare as NibiruDevgasV1MsgRegisterFeeShare,
+  MsgRegisterFeeShareResponse as NibiruDevgasV1MsgRegisterFeeShareResponse,
+  MsgUpdateFeeShare as NibiruDevgasV1MsgUpdateFeeShare,
+  MsgUpdateFeeShareResponse as NibiruDevgasV1MsgUpdateFeeShareResponse,
+  MsgCancelFeeShare as NibiruDevgasV1MsgCancelFeeShare,
+  MsgCancelFeeShareResponse as NibiruDevgasV1MsgCancelFeeShareResponse,
+  MsgUpdateParams as NibiruDevgasV1MsgUpdateParams,
+  MsgUpdateParamsResponse as NibiruDevgasV1MsgUpdateParamsResponse,
+} from "./nibiru/devgas/v1/tx_pb.js";
+export {
+  MsgRegisterFeeShareService as NibiruDevgasV1MsgRegisterFeeShareService,
+  MsgUpdateFeeShareService as NibiruDevgasV1MsgUpdateFeeShareService,
+  MsgCancelFeeShareService as NibiruDevgasV1MsgCancelFeeShareService,
+  MsgUpdateParamsService as NibiruDevgasV1MsgUpdateParamsService,
+} from "./nibiru/devgas/v1/tx_cosmes.js";
+export {
+  QueryFeeSharesRequest as NibiruDevgasV1QueryFeeSharesRequest,
+  QueryFeeSharesResponse as NibiruDevgasV1QueryFeeSharesResponse,
+  QueryFeeShareRequest as NibiruDevgasV1QueryFeeShareRequest,
+  QueryFeeShareResponse as NibiruDevgasV1QueryFeeShareResponse,
+  QueryParamsRequest as NibiruDevgasV1QueryParamsRequest,
+  QueryParamsResponse as NibiruDevgasV1QueryParamsResponse,
+  QueryFeeSharesByWithdrawerRequest as NibiruDevgasV1QueryFeeSharesByWithdrawerRequest,
+  QueryFeeSharesByWithdrawerResponse as NibiruDevgasV1QueryFeeSharesByWithdrawerResponse,
+} from "./nibiru/devgas/v1/query_pb.js";
+export {
+  QueryFeeSharesService as NibiruDevgasV1QueryFeeSharesService,
+  QueryFeeShareService as NibiruDevgasV1QueryFeeShareService,
+  QueryParamsService as NibiruDevgasV1QueryParamsService,
+  QueryFeeSharesByWithdrawerService as NibiruDevgasV1QueryFeeSharesByWithdrawerService,
+} from "./nibiru/devgas/v1/query_cosmes.js";
+export {
+  GenesisState as NibiruDevgasV1GenesisState,
+  ModuleParams as NibiruDevgasV1ModuleParams,
+} from "./nibiru/devgas/v1/genesis_pb.js";
+export {
+  EventRegisterDevGas as NibiruDevgasV1EventRegisterDevGas,
+  EventCancelDevGas as NibiruDevgasV1EventCancelDevGas,
+  EventUpdateDevGas as NibiruDevgasV1EventUpdateDevGas,
+  EventPayoutDevGas as NibiruDevgasV1EventPayoutDevGas,
+} from "./nibiru/devgas/v1/event_pb.js";
+export {
+  FeeShare as NibiruDevgasV1FeeShare,
+} from "./nibiru/devgas/v1/devgas_pb.js";
+export {
   MsgTransfer as NeutronTransferV1MsgTransfer,
   MsgTransferResponse as NeutronTransferV1MsgTransferResponse,
   MsgUpdateParams as NeutronTransferV1MsgUpdateParams,
@@ -3709,6 +4022,7 @@ export {
   FailedDeposit as NeutronDexFailedDeposit,
   MsgDepositResponse as NeutronDexMsgDepositResponse,
   MsgWithdrawal as NeutronDexMsgWithdrawal,
+  MsgWithdrawalWithShares as NeutronDexMsgWithdrawalWithShares,
   MsgWithdrawalResponse as NeutronDexMsgWithdrawalResponse,
   MsgPlaceLimitOrder as NeutronDexMsgPlaceLimitOrder,
   MsgPlaceLimitOrderResponse as NeutronDexMsgPlaceLimitOrderResponse,
@@ -3725,6 +4039,7 @@ export {
 export {
   MsgDepositService as NeutronDexMsgDepositService,
   MsgWithdrawalService as NeutronDexMsgWithdrawalService,
+  MsgWithdrawalWithSharesService as NeutronDexMsgWithdrawalWithSharesService,
   MsgPlaceLimitOrderService as NeutronDexMsgPlaceLimitOrderService,
   MsgWithdrawFilledLimitOrderService as NeutronDexMsgWithdrawFilledLimitOrderService,
   MsgCancelLimitOrderService as NeutronDexMsgCancelLimitOrderService,
@@ -3776,6 +4091,7 @@ export {
   QuerySimulateDepositRequest as NeutronDexQuerySimulateDepositRequest,
   QuerySimulateDepositResponse as NeutronDexQuerySimulateDepositResponse,
   QuerySimulateWithdrawalRequest as NeutronDexQuerySimulateWithdrawalRequest,
+  QuerySimulateWithdrawalWithSharesRequest as NeutronDexQuerySimulateWithdrawalWithSharesRequest,
   QuerySimulateWithdrawalResponse as NeutronDexQuerySimulateWithdrawalResponse,
   QuerySimulatePlaceLimitOrderRequest as NeutronDexQuerySimulatePlaceLimitOrderRequest,
   QuerySimulatePlaceLimitOrderResponse as NeutronDexQuerySimulatePlaceLimitOrderResponse,
@@ -3807,6 +4123,7 @@ export {
   QueryPoolMetadataAllService as NeutronDexQueryPoolMetadataAllService,
   QuerySimulateDepositService as NeutronDexQuerySimulateDepositService,
   QuerySimulateWithdrawalService as NeutronDexQuerySimulateWithdrawalService,
+  QuerySimulateWithdrawalWithSharesService as NeutronDexQuerySimulateWithdrawalWithSharesService,
   QuerySimulatePlaceLimitOrderService as NeutronDexQuerySimulatePlaceLimitOrderService,
   QuerySimulateWithdrawFilledLimitOrderService as NeutronDexQuerySimulateWithdrawFilledLimitOrderService,
   QuerySimulateCancelLimitOrderService as NeutronDexQuerySimulateCancelLimitOrderService,
@@ -3933,6 +4250,67 @@ export {
 export {
   Failure as NeutronContractmanagerV1Failure,
 } from "./neutron/contractmanager/v1/failure_pb.js";
+export {
+  WhitelistedHook as NeutronCoinfactoryWhitelistedHook,
+  Params as NeutronCoinfactoryParams,
+} from "./neutron/coinfactory/params_pb.js";
+export {
+  MsgCreateDenom as NeutronCoinfactoryV1beta1MsgCreateDenom,
+  MsgCreateDenomResponse as NeutronCoinfactoryV1beta1MsgCreateDenomResponse,
+  MsgMint as NeutronCoinfactoryV1beta1MsgMint,
+  MsgMintResponse as NeutronCoinfactoryV1beta1MsgMintResponse,
+  MsgBurn as NeutronCoinfactoryV1beta1MsgBurn,
+  MsgBurnResponse as NeutronCoinfactoryV1beta1MsgBurnResponse,
+  MsgChangeAdmin as NeutronCoinfactoryV1beta1MsgChangeAdmin,
+  MsgChangeAdminResponse as NeutronCoinfactoryV1beta1MsgChangeAdminResponse,
+  MsgSetBeforeSendHook as NeutronCoinfactoryV1beta1MsgSetBeforeSendHook,
+  MsgSetBeforeSendHookResponse as NeutronCoinfactoryV1beta1MsgSetBeforeSendHookResponse,
+  MsgSetDenomMetadata as NeutronCoinfactoryV1beta1MsgSetDenomMetadata,
+  MsgSetDenomMetadataResponse as NeutronCoinfactoryV1beta1MsgSetDenomMetadataResponse,
+  MsgForceTransfer as NeutronCoinfactoryV1beta1MsgForceTransfer,
+  MsgForceTransferResponse as NeutronCoinfactoryV1beta1MsgForceTransferResponse,
+  MsgUpdateParams as NeutronCoinfactoryV1beta1MsgUpdateParams,
+  MsgUpdateParamsResponse as NeutronCoinfactoryV1beta1MsgUpdateParamsResponse,
+} from "./neutron/coinfactory/v1beta1/tx_pb.js";
+export {
+  MsgCreateDenomService as NeutronCoinfactoryV1beta1MsgCreateDenomService,
+  MsgMintService as NeutronCoinfactoryV1beta1MsgMintService,
+  MsgBurnService as NeutronCoinfactoryV1beta1MsgBurnService,
+  MsgChangeAdminService as NeutronCoinfactoryV1beta1MsgChangeAdminService,
+  MsgSetDenomMetadataService as NeutronCoinfactoryV1beta1MsgSetDenomMetadataService,
+  MsgSetBeforeSendHookService as NeutronCoinfactoryV1beta1MsgSetBeforeSendHookService,
+  MsgForceTransferService as NeutronCoinfactoryV1beta1MsgForceTransferService,
+  MsgUpdateParamsService as NeutronCoinfactoryV1beta1MsgUpdateParamsService,
+} from "./neutron/coinfactory/v1beta1/tx_cosmes.js";
+export {
+  QueryParamsRequest as NeutronCoinfactoryV1beta1QueryParamsRequest,
+  QueryParamsResponse as NeutronCoinfactoryV1beta1QueryParamsResponse,
+  QueryDenomAuthorityMetadataRequest as NeutronCoinfactoryV1beta1QueryDenomAuthorityMetadataRequest,
+  QueryDenomAuthorityMetadataResponse as NeutronCoinfactoryV1beta1QueryDenomAuthorityMetadataResponse,
+  QueryDenomsFromCreatorRequest as NeutronCoinfactoryV1beta1QueryDenomsFromCreatorRequest,
+  QueryDenomsFromCreatorResponse as NeutronCoinfactoryV1beta1QueryDenomsFromCreatorResponse,
+  QueryBeforeSendHookAddressRequest as NeutronCoinfactoryV1beta1QueryBeforeSendHookAddressRequest,
+  QueryBeforeSendHookAddressResponse as NeutronCoinfactoryV1beta1QueryBeforeSendHookAddressResponse,
+  QueryFullDenomRequest as NeutronCoinfactoryV1beta1QueryFullDenomRequest,
+  QueryFullDenomResponse as NeutronCoinfactoryV1beta1QueryFullDenomResponse,
+} from "./neutron/coinfactory/v1beta1/query_pb.js";
+export {
+  QueryParamsService as NeutronCoinfactoryV1beta1QueryParamsService,
+  QueryDenomAuthorityMetadataService as NeutronCoinfactoryV1beta1QueryDenomAuthorityMetadataService,
+  QueryDenomsFromCreatorService as NeutronCoinfactoryV1beta1QueryDenomsFromCreatorService,
+  QueryBeforeSendHookAddressService as NeutronCoinfactoryV1beta1QueryBeforeSendHookAddressService,
+  QueryFullDenomService as NeutronCoinfactoryV1beta1QueryFullDenomService,
+} from "./neutron/coinfactory/v1beta1/query_cosmes.js";
+export {
+  Params as NeutronCoinfactoryV1beta1Params,
+} from "./neutron/coinfactory/v1beta1/params_pb.js";
+export {
+  GenesisState as NeutronCoinfactoryV1beta1GenesisState,
+  GenesisDenom as NeutronCoinfactoryV1beta1GenesisDenom,
+} from "./neutron/coinfactory/v1beta1/genesis_pb.js";
+export {
+  DenomAuthorityMetadata as NeutronCoinfactoryV1beta1DenomAuthorityMetadata,
+} from "./neutron/coinfactory/v1beta1/authorityMetadata_pb.js";
 export {
   QueryParamsRequest as MilkywayServicesV1QueryParamsRequest,
   QueryParamsResponse as MilkywayServicesV1QueryParamsResponse,
@@ -5328,6 +5706,8 @@ export {
   OraclePrice as InjectiveStreamV2OraclePrice,
   SpotTrade as InjectiveStreamV2SpotTrade,
   DerivativeTrade as InjectiveStreamV2DerivativeTrade,
+  OrderFailureUpdate as InjectiveStreamV2OrderFailureUpdate,
+  ConditionalOrderTriggerFailureUpdate as InjectiveStreamV2ConditionalOrderTriggerFailureUpdate,
   TradesFilter as InjectiveStreamV2TradesFilter,
   PositionsFilter as InjectiveStreamV2PositionsFilter,
   OrdersFilter as InjectiveStreamV2OrdersFilter,
@@ -5335,6 +5715,8 @@ export {
   BankBalancesFilter as InjectiveStreamV2BankBalancesFilter,
   SubaccountDepositsFilter as InjectiveStreamV2SubaccountDepositsFilter,
   OraclePriceFilter as InjectiveStreamV2OraclePriceFilter,
+  OrderFailuresFilter as InjectiveStreamV2OrderFailuresFilter,
+  ConditionalOrderTriggerFailuresFilter as InjectiveStreamV2ConditionalOrderTriggerFailuresFilter,
 } from "./injective/stream/v2/query_pb.js";
 export {
   StreamStreamV2Service as InjectiveStreamV2StreamStreamV2Service,
@@ -5459,6 +5841,10 @@ export {
   ERC20ToDenom as InjectivePeggyV1ERC20ToDenom,
 } from "./injective/peggy/v1/types_pb.js";
 export {
+  RateLimit as InjectivePeggyV1RateLimit,
+  BridgeTransfer as InjectivePeggyV1BridgeTransfer,
+} from "./injective/peggy/v1/rate_limit_pb.js";
+export {
   QueryParamsRequest as InjectivePeggyV1QueryParamsRequest,
   QueryParamsResponse as InjectivePeggyV1QueryParamsResponse,
   QueryCurrentValsetRequest as InjectivePeggyV1QueryCurrentValsetRequest,
@@ -5561,6 +5947,12 @@ export {
   MsgBlacklistEthereumAddressesResponse as InjectivePeggyV1MsgBlacklistEthereumAddressesResponse,
   MsgRevokeEthereumBlacklist as InjectivePeggyV1MsgRevokeEthereumBlacklist,
   MsgRevokeEthereumBlacklistResponse as InjectivePeggyV1MsgRevokeEthereumBlacklistResponse,
+  MsgCreateRateLimit as InjectivePeggyV1MsgCreateRateLimit,
+  MsgCreateRateLimitResponse as InjectivePeggyV1MsgCreateRateLimitResponse,
+  MsgUpdateRateLimit as InjectivePeggyV1MsgUpdateRateLimit,
+  MsgUpdateRateLimitResponse as InjectivePeggyV1MsgUpdateRateLimitResponse,
+  MsgRemoveRateLimit as InjectivePeggyV1MsgRemoveRateLimit,
+  MsgRemoveRateLimitResponse as InjectivePeggyV1MsgRemoveRateLimitResponse,
 } from "./injective/peggy/v1/msgs_pb.js";
 export {
   MsgValsetConfirmService as InjectivePeggyV1MsgValsetConfirmService,
@@ -5577,11 +5969,15 @@ export {
   MsgUpdateParamsService as InjectivePeggyV1MsgUpdateParamsService,
   MsgBlacklistEthereumAddressesService as InjectivePeggyV1MsgBlacklistEthereumAddressesService,
   MsgRevokeEthereumBlacklistService as InjectivePeggyV1MsgRevokeEthereumBlacklistService,
+  MsgCreateRateLimitService as InjectivePeggyV1MsgCreateRateLimitService,
+  MsgUpdateRateLimitService as InjectivePeggyV1MsgUpdateRateLimitService,
+  MsgRemoveRateLimitService as InjectivePeggyV1MsgRemoveRateLimitService,
 } from "./injective/peggy/v1/msgs_cosmes.js";
 export {
   GenesisState as InjectivePeggyV1GenesisState,
 } from "./injective/peggy/v1/genesis_pb.js";
 export {
+  JailReason as InjectivePeggyV1JailReason,
   EventAttestationObserved as InjectivePeggyV1EventAttestationObserved,
   EventBridgeWithdrawCanceled as InjectivePeggyV1EventBridgeWithdrawCanceled,
   EventOutgoingBatch as InjectivePeggyV1EventOutgoingBatch,
@@ -5602,6 +5998,7 @@ export {
   EventDepositReceived as InjectivePeggyV1EventDepositReceived,
   EventWithdrawalsCompleted as InjectivePeggyV1EventWithdrawalsCompleted,
   Withdrawal as InjectivePeggyV1Withdrawal,
+  EventValidatorJailed as InjectivePeggyV1EventValidatorJailed,
 } from "./injective/peggy/v1/events_pb.js";
 export {
   SignType as InjectivePeggyV1SignType,
@@ -5958,6 +6355,8 @@ export {
   MsgExternalTransferResponse as InjectiveExchangeV2MsgExternalTransferResponse,
   MsgLiquidatePosition as InjectiveExchangeV2MsgLiquidatePosition,
   MsgLiquidatePositionResponse as InjectiveExchangeV2MsgLiquidatePositionResponse,
+  MsgOffsetPosition as InjectiveExchangeV2MsgOffsetPosition,
+  MsgOffsetPositionResponse as InjectiveExchangeV2MsgOffsetPositionResponse,
   MsgEmergencySettleMarket as InjectiveExchangeV2MsgEmergencySettleMarket,
   MsgEmergencySettleMarketResponse as InjectiveExchangeV2MsgEmergencySettleMarketResponse,
   MsgIncreasePositionMargin as InjectiveExchangeV2MsgIncreasePositionMargin,
@@ -6010,8 +6409,6 @@ export {
   MsgFeeDiscountResponse as InjectiveExchangeV2MsgFeeDiscountResponse,
   MsgAtomicMarketOrderFeeMultiplierSchedule as InjectiveExchangeV2MsgAtomicMarketOrderFeeMultiplierSchedule,
   MsgAtomicMarketOrderFeeMultiplierScheduleResponse as InjectiveExchangeV2MsgAtomicMarketOrderFeeMultiplierScheduleResponse,
-  MsgSetDelegationTransferReceivers as InjectiveExchangeV2MsgSetDelegationTransferReceivers,
-  MsgSetDelegationTransferReceiversResponse as InjectiveExchangeV2MsgSetDelegationTransferReceiversResponse,
   MsgCancelPostOnlyMode as InjectiveExchangeV2MsgCancelPostOnlyMode,
   MsgCancelPostOnlyModeResponse as InjectiveExchangeV2MsgCancelPostOnlyModeResponse,
 } from "./injective/exchange/v2/tx_pb.js";
@@ -6042,6 +6439,7 @@ export {
   MsgExternalTransferService as InjectiveExchangeV2MsgExternalTransferService,
   MsgLiquidatePositionService as InjectiveExchangeV2MsgLiquidatePositionService,
   MsgEmergencySettleMarketService as InjectiveExchangeV2MsgEmergencySettleMarketService,
+  MsgOffsetPositionService as InjectiveExchangeV2MsgOffsetPositionService,
   MsgIncreasePositionMarginService as InjectiveExchangeV2MsgIncreasePositionMarginService,
   MsgDecreasePositionMarginService as InjectiveExchangeV2MsgDecreasePositionMarginService,
   MsgRewardsOptOutService as InjectiveExchangeV2MsgRewardsOptOutService,
@@ -6067,7 +6465,6 @@ export {
   MsgUpdateTradingRewardPendingPointsService as InjectiveExchangeV2MsgUpdateTradingRewardPendingPointsService,
   MsgUpdateFeeDiscountService as InjectiveExchangeV2MsgUpdateFeeDiscountService,
   MsgUpdateAtomicMarketOrderFeeMultiplierScheduleService as InjectiveExchangeV2MsgUpdateAtomicMarketOrderFeeMultiplierScheduleService,
-  MsgSetDelegationTransferReceiversService as InjectiveExchangeV2MsgSetDelegationTransferReceiversService,
   MsgCancelPostOnlyModeService as InjectiveExchangeV2MsgCancelPostOnlyModeService,
 } from "./injective/exchange/v2/tx_cosmes.js";
 export {
@@ -6089,10 +6486,10 @@ export {
   QueryAggregateVolumesResponse as InjectiveExchangeV2QueryAggregateVolumesResponse,
   QueryAggregateMarketVolumeRequest as InjectiveExchangeV2QueryAggregateMarketVolumeRequest,
   QueryAggregateMarketVolumeResponse as InjectiveExchangeV2QueryAggregateMarketVolumeResponse,
-  QueryDenomDecimalRequest as InjectiveExchangeV2QueryDenomDecimalRequest,
-  QueryDenomDecimalResponse as InjectiveExchangeV2QueryDenomDecimalResponse,
-  QueryDenomDecimalsRequest as InjectiveExchangeV2QueryDenomDecimalsRequest,
-  QueryDenomDecimalsResponse as InjectiveExchangeV2QueryDenomDecimalsResponse,
+  QueryAuctionExchangeTransferDenomDecimalRequest as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalRequest,
+  QueryAuctionExchangeTransferDenomDecimalResponse as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalResponse,
+  QueryAuctionExchangeTransferDenomDecimalsRequest as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalsRequest,
+  QueryAuctionExchangeTransferDenomDecimalsResponse as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalsResponse,
   QueryAggregateMarketVolumesRequest as InjectiveExchangeV2QueryAggregateMarketVolumesRequest,
   QueryAggregateMarketVolumesResponse as InjectiveExchangeV2QueryAggregateMarketVolumesResponse,
   QuerySubaccountDepositRequest as InjectiveExchangeV2QuerySubaccountDepositRequest,
@@ -6219,6 +6616,9 @@ export {
   QueryDenomMinNotionalResponse as InjectiveExchangeV2QueryDenomMinNotionalResponse,
   QueryDenomMinNotionalsRequest as InjectiveExchangeV2QueryDenomMinNotionalsRequest,
   QueryDenomMinNotionalsResponse as InjectiveExchangeV2QueryDenomMinNotionalsResponse,
+  OpenInterest as InjectiveExchangeV2OpenInterest,
+  QueryOpenInterestRequest as InjectiveExchangeV2QueryOpenInterestRequest,
+  QueryOpenInterestResponse as InjectiveExchangeV2QueryOpenInterestResponse,
 } from "./injective/exchange/v2/query_pb.js";
 export {
   QueryL3DerivativeOrderBookService as InjectiveExchangeV2QueryL3DerivativeOrderBookService,
@@ -6231,8 +6631,8 @@ export {
   QueryAggregateVolumesService as InjectiveExchangeV2QueryAggregateVolumesService,
   QueryAggregateMarketVolumeService as InjectiveExchangeV2QueryAggregateMarketVolumeService,
   QueryAggregateMarketVolumesService as InjectiveExchangeV2QueryAggregateMarketVolumesService,
-  QueryDenomDecimalService as InjectiveExchangeV2QueryDenomDecimalService,
-  QueryDenomDecimalsService as InjectiveExchangeV2QueryDenomDecimalsService,
+  QueryAuctionExchangeTransferDenomDecimalService as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalService,
+  QueryAuctionExchangeTransferDenomDecimalsService as InjectiveExchangeV2QueryAuctionExchangeTransferDenomDecimalsService,
   QuerySpotMarketsService as InjectiveExchangeV2QuerySpotMarketsService,
   QuerySpotMarketService as InjectiveExchangeV2QuerySpotMarketService,
   QueryFullSpotMarketsService as InjectiveExchangeV2QueryFullSpotMarketsService,
@@ -6288,6 +6688,7 @@ export {
   QueryMarketBalancesService as InjectiveExchangeV2QueryMarketBalancesService,
   QueryDenomMinNotionalService as InjectiveExchangeV2QueryDenomMinNotionalService,
   QueryDenomMinNotionalsService as InjectiveExchangeV2QueryDenomMinNotionalsService,
+  QueryOpenInterestService as InjectiveExchangeV2QueryOpenInterestService,
 } from "./injective/exchange/v2/query_cosmes.js";
 export {
   ExchangeType as InjectiveExchangeV2ExchangeType,
@@ -6301,7 +6702,7 @@ export {
   DerivativeMarketParamUpdateProposal as InjectiveExchangeV2DerivativeMarketParamUpdateProposal,
   AdminInfo as InjectiveExchangeV2AdminInfo,
   MarketForcedSettlementProposal as InjectiveExchangeV2MarketForcedSettlementProposal,
-  UpdateDenomDecimalsProposal as InjectiveExchangeV2UpdateDenomDecimalsProposal,
+  UpdateAuctionExchangeTransferDenomDecimalsProposal as InjectiveExchangeV2UpdateAuctionExchangeTransferDenomDecimalsProposal,
   BinaryOptionsMarketParamUpdateProposal as InjectiveExchangeV2BinaryOptionsMarketParamUpdateProposal,
   ProviderOracleParams as InjectiveExchangeV2ProviderOracleParams,
   OracleParams as InjectiveExchangeV2OracleParams,
@@ -6334,6 +6735,9 @@ export {
 } from "./injective/exchange/v2/order_pb.js";
 export {
   MarketStatus as InjectiveExchangeV2MarketStatus,
+  OpenNotionalCap as InjectiveExchangeV2OpenNotionalCap,
+  OpenNotionalCapUncapped as InjectiveExchangeV2OpenNotionalCapUncapped,
+  OpenNotionalCapCapped as InjectiveExchangeV2OpenNotionalCapCapped,
   MarketFeeMultiplier as InjectiveExchangeV2MarketFeeMultiplier,
   SpotMarket as InjectiveExchangeV2SpotMarket,
   BinaryOptionsMarket as InjectiveExchangeV2BinaryOptionsMarket,
@@ -6476,8 +6880,12 @@ export {
   MsgBatchCreateSpotLimitOrdersResponse as InjectiveExchangeV1beta1MsgBatchCreateSpotLimitOrdersResponse,
   MsgInstantSpotMarketLaunch as InjectiveExchangeV1beta1MsgInstantSpotMarketLaunch,
   MsgInstantSpotMarketLaunchResponse as InjectiveExchangeV1beta1MsgInstantSpotMarketLaunchResponse,
+  MsgInstantPerpetualMarketLaunch as InjectiveExchangeV1beta1MsgInstantPerpetualMarketLaunch,
+  MsgInstantPerpetualMarketLaunchResponse as InjectiveExchangeV1beta1MsgInstantPerpetualMarketLaunchResponse,
   MsgInstantBinaryOptionsMarketLaunch as InjectiveExchangeV1beta1MsgInstantBinaryOptionsMarketLaunch,
   MsgInstantBinaryOptionsMarketLaunchResponse as InjectiveExchangeV1beta1MsgInstantBinaryOptionsMarketLaunchResponse,
+  MsgInstantExpiryFuturesMarketLaunch as InjectiveExchangeV1beta1MsgInstantExpiryFuturesMarketLaunch,
+  MsgInstantExpiryFuturesMarketLaunchResponse as InjectiveExchangeV1beta1MsgInstantExpiryFuturesMarketLaunchResponse,
   MsgCreateSpotMarketOrder as InjectiveExchangeV1beta1MsgCreateSpotMarketOrder,
   MsgCreateSpotMarketOrderResponse as InjectiveExchangeV1beta1MsgCreateSpotMarketOrderResponse,
   SpotMarketOrderResults as InjectiveExchangeV1beta1SpotMarketOrderResults,
@@ -6565,7 +6973,6 @@ export {
   MsgDecreasePositionMarginService as InjectiveExchangeV1beta1MsgDecreasePositionMarginService,
   MsgRewardsOptOutService as InjectiveExchangeV1beta1MsgRewardsOptOutService,
   MsgAdminUpdateBinaryOptionsMarketService as InjectiveExchangeV1beta1MsgAdminUpdateBinaryOptionsMarketService,
-  MsgUpdateParamsService as InjectiveExchangeV1beta1MsgUpdateParamsService,
   MsgUpdateSpotMarketService as InjectiveExchangeV1beta1MsgUpdateSpotMarketService,
   MsgUpdateDerivativeMarketService as InjectiveExchangeV1beta1MsgUpdateDerivativeMarketService,
   MsgAuthorizeStakeGrantsService as InjectiveExchangeV1beta1MsgAuthorizeStakeGrantsService,
@@ -6838,6 +7245,9 @@ export {
   OrderType as InjectiveExchangeV1beta1OrderType,
   ExecutionType as InjectiveExchangeV1beta1ExecutionType,
   OrderMask as InjectiveExchangeV1beta1OrderMask,
+  OpenNotionalCap as InjectiveExchangeV1beta1OpenNotionalCap,
+  OpenNotionalCapUncapped as InjectiveExchangeV1beta1OpenNotionalCapUncapped,
+  OpenNotionalCapCapped as InjectiveExchangeV1beta1OpenNotionalCapCapped,
   Params as InjectiveExchangeV1beta1Params,
   MarketFeeMultiplier as InjectiveExchangeV1beta1MarketFeeMultiplier,
   DerivativeMarket as InjectiveExchangeV1beta1DerivativeMarket,
@@ -8030,6 +8440,106 @@ export {
   PubKey as EthermintCryptoV1Ethsecp256k1PubKey,
   PrivKey as EthermintCryptoV1Ethsecp256k1PrivKey,
 } from "./ethermint/crypto/v1/ethsecp256k1/keys_pb.js";
+export {
+  TxResult as EthTypesV1TxResult,
+} from "./eth/types/v1/indexer_pb.js";
+export {
+  EthAccount as EthTypesV1EthAccount,
+} from "./eth/types/v1/account_pb.js";
+export {
+  MsgEthereumTx as EthEvmV1MsgEthereumTx,
+  LegacyTx as EthEvmV1LegacyTx,
+  AccessListTx as EthEvmV1AccessListTx,
+  DynamicFeeTx as EthEvmV1DynamicFeeTx,
+  ExtensionOptionsEthereumTx as EthEvmV1ExtensionOptionsEthereumTx,
+  MsgEthereumTxResponse as EthEvmV1MsgEthereumTxResponse,
+  MsgUpdateParams as EthEvmV1MsgUpdateParams,
+  MsgUpdateParamsResponse as EthEvmV1MsgUpdateParamsResponse,
+  MsgCreateFunToken as EthEvmV1MsgCreateFunToken,
+  MsgCreateFunTokenResponse as EthEvmV1MsgCreateFunTokenResponse,
+  MsgConvertCoinToEvm as EthEvmV1MsgConvertCoinToEvm,
+  MsgConvertCoinToEvmResponse as EthEvmV1MsgConvertCoinToEvmResponse,
+  MsgConvertEvmToCoin as EthEvmV1MsgConvertEvmToCoin,
+  MsgConvertEvmToCoinResponse as EthEvmV1MsgConvertEvmToCoinResponse,
+} from "./eth/evm/v1/tx_pb.js";
+export {
+  MsgEthereumTxService as EthEvmV1MsgEthereumTxService,
+  MsgUpdateParamsService as EthEvmV1MsgUpdateParamsService,
+  MsgCreateFunTokenService as EthEvmV1MsgCreateFunTokenService,
+  MsgConvertCoinToEvmService as EthEvmV1MsgConvertCoinToEvmService,
+  MsgConvertEvmToCoinService as EthEvmV1MsgConvertEvmToCoinService,
+} from "./eth/evm/v1/tx_cosmes.js";
+export {
+  QueryEthAccountRequest as EthEvmV1QueryEthAccountRequest,
+  QueryEthAccountResponse as EthEvmV1QueryEthAccountResponse,
+  QueryValidatorAccountRequest as EthEvmV1QueryValidatorAccountRequest,
+  QueryValidatorAccountResponse as EthEvmV1QueryValidatorAccountResponse,
+  QueryBalanceRequest as EthEvmV1QueryBalanceRequest,
+  QueryBalanceResponse as EthEvmV1QueryBalanceResponse,
+  QueryStorageRequest as EthEvmV1QueryStorageRequest,
+  QueryStorageResponse as EthEvmV1QueryStorageResponse,
+  QueryCodeRequest as EthEvmV1QueryCodeRequest,
+  QueryCodeResponse as EthEvmV1QueryCodeResponse,
+  QueryTxLogsRequest as EthEvmV1QueryTxLogsRequest,
+  QueryTxLogsResponse as EthEvmV1QueryTxLogsResponse,
+  QueryParamsRequest as EthEvmV1QueryParamsRequest,
+  QueryParamsResponse as EthEvmV1QueryParamsResponse,
+  EthCallRequest as EthEvmV1EthCallRequest,
+  EstimateGasResponse as EthEvmV1EstimateGasResponse,
+  QueryTraceTxRequest as EthEvmV1QueryTraceTxRequest,
+  QueryTraceTxResponse as EthEvmV1QueryTraceTxResponse,
+  QueryTraceBlockRequest as EthEvmV1QueryTraceBlockRequest,
+  QueryTraceBlockResponse as EthEvmV1QueryTraceBlockResponse,
+  QueryBaseFeeRequest as EthEvmV1QueryBaseFeeRequest,
+  QueryBaseFeeResponse as EthEvmV1QueryBaseFeeResponse,
+  QueryFunTokenMappingRequest as EthEvmV1QueryFunTokenMappingRequest,
+  QueryFunTokenMappingResponse as EthEvmV1QueryFunTokenMappingResponse,
+} from "./eth/evm/v1/query_pb.js";
+export {
+  QueryEthAccountService as EthEvmV1QueryEthAccountService,
+  QueryValidatorAccountService as EthEvmV1QueryValidatorAccountService,
+  QueryBalanceService as EthEvmV1QueryBalanceService,
+  QueryStorageService as EthEvmV1QueryStorageService,
+  QueryCodeService as EthEvmV1QueryCodeService,
+  QueryParamsService as EthEvmV1QueryParamsService,
+  QueryEthCallService as EthEvmV1QueryEthCallService,
+  QueryEstimateGasService as EthEvmV1QueryEstimateGasService,
+  QueryTraceTxService as EthEvmV1QueryTraceTxService,
+  QueryTraceBlockService as EthEvmV1QueryTraceBlockService,
+  QueryTraceCallService as EthEvmV1QueryTraceCallService,
+  QueryBaseFeeService as EthEvmV1QueryBaseFeeService,
+  QueryFunTokenMappingService as EthEvmV1QueryFunTokenMappingService,
+} from "./eth/evm/v1/query_cosmes.js";
+export {
+  GenesisState as EthEvmV1GenesisState,
+  GenesisAccount as EthEvmV1GenesisAccount,
+} from "./eth/evm/v1/genesis_pb.js";
+export {
+  FunToken as EthEvmV1FunToken,
+  Params as EthEvmV1Params,
+  State as EthEvmV1State,
+  Log as EthEvmV1Log,
+  LogLite as EthEvmV1LogLite,
+  AccessTuple as EthEvmV1AccessTuple,
+  TracerConfig as EthEvmV1TracerConfig,
+  TraceConfig as EthEvmV1TraceConfig,
+} from "./eth/evm/v1/evm_pb.js";
+export {
+  EventEthereumTx as EthEvmV1EventEthereumTx,
+  EventTxLog as EthEvmV1EventTxLog,
+  EventBlockBloom as EthEvmV1EventBlockBloom,
+  EventFunTokenCreated as EthEvmV1EventFunTokenCreated,
+  EventConvertCoinToEvm as EthEvmV1EventConvertCoinToEvm,
+  EventTransfer as EthEvmV1EventTransfer,
+  EventContractDeployed as EthEvmV1EventContractDeployed,
+  EventContractExecuted as EthEvmV1EventContractExecuted,
+  EventConvertEvmToCoin as EthEvmV1EventConvertEvmToCoin,
+  EventWeiBlockDelta as EthEvmV1EventWeiBlockDelta,
+} from "./eth/evm/v1/events_pb.js";
+export {
+  Module as EthEvmModuleModule,
+  ModuleAccountPermission as EthEvmModuleModuleAccountPermission,
+} from "./eth/evm/module/module_pb.js";
 export {
   Vault as ElysVaultsVault,
   UserData as ElysVaultsUserData,

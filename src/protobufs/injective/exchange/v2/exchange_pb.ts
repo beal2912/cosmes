@@ -47,6 +47,11 @@ export enum ExecutionType {
    * @generated from enum value: ExpiryMarketSettlement = 6;
    */
   ExpiryMarketSettlement = 6,
+
+  /**
+   * @generated from enum value: OffsettingPosition = 7;
+   */
+  OffsettingPosition = 7,
 }
 // Retrieve enum metadata with: proto3.getEnumType(ExecutionType)
 proto3.util.setEnumType(ExecutionType, "injective.exchange.v2.ExecutionType", [
@@ -57,6 +62,7 @@ proto3.util.setEnumType(ExecutionType, "injective.exchange.v2.ExecutionType", [
   { no: 4, name: "LimitMatchNewOrder" },
   { no: 5, name: "MarketLiquidation" },
   { no: 6, name: "ExpiryMarketSettlement" },
+  { no: 7, name: "OffsettingPosition" },
 ]);
 
 /**
@@ -305,16 +311,8 @@ export class Params extends Message<Params> {
   defaultReduceMarginRatio = "";
 
   /**
-   * DO NOT USE THIS FIELD. It was introduced for a temporary bug fix.
-   *
-   * @generated from field: int64 human_readable_upgrade_block_height = 32 [deprecated = true];
-   * @deprecated
-   */
-  humanReadableUpgradeBlockHeight = protoInt64.zero;
-
-  /**
    * post_only_mode_blocks_amount defines the amount of blocks the post only
-   * mode will be enabled
+   * mode will be enabled after a chain upgrade
    *
    * @generated from field: uint64 post_only_mode_blocks_amount = 33;
    */
@@ -329,6 +327,15 @@ export class Params extends Message<Params> {
    * @generated from field: string min_post_only_mode_downtime_duration = 34;
    */
   minPostOnlyModeDowntimeDuration = "";
+
+  /**
+   * post_only_mode_blocks_amount defines the amount of blocks the post only
+   * mode will be enabled after the downtime-detector module detects a chain
+   * downtime
+   *
+   * @generated from field: uint64 post_only_mode_blocks_amount_after_downtime = 35;
+   */
+  postOnlyModeBlocksAmountAfterDowntime = protoInt64.zero;
 
   constructor(data?: PartialMessage<Params>) {
     super();
@@ -369,9 +376,9 @@ export class Params extends Message<Params> {
     { no: 29, name: "fixed_gas_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 30, name: "emit_legacy_version_events", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 31, name: "default_reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 32, name: "human_readable_upgrade_block_height", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 33, name: "post_only_mode_blocks_amount", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
     { no: 34, name: "min_post_only_mode_downtime_duration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 35, name: "post_only_mode_blocks_amount_after_downtime", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Params {

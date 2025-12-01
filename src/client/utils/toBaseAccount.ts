@@ -6,7 +6,7 @@ import {
   CosmosVestingV1beta1DelayedVestingAccount as DelayedVesting,
   EthermintTypesV1EthAccount as EthermintAccount,
   InjectiveTypesV1beta1EthAccount as InjectiveAccount,
-  EthermintTypesV1EthAccount as EthAccount,
+    EthTypesV1EthAccount as EthAccount,
   CosmosVestingV1beta1PeriodicVestingAccount as PeriodicVestingAccount,
 } from "cosmes/protobufs";
 
@@ -60,6 +60,13 @@ export function toBaseAccount({ typeUrl, value }: Any): BaseAccount {
     }
     case EthermintAccount.typeName: {
       const { baseAccount } = EthermintAccount.fromBinary(value);
+      if (!baseAccount) {
+        throw new Error(ERR_UNABLE_TO_RESOLVE_BASE_ACCOUNT);
+      }
+      return baseAccount;
+    }
+    case EthAccount.typeName: {
+      const { baseAccount } = EthAccount.fromBinary(value);
       if (!baseAccount) {
         throw new Error(ERR_UNABLE_TO_RESOLVE_BASE_ACCOUNT);
       }

@@ -14,6 +14,8 @@ import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
  */
 export class Params extends Message<Params> {
   /**
+   * The denom creation fee
+   *
    * @generated from field: repeated cosmos.base.v1beta1.Coin denom_creation_fee = 1;
    */
   denomCreationFee: Coin[] = [];

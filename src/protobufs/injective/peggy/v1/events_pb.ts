@@ -9,6 +9,26 @@ import { ClaimType } from "./attestation_pb.js";
 import { BridgeValidator } from "./types_pb.js";
 
 /**
+ * @generated from enum injective.peggy.v1.JailReason
+ */
+export enum JailReason {
+  /**
+   * @generated from enum value: MissingValsetConfirm = 0;
+   */
+  MissingValsetConfirm = 0,
+
+  /**
+   * @generated from enum value: MissingBatchConfirm = 1;
+   */
+  MissingBatchConfirm = 1,
+}
+// Retrieve enum metadata with: proto3.getEnumType(JailReason)
+proto3.util.setEnumType(JailReason, "injective.peggy.v1.JailReason", [
+  { no: 0, name: "MissingValsetConfirm" },
+  { no: 1, name: "MissingBatchConfirm" },
+]);
+
+/**
  * @generated from message injective.peggy.v1.EventAttestationObserved
  */
 export class EventAttestationObserved extends Message<EventAttestationObserved> {
@@ -1145,6 +1165,67 @@ export class Withdrawal extends Message<Withdrawal> {
 
   static equals(a: Withdrawal | PlainMessage<Withdrawal> | undefined, b: Withdrawal | PlainMessage<Withdrawal> | undefined): boolean {
     return proto3.util.equals(Withdrawal, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.EventValidatorJailed
+ */
+export class EventValidatorJailed extends Message<EventValidatorJailed> {
+  /**
+   * @generated from field: injective.peggy.v1.JailReason reason = 1;
+   */
+  reason = JailReason.MissingValsetConfirm;
+
+  /**
+   * @generated from field: int64 power = 2;
+   */
+  power = protoInt64.zero;
+
+  /**
+   * @generated from field: string consensus_address = 3;
+   */
+  consensusAddress = "";
+
+  /**
+   * @generated from field: string operator_address = 4;
+   */
+  operatorAddress = "";
+
+  /**
+   * @generated from field: string moniker = 5;
+   */
+  moniker = "";
+
+  constructor(data?: PartialMessage<EventValidatorJailed>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.EventValidatorJailed";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "reason", kind: "enum", T: proto3.getEnumType(JailReason) },
+    { no: 2, name: "power", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "consensus_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "operator_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "moniker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventValidatorJailed {
+    return new EventValidatorJailed().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventValidatorJailed {
+    return new EventValidatorJailed().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventValidatorJailed {
+    return new EventValidatorJailed().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: EventValidatorJailed | PlainMessage<EventValidatorJailed> | undefined, b: EventValidatorJailed | PlainMessage<EventValidatorJailed> | undefined): boolean {
+    return proto3.util.equals(EventValidatorJailed, a, b);
   }
 }
 

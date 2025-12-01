@@ -141,6 +141,11 @@ const REPOS = [
     tag: "main",
     paths: ["proto"],
   },
+  {
+    repo: "NibiruChain/nibiru",
+    tag: "main",
+    paths: ["proto"],
+  },
 ];
 /**
  * TODO: Add more repos here when necessary.

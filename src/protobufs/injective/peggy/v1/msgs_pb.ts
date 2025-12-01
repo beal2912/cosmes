@@ -223,21 +223,31 @@ export class MsgValsetConfirmResponse extends Message<MsgValsetConfirmResponse> 
  */
 export class MsgSendToEth extends Message<MsgSendToEth> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The Ethereum address to send the tokens to
+   *
    * @generated from field: string eth_dest = 2;
    */
   ethDest = "";
 
   /**
+   * The amount of tokens to send
+   *
    * @generated from field: cosmos.base.v1beta1.Coin amount = 3;
    */
   amount?: Coin;
 
   /**
+   * The fee paid for the bridge, distinct from the fee paid to the chain to
+   * actually send this message in the first place. So a successful send has
+   * two layers of fees for the user
+   *
    * @generated from field: cosmos.base.v1beta1.Coin bridge_fee = 4;
    */
   bridgeFee?: Coin;
@@ -1328,6 +1338,308 @@ export class MsgRevokeEthereumBlacklistResponse extends Message<MsgRevokeEthereu
 
   static equals(a: MsgRevokeEthereumBlacklistResponse | PlainMessage<MsgRevokeEthereumBlacklistResponse> | undefined, b: MsgRevokeEthereumBlacklistResponse | PlainMessage<MsgRevokeEthereumBlacklistResponse> | undefined): boolean {
     return proto3.util.equals(MsgRevokeEthereumBlacklistResponse, a, b);
+  }
+}
+
+/**
+ * MsgCreateRateLimit is used to impose a (withdrawal) limit for specific ERC20
+ * token within a sliding window
+ *
+ * @generated from message injective.peggy.v1.MsgCreateRateLimit
+ */
+export class MsgCreateRateLimit extends Message<MsgCreateRateLimit> {
+  /**
+   * address of peggy admin or governance account
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * address of the ERC20 token
+   *
+   * @generated from field: string token_address = 2;
+   */
+  tokenAddress = "";
+
+  /**
+   * decimals of the ERC20 token
+   *
+   * @generated from field: uint32 token_decimals = 3;
+   */
+  tokenDecimals = 0;
+
+  /**
+   * a Pyth-specific ID used to obtain USD price of the ERC20 token
+   *
+   * @generated from field: string token_price_id = 4;
+   */
+  tokenPriceId = "";
+
+  /**
+   * the notional USD limit imposed on all outgoing traffic (per token)
+   *
+   * @generated from field: string rate_limit_usd = 5;
+   */
+  rateLimitUsd = "";
+
+  /**
+   * the absolute amount of tokens that can be minted on Injective
+   *
+   * @generated from field: string absolute_mint_limit = 6;
+   */
+  absoluteMintLimit = "";
+
+  /**
+   * length of the sliding window in which inbound (outbound) traffic is
+   * measured
+   *
+   * @generated from field: uint64 rate_limit_window = 7;
+   */
+  rateLimitWindow = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgCreateRateLimit>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgCreateRateLimit";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "token_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 4, name: "token_price_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "rate_limit_usd", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "absolute_mint_limit", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "rate_limit_window", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateRateLimit {
+    return new MsgCreateRateLimit().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCreateRateLimit {
+    return new MsgCreateRateLimit().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCreateRateLimit {
+    return new MsgCreateRateLimit().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCreateRateLimit | PlainMessage<MsgCreateRateLimit> | undefined, b: MsgCreateRateLimit | PlainMessage<MsgCreateRateLimit> | undefined): boolean {
+    return proto3.util.equals(MsgCreateRateLimit, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.MsgCreateRateLimitResponse
+ */
+export class MsgCreateRateLimitResponse extends Message<MsgCreateRateLimitResponse> {
+  constructor(data?: PartialMessage<MsgCreateRateLimitResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgCreateRateLimitResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgCreateRateLimitResponse {
+    return new MsgCreateRateLimitResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgCreateRateLimitResponse {
+    return new MsgCreateRateLimitResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgCreateRateLimitResponse {
+    return new MsgCreateRateLimitResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgCreateRateLimitResponse | PlainMessage<MsgCreateRateLimitResponse> | undefined, b: MsgCreateRateLimitResponse | PlainMessage<MsgCreateRateLimitResponse> | undefined): boolean {
+    return proto3.util.equals(MsgCreateRateLimitResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.MsgUpdateRateLimit
+ */
+export class MsgUpdateRateLimit extends Message<MsgUpdateRateLimit> {
+  /**
+   * authority is the address of peggy admin or governance account
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * token_address is the address of rate limited token
+   *
+   * @generated from field: string token_address = 2;
+   */
+  tokenAddress = "";
+
+  /**
+   * new_token_price_id is the new Pyth price ID of the rate limited token
+   *
+   * @generated from field: string new_token_price_id = 3;
+   */
+  newTokenPriceId = "";
+
+  /**
+   * new_rate_limit_usd is the new notional limit (on withdrawals) in USD
+   *
+   * @generated from field: string new_rate_limit_usd = 4;
+   */
+  newRateLimitUsd = "";
+
+  /**
+   * new_rate_limit_window is the new length of the sliding window
+   *
+   * @generated from field: uint64 new_rate_limit_window = 5;
+   */
+  newRateLimitWindow = protoInt64.zero;
+
+  constructor(data?: PartialMessage<MsgUpdateRateLimit>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgUpdateRateLimit";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "new_token_price_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "new_rate_limit_usd", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "new_rate_limit_window", kind: "scalar", T: 4 /* ScalarType.UINT64 */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateRateLimit {
+    return new MsgUpdateRateLimit().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateRateLimit {
+    return new MsgUpdateRateLimit().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateRateLimit {
+    return new MsgUpdateRateLimit().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateRateLimit | PlainMessage<MsgUpdateRateLimit> | undefined, b: MsgUpdateRateLimit | PlainMessage<MsgUpdateRateLimit> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateRateLimit, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.MsgUpdateRateLimitResponse
+ */
+export class MsgUpdateRateLimitResponse extends Message<MsgUpdateRateLimitResponse> {
+  constructor(data?: PartialMessage<MsgUpdateRateLimitResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgUpdateRateLimitResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateRateLimitResponse {
+    return new MsgUpdateRateLimitResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgUpdateRateLimitResponse {
+    return new MsgUpdateRateLimitResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgUpdateRateLimitResponse {
+    return new MsgUpdateRateLimitResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgUpdateRateLimitResponse | PlainMessage<MsgUpdateRateLimitResponse> | undefined, b: MsgUpdateRateLimitResponse | PlainMessage<MsgUpdateRateLimitResponse> | undefined): boolean {
+    return proto3.util.equals(MsgUpdateRateLimitResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.MsgRemoveRateLimit
+ */
+export class MsgRemoveRateLimit extends Message<MsgRemoveRateLimit> {
+  /**
+   * authority is the address of peggy admin or governance account
+   *
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * token_address is the address of rate limited token
+   *
+   * @generated from field: string token_address = 2;
+   */
+  tokenAddress = "";
+
+  constructor(data?: PartialMessage<MsgRemoveRateLimit>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgRemoveRateLimit";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "token_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRemoveRateLimit {
+    return new MsgRemoveRateLimit().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRemoveRateLimit {
+    return new MsgRemoveRateLimit().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRemoveRateLimit {
+    return new MsgRemoveRateLimit().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRemoveRateLimit | PlainMessage<MsgRemoveRateLimit> | undefined, b: MsgRemoveRateLimit | PlainMessage<MsgRemoveRateLimit> | undefined): boolean {
+    return proto3.util.equals(MsgRemoveRateLimit, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.peggy.v1.MsgRemoveRateLimitResponse
+ */
+export class MsgRemoveRateLimitResponse extends Message<MsgRemoveRateLimitResponse> {
+  constructor(data?: PartialMessage<MsgRemoveRateLimitResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.peggy.v1.MsgRemoveRateLimitResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgRemoveRateLimitResponse {
+    return new MsgRemoveRateLimitResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgRemoveRateLimitResponse {
+    return new MsgRemoveRateLimitResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgRemoveRateLimitResponse {
+    return new MsgRemoveRateLimitResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgRemoveRateLimitResponse | PlainMessage<MsgRemoveRateLimitResponse> | undefined, b: MsgRemoveRateLimitResponse | PlainMessage<MsgRemoveRateLimitResponse> | undefined): boolean {
+    return proto3.util.equals(MsgRemoveRateLimitResponse, a, b);
   }
 }
 

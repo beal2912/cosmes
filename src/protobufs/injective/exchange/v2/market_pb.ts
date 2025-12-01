@@ -46,6 +46,124 @@ proto3.util.setEnumType(MarketStatus, "injective.exchange.v2.MarketStatus", [
 ]);
 
 /**
+ * @generated from message injective.exchange.v2.OpenNotionalCap
+ */
+export class OpenNotionalCap extends Message<OpenNotionalCap> {
+  /**
+   * @generated from oneof injective.exchange.v2.OpenNotionalCap.cap
+   */
+  cap: {
+    /**
+     * @generated from field: injective.exchange.v2.OpenNotionalCapUncapped uncapped = 1;
+     */
+    value: OpenNotionalCapUncapped;
+    case: "uncapped";
+  } | {
+    /**
+     * @generated from field: injective.exchange.v2.OpenNotionalCapCapped capped = 2;
+     */
+    value: OpenNotionalCapCapped;
+    case: "capped";
+  } | { case: undefined; value?: undefined } = { case: undefined };
+
+  constructor(data?: PartialMessage<OpenNotionalCap>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.OpenNotionalCap";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "uncapped", kind: "message", T: OpenNotionalCapUncapped, oneof: "cap" },
+    { no: 2, name: "capped", kind: "message", T: OpenNotionalCapCapped, oneof: "cap" },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OpenNotionalCap {
+    return new OpenNotionalCap().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OpenNotionalCap {
+    return new OpenNotionalCap().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OpenNotionalCap {
+    return new OpenNotionalCap().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OpenNotionalCap | PlainMessage<OpenNotionalCap> | undefined, b: OpenNotionalCap | PlainMessage<OpenNotionalCap> | undefined): boolean {
+    return proto3.util.equals(OpenNotionalCap, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v2.OpenNotionalCapUncapped
+ */
+export class OpenNotionalCapUncapped extends Message<OpenNotionalCapUncapped> {
+  constructor(data?: PartialMessage<OpenNotionalCapUncapped>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.OpenNotionalCapUncapped";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OpenNotionalCapUncapped {
+    return new OpenNotionalCapUncapped().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OpenNotionalCapUncapped {
+    return new OpenNotionalCapUncapped().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OpenNotionalCapUncapped {
+    return new OpenNotionalCapUncapped().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OpenNotionalCapUncapped | PlainMessage<OpenNotionalCapUncapped> | undefined, b: OpenNotionalCapUncapped | PlainMessage<OpenNotionalCapUncapped> | undefined): boolean {
+    return proto3.util.equals(OpenNotionalCapUncapped, a, b);
+  }
+}
+
+/**
+ * @generated from message injective.exchange.v2.OpenNotionalCapCapped
+ */
+export class OpenNotionalCapCapped extends Message<OpenNotionalCapCapped> {
+  /**
+   * @generated from field: string value = 1;
+   */
+  value = "";
+
+  constructor(data?: PartialMessage<OpenNotionalCapCapped>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.OpenNotionalCapCapped";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "value", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): OpenNotionalCapCapped {
+    return new OpenNotionalCapCapped().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): OpenNotionalCapCapped {
+    return new OpenNotionalCapCapped().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): OpenNotionalCapCapped {
+    return new OpenNotionalCapCapped().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: OpenNotionalCapCapped | PlainMessage<OpenNotionalCapCapped> | undefined, b: OpenNotionalCapCapped | PlainMessage<OpenNotionalCapCapped> | undefined): boolean {
+    return proto3.util.equals(OpenNotionalCapCapped, a, b);
+  }
+}
+
+/**
  * @generated from message injective.exchange.v2.MarketFeeMultiplier
  */
 export class MarketFeeMultiplier extends Message<MarketFeeMultiplier> {
@@ -397,6 +515,13 @@ export class BinaryOptionsMarket extends Message<BinaryOptionsMarket> {
    */
   quoteDecimals = 0;
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 21;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<BinaryOptionsMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -425,6 +550,7 @@ export class BinaryOptionsMarket extends Message<BinaryOptionsMarket> {
     { no: 18, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 19, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 20, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 21, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BinaryOptionsMarket {
@@ -604,6 +730,13 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the maximum open notional for the market
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 22;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<DerivativeMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -633,6 +766,7 @@ export class DerivativeMarket extends Message<DerivativeMarket> {
     { no: 19, name: "admin_permissions", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 20, name: "quote_decimals", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 21, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 22, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DerivativeMarket {

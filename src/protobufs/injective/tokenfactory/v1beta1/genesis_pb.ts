@@ -64,26 +64,36 @@ export class GenesisState extends Message<GenesisState> {
  */
 export class GenesisDenom extends Message<GenesisDenom> {
   /**
+   * The denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * The authority metadata
+   *
    * @generated from field: injective.tokenfactory.v1beta1.DenomAuthorityMetadata authority_metadata = 2;
    */
   authorityMetadata?: DenomAuthorityMetadata;
 
   /**
+   * The name
+   *
    * @generated from field: string name = 3;
    */
   name = "";
 
   /**
+   * The symbol
+   *
    * @generated from field: string symbol = 4;
    */
   symbol = "";
 
   /**
+   * The number of decimals
+   *
    * @generated from field: uint32 decimals = 5;
    */
   decimals = 0;

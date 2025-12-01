@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { MsgDisableAsset, MsgDisableAssetResponse, MsgIntroduceMaturityLevel, MsgIntroduceMaturityLevelResponse, MsgRegisterAsset, MsgRegisterAssetResponse, MsgUpdateFeeRatios, MsgUpdateFeeRatiosResponse, MsgUpdateMaturityParams, MsgUpdateMaturityParamsResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
+import { MsgDelistRefractableAsset, MsgDelistRefractableAssetResponse, MsgDisableAsset, MsgDisableAssetResponse, MsgIntroduceMaturityLevel, MsgIntroduceMaturityLevelResponse, MsgRegisterAsset, MsgRegisterAssetResponse, MsgUpdateFeeRatios, MsgUpdateFeeRatiosResponse, MsgUpdateMaturityParams, MsgUpdateMaturityParamsResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx_pb.js";
 
 const TYPE_NAME = "pryzm.assets.v1.Msg";
 
@@ -58,8 +58,6 @@ export const MsgUpdateFeeRatiosService = {
 } as const;
 
 /**
- * this line is used by starport scaffolding # proto/tx/rpc
- *
  * @generated from rpc pryzm.assets.v1.Msg.IntroduceMaturityLevel
  */
 export const MsgIntroduceMaturityLevelService = {
@@ -67,5 +65,17 @@ export const MsgIntroduceMaturityLevelService = {
   method: "IntroduceMaturityLevel",
   Request: MsgIntroduceMaturityLevel,
   Response: MsgIntroduceMaturityLevelResponse,
+} as const;
+
+/**
+ * this line is used by starport scaffolding # proto/tx/rpc
+ *
+ * @generated from rpc pryzm.assets.v1.Msg.DelistRefractableAsset
+ */
+export const MsgDelistRefractableAssetService = {
+  typeName: TYPE_NAME,
+  method: "DelistRefractableAsset",
+  Request: MsgDelistRefractableAsset,
+  Response: MsgDelistRefractableAssetResponse,
 } as const;
 

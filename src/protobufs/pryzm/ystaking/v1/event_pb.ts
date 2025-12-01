@@ -126,6 +126,11 @@ export class EventYStakingExitPool extends Message<EventYStakingExitPool> {
    */
   fee?: Coin;
 
+  /**
+   * @generated from field: cosmos.base.v1beta1.Coin transferred_y_amount = 4;
+   */
+  transferredYAmount?: Coin;
+
   constructor(data?: PartialMessage<EventYStakingExitPool>) {
     super();
     proto3.util.initPartial(data, this);
@@ -137,6 +142,7 @@ export class EventYStakingExitPool extends Message<EventYStakingExitPool> {
     { no: 1, name: "account_address", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "accrued_reward", kind: "message", T: Coin },
     { no: 3, name: "fee", kind: "message", T: Coin },
+    { no: 4, name: "transferred_y_amount", kind: "message", T: Coin },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventYStakingExitPool {

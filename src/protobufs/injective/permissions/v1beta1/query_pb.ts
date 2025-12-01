@@ -126,6 +126,8 @@ export class QueryNamespaceDenomsRequest extends Message<QueryNamespaceDenomsReq
  */
 export class QueryNamespaceDenomsResponse extends Message<QueryNamespaceDenomsResponse> {
   /**
+   * List of denoms
+   *
    * @generated from field: repeated string denoms = 1;
    */
   denoms: string[] = [];
@@ -200,6 +202,8 @@ export class QueryNamespacesRequest extends Message<QueryNamespacesRequest> {
  */
 export class QueryNamespacesResponse extends Message<QueryNamespacesResponse> {
   /**
+   * List of namespaces
+   *
    * @generated from field: repeated injective.permissions.v1beta1.Namespace namespaces = 1;
    */
   namespaces: Namespace[] = [];
@@ -240,6 +244,8 @@ export class QueryNamespacesResponse extends Message<QueryNamespacesResponse> {
  */
 export class QueryNamespaceRequest extends Message<QueryNamespaceRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
@@ -280,6 +286,8 @@ export class QueryNamespaceRequest extends Message<QueryNamespaceRequest> {
  */
 export class QueryNamespaceResponse extends Message<QueryNamespaceResponse> {
   /**
+   * The namespace details
+   *
    * @generated from field: injective.permissions.v1beta1.Namespace namespace = 1;
    */
   namespace?: Namespace;
@@ -320,11 +328,15 @@ export class QueryNamespaceResponse extends Message<QueryNamespaceResponse> {
  */
 export class QueryActorsByRoleRequest extends Message<QueryActorsByRoleRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * The role to query actors for
+   *
    * @generated from field: string role = 2;
    */
   role = "";
@@ -366,6 +378,8 @@ export class QueryActorsByRoleRequest extends Message<QueryActorsByRoleRequest> 
  */
 export class QueryActorsByRoleResponse extends Message<QueryActorsByRoleResponse> {
   /**
+   * List of actors' Injective addresses
+   *
    * @generated from field: repeated string actors = 1;
    */
   actors: string[] = [];
@@ -406,11 +420,15 @@ export class QueryActorsByRoleResponse extends Message<QueryActorsByRoleResponse
  */
 export class QueryRolesByActorRequest extends Message<QueryRolesByActorRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * The actor's Injective address
+   *
    * @generated from field: string actor = 2;
    */
   actor = "";
@@ -452,6 +470,8 @@ export class QueryRolesByActorRequest extends Message<QueryRolesByActorRequest> 
  */
 export class QueryRolesByActorResponse extends Message<QueryRolesByActorResponse> {
   /**
+   * List of roles
+   *
    * @generated from field: repeated string roles = 1;
    */
   roles: string[] = [];
@@ -492,6 +512,8 @@ export class QueryRolesByActorResponse extends Message<QueryRolesByActorResponse
  */
 export class QueryRoleManagersRequest extends Message<QueryRoleManagersRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
@@ -532,6 +554,8 @@ export class QueryRoleManagersRequest extends Message<QueryRoleManagersRequest> 
  */
 export class QueryRoleManagersResponse extends Message<QueryRoleManagersResponse> {
   /**
+   * List of role managers
+   *
    * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 1;
    */
   roleManagers: RoleManager[] = [];
@@ -572,11 +596,15 @@ export class QueryRoleManagersResponse extends Message<QueryRoleManagersResponse
  */
 export class QueryRoleManagerRequest extends Message<QueryRoleManagerRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * The manager Injective address
+   *
    * @generated from field: string manager = 2;
    */
   manager = "";
@@ -618,6 +646,8 @@ export class QueryRoleManagerRequest extends Message<QueryRoleManagerRequest> {
  */
 export class QueryRoleManagerResponse extends Message<QueryRoleManagerResponse> {
   /**
+   * The role manager details
+   *
    * @generated from field: injective.permissions.v1beta1.RoleManager role_manager = 1;
    */
   roleManager?: RoleManager;
@@ -658,6 +688,8 @@ export class QueryRoleManagerResponse extends Message<QueryRoleManagerResponse> 
  */
 export class QueryPolicyStatusesRequest extends Message<QueryPolicyStatusesRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
@@ -698,6 +730,8 @@ export class QueryPolicyStatusesRequest extends Message<QueryPolicyStatusesReque
  */
 export class QueryPolicyStatusesResponse extends Message<QueryPolicyStatusesResponse> {
   /**
+   * List of policy statuses
+   *
    * @generated from field: repeated injective.permissions.v1beta1.PolicyStatus policy_statuses = 1;
    */
   policyStatuses: PolicyStatus[] = [];
@@ -738,6 +772,8 @@ export class QueryPolicyStatusesResponse extends Message<QueryPolicyStatusesResp
  */
 export class QueryPolicyManagerCapabilitiesRequest extends Message<QueryPolicyManagerCapabilitiesRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
@@ -778,6 +814,8 @@ export class QueryPolicyManagerCapabilitiesRequest extends Message<QueryPolicyMa
  */
 export class QueryPolicyManagerCapabilitiesResponse extends Message<QueryPolicyManagerCapabilitiesResponse> {
   /**
+   * List of policy manager capabilities
+   *
    * @generated from field: repeated injective.permissions.v1beta1.PolicyManagerCapability policy_manager_capabilities = 1;
    */
   policyManagerCapabilities: PolicyManagerCapability[] = [];
@@ -815,6 +853,8 @@ export class QueryPolicyManagerCapabilitiesResponse extends Message<QueryPolicyM
  */
 export class QueryVouchersRequest extends Message<QueryVouchersRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
@@ -852,6 +892,8 @@ export class QueryVouchersRequest extends Message<QueryVouchersRequest> {
  */
 export class QueryVouchersResponse extends Message<QueryVouchersResponse> {
   /**
+   * List of vouchers
+   *
    * @generated from field: repeated injective.permissions.v1beta1.AddressVoucher vouchers = 1;
    */
   vouchers: AddressVoucher[] = [];
@@ -889,11 +931,15 @@ export class QueryVouchersResponse extends Message<QueryVouchersResponse> {
  */
 export class QueryVoucherRequest extends Message<QueryVoucherRequest> {
   /**
+   * The token denom
+   *
    * @generated from field: string denom = 1;
    */
   denom = "";
 
   /**
+   * The Injective address of the receiver
+   *
    * @generated from field: string address = 2;
    */
   address = "";
@@ -932,6 +978,8 @@ export class QueryVoucherRequest extends Message<QueryVoucherRequest> {
  */
 export class QueryVoucherResponse extends Message<QueryVoucherResponse> {
   /**
+   * The voucher amount
+   *
    * @generated from field: cosmos.base.v1beta1.Coin voucher = 1;
    */
   voucher?: Coin;
@@ -1006,6 +1054,8 @@ export class QueryModuleStateRequest extends Message<QueryModuleStateRequest> {
  */
 export class QueryModuleStateResponse extends Message<QueryModuleStateResponse> {
   /**
+   * The module state
+   *
    * @generated from field: injective.permissions.v1beta1.GenesisState state = 1;
    */
   state?: GenesisState;

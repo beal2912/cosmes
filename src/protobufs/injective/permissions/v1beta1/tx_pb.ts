@@ -93,11 +93,15 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
  */
 export class MsgCreateNamespace extends Message<MsgCreateNamespace> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The namespace information
+   *
    * @generated from field: injective.permissions.v1beta1.Namespace namespace = 2;
    */
   namespace?: Namespace;
@@ -167,6 +171,8 @@ export class MsgCreateNamespaceResponse extends Message<MsgCreateNamespaceRespon
  */
 export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
@@ -193,7 +199,7 @@ export class MsgUpdateNamespace extends Message<MsgUpdateNamespace> {
   rolePermissions: Role[] = [];
 
   /**
-   *  role managers to update
+   * role managers to update
    *
    * @generated from field: repeated injective.permissions.v1beta1.RoleManager role_managers = 5;
    */
@@ -320,26 +326,28 @@ export class MsgUpdateNamespaceResponse extends Message<MsgUpdateNamespaceRespon
  */
 export class MsgUpdateActorRoles extends Message<MsgUpdateActorRoles> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
-   * namespace denom to which this updates are applied
+   * The namespace denom to which this updates are applied
    *
    * @generated from field: string denom = 2;
    */
   denom = "";
 
   /**
-   * roles to add for given actors
+   * The roles to add for given actors
    *
    * @generated from field: repeated injective.permissions.v1beta1.RoleActors role_actors_to_add = 3;
    */
   roleActorsToAdd: RoleActors[] = [];
 
   /**
-   * roles to revoke from given actors
+   * The roles to revoke from given actors
    *
    * @generated from field: repeated injective.permissions.v1beta1.RoleActors role_actors_to_revoke = 5;
    */
@@ -412,11 +420,15 @@ export class MsgUpdateActorRolesResponse extends Message<MsgUpdateActorRolesResp
  */
 export class MsgClaimVoucher extends Message<MsgClaimVoucher> {
   /**
+   * The sender's Injective address
+   *
    * @generated from field: string sender = 1;
    */
   sender = "";
 
   /**
+   * The token denom of the voucher to claim
+   *
    * @generated from field: string denom = 2;
    */
   denom = "";

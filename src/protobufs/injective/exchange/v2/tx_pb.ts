@@ -5,11 +5,11 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
+import { MarketStatus, OpenNotionalCap } from "./market_pb.js";
 import { GrantAuthorization, Params, PositionDelta } from "./exchange_pb.js";
 import { Coin } from "../../../cosmos/base/v1beta1/coin_pb.js";
 import { DerivativeOrder, SpotOrder } from "./order_pb.js";
 import { OracleType } from "../../oracle/v1beta1/oracle_pb.js";
-import { MarketStatus } from "./market_pb.js";
 import { AtomicMarketOrderFeeMultiplierScheduleProposal, BatchCommunityPoolSpendProposal, BatchExchangeModificationProposal, BinaryOptionsMarketLaunchProposal, BinaryOptionsMarketParamUpdateProposal, DerivativeMarketParamUpdateProposal, ExchangeEnableProposal, ExpiryFuturesMarketLaunchProposal, FeeDiscountProposal, MarketForcedSettlementProposal, PerpetualMarketLaunchProposal, SpotMarketLaunchProposal, SpotMarketParamUpdateProposal, TradingRewardCampaignLaunchProposal, TradingRewardCampaignUpdateProposal, TradingRewardPendingPointsUpdateProposal } from "./proposal_pb.js";
 
 /**
@@ -189,6 +189,13 @@ export class MsgUpdateDerivativeMarket extends Message<MsgUpdateDerivativeMarket
    */
   newReduceMarginRatio = "";
 
+  /**
+   * (optional) updated value for open_notional_cap
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap new_open_notional_cap = 10;
+   */
+  newOpenNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<MsgUpdateDerivativeMarket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -206,6 +213,7 @@ export class MsgUpdateDerivativeMarket extends Message<MsgUpdateDerivativeMarket
     { no: 7, name: "new_initial_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 8, name: "new_maintenance_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "new_reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "new_open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgUpdateDerivativeMarket {
@@ -975,6 +983,13 @@ export class MsgInstantPerpetualMarketLaunch extends Message<MsgInstantPerpetual
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the cap on the open notional
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 16;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<MsgInstantPerpetualMarketLaunch>) {
     super();
     proto3.util.initPartial(data, this);
@@ -998,6 +1013,7 @@ export class MsgInstantPerpetualMarketLaunch extends Message<MsgInstantPerpetual
     { no: 13, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 14, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 15, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantPerpetualMarketLaunch {
@@ -1166,6 +1182,13 @@ export class MsgInstantBinaryOptionsMarketLaunch extends Message<MsgInstantBinar
    */
   minNotional = "";
 
+  /**
+   * open_notional_cap defines the cap on the open notional
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 16;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<MsgInstantBinaryOptionsMarketLaunch>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1189,6 +1212,7 @@ export class MsgInstantBinaryOptionsMarketLaunch extends Message<MsgInstantBinar
     { no: 13, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 14, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 15, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 16, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantBinaryOptionsMarketLaunch {
@@ -1366,6 +1390,13 @@ export class MsgInstantExpiryFuturesMarketLaunch extends Message<MsgInstantExpir
    */
   reduceMarginRatio = "";
 
+  /**
+   * open_notional_cap defines the cap on the open notional
+   *
+   * @generated from field: injective.exchange.v2.OpenNotionalCap open_notional_cap = 17;
+   */
+  openNotionalCap?: OpenNotionalCap;
+
   constructor(data?: PartialMessage<MsgInstantExpiryFuturesMarketLaunch>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1390,6 +1421,7 @@ export class MsgInstantExpiryFuturesMarketLaunch extends Message<MsgInstantExpir
     { no: 14, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 15, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 16, name: "reduce_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 17, name: "open_notional_cap", kind: "message", T: OpenNotionalCap },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
@@ -2246,6 +2278,27 @@ export class MsgBatchUpdateOrders extends Message<MsgBatchUpdateOrders> {
    */
   binaryOptionsOrdersToCreate: DerivativeOrder[] = [];
 
+  /**
+   * the spot market orders to create
+   *
+   * @generated from field: repeated injective.exchange.v2.SpotOrder spot_market_orders_to_create = 12;
+   */
+  spotMarketOrdersToCreate: SpotOrder[] = [];
+
+  /**
+   * the derivative market orders to create
+   *
+   * @generated from field: repeated injective.exchange.v2.DerivativeOrder derivative_market_orders_to_create = 13;
+   */
+  derivativeMarketOrdersToCreate: DerivativeOrder[] = [];
+
+  /**
+   * the binary options market orders to create
+   *
+   * @generated from field: repeated injective.exchange.v2.DerivativeOrder binary_options_market_orders_to_create = 14;
+   */
+  binaryOptionsMarketOrdersToCreate: DerivativeOrder[] = [];
+
   constructor(data?: PartialMessage<MsgBatchUpdateOrders>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2265,6 +2318,9 @@ export class MsgBatchUpdateOrders extends Message<MsgBatchUpdateOrders> {
     { no: 9, name: "binary_options_orders_to_cancel", kind: "message", T: OrderData, repeated: true },
     { no: 10, name: "binary_options_market_ids_to_cancel_all", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 11, name: "binary_options_orders_to_create", kind: "message", T: DerivativeOrder, repeated: true },
+    { no: 12, name: "spot_market_orders_to_create", kind: "message", T: SpotOrder, repeated: true },
+    { no: 13, name: "derivative_market_orders_to_create", kind: "message", T: DerivativeOrder, repeated: true },
+    { no: 14, name: "binary_options_market_orders_to_create", kind: "message", T: DerivativeOrder, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBatchUpdateOrders {
@@ -2350,6 +2406,51 @@ export class MsgBatchUpdateOrdersResponse extends Message<MsgBatchUpdateOrdersRe
    */
   failedBinaryOptionsOrdersCids: string[] = [];
 
+  /**
+   * @generated from field: repeated string spot_market_order_hashes = 13;
+   */
+  spotMarketOrderHashes: string[] = [];
+
+  /**
+   * @generated from field: repeated string created_spot_market_orders_cids = 14;
+   */
+  createdSpotMarketOrdersCids: string[] = [];
+
+  /**
+   * @generated from field: repeated string failed_spot_market_orders_cids = 15;
+   */
+  failedSpotMarketOrdersCids: string[] = [];
+
+  /**
+   * @generated from field: repeated string derivative_market_order_hashes = 16;
+   */
+  derivativeMarketOrderHashes: string[] = [];
+
+  /**
+   * @generated from field: repeated string created_derivative_market_orders_cids = 17;
+   */
+  createdDerivativeMarketOrdersCids: string[] = [];
+
+  /**
+   * @generated from field: repeated string failed_derivative_market_orders_cids = 18;
+   */
+  failedDerivativeMarketOrdersCids: string[] = [];
+
+  /**
+   * @generated from field: repeated string binary_options_market_order_hashes = 19;
+   */
+  binaryOptionsMarketOrderHashes: string[] = [];
+
+  /**
+   * @generated from field: repeated string created_binary_options_market_orders_cids = 20;
+   */
+  createdBinaryOptionsMarketOrdersCids: string[] = [];
+
+  /**
+   * @generated from field: repeated string failed_binary_options_market_orders_cids = 21;
+   */
+  failedBinaryOptionsMarketOrdersCids: string[] = [];
+
   constructor(data?: PartialMessage<MsgBatchUpdateOrdersResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -2370,6 +2471,15 @@ export class MsgBatchUpdateOrdersResponse extends Message<MsgBatchUpdateOrdersRe
     { no: 10, name: "failed_derivative_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 11, name: "created_binary_options_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 12, name: "failed_binary_options_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 13, name: "spot_market_order_hashes", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 14, name: "created_spot_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 15, name: "failed_spot_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 16, name: "derivative_market_order_hashes", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 17, name: "created_derivative_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 18, name: "failed_derivative_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 19, name: "binary_options_market_order_hashes", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 20, name: "created_binary_options_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+    { no: 21, name: "failed_binary_options_market_orders_cids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgBatchUpdateOrdersResponse {
@@ -3334,6 +3444,97 @@ export class MsgLiquidatePositionResponse extends Message<MsgLiquidatePositionRe
 
   static equals(a: MsgLiquidatePositionResponse | PlainMessage<MsgLiquidatePositionResponse> | undefined, b: MsgLiquidatePositionResponse | PlainMessage<MsgLiquidatePositionResponse> | undefined): boolean {
     return proto3.util.equals(MsgLiquidatePositionResponse, a, b);
+  }
+}
+
+/**
+ * A Cosmos-SDK MsgOffsetPosition
+ *
+ * @generated from message injective.exchange.v2.MsgOffsetPosition
+ */
+export class MsgOffsetPosition extends Message<MsgOffsetPosition> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * @generated from field: string subaccount_id = 2;
+   */
+  subaccountId = "";
+
+  /**
+   * @generated from field: string market_id = 3;
+   */
+  marketId = "";
+
+  /**
+   * @generated from field: repeated string offsetting_subaccount_ids = 4;
+   */
+  offsettingSubaccountIds: string[] = [];
+
+  constructor(data?: PartialMessage<MsgOffsetPosition>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgOffsetPosition";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "subaccount_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "market_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "offsetting_subaccount_ids", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgOffsetPosition {
+    return new MsgOffsetPosition().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgOffsetPosition {
+    return new MsgOffsetPosition().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgOffsetPosition {
+    return new MsgOffsetPosition().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgOffsetPosition | PlainMessage<MsgOffsetPosition> | undefined, b: MsgOffsetPosition | PlainMessage<MsgOffsetPosition> | undefined): boolean {
+    return proto3.util.equals(MsgOffsetPosition, a, b);
+  }
+}
+
+/**
+ * MsgOffsetPositionResponse defines the Msg/OffsetPosition
+ * response type.
+ *
+ * @generated from message injective.exchange.v2.MsgOffsetPositionResponse
+ */
+export class MsgOffsetPositionResponse extends Message<MsgOffsetPositionResponse> {
+  constructor(data?: PartialMessage<MsgOffsetPositionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v2.MsgOffsetPositionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgOffsetPositionResponse {
+    return new MsgOffsetPositionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgOffsetPositionResponse {
+    return new MsgOffsetPositionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgOffsetPositionResponse {
+    return new MsgOffsetPositionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgOffsetPositionResponse | PlainMessage<MsgOffsetPositionResponse> | undefined, b: MsgOffsetPositionResponse | PlainMessage<MsgOffsetPositionResponse> | undefined): boolean {
+    return proto3.util.equals(MsgOffsetPositionResponse, a, b);
   }
 }
 
@@ -5490,90 +5691,6 @@ export class MsgAtomicMarketOrderFeeMultiplierScheduleResponse extends Message<M
 
   static equals(a: MsgAtomicMarketOrderFeeMultiplierScheduleResponse | PlainMessage<MsgAtomicMarketOrderFeeMultiplierScheduleResponse> | undefined, b: MsgAtomicMarketOrderFeeMultiplierScheduleResponse | PlainMessage<MsgAtomicMarketOrderFeeMultiplierScheduleResponse> | undefined): boolean {
     return proto3.util.equals(MsgAtomicMarketOrderFeeMultiplierScheduleResponse, a, b);
-  }
-}
-
-/**
- * MsgSetDelegationTransferReceivers defines a message for setting delegation
- * transfer receivers
- *
- * @generated from message injective.exchange.v2.MsgSetDelegationTransferReceivers
- */
-export class MsgSetDelegationTransferReceivers extends Message<MsgSetDelegationTransferReceivers> {
-  /**
-   * the sender's Injective address (must be exchange admin)
-   *
-   * @generated from field: string sender = 1;
-   */
-  sender = "";
-
-  /**
-   * list of receiver addresses to set as delegation transfer receivers
-   *
-   * @generated from field: repeated string receivers = 2;
-   */
-  receivers: string[] = [];
-
-  constructor(data?: PartialMessage<MsgSetDelegationTransferReceivers>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.MsgSetDelegationTransferReceivers";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "receivers", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDelegationTransferReceivers {
-    return new MsgSetDelegationTransferReceivers().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceivers {
-    return new MsgSetDelegationTransferReceivers().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceivers {
-    return new MsgSetDelegationTransferReceivers().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgSetDelegationTransferReceivers | PlainMessage<MsgSetDelegationTransferReceivers> | undefined, b: MsgSetDelegationTransferReceivers | PlainMessage<MsgSetDelegationTransferReceivers> | undefined): boolean {
-    return proto3.util.equals(MsgSetDelegationTransferReceivers, a, b);
-  }
-}
-
-/**
- * MsgSetDelegationTransferReceiversResponse defines the response for
- * MsgSetDelegationTransferReceivers
- *
- * @generated from message injective.exchange.v2.MsgSetDelegationTransferReceiversResponse
- */
-export class MsgSetDelegationTransferReceiversResponse extends Message<MsgSetDelegationTransferReceiversResponse> {
-  constructor(data?: PartialMessage<MsgSetDelegationTransferReceiversResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "injective.exchange.v2.MsgSetDelegationTransferReceiversResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgSetDelegationTransferReceiversResponse {
-    return new MsgSetDelegationTransferReceiversResponse().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceiversResponse {
-    return new MsgSetDelegationTransferReceiversResponse().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgSetDelegationTransferReceiversResponse {
-    return new MsgSetDelegationTransferReceiversResponse().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: MsgSetDelegationTransferReceiversResponse | PlainMessage<MsgSetDelegationTransferReceiversResponse> | undefined, b: MsgSetDelegationTransferReceiversResponse | PlainMessage<MsgSetDelegationTransferReceiversResponse> | undefined): boolean {
-    return proto3.util.equals(MsgSetDelegationTransferReceiversResponse, a, b);
   }
 }
 

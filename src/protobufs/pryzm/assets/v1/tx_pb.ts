@@ -5,7 +5,7 @@
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, proto3 } from "@bufbuild/protobuf";
-import { FeeRatios, MaturityParams, RefractableAsset } from "./refractable_asset_pb.js";
+import { DelistedMaturityLevel, FeeRatios, MaturityParams, RefractableAsset } from "./refractable_asset_pb.js";
 import { Params } from "./params_pb.js";
 import { MaturityLevel } from "./maturity_level_pb.js";
 
@@ -388,6 +388,88 @@ export class MsgUpdateParamsResponse extends Message<MsgUpdateParamsResponse> {
 
   static equals(a: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined, b: MsgUpdateParamsResponse | PlainMessage<MsgUpdateParamsResponse> | undefined): boolean {
     return proto3.util.equals(MsgUpdateParamsResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.assets.v1.MsgDelistRefractableAsset
+ */
+export class MsgDelistRefractableAsset extends Message<MsgDelistRefractableAsset> {
+  /**
+   * @generated from field: string authority = 1;
+   */
+  authority = "";
+
+  /**
+   * @generated from field: string asset_id = 2;
+   */
+  assetId = "";
+
+  /**
+   * list of all active maturity levels for the asset being delisted, to define p_asset price
+   *
+   * @generated from field: repeated pryzm.assets.v1.DelistedMaturityLevel maturity_levels = 3;
+   */
+  maturityLevels: DelistedMaturityLevel[] = [];
+
+  constructor(data?: PartialMessage<MsgDelistRefractableAsset>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.assets.v1.MsgDelistRefractableAsset";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "authority", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "asset_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "maturity_levels", kind: "message", T: DelistedMaturityLevel, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDelistRefractableAsset {
+    return new MsgDelistRefractableAsset().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDelistRefractableAsset {
+    return new MsgDelistRefractableAsset().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDelistRefractableAsset {
+    return new MsgDelistRefractableAsset().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgDelistRefractableAsset | PlainMessage<MsgDelistRefractableAsset> | undefined, b: MsgDelistRefractableAsset | PlainMessage<MsgDelistRefractableAsset> | undefined): boolean {
+    return proto3.util.equals(MsgDelistRefractableAsset, a, b);
+  }
+}
+
+/**
+ * @generated from message pryzm.assets.v1.MsgDelistRefractableAssetResponse
+ */
+export class MsgDelistRefractableAssetResponse extends Message<MsgDelistRefractableAssetResponse> {
+  constructor(data?: PartialMessage<MsgDelistRefractableAssetResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "pryzm.assets.v1.MsgDelistRefractableAssetResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgDelistRefractableAssetResponse {
+    return new MsgDelistRefractableAssetResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgDelistRefractableAssetResponse {
+    return new MsgDelistRefractableAssetResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgDelistRefractableAssetResponse {
+    return new MsgDelistRefractableAssetResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgDelistRefractableAssetResponse | PlainMessage<MsgDelistRefractableAssetResponse> | undefined, b: MsgDelistRefractableAssetResponse | PlainMessage<MsgDelistRefractableAssetResponse> | undefined): boolean {
+    return proto3.util.equals(MsgDelistRefractableAssetResponse, a, b);
   }
 }
 

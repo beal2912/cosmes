@@ -12,7 +12,7 @@ import { LimitOrderTranche } from "./limit_order_tranche_pb.js";
 import { DepositRecord } from "./deposit_record_pb.js";
 import { TickLiquidity } from "./tick_liquidity_pb.js";
 import { PoolReserves } from "./pool_reserves_pb.js";
-import { LimitOrderType, MsgCancelLimitOrder, MsgCancelLimitOrderResponse, MsgDeposit, MsgDepositResponse, MsgMultiHopSwap, MsgMultiHopSwapResponse, MsgPlaceLimitOrder, MsgPlaceLimitOrderResponse, MsgWithdrawal, MsgWithdrawalResponse, MsgWithdrawFilledLimitOrder, MsgWithdrawFilledLimitOrderResponse, MultiHopRoute } from "./tx_pb.js";
+import { LimitOrderType, MsgCancelLimitOrder, MsgCancelLimitOrderResponse, MsgDeposit, MsgDepositResponse, MsgMultiHopSwap, MsgMultiHopSwapResponse, MsgPlaceLimitOrder, MsgPlaceLimitOrderResponse, MsgWithdrawal, MsgWithdrawalResponse, MsgWithdrawalWithShares, MsgWithdrawFilledLimitOrder, MsgWithdrawFilledLimitOrderResponse, MultiHopRoute } from "./tx_pb.js";
 import { Coin } from "../../cosmos/base/v1beta1/coin_pb.js";
 import { Pool } from "./pool_pb.js";
 import { PoolMetadata } from "./pool_metadata_pb.js";
@@ -1716,6 +1716,43 @@ export class QuerySimulateWithdrawalRequest extends Message<QuerySimulateWithdra
 
   static equals(a: QuerySimulateWithdrawalRequest | PlainMessage<QuerySimulateWithdrawalRequest> | undefined, b: QuerySimulateWithdrawalRequest | PlainMessage<QuerySimulateWithdrawalRequest> | undefined): boolean {
     return proto3.util.equals(QuerySimulateWithdrawalRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message neutron.dex.QuerySimulateWithdrawalWithSharesRequest
+ */
+export class QuerySimulateWithdrawalWithSharesRequest extends Message<QuerySimulateWithdrawalWithSharesRequest> {
+  /**
+   * @generated from field: neutron.dex.MsgWithdrawalWithShares msg = 1;
+   */
+  msg?: MsgWithdrawalWithShares;
+
+  constructor(data?: PartialMessage<QuerySimulateWithdrawalWithSharesRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "neutron.dex.QuerySimulateWithdrawalWithSharesRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "msg", kind: "message", T: MsgWithdrawalWithShares },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QuerySimulateWithdrawalWithSharesRequest {
+    return new QuerySimulateWithdrawalWithSharesRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QuerySimulateWithdrawalWithSharesRequest {
+    return new QuerySimulateWithdrawalWithSharesRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QuerySimulateWithdrawalWithSharesRequest {
+    return new QuerySimulateWithdrawalWithSharesRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: QuerySimulateWithdrawalWithSharesRequest | PlainMessage<QuerySimulateWithdrawalWithSharesRequest> | undefined, b: QuerySimulateWithdrawalWithSharesRequest | PlainMessage<QuerySimulateWithdrawalWithSharesRequest> | undefined): boolean {
+    return proto3.util.equals(QuerySimulateWithdrawalWithSharesRequest, a, b);
   }
 }
 

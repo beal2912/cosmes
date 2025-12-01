@@ -860,6 +860,191 @@ export class MsgInstantSpotMarketLaunchResponse extends Message<MsgInstantSpotMa
 }
 
 /**
+ * MsgInstantPerpetualMarketLaunch defines a SDK message for creating a new
+ * perpetual futures market by paying listing fee without governance
+ *
+ * @generated from message injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunch
+ */
+export class MsgInstantPerpetualMarketLaunch extends Message<MsgInstantPerpetualMarketLaunch> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * Ticker for the derivative market.
+   *
+   * @generated from field: string ticker = 2;
+   */
+  ticker = "";
+
+  /**
+   * type of coin to use as the base currency
+   *
+   * @generated from field: string quote_denom = 3;
+   */
+  quoteDenom = "";
+
+  /**
+   * Oracle base currency
+   *
+   * @generated from field: string oracle_base = 4;
+   */
+  oracleBase = "";
+
+  /**
+   * Oracle quote currency
+   *
+   * @generated from field: string oracle_quote = 5;
+   */
+  oracleQuote = "";
+
+  /**
+   * Scale factor for oracle prices.
+   *
+   * @generated from field: uint32 oracle_scale_factor = 6;
+   */
+  oracleScaleFactor = 0;
+
+  /**
+   * Oracle type
+   *
+   * @generated from field: injective.oracle.v1beta1.OracleType oracle_type = 7;
+   */
+  oracleType = OracleType.Unspecified;
+
+  /**
+   * maker_fee_rate defines the trade fee rate for makers on the perpetual
+   * market
+   *
+   * @generated from field: string maker_fee_rate = 8;
+   */
+  makerFeeRate = "";
+
+  /**
+   * taker_fee_rate defines the trade fee rate for takers on the perpetual
+   * market
+   *
+   * @generated from field: string taker_fee_rate = 9;
+   */
+  takerFeeRate = "";
+
+  /**
+   * initial_margin_ratio defines the initial margin ratio for the perpetual
+   * market
+   *
+   * @generated from field: string initial_margin_ratio = 10;
+   */
+  initialMarginRatio = "";
+
+  /**
+   * maintenance_margin_ratio defines the maintenance margin ratio for the
+   * perpetual market
+   *
+   * @generated from field: string maintenance_margin_ratio = 11;
+   */
+  maintenanceMarginRatio = "";
+
+  /**
+   * min_price_tick_size defines the minimum tick size of the order's price and
+   * margin
+   *
+   * @generated from field: string min_price_tick_size = 12;
+   */
+  minPriceTickSize = "";
+
+  /**
+   * min_quantity_tick_size defines the minimum tick size of the order's
+   * quantity
+   *
+   * @generated from field: string min_quantity_tick_size = 13;
+   */
+  minQuantityTickSize = "";
+
+  /**
+   * min_notional defines the minimum notional (in quote asset) required for
+   * orders in the market
+   *
+   * @generated from field: string min_notional = 14;
+   */
+  minNotional = "";
+
+  constructor(data?: PartialMessage<MsgInstantPerpetualMarketLaunch>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunch";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "quote_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "oracle_base", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "oracle_quote", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "oracle_scale_factor", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 7, name: "oracle_type", kind: "enum", T: proto3.getEnumType(OracleType) },
+    { no: 8, name: "maker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "taker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "initial_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "maintenance_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantPerpetualMarketLaunch {
+    return new MsgInstantPerpetualMarketLaunch().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunch {
+    return new MsgInstantPerpetualMarketLaunch().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunch {
+    return new MsgInstantPerpetualMarketLaunch().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgInstantPerpetualMarketLaunch | PlainMessage<MsgInstantPerpetualMarketLaunch> | undefined, b: MsgInstantPerpetualMarketLaunch | PlainMessage<MsgInstantPerpetualMarketLaunch> | undefined): boolean {
+    return proto3.util.equals(MsgInstantPerpetualMarketLaunch, a, b);
+  }
+}
+
+/**
+ * MsgInstantPerpetualMarketLaunchResponse defines the
+ * Msg/InstantPerpetualMarketLaunchResponse response type.
+ *
+ * @generated from message injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunchResponse
+ */
+export class MsgInstantPerpetualMarketLaunchResponse extends Message<MsgInstantPerpetualMarketLaunchResponse> {
+  constructor(data?: PartialMessage<MsgInstantPerpetualMarketLaunchResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgInstantPerpetualMarketLaunchResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
+    return new MsgInstantPerpetualMarketLaunchResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
+    return new MsgInstantPerpetualMarketLaunchResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantPerpetualMarketLaunchResponse {
+    return new MsgInstantPerpetualMarketLaunchResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgInstantPerpetualMarketLaunchResponse | PlainMessage<MsgInstantPerpetualMarketLaunchResponse> | undefined, b: MsgInstantPerpetualMarketLaunchResponse | PlainMessage<MsgInstantPerpetualMarketLaunchResponse> | undefined): boolean {
+    return proto3.util.equals(MsgInstantPerpetualMarketLaunchResponse, a, b);
+  }
+}
+
+/**
  * MsgInstantBinaryOptionsMarketLaunch defines a SDK message for creating a new
  * perpetual futures market by paying listing fee without governance
  *
@@ -1049,6 +1234,199 @@ export class MsgInstantBinaryOptionsMarketLaunchResponse extends Message<MsgInst
 
   static equals(a: MsgInstantBinaryOptionsMarketLaunchResponse | PlainMessage<MsgInstantBinaryOptionsMarketLaunchResponse> | undefined, b: MsgInstantBinaryOptionsMarketLaunchResponse | PlainMessage<MsgInstantBinaryOptionsMarketLaunchResponse> | undefined): boolean {
     return proto3.util.equals(MsgInstantBinaryOptionsMarketLaunchResponse, a, b);
+  }
+}
+
+/**
+ * MsgInstantExpiryFuturesMarketLaunch defines a SDK message for creating a new
+ * expiry futures market by paying listing fee without governance
+ *
+ * @generated from message injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunch
+ */
+export class MsgInstantExpiryFuturesMarketLaunch extends Message<MsgInstantExpiryFuturesMarketLaunch> {
+  /**
+   * @generated from field: string sender = 1;
+   */
+  sender = "";
+
+  /**
+   * Ticker for the derivative market.
+   *
+   * @generated from field: string ticker = 2;
+   */
+  ticker = "";
+
+  /**
+   * type of coin to use as the quote currency
+   *
+   * @generated from field: string quote_denom = 3;
+   */
+  quoteDenom = "";
+
+  /**
+   * Oracle base currency
+   *
+   * @generated from field: string oracle_base = 4;
+   */
+  oracleBase = "";
+
+  /**
+   * Oracle quote currency
+   *
+   * @generated from field: string oracle_quote = 5;
+   */
+  oracleQuote = "";
+
+  /**
+   * Oracle type
+   *
+   * @generated from field: injective.oracle.v1beta1.OracleType oracle_type = 6;
+   */
+  oracleType = OracleType.Unspecified;
+
+  /**
+   * Scale factor for oracle prices.
+   *
+   * @generated from field: uint32 oracle_scale_factor = 7;
+   */
+  oracleScaleFactor = 0;
+
+  /**
+   * Expiration time of the market
+   *
+   * @generated from field: int64 expiry = 8;
+   */
+  expiry = protoInt64.zero;
+
+  /**
+   * maker_fee_rate defines the trade fee rate for makers on the expiry futures
+   * market
+   *
+   * @generated from field: string maker_fee_rate = 9;
+   */
+  makerFeeRate = "";
+
+  /**
+   * taker_fee_rate defines the trade fee rate for takers on the expiry futures
+   * market
+   *
+   * @generated from field: string taker_fee_rate = 10;
+   */
+  takerFeeRate = "";
+
+  /**
+   * initial_margin_ratio defines the initial margin ratio for the derivative
+   * market
+   *
+   * @generated from field: string initial_margin_ratio = 11;
+   */
+  initialMarginRatio = "";
+
+  /**
+   * maintenance_margin_ratio defines the maintenance margin ratio for the
+   * derivative market
+   *
+   * @generated from field: string maintenance_margin_ratio = 12;
+   */
+  maintenanceMarginRatio = "";
+
+  /**
+   * min_price_tick_size defines the minimum tick size of the order's price and
+   * margin
+   *
+   * @generated from field: string min_price_tick_size = 13;
+   */
+  minPriceTickSize = "";
+
+  /**
+   * min_quantity_tick_size defines the minimum tick size of the order's
+   * quantity
+   *
+   * @generated from field: string min_quantity_tick_size = 14;
+   */
+  minQuantityTickSize = "";
+
+  /**
+   * min_notional defines the minimum notional (in quote asset) required for
+   * orders in the market
+   *
+   * @generated from field: string min_notional = 15;
+   */
+  minNotional = "";
+
+  constructor(data?: PartialMessage<MsgInstantExpiryFuturesMarketLaunch>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunch";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sender", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "ticker", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "quote_denom", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "oracle_base", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "oracle_quote", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "oracle_type", kind: "enum", T: proto3.getEnumType(OracleType) },
+    { no: 7, name: "oracle_scale_factor", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 8, name: "expiry", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 9, name: "maker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 10, name: "taker_fee_rate", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 11, name: "initial_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 12, name: "maintenance_margin_ratio", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 13, name: "min_price_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 14, name: "min_quantity_tick_size", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 15, name: "min_notional", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
+    return new MsgInstantExpiryFuturesMarketLaunch().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
+    return new MsgInstantExpiryFuturesMarketLaunch().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunch {
+    return new MsgInstantExpiryFuturesMarketLaunch().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgInstantExpiryFuturesMarketLaunch | PlainMessage<MsgInstantExpiryFuturesMarketLaunch> | undefined, b: MsgInstantExpiryFuturesMarketLaunch | PlainMessage<MsgInstantExpiryFuturesMarketLaunch> | undefined): boolean {
+    return proto3.util.equals(MsgInstantExpiryFuturesMarketLaunch, a, b);
+  }
+}
+
+/**
+ * MsgInstantExpiryFuturesMarketLaunchResponse defines the
+ * Msg/InstantExpiryFuturesMarketLaunch response type.
+ *
+ * @generated from message injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunchResponse
+ */
+export class MsgInstantExpiryFuturesMarketLaunchResponse extends Message<MsgInstantExpiryFuturesMarketLaunchResponse> {
+  constructor(data?: PartialMessage<MsgInstantExpiryFuturesMarketLaunchResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "injective.exchange.v1beta1.MsgInstantExpiryFuturesMarketLaunchResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
+    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
+    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): MsgInstantExpiryFuturesMarketLaunchResponse {
+    return new MsgInstantExpiryFuturesMarketLaunchResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: MsgInstantExpiryFuturesMarketLaunchResponse | PlainMessage<MsgInstantExpiryFuturesMarketLaunchResponse> | undefined, b: MsgInstantExpiryFuturesMarketLaunchResponse | PlainMessage<MsgInstantExpiryFuturesMarketLaunchResponse> | undefined): boolean {
+    return proto3.util.equals(MsgInstantExpiryFuturesMarketLaunchResponse, a, b);
   }
 }
 

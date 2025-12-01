@@ -15,18 +15,22 @@ import { AddressVoucher, Namespace } from "./permissions_pb.js";
  */
 export class GenesisState extends Message<GenesisState> {
   /**
-   * params defines the parameters of the module.
+   * params defines the parameters of the module
    *
    * @generated from field: injective.permissions.v1beta1.Params params = 1;
    */
   params?: Params;
 
   /**
+   * namespaces defines the namespaces of the module
+   *
    * @generated from field: repeated injective.permissions.v1beta1.Namespace namespaces = 2;
    */
   namespaces: Namespace[] = [];
 
   /**
+   * vouchers defines the vouchers of the module
+   *
    * @generated from field: repeated injective.permissions.v1beta1.AddressVoucher vouchers = 3;
    */
   vouchers: AddressVoucher[] = [];
